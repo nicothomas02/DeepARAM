@@ -377,16 +377,16 @@
  "Gain 20% Heal and Shield Power.": "回復・シールド量が20%増加する。",
  "Gain Ultimate Ability Haste.": "アルティメット スキルヘイストを獲得する。",
  "Skibidi Pillar": "スキビディ柱",
- "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "トランドルは咬み付きを絶対に使わない。常に柱が1本立っている状態になるまで氷冷の柱を連打する。",
- "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "Eを最優先で上げる。敵キャリーの真下に柱を立て、前の柱が溶ける前に次を立てる。Qも右クリックも絶対に押さないこと。",
- "He stopped biting people. The pillar does all the talking now.": "もう誰も噛まない。これからは柱が語る。",
+ "Trundle quits being a melee bruiser and plays like a mage: every Pillar of Ice heals him, hurts everything nearby and launches bees, and every heal zaps the closest enemy champion.": "トランドルは近接ファイターをやめてメイジのように戦う：「氷冷の柱」が毎回彼を回復し、周囲にダメージを与えて蜂を飛ばし、その回復がすべて最寄りの敵チャンピオンに当たる。",
+ "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.": "Eを最優先で上げる。敵キャリーに柱を置いたら下がって、リジェネにポークを任せよう。Qは絶対押さない、右クリックも絶対しない。",
+ "Every pillar is a snack. Every snack hits the nearest enemy.": "柱はおやつ。おやつは一番近い敵に当たる。",
  "Pillar of Ice": "氷冷の柱",
- "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "上に立っている敵をノックバックし、周りの全員に6秒間スロウを与えるボタン。本来はダメージを一切与えない。",
- "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "地形でドン（氷冷の柱に付与）で柱が周囲すべてにダメージ。パンとチーズで氷冷の柱にスキルヘイスト100、純粋なるキャスターで使わない攻撃速度がさらにヘイストに変わり、前の柱が溶ける前に次が立つ。結氷でスロウがえげつなくなる。",
- "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "帝国の指令で柱が速くなり、吹き飛ばした全員にマーク。リーライ クリスタル セプターでスロウを追加し、コズミック ドライブ、シュレリアの戦歌、フローズン ハートで柱がどんどん戻ってくる。",
+ "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals.": "上に立つ敵をノックバックし、周囲の全員をスロウにする。普段はダメージを与えず、回復もしない。",
+ "Ravenous Bind and Terrain'd, both rolled on Pillar of Ice, make each knock heal Trundle and the pillar hurt everything around it. That damage counts as an ability hit, so BEES!!! keep launching hives off it. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion.": "「貪欲な束縛」と「地形でドン」をどちらも「氷冷の柱」に付けると、ノックバックのたびにトランドルが回復し、柱が周囲にダメージを与える。そのダメージはスキル命中扱いなので「ブンブン！」が次々と巣を飛ばす。「死者の集い」は毎回の回復の70%と体力自動回復のすべてを、最寄りの敵チャンピオンへの魔法ダメージに変える。",
+ "Spirit Visage boosts every heal and Rylai's slows everyone the pillar hurts. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away.": "「スピリット ビサージュ」が回復を強化し、「リーライ クリスタル セプター」が柱で傷つけた敵をスロウにする。リーライ、「コズミック ドライブ」、「ワーモグ アーマー」で増加体力が2,000を超えるので、8秒間ダメージを受けないたびにワーモグが回復し、その回復が最寄りの敵を撃ち続ける。「リデンプション」で遠くからさらに回復。",
  "Your chosen ability deals damage in an area around it.": "選択したスキルが周囲の範囲にダメージを与える。",
  "Off-menu": "裏メニュー",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "{champion}には通常出ないオーグメントを使用。お遊び用なので、実際の試合では揃わないかも。",
  "On the menu": "表メニュー",
- "Your E gains 100 Ability Haste.": "Eのスキルヘイストが100増加する。"
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "一定間隔で、敵チャンピオンへの次のスキル命中時に蜂の巣を飛ばす。巣は爆発し、短時間スロウ効果と魔法ダメージを与える。蜂は通常攻撃時効果を発動する。"
 }

@@ -83,6 +83,14 @@ Tests pass.
 - **Min-max one thing** (Nico, 2026-11-19). The build can be bad overall, but it must push one specific goal
   as far as it goes, with the strongest augments and items for that goal (Purist - Caster or Infinite Recursion
   over a weaker themed pick like a Bread augment). Every slot should serve the goal.
+- **Identity-changing augments first** (Nico, 2026-11-20). Pick augments that together change how the champion
+  plays, e.g. Skibidi Pillar's Ravenous Bind + Circle of Death (heal-to-damage) with Terrain'd + BEES!!! (automatic
+  pokes) turn Trundle from a melee bruiser into a mage-like caster. Combined impact beats a merely unique effect:
+  drop unique but low-impact augments (Ice Cold, Purist - Caster in that build) and any augment whose effect items
+  can replace later (a Bread haste augment vs haste items). When a mechanic is unclear, ask Nico.
+- **Haste goals** (Nico, 2026-11-20). The min-max goal comes first, but even when cooldown speed is the goal,
+  plain haste augments (Purist - Caster, Recursion, Infinite Recursion, Eureka, Bread) are usually the weakest pick:
+  Overloaded or Archmage on the right champion, or Ethereal Weapon + Mystic Punch, are usually worth more.
 - **Rare items too.** Items should be almost never built on that champion (`data/cn/builds/<champion id>.json`);
   at most ONE item the champion already builds often (boots don't count).
 - **Ability slots.** Bread And Butter / Jam / Cheese always affect Q / W / E; other ability augments

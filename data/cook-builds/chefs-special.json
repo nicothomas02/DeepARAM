@@ -4,34 +4,50 @@
   "champion": "Trundle",
   "champion_name": "Trundle",
   "chef": "2026-11-18",
-  "why": "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.",
-  "play": "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.",
+  "why": "Trundle quits being a melee bruiser and plays like a mage: every Pillar of Ice heals him, hurts everything nearby and launches bees, and every heal zaps the closest enemy champion.",
+  "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
   "items": [
+    "Spirit Visage",
+    "Warmog's Armor",
     "Rylai's Crystal Scepter",
-    "Imperial Mandate",
     "Cosmic Drive",
-    "Shurelya's Battlesong",
-    "Frozen Heart",
+    "Redemption",
     "Ionian Boots of Lucidity"
   ],
   "core": 4,
-  "tagline": "He stopped biting people. The pillar does all the talking now.",
+  "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
   "how": [
     [
       "Pillar of Ice",
-      "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all."
+      "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
     ],
     [
       "Augments",
-      "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal."
+      "Ravenous Bind and Terrain'd, both rolled on Pillar of Ice, make each knock heal Trundle and the pillar hurt everything around it. That damage counts as an ability hit, so BEES!!! keep launching hives off it. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion."
     ],
     [
       "Items",
-      "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster."
+      "Spirit Visage boosts every heal and Rylai's slows everyone the pillar hurts. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
     ]
   ],
   "champion_icon": "/embed/fun/cook-builds/icons/champions/48.png",
   "augments": [
+    {
+      "name": "Ravenous Bind",
+      "rarity": "Gold",
+      "core": true,
+      "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
+      "icon": "/embed/fun/cook-builds/icons/augments/ravenous-bind.png",
+      "id": 2077
+    },
+    {
+      "name": "Circle of Death",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
+      "icon": "/embed/fun/cook-builds/icons/augments/circle-of-death.png",
+      "id": 1015
+    },
     {
       "name": "Terrain'd",
       "rarity": "Gold",
@@ -41,28 +57,12 @@
       "id": 2129
     },
     {
-      "name": "Bread and Cheese",
+      "name": "BEES!!!",
       "rarity": "Gold",
       "core": true,
-      "text": "Your E gains 100 Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/bread-and-cheese.png",
-      "id": 1151
-    },
-    {
-      "name": "Purist - Caster",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Gain percent cooldown reduction and convert all of your Attack Speed into Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/purist-caster.png",
-      "id": 2018
-    },
-    {
-      "name": "Ice Cold",
-      "rarity": "Silver",
-      "core": true,
-      "text": "Your Slowing effects reduce Movement Speed by an extra 75.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ice-cold.png",
-      "id": 1044
+      "text": "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.",
+      "icon": "/embed/fun/cook-builds/icons/augments/bees.png",
+      "id": 3086
     }
   ],
   "href": "/kitchen#chefs-special",
@@ -70,558 +70,558 @@
   "share_href": "/kitchen/2026-11-18",
   "share_image": "/embed/fun/cook-builds/share/trundle-skibidi-pillar.png",
   "item_ids": [
+    3065,
+    3083,
     3116,
-    4005,
     4629,
-    2065,
-    3110,
+    3107,
     3158
   ],
   "i18n": {
     "ar": {
       "title": "عمود سكيبيدي",
-      "why": "ترندل لا يستخدم العضة أبدًا. يكرر عمود الجليد حتى يبقى عمود قائمًا دائمًا.",
-      "play": "طوّر E أولًا. ضع العمود تحت حامل الضرر الخصم مباشرة، والتالي قبل أن يذوب القديم. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
-      "tagline": "توقف عن عض الناس. العمود هو من يتكلم الآن.",
+      "why": "يتوقف ترندل عن كونه مقاتلًا قريبًا ويلعب كساحر: كل عمود الجليد يشفيه ويؤذي كل ما حوله ويطلق النحل، وكل شفاء يصعق أقرب بطل عدو.",
+      "play": "ارفع E أولًا. ضع الأعمدة على حامل الفريق المعادي، ثم تراجع ودع التجدد يقوم بالمناوشة. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
+      "tagline": "كل عمود وجبة خفيفة. وكل وجبة خفيفة تضرب أقرب عدو.",
       "how": [
         [
           "عمود الجليد",
-          "زر يدفع كل من يقف فوقه ويبطئ كل من حوله لمدة 6 ثوانٍ. في العادة لا يسبب أي ضرر إطلاقًا."
+          "يدفع من يقف عليه ويبطئ كل من حوله. عادةً لا يسبب أي ضرر ولا يشفي أبدًا."
         ],
         [
           "التعزيزات",
-          "سلاح التضاريس على عمود الجليد يجعل العمود يؤذي كل ما حوله. خبز وجبنة يمنح عمود الجليد 100 تسارع مهارات، والنقيّ - ملقي التعويذات يحوّل سرعة الهجوم التي لا يستخدمها أبدًا إلى المزيد، فيسقط العمود التالي قبل أن يذوب القديم. بارد كالثلج يجعل الإبطاء وحشيًا."
+          "القيود المفترسة وسلاح التضاريس، وكلاهما على عمود الجليد، يجعلان كل دفعة تشفي ترندل والعمود يؤذي كل ما حوله. هذا الضرر يُحسب إصابة بقدرة، لذا يطلق النحل!!! الخلايا باستمرار. حلقة الموت تحوّل 70% من كل شفاء وكل تجدد الصحة لديه إلى ضرر سحري على أقرب بطل عدو."
         ],
         [
           "العتاد",
-          "الوصاية الإمبراطورية تسرّع العمود وتَسِم كل من يدفعه، وصولجان كريستال رايلاي يضيف إبطاءً، والحافز الكوني ونشيد معركة شوريليا والقلب المتجمد تعيد كل عمود أسرع."
+          "وجه الروح يعزز كل شفاء، وصولجان كريستال رايلاي يبطئ كل من يؤذيه العمود. رايلاي والحافز الكوني ودرع وارموغ ترفع صحته الإضافية فوق 2,000، لذا يجدده درع وارموغ كلما مرت 8 ثوانٍ دون أن يُصاب، ويستمر هذا التجدد في ضرب أقرب عدو. الافتداء يشفيه مرة أخرى من بعيد."
         ]
       ],
       "augments": [
+        "شلّ حركة أبطال الأعداء أو تثبيتهم بالأرض بالقدرة المختارة يُلحق ضررًا إضافيًا ويشفيك.",
+        "علاجك وتجدد صحتك يُلحقان ضررًا سحريًا بنسبة 70% من القيمة بأقرب بطل عدو.",
         "القدرة التي اخترتها تسبب ضررًا في منطقة حولها.",
-        "تحصل مهارة E على 100 تسارع مهارات.",
-        "احصل على تقليل نسبي لفترة التهدئة وحوّل كل سرعة هجومك إلى تسريع قدرات.",
-        "تأثيرات الإبطاء لديك تقلل سرعة الحركة بمقدار 75 إضافية."
+        "بشكل دوري، تطلق إصابتك التالية بقدرة على بطل عدو خلية نحل تنفجر، فتبطئ وتسبب ضررًا سحريًا لمدة قصيرة. النحل يطبق تأثيرات عند الإصابة."
       ]
     },
     "cs": {
       "title": "Skibidi sloup",
-      "why": "Trundle nikdy nepoužívá Kousance. Spamuje Sloup ledu, dokud nějaký pořád nestojí.",
-      "play": "Nejdřív maxuj E. Postav sloup přímo pod nepřátelského carryho a další dřív, než starý roztaje. Nikdy nemačkej Q, nikdy neklikej pravým.",
-      "tagline": "Přestal kousat lidi. Teď za něj mluví sloup.",
+      "why": "Trundle přestane být bojovníkem na blízko a hraje se jako mág: každý Sloup ledu ho vyléčí, zraní vše kolem a vypustí včely, a každé léčení zasáhne nejbližšího nepřátelského šampiona.",
+      "play": "Nejdřív maxuj E. Pokládej sloupy pod nepřátelského carryho, pak ustup a nech regeneraci pokovat. Nikdy nemačkej Q, nikdy neklikej pravým.",
+      "tagline": "Každý sloup je svačinka. Každá svačinka zasáhne nejbližšího nepřítele.",
       "how": [
         [
           "Sloup ledu",
-          "Tlačítko, které odhodí každého, kdo na něm stojí, a na 6 sekund zpomalí všechny okolo. Normálně nezpůsobuje vůbec žádné poškození."
+          "Odhodí každého, kdo na něm stojí, a zpomalí všechny poblíž. Normálně neudělí žádné poškození a nikdy neléčí."
         ],
         [
           "Augmenty",
-          "Nebezpečný terén, padlý na Sloup ledu, nechá sloup zraňovat všechno kolem. Všední chléb dá Sloupu ledu 100 zrychlení schopností a Ryzí sesilatel promění rychlost útoku, kterou nikdy nepoužije, v ještě víc, takže další sloup stojí dřív, než starý roztaje. Kostimráz udělá zpomalení brutálním."
+          "Hladové pouto a Nebezpečný terén, obojí padlé na Sloup ledu, zajistí, že každé odhození léčí Trundla a sloup zraňuje vše kolem. Toto poškození se počítá jako zásah schopností, takže VČELY!!! neustále vypouštějí úly. Kruh smrti mění 70 % každého léčení a veškerou jeho regeneraci zdraví v magické poškození nejbližšímu nepřátelskému šampionovi."
         ],
         [
           "Předměty",
-          "Říšský rozkaz zrychlí sloup a označí každého, koho odhodí, Rylaino křišťálové žezlo přidá zpomalení a Kosmický pohon, Shurelyina bitevní píseň a Ledové srdce vrátí každý sloup rychleji."
+          "Otisk duše posiluje každé léčení a Rylaino křišťálové žezlo zpomaluje každého, koho sloup zraní. Rylai, Kosmický pohon a Warmogova zbroj zvednou jeho bonusové zdraví nad 2 000, takže ho Warmog regeneruje vždy, když 8 sekund nedostane zásah, a ta regenerace dál zasahuje nejbližšího nepřítele. Odplata ho vyléčí znovu zdálky."
         ]
       ],
       "augments": [
+        "Znehybnění nebo uzemnění nepřátelských šampionů zvolenou schopností způsobí dodatečné poškození a vyléčí tě.",
+        "Tvé léčení a regenerace zdraví udělí nejbližšímu nepřátelskému šampionovi magické poškození ve výši 70 % své hodnoty.",
         "Zvolená schopnost způsobí poškození v oblasti kolem sebe.",
-        "Tvoje E získá 100 zrychlení schopností.",
-        "Získáš procentuální zkrácení přebíjení a přeměníš veškerou rychlost útoků na zrychlení schopností.",
-        "Tvoje zpomalení snižují rychlost pohybu o dalších 75."
+        "Tvůj další zásah schopností proti nepřátelskému šampionovi pravidelně vypustí úl včel, který vybuchne, zpomalí a krátce udílí magické poškození. Včely aplikují efekty při zásahu."
       ]
     },
     "de": {
       "title": "Skibidi-Säule",
-      "why": "Trundle benutzt nie Mampfen. Er spammt Eissäule, bis es keinen Moment mehr ohne Säule gibt.",
-      "play": "Zuerst E maximieren. Setz die Säule direkt unter den gegnerischen Carry und die nächste, bevor die alte schmilzt. Niemals Q drücken, niemals rechtsklicken.",
-      "tagline": "Er beißt keine Leute mehr. Jetzt redet nur noch die Säule.",
+      "why": "Trundle ist kein Nahkampf-Bruiser mehr und spielt sich wie ein Magier: Jede Eissäule heilt ihn, verletzt alles in der Nähe und schießt Bienen ab, und jede Heilung trifft den nächsten gegnerischen Champion.",
+      "play": "Maximiere zuerst E. Setz Säulen auf den gegnerischen Carry, geh dann zurück und lass die Regeneration den Poke machen. Drück nie Q, klick nie rechts.",
+      "tagline": "Jede Säule ist ein Snack. Jeder Snack trifft den nächsten Gegner.",
       "how": [
         [
           "Eissäule",
-          "Ein Knopf, der jeden zurückstößt, der draufsteht, und alle in der Nähe 6 Sekunden lang verlangsamt. Normalerweise macht er gar keinen Schaden."
+          "Stößt jeden zurück, der darauf steht, und verlangsamt alle in der Nähe. Normalerweise verursacht sie keinen Schaden und heilt nie."
         ],
         [
           "Augments",
-          "Terrainiert, auf Eissäule gerollt, lässt die Säule alles drumherum verletzen. Das A und E gibt Eissäule 100 Fähigkeitstempo, und Purist – Zauberer macht aus dem Angriffstempo, das er nie benutzt, noch mehr, sodass die nächste Säule steht, bevor die alte schmilzt. Eiskalt macht die Verlangsamung brutal."
+          "Gefräßige Bindung und Terrainiert, beide auf Eissäule gerollt, lassen jeden Stoß Trundle heilen und die Säule alles um sich herum verletzen. Dieser Schaden zählt als Fähigkeitstreffer, also schießt BIENEN!!! ständig Bienenstöcke davon ab. Kreis des Todes verwandelt 70 % jeder Heilung und seine gesamte Lebensregeneration in magischen Schaden am nächsten gegnerischen Champion."
         ],
         [
           "Gegenstände",
-          "Imperiale Verfügung beschleunigt die Säule und markiert jeden, den sie zurückstößt, Rylais Kristallzepter bringt mehr Verlangsamung, und Kosmischer Antrieb, Shurelyas Kampfhymne und Gefrorenes Herz lassen jede Säule schneller zurückkommen."
+          "Geistessicht verstärkt jede Heilung, und Rylais Kristallzepter verlangsamt jeden, den die Säule verletzt. Rylais, Kosmischer Antrieb und Warmogs Rüstung bringen sein zusätzliches Leben über 2.000, also regeneriert Warmogs ihn, sobald er 8 Sekunden lang unberührt bleibt, und diese Regeneration trifft immer wieder den nächsten Gegner. Befreiungsschlag heilt ihn noch einmal aus der Ferne."
         ]
       ],
       "augments": [
+        "Gegnerische Champions mit der gewählten Fähigkeit bewegungsunfähig zu machen oder zu fesseln, verursacht zusätzlichen Schaden und heilt dich.",
+        "Deine Heilung und Lebensregeneration fügen dem nächsten gegnerischen Champion 70 % des Werts als magischen Schaden zu.",
         "Deine gewählte Fähigkeit verursacht Schaden in einem Bereich um sie herum.",
-        "Dein E erhält 100 Fähigkeitstempo.",
-        "Erhalte prozentuale Abklingzeitverringerung und wandle dein gesamtes Angriffstempo in Fähigkeitstempo um.",
-        "Deine Verlangsamungen verringern das Lauftempo um zusätzliche 75."
+        "Dein nächster Fähigkeitstreffer gegen einen gegnerischen Champion schießt regelmäßig einen Bienenstock ab, der explodiert, verlangsamt und über kurze Zeit magischen Schaden verursacht. Bienen lösen Treffereffekte aus."
       ]
     },
     "el": {
       "title": "Skibidi Βράχος",
-      "why": "Ο Τράντλ δεν χρησιμοποιεί ποτέ το Δάγκωμα. Κάνει spam τον Παγωμένο Βράχο μέχρι να στέκεται πάντα ένας.",
-      "play": "Ανέβασε πρώτα το E. Ρίξε τον βράχο ακριβώς κάτω από τον αντίπαλο carry και τον επόμενο πριν λιώσει ο παλιός. Μην πατήσεις ποτέ Q, μην κάνεις ποτέ δεξί κλικ.",
-      "tagline": "Σταμάτησε να δαγκώνει κόσμο. Τώρα μιλάει μόνο ο βράχος.",
+      "why": "Ο Τράντλ παύει να είναι μαχητής σώμα με σώμα και παίζει σαν μάγος: κάθε Παγωμένος Βράχος τον θεραπεύει, πληγώνει ό,τι είναι γύρω και εκτοξεύει μέλισσες, και κάθε θεραπεία χτυπά τον πιο κοντινό αντίπαλο πρωταθλητή.",
+      "play": "Ανέβασε πρώτα το E. Ρίξε βράχους πάνω στον αντίπαλο carry, μετά κάνε πίσω και άσε την αναγέννηση να κάνει το poke. Μην πατάς ποτέ Q, μην κάνεις ποτέ δεξί κλικ.",
+      "tagline": "Κάθε βράχος είναι ένα σνακ. Κάθε σνακ χτυπά τον πιο κοντινό εχθρό.",
       "how": [
         [
           "Παγωμένος Βράχος",
-          "Ένα κουμπί που απωθεί όποιον στέκεται πάνω του και επιβραδύνει όλους γύρω για 6 δευτερόλεπτα. Κανονικά δεν κάνει καθόλου ζημιά."
+          "Σπρώχνει όποιον στέκεται πάνω του και επιβραδύνει όλους γύρω. Κανονικά δεν προκαλεί ζημιά και δεν θεραπεύει ποτέ."
         ],
         [
           "Ενισχύσεις",
-          "Το Ένα με το Έδαφος, στον Παγωμένο Βράχο, κάνει τον βράχο να πληγώνει τα πάντα γύρω του. Το Ψωμοτύρι δίνει 100 Επιτάχυνση Ικανοτήτων στον Παγωμένο Βράχο και το Καθαρολόγος - Μάγος κάνει την ταχύτητα επίθεσης που δεν χρησιμοποιεί ποτέ ακόμα περισσότερη, οπότε ο επόμενος βράχος πέφτει πριν λιώσει ο παλιός. Το Παγωμένος κάνει την επιβράδυνση βάναυση."
+          "Ο Αδηφάγος Δεσμός και το Ένα με το Έδαφος, και τα δύο στον Παγωμένο Βράχο, κάνουν κάθε σπρώξιμο να θεραπεύει τον Τράντλ και τον βράχο να πληγώνει ό,τι είναι γύρω του. Αυτή η ζημιά μετράει ως χτύπημα ικανότητας, οπότε το ΜΕΛΙΣΣΕΣ!!! εκτοξεύει συνέχεια κυψέλες. Ο Κύκλος Θανάτου μετατρέπει το 70% κάθε θεραπείας και όλη την αναγέννηση Ζωής του σε μαγική ζημιά στον πιο κοντινό αντίπαλο πρωταθλητή."
         ],
         [
           "Αντικείμενα",
-          "Η Αυτοκρατορική Διαταγή επιταχύνει τον βράχο και σημαδεύει όποιον απωθεί, το Σκήπτρο της Ριλάι προσθέτει επιβράδυνση, και η Κοσμική Ενέργεια, το Πολεμικό Άσμα της Σουρέλια και η Παγωμένη Καρδιά φέρνουν κάθε βράχο πιο γρήγορα."
+          "Η Όψη Πνευμάτων ενισχύει κάθε θεραπεία και το Κρυστάλλινο Σκήπτρο της Ριλάι επιβραδύνει όποιον πληγώνει ο βράχος. Το Σκήπτρο, η Κοσμική Ενέργεια και η Πανοπλία του Γόρμογκ ανεβάζουν την πρόσθετη Ζωή του πάνω από 2.000, οπότε η Πανοπλία τον αναγεννά όταν μένει 8 δευτερόλεπτα ανέγγιχτος, και αυτή η αναγέννηση συνεχίζει να χτυπά τον πιο κοντινό εχθρό. Η Λύτρωση τον θεραπεύει ξανά από μακριά."
         ]
       ],
       "augments": [
+        "Η ακινητοποίηση ή η καθήλωση εχθρικών ηρώων με την επιλεγμένη ικανότητα προκαλεί επιπλέον ζημιά και σε θεραπεύει.",
+        "Οι θεραπείες και η Ανανέωση Ζωής σου προκαλούν το 70% της τιμής τους ως μαγική ζημιά στον πλησιέστερο εχθρικό ήρωα.",
         "Η επιλεγμένη ικανότητα προκαλεί ζημιά σε μια περιοχή γύρω της.",
-        "Το E σου κερδίζει 100 Επιτάχυνση Ικανοτήτων.",
-        "Αποκτάτε ποσοστιαία μείωση χρόνου επαναφόρτισης και μετατρέπετε όλη την Ταχύτητα Επίθεσης σε Επιτάχυνση Ικανοτήτων.",
-        "Οι επιβραδύνσεις σου μειώνουν την ταχύτητα κίνησης κατά επιπλέον 75."
+        "Περιοδικά, το επόμενο χτύπημα Ικανότητάς σου σε αντίπαλο πρωταθλητή εκτοξεύει μια κυψέλη με Μέλισσες που εκρήγνυται, επιβραδύνοντας και προκαλώντας μαγική ζημιά για λίγο. Οι Μέλισσες εφαρμόζουν εφέ κατά το χτύπημα."
       ]
     },
     "es-MX": {
       "title": "Pilar Skibidi",
-      "why": "Trundle nunca usa Mascar. Spamea Pilar de Hielo hasta que siempre hay uno en pie.",
-      "play": "Sube E primero. Pon el pilar justo debajo del carry enemigo y el siguiente antes de que se derrita el anterior. Nunca presiones Q, nunca hagas clic derecho.",
-      "tagline": "Ya no muerde a nadie. Ahora el pilar habla por él.",
+      "why": "Trundle deja de ser un peleador cuerpo a cuerpo y se juega como un mago: cada Pilar de Hielo lo cura, daña todo a su alrededor y lanza abejas, y cada curación golpea al campeón enemigo más cercano.",
+      "play": "Sube la E primero. Pon pilares sobre el carry enemigo, luego retrocede y deja que la regeneración haga el poke. Nunca presiones Q, nunca hagas clic derecho.",
+      "tagline": "Cada pilar es una botana. Cada botana golpea al enemigo más cercano.",
       "how": [
         [
           "Pilar de Hielo",
-          "Un botón que empuja a quien esté encima y ralentiza a todos los que estén cerca durante 6 segundos. Normalmente no hace nada de daño."
+          "Empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no inflige daño y nunca cura."
         ],
         [
           "Aumentos",
-          "Terraneitor, asignado a Pilar de Hielo, hace que el pilar dañe todo a su alrededor. Pan y Queso le da 100 de velocidad de habilidades a Pilar de Hielo y Purista: Hechicero convierte la velocidad de ataque que nunca usa en aún más, así que el siguiente pilar cae antes de que se derrita el anterior. Frío como el Hielo hace que la ralentización sea brutal."
+          "Vínculo Voraz y Terraneitor, ambos asignados a Pilar de Hielo, hacen que cada empujón cure a Trundle y que el pilar dañe todo a su alrededor. Ese daño cuenta como golpe de habilidad, así que ¡¡¡ABEJAS!!! no para de lanzar colmenas. Círculo de la Muerte convierte el 70 % de cada curación y toda su regeneración de vida en daño mágico al campeón enemigo más cercano."
         ],
         [
           "Objetos",
-          "Mandato Imperial acelera el pilar y marca a todos los que empuja, Cetro de Cristal de Rylai agrega más ralentización, e Impulso Cósmico, Canto de Guerra de Shurelya y Corazón de Hielo hacen que cada pilar vuelva más rápido."
+          "Apariencia Espiritual potencia cada curación y el Cetro de Cristal de Rylai ralentiza a todos los que daña el pilar. Rylai, Impulso Cósmico y la Armadura de Warmog suben su vida adicional por encima de 2000, así que Warmog lo regenera cada vez que pasa 8 segundos sin recibir daño, y esa regeneración sigue golpeando al enemigo más cercano. Redención lo cura otra vez desde lejos."
         ]
       ],
       "augments": [
+        "Inmovilizar o dejar sin movilidad a campeones enemigos con la habilidad elegida inflige daño adicional y te cura.",
+        "Tus curaciones y Regeneración de Vida infligen el 70% del valor como daño mágico al campeón enemigo más cercano.",
         "Tu habilidad elegida inflige daño en un área a su alrededor.",
-        "Tu E obtiene 100 de velocidad de habilidades.",
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en velocidad de habilidades.",
-        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales."
+        "Periódicamente, tu siguiente golpe de habilidad contra un campeón enemigo lanza una colmena de abejas que explota, ralentiza e inflige daño mágico durante un breve tiempo. Las abejas aplican efectos al impactar."
       ]
     },
     "es": {
       "title": "Pilar Skibidi",
-      "why": "Trundle nunca usa Mascar. Spamea Pilar de hielo hasta que siempre hay uno en pie.",
-      "play": "Sube E primero. Pon el pilar justo debajo del carry enemigo y el siguiente antes de que se derrita el anterior. Nunca pulses Q, nunca hagas clic derecho.",
-      "tagline": "Ya no muerde a nadie. Ahora el pilar habla por él.",
+      "why": "Trundle deja de ser un luchador cuerpo a cuerpo y se juega como un mago: cada Pilar de hielo lo cura, daña todo a su alrededor y lanza abejas, y cada curación golpea al campeón enemigo más cercano.",
+      "play": "Sube la E primero. Pon pilares sobre el carry enemigo, luego retrocede y deja que la regeneración haga el poke. Nunca pulses Q, nunca hagas clic derecho.",
+      "tagline": "Cada pilar es un aperitivo. Cada aperitivo golpea al enemigo más cercano.",
       "how": [
         [
           "Pilar de hielo",
-          "Un botón que empuja a quien esté encima y ralentiza a todos los que estén cerca durante 6 segundos. Normalmente no hace nada de daño."
+          "Empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no inflige daño y nunca cura."
         ],
         [
           "Aumentos",
-          "Terrinator, asignado a Pilar de hielo, hace que el pilar dañe todo a su alrededor. Pan con aceite le da 100 de aceleración de habilidades a Pilar de hielo y Purista - Lanzador convierte la velocidad de ataque que nunca usa en aún más, así que el siguiente pilar cae antes de que se derrita el anterior. Algidez hace que la ralentización sea brutal."
+          "Vínculo voraz y Terrinator, ambos asignados a Pilar de hielo, hacen que cada empujón cure a Trundle y que el pilar dañe todo a su alrededor. Ese daño cuenta como golpe de habilidad, así que ¡ABEJAS! no para de lanzar colmenas. Círculo de muerte convierte el 70 % de cada curación y toda su regeneración de vida en daño mágico al campeón enemigo más cercano."
         ],
         [
           "Objetos",
-          "Mandato imperial acelera el pilar y marca a todos los que empuja, Cetro de cristal de Rylai añade más ralentización, e Impulso cósmico, Canción de batalla de Shurelya y Corazón de hielo hacen que cada pilar vuelva antes."
+          "Rostro espiritual potencia cada curación y el Cetro de cristal de Rylai ralentiza a todos los que daña el pilar. Rylai, Impulso cósmico y la Armadura de Warmog suben su vida adicional por encima de 2000, así que Warmog lo regenera cada vez que pasa 8 segundos sin recibir daño, y esa regeneración sigue golpeando al enemigo más cercano. Redención lo cura otra vez desde lejos."
         ]
       ],
       "augments": [
+        "Inmovilizar o dejar sin movilidad a campeones enemigos con la habilidad elegida inflige daño adicional y te cura.",
+        "Tu curación y regeneración de vida infligen un 70 % de su valor como daño mágico al campeón enemigo más cercano.",
         "Tu habilidad elegida inflige daño en un área a su alrededor.",
-        "Tu E obtiene 100 de aceleración de habilidades.",
-        "Obtienes reducción porcentual de enfriamiento y conviertes toda tu velocidad de ataque en aceleración de habilidades.",
-        "Tus ralentizaciones reducen la velocidad de movimiento en 75 adicionales."
+        "Periódicamente, tu siguiente golpe de habilidad contra un campeón enemigo lanza una colmena de abejas que explota, ralentiza e inflige daño mágico durante un breve tiempo. Las abejas aplican efectos al impactar."
       ]
     },
     "fr": {
       "title": "Pilier Skibidi",
-      "why": "Trundle n'utilise jamais Morsure. Il spamme Montagne de glace jusqu'à ce qu'il y ait toujours un pilier debout.",
-      "play": "Monte E en premier. Pose le pilier pile sous le carry ennemi et le suivant avant que l'ancien ne fonde. N'appuie jamais sur Q, ne fais jamais de clic droit.",
-      "tagline": "Il ne mord plus personne. C'est le pilier qui parle maintenant.",
+      "why": "Trundle arrête d'être un combattant de mêlée et se joue comme un mage : chaque Montagne de glace le soigne, blesse tout autour et lance des abeilles, et chaque soin frappe le champion ennemi le plus proche.",
+      "play": "Montez E en premier. Posez des piliers sur le carry ennemi, puis reculez et laissez la régénération faire le poke. N'appuyez jamais sur Q, ne faites jamais de clic droit.",
+      "tagline": "Chaque pilier est un snack. Chaque snack frappe l'ennemi le plus proche.",
       "how": [
         [
           "Montagne de glace",
-          "Un bouton qui repousse quiconque se tient dessus et ralentit tout le monde autour pendant 6 secondes. Normalement, il n'inflige aucun dégât."
+          "Repousse quiconque se tient dessus et ralentit tout le monde autour. Normalement, il n'inflige aucun dégât et ne soigne jamais."
         ],
         [
           "Augments",
-          "Terrain, obtenu sur Montagne de glace, fait blesser tout ce qui l'entoure. Maîtrise du E donne 100 accélération de compétence à Montagne de glace et Puriste - Lanceur de compétence transforme la vitesse d'attaque qu'il n'utilise jamais en encore plus, pour que le pilier suivant tombe avant que l'ancien ne fonde. Froid glacial rend le ralentissement brutal."
+          "Entrave vorace et Terrain, tous deux tirés sur Montagne de glace, font que chaque projection soigne Trundle et que le pilier blesse tout autour de lui. Ces dégâts comptent comme un coup de compétence, donc ABEILLES !!! lance sans arrêt des ruches. Soins meurtriers transforme 70 % de chaque soin et toute sa régénération de PV en dégâts magiques sur le champion ennemi le plus proche."
         ],
         [
           "Objets",
-          "Mandat impérial accélère le pilier et marque tous ceux qu'il repousse, Sceptre de Rylai ajoute du ralentissement, et Volonté cosmique, Chant de guerre de Shurelya et Cœur gelé font revenir chaque pilier plus vite."
+          "Visage spirituel renforce chaque soin et le Sceptre de Rylai ralentit tous ceux que le pilier blesse. Rylai, Volonté cosmique et l'Armure de Warmog font passer ses PV supplémentaires au-delà de 2 000, donc Warmog le régénère dès qu'il reste 8 secondes sans être touché, et cette régénération continue de frapper l'ennemi le plus proche. Rédemption le soigne encore de loin."
         ]
       ],
       "augments": [
+        "Immobiliser ou clouer au sol des champions ennemis avec la compétence choisie inflige des dégâts supplémentaires et vous soigne.",
+        "Vos soins et votre régénération de PV infligent 70 % de leur valeur en dégâts magiques au champion ennemi le plus proche.",
         "Votre compétence choisie inflige des dégâts dans une zone autour d'elle.",
-        "Votre E gagne 100 accélération de compétence.",
-        "Obtenez de la réduction de délai de récupération en pourcentage et convertissez toute votre vitesse d'attaque en accélération de compétence.",
-        "Vos ralentissements réduisent la vitesse de déplacement de 75 supplémentaires."
+        "Périodiquement, votre prochain coup de compétence contre un champion ennemi lance une ruche d'abeilles qui explose, ralentissant et infligeant des dégâts magiques sur une courte durée. Les abeilles appliquent les effets à l'impact."
       ]
     },
     "hu": {
       "title": "Skibidi oszlop",
-      "why": "Trundle soha nem használja a Veszett harapást. Addig spammeli a Jégoszlopot, amíg mindig áll egy.",
-      "play": "Először az E-t maxold. Tedd az oszlopot pont az ellenséges carry alá, a következőt pedig mielőtt a régi elolvad. Soha ne nyomd meg a Q-t, soha ne kattints jobb gombbal.",
-      "tagline": "Már nem harap meg senkit. Most az oszlop beszél helyette.",
+      "why": "Trundle többé nem közelharci bruiser, hanem mágusként játszik: minden Jégoszlop gyógyítja, megsebez mindent a közelben és méheket lő ki, és minden gyógyulás eltalálja a legközelebbi ellenséges hőst.",
+      "play": "Először az E-t maxold. Rakj oszlopokat az ellenséges carryre, aztán lépj hátra, és hagyd, hogy a regeneráció pokeoljon. Soha ne nyomd meg a Q-t, soha ne kattints jobbal.",
+      "tagline": "Minden oszlop egy nasi. Minden nasi eltalálja a legközelebbi ellenfelet.",
       "how": [
         [
           "Jégoszlop",
-          "Egy gomb, ami visszalöki azt, aki rajta áll, és 6 másodpercre lelassít mindenkit a közelben. Alapból egyáltalán nem sebez."
+          "Visszalöki, aki rajta áll, és lelassít mindenkit a közelben. Alapból nem sebez és sosem gyógyít."
         ],
         [
           "Bővítések",
-          "A Jégoszlopra dobott Tereplés miatt az oszlop mindent megsebez maga körül. A Sajtos kenyér 100 képességgyorsítást ad a Jégoszlopnak, a Purista – Varázsló pedig a sosem használt támadási sebességét még többé alakítja, így a következő oszlop még a régi elolvadása előtt áll. A Jéghideg brutálissá teszi a lassítást."
+          "A Vérszomjas kötelék és a Tereplés, mindkettő a Jégoszlopra dobva, minden lökésnél gyógyítja Trundle-t, az oszlop pedig mindent megsebez maga körül. Ez a sebzés képességtalálatnak számít, így a MÉHEK!!! folyamatosan kaptárakat lő ki róla. A halál körforgása minden gyógyulás 70%-át és teljes életerő-regenerációját mágikus sebzéssé alakítja a legközelebbi ellenséges hősön."
         ],
         [
           "Tárgyak",
-          "A Birodalmi parancs gyorsítja az oszlopot és megjelöl mindenkit, akit visszalök, Rylai kristálybotja több lassítást ad, a Kozmikus hajtómű, Shurelia csatadala és a Fagyos szív pedig minden oszlopot gyorsabban hoz vissza."
+          "A Szellemarc minden gyógyulást felerősít, Rylai kristálybotja pedig lelassít mindenkit, akit az oszlop megsebez. Rylai, a Kozmikus hajtómű és Warmog vértje 2000 fölé viszi a bónusz életerejét, így Warmog regenerálja, valahányszor 8 másodpercig nem éri sebzés, és ez a regeneráció tovább csapkodja a legközelebbi ellenfelet. A Megváltás messziről is újra meggyógyítja."
         ]
       ],
       "augments": [
+        "Ha a választott képességgel mozgásképtelenné teszel vagy földhöz szegezel ellenséges hősöket, extra sebzést okozol és gyógyulsz.",
+        "A gyógyulásod és életerő-regenerációd az érték 70%-ának megfelelő mágikus sebzést okoz a legközelebbi ellenséges hősnek.",
         "A választott képességed sebzést okoz egy körülötte lévő területen.",
-        "Az E-d 100 képességgyorsítást kap.",
-        "Százalékos töltésiidő-csökkentést kapsz, és az összes támadási sebességed képességsiettetéssé alakul.",
-        "A lassításaid további 75-tel csökkentik a mozgási sebességet."
+        "Időnként a következő képességtalálatod egy ellenséges hősön kilő egy méhkaptárt, ami felrobban, lelassít és rövid ideig mágikus sebzést okoz. A méhek alkalmazzák a találati hatásokat."
       ]
     },
     "id": {
       "title": "Pilar Skibidi",
-      "why": "Trundle nggak pernah pakai Chomp. Dia spam Pillar of Ice sampai selalu ada satu pilar berdiri.",
-      "play": "Maksimalkan E dulu. Taruh pilar tepat di bawah carry musuh dan pilar berikutnya sebelum yang lama meleleh. Jangan pernah tekan Q, jangan pernah klik kanan.",
-      "tagline": "Dia sudah berhenti menggigit orang. Sekarang pilarnya yang bicara.",
+      "why": "Trundle berhenti jadi bruiser jarak dekat dan bermain seperti mage: setiap Pillar of Ice menyembuhkannya, melukai semua di sekitarnya, dan meluncurkan lebah, dan setiap heal menyetrum champion musuh terdekat.",
+      "play": "Maksimalkan E dulu. Taruh pilar di bawah carry musuh, lalu mundur dan biarkan regen yang melakukan poke. Jangan pernah tekan Q, jangan pernah klik kanan.",
+      "tagline": "Setiap pilar adalah camilan. Setiap camilan mengenai musuh terdekat.",
       "how": [
         [
           "Pillar of Ice",
-          "Tombol yang menghempas siapa pun yang berdiri di atasnya dan memperlambat semua orang di dekatnya selama 6 detik. Biasanya sama sekali nggak memberi damage."
+          "Mendorong siapa pun yang berdiri di atasnya dan memperlambat semua yang di dekatnya. Biasanya tidak memberi damage dan tidak pernah heal."
         ],
         [
           "Augment",
-          "Terrain'd, didapat di Pillar of Ice, bikin pilar melukai semua di sekitarnya. Bread and Cheese memberi Pillar of Ice 100 Ability Haste dan Purist - Caster mengubah attack speed yang nggak pernah dia pakai jadi lebih banyak lagi, jadi pilar berikutnya turun sebelum yang lama meleleh. Ice Cold bikin slow-nya brutal."
+          "Ravenous Bind dan Terrain'd, keduanya didapat di Pillar of Ice, membuat setiap dorongan menyembuhkan Trundle dan pilar melukai semua di sekitarnya. Damage itu dihitung sebagai hit ability, jadi BEES!!! terus meluncurkan sarang. Circle of Death mengubah 70% dari setiap heal dan seluruh Health Regen-nya menjadi magic damage ke champion musuh terdekat."
         ],
         [
           "Item",
-          "Imperial Mandate mempercepat pilar dan menandai semua yang dihempasnya, Rylai's Crystal Scepter menambah slow, dan Cosmic Drive, Shurelya's Battlesong serta Frozen Heart bikin tiap pilar kembali lebih cepat."
+          "Spirit Visage memperkuat setiap heal dan Rylai's Crystal Scepter memperlambat semua yang dilukai pilar. Rylai's, Cosmic Drive, dan Warmog's Armor mendorong bonus Health-nya melewati 2.000, jadi Warmog's meregenerasinya setiap kali ia tidak terkena serangan selama 8 detik, dan regen itu terus menyetrum musuh terdekat. Redemption menyembuhkannya lagi dari jauh."
         ]
       ],
       "augments": [
+        "Immobilize atau Ground champion musuh dengan ability pilihan memberikan damage tambahan dan menyembuhkanmu.",
+        "Healing dan Health Regen-mu memberikan 70% nilainya sebagai magic damage ke champion musuh terdekat.",
         "Ability pilihanmu memberi damage di area sekitarnya.",
-        "E kamu mendapat 100 Ability Haste.",
-        "Dapatkan pengurangan cooldown persentase dan ubah semua Attack Speed-mu menjadi Ability Haste.",
-        "Efek slow kamu mengurangi Move Speed sebesar 75 tambahan."
+        "Secara berkala, hit Ability berikutnya ke champion musuh meluncurkan sarang lebah yang meledak, memberi Slow dan magic damage selama waktu singkat. Lebah menerapkan efek On-Hit."
       ]
     },
     "it": {
       "title": "Pilastro Skibidi",
-      "why": "Trundle non usa mai Morso. Spamma Pilastro di ghiaccio finché non c'è sempre un pilastro in piedi.",
-      "play": "Massimizza prima la E. Piazza il pilastro proprio sotto il carry nemico e il successivo prima che il vecchio si sciolga. Non premere mai Q, non cliccare mai col destro.",
-      "tagline": "Non morde più nessuno. Adesso parla solo il pilastro.",
+      "why": "Trundle smette di essere un combattente in mischia e si gioca come un mago: ogni Pilastro di ghiaccio lo cura, ferisce tutto intorno e lancia api, e ogni cura colpisce il campione nemico più vicino.",
+      "play": "Porta al massimo prima la E. Piazza pilastri sul carry nemico, poi fai un passo indietro e lascia che la rigenerazione faccia il poke. Non premere mai Q, non cliccare mai col destro.",
+      "tagline": "Ogni pilastro è uno spuntino. Ogni spuntino colpisce il nemico più vicino.",
       "how": [
         [
           "Pilastro di ghiaccio",
-          "Un tasto che respinge chiunque ci stia sopra e rallenta tutti quelli vicini per 6 secondi. Di solito non infligge alcun danno."
+          "Respinge chiunque ci stia sopra e rallenta tutti quelli vicini. Di solito non infligge danni e non cura mai."
         ],
         [
           "Potenziamenti",
-          "Colpa del terreno, ottenuto su Pilastro di ghiaccio, fa ferire al pilastro tutto ciò che ha intorno. Pane e formaggio dà a Pilastro di ghiaccio 100 velocità abilità e Purista - Mago trasforma la velocità d'attacco che non usa mai in ancora di più, così il pilastro successivo arriva prima che il vecchio si sciolga. Freddo come il ghiaccio rende il rallentamento brutale."
+          "Vincolo famelico e Colpa del terreno, entrambi ottenuti su Pilastro di ghiaccio, fanno sì che ogni spinta curi Trundle e che il pilastro ferisca tutto intorno. Quel danno conta come colpo di abilità, quindi API! continua a lanciare alveari. Cerchio della morte trasforma il 70% di ogni cura e tutta la sua rigenerazione salute in danni magici sul campione nemico più vicino."
         ],
         [
           "Oggetti",
-          "Mandato imperiale velocizza il pilastro e marchia tutti quelli che respinge, Scettro di cristallo di Rylai aggiunge rallentamento, e Spirito cosmico, Canto di guerra di Shurelya e Fulcro dei geli fanno tornare ogni pilastro più in fretta."
+          "Corazza spirituale potenzia ogni cura e lo Scettro di cristallo di Rylai rallenta chiunque il pilastro ferisca. Rylai, Spirito cosmico e l'Armatura di Warmog portano la sua salute bonus oltre 2.000, quindi Warmog lo rigenera ogni volta che resta 8 secondi senza essere colpito, e quella rigenerazione continua a colpire il nemico più vicino. Redenzione lo cura ancora da lontano."
         ]
       ],
       "augments": [
+        "Immobilizzare o bloccare a terra i campioni nemici con l'abilità scelta infligge danni extra e ti cura.",
+        "Le tue cure e la rigenerazione salute infliggono il 70% del valore in danni magici al campione nemico più vicino.",
         "L'abilità scelta infligge danni in un'area intorno a sé.",
-        "La tua E ottiene 100 velocità abilità.",
-        "Ottieni riduzione ricarica percentuale e converti tutta la tua velocità d'attacco in velocità abilità.",
-        "I tuoi rallentamenti riducono la velocità di movimento di altri 75."
+        "Periodicamente, il tuo prossimo colpo di abilità contro un campione nemico lancia un alveare di api che esplode, rallentando e infliggendo danni magici per un breve periodo. Le api applicano gli effetti sul colpo."
       ]
     },
     "ja": {
       "title": "スキビディ柱",
-      "why": "トランドルは咬み付きを絶対に使わない。常に柱が1本立っている状態になるまで氷冷の柱を連打する。",
-      "play": "Eを最優先で上げる。敵キャリーの真下に柱を立て、前の柱が溶ける前に次を立てる。Qも右クリックも絶対に押さないこと。",
-      "tagline": "もう誰も噛まない。これからは柱が語る。",
+      "why": "トランドルは近接ファイターをやめてメイジのように戦う：「氷冷の柱」が毎回彼を回復し、周囲にダメージを与えて蜂を飛ばし、その回復がすべて最寄りの敵チャンピオンに当たる。",
+      "play": "Eを最優先で上げる。敵キャリーに柱を置いたら下がって、リジェネにポークを任せよう。Qは絶対押さない、右クリックも絶対しない。",
+      "tagline": "柱はおやつ。おやつは一番近い敵に当たる。",
       "how": [
         [
           "氷冷の柱",
-          "上に立っている敵をノックバックし、周りの全員に6秒間スロウを与えるボタン。本来はダメージを一切与えない。"
+          "上に立つ敵をノックバックし、周囲の全員をスロウにする。普段はダメージを与えず、回復もしない。"
         ],
         [
           "オーグメント",
-          "地形でドン（氷冷の柱に付与）で柱が周囲すべてにダメージ。パンとチーズで氷冷の柱にスキルヘイスト100、純粋なるキャスターで使わない攻撃速度がさらにヘイストに変わり、前の柱が溶ける前に次が立つ。結氷でスロウがえげつなくなる。"
+          "「貪欲な束縛」と「地形でドン」をどちらも「氷冷の柱」に付けると、ノックバックのたびにトランドルが回復し、柱が周囲にダメージを与える。そのダメージはスキル命中扱いなので「ブンブン！」が次々と巣を飛ばす。「死者の集い」は毎回の回復の70%と体力自動回復のすべてを、最寄りの敵チャンピオンへの魔法ダメージに変える。"
         ],
         [
           "アイテム",
-          "帝国の指令で柱が速くなり、吹き飛ばした全員にマーク。リーライ クリスタル セプターでスロウを追加し、コズミック ドライブ、シュレリアの戦歌、フローズン ハートで柱がどんどん戻ってくる。"
+          "「スピリット ビサージュ」が回復を強化し、「リーライ クリスタル セプター」が柱で傷つけた敵をスロウにする。リーライ、「コズミック ドライブ」、「ワーモグ アーマー」で増加体力が2,000を超えるので、8秒間ダメージを受けないたびにワーモグが回復し、その回復が最寄りの敵を撃ち続ける。「リデンプション」で遠くからさらに回復。"
         ]
       ],
       "augments": [
+        "選択したスキルで敵チャンピオンに行動妨害またはグラウンドを与えると、追加ダメージを与えて自身の体力を回復する。",
+        "回復と体力自動回復の量の70%を、最寄りの敵チャンピオンに魔法ダメージとして与える。",
         "選択したスキルが周囲の範囲にダメージを与える。",
-        "Eのスキルヘイストが100増加する。",
-        "割合クールダウン短縮を獲得し、すべての攻撃速度をスキルヘイストに変換する。",
-        "自身のスロウ効果が移動速度をさらに75低下させる。"
+        "一定間隔で、敵チャンピオンへの次のスキル命中時に蜂の巣を飛ばす。巣は爆発し、短時間スロウ効果と魔法ダメージを与える。蜂は通常攻撃時効果を発動する。"
       ]
     },
     "ko": {
       "title": "스키비디 기둥",
-      "why": "트런들은 깨물기를 절대 쓰지 않습니다. 기둥이 항상 하나는 서 있을 때까지 얼음 기둥만 난사합니다.",
-      "play": "E 선마. 적 원딜 바로 밑에 기둥을 세우고, 이전 기둥이 녹기 전에 다음 기둥을 세우세요. Q도 우클릭도 절대 누르지 마세요.",
-      "tagline": "이제 아무도 안 깨뭅니다. 말은 기둥이 다 합니다.",
+      "why": "트런들이 근접 브루저를 그만두고 마법사처럼 싸웁니다: 얼음 기둥마다 그를 회복시키고, 주변 모두에게 피해를 주고 벌을 날리며, 모든 회복은 가장 가까운 적 챔피언을 지집니다.",
+      "play": "E를 먼저 마스터하세요. 적 원딜 위에 기둥을 세우고 물러나서 재생이 견제하게 두세요. Q는 절대 누르지 말고, 우클릭도 절대 하지 마세요.",
+      "tagline": "모든 기둥은 간식. 모든 간식은 가장 가까운 적을 때린다.",
       "how": [
         [
           "얼음 기둥",
-          "위에 선 적을 밀쳐내고 주변 모두를 6초 동안 둔화시키는 버튼. 원래는 피해를 전혀 주지 않습니다."
+          "위에 선 적을 밀쳐내고 주변 모두를 둔화시킵니다. 원래는 피해를 주지 않고 회복도 하지 않습니다."
         ],
         [
           "증강",
-          "얼음 기둥에 붙은 지형 생성됨으로 기둥이 주변 모두에게 피해를 줍니다. 빵과 치즈가 얼음 기둥에 스킬 가속 100을 주고, 순수주의자 - 마법사가 한 번도 안 쓰는 공격 속도를 더 많은 가속으로 바꿔 이전 기둥이 녹기 전에 다음 기둥이 섭니다. 차가운 냉기로 둔화가 잔인해집니다."
+          "굶주린 속박과 지형 생성됨을 둘 다 얼음 기둥에 받으면 밀쳐낼 때마다 트런들이 회복하고 기둥이 주변 모두에게 피해를 줍니다. 그 피해는 스킬 적중으로 치니 벌이다!!!가 계속 벌집을 날립니다. 죽음의 순환은 모든 회복의 70%와 체력 재생 전부를 가장 가까운 적 챔피언에게 마법 피해로 바꿉니다."
         ],
         [
           "아이템",
-          "제국의 명령이 기둥을 빠르게 하고 밀려난 모두에게 표식을 남기며, 라일라이의 수정홀이 둔화를 더하고, 우주의 추진력, 슈렐리아의 군가, 얼어붙은 심장이 기둥을 더 빨리 돌려줍니다."
+          "정령의 형상이 모든 회복을 늘리고 라일라이의 수정홀이 기둥에 맞은 모두를 둔화시킵니다. 라일라이, 우주의 추진력, 워모그의 갑옷으로 추가 체력이 2,000을 넘으니 8초간 맞지 않을 때마다 워모그가 회복시키고, 그 재생이 계속 가장 가까운 적을 지집니다. 구원으로 멀리서 한 번 더 회복합니다."
         ]
       ],
       "augments": [
+        "선택한 스킬로 적 챔피언에게 이동 불가 또는 이동기 사용 불가 효과를 적용하면 추가 피해를 입히고 체력을 회복합니다.",
+        "회복량과 체력 재생량의 70%만큼 가장 가까운 적 챔피언에게 마법 피해를 입힙니다.",
         "선택한 스킬이 주변 범위에 피해를 입힙니다.",
-        "E가 스킬 가속 100을 얻습니다.",
-        "재사용 대기시간이 일정 비율 감소하고 모든 공격 속도가 스킬 가속으로 전환됩니다.",
-        "둔화 효과가 이동 속도를 75 추가로 감소시킵니다."
+        "주기적으로 적 챔피언에게 다음 스킬을 적중시키면 벌집을 날려 폭발시키고, 잠시 동안 둔화와 마법 피해를 입힙니다. 벌은 적중 시 효과를 적용합니다."
       ]
     },
     "pl": {
       "title": "Skibidi Kolumna",
-      "why": "Trundle nigdy nie używa Chapsa. Spamuje Kolumnę Lodu, aż zawsze jakaś stoi.",
-      "play": "Najpierw maksuj E. Postaw kolumnę prosto pod wrogim carry, a następną, zanim stara się stopi. Nigdy nie wciskaj Q, nigdy nie klikaj prawym.",
-      "tagline": "Przestał gryźć ludzi. Teraz gada tylko kolumna.",
+      "why": "Trundle przestaje być wojownikiem do walki wręcz i gra jak mag: każda Kolumna Lodu leczy go, rani wszystko wokół i wypuszcza pszczoły, a każde leczenie trafia najbliższego wrogiego bohatera.",
+      "play": "Najpierw maksuj E. Stawiaj kolumny pod wrogim carry, potem cofnij się i pozwól regeneracji pokować. Nigdy nie wciskaj Q, nigdy nie klikaj prawym.",
+      "tagline": "Każda kolumna to przekąska. Każda przekąska trafia najbliższego wroga.",
       "how": [
         [
           "Kolumna Lodu",
-          "Przycisk, który odrzuca każdego, kto na nim stoi, i spowalnia wszystkich w pobliżu przez 6 sekund. Normalnie nie zadaje żadnych obrażeń."
+          "Odrzuca każdego, kto na niej stoi, i spowalnia wszystkich w pobliżu. Normalnie nie zadaje obrażeń i nigdy nie leczy."
         ],
         [
           "Wzmocnienia",
-          "Terenowość, wylosowana na Kolumnie Lodu, sprawia, że kolumna rani wszystko dookoła. Bułka z Serem daje Kolumnie Lodu 100 jedn. przyspieszenia umiejętności, a Purysta — mag zamienia prędkość ataku, której nigdy nie używa, w jeszcze więcej, więc następna kolumna staje, zanim stara się stopi. Zimny jak Lód sprawia, że spowolnienie jest brutalne."
+          "Krwiożercze Sidła i Terenowość, oba wylosowane na Kolumnie Lodu, sprawiają, że każde odrzucenie leczy Trundle'a, a kolumna rani wszystko wokół. Te obrażenia liczą się jako trafienie umiejętnością, więc PSZCZOŁY!!! ciągle wypuszczają ule. Krąg Śmierci zamienia 70% każdego leczenia i całą jego regenerację zdrowia w obrażenia magiczne dla najbliższego wrogiego bohatera."
         ],
         [
           "Przedmioty",
-          "Imperialny Mandat przyspiesza kolumnę i oznacza każdego, kogo odrzuci, Kryształowy Kostur Rylai dokłada spowolnienia, a Kosmiczny Impuls, Pieśń Bitewna Shurelyi i Mroźne Serce sprawiają, że każda kolumna wraca szybciej."
+          "Oblicze Ducha wzmacnia każde leczenie, a Kryształowy Kostur Rylai spowalnia każdego, kogo rani kolumna. Rylai, Kosmiczny Impuls i Plemienna Zbroja podnoszą jego dodatkowe zdrowie ponad 2000, więc Zbroja regeneruje go, gdy przez 8 sekund nikt go nie trafi, a ta regeneracja dalej razi najbliższego wroga. Odkupienie leczy go jeszcze raz z daleka."
         ]
       ],
       "augments": [
+        "Unieruchomienie lub uziemienie wrogich bohaterów wybraną umiejętnością zadaje dodatkowe obrażenia i cię leczy.",
+        "Twoje leczenie i regeneracja zdrowia zadają najbliższemu wrogiemu bohaterowi obrażenia magiczne równe 70% ich wartości.",
         "Wybrana umiejętność zadaje obrażenia na obszarze wokół siebie.",
-        "Twoje E zyskuje 100 jedn. przyspieszenia umiejętności.",
-        "Zyskaj procentowe skrócenie czasu odnowienia i zamień całą swoją prędkość ataku na przyspieszenie umiejętności.",
-        "Twoje spowolnienia zmniejszają prędkość ruchu o dodatkowe 75."
+        "Co jakiś czas twoje następne trafienie umiejętnością we wrogiego bohatera wypuszcza ul pszczół, który wybucha, spowalniając i zadając obrażenia magiczne przez krótki czas. Pszczoły nakładają efekty przy trafieniu."
       ]
     },
     "pt-BR": {
       "title": "Pilar Skibidi",
-      "why": "Trundle nunca usa Mordida. Ele spamma Pilar de Gelo até sempre ter um de pé.",
-      "play": "Upe E primeiro. Solte o pilar bem embaixo do carry inimigo e o próximo antes do antigo derreter. Nunca aperte Q, nunca clique com o botão direito.",
-      "tagline": "Ele parou de morder os outros. Agora quem fala é o pilar.",
+      "why": "Trundle deixa de ser um lutador corpo a corpo e joga como um mago: cada Pilar de Gelo o cura, fere tudo por perto e lança abelhas, e cada cura acerta o campeão inimigo mais próximo.",
+      "play": "Upe o E primeiro. Solte pilares no carry inimigo, depois recue e deixe a regeneração fazer o poke. Nunca aperte Q, nunca clique com o botão direito.",
+      "tagline": "Cada pilar é um lanchinho. Cada lanchinho acerta o inimigo mais próximo.",
       "how": [
         [
           "Pilar de Gelo",
-          "Um botão que empurra quem estiver em cima e deixa todo mundo por perto mais lento por 6 segundos. Normalmente não causa dano nenhum."
+          "Empurra quem estiver em cima e deixa todos por perto mais lentos. Normalmente não causa dano e nunca cura."
         ],
         [
           "Aumentos",
-          "Aterramento, sorteado no Pilar de Gelo, faz o pilar machucar tudo em volta. Pão com Queijo dá 100 de Aceleração de Habilidade ao Pilar de Gelo e Purista - Conjurador transforma a velocidade de ataque que ele nunca usa em ainda mais, então o próximo pilar cai antes do antigo derreter. Geladinho deixa a lentidão brutal."
+          "Vínculo Voraz e Aterramento, ambos sorteados no Pilar de Gelo, fazem cada empurrão curar o Trundle e o pilar ferir tudo ao redor. Esse dano conta como acerto de habilidade, então ABELHAS!!! não para de lançar colmeias. Círculo da Morte transforma 70% de cada cura e toda a sua Regeneração de Vida em dano mágico no campeão inimigo mais próximo."
         ],
         [
           "Itens",
-          "Mandato Imperial acelera o pilar e marca todo mundo que ele empurra, Cetro de Cristal de Rylai adiciona mais lentidão, e Ímpeto Cósmico, Hino Bélico de Shurelya e Coração Congelado fazem cada pilar voltar mais rápido."
+          "Semblante Espiritual aumenta cada cura e o Cetro de Cristal de Rylai deixa lento todo mundo que o pilar fere. Rylai, Ímpeto Cósmico e a Armadura de Warmog levam a Vida adicional dele acima de 2.000, então a Warmog o regenera sempre que ele passa 8 segundos sem ser atingido, e essa regeneração continua acertando o inimigo mais próximo. Redenção o cura de novo de longe."
         ]
       ],
       "augments": [
+        "Imobilizar ou Prender ao Chão campeões inimigos com a habilidade escolhida causa dano extra e cura você.",
+        "Suas curas e Regeneração de Vida causam 70% do valor como dano mágico no campeão inimigo mais próximo.",
         "Sua habilidade escolhida causa dano em uma área ao redor dela.",
-        "Seu E recebe 100 de Aceleração de Habilidade.",
-        "Receba redução percentual de recarga e converta toda a sua Velocidade de Ataque em Aceleração de Habilidade.",
-        "Suas lentidões reduzem a Velocidade de Movimento em 75 adicionais."
+        "Periodicamente, seu próximo acerto de Habilidade em um campeão inimigo lança uma colmeia de abelhas que explode, causando Lentidão e dano mágico por um curto período. As abelhas aplicam efeitos Ao Atingir."
       ]
     },
     "ro": {
       "title": "Stâlpul Skibidi",
-      "why": "Trundle nu folosește niciodată Mușcătură. Dă spam cu Stâlp de gheață până când există mereu unul în picioare.",
-      "play": "Maximizează E primul. Pune stâlpul fix sub carry-ul inamic și pe următorul înainte să se topească cel vechi. Nu apăsa niciodată Q, nu da niciodată click dreapta.",
-      "tagline": "Nu mai mușcă pe nimeni. Acum vorbește doar stâlpul.",
+      "why": "Trundle nu mai e un luptător corp la corp și se joacă precum un mag: fiecare Stâlp de gheață îl vindecă, rănește tot ce e în jur și lansează albine, iar fiecare vindecare lovește cel mai apropiat campion inamic.",
+      "play": "Maximizează E prima dată. Pune stâlpi sub carry-ul inamic, apoi dă-te înapoi și lasă regenerarea să facă poke. Nu apăsa niciodată Q, nu da niciodată click dreapta.",
+      "tagline": "Fiecare stâlp e o gustare. Fiecare gustare lovește cel mai apropiat inamic.",
       "how": [
         [
           "Stâlp de gheață",
-          "Un buton care respinge pe oricine stă pe el și încetinește pe toată lumea din jur timp de 6 secunde. În mod normal nu provoacă deloc daune."
+          "Împinge pe oricine stă pe el și încetinește pe toți din apropiere. În mod normal nu provoacă daune și nu vindecă niciodată."
         ],
         [
           "Augmentări",
-          "Teren special, primit pe Stâlp de gheață, face stâlpul să rănească tot ce e în jur. În al doilea rând îi dă Stâlpului de gheață 100 grabă abilități, iar Purist – Mag transformă viteza de atac pe care nu o folosește niciodată în și mai mult, așa că următorul stâlp apare înainte să se topească cel vechi. Rece ca gheața face încetinirea brutală."
+          "Legătură lacomă și Teren special, ambele primite pe Stâlp de gheață, fac ca fiecare împingere să-l vindece pe Trundle, iar stâlpul să rănească tot ce e în jur. Aceste daune contează ca lovitură cu abilitate, așa că ALBINE!!! lansează stupi întruna. Cercul morții transformă 70% din fiecare vindecare și toată regenerarea lui de viață în daune magice asupra celui mai apropiat campion inamic."
         ],
         [
           "Obiecte",
-          "Decret imperial grăbește stâlpul și marchează pe toți cei respinși, Sceptrul de cristal al lui Rylai adaugă încetinire, iar Avânt cosmic, Cântecul de luptă al Shurelyei și Inimă înghețată aduc fiecare stâlp înapoi mai repede."
+          "Înfățișarea sufletului amplifică fiecare vindecare, iar Sceptrul de cristal al lui Rylai încetinește pe toți cei răniți de stâlp. Rylai, Avânt cosmic și Armura lui Warmog îi duc viața bonus peste 2.000, așa că Warmog îl regenerează oricând trec 8 secunde fără să fie lovit, iar regenerarea continuă să lovească cel mai apropiat inamic. Izbăvire îl vindecă din nou de la distanță."
         ]
       ],
       "augments": [
+        "Imobilizarea sau țintuirea la sol a campionilor inamici cu abilitatea aleasă provoacă daune suplimentare și te vindecă.",
+        "Vindecările și regenerarea ta de viață provoacă 70% din valoare ca daune magice celui mai apropiat campion inamic.",
         "Abilitatea aleasă provoacă daune într-o zonă din jurul ei.",
-        "E-ul tău primește 100 grabă abilități.",
-        "Primești reducere procentuală a timpului de reactivare și îți transformi toată viteza de atac în accelerare a abilităților.",
-        "Încetinirile tale reduc viteza de mișcare cu încă 75."
+        "Periodic, următoarea ta lovitură cu abilitate asupra unui campion inamic lansează un stup de albine care explodează, încetinind și provocând daune magice pe o durată scurtă. Albinele aplică efectele la impact."
       ]
     },
     "ru": {
       "title": "Скибиди-столп",
-      "why": "Трандл никогда не использует Укус. Он спамит Ледяной столп, пока хоть один всегда стоит.",
-      "play": "Сначала прокачай E. Ставь столп прямо под вражеского керри, а следующий — до того, как растает старый. Никогда не жми Q и не кликай правой кнопкой.",
-      "tagline": "Он больше никого не кусает. Теперь за него говорит столп.",
+      "why": "Трандл перестает быть брузером ближнего боя и играет как маг: каждый Ледяной столп лечит его, ранит всех вокруг и выпускает пчел, а каждое лечение бьет ближайшего вражеского чемпиона.",
+      "play": "Сначала качайте E. Ставьте столпы на вражеского керри, потом отходите и пусть регенерация покает. Никогда не жмите Q и не кликайте правой кнопкой.",
+      "tagline": "Каждый столп — перекус. Каждый перекус бьет ближайшего врага.",
       "how": [
         [
           "Ледяной столп",
-          "Кнопка, которая отбрасывает всех, кто стоит сверху, и замедляет всех рядом на 6 секунд. Обычно она вообще не наносит урона."
+          "Отбрасывает того, кто на нем стоит, и замедляет всех вокруг. Обычно не наносит урона и никогда не лечит."
         ],
         [
           "Аугменты",
-          "Угроза снизу, выпавшая на Ледяной столп, заставляет столп ранить всё вокруг. Хлеб с сыром даёт Ледяному столпу 100 ед. ускорения умений, а Принципиальность – умения превращает скорость атаки, которой он не пользуется, в ещё большее, так что новый столп встаёт до того, как растает старый. Дикий холод делает замедление жестоким."
+          "Алчущие оковы и Угроза снизу, оба выпавшие на Ледяной столп, заставляют каждый толчок лечить Трандла, а столп — ранить всех вокруг. Этот урон считается попаданием умения, так что ПЧЕЛЫ! постоянно запускают ульи. Цикл смерти превращает 70% каждого лечения и всю его регенерацию здоровья в магический урон по ближайшему вражескому чемпиону."
         ],
         [
           "Предметы",
-          "Имперский мандат ускоряет столп и помечает всех, кого он отбросил, Хрустальный скипетр Рилай добавляет замедление, а Космический ускоритель, Боевая песнь Шурелии и Ледяное сердце быстрее возвращают каждый столп."
+          "Облачение духов усиливает каждое лечение, а Хрустальный скипетр Рилай замедляет всех, кого ранит столп. Рилай, Космический ускоритель и Доспех Вармога поднимают его дополнительное здоровье выше 2000, так что Вармог восстанавливает его каждый раз, когда он 8 секунд не получает урона, и эта регенерация продолжает бить ближайшего врага. Искупление лечит его еще раз издалека."
         ]
       ],
       "augments": [
+        "Обездвиживание или приземление вражеских чемпионов выбранным умением наносит дополнительный урон и лечит вас.",
+        "Ваше лечение и регенерация здоровья наносят ближайшему вражескому чемпиону магический урон, равный 70% восстановленного.",
         "Выбранное умение наносит урон в области вокруг себя.",
-        "Ваше E получает 100 ед. ускорения умений.",
-        "Получите процентное сокращение перезарядки и преобразуйте всю скорость атаки в ускорение умений.",
-        "Ваши замедления снижают скорость передвижения еще на 75."
+        "Периодически ваше следующее попадание умением по вражескому чемпиону запускает улей пчел, который взрывается, замедляя и нанося магический урон в течение короткого времени. Пчелы применяют эффекты при попадании."
       ]
     },
     "th": {
       "title": "เสาสกิบิดี้",
-      "why": "Trundle ไม่เคยใช้ Chomp เลย เขากด Pillar of Ice รัว ๆ จนมีเสาตั้งอยู่ตลอดเวลา",
-      "play": "อัป E ก่อน วางเสาใต้ตัวแครี่ศัตรูพอดี แล้ววางเสาต่อไปก่อนเสาเก่าละลาย ห้ามกด Q และห้ามคลิกขวาเด็ดขาด",
-      "tagline": "เขาเลิกกัดคนแล้ว ตอนนี้เสาพูดแทนทุกอย่าง",
+      "why": "Trundle เลิกเป็นนักสู้ระยะประชิดแล้วเล่นเหมือนเมจ: ทุก Pillar of Ice ฮีลเขา สร้างความเสียหายรอบตัว และปล่อยผึ้ง และทุกการฮีลจะช็อตแชมเปี้ยนศัตรูที่ใกล้ที่สุด",
+      "play": "อัป E ให้สุดก่อน วางเสาใต้แครี่ศัตรู แล้วถอยออกมาให้การฟื้นฟูทำหน้าที่ก่อกวน ห้ามกด Q ห้ามคลิกขวาเด็ดขาด",
+      "tagline": "ทุกเสาคือขนม ทุกขนมโจมตีศัตรูที่ใกล้ที่สุด",
       "how": [
         [
           "Pillar of Ice",
-          "ปุ่มที่ผลักคนที่ยืนอยู่บนมันกระเด็นและทำให้ทุกคนรอบ ๆ ช้าลง 6 วินาที ปกติแล้วไม่สร้างดาเมจเลยสักนิด"
+          "ผลักทุกคนที่ยืนอยู่บนเสาและทำให้ทุกคนรอบ ๆ ช้าลง ปกติไม่สร้างความเสียหายและไม่ฮีลเลย"
         ],
         [
           "Augment",
-          "Terrain'd ที่สุ่มได้บน Pillar of Ice ทำให้เสาทำดาเมจทุกอย่างรอบตัว Bread and Cheese ให้ Pillar of Ice 100 Ability Haste และ Purist - Caster เปลี่ยนความเร็วโจมตีที่เขาไม่เคยใช้เป็นฮาสต์เพิ่มอีก เสาใหม่จึงลงก่อนเสาเก่าละลาย Ice Cold ทำให้สโลว์โหดสุด ๆ"
+          "Ravenous Bind และ Terrain'd ที่สุ่มได้บน Pillar of Ice ทั้งคู่ ทำให้ทุกการผลักฮีล Trundle และเสาสร้างความเสียหายรอบตัว ความเสียหายนั้นนับเป็นการโดนสกิล BEES!!! จึงปล่อยรังผึ้งไม่หยุด Circle of Death เปลี่ยน 70% ของทุกการฮีลและ Health Regen ทั้งหมดของเขาเป็นความเสียหายเวทใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด"
         ],
         [
           "ไอเทม",
-          "Imperial Mandate ทำให้เสาเร็วขึ้นและมาร์กทุกคนที่โดนผลัก Rylai's Crystal Scepter เพิ่มสโลว์ ส่วน Cosmic Drive, Shurelya's Battlesong และ Frozen Heart ทำให้เสาแต่ละอันกลับมาเร็วขึ้น"
+          "Spirit Visage เพิ่มทุกการฮีล และ Rylai's Crystal Scepter ทำให้ทุกคนที่โดนเสาช้าลง Rylai's, Cosmic Drive และ Warmog's Armor ดัน Health โบนัสของเขาเกิน 2,000 Warmog's จึงฟื้นฟูเขาทุกครั้งที่ไม่โดนโจมตี 8 วินาที และการฟื้นฟูนั้นจะช็อตศัตรูที่ใกล้ที่สุดต่อไป Redemption ฮีลเขาอีกครั้งจากระยะไกล"
         ]
       ],
       "augments": [
+        "การ Immobilize หรือ Ground แชมเปี้ยนศัตรูด้วยสกิลที่เลือกจะสร้างดาเมจเพิ่มและฮีลคุณ",
+        "การฮีลและการฟื้นฟูพลังชีวิตของคุณสร้างความเสียหายเวท 70% ของค่านั้นใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด",
         "สกิลที่คุณเลือกสร้างดาเมจเป็นวงรอบตัวมัน",
-        "E ของคุณได้รับ Ability Haste 100",
-        "รับการลดคูลดาวน์เป็นเปอร์เซ็นต์ และแปลง Attack Speed ทั้งหมดเป็น Ability Haste",
-        "เอฟเฟกต์สโลว์ของคุณลดความเร็วเคลื่อนที่เพิ่มอีก 75"
+        "เป็นระยะ ๆ การโจมตีด้วยสกิลครั้งถัดไปใส่แชมเปี้ยนศัตรูจะปล่อยรังผึ้งที่ระเบิด ทำให้ช้าลงและสร้างความเสียหายเวทในช่วงเวลาสั้น ๆ ผึ้งใช้เอฟเฟกต์ On-Hit"
       ]
     },
     "tr": {
       "title": "Skibidi Sütun",
-      "why": "Trundle asla Kopar kullanmaz. Hep bir tane ayakta kalana kadar Buzdan Sütun spamlar.",
-      "play": "Önce E'yi maksla. Sütunu tam rakip carry'nin altına koy, eskisi erimeden yenisini dik. Asla Q'ya basma, asla sağ tıklama.",
-      "tagline": "Artık kimseyi ısırmıyor. Konuşmayı sütun yapıyor.",
+      "why": "Trundle yakın dövüş dövüşçüsü olmayı bırakıp büyücü gibi oynuyor: Her Buzdan Sütun onu iyileştiriyor, yakındaki her şeye hasar veriyor ve arı fırlatıyor, her iyileşme de en yakın rakip şampiyona vuruyor.",
+      "play": "Önce E'yi fulle. Sütunları rakip carry'nin üstüne koy, sonra geri çekil ve dürtmeyi yenilenmeye bırak. Asla Q'ya basma, asla sağ tıklama.",
+      "tagline": "Her sütun bir atıştırmalık. Her atıştırmalık en yakın rakibe vuruyor.",
       "how": [
         [
           "Buzdan Sütun",
-          "Üstünde durana geri itme uygulayan ve yakındaki herkesi 6 saniye yavaşlatan bir tuş. Normalde hiç hasar vermez."
+          "Üstünde duranı geri iter ve yakındaki herkesi yavaşlatır. Normalde hasar vermez ve asla iyileştirmez."
         ],
         [
           "Güçlendirmeler",
-          "Buzdan Sütun'a gelen Yüzey Şeklinç, sütunun etrafındaki her şeye hasar vermesini sağlar. Peynirli Ekmek Buzdan Sütun'a 100 Yetenek Hızı verir, Saf Yetenek de hiç kullanmadığı saldırı hızını daha fazlasına çevirir; böylece eskisi erimeden yeni sütun iner. Buz Gibi yavaşlatmayı acımasız yapar."
+          "Açgözlü Bağ ve Yüzey Şeklinç, ikisi de Buzdan Sütun'a gelmişken, her itiş Trundle'ı iyileştirir ve sütun etrafındaki her şeye hasar verir. Bu hasar yetenek isabeti sayılır, yani ARILAR!!! sürekli kovan fırlatır. Ölüm Döngüsü her iyileşmenin %70'ini ve tüm Can Yenilenmesini en yakın rakip şampiyona büyü hasarı olarak çevirir."
         ],
         [
           "Eşyalar",
-          "İmparatorun Fermanı sütunu hızlandırır ve geri ittiği herkesi işaretler, Rylai'nin Kristal Asası daha çok yavaşlatma ekler, Kozmik Hızlandırıcı, Shurelya'nın Savaş Şarkısı ve Donmuş Yürek de her sütunu daha hızlı geri getirir."
+          "Ruh Gömleği her iyileşmeyi güçlendirir, Rylai'nin Kristal Asası da sütunun vurduğu herkesi yavaşlatır. Rylai, Kozmik Hızlandırıcı ve Warmog'un Zırhı ek canını 2.000'in üstüne çıkarır, böylece Warmog 8 saniye hasar almadığı her an onu yeniler ve bu yenilenme en yakın rakibe vurmaya devam eder. Kefaret onu uzaktan bir kez daha iyileştirir."
         ]
       ],
       "augments": [
+        "Seçilen yetenekle rakip şampiyonları etkisiz bırakmak veya yere çakmak ek hasar verir ve seni iyileştirir.",
+        "İyileştirmelerin ve Can Yenilemen, değerin %70'i kadar büyü hasarını en yakın rakip şampiyona verir.",
         "Seçtiğin yetenek etrafındaki bir alana hasar verir.",
-        "E yeteneğin 100 Yetenek Hızı kazanır.",
-        "Yüzdesel bekleme süresi azaltma kazan ve tüm saldırı hızını yetenek hızına çevir.",
-        "Yavaşlatma etkilerin hareket hızını 75 daha azaltır."
+        "Belirli aralıklarla, rakip bir şampiyona yaptığın bir sonraki Yetenek isabeti patlayan bir arı kovanı fırlatır, kısa süre boyunca Yavaşlatır ve büyü hasarı verir. Arılar isabet etkilerini uygular."
       ]
     },
     "vi": {
       "title": "Cột Skibidi",
-      "why": "Trundle không bao giờ dùng Nhai Nuốt. Anh spam Cột Băng đến khi lúc nào cũng có một cột đứng.",
-      "play": "Nâng E trước. Dựng cột ngay dưới chân carry địch và cột tiếp theo trước khi cột cũ tan. Đừng bao giờ bấm Q, đừng bao giờ click chuột phải.",
-      "tagline": "Anh không cắn ai nữa. Giờ cái cột lo hết.",
+      "why": "Trundle thôi làm đấu sĩ cận chiến và chơi như pháp sư: mỗi Cột Băng hồi máu cho hắn, gây sát thương mọi thứ xung quanh và phóng ong, và mỗi lần hồi máu lại giật vào tướng địch gần nhất.",
+      "play": "Tối đa E trước. Thả cột lên xạ thủ địch, rồi lùi lại để hồi máu tự cấu rỉa. Đừng bao giờ bấm Q, đừng bao giờ click chuột phải.",
+      "tagline": "Mỗi cột là một món ăn vặt. Mỗi món ăn vặt đánh trúng kẻ địch gần nhất.",
       "how": [
         [
           "Cột Băng",
-          "Một nút hất lùi bất kỳ ai đứng trên nó và làm chậm mọi người xung quanh trong 6 giây. Bình thường nó không gây chút sát thương nào."
+          "Đẩy lùi kẻ đứng trên nó và làm chậm mọi người xung quanh. Bình thường nó không gây sát thương và không bao giờ hồi máu."
         ],
         [
           "Lõi nâng cấp",
-          "Kiến Tạo Địa Hình, đặt vào Cột Băng, khiến cột gây sát thương mọi thứ xung quanh. Bánh Mỳ & Phô-mai cho Cột Băng 100 Điểm Hồi Kỹ Năng và Thuần Pháp - Thuật Sư biến tốc độ đánh anh không bao giờ dùng thành nhiều hơn nữa, nên cột mới đã xuống trước khi cột cũ tan. Băng Lạnh khiến hiệu ứng làm chậm cực gắt."
+          "Lòng Tham Trói Buộc và Kiến Tạo Địa Hình, cả hai đều rơi vào Cột Băng, khiến mỗi lần hất hồi máu cho Trundle và cột gây sát thương xung quanh. Sát thương đó tính là đòn kỹ năng, nên ONG KÌA!!! liên tục bắn tổ ong. Vòng Tròn Tử Thần biến 70% mỗi lần hồi máu và toàn bộ Hồi Máu của hắn thành sát thương phép lên tướng địch gần nhất."
         ],
         [
           "Trang bị",
-          "Trát Lệnh Đế Vương làm cột nhanh hơn và đánh dấu mọi kẻ bị hất lùi, Trượng Pha Lê Rylai thêm làm chậm, còn Động Cơ Vũ Trụ, Vương Miện Shurelya và Tim Băng giúp mỗi cột hồi lại nhanh hơn."
+          "Giáp Tâm Linh tăng mọi lượng hồi máu và Trượng Pha Lê Rylai làm chậm mọi kẻ bị cột gây sát thương. Rylai, Động Cơ Vũ Trụ và Giáp Máu Warmog đẩy Máu cộng thêm của hắn vượt 2.000, nên Giáp Máu hồi máu cho hắn mỗi khi 8 giây không bị đánh, và lượng hồi đó tiếp tục giật vào kẻ địch gần nhất. Dây Chuyền Chuộc Tội hồi máu cho hắn thêm lần nữa từ xa."
         ]
       ],
       "augments": [
+        "Làm bất động hoặc Trói Chân tướng địch bằng kỹ năng đã chọn gây thêm sát thương và hồi máu cho bạn.",
+        "Lượng hồi máu và Hồi Máu của bạn gây sát thương phép bằng 70% giá trị lên tướng địch gần nhất.",
         "Kỹ năng bạn chọn gây sát thương trong một vùng xung quanh nó.",
-        "E của bạn nhận 100 Điểm Hồi Kỹ Năng.",
-        "Nhận giảm thời gian hồi chiêu theo phần trăm và chuyển toàn bộ tốc độ đánh thành điểm hồi kỹ năng.",
-        "Hiệu ứng làm chậm của bạn giảm thêm 75 tốc độ di chuyển."
+        "Định kỳ, đòn Kỹ năng tiếp theo trúng tướng địch sẽ phóng ra một tổ ong phát nổ, làm Chậm và gây sát thương phép trong thời gian ngắn. Ong áp dụng hiệu ứng Trên Đòn Đánh."
       ]
     },
     "zh-CN": {
       "title": "斯奇必迪冰柱",
-      "why": "特朗德尔从不用利齿撕咬。他狂按寒冰之柱，直到场上永远立着一根柱子。",
-      "play": "主升E。把冰柱直接放在敌方C位脚下，在旧柱子融化前放下一根。永远别按Q，永远别点右键。",
-      "tagline": "他不咬人了。现在全靠冰柱说话。",
+      "why": "特朗德尔不再当近战战士，而是像法师一样玩：每根寒冰之柱都会治疗他、伤害周围一切并放出蜜蜂，而每次治疗都会电击最近的敌方英雄。",
+      "play": "主E。把柱子放在敌方核心脚下，然后后退，让回血去消耗。永远别按Q，永远别右键。",
+      "tagline": "每根柱子都是零食。每份零食都打最近的敌人。",
       "how": [
         [
           "寒冰之柱",
-          "一个能击退站在上面的人、并减速附近所有人6秒的按键。平时完全不造成伤害。"
+          "击退站在上面的敌人并减速周围所有人。平时它不造成伤害，也从不治疗。"
         ],
         [
           "海克斯强化",
-          "随机到寒冰之柱上的地形专家让柱子伤害周围的一切。面包和奶酪给寒冰之柱100技能急速，纯粹主义者 - 术师把他从不使用的攻击速度变成更多急速，所以旧柱子融化前新柱子就到了。冰寒让减速变得残暴。"
+          "贪欲束缚和地形专家都随机到寒冰之柱时，每次击退都会治疗特朗德尔，柱子还会伤害周围一切。这份伤害算作技能命中，所以小蜜蜂！！！会不停放出蜂巢。死亡之环把每次治疗的70%和他全部的生命回复转化为对最近敌方英雄的魔法伤害。"
         ],
         [
           "装备",
-          "帝国指令让冰柱更快，并标记每一个被击退的人，瑞莱的冰晶节杖增加减速，星界驱驰、舒瑞娅的战歌和冰霜之心让每根柱子更快回来。"
+          "振奋盔甲强化每次治疗，瑞莱的冰晶节杖减速被柱子伤到的所有人。瑞莱、星界驱驰和狂徒铠甲让他的额外生命值超过2000，所以只要8秒没挨打，狂徒就会给他回血，而这份回血会持续电击最近的敌人。救赎还能从远处再奶他一口。"
         ]
       ],
       "augments": [
+        "使用所选技能对敌方英雄施加定身或禁锢效果，会造成额外伤害并治疗你。",
+        "你的治疗和生命回复会对最近的敌方英雄造成相当于该数值70%的魔法伤害。",
         "你选择的技能会对其周围区域造成伤害。",
-        "你的E获得100技能急速。",
-        "获得百分比冷却缩减，并将你的全部攻击速度转化为技能急速。",
-        "你的减速效果额外降低75移动速度。"
+        "周期性地，你对敌方英雄的下一次技能命中会发射一个蜂巢，蜂巢爆炸，在短时间内造成减速和魔法伤害。蜜蜂会施加攻击特效。"
       ]
     },
     "zh-TW": {
       "title": "斯奇必迪冰柱",
-      "why": "特朗德從不用狂野撕咬。他狂按狡詰冰柱，直到場上永遠立著一根柱子。",
-      "play": "主升E。把冰柱直接放在敵方核心腳下，在舊柱子融化前放下一根。永遠別按Q，永遠別點右鍵。",
-      "tagline": "他不咬人了。現在全靠冰柱說話。",
+      "why": "特朗德不再當近戰鬥士，而是像法師一樣玩：每根狡詰冰柱都會治療他、傷害周圍一切並放出蜜蜂，而每次治療都會電擊最近的敵方英雄。",
+      "play": "主E。把冰柱放在敵方核心腳下，然後後退，讓回血去消耗。永遠別按Q，永遠別右鍵。",
+      "tagline": "每根冰柱都是零食。每份零食都打最近的敵人。",
       "how": [
         [
           "狡詰冰柱",
-          "一個能擊退站在上面的人、並緩速附近所有人6秒的按鍵。平常完全不造成傷害。"
+          "擊退站在上面的敵人並緩速周圍所有人。平時它不造成傷害，也從不治療。"
         ],
         [
           "強化",
-          "隨機到狡詰冰柱上的劃地為王讓柱子傷害周圍的一切。土司和起司給狡詰冰柱100技能加速，純粹 - 法師把他從不使用的攻擊速度變成更多加速，所以舊柱子融化前新柱子就到了。雪地踱步讓緩速變得殘暴。"
+          "貪婪束縛和劃地為王都抽到狡詰冰柱時，每次擊退都會治療特朗德，冰柱還會傷害周圍一切。這份傷害算作技能命中，所以蜜蜂來襲！！！會不停放出蜂巢。死亡循環把每次治療的70%和他全部的生命回復轉化為對最近敵方英雄的魔法傷害。"
         ],
         [
           "裝備",
-          "帝王命令讓冰柱更快，並標記每一個被擊退的人，瑞萊的冰晶節杖增加緩速，星河馳騁、蘇瑞亞的戰歌和冰霜之心讓每根柱子更快回來。"
+          "振奮盔甲強化每次治療，瑞萊的冰晶節杖緩速被冰柱傷到的所有人。瑞萊、星河馳騁和好戰者鎧甲讓他的額外生命超過2000，所以只要8秒沒挨打，好戰者就會幫他回血，而這份回血會持續電擊最近的敵人。贖罪神石還能從遠處再補他一口。"
         ]
       ],
       "augments": [
+        "使用所選技能對敵方英雄施加定身或禁錮效果，會造成額外傷害並治療你。",
+        "你的治療和生命回復會對最近的敵方英雄造成相當於該數值70%的魔法傷害。",
         "你選擇的技能會對其周圍區域造成傷害。",
-        "你的E獲得100技能加速。",
-        "獲得百分比冷卻縮減，並將所有攻擊速度轉換為技能急速。",
-        "你的減速效果額外降低75移動速度。"
+        "週期性地，你對敵方英雄的下一次技能命中會發射一個蜂巢，蜂巢爆炸，在短時間內造成緩速和魔法傷害。蜜蜂會施加攻擊特效。"
       ]
     }
   }

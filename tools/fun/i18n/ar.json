@@ -377,16 +377,16 @@
  "Gain 20% Heal and Shield Power.": "اكتسب 20% من قوة الشفاء والدرع.",
  "Gain Ultimate Ability Haste.": "اكتسب تسريع القدرة الخارقة.",
  "Skibidi Pillar": "عمود سكيبيدي",
- "Trundle never uses Chomp. He spams Pillar of Ice until there is never a moment without one standing.": "ترندل لا يستخدم العضة أبدًا. يكرر عمود الجليد حتى يبقى عمود قائمًا دائمًا.",
- "Max E first. Drop the pillar right under the enemy carry and have the next one down before it melts. Never press Q, never right-click.": "طوّر E أولًا. ضع العمود تحت حامل الضرر الخصم مباشرة، والتالي قبل أن يذوب القديم. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
- "He stopped biting people. The pillar does all the talking now.": "توقف عن عض الناس. العمود هو من يتكلم الآن.",
+ "Trundle quits being a melee bruiser and plays like a mage: every Pillar of Ice heals him, hurts everything nearby and launches bees, and every heal zaps the closest enemy champion.": "يتوقف ترندل عن كونه مقاتلًا قريبًا ويلعب كساحر: كل عمود الجليد يشفيه ويؤذي كل ما حوله ويطلق النحل، وكل شفاء يصعق أقرب بطل عدو.",
+ "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.": "ارفع E أولًا. ضع الأعمدة على حامل الفريق المعادي، ثم تراجع ودع التجدد يقوم بالمناوشة. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
+ "Every pillar is a snack. Every snack hits the nearest enemy.": "كل عمود وجبة خفيفة. وكل وجبة خفيفة تضرب أقرب عدو.",
  "Pillar of Ice": "عمود الجليد",
- "A button that knocks back whoever stands on it and slows everyone nearby for 6 seconds. It normally deals no damage at all.": "زر يدفع كل من يقف فوقه ويبطئ كل من حوله لمدة 6 ثوانٍ. في العادة لا يسبب أي ضرر إطلاقًا.",
- "Terrain'd, rolled on Pillar of Ice, makes the pillar hurt everything around it. Bread and Cheese gives Pillar of Ice 100 ability haste and Purist - Caster turns the attack speed he never uses into even more, so the next pillar lands before the last one melts. Ice Cold makes the slow brutal.": "سلاح التضاريس على عمود الجليد يجعل العمود يؤذي كل ما حوله. خبز وجبنة يمنح عمود الجليد 100 تسارع مهارات، والنقيّ - ملقي التعويذات يحوّل سرعة الهجوم التي لا يستخدمها أبدًا إلى المزيد، فيسقط العمود التالي قبل أن يذوب القديم. بارد كالثلج يجعل الإبطاء وحشيًا.",
- "Imperial Mandate speeds up the pillar and marks everyone it knocks back, Rylai's adds more slow, and Cosmic Drive, Shurelya's and Frozen Heart make every pillar come back faster.": "الوصاية الإمبراطورية تسرّع العمود وتَسِم كل من يدفعه، وصولجان كريستال رايلاي يضيف إبطاءً، والحافز الكوني ونشيد معركة شوريليا والقلب المتجمد تعيد كل عمود أسرع.",
+ "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals.": "يدفع من يقف عليه ويبطئ كل من حوله. عادةً لا يسبب أي ضرر ولا يشفي أبدًا.",
+ "Ravenous Bind and Terrain'd, both rolled on Pillar of Ice, make each knock heal Trundle and the pillar hurt everything around it. That damage counts as an ability hit, so BEES!!! keep launching hives off it. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion.": "القيود المفترسة وسلاح التضاريس، وكلاهما على عمود الجليد، يجعلان كل دفعة تشفي ترندل والعمود يؤذي كل ما حوله. هذا الضرر يُحسب إصابة بقدرة، لذا يطلق النحل!!! الخلايا باستمرار. حلقة الموت تحوّل 70% من كل شفاء وكل تجدد الصحة لديه إلى ضرر سحري على أقرب بطل عدو.",
+ "Spirit Visage boosts every heal and Rylai's slows everyone the pillar hurts. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away.": "وجه الروح يعزز كل شفاء، وصولجان كريستال رايلاي يبطئ كل من يؤذيه العمود. رايلاي والحافز الكوني ودرع وارموغ ترفع صحته الإضافية فوق 2,000، لذا يجدده درع وارموغ كلما مرت 8 ثوانٍ دون أن يُصاب، ويستمر هذا التجدد في ضرب أقرب عدو. الافتداء يشفيه مرة أخرى من بعيد.",
  "Your chosen ability deals damage in an area around it.": "القدرة التي اخترتها تسبب ضررًا في منطقة حولها.",
  "Off-menu": "خارج القائمة",
  "Uses augments {champion} isn't normally offered. Just for fun: it may never come together in a real game.": "يستخدم معززات لا تُعرض عادةً على {champion}. للمتعة فقط: قد لا تكتمل هذه البنية أبدًا في مباراة حقيقية.",
  "On the menu": "على القائمة",
- "Your E gains 100 Ability Haste.": "تحصل مهارة E على 100 تسارع مهارات."
+ "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.": "بشكل دوري، تطلق إصابتك التالية بقدرة على بطل عدو خلية نحل تنفجر، فتبطئ وتسبب ضررًا سحريًا لمدة قصيرة. النحل يطبق تأثيرات عند الإصابة."
 }
