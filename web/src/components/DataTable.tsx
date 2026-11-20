@@ -299,9 +299,18 @@ export default function DataTable({
 }) {
   // Every stat in one table: the advanced columns, when given, are the table's columns (Nico 2026-10-20).
   // On phones the extra ones drop out so the main numbers fit, unless Settings > Page detail is "Detailed".
-  const detailed = useAdvanced();
+  // Since 2026-11-20 (Nico: niche stats folded until opened) the extra columns are hidden on every screen until
+  // the table's "More columns" button or Settings > Page detail = "Detailed" opens them.
+  const detailedSetting = useAdvanced();
+  const [more, setMore] = useState(false);
+  const detailed = detailedSetting || more;
+  const extraCount = advancedColumns ? advancedColumns.filter((c) => !standardColumns.some((s) => s.key === c.key)).length : 0;
   const columns = useMemo(() => {
     if (!advancedColumns) return standardColumns;
+    if (!detailed) {
+      const keys = new Set(standardColumns.map((c) => c.key));
+      return advancedColumns.filter((c) => keys.has(c.key)).map((c) => ({ ...c, phone: standardColumns.find((s) => s.key === c.key)?.phone ?? c.phone }));
+    }
     // A column in the standard set keeps its phone setting from there.
     const standard = new Map(standardColumns.map((c) => [c.key, c]));
     return advancedColumns.map((c) => {
@@ -415,7 +424,18 @@ export default function DataTable({
 
   return (
     <div className={fit ? "data-table fit" : "data-table"} ref={box} {...KEPT}>
-      {fit ? <div className="table-tools">{search}</div> : search}
+      {extraCount > 0 && !detailedSetting ? (
+        <div className="table-tools">
+          {search}
+          <button type="button" className="table-more" aria-expanded={more} onClick={() => setMore((m) => !m)}>
+            {more ? t("Fewer columns") : t("More columns ({n})", { n: extraCount })}
+          </button>
+        </div>
+      ) : fit ? (
+        <div className="table-tools">{search}</div>
+      ) : (
+        search
+      )}
       <div className="table-scroll">
         <table ref={tableRef}>
           <thead>

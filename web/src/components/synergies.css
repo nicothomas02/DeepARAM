@@ -78,7 +78,7 @@
 }
 .syn-th {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 .syn-th span:nth-child(n + 3),
@@ -174,7 +174,7 @@ a.syn-what:hover .syn-name {
   border-radius: 999px;
   background: var(--raised);
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 .syn-few-tag {
@@ -209,7 +209,7 @@ a.syn-what:hover .syn-name {
 .syn-note {
   margin: 0;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: 0.875rem;
 }
 /* Full builds: six icons wrap to two rows of three so the name keeps room. */
 @media (max-width: 560px) {
