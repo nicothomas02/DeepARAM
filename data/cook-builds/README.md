@@ -91,6 +91,10 @@ Tests pass.
 - **Haste goals** (Nico, 2026-11-20). The min-max goal comes first, but even when cooldown speed is the goal,
   plain haste augments (Purist - Caster, Recursion, Infinite Recursion, Eureka, Bread) are usually the weakest pick:
   Overloaded or Archmage on the right champion, or Ethereal Weapon + Mystic Punch, are usually worth more.
+- **Mechanics notes** (League wiki + Nico, 2026-11-20). Archmage: each ability cast takes 30% of the *cast*
+  ability's *base* (unhasted) cooldown off another, randomly picked ability; summoner spells are never picked. The
+  refund ignores haste, so long base cooldowns feed it best. Overloaded: the chosen ability resets whenever a
+  different ability is cast. When the text or wiki leaves a mechanic unclear, ask Nico (he wants these questions).
 - **Rare items too.** Items should be almost never built on that champion (`data/cn/builds/<champion id>.json`);
   at most ONE item the champion already builds often (boots don't count).
 - **Ability slots.** Bread And Butter / Jam / Cheese always affect Q / W / E; other ability augments
