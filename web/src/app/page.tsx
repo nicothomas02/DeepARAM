@@ -71,7 +71,10 @@ const PILLARS: [string, string][] = [
     "Data science, not raw counts",
     "DeepScore weighs sample size, shows how sure it is, and estimates what each augment adds to your champion. It even forecasts patches before they land.",
   ],
-  ["Tested in fights", "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did."],
+  [
+    "A fight simulator to play with",
+    "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.",
+  ],
 ];
 
 export default function Home() {

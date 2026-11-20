@@ -238,5 +238,20 @@
  "Selected": "Đã chọn",
  "Select {name}: the rest re-rank by synergy with it.": "Chọn {name}: phần còn lại xếp lại theo cộng hưởng.",
  "Select: the rest re-rank by synergy with it.": "Chọn: phần còn lại xếp lại theo cộng hưởng.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Đã có lõi? Chọn bằng + và phần còn lại xếp lại theo cộng hưởng."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Đã có lõi? Chọn bằng + và phần còn lại xếp lại theo cộng hưởng.",
+ "Build numbers": "Số liệu lối lên đồ",
+ "Adjusted": "Đã điều chỉnh",
+ "Raw": "Thô",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Đã điều chỉnh bỏ qua trang bị chỉ có từ lõi, và lối lên đồ ít trận sẽ dựa vào ước tính.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Thô hiển thị tỉ lệ thắng thực của mỗi lối lên đồ, kể cả trang bị từ lõi.",
+ "Augment item": "Trang bị từ lõi",
+ "Items 4 to 6": "Trang bị 4 đến 6",
+ "From earlier games": "Từ các trận trước",
+ "Augment synergies": "Cộng hưởng lõi",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Các lõi tăng sức mạnh cho nhau trên tướng này: đi cùng nhau giá trị hơn tách riêng.",
+ "No confirmed augment synergies for this champion yet.": "Chưa có cộng hưởng lõi nào được xác nhận cho tướng này.",
+ "Items": "Trang bị",
+ "Win rate boosts": "Mức tăng tỉ lệ thắng",
+ "Spells and skills": "Phép và kỹ năng",
+ "Stats": "Thống kê"
 }

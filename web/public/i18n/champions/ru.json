@@ -238,5 +238,20 @@
  "Selected": "Выбрано",
  "Select {name}: the rest re-rank by synergy with it.": "Выбрать {name}: остальные пересортируются по синергии.",
  "Select: the rest re-rank by synergy with it.": "Выбрать: остальные пересортируются по синергии.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Уже есть усиления? Выберите их кнопкой +, и остальные пересортируются по синергии."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Уже есть усиления? Выберите их кнопкой +, и остальные пересортируются по синергии.",
+ "Build numbers": "Цифры сборок",
+ "Adjusted": "С поправкой",
+ "Raw": "Исходные",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "С поправкой скрывает предметы, которые даёт только аугмент, а сборки с малым числом игр опираются на оценку.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Исходные показывают реальный процент побед каждой сборки, включая предметы от аугментов.",
+ "Augment item": "Предмет от аугмента",
+ "Items 4 to 6": "Предметы 4–6",
+ "From earlier games": "По прошлым играм",
+ "Augment synergies": "Синергии аугментов",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Аугменты, усиливающие друг друга на этом чемпионе: вместе они ценнее, чем по отдельности.",
+ "No confirmed augment synergies for this champion yet.": "Подтверждённых синергий аугментов для этого чемпиона пока нет.",
+ "Items": "Предметы",
+ "Win rate boosts": "Прибавка к винрейту",
+ "Spells and skills": "Заклинания и умения",
+ "Stats": "Статистика"
 }

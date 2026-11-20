@@ -238,5 +238,20 @@
  "Selected": "Vybráno",
  "Select {name}: the rest re-rank by synergy with it.": "Vybrat {name}: zbytek se seřadí podle synergie.",
  "Select: the rest re-rank by synergy with it.": "Vybrat: zbytek se seřadí podle synergie.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Už máš vylepšení? Vyber je tlačítkem + a zbytek se seřadí podle synergie."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Už máš vylepšení? Vyber je tlačítkem + a zbytek se seřadí podle synergie.",
+ "Build numbers": "Čísla buildů",
+ "Adjusted": "Upravená",
+ "Raw": "Surová",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Upravená vynechává předměty, které dává jen augment, a buildy s málo hrami se opírají o odhad.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Surová ukazuje prostou míru výher každého buildu, včetně předmětů z augmentů.",
+ "Augment item": "Předmět z augmentu",
+ "Items 4 to 6": "Předměty 4 až 6",
+ "From earlier games": "Ze starších her",
+ "Augment synergies": "Synergie augmentů",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Augmenty, které se na tomto šampionovi navzájem posilují: společně mají větší cenu než zvlášť.",
+ "No confirmed augment synergies for this champion yet.": "Pro tohoto šampiona zatím nejsou potvrzené synergie augmentů.",
+ "Items": "Předměty",
+ "Win rate boosts": "Zvýšení win rate",
+ "Spells and skills": "Kouzla a schopnosti",
+ "Stats": "Statistiky"
 }

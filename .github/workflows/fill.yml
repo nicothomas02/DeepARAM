@@ -41,6 +41,9 @@ jobs:
         if: steps.fresh.outputs.run == 'true'
         with:
           python-version: "3.12"
+      - name: Outside spell counts (keep the last copy if the fetch fails)
+        if: steps.fresh.outputs.run == 'true'
+        run: python3 data/fill/external_spells.py || echo "::warning::Outside spell counts not refreshed"
       - name: Estimate spells and game counts
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/fill/build_estimates.py

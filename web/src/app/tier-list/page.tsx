@@ -34,6 +34,7 @@ import { patchName } from "@/lib/patch-name";
 import WeaponOfDestiny from "@/components/WeaponOfDestiny";
 import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
 import Pentakill from "@/components/Pentakill";
+import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
 import { pentakill } from "@/lib/pentakill";
 
 export const metadata: Metadata = pageMeta(
@@ -262,7 +263,8 @@ export default function TierListPage() {
   }
 
   // Which Legendary item to make the Weapon of Destiny (gold augment): how often it's upgraded and how rare its stats are.
-  const destiny = weaponOfDestiny();
+  // This tab and Pentakill's are Simulator-made, so they stay off while it is a fun tool only (lib/sim-policy.ts).
+  const destiny = SIMULATOR_IN_STATS ? weaponOfDestiny() : null;
   if (destiny?.rows.length) {
     tabs.push({
       id: "weapon-of-destiny",
@@ -273,7 +275,7 @@ export default function TierListPage() {
   }
 
   // Which abilities to Empower in a Pentakill game, by the estimated win rate boost.
-  const penta = pentakill();
+  const penta = SIMULATOR_IN_STATS ? pentakill() : [];
   if (penta.length) {
     tabs.push({ id: "pentakill", label: "Pentakill", lazy: true, content: <Pentakill rows={penta} /> });
   }

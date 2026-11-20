@@ -238,5 +238,20 @@
  "Selected": "ที่เลือก",
  "Select {name}: the rest re-rank by synergy with it.": "เลือก {name}: ที่เหลือจะเรียงใหม่ตามซินเนอร์จี",
  "Select: the rest re-rank by synergy with it.": "เลือก: ที่เหลือจะเรียงใหม่ตามซินเนอร์จี",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "มีออคเมนต์อยู่แล้ว? เลือกด้วย + แล้วที่เหลือจะเรียงใหม่ตามซินเนอร์จี"
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "มีออคเมนต์อยู่แล้ว? เลือกด้วย + แล้วที่เหลือจะเรียงใหม่ตามซินเนอร์จี",
+ "Build numbers": "ตัวเลขบิลด์",
+ "Adjusted": "ปรับแล้ว",
+ "Raw": "ดิบ",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "แบบปรับแล้วจะไม่นับไอเทมที่ได้จากออคเมนต์เท่านั้น และบิลด์ที่มีเกมน้อยจะอิงค่าประมาณ",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "แบบดิบแสดงอัตราชนะจริงของทุกบิลด์ รวมไอเทมที่ได้จากออคเมนต์",
+ "Augment item": "ไอเทมจากออคเมนต์",
+ "Items 4 to 6": "ไอเทมชิ้นที่ 4 ถึง 6",
+ "From earlier games": "จากเกมก่อนหน้า",
+ "Augment synergies": "การเสริมกันของออคเมนต์",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "ออคเมนต์ที่เสริมพลังกันบนแชมเปียนนี้ ใช้คู่กันคุ้มกว่าแยกกัน",
+ "No confirmed augment synergies for this champion yet.": "ยังไม่มีการเสริมกันของออคเมนต์ที่ยืนยันแล้วสำหรับแชมเปียนนี้",
+ "Items": "ไอเท็ม",
+ "Win rate boosts": "อัตราชนะที่เพิ่มขึ้น",
+ "Spells and skills": "สเปลและสกิล",
+ "Stats": "สถิติ"
 }

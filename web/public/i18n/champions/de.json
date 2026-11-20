@@ -238,5 +238,20 @@
  "Selected": "Ausgewählt",
  "Select {name}: the rest re-rank by synergy with it.": "{name} auswählen: der Rest wird nach Synergie neu sortiert.",
  "Select: the rest re-rank by synergy with it.": "Auswählen: der Rest wird nach Synergie neu sortiert.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Schon Augments? Wähle sie mit + aus, und der Rest wird nach Synergie neu sortiert."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Schon Augments? Wähle sie mit + aus, und der Rest wird nach Synergie neu sortiert.",
+ "Build numbers": "Build-Werte",
+ "Adjusted": "Bereinigt",
+ "Raw": "Roh",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Bereinigt lässt Items weg, die nur ein Augment gibt, und Builds mit wenigen Spielen stützen sich auf die Schätzung.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Roh zeigt die reine Siegquote jedes Builds, auch mit Items, die ein Augment gibt.",
+ "Augment item": "Augment-Item",
+ "Items 4 to 6": "Items 4 bis 6",
+ "From earlier games": "Aus früheren Spielen",
+ "Augment synergies": "Augment-Synergien",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Augments, die sich bei diesem Champion gegenseitig stärken: zusammen mehr wert als einzeln.",
+ "No confirmed augment synergies for this champion yet.": "Für diesen Champion gibt es noch keine bestätigten Augment-Synergien.",
+ "Items": "Items",
+ "Win rate boosts": "Siegquoten-Boni",
+ "Spells and skills": "Zauber und Fähigkeiten",
+ "Stats": "Statistiken"
 }

@@ -238,5 +238,20 @@
  "Selected": "Kiválasztva",
  "Select {name}: the rest re-rank by synergy with it.": "{name} kiválasztása: a többi szinergia szerint rendeződik.",
  "Select: the rest re-rank by synergy with it.": "Kiválasztás: a többi szinergia szerint rendeződik.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Már vannak kiegészítőid? Válaszd ki őket a + gombbal, és a többi szinergia szerint rendeződik."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Már vannak kiegészítőid? Válaszd ki őket a + gombbal, és a többi szinergia szerint rendeződik.",
+ "Build numbers": "Build-számok",
+ "Adjusted": "Korrigált",
+ "Raw": "Nyers",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "A korrigált nézet kihagyja a csak augment által adott tárgyakat, a kevés meccses buildek pedig a becslésre támaszkodnak.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "A nyers nézet minden build valódi győzelmi arányát mutatja, az augment adta tárgyakkal együtt.",
+ "Augment item": "Augment-tárgy",
+ "Items 4 to 6": "4–6. tárgy",
+ "From earlier games": "Korábbi meccsekből",
+ "Augment synergies": "Augment-szinergiák",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Augmentek, amelyek erősítik egymást ezen a hősön: együtt többet érnek, mint külön.",
+ "No confirmed augment synergies for this champion yet.": "Ehhez a hőshöz még nincs megerősített augment-szinergia.",
+ "Items": "Tárgyak",
+ "Win rate boosts": "Győzelmi arány növelők",
+ "Spells and skills": "Varázslatok és képességek",
+ "Stats": "Statisztikák"
 }

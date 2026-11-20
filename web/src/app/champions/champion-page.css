@@ -164,25 +164,54 @@
   overflow-wrap: normal;
   hyphens: auto;
 }
-.cp-aug-line {
+/* Best augments on the game card: one row whatever the rarity; the icon's ring shows it (Nico, 2026-11-20). */
+.cp-best-augs .cp-named.rarity-prismatic .cp-icon {
+  box-shadow: 0 0 0 2px #c9b8ff;
+}
+.cp-best-augs .cp-named.rarity-gold .cp-icon {
+  box-shadow: 0 0 0 2px var(--gold, #e9b949);
+}
+.cp-best-augs .cp-named.rarity-silver .cp-icon {
+  box-shadow: 0 0 0 2px var(--silver, #9aa3ad);
+}
+/* Items 4 to 6 on the game card: a column per slot, its top three picks listed as small icon and name. */
+.cp-game .cp-best-late .cp-late-mini {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.cp-game .cp-best-late .cp-late-mini > div,
+.cp-game .cp-best-late .cp-icons {
   display: grid;
-  grid-template-columns: 4.5rem minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
-  gap: 0.5rem;
+  gap: 0.3rem;
 }
-.cp-aug-line > small {
-  padding-top: 0.75rem;
-  font-weight: 600;
-  font-size: 0.875rem;
+.cp-game .cp-best-late .cp-named {
+  display: flex;
+  align-items: center;
+  justify-items: start;
+  gap: 0.4rem;
+  width: auto;
+  text-align: left;
 }
-.cp-aug-line.rarity-prismatic > small {
-  color: #c9b8ff;
+.cp-game .cp-best-late .cp-named small {
+  text-align: left;
+  hyphens: none;
 }
-.cp-aug-line.rarity-gold > small {
-  color: var(--gold, #e9b949);
+.cp-game .cp-best-late .cp-icon {
+  width: 30px;
+  height: 30px;
 }
-.cp-aug-line.rarity-silver > small {
-  color: var(--muted);
+/* Playstyle: the champion's tags, rating bars and (admins) 3D model, moved down from the header. */
+.cp-style-top {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: var(--cp-gap, 1rem);
+}
+.cp-model .showcase {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  margin: 0;
 }
 /* Narrow tiles: the third number (boost) wraps under the first two instead of overflowing. */
 .cp-game .cp-best:not(.cp-best-wide) .cp-mini {
@@ -1521,11 +1550,23 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   font-size: 0.85em;
 }
 
-/* Expected switch (components/champion/ExpectedSwitch.tsx): build panels show the real win rate by default and the
-   expected one, with its Real or Expected label, when it's on. */
-html:not([data-expected]) .xp-exp,
-html[data-expected] .xp-real {
+/* Adjusted / Raw switch (components/champion/ExpectedSwitch.tsx): build panels show the expected win rate, with its
+   Real or Expected label, and leave out rows with an item only an augment gives (Adjusted, the default); Raw
+   (data-raw) shows the real win rate and every row, the augment ones tagged. */
+html[data-raw] .xp-exp,
+html:not([data-raw]) .xp-real,
+html:not([data-raw]) .cp-row.aug-item {
   display: none;
+}
+.aug-item-tag {
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  background: var(--raised);
+  color: var(--gold);
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 .cp-cell small.xp-tag {
   color: var(--gold);
@@ -1618,4 +1659,142 @@ html[data-expected] .xp-real {
   font: inherit;
   font-size: 0.875rem;
   text-decoration: underline;
+}
+
+/* Game card layout (Nico, 2026-11-20): on a laptop screen, champion select first (spells, starters, augments,
+   skill order), then the build (core, items 4 to 6), all above the fold at 1366x768. Each tile's numbers sit on
+   one compact line: value beside its label. */
+@media (min-width: 1000px) {
+  .cp-game {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+  .cp-game > .cp-best {
+    grid-column: span 3;
+  }
+  .cp-game > .cp-best:first-child {
+    grid-column: span 2;
+  }
+  .cp-game > .cp-best-augs {
+    grid-column: span 5;
+  }
+  .cp-game > .cp-best-skill {
+    grid-column: span 2;
+  }
+  .cp-game > .cp-best-wide:not(.cp-best-augs) {
+    grid-column: span 6;
+  }
+}
+.cp-game .cp-best .cp-mini {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.75rem;
+}
+.cp-game .cp-best .cp-mini .cp-cell {
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0;
+  border-left: 0;
+}
+.cp-game .cp-best .cp-mini .cp-cell b {
+  font-size: 1rem;
+}
+.cp-game .cp-best .cp-mini .cp-cell small {
+  white-space: nowrap;
+}
+.cp-game .cp-best {
+  padding: 0.75rem 0.9rem;
+  gap: 0.5rem;
+}
+.cp-game .cp-stale {
+  font-size: 0.875rem;
+}
+
+.cp-stale-tag {
+  justify-self: start;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  background: var(--raised);
+  color: var(--muted);
+  font-size: 0.875rem;
+  cursor: help;
+}
+
+/* Timeframe picker in the header (components/champion/Timeframe.tsx): patch, set, all time; the one in use is lit. */
+.cp-tf-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.cp-tf-controls .patch-pick summary,
+.cp-tf-all {
+  min-height: 2.25rem;
+}
+.cp-tf-controls .patch-pick[data-on] summary,
+.cp-tf-all[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--raised);
+  font-weight: 600;
+}
+.cp-tf-all {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--fg);
+  font: 500 0.875rem var(--mono);
+  cursor: pointer;
+}
+.cp-tf-live {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--good);
+  box-shadow: 0 0 0 0 rgb(var(--good-rgb) / 0.6);
+  animation: cp-tf-live 2s ease-out infinite;
+}
+.cp-tf-live-word {
+  color: var(--good);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+@keyframes cp-tf-live {
+  70% {
+    box-shadow: 0 0 0 6px rgb(var(--good-rgb) / 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(var(--good-rgb) / 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cp-tf-live {
+    animation: none;
+  }
+}
+.patch-pick-list.cp-tf-sets {
+  grid-template-columns: auto;
+}
+.cp-tf-sets small {
+  margin-left: auto;
+  padding-left: 0.75rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.cp-tf-loading {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+/* The header clips its splash; while a timeframe dropdown is open it lets the list hang below it. */
+.cp-hero.champ-hero:has(.cp-tf-pick details[open]) {
+  overflow: visible;
+  z-index: 30;
+}
+
+/* Tables with a header row don't repeat "Win rate" / "Pick rate" under every value (Nico, 2026-11-20: condense);
+   only the Expected tag stays, since it says something the header doesn't. */
+.cp-panel:has(.cp-th) .cp-row .cp-cell > small:not(.xp-tag) {
+  display: none;
+}
+.cp-panel:has(.cp-th) .cp-row {
+  align-items: center;
 }

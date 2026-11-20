@@ -3,7 +3,7 @@
 
 Writes data/fill/spells_games.json in the shape the site reads (web/src/lib/fill.ts):
   {patch, estimated: true, built, daily_games, total_games,
-   champions: {"<champion id>": {games, spells: [{ids: [4, x], games, pick_rate, win_rate: null}]}}}
+   champions: {"<champion id>": {games, spells: [{ids: [a, b], games, pick_rate, win_rate (null below MIN_WIN_GAMES outside games)}]}}}
 Spell rows are estimates of how often each loadout is picked; they carry no win rate.
 
 Usage: python3 data/fill/build_estimates.py   (standard library only)
@@ -18,6 +18,10 @@ import model as m
 
 OUT = os.path.dirname(os.path.abspath(__file__))
 MIN_SHARE = 0.01
+
+
+MODEL_GAMES = 60  # the owner's games per champion, about: 9,940 players over ~170 champions
+MIN_WIN_GAMES = 1000  # outside games a spell pair needs before its win rate shows
 
 
 def load(name, default):
@@ -52,14 +56,28 @@ def main():
         rift = m.rift_spells(champs, prev)
 
     dd = m.data_dragon()
+    # Outside spell counts (external_spells.py; Nico 2026-11-20: spells only) pooled with the model, which stands in
+    # for the owner's own games at about their size per champion. Win rates come from the outside counts alone.
+    ext = load("external_spells.json", {}).get("champions", {})
     out = {}
     for c, row in stats.items():
         games = float(row["pick_rate"]) * total
         tags, dd_stats = dd.get(c, ([], {}))
         probs = m.predict(spell_model, m.features(tags, m.numeric(row, dd_stats), rift.get(c, {})))
+        pool = {tuple(sorted([m.FLASH, s])): [p * MODEL_GAMES, 0.0, 0.0] for s, p in zip(m.SPELLS, probs)}
+        for r in ext.get(c, []):
+            k = tuple(r["ids"])
+            g = float(r.get("games") or 0)
+            e = pool.setdefault(k, [0.0, 0.0, 0.0])
+            e[0] += g
+            if r.get("win_rate") is not None:
+                e[1] += g * r["win_rate"]
+                e[2] += g
+        tot = sum(v[0] for v in pool.values()) or 1.0
         spells = sorted(
-            ({"ids": sorted([m.FLASH, s]), "games": m.round_sig(games * p), "pick_rate": round(p, 4), "win_rate": None}
-             for s, p in zip(m.SPELLS, probs) if p >= MIN_SHARE),
+            ({"ids": list(k), "games": m.round_sig(games * v[0] / tot), "pick_rate": round(v[0] / tot, 4),
+              "win_rate": round(v[1] / v[2], 4) if v[2] >= MIN_WIN_GAMES else None}
+             for k, v in pool.items() if v[0] / tot >= MIN_SHARE),
             key=lambda r: -r["pick_rate"],
         )
         out[c] = {"games": m.round_sig(games), "spells": spells}

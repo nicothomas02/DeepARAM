@@ -238,5 +238,20 @@
  "Selected": "Seleccionados",
  "Select {name}: the rest re-rank by synergy with it.": "Seleccionar {name}: el resto se reordena por sinergia.",
  "Select: the rest re-rank by synergy with it.": "Seleccionar: el resto se reordena por sinergia.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "¿Ya tienes aumentos? Selecciónalos con + y el resto se reordena por sinergia."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "¿Ya tienes aumentos? Selecciónalos con + y el resto se reordena por sinergia.",
+ "Build numbers": "Cifras de builds",
+ "Adjusted": "Ajustado",
+ "Raw": "Bruto",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Ajustado omite los objetos que solo da un aumento, y las builds con pocas partidas se apoyan en la estimación.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Bruto muestra el porcentaje de victorias real de cada build, incluidos los objetos que da un aumento.",
+ "Augment item": "Objeto de aumento",
+ "Items 4 to 6": "Objetos 4 a 6",
+ "From earlier games": "De partidas anteriores",
+ "Augment synergies": "Sinergias de aumentos",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Aumentos que se potencian entre sí con este campeón: valen más juntos que por separado.",
+ "No confirmed augment synergies for this champion yet.": "Aún no hay sinergias de aumentos confirmadas para este campeón.",
+ "Items": "Objetos",
+ "Win rate boosts": "Mejoras de tasa de victoria",
+ "Spells and skills": "Hechizos y habilidades",
+ "Stats": "Estadísticas"
 }

@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM dibuat khusus untuk ARAM Mayhem. Peringkatnya berasal dari data science, dan build diuji di simulator pertarungan.",
  "Announcer": "Announcer",
  "Default": "Default",
- "Male": "Pria"
+ "Male": "Pria",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Dibuat khusus untuk Mayhem, dengan statistik yang memprediksi, bukan sekadar menghitung, plus simulator pertarungan untuk dimainkan.",
+ "A fight simulator to play with": "Simulator pertarungan untuk dimainkan",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Adu build apa pun melawan kit asli dalam replay 3D. Ini arena bermain untuk seru-seruan, jadi tidak ada peringkat di situs yang bergantung padanya.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM dibuat khusus untuk ARAM Mayhem. Peringkat berasal dari data science, dan simulator pertarungan ada untuk seru-seruan.",
+ "Live": "Langsung",
+ "{n} sets": "{n} set",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "Build disimpan sejak patch {patch}, jadi kartu hanya menampilkan rate.",
+ "Builds cover patch {patch} on.": "Build mencakup patch {patch} ke atas.",
+ "The rest of the page shows the live patch.": "Bagian lain halaman menampilkan patch saat ini.",
+ "Not played in these patches.": "Tidak dimainkan di patch ini.",
+ "No saved builds for these patches.": "Tidak ada build tersimpan untuk patch ini."
 }

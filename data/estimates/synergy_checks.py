@@ -46,6 +46,10 @@ from concurrent.futures import ThreadPoolExecutor
 
 import common as cm
 
+# The Simulator checks rows only when this is on. Off since Nico's 2026-11-20 rule: it stays a fun tool until it
+# represents real games, so no ranking, tag or drop leans on it.
+USE_SIMULATOR = False
+
 SIM = os.path.join(cm.REPO, "simulator")
 SIM_BIN = os.path.join(SIM, "mayhem_sim")
 SETTINGS = "level=18,enemy_level=18"
@@ -200,6 +204,7 @@ class Checker:
 
     def items(self, family, gems, jobs=None):
         keep = []
+        # The Simulator is a fun tool only for now (Nico, 2026-11-20): it doesn't vote on, tag or drop any row.
         for g in gems:
             if not all(self.sold(i) for i in g["items"]):
                 self.drop(family, "not sold in the shop")
@@ -207,6 +212,10 @@ class Checker:
                 self.drop(family, "item only an augment gives")
             elif self.bug_check(family, g, items=g["items"]):
                 keep.append(g)
+        if not USE_SIMULATOR:
+            for g in keep:
+                g["sim"] = "not simulated"
+            return keep
         plans = [self.item_plan(family, g) for g in keep]
         todo = {(p[0], tuple(x)) for p in plans if p for x in (p[2], p[3])}
         with ThreadPoolExecutor(jobs or os.cpu_count() or 2) as ex:
@@ -236,6 +245,10 @@ class Checker:
                 self.drop("augments", "not in the live augment pool")
             elif self.bug_check("augments", g, augments=[g["id"]]):
                 keep.append(g)
+        if not USE_SIMULATOR:
+            for g in keep:
+                g["sim"] = "not simulated"
+            return keep
         plans = [self.augment_plan(g) for g in keep]
         todo = {(p[0], tuple(p[2]), aug) for p in plans if p for aug in ((), (p[3],))}
         with ThreadPoolExecutor(jobs or os.cpu_count() or 2) as ex:

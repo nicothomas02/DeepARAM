@@ -238,5 +238,20 @@
  "Selected": "Selected",
  "Select {name}: the rest re-rank by synergy with it.": "Select {name}: the rest re-rank by synergy with it.",
  "Select: the rest re-rank by synergy with it.": "Select: the rest re-rank by synergy with it.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Already have augments? Select them with + and the rest re-rank by synergy."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Already have augments? Select them with + and the rest re-rank by synergy.",
+ "Build numbers": "Build numbers",
+ "Adjusted": "Adjusted",
+ "Raw": "Raw",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Raw shows every build's plain win rate, including items an augment gives you.",
+ "Augment item": "Augment item",
+ "Items 4 to 6": "Items 4 to 6",
+ "From earlier games": "From earlier games",
+ "Augment synergies": "Augment synergies",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Augments that make each other stronger on this champion: worth more together than apart.",
+ "No confirmed augment synergies for this champion yet.": "No confirmed augment synergies for this champion yet.",
+ "Items": "Items",
+ "Win rate boosts": "Win rate boosts",
+ "Spells and skills": "Spells and skills",
+ "Stats": "Stats"
 }

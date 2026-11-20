@@ -238,5 +238,20 @@
  "Selected": "Seçilenler",
  "Select {name}: the rest re-rank by synergy with it.": "{name} seç: kalanlar sinerjiye göre yeniden sıralanır.",
  "Select: the rest re-rank by synergy with it.": "Seç: kalanlar sinerjiye göre yeniden sıralanır.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Zaten güçlendirmen var mı? + ile seç, kalanlar sinerjiye göre yeniden sıralanır."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Zaten güçlendirmen var mı? + ile seç, kalanlar sinerjiye göre yeniden sıralanır.",
+ "Build numbers": "Dizilim sayıları",
+ "Adjusted": "Düzeltilmiş",
+ "Raw": "Ham",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Düzeltilmiş görünüm yalnızca bir güçlendirmenin verdiği eşyaları dışarıda bırakır, az maçlı dizilimler tahmine dayanır.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Ham görünüm, güçlendirmenin verdiği eşyalar dahil her dizilimin gerçek kazanma oranını gösterir.",
+ "Augment item": "Güçlendirme eşyası",
+ "Items 4 to 6": "4. ile 6. eşyalar",
+ "From earlier games": "Önceki maçlardan",
+ "Augment synergies": "Güçlendirme sinerjileri",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Bu şampiyonda birbirini güçlendiren güçlendirmeler: birlikte, ayrı ayrı olduklarından daha değerliler.",
+ "No confirmed augment synergies for this champion yet.": "Bu şampiyon için henüz doğrulanmış bir güçlendirme sinerjisi yok.",
+ "Items": "Eşyalar",
+ "Win rate boosts": "Kazanma oranı artışları",
+ "Spells and skills": "Büyüler ve yetenekler",
+ "Stats": "İstatistikler"
 }

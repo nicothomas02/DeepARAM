@@ -2,32 +2,33 @@ import { describe, expect, it } from "vitest";
 import { buildOrder, championPage, scoreRows } from "@/lib/champion-page";
 import { itemTier } from "@/lib/items";
 import { championAugmentStages } from "@/lib/estimates";
+import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
 
 // Champion page builds: the core shows its boots where they're bought, then the 4th, 5th and 6th item options.
 describe("champion page core build", () => {
   const p = championPage("Annie")!;
 
-  it("puts boots in every core build at their simulated buy step", () => {
+  it("puts real boots in every core build, after the core while the Simulator's buy step is off", () => {
     expect(p.core.length).toBeGreaterThan(0);
     for (const r of p.core) {
       expect(r.boots).toBeDefined();
       expect(itemTier(r.boots!)).toBe("boots");
       expect(p.itemInfo[r.boots!]?.name).toBeTruthy();
-      expect(r.bootsAt).toBeGreaterThanOrEqual(0);
-      expect(r.bootsAt).toBeLessThanOrEqual(r.items.length);
       const order = buildOrder(r);
       expect(order).toHaveLength(r.items.length + 1);
-      expect(order[r.bootsAt!]).toBe(r.boots);
       expect(order.filter((i) => i !== r.boots)).toEqual(r.items);
+      // The Simulator is a fun tool only for now (lib/sim-policy.ts), so no simulated buy step.
+      if (!SIMULATOR_IN_STATS) {
+        expect(r.bootsAt).toBeUndefined();
+        expect(order.at(-1)).toBe(r.boots);
+      }
     }
-    // Not every core starts with boots any more.
-    expect(p.core.some((r) => r.bootsAt! > 0)).toBe(true);
   });
 
-  it("orders a row without boots or timing as before", () => {
+  it("orders a row by its boots step, with the boots last when the step isn't known", () => {
     const r = { items: [1, 2, 3], winRate: 0.5, pickRate: 0.1, lift: 0 };
     expect(buildOrder(r)).toEqual([1, 2, 3]);
-    expect(buildOrder({ ...r, boots: 9 })).toEqual([9, 1, 2, 3]);
+    expect(buildOrder({ ...r, boots: 9 })).toEqual([1, 2, 3, 9]);
     expect(buildOrder({ ...r, boots: 9, bootsAt: 2 })).toEqual([1, 2, 9, 3]);
     expect(buildOrder({ ...r, boots: 9, bootsAt: 3 })).toEqual([1, 2, 3, 9]);
   });

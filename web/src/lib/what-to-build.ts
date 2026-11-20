@@ -4,6 +4,7 @@ import { join } from "node:path";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { champList } from "./champions";
+import { augmentScores, byScore } from "./champion-augments";
 import { items, rewardItems } from "./items";
 import { readRepoJson } from "./repo-data";
 
@@ -20,7 +21,7 @@ type Row = { items: number[]; pick_rate: number; win_rate?: number };
 type Builds = {
   items?: { boots?: Row[]; full_builds?: Row[] };
   skills?: { max_order: string[] }[];
-  augments?: Record<string, { id: number; pick_rate: number }[]>;
+  augments?: Record<string, { id: number; pick_rate: number; grade?: string }[]>;
 };
 
 export type BuildPick = { items: number[]; winRate: number | null; pickRate: number };
@@ -68,7 +69,10 @@ export function whatToBuildData(): HelperData {
     const boots = pick(b?.items?.boots?.[0]);
     for (const r of [best, popular, b?.items?.boots?.[0]]) r?.items.forEach((i) => used.add(i));
     const augs: Record<string, number[]> = {};
-    for (const r of ["silver", "gold", "prismatic"]) augs[r] = (b?.augments?.[r] ?? []).filter((a) => NAMES[a.id]).slice(0, 3).map((a) => a.id);
+    // Best of each rarity by the site's one augment ranking (lib/champion-augments.ts), as on the champion page.
+    const order = byScore(augmentScores(id));
+    for (const r of ["silver", "gold", "prismatic"])
+      augs[r] = (b?.augments?.[r] ?? []).filter((a) => NAMES[a.id]).map((a) => ({ id: a.id, pickRate: a.pick_rate, grade: a.grade })).sort(order).slice(0, 3).map((a) => a.id);
     champions.push({ id, name, kind, best: pick(best), popular: best === popular ? null : pick(popular), boots, skills: b?.skills?.[0]?.max_order ?? [], augs });
   }
   for (const list of Object.values(SWAPS)) for (const ids of Object.values(list)) ids.forEach((i) => used.add(i));

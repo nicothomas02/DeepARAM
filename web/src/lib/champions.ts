@@ -2,7 +2,6 @@ import "server-only";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import championIds from "@/data/champion-ids.json";
-import augmentNames from "@/data/augment-names.json";
 import { champName, livePatch } from "./highlights";
 import { localAsset } from "./assets";
 import { official } from "./dd-swap";
@@ -10,13 +9,15 @@ import { readRepoCsv, readRepoJson } from "./repo-data";
 import { champStats, type ChampStats, type PatchRow } from "./tiers";
 import { statRanges, type RangeKey, type StatRange } from "./stat-ranges";
 import { matchesByPatch } from "./sample";
+import { radarFor, type RadarAxis } from "./radar";
+
+export type { RadarAxis };
 
 // One summary per champion for its own page (/champions/<Alias>) and the home page's movers:
 // live-patch tier and rates, the change since the previous patch, top augments and best partners.
 
 const IDS = championIds as Record<string, number>;
 const ALIAS = Object.fromEntries(Object.entries(IDS).map(([alias, id]) => [id, alias]));
-const AUGS = augmentNames as Record<string, string>;
 
 // champion-ids.json also lists another mode's "Jade_<Alias>" stand-ins (ids 60000+); they aren't champions of their own.
 export const championAliases = () => Object.keys(IDS).filter((a) => !a.includes("_"));
@@ -114,37 +115,12 @@ export type ChampionSummary = {
   /** Estimated live-patch games behind winRate (lib/sample.ts), for its 95% range. */
   games?: number;
   change: number | null;
-  augments: { id: string; name: string }[];
   partners: { id: string; name: string; winRate: number }[];
   patches: string[];
   history: { patch: string; winRate: number; pickRate: number }[];
   /** Live-patch profile: each stat's percentile among all champions (0 to 1), its rank and value. */
   radar: RadarAxis[];
 };
-
-export type RadarAxis = { key: string; label: string; hint: string; pct: number; rank: number; of: number; value: string };
-
-const AXES: { key: "win_rate" | "pick_rate" | "damage" | "tank" | "kp" | "dead"; label: string; hint: string; low?: boolean; fmt: (v: number) => string }[] = [
-  { key: "win_rate", label: "Win rate", hint: "Win rate", fmt: (v) => `${(v * 100).toFixed(1)}%` },
-  { key: "pick_rate", label: "Pick rate", hint: "How often this champion is picked", fmt: (v) => `${(v * 100).toFixed(1)}%` },
-  { key: "damage", label: "Damage dealt", hint: "Share of the team's damage to champions", fmt: (v) => `${(v * 100).toFixed(1)}%` },
-  { key: "tank", label: "Damage taken", hint: "Share of the team's damage taken that this champion soaked", fmt: (v) => `${(v * 100).toFixed(1)}%` },
-  { key: "kp", label: "Kill participation", hint: "Share of the team's kills this champion took part in", fmt: (v) => `${(v * 100).toFixed(1)}%` },
-  { key: "dead", label: "Time dead", hint: "Average time spent dead per game (less is better)", low: true, fmt: (v) => `${Math.floor(v / 60)}m ${String(Math.round(v % 60)).padStart(2, "0")}s dead` },
-];
-
-function radarFor(alias: string, live: ChampStats[]): RadarAxis[] {
-  const me = live.find((c) => c.name === alias);
-  if (!me) return [];
-  return AXES.flatMap((a) => {
-    const mine = me[a.key];
-    const all = live.map((c) => c[a.key]).filter((v): v is number => typeof v === "number");
-    if (typeof mine !== "number" || all.length < 2) return [];
-    // Rank 1 is the best: highest, or lowest where less is better.
-    const better = all.filter((v) => (a.low ? v < mine : v > mine)).length;
-    return [{ key: a.key, label: a.label, hint: a.hint, pct: 1 - better / (all.length - 1), rank: better + 1, of: all.length, value: a.fmt(mine) }];
-  });
-}
 
 /** Every champion's id and name, by name, for pickers. */
 export const champList = () => championAliases().map((id) => ({ id, name: champName(id) })).sort((a, b) => a.name.localeCompare(b.name));
@@ -158,7 +134,6 @@ export function championSummary(alias: string): ChampionSummary | null {
   const me = live.find((c) => c.name === alias);
   const client = clientChampion(id);
   const skin = client?.skins?.[0];
-  const liveRow = patchRows().find((r) => r.patch === patch && r.name === alias);
   const partners = (readRepoJson<Champs>("data/cn/champions.json")?.champions.find((c) => c.name === alias)?.best_partners ?? [])
     .slice(0, 3)
     .map((p) => ({ id: ALIAS[p.champion_id], name: champName(ALIAS[p.champion_id] ?? ""), winRate: p.win_rate }))
@@ -179,11 +154,6 @@ export function championSummary(alias: string): ChampionSummary | null {
     pickRate: me?.pick_rate,
     games: me?.sample,
     change: me?.change ?? null,
-    augments: (liveRow?.augs ?? "")
-      .split(",")
-      .map((a) => a.trim())
-      .filter((a) => AUGS[a])
-      .map((a) => ({ id: a, name: AUGS[a] })),
     partners,
     patches: patchList(),
     history: patchRows()

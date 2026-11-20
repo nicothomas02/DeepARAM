@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "Το DeepARAM είναι φτιαγμένο αποκλειστικά για το ARAM: Χαμός. Οι κατατάξεις βασίζονται στην επιστήμη δεδομένων και τα builds δοκιμάζονται σε προσομοιωτή μάχης.",
  "Announcer": "Εκφωνητής",
  "Default": "Προεπιλογή",
- "Male": "Ανδρική"
+ "Male": "Ανδρική",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Φτιαγμένο μόνο για το Mayhem, με στατιστικά που προβλέπουν αντί να απλώς μετρούν, και έναν προσομοιωτή μάχης για να παίζεις.",
+ "A fight simulator to play with": "Ένας προσομοιωτής μάχης για να παίζεις",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Βάλε οποιοδήποτε build απέναντι σε πραγματικά kits σε τρισδιάστατο replay. Είναι παιδότοπος για διασκέδαση, οπότε καμία κατάταξη του ιστότοπου δεν στηρίζεται σε αυτόν.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "Το DeepARAM είναι φτιαγμένο μόνο για το ARAM Mayhem. Οι κατατάξεις προέρχονται από την επιστήμη δεδομένων και ο προσομοιωτής μάχης υπάρχει για διασκέδαση.",
+ "Live": "Ζωντανά",
+ "{n} sets": "{n} σετ",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "Τα builds αποθηκεύονται από το patch {patch}, οπότε η κάρτα δείχνει μόνο ποσοστά.",
+ "Builds cover patch {patch} on.": "Τα builds καλύπτουν από το patch {patch} και μετά.",
+ "The rest of the page shows the live patch.": "Η υπόλοιπη σελίδα δείχνει το τρέχον patch.",
+ "Not played in these patches.": "Δεν παίχτηκε σε αυτά τα patches.",
+ "No saved builds for these patches.": "Δεν υπάρχουν αποθηκευμένα builds για αυτά τα patches."
 }

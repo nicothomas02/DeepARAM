@@ -238,5 +238,20 @@
  "Selected": "Επιλεγμένες",
  "Select {name}: the rest re-rank by synergy with it.": "Επιλογή {name}: οι υπόλοιπες κατατάσσονται ξανά με βάση τη συνέργεια.",
  "Select: the rest re-rank by synergy with it.": "Επιλογή: οι υπόλοιπες κατατάσσονται ξανά με βάση τη συνέργεια.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Έχεις ήδη ενισχύσεις; Επίλεξέ τες με + και οι υπόλοιπες κατατάσσονται ξανά με βάση τη συνέργεια."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Έχεις ήδη ενισχύσεις; Επίλεξέ τες με + και οι υπόλοιπες κατατάσσονται ξανά με βάση τη συνέργεια.",
+ "Build numbers": "Αριθμοί build",
+ "Adjusted": "Προσαρμοσμένα",
+ "Raw": "Ακατέργαστα",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Τα προσαρμοσμένα παραλείπουν αντικείμενα που δίνει μόνο ένα augment, και τα build με λίγα παιχνίδια στηρίζονται στην εκτίμηση.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Τα ακατέργαστα δείχνουν το απλό ποσοστό νικών κάθε build, μαζί με αντικείμενα από augment.",
+ "Augment item": "Αντικείμενο augment",
+ "Items 4 to 6": "Αντικείμενα 4 έως 6",
+ "From earlier games": "Από παλαιότερα παιχνίδια",
+ "Augment synergies": "Συνέργειες augment",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Augments που δυναμώνουν το ένα το άλλο σε αυτόν τον champion: αξίζουν περισσότερο μαζί παρά χωριστά.",
+ "No confirmed augment synergies for this champion yet.": "Δεν υπάρχουν ακόμη επιβεβαιωμένες συνέργειες augment για αυτόν τον champion.",
+ "Items": "Αντικείμενα",
+ "Win rate boosts": "Αυξήσεις ποσοστού νικών",
+ "Spells and skills": "Ξόρκια και ικανότητες",
+ "Stats": "Στατιστικά"
 }

@@ -238,5 +238,20 @@
  "Selected": "Dipilih",
  "Select {name}: the rest re-rank by synergy with it.": "Pilih {name}: sisanya diurutkan ulang menurut sinergi.",
  "Select: the rest re-rank by synergy with it.": "Pilih: sisanya diurutkan ulang menurut sinergi.",
- "Already have augments? Select them with + and the rest re-rank by synergy.": "Sudah punya augment? Pilih dengan + dan sisanya diurutkan ulang menurut sinergi."
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Sudah punya augment? Pilih dengan + dan sisanya diurutkan ulang menurut sinergi.",
+ "Build numbers": "Angka build",
+ "Adjusted": "Disesuaikan",
+ "Raw": "Mentah",
+ "Adjusted leaves out items only an augment gives you, and builds with few games lean on the estimate.": "Disesuaikan tidak menyertakan item yang hanya diberikan augment, dan build dengan sedikit game bersandar pada perkiraan.",
+ "Raw shows every build's plain win rate, including items an augment gives you.": "Mentah menampilkan win rate asli setiap build, termasuk item dari augment.",
+ "Augment item": "Item augment",
+ "Items 4 to 6": "Item 4 sampai 6",
+ "From earlier games": "Dari game sebelumnya",
+ "Augment synergies": "Sinergi augment",
+ "Augments that make each other stronger on this champion: worth more together than apart.": "Augment yang saling memperkuat di champion ini: lebih berharga bersama daripada terpisah.",
+ "No confirmed augment synergies for this champion yet.": "Belum ada sinergi augment yang terkonfirmasi untuk champion ini.",
+ "Items": "Item",
+ "Win rate boosts": "Peningkatan win rate",
+ "Spells and skills": "Spell dan skill",
+ "Stats": "Statistik"
 }

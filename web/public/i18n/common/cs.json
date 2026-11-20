@@ -240,5 +240,16 @@
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM je vytvořený jen pro ARAM: Mela. Žebříčky vycházejí z datové vědy a buildy se testují v bojovém simulátoru.",
  "Announcer": "Hlasatel",
  "Default": "Výchozí",
- "Male": "Mužský"
+ "Male": "Mužský",
+ "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Stavěno jen pro Mayhem, se statistikami, které předpovídají místo pouhého počítání, a se simulátorem soubojů na hraní.",
+ "A fight simulator to play with": "Simulátor soubojů na hraní",
+ "Pit any build against real kits in a 3D replay. It's a sandbox for fun, so no ranking on the site leans on it.": "Postav jakýkoli build proti skutečným sadám schopností ve 3D záznamu. Je to pískoviště pro zábavu, takže se o něj žádné hodnocení na webu neopírá.",
+ "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.": "DeepARAM je stavěný jen pro ARAM Mayhem. Hodnocení pochází z datové vědy a simulátor soubojů je tu pro zábavu.",
+ "Live": "Živě",
+ "{n} sets": "{n} sad",
+ "Builds are saved from patch {patch} on, so the card shows rates only.": "Buildy se ukládají od patche {patch}, takže karta ukazuje jen poměry.",
+ "Builds cover patch {patch} on.": "Buildy pokrývají patch {patch} a novější.",
+ "The rest of the page shows the live patch.": "Zbytek stránky ukazuje aktuální patch.",
+ "Not played in these patches.": "V těchto patchích se nehrál.",
+ "No saved builds for these patches.": "Pro tyto patche nejsou uložené buildy."
 }
