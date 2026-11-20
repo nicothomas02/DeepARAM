@@ -193,7 +193,7 @@
     const f = { duration: Math.max(tr.fight.duration, end ? end.t : 0), length: tr.fight.duration, engage: tr.fight.engage_at, maxHp: tr.fight.max_hp, events: ev,
       casts: [], attacks: [], procs: [], cc: [], kills: [], self: [], spawns: new Map(), focus: [], numbers: [],
       ecc: [], heals: [], shields: [], toggles: [],
-      damage: [], death: null, pos: [], geo: {}, poros: [] };
+      damage: [], death: null, pos: [], geo: {}, poros: [], summons: [], sattacks: [] };
     for (const a of tr.abilities || []) f.geo[a.slot] = a;
     let lastNum = null;
     for (const e of ev) {
@@ -229,6 +229,10 @@
         }
         case "focus": f.focus.push(e); break;
         case "poro": f.poros.push(e); break;
+        // Summons (Daisy, Tibbers, Viego's souls): where and how long, and each of their attacks.
+        case "summon": f.summons.push({ u: e.u, x: e.x, t: e.t, end: e.a > 0 ? e.t + e.a : Infinity, at: { x: e.ax, y: e.ay } }); break;
+        case "unsummon": for (const q of f.summons) if (q.u === e.u && q.t <= e.t) q.end = Math.min(q.end, e.t); break;
+        case "sattack": f.sattacks.push(e); break;
         case "damage": {
           f.damage.push(e);
           // Merge ticks that land together on one target so numbers stay readable.
@@ -356,6 +360,38 @@
     let cast = null;
     for (const c of fight.enemyCasts.get(uid) || []) { if (c.t > time) break; cast = c; }
     return cast && time - cast.t < castWindow("e" + uid, cast) ? cast : null;
+  }
+
+  // Summons out at `time` ("summon" events): Daisy and Tibbers stand where the fight's positions say (else
+  // where they were summoned) and play their entrance, attacks and death; Viego takes a soul the moment it
+  // drops, so a soul rises where the enemy fell and drifts into him. [{s, p: screen px, role, t, alpha}]
+  const SUMMON_FADE = 0.6, SOUL_FOR = 0.9, SUMMON_ENTER = 0.8;
+  function summonsAt(time, world, scr, me) {
+    const out = [];
+    for (const s of fight.summons) {
+      const soul = s.x === "viegosoul", end = soul ? s.t + SOUL_FOR : Math.min(s.end, fight.duration);
+      if (time < s.t || time > end + (soul ? 0 : SUMMON_FADE)) continue;
+      let p = scr((world && world.m.get(s.u)) || s.at), role = "idle", t = time - s.t, alpha = 1;
+      if (soul) {
+        const k = Math.max(0, Math.min(1, (t - 0.4) / 0.5));
+        p = { x: p.x + (me.x - p.x) * k, y: p.y + (me.y - p.y) * k };
+        role = "respawn"; alpha = 1 - k;
+      } else if (time > end) { role = "death"; t = time - end; alpha = Math.max(0, 1 - t / SUMMON_FADE); }
+      else if (t < SUMMON_ENTER) role = "respawn";
+      else {
+        let hit = null;
+        for (const a of fight.sattacks) { if (a.t > time) break; if (a.by === s.u) hit = a; }
+        if (hit && time - hit.t < 0.6) { role = "attack"; t = time - hit.t; }
+      }
+      out.push({ s, p, role, t, alpha });
+    }
+    return out;
+  }
+  // The summons' HUD icons, for the 2D replay (next to their models; see tools/build_props3d.py).
+  const summonIcons = {};
+  function summonIcon(name) {
+    if (!(name in summonIcons)) { summonIcons[name] = null; loadImage(["/assets/map3d/" + name + ".png"], (im) => { summonIcons[name] = im; }); }
+    return summonIcons[name];
   }
 
   // Where everyone stands at time t (game units), between the recorded snapshots. out, when
@@ -935,6 +971,7 @@
       const et = em ? travel(em, time - ec.t) : 0;
       return et > 0 ? { x: p.x + (st.me.x - p.x) * et, y: p.y + (st.me.y - p.y) * et, blink: em === "blink", k: time - ec.t } : null;
     };
+    const summonsNow = view ? summonsAt(time, world, scr, { x: meX, y: meY }) : [];
     let heads = {};
     if (M) {
       const look = (a, b) => ({ x: b.x - a.x, y: b.y - a.y });
@@ -973,6 +1010,13 @@
         fighters.push({ key: "e" + en.uid, champ: en.champ, x: p.x, y: p.y, face: -1, unit,
           dir: run ? v : world ? look(p, st.me) : null, alpha: Math.max(0, Math.min(1, (DEAD_FOR - gone) / 0.6)),
           ...(run ? runPose(v) : calm(anim)) });
+      }
+      for (const q of summonsNow) {
+        const v = world && q.role === "idle" && velocity(before.m.get(q.s.u), after.m.get(q.s.u));
+        const run = runs({ role: q.role }, v);
+        fighters.push({ key: "s" + q.s.u, champ: "summon:" + q.s.x, x: q.p.x, y: q.p.y, face: 1, unit, alpha: q.alpha,
+          dir: run ? v : world && s.focus >= 0 ? look(q.p, posOf(s.focus)) : null,
+          ...(run ? runPose(v) : { role: q.role, t: q.t, loop: q.role === "idle" }) });
       }
       for (const f of fighters) if (f.lift) f.y -= f.lift * 55 * u;  // knocked up into the air
       if (FX) moreEffects(fx, FX, time, s, posOf, { x: meX, y: meY }, view.k, alive);
@@ -1075,6 +1119,26 @@
         g.strokeStyle = "#f4f4f4"; g.lineWidth = 5 * u;
         g.beginPath(); g.moveTo(p.x - rr * 0.6, p.y - rr * 0.6); g.lineTo(p.x + rr * 0.6, p.y + rr * 0.6);
         g.moveTo(p.x + rr * 0.6, p.y - rr * 0.6); g.lineTo(p.x - rr * 0.6, p.y + rr * 0.6); g.stroke();
+      }
+      g.globalAlpha = 1;
+    }
+
+    // Summons: a ring at the model's feet, or their icon where there's no model (2D, or still loading).
+    for (const q of summonsNow) {
+      const head = heads["s" + q.s.u], rs = r * 0.6;
+      g.globalAlpha = q.alpha;
+      if (head) {
+        footShadow(g, q.p.x, q.p.y, rs * 1.3, "143,211,255");
+      } else {
+        g.fillStyle = "rgba(143,211,255,.18)";
+        g.beginPath(); g.arc(q.p.x, q.p.y, rs + 4 * u, 0, Math.PI * 2); g.fill();
+        const im = summonIcon(q.s.x);
+        if (im) {
+          g.save(); g.beginPath(); g.arc(q.p.x, q.p.y, rs, 0, Math.PI * 2); g.clip();
+          g.drawImage(im, q.p.x - rs, q.p.y - rs, rs * 2, rs * 2); g.restore();
+        }
+        g.strokeStyle = "#8fd3ff"; g.lineWidth = 2 * u;
+        g.beginPath(); g.arc(q.p.x, q.p.y, rs, 0, Math.PI * 2); g.stroke();
       }
       g.globalAlpha = 1;
     }
