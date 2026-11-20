@@ -227,16 +227,16 @@
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Perechile de augmente apar aici după ce se adună destule meciuri. Fiecare pereche are nevoie de un număr minim de meciuri înainte să apară.",
  "Kit interactions": "Interacțiuni de kit",
  "Augments that work with this champion's own abilities, and why.": "Augmentările care funcționează cu abilitățile acestui campion și de ce.",
- "You took": "Ai ales",
  "Remove": "Elimină",
  "Clear": "Șterge",
  "Pairs well with {name}: +{n} pts.": "Merge bine cu {name}: +{n} pct.",
  "Overlaps with {name}: -{n} pts.": "Se suprapune cu {name}: -{n} pct.",
  "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "Estimat: ordonate după bonusul fiecărei augmentări plus sinergia cu cele alese.",
- "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "Ai ales deja o augmentare? Marchează-o cu „Am luat” pentru a reordona restul după sinergie.",
  "With your picks": "Cu alegerile tale",
  "Synergy {n}": "Sinergie {n}",
  "Estimated synergy with the augments you took.": "Sinergie estimată cu augmentările alese.",
- "+ I took this": "+ Am luat",
- "Mark this augment as taken and re-rank the rest by synergy.": "Marchează augmentarea ca aleasă și reordonează restul după sinergie."
+ "Selected": "Selectate",
+ "Select {name}: the rest re-rank by synergy with it.": "Selectează {name}: restul se reordonează după sinergie.",
+ "Select: the rest re-rank by synergy with it.": "Selectează: restul se reordonează după sinergie.",
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Ai deja augmentări? Selectează-le cu + și restul se reordonează după sinergie."
 }

@@ -227,16 +227,16 @@
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Os pares de aprimoramentos aparecem aqui quando houver partidas suficientes. Cada par precisa de um número mínimo de partidas antes de aparecer.",
  "Kit interactions": "Interações do kit",
  "Augments that work with this champion's own abilities, and why.": "Aprimoramentos que funcionam com as habilidades deste campeão, e por quê.",
- "You took": "Você pegou",
  "Remove": "Remover",
  "Clear": "Limpar",
  "Pairs well with {name}: +{n} pts.": "Combina bem com {name}: +{n} pts.",
  "Overlaps with {name}: -{n} pts.": "Se sobrepõe a {name}: -{n} pts.",
  "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "Estimado: ordenado pelo bônus de cada aumento mais a sinergia com os que você pegou.",
- "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "Já pegou um aumento? Marque com \"Peguei\" para reordenar o resto por sinergia.",
  "With your picks": "Com suas escolhas",
  "Synergy {n}": "Sinergia {n}",
  "Estimated synergy with the augments you took.": "Sinergia estimada com os aumentos que você pegou.",
- "+ I took this": "+ Peguei",
- "Mark this augment as taken and re-rank the rest by synergy.": "Marcar este aumento como pego e reordenar o resto por sinergia."
+ "Selected": "Selecionados",
+ "Select {name}: the rest re-rank by synergy with it.": "Selecionar {name}: o resto é reordenado por sinergia.",
+ "Select: the rest re-rank by synergy with it.": "Selecionar: o resto é reordenado por sinergia.",
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Já tem aumentos? Selecione-os com + e o resto é reordenado por sinergia."
 }

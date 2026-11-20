@@ -227,16 +227,16 @@
  "Augment pairs appear here once enough games are in. Each pair needs a minimum number of games before it shows.": "Τα ζεύγη augments εμφανίζονται εδώ μόλις συγκεντρωθούν αρκετά παιχνίδια. Κάθε ζεύγος χρειάζεται έναν ελάχιστο αριθμό παιχνιδιών για να εμφανιστεί.",
  "Kit interactions": "Αλληλεπιδράσεις ικανοτήτων",
  "Augments that work with this champion's own abilities, and why.": "Ενισχύσεις που δουλεύουν με τις ικανότητες αυτού του πρωταθλητή, και γιατί.",
- "You took": "Επέλεξες",
  "Remove": "Αφαίρεση",
  "Clear": "Καθαρισμός",
  "Pairs well with {name}: +{n} pts.": "Ταιριάζει με {name}: +{n} μον.",
  "Overlaps with {name}: -{n} pts.": "Επικαλύπτεται με {name}: -{n} μον.",
  "Estimated: ranked by each augment's boost plus its synergy with the ones you took.": "Εκτίμηση: κατάταξη με βάση την ώθηση κάθε ενίσχυσης συν τη συνέργειά της με όσες επέλεξες.",
- "Took an augment already? Mark it with \"I took this\" to re-rank the rest by synergy.": "Πήρες ήδη ενίσχυση; Σημείωσέ τη με «Το πήρα» για νέα κατάταξη των υπολοίπων με βάση τη συνέργεια.",
  "With your picks": "Με τις επιλογές σου",
  "Synergy {n}": "Συνέργεια {n}",
  "Estimated synergy with the augments you took.": "Εκτιμώμενη συνέργεια με τις ενισχύσεις που επέλεξες.",
- "+ I took this": "+ Το πήρα",
- "Mark this augment as taken and re-rank the rest by synergy.": "Σημείωσε αυτή την ενίσχυση ως επιλεγμένη και κατάταξε ξανά τις υπόλοιπες με βάση τη συνέργεια."
+ "Selected": "Επιλεγμένες",
+ "Select {name}: the rest re-rank by synergy with it.": "Επιλογή {name}: οι υπόλοιπες κατατάσσονται ξανά με βάση τη συνέργεια.",
+ "Select: the rest re-rank by synergy with it.": "Επιλογή: οι υπόλοιπες κατατάσσονται ξανά με βάση τη συνέργεια.",
+ "Already have augments? Select them with + and the rest re-rank by synergy.": "Έχεις ήδη ενισχύσεις; Επίλεξέ τες με + και οι υπόλοιπες κατατάσσονται ξανά με βάση τη συνέργεια."
 }
