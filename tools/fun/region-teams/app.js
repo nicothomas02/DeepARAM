@@ -32,7 +32,7 @@ LabI18n.ready(function () {
   }
 
   document.getElementById("regions").innerHTML = data.regions.map(card).join("");
-  // Game files number patches by client version (16.23); players and the rest of the site call it 26.23.
+  // Show the public patch number (16.23 -> 26.23), the same as the rest of the site.
   const [major, minor] = data.patch.split(".").map(Number);
   document.getElementById("patch").textContent = T("Patch {patch}.", { patch: `${major >= 10 && major < 20 ? major + 10 : major}.${minor}` });
   document.getElementById("footer").innerHTML = `
