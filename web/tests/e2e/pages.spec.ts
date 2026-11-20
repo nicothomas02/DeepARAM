@@ -152,10 +152,11 @@ test("clicking a champion on the Tier List opens its page, with no favorites or 
 });
 
 test("a link to the Tier List's last tab shows that tab in the tab row", async ({ page }) => {
-  // Items is the last tab while the Simulator-made Weapon of Destiny and Pentakill tabs are off (lib/sim-policy.ts).
-  await page.goto("/tier-list?tab=items");
-  const tab = page.getByRole("tab", { name: "Items" });
+  // Pentakill is the last tab: predicted, never from the Simulator (lib/predicted-tabs.ts).
+  await page.goto("/tier-list?tab=pentakill");
+  const tab = page.getByRole("tab", { name: "Pentakill" });
   await expect(tab).toHaveAttribute("aria-selected", "true");
+  await expect(page.locator(".tag", { hasText: "Predicted" }).first()).toBeVisible();
   // On phones the row scrolls sideways: the open tab must be inside its visible part.
   await expect
     .poll(async () => {

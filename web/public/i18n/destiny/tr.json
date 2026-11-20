@@ -41,5 +41,14 @@
  "Predicted": "Tahmini",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Tahmini: istatistikler hangi maçlarda Kaderin Silahı olduğunu gösteremiyor, bu yüzden eşyalar kazanma durumuna göre değil, geliştirilecek istatistiklerinin ne kadar değerli olduğuna göre sıralanır.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "Her şampiyonun Kaderin Silahı yapacağı en iyi eşya: her aday, şampiyonun en popüler dizilimiyle simüle edilen çatışmalarda geliştirilir ve onu en güçlü yapan kazanır.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Simülasyon. Üstteki şampiyonlar çatışmalarda bu güçlendirmeden en çok faydayı sağlar."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Simülasyon. Üstteki şampiyonlar çatışmalarda bu güçlendirmeden en çok faydayı sağlar.",
+ "The next likeliest Weapons for this champion.": "Bu şampiyon için sonraki en olası Silahlar.",
+ "Likely Weapon": "Olası Silah",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Ölçüm değil tahmin: oyun istatistikleri hangi eşyanın Kader Silahı olduğunu kaydetmez, bu yüzden bunlar kazanma oranı değil, oyuncuların seçimlerinden tahminlerdir.",
+ "How many champions most likely make it their Weapon.": "Kaç şampiyonun bunu büyük olasılıkla Silahı yaptığı.",
+ "Also common": "Bunlar da yaygın",
+ "Champions": "Şampiyonlar",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Tahmin. Kader Silahı olan tüm maçlarda bu eşyanın ne sıklıkla Silah olduğu. Kademeler onu diğer eşyalarla karşılaştırır: S 70+, A 59+, B 44+, C 32+, altı D.",
+ "Weapon picks": "Silah seçimleri",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "Her şampiyonun en olası Kader Silahı; yaptığı efsanevi eşyalardan ve benzer şampiyonların seçtiği Silahlardan."
 }

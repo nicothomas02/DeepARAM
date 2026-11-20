@@ -41,5 +41,14 @@
  "Predicted": "Previsto",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Previsto: le statistiche non dicono in quali partite c'era Arma del Destino, quindi gli oggetti sono ordinati in base a quanto valgono le loro statistiche da potenziare, non a come vincono.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "Il miglior oggetto di ogni campione da rendere la sua Arma del Destino: ogni candidato viene potenziato in scontri simulati con la build più popolare del campione, e vince quello che lo rende più forte.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Simulato. I campioni in cima guadagnano di più dal potenziamento negli scontri."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Simulato. I campioni in cima guadagnano di più dal potenziamento negli scontri.",
+ "The next likeliest Weapons for this champion.": "Le Armi successive più probabili per questo campione.",
+ "Likely Weapon": "Arma probabile",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Previsione, non misura: le statistiche di gioco non registrano quale oggetto diventa l'Arma del destino, quindi sono stime dalle scelte dei giocatori, non percentuali di vittoria.",
+ "How many champions most likely make it their Weapon.": "Quanti campioni probabilmente la rendono la loro Arma.",
+ "Also common": "Anche comuni",
+ "Champions": "Campioni",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Previsione. Su tutte le partite con Arma del destino, quanto spesso questo oggetto è l'Arma. I livelli lo confrontano con gli altri oggetti: S 70+, A 59+, B 44+, C 32+, D sotto.",
+ "Weapon picks": "Scelte dell'Arma",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "L'Arma del destino più probabile di ogni campione, dagli oggetti leggendari che costruisce e dalle Armi scelte da campioni simili."
 }

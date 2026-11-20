@@ -16,5 +16,15 @@
  "Simulated": "시뮬레이션",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "펜타킬 게임에서는 시작 시 기본 스킬 하나를, 레벨 18에 두 번째 스킬을 강화하며, 이때는 궁극기도 선택할 수 있습니다: Q는 {heavy}, W는 {power}, E는 {thrash}, R은 {doom}. 각각 스킬에 스킬 가속 20과 피해량, 회복량, 보호막 10% 증가를 줍니다.",
  "Find a champion": "챔피언 찾기",
- "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "시뮬레이션. 각 선택은 챔피언의 가장 인기 있는 빌드로 한 한타에 가장 크게 기여하는 스킬이며, 역할에 따라 판단합니다: 캐리는 피해, 서포터와 탱커는 회복, 보호막, 군중 제어. 승률 상승은 이를 추정 승률 포인트로 바꾼 것으로, 위쪽 챔피언일수록 펜타킬 게임에서 이득이 큽니다."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "시뮬레이션. 각 선택은 챔피언의 가장 인기 있는 빌드로 한 한타에 가장 크게 기여하는 스킬이며, 역할에 따라 판단합니다: 캐리는 피해, 서포터와 탱커는 회복, 보호막, 군중 제어. 승률 상승은 이를 추정 승률 포인트로 바꾼 것으로, 위쪽 챔피언일수록 펜타킬 게임에서 이득이 큽니다.",
+ "Pentakill Empowers one of your abilities: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Pentakill은 스킬 하나를 강화합니다: Q는 {heavy}, W는 {power}, E는 {thrash}, R은 {doom}. 각각 스킬에 스킬 가속 20과 피해량, 회복, 보호막 10% 증가를 줍니다.",
+ "Empower": "강화",
+ "Confidence": "신뢰도",
+ "Predicted": "예측",
+ "Predicted, not measured: game stats don't record which ability players Empower, so these are estimates from the picks players make, not win rates.": "측정이 아닌 예측: 게임 통계에는 플레이어가 어떤 스킬을 강화했는지 기록되지 않으므로, 승률이 아니라 선택을 바탕으로 한 추정입니다.",
+ "High": "높음",
+ "The ability this champion most likely Empowers first.": "이 챔피언이 가장 먼저 강화할 가능성이 높은 스킬.",
+ "How sure the prediction is: High when many picks agree, Low when they're split.": "예측의 확실성: 많은 선택이 일치하면 높음, 갈리면 낮음.",
+ "Low": "낮음",
+ "Medium": "보통"
 }

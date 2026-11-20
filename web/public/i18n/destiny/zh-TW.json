@@ -41,5 +41,14 @@
  "Predicted": "預測",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "預測：數據無法區分哪些對局選了命定武器，因此裝備依升級屬性的價值排序，而不是依勝率。",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "每名英雄最適合作為命定武器的裝備：每件候選裝備都在使用該英雄最熱門出裝的模擬戰鬥中升級，選出讓其最強的一件。",
- "Simulated. Champions near the top gain the most from the augment in fights.": "模擬。排在前面的英雄在戰鬥中從這個強化中獲益最多。"
+ "Simulated. Champions near the top gain the most from the augment in fights.": "模擬。排在前面的英雄在戰鬥中從這個強化中獲益最多。",
+ "The next likeliest Weapons for this champion.": "該英雄其次最可能的武器。",
+ "Likely Weapon": "可能的武器",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "預測而非實測：遊戲數據不記錄哪件裝備成為命運之武器，所以這些是根據玩家選擇做出的估算，而非勝率。",
+ "How many champions most likely make it their Weapon.": "最可能把它當作武器的英雄數量。",
+ "Also common": "其他常見選擇",
+ "Champions": "英雄",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "預測。在所有帶命運之武器的對局中，這件裝備成為武器的頻率。評級與其他裝備比較：S 70+，A 59+，B 44+，C 32+，以下為 D。",
+ "Weapon picks": "武器選取率",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "每位英雄最可能的命運之武器，依據其會做的傳說裝備以及相似英雄選擇的武器。"
 }

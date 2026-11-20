@@ -41,5 +41,14 @@
  "Predicted": "Predicted",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Simulated. Champions near the top gain the most from the augment in fights."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Simulated. Champions near the top gain the most from the augment in fights.",
+ "The next likeliest Weapons for this champion.": "The next likeliest Weapons for this champion.",
+ "Likely Weapon": "Likely Weapon",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.",
+ "How many champions most likely make it their Weapon.": "How many champions most likely make it their Weapon.",
+ "Also common": "Also common",
+ "Champions": "Champions",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.",
+ "Weapon picks": "Weapon picks",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick."
 }

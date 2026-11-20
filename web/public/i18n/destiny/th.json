@@ -41,5 +41,14 @@
  "Predicted": "คาดการณ์",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "คาดการณ์: สถิติบอกไม่ได้ว่าเกมไหนมี Weapon of Destiny จึงเรียงไอเทมตามคุณค่าของค่าสถานะที่จะอัปเกรด ไม่ใช่ตามผลชนะ",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "ไอเทมที่ดีที่สุดของแต่ละแชมเปียนสำหรับทำเป็น Weapon of Destiny: ไอเทมแต่ละตัวเลือกจะถูกอัปเกรดในการต่อสู้จำลองด้วยบิลด์ยอดนิยมของแชมเปียน และตัวที่ทำให้แข็งแกร่งที่สุดจะถูกเลือก",
- "Simulated. Champions near the top gain the most from the augment in fights.": "จำลอง แชมเปียนที่อยู่ด้านบนได้ประโยชน์จากออคเมนต์นี้ในการต่อสู้มากที่สุด"
+ "Simulated. Champions near the top gain the most from the augment in fights.": "จำลอง แชมเปียนที่อยู่ด้านบนได้ประโยชน์จากออคเมนต์นี้ในการต่อสู้มากที่สุด",
+ "The next likeliest Weapons for this champion.": "อาวุธที่เป็นไปได้ลำดับถัดไปของแชมเปี้ยนนี้",
+ "Likely Weapon": "อาวุธที่น่าจะเลือก",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "เป็นการคาดการณ์ ไม่ใช่การวัด: สถิติเกมไม่ได้บันทึกว่าไอเทมไหนกลายเป็นอาวุธแห่งโชคชะตา จึงเป็นการประมาณจากสิ่งที่ผู้เล่นเลือก ไม่ใช่อัตราชนะ",
+ "How many champions most likely make it their Weapon.": "จำนวนแชมเปี้ยนที่น่าจะเลือกไอเทมนี้เป็นอาวุธมากที่สุด",
+ "Also common": "ที่พบบ่อยอื่น ๆ",
+ "Champions": "แชมเปี้ยน",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "การคาดการณ์ ในทุกเกมที่มีอาวุธแห่งโชคชะตา ไอเทมนี้เป็นอาวุธบ่อยแค่ไหน ระดับเทียบกับไอเทมอื่น: S 70+, A 59+, B 44+, C 32+, ต่ำกว่านั้น D",
+ "Weapon picks": "อัตราเลือกเป็นอาวุธ",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "อาวุธแห่งโชคชะตาที่เป็นไปได้มากที่สุดของแต่ละแชมเปี้ยน จากไอเทมระดับตำนานที่ทำ และอาวุธที่แชมเปี้ยนคล้ายกันเลือก"
 }

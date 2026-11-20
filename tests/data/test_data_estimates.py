@@ -294,3 +294,18 @@ def test_early_builds_output():
         for r in c["full_builds"]:
             assert 0 <= r["pick_rate"] <= 1 and 0 <= r["win_rate"] <= 1 and r["games"] >= 0
         assert all(len(r["items"]) == 3 for r in c["core"])
+
+
+def test_predicted_tabs_make_sense():
+    """Weapon of Destiny and Pentakill tabs (Nico 2026-11-20): predicted from real picks, no Simulator."""
+    d = load_json("data/estimates/predicted_tabs.json")
+    items = d["weapon_of_destiny"]["items"]
+    assert abs(sum(v["share"] for v in items.values()) - 1) < 0.01
+    top = sorted(items, key=lambda i: -items[i]["share"])[:5]
+    assert "4645" in top and "2517" in top  # Shadowflame, Endless Hunger
+    assert top[0] != "3031"  # Infinity Edge's crit damage gains little
+    for c, v in d["weapon_of_destiny"]["champions"].items():
+        assert 1 <= len(v["items"]) <= 3, c
+    for c, v in d["pentakill"].items():
+        assert v["start"] in "QWE" and v["picks"] >= 2 and 0 < v["agree"] <= 1, c
+    assert "Simulator" not in str(load_json("data/estimates/owner_picks.json"))

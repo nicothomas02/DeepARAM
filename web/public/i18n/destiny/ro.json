@@ -41,5 +41,14 @@
  "Predicted": "Previziune",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Previziune: statisticile nu arată în ce meciuri a fost Arma destinului, așa că obiectele sunt ordonate după cât de valoroase sunt statisticile lor de îmbunătățit, nu după cum câștigă.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "Cel mai bun obiect al fiecărui campion pentru Arma destinului: fiecare candidat este îmbunătățit în lupte simulate cu cel mai popular build al campionului, iar cel care îl face cel mai puternic câștigă.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Simulat. Campionii din partea de sus câștigă cel mai mult din augment în lupte."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Simulat. Campionii din partea de sus câștigă cel mai mult din augment în lupte.",
+ "The next likeliest Weapons for this champion.": "Următoarele cele mai probabile Arme pentru acest campion.",
+ "Likely Weapon": "Armă probabilă",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Estimare, nu măsurătoare: statisticile jocului nu înregistrează ce obiect devine Arma destinului, deci acestea sunt estimări din alegerile jucătorilor, nu rate de victorie.",
+ "How many champions most likely make it their Weapon.": "Câți campioni o fac cel mai probabil Arma lor.",
+ "Also common": "De asemenea frecvente",
+ "Champions": "Campioni",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Estimare. Din toate meciurile cu Arma destinului, cât de des acest obiect este Arma. Nivelurile îl compară cu celelalte obiecte: S 70+, A 59+, B 44+, C 32+, D sub.",
+ "Weapon picks": "Alegeri de Armă",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "Cea mai probabilă Armă a destinului pentru fiecare campion, din obiectele legendare pe care le construiește și Armele alese de campioni asemănători."
 }

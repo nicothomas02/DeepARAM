@@ -41,5 +41,14 @@
  "Predicted": "Prognose",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Prognose: Die Statistiken zeigen nicht, in welchen Spielen Waffe des Schicksals dabei war, daher sind die Gegenstände danach sortiert, wie wertvoll ihre Werte zum Aufwerten sind, nicht danach, wie sie gewinnen.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "Der beste Gegenstand jedes Champions für die Waffe des Schicksals: Jeder Kandidat wird in simulierten Kämpfen mit dem beliebtesten Build des Champions aufgewertet, und der, der ihn am stärksten macht, gewinnt.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Simuliert. Champions weit oben profitieren in Kämpfen am meisten von der Augmentierung."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Simuliert. Champions weit oben profitieren in Kämpfen am meisten von der Augmentierung.",
+ "The next likeliest Weapons for this champion.": "Die nächstwahrscheinlichen Waffen für diesen Champion.",
+ "Likely Weapon": "Wahrscheinliche Waffe",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Geschätzt, nicht gemessen: Spielstatistiken erfassen nicht, welches Item zur Waffe des Schicksals wird. Das sind Schätzungen aus den Wahlen der Spieler, keine Siegraten.",
+ "How many champions most likely make it their Weapon.": "Wie viele Champions es am wahrscheinlichsten zu ihrer Waffe machen.",
+ "Also common": "Auch häufig",
+ "Champions": "Champions",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Geschätzt. Wie oft dieses Item in allen Spielen mit Waffe des Schicksals die Waffe ist. Die Stufen vergleichen es mit den anderen Items: S 70+, A 59+, B 44+, C 32+, D darunter.",
+ "Weapon picks": "Waffenwahl",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "Die wahrscheinlichste Waffe des Schicksals jedes Champions, aus den legendären Items, die er baut, und den Waffen ähnlicher Champions."
 }

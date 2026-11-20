@@ -193,3 +193,13 @@ What follows is the carry-over fit the expected value uses.
   (split-half r 0.14). Only typical game length is published, plus the simulated curve above.
 - **Map win rates**: every Mayhem game in the archive is on Howling Abyss (map 12), so there's nothing
   to split.
+
+## Predicted Weapon of Destiny and Pentakill (`predicted_tabs.json`)
+
+`predict_tabs.py` writes the Tier List's Weapon of Destiny and Pentakill tabs, labelled Predicted on the site
+(Nico 2026-11-20): the public feed doesn't record which item became the Weapon or which ability was Empowered.
+Inputs are `owner_picks.json` (counts of real picks since patch 16.21 from the owner's games, which may fill gaps
+the feed leaves; Nico 2026-11-20), the feed's builds (only items a champion builds can be its Weapon) and Data
+Dragon class tags. No Simulator. Checked leave-one-out on the real picks: the real Weapon is in a champion's top 3
+54% of the time; the Pentakill pick is right 72% (61% for always Q). Champions with fewer than 2 Pentakill picks
+are left out.

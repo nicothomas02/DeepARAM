@@ -16,5 +16,15 @@
  "Simulated": "Simülasyon",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Bir Pentakill oyununda başlangıçta bir temel yeteneği, 18. seviyede de ikinci bir yeteneği güçlendirirsin; burada ulti de sayılır: Q için {heavy}, W için {power}, E için {thrash} ve R için {doom}. Her biri yeteneğe 20 Yetenek Hızı ve %10 fazla hasar, iyileştirme ve kalkan verir.",
  "Find a champion": "Şampiyon bul",
- "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simülasyon. Her seçim, şampiyonun en popüler buildiyle bir takım savaşına en çok katkı veren yetenektir; rolüne göre değerlendirilir: taşıyıcılar için hasar; destekler ve tanklar için iyileştirme, kalkanlar ve kitle kontrolü. Kazanma oranı artışı bunu tahmini kazanma oranı puanlarına çevirir: listenin üstündeki şampiyonlar bir Pentakill oyunundan en çok kazananlardır."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simülasyon. Her seçim, şampiyonun en popüler buildiyle bir takım savaşına en çok katkı veren yetenektir; rolüne göre değerlendirilir: taşıyıcılar için hasar; destekler ve tanklar için iyileştirme, kalkanlar ve kitle kontrolü. Kazanma oranı artışı bunu tahmini kazanma oranı puanlarına çevirir: listenin üstündeki şampiyonlar bir Pentakill oyunundan en çok kazananlardır.",
+ "Pentakill Empowers one of your abilities: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Pentakill yeteneklerinden birini güçlendirir: Q için {heavy}, W için {power}, E için {thrash} ve R için {doom}. Her biri yeteneğe 20 yetenek hızı ve %10 daha fazla hasar, iyileştirme ve kalkan verir.",
+ "Empower": "Güçlendir",
+ "Confidence": "Güven",
+ "Predicted": "Tahmin",
+ "Predicted, not measured: game stats don't record which ability players Empower, so these are estimates from the picks players make, not win rates.": "Ölçüm değil tahmin: oyun istatistikleri oyuncuların hangi yeteneği güçlendirdiğini kaydetmez, bu yüzden bunlar kazanma oranı değil, seçimlerden tahminlerdir.",
+ "High": "Yüksek",
+ "The ability this champion most likely Empowers first.": "Bu şampiyonun büyük olasılıkla ilk güçlendirdiği yetenek.",
+ "How sure the prediction is: High when many picks agree, Low when they're split.": "Tahmin ne kadar güvenilir: Birçok seçim aynıysa Yüksek, bölünmüşse Düşük.",
+ "Low": "Düşük",
+ "Medium": "Orta"
 }

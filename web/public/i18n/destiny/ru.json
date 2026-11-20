@@ -41,5 +41,14 @@
  "Predicted": "Прогноз",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Прогноз: по статистике нельзя понять, в каких играх было Оружие судьбы, поэтому предметы отсортированы по ценности их характеристик для улучшения, а не по победам.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "Лучший предмет каждого чемпиона для Оружия судьбы: каждый кандидат улучшается в смоделированных боях с самой популярной сборкой чемпиона, и побеждает тот, с которым чемпион сильнее всего.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Симуляция. Чемпионы вверху списка получают от аугмента в боях больше всего."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Симуляция. Чемпионы вверху списка получают от аугмента в боях больше всего.",
+ "The next likeliest Weapons for this champion.": "Следующие по вероятности Оружия для этого чемпиона.",
+ "Likely Weapon": "Вероятное Оружие",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Прогноз, а не измерение: игровая статистика не записывает, какой предмет становится Оружием судьбы, поэтому это оценки по выбору игроков, а не процент побед.",
+ "How many champions most likely make it their Weapon.": "Сколько чемпионов скорее всего делают его своим Оружием.",
+ "Also common": "Тоже часто",
+ "Champions": "Чемпионы",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Прогноз. Как часто этот предмет становится Оружием во всех играх с Оружием судьбы. Уровни сравнивают его с другими предметами: S 70+, A 59+, B 44+, C 32+, D ниже.",
+ "Weapon picks": "Выбор Оружия",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "Самое вероятное Оружие судьбы каждого чемпиона по легендарным предметам, которые он собирает, и Оружию, которое выбирают похожие чемпионы."
 }

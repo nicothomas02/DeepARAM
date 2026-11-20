@@ -41,5 +41,14 @@
  "Predicted": "Prediksi",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Prediksi: statistik tidak bisa menunjukkan game mana yang memakai Weapon of Destiny, jadi item diurutkan berdasarkan seberapa berharga stat-nya untuk ditingkatkan, bukan berdasarkan kemenangannya.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "Item terbaik tiap champion untuk dijadikan Weapon of Destiny: setiap kandidat di-upgrade dalam pertarungan simulasi dengan build paling populer champion, dan yang membuatnya paling kuat yang menang.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Simulasi. Champion di bagian atas paling diuntungkan oleh augment ini dalam pertarungan."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Simulasi. Champion di bagian atas paling diuntungkan oleh augment ini dalam pertarungan.",
+ "The next likeliest Weapons for this champion.": "Weapon paling mungkin berikutnya untuk champion ini.",
+ "Likely Weapon": "Weapon yang mungkin",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Prediksi, bukan hasil ukur: statistik game tidak mencatat item mana yang menjadi Weapon of Destiny, jadi ini perkiraan dari pilihan pemain, bukan win rate.",
+ "How many champions most likely make it their Weapon.": "Berapa banyak champion yang paling mungkin menjadikannya Weapon mereka.",
+ "Also common": "Juga umum",
+ "Champions": "Champion",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Prediksi. Dari semua game dengan Weapon of Destiny, seberapa sering item ini menjadi Weapon. Tier membandingkannya dengan item lain: S 70+, A 59+, B 44+, C 32+, D di bawahnya.",
+ "Weapon picks": "Pilihan Weapon",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "Weapon of Destiny paling mungkin untuk tiap champion, dari item Legendary yang ia bangun dan Weapon yang dipilih champion serupa."
 }

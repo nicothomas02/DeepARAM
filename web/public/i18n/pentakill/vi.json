@@ -16,5 +16,15 @@
  "Simulated": "Mô phỏng",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Trong trận Pentakill, bạn cường hóa một kỹ năng cơ bản lúc đầu và một kỹ năng thứ hai ở cấp 18, khi chiêu cuối cũng được tính: {heavy} cho Q, {power} cho W, {thrash} cho E và {doom} cho R. Mỗi cái cho kỹ năng 20 Điểm Hồi Kỹ Năng và thêm 10% sát thương, hồi máu và lá chắn.",
  "Find a champion": "Tìm tướng",
- "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Mô phỏng. Mỗi lựa chọn là kỹ năng đóng góp nhiều nhất cho một trận giao tranh tổng với lối lên đồ phổ biến nhất của tướng, tùy theo vai trò: sát thương cho tướng gánh đội; hồi máu, lá chắn và khống chế cho hỗ trợ và đỡ đòn. Mức tăng tỉ lệ thắng đổi điều đó thành điểm tỉ lệ thắng ước tính, nên các tướng ở đầu bảng được lợi nhiều nhất từ trận Pentakill."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Mô phỏng. Mỗi lựa chọn là kỹ năng đóng góp nhiều nhất cho một trận giao tranh tổng với lối lên đồ phổ biến nhất của tướng, tùy theo vai trò: sát thương cho tướng gánh đội; hồi máu, lá chắn và khống chế cho hỗ trợ và đỡ đòn. Mức tăng tỉ lệ thắng đổi điều đó thành điểm tỉ lệ thắng ước tính, nên các tướng ở đầu bảng được lợi nhiều nhất từ trận Pentakill.",
+ "Pentakill Empowers one of your abilities: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Pentakill cường hóa một kỹ năng của bạn: {heavy} cho Q, {power} cho W, {thrash} cho E và {doom} cho R. Mỗi cái cho kỹ năng 20 Điểm hồi kỹ năng và thêm 10% sát thương, hồi máu và lá chắn.",
+ "Empower": "Cường hóa",
+ "Confidence": "Độ tin cậy",
+ "Predicted": "Dự đoán",
+ "Predicted, not measured: game stats don't record which ability players Empower, so these are estimates from the picks players make, not win rates.": "Dự đoán, không phải đo lường: thống kê trận đấu không ghi lại người chơi cường hóa kỹ năng nào, nên đây là ước tính từ lựa chọn của họ, không phải tỉ lệ thắng.",
+ "High": "Cao",
+ "The ability this champion most likely Empowers first.": "Kỹ năng mà tướng này nhiều khả năng cường hóa trước.",
+ "How sure the prediction is: High when many picks agree, Low when they're split.": "Mức chắc chắn của dự đoán: Cao khi nhiều lựa chọn trùng nhau, Thấp khi bị chia rẽ.",
+ "Low": "Thấp",
+ "Medium": "Trung bình"
 }

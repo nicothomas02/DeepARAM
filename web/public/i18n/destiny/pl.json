@@ -41,5 +41,14 @@
  "Predicted": "Przewidywane",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Przewidywane: statystyki nie pokazują, w których grach była Broń Przeznaczenia, więc przedmioty są uszeregowane według tego, jak cenne są ich statystyki do ulepszania, a nie według wygranych.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "Najlepszy przedmiot każdego bohatera na Broń Przeznaczenia: każdy kandydat jest ulepszany w symulowanych walkach z najpopularniejszym buildem bohatera i wygrywa ten, z którym bohater jest najsilniejszy.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Symulacja. Bohaterowie na górze zyskują w walkach najwięcej na tym wzmocnieniu."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Symulacja. Bohaterowie na górze zyskują w walkach najwięcej na tym wzmocnieniu.",
+ "The next likeliest Weapons for this champion.": "Kolejne najbardziej prawdopodobne Bronie dla tego bohatera.",
+ "Likely Weapon": "Prawdopodobna Broń",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Przewidywanie, nie pomiar: statystyki gry nie zapisują, który przedmiot staje się Bronią przeznaczenia, więc to szacunki z wyborów graczy, a nie współczynniki zwycięstw.",
+ "How many champions most likely make it their Weapon.": "Ilu bohaterów najpewniej robi z niego swoją Broń.",
+ "Also common": "Też częste",
+ "Champions": "Bohaterowie",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Przewidywanie. Jak często ten przedmiot jest Bronią we wszystkich grach z Bronią przeznaczenia. Poziomy porównują go z innymi przedmiotami: S 70+, A 59+, B 44+, C 32+, D poniżej.",
+ "Weapon picks": "Wybory Broni",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "Najbardziej prawdopodobna Broń przeznaczenia każdego bohatera, na podstawie legendarnych przedmiotów, które buduje, i Broni wybieranych przez podobnych bohaterów."
 }

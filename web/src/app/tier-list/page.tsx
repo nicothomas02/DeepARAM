@@ -32,10 +32,9 @@ import { fillGames } from "@/lib/fill";
 import { matchesByPatch } from "@/lib/sample";
 import { patchName } from "@/lib/patch-name";
 import WeaponOfDestiny from "@/components/WeaponOfDestiny";
-import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
+import { predictedDestiny, predictedDestinyByChampion, predictedPentakill } from "@/lib/predicted-tabs";
 import Pentakill from "@/components/Pentakill";
 import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
-import { pentakill } from "@/lib/pentakill";
 
 export const metadata: Metadata = pageMeta(
   "/tier-list",
@@ -270,20 +269,19 @@ export default function TierListPage() {
     });
   }
 
-  // Which Legendary item to make the Weapon of Destiny (gold augment): how often it's upgraded and how rare its stats are.
-  // This tab and Pentakill's are Simulator-made, so they stay off while it is a fun tool only (lib/sim-policy.ts).
-  const destiny = SIMULATOR_IN_STATS ? weaponOfDestiny() : null;
+  // Weapon of Destiny and Pentakill, labelled Predicted: game stats don't record those picks, so lib/predicted-tabs.ts
+  // estimates them from picks seen since launch (Nico 2026-11-20). Neither uses the Simulator.
+  const destiny = predictedDestiny();
   if (destiny?.rows.length) {
     tabs.push({
       id: "weapon-of-destiny",
       label: "Weapon of Destiny",
       lazy: true,
-      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} champions={destinyByChampion()} />,
+      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} champions={predictedDestinyByChampion()} />,
     });
   }
 
-  // Which abilities to Empower in a Pentakill game, by the estimated win rate boost.
-  const penta = SIMULATOR_IN_STATS ? pentakill() : [];
+  const penta = predictedPentakill();
   if (penta.length) {
     tabs.push({ id: "pentakill", label: "Pentakill", lazy: true, content: <Pentakill rows={penta} /> });
   }

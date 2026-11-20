@@ -41,5 +41,14 @@
  "Predicted": "Previsto",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Previsto: as estatísticas não mostram em quais partidas houve Arma do Destino, então os itens são ordenados por quão valiosos são seus atributos para melhorar, não por como vencem.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "O melhor item de cada campeão para ser sua Arma do Destino: cada candidato é melhorado em lutas simuladas com a build mais popular do campeão, e vence o que o deixa mais forte.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Simulado. Os campeões no topo são os que mais ganham com o aumento em lutas."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Simulado. Os campeões no topo são os que mais ganham com o aumento em lutas.",
+ "The next likeliest Weapons for this champion.": "As próximas Armas mais prováveis para este campeão.",
+ "Likely Weapon": "Arma provável",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Previsão, não medição: as estatísticas do jogo não registram qual item vira a Arma do Destino, então são estimativas a partir das escolhas dos jogadores, não taxas de vitória.",
+ "How many champions most likely make it their Weapon.": "Quantos campeões provavelmente fazem dele a sua Arma.",
+ "Also common": "Também comum",
+ "Champions": "Campeões",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Previsão. De todas as partidas com Arma do Destino, com que frequência este item é a Arma. Os tiers comparam com os outros itens: S 70+, A 59+, B 44+, C 32+, D abaixo.",
+ "Weapon picks": "Escolhas de Arma",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "A Arma do Destino mais provável de cada campeão, a partir dos itens lendários que ele constrói e das Armas que campeões parecidos escolhem."
 }

@@ -41,5 +41,14 @@
  "Predicted": "予測",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "予測：統計からは「運命の武器」を取った試合を特定できないため、勝率ではなく、強化するステータスの価値でアイテムを並べています。",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "各チャンピオンが運命の武器にすべき最適アイテム：候補ごとにチャンピオンの最も人気のビルドでシミュレーション戦闘を行って強化し、最も強くなるものを選んでいます。",
- "Simulated. Champions near the top gain the most from the augment in fights.": "シミュレーション。上位のチャンピオンほど、戦闘でこのオーグメントの恩恵を大きく受けます。"
+ "Simulated. Champions near the top gain the most from the augment in fights.": "シミュレーション。上位のチャンピオンほど、戦闘でこのオーグメントの恩恵を大きく受けます。",
+ "The next likeliest Weapons for this champion.": "このチャンピオンで次に可能性の高い武器。",
+ "Likely Weapon": "有力な武器",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "予測であり実測ではありません: ゲームの統計にはどのアイテムが運命の武器になったかが記録されないため、勝率ではなくプレイヤーの選択からの推定です。",
+ "How many champions most likely make it their Weapon.": "これを武器にする可能性が最も高いチャンピオンの数。",
+ "Also common": "ほかによくある選択",
+ "Champions": "チャンピオン",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "予測。運命の武器を取った試合のうち、このアイテムが武器になる割合。ティアはほかのアイテムとの比較です: S 70+、A 59+、B 44+、C 32+、それ未満はD。",
+ "Weapon picks": "武器の選択率",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "各チャンピオンで最も可能性の高い運命の武器。そのチャンピオンが作るレジェンダリーアイテムと、似たチャンピオンが選ぶ武器から推定。"
 }

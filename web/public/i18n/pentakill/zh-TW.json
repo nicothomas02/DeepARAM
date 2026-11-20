@@ -16,5 +16,15 @@
  "Simulated": "模擬",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "在五殺搖滾對戰中，你在開局強化一個基礎技能，在 18 等再強化第二個技能，此時大絕招也可選：Q 對應{heavy}，W 對應{power}，E 對應{thrash}，R 對應{doom}。每個都給技能 20 技能加速，以及 10% 額外傷害、治療和護盾。",
  "Find a champion": "尋找英雄",
- "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "模擬。每個選擇都是在英雄最熱門出裝下對團戰貢獻最大的技能，依定位判斷：輸出位看傷害；輔助和坦克看治療、護盾和控制。勝率提升把它換算成估計的勝率百分點，所以排在前面的英雄從五殺搖滾對戰中獲益最多。"
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "模擬。每個選擇都是在英雄最熱門出裝下對團戰貢獻最大的技能，依定位判斷：輸出位看傷害；輔助和坦克看治療、護盾和控制。勝率提升把它換算成估計的勝率百分點，所以排在前面的英雄從五殺搖滾對戰中獲益最多。",
+ "Pentakill Empowers one of your abilities: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "五殺強化你的一個技能：{heavy}對應 Q，{power}對應 W，{thrash}對應 E，{doom}對應 R。每個都讓該技能獲得 20 技能急速，以及 10% 額外傷害、治療和護盾。",
+ "Empower": "強化",
+ "Confidence": "可信度",
+ "Predicted": "預測",
+ "Predicted, not measured: game stats don't record which ability players Empower, so these are estimates from the picks players make, not win rates.": "預測而非實測：遊戲數據不記錄玩家強化了哪個技能，所以這些是根據玩家選擇做出的估算，而非勝率。",
+ "High": "高",
+ "The ability this champion most likely Empowers first.": "該英雄最可能先強化的技能。",
+ "How sure the prediction is: High when many picks agree, Low when they're split.": "預測的可信程度：多數選擇一致時為高，意見分散時為低。",
+ "Low": "低",
+ "Medium": "中"
 }

@@ -41,5 +41,14 @@
  "Predicted": "متوقع",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "متوقع: لا تكشف الإحصائيات أي المباريات كان فيها سلاح المصير، لذا تُرتَّب العناصر حسب قيمة إحصائياتها عند الترقية، لا حسب نسبة فوزها.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "أفضل عنصر لكل بطل ليكون سلاح المصير: تتم ترقية كل عنصر مرشح في معارك محاكاة ببناء البطل الأكثر شيوعًا، ويفوز العنصر الذي يجعله الأقوى.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "محاكاة. الأبطال في الأعلى يستفيدون أكثر من هذا التعزيز في المعارك."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "محاكاة. الأبطال في الأعلى يستفيدون أكثر من هذا التعزيز في المعارك.",
+ "The next likeliest Weapons for this champion.": "أرجح الأسلحة التالية لهذا البطل.",
+ "Likely Weapon": "السلاح المرجّح",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "متوقَّع وليس مقيسًا: إحصاءات اللعبة لا تسجّل أي عنصر يصبح سلاح القدر، لذا هذه تقديرات من اختيارات اللاعبين، وليست نسب فوز.",
+ "How many champions most likely make it their Weapon.": "عدد الأبطال الذين يرجَّح أن يجعلوه سلاحهم.",
+ "Also common": "شائع أيضًا",
+ "Champions": "الأبطال",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "متوقَّع. من بين كل مباريات سلاح القدر، كم مرة يكون هذا العنصر هو السلاح. الفئات تقارنه بالعناصر الأخرى: S ‏70+، A ‏59+، B ‏44+، C ‏32+، D أقل.",
+ "Weapon picks": "اختيارات السلاح",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "أرجح سلاح قدر لكل بطل، من العناصر الأسطورية التي يبنيها والأسلحة التي يختارها أبطال مشابهون."
 }

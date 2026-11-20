@@ -41,5 +41,14 @@
  "Predicted": "Előrejelzés",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Előrejelzés: a statisztikákból nem derül ki, mely játékokban volt Végzet fegyvere, ezért a tárgyak aszerint vannak rangsorolva, mennyire értékes a statjaikat fejleszteni, nem aszerint, hogyan nyernek.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "Minden hős legjobb tárgya a Végzet fegyveréhez: minden jelöltet szimulált harcokban fejlesztünk a hős legnépszerűbb buildjével, és az nyer, amelyikkel a legerősebb.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Szimulált. A lista tetején lévő hősök nyernek a legtöbbet a harcokban ezzel a fejlesztéssel."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Szimulált. A lista tetején lévő hősök nyernek a legtöbbet a harcokban ezzel a fejlesztéssel.",
+ "The next likeliest Weapons for this champion.": "A hős következő legvalószínűbb Fegyverei.",
+ "Likely Weapon": "Valószínű Fegyver",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Becslés, nem mérés: a játékstatisztikák nem rögzítik, melyik tárgy lesz a Sors fegyvere, ezért ezek a játékosok választásaiból készült becslések, nem győzelmi arányok.",
+ "How many champions most likely make it their Weapon.": "Hány hős teszi valószínűleg a Fegyverévé.",
+ "Also common": "Szintén gyakori",
+ "Champions": "Hősök",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Becslés. A Sors fegyvere meccsek közül milyen gyakran ez a tárgy a Fegyver. A szintek a többi tárgyhoz hasonlítják: S 70+, A 59+, B 44+, C 32+, D alatta.",
+ "Weapon picks": "Fegyverválasztások",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "Minden hős legvalószínűbb Sors fegyvere, az általa épített legendás tárgyakból és a hasonló hősök által választott Fegyverekből."
 }

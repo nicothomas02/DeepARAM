@@ -16,5 +16,15 @@
  "Simulated": "Simuliert",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "In einem Pentakill-Spiel verstärkst du zu Beginn eine Grundfähigkeit und auf Stufe 18 eine zweite, wobei auch die ultimative zählt: {heavy} für Q, {power} für W, {thrash} für E und {doom} für R. Jede gibt der Fähigkeit 20 Fähigkeitstempo und 10 % mehr Schaden, Heilung und Schilde.",
  "Find a champion": "Champion suchen",
- "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simuliert. Jede Wahl ist die Fähigkeit, die einem Teamkampf mit dem beliebtesten Build des Champions am meisten bringt, je nach Rolle: Schaden bei Carrys; Heilung, Schilde und Massenkontrolle bei Supportern und Tanks. Das Siegraten-Plus rechnet das in geschätzte Siegratenpunkte um: Champions weit oben profitieren am meisten von einem Pentakill-Spiel."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simuliert. Jede Wahl ist die Fähigkeit, die einem Teamkampf mit dem beliebtesten Build des Champions am meisten bringt, je nach Rolle: Schaden bei Carrys; Heilung, Schilde und Massenkontrolle bei Supportern und Tanks. Das Siegraten-Plus rechnet das in geschätzte Siegratenpunkte um: Champions weit oben profitieren am meisten von einem Pentakill-Spiel.",
+ "Pentakill Empowers one of your abilities: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Pentakill verstärkt eine deiner Fähigkeiten: {heavy} für Q, {power} für W, {thrash} für E und {doom} für R. Jede gibt der Fähigkeit 20 Fähigkeitstempo und 10 % mehr Schaden, Heilung und Schilde.",
+ "Empower": "Verstärken",
+ "Confidence": "Sicherheit",
+ "Predicted": "Geschätzt",
+ "Predicted, not measured: game stats don't record which ability players Empower, so these are estimates from the picks players make, not win rates.": "Geschätzt, nicht gemessen: Spielstatistiken erfassen nicht, welche Fähigkeit Spieler verstärken. Das sind Schätzungen aus den Wahlen der Spieler, keine Siegraten.",
+ "High": "Hoch",
+ "The ability this champion most likely Empowers first.": "Die Fähigkeit, die dieser Champion am wahrscheinlichsten zuerst verstärkt.",
+ "How sure the prediction is: High when many picks agree, Low when they're split.": "Wie sicher die Schätzung ist: Hoch, wenn viele Wahlen übereinstimmen, Niedrig, wenn sie auseinandergehen.",
+ "Low": "Niedrig",
+ "Medium": "Mittel"
 }

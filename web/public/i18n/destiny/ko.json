@@ -41,5 +41,14 @@
  "Predicted": "예측",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "예측: 통계로는 운명의 무기를 선택한 게임을 구분할 수 없어, 승률이 아니라 강화할 능력치의 가치로 아이템 순위를 매겼습니다.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "각 챔피언이 운명의 무기로 삼기 가장 좋은 아이템: 후보마다 챔피언의 가장 인기 있는 빌드로 시뮬레이션 전투에서 강화하고, 가장 강해지는 아이템을 골랐습니다.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "시뮬레이션. 위쪽 챔피언일수록 전투에서 이 증강의 효과를 가장 크게 봅니다."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "시뮬레이션. 위쪽 챔피언일수록 전투에서 이 증강의 효과를 가장 크게 봅니다.",
+ "The next likeliest Weapons for this champion.": "이 챔피언에게 다음으로 유력한 무기.",
+ "Likely Weapon": "유력한 무기",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "측정이 아닌 예측: 게임 통계에는 어떤 아이템이 운명의 무기가 되었는지 기록되지 않으므로, 승률이 아니라 플레이어 선택을 바탕으로 한 추정입니다.",
+ "How many champions most likely make it their Weapon.": "이 아이템을 무기로 삼을 가능성이 가장 높은 챔피언 수.",
+ "Also common": "그 외 자주 선택",
+ "Champions": "챔피언",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "예측. 운명의 무기를 가진 모든 게임에서 이 아이템이 무기가 되는 비율. 티어는 다른 아이템과 비교한 것입니다: S 70+, A 59+, B 44+, C 32+, 그 아래는 D.",
+ "Weapon picks": "무기 선택률",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "각 챔피언이 운명의 무기로 삼을 가능성이 가장 높은 아이템. 챔피언이 만드는 전설 아이템과 비슷한 챔피언들이 고르는 무기를 바탕으로 합니다."
 }

@@ -16,5 +16,15 @@
  "Simulated": "Simulasi",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Dalam game Pentakill kamu meng-Empower satu ability dasar di awal dan ability kedua di level 18, saat ultimate juga dihitung: {heavy} untuk Q, {power} untuk W, {thrash} untuk E dan {doom} untuk R. Masing-masing memberi ability itu 20 Ability Haste dan 10% damage, heal dan shield lebih banyak.",
  "Find a champion": "Cari champion",
- "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulasi. Tiap pilihan adalah ability yang paling banyak menambah team fight dengan build terpopuler champion, sesuai perannya: damage untuk carry; heal, shield dan crowd control untuk support dan tank. Tambahan win rate mengubahnya menjadi poin win rate perkiraan, jadi champion di atas paling diuntungkan oleh game Pentakill."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "Simulasi. Tiap pilihan adalah ability yang paling banyak menambah team fight dengan build terpopuler champion, sesuai perannya: damage untuk carry; heal, shield dan crowd control untuk support dan tank. Tambahan win rate mengubahnya menjadi poin win rate perkiraan, jadi champion di atas paling diuntungkan oleh game Pentakill.",
+ "Pentakill Empowers one of your abilities: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "Pentakill memperkuat salah satu ability-mu: {heavy} untuk Q, {power} untuk W, {thrash} untuk E, dan {doom} untuk R. Masing-masing memberi ability 20 Ability Haste dan 10% lebih banyak damage, heal, dan shield.",
+ "Empower": "Perkuat",
+ "Confidence": "Keyakinan",
+ "Predicted": "Prediksi",
+ "Predicted, not measured: game stats don't record which ability players Empower, so these are estimates from the picks players make, not win rates.": "Prediksi, bukan hasil ukur: statistik game tidak mencatat ability mana yang diperkuat pemain, jadi ini perkiraan dari pilihan mereka, bukan win rate.",
+ "High": "Tinggi",
+ "The ability this champion most likely Empowers first.": "Ability yang paling mungkin diperkuat champion ini lebih dulu.",
+ "How sure the prediction is: High when many picks agree, Low when they're split.": "Seberapa yakin prediksinya: Tinggi bila banyak pilihan sama, Rendah bila terbagi.",
+ "Low": "Rendah",
+ "Medium": "Sedang"
 }

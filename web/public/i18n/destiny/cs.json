@@ -41,5 +41,14 @@
  "Predicted": "Předpověď",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "Předpověď: statistiky nepoznají, ve kterých hrách byla Zbraň osudu, takže předměty jsou seřazeny podle toho, jak cenné je vylepšovat jejich statistiky, ne podle toho, jak vyhrávají.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "Nejlepší předmět každého šampiona pro Zbraň osudu: každý kandidát se vylepší v simulovaných bojích s nejoblíbenějším buildem šampiona a vyhrává ten, se kterým je nejsilnější.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "Simulace. Šampioni nahoře v bojích z augmentu získají nejvíc."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "Simulace. Šampioni nahoře v bojích z augmentu získají nejvíc.",
+ "The next likeliest Weapons for this champion.": "Další nejpravděpodobnější Zbraně pro tohoto šampiona.",
+ "Likely Weapon": "Pravděpodobná Zbraň",
+ "Predicted, not measured: game stats don't record which item becomes the Weapon of Destiny, so these are estimates from the picks players make, not win rates.": "Odhad, ne měření: herní statistiky nezaznamenávají, který předmět se stane Zbraní osudu, takže jde o odhady z voleb hráčů, ne o míry výher.",
+ "How many champions most likely make it their Weapon.": "Kolik šampionů z něj nejspíš udělá svou Zbraň.",
+ "Also common": "Také časté",
+ "Champions": "Šampioni",
+ "Predicted. Out of every Weapon of Destiny game, how often this item is the Weapon. Tiers compare it with the other items: S 70+, A 59+, B 44+, C 32+, D below.": "Odhad. Jak často je tento předmět Zbraní ve všech hrách se Zbraní osudu. Úrovně ho porovnávají s ostatními předměty: S 70+, A 59+, B 44+, C 32+, D níže.",
+ "Weapon picks": "Volby Zbraně",
+ "Each champion's likeliest Weapon of Destiny, from the Legendary items it builds and the Weapons similar champions pick.": "Nejpravděpodobnější Zbraň osudu každého šampiona, z legendárních předmětů, které staví, a Zbraní, které volí podobní šampioni."
 }
