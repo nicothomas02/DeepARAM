@@ -267,5 +267,6 @@
  "Support": "Supporto",
  "Tied": "Pari",
  "Rush": "Prima",
- "With {augment}: buy {item} first": "Con {augment}: compra prima {item}"
+ "With {augment}: buy {item} first": "Con {augment}: compra prima {item}",
+ "Then": "Poi"
 }

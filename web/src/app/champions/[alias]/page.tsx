@@ -344,8 +344,8 @@ export default async function ChampionPage({
   const augBuilds = SIMULATOR_IN_STATS ? augmentBuilds(c.alias) : null;
   const changers = SIMULATOR_IN_STATS ? buildChangers(c.alias) : new Set<number>();
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
-  // The card's build plan for one core: the core in buying order with the parts to rush, augment swaps, then
-  // situational items (Nico, 2026-11-20). One per style tab when the champion has two real styles.
+  // The card's build plan for one core: the core in buying order, the rest of the usual build, the parts to rush,
+  // augment swaps, then situational items (Nico, 2026-11-20). One per style tab when the champion has two real styles.
   const buildPlan = (core: ItemRow, situ: typeof p.situational, rush: number[], swaps: typeof p.swaps) => (
     <>
       <div className="cp-best cp-best-wide">
@@ -359,6 +359,16 @@ export default async function ChampionPage({
             </li>
           ))}
         </ol>
+        {(core.rest ?? []).length > 0 && (
+          <p className="cp-rest">
+            <small>
+              <T ns={NS}>Then</T>
+            </small>
+            {core.rest!.map((id) => (
+              <ItemIcon key={id} id={id} info={info} named />
+            ))}
+          </p>
+        )}
         {rush.length > 0 && (
           <p className="cp-rush">
             <small>
@@ -407,7 +417,7 @@ export default async function ChampionPage({
                   <T ns={NS}>{SITUATIONS[st.situation]}</T>
                 </small>
                 <span className="cp-icons">
-                  {st.options.slice(0, 2).map((r, i) => (
+                  {st.options.slice(0, 3).map((r, i) => (
                     <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named={i === 0} />
                   ))}
                 </span>
@@ -441,7 +451,7 @@ export default async function ChampionPage({
     .filter((r) => r.rule && (r.order ? Math.max(...r.order) : r.points) > 0)
     .sort((x, y) => (y.order ? Math.max(...y.order) : y.points) - (x.order ? Math.max(...x.order) : x.points));
   const interactions = kitInteractions(c.alias, p.augments);
-  const bestStart = p.starting[0];
+  const bestStart = p.cardStart;
   const bestSkill = bestRow(p.skills, 0.1);
   const rawSpells = fillSpells(c.alias, c.winRate ?? 0.5);
   const spellsEstimated = rawSpells.some((r) => r.estimated);

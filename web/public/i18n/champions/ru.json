@@ -267,5 +267,6 @@
  "Support": "Поддержка",
  "Tied": "Наравне",
  "Rush": "Сначала",
- "With {augment}: buy {item} first": "С {augment}: сначала купите {item}"
+ "With {augment}: buy {item} first": "С {augment}: сначала купите {item}",
+ "Then": "Затем"
 }

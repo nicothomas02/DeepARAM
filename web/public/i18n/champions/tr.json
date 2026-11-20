@@ -267,5 +267,6 @@
  "Support": "Destek",
  "Tied": "Berabere",
  "Rush": "Önce",
- "With {augment}: buy {item} first": "{augment} ile: önce {item} alın"
+ "With {augment}: buy {item} first": "{augment} ile: önce {item} alın",
+ "Then": "Sonra"
 }

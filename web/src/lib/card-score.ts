@@ -14,6 +14,8 @@ export type ItemRow = Rated & {
   boots?: number;
   /** Core builds: how many core items come before the boots (simulated, data/estimates/boots_timing.json). */
   bootsAt?: number;
+  /** Core builds: the rest of the usual six-item build, most built first (lib/build-plan.ts restOfBuild). */
+  rest?: number[];
 };
 
 /** A row's items in the order they're bought: the boots go in at bootsAt (last when it isn't known, as real data
@@ -107,7 +109,7 @@ export function sameStyle<T extends { items: number[] }>(pool: T[], core: number
 }
 
 /** How many situational items the card shows. */
-export const SITUATIONAL = 5;
+export const SITUATIONAL = 7;
 
 /**
  * Situational items after the core: the situations the champion's items answer (lib/situations.ts), each with up to

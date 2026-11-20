@@ -9,10 +9,12 @@ import { alongCore, bestRow, buildOrder, followed, scoreRows, sameStyle, situati
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
 import type { Situation } from "./situations";
-import { rushParts, styleCores, upgradeSwaps } from "./build-plan";
+import { buyingOrder, restOfBuild, rushParts, startFirst, starterFits, styleCores, upgradeSwaps } from "./build-plan";
+import { orderedCores } from "./champion-history";
 import {
   ITEM_TIERS,
   itemClasses,
+  itemParts,
   itemRecipe,
   itemSituation,
   itemTier,
@@ -106,6 +108,8 @@ export type ChampionPage = {
   winRate: number;
   skills: SkillRow[];
   starting: ItemRow[];
+  /** The starter the top card shows: the best that builds into the best core, else none. */
+  cardStart: ItemRow | null;
   /** Empty when the champion skips boots (lib/card-score.ts skipsBoots). */
   boots: ItemRow[];
   core: ItemRow[];
@@ -246,11 +250,34 @@ export function championPage(alias: string): ChampionPage | null {
   const bootsRows = rows(b?.items?.boots);
   const noBoots = skipsBoots(bootsRows, full, (i) => itemTier(i) === "boots");
   const scoredCore = followed(scoreItems(rows(b?.items?.core)));
-  const core = noBoots ? scoredCore : withBoots(scoredCore, full, boots[0], timing);
+  const withBootsCore = noBoots ? scoredCore : withBoots(scoredCore, full, boots[0], timing);
+  // Items in the order players buy them (Nico, 2026-11-20): the feed's cores listed in buying order (lib/build-plan.ts
+  // buyingOrder), on top of the starting items: a core opens with the item its starter builds into (Cloak + Tome:
+  // Rite of Ruin), and a starter's parts build into the first item or the boots, or are standalone starters (Tear,
+  // Guardian's Blade). A finished item can't be afforded at the start, so a row holding one is noise.
+  const startRows = scoreItems(rows(b?.items?.starting), FIT.items);
+  const affordable = startRows.filter((r) => !r.items.some((i) => itemTier(i) === "legendary"));
+  const scoredStart = affordable.length ? affordable : startRows;
+  const standalone = (i: number) => ["starter", "consumable"].includes(itemTier(i));
+  const withBootsOf = (c: ItemRow, its: number[]) => [...its, ...(c.boots !== undefined ? [c.boots] : [])];
+  const fits = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items), itemParts, standalone);
+  const fitsFirst = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items.slice(0, 1)), itemParts, standalone);
+  const orderRows = orderedCores(id);
+  const isBoots = (i: number) => itemTier(i) === "boots";
+  const core = withBootsCore.map((c) => {
+    const st = scoredStart.find(fits(c));
+    const { items } = buyingOrder(st ? startFirst(c.items, st.items, itemParts, standalone) : c.items, orderRows);
+    return { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
+  });
+  const starting = core[0]
+    ? [fitsFirst(core[0]), fits(core[0]), () => true].reduce<ItemRow[]>((out, ok) => [...out, ...scoredStart.filter((r) => ok(r) && !out.includes(r))], [])
+    : scoredStart;
   const page = {
     winRate: base,
     skills,
-    starting: scoreItems(rows(b?.items?.starting), FIT.items),
+    starting,
+    // The card shows a starter only when one fits its core; the full list below keeps every row.
+    cardStart: (core[0] ? starting.find(fits(core[0])) : starting[0]) ?? null,
     boots: noBoots ? [] : boots,
     core,
     full,
@@ -279,7 +306,7 @@ export function championPage(alias: string): ChampionPage | null {
     [page.starting, page.boots, page.core, page.full, page.items]
       .flat()
       .flatMap((r) => (r.boots ? [r.boots, ...r.items] : r.items))
-      .concat(page.rush, page.swaps.map((s) => s.item), page.buildStyles.flatMap((s) => s.rush)),
+      .concat(page.rush, page.swaps.map((s) => s.item), page.buildStyles.flatMap((s) => s.rush), page.core.flatMap((c) => c.rest ?? [])),
   );
   const itemInfo = Object.fromEntries(
     [...used].map((i) => [

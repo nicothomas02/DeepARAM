@@ -267,5 +267,6 @@
  "Support": "Support",
  "Tied": "Tied",
  "Rush": "Rush",
- "With {augment}: buy {item} first": "With {augment}: buy {item} first"
+ "With {augment}: buy {item} first": "With {augment}: buy {item} first",
+ "Then": "Then"
 }

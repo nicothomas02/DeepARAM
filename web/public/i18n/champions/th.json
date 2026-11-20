@@ -267,5 +267,6 @@
  "Support": "ซัพพอร์ต",
  "Tied": "เสมอกัน",
  "Rush": "รีบซื้อ",
- "With {augment}: buy {item} first": "ถ้าได้ {augment}: ซื้อ {item} ก่อน"
+ "With {augment}: buy {item} first": "ถ้าได้ {augment}: ซื้อ {item} ก่อน",
+ "Then": "จากนั้น"
 }

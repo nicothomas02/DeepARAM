@@ -267,5 +267,6 @@
  "Support": "Wsparcie",
  "Tied": "Remis",
  "Rush": "Najpierw",
- "With {augment}: buy {item} first": "Z {augment}: kup najpierw {item}"
+ "With {augment}: buy {item} first": "Z {augment}: kup najpierw {item}",
+ "Then": "Potem"
 }

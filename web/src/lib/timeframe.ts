@@ -1,5 +1,6 @@
 import { FIT } from "./deepscore";
 import { alongCore, bestRow, followed, scoreRows, sameStyle, situational, skipsBoots, type ItemRow, type Rated } from "./card-score";
+import { buyingOrder, restOfBuild, startFirst, starterFits } from "./build-plan";
 import type { ItemTier } from "./items";
 import type { Situation } from "./situations";
 
@@ -12,13 +13,15 @@ type Entry = [number[], number, number | null];
 export type ItemLists = Partial<Record<"starting" | "boots" | "core" | "other" | "full_builds", Entry[]>>;
 export type HistSkill = { max: string[]; pick: number; win: number };
 export type HistPatch = { augments: [number, number, string][]; skills: HistSkill[]; items: ItemLists };
-export type ItemMeta = { name: string; icon: string; tier: ItemTier; ranked: boolean; situation?: Situation | null; classes?: string[] };
+export type ItemMeta = { name: string; icon: string; tier: ItemTier; ranked: boolean; situation?: Situation | null; classes?: string[]; parts?: number[] };
 export type Rarity = "prismatic" | "gold" | "silver";
 /** /data/champion-history/<Alias>: one champion's saved patches, with what the card needs to draw them. */
 export type HistFile = {
   patches: Record<string, HistPatch>;
   items: Record<string, ItemMeta>;
   augments: Record<string, { name: string; rarity: Rarity }>;
+  /** Core rows in buying order with their pick rates (lib/champion-history.ts orderedCores). */
+  order?: [number[], number][];
 };
 
 const GRADE: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
@@ -94,20 +97,35 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
 
   const boots = scoreRows(lists("boots"), FIT.items);
   const full = lists("full_builds");
-  const core = followed(scoreRows(lists("core")))[0] ?? null;
-  let coreRow: ItemRow | null = core;
+  const best = followed(scoreRows(lists("core")))[0] ?? null;
+  let coreRow: ItemRow | null = best;
   // A champion that skips boots gets none on the card (lib/card-score.ts skipsBoots).
   const noBoots = skipsBoots(lists("boots"), full, (i) => file.items[i]?.tier === "boots");
-  if (core && !noBoots) {
-    // The boots most bought alongside this core in six-item builds, else the best boots; bought last.
+  if (best && !noBoots) {
+    // The boots most bought alongside this core in six-item builds, else the best boots.
     const share = new Map<number, number>();
     for (const f of full) {
-      if (!core.items.every((i) => f.items.includes(i))) continue;
+      if (!best.items.every((i) => f.items.includes(i))) continue;
       for (const i of f.items) if (file.items[i]?.tier === "boots") share.set(i, (share.get(i) ?? 0) + f.pickRate);
     }
     const b = [...share].sort((x, y) => y[1] - x[1])[0]?.[0] ?? boots[0]?.items[0];
-    if (b !== undefined) coreRow = { ...core, boots: b };
+    if (b !== undefined) coreRow = { ...best, boots: b };
   }
+  // Buying order, starting items that build into the core, and the rest of the build, as on the live card
+  // (lib/champion-page.ts).
+  const partsOf = (i: number) => file.items[i]?.parts ?? [];
+  const standalone = (i: number) => ["starter", "consumable"].includes(file.items[i]?.tier ?? "");
+  const starts = scoreRows(lists("starting"), FIT.items).filter((r) => !r.items.some((i) => file.items[i]?.tier === "legendary"));
+  const fitsAll = (c: ItemRow, its: number[]) => (r: ItemRow) => starterFits(r.items, [...its, ...(c.boots !== undefined ? [c.boots] : [])], partsOf, standalone);
+  let starting: ItemRow | null = starts[0] ?? null;
+  if (coreRow) {
+    const c = coreRow;
+    const st = starts.find(fitsAll(c, c.items));
+    const items = buyingOrder(st ? startFirst(c.items, st.items, partsOf, standalone) : c.items, (file.order ?? []).map(([its, weight]) => ({ items: its, weight }))).items;
+    coreRow = { ...c, items, rest: restOfBuild(items, c.boots, full, (i) => file.items[i]?.tier === "boots") };
+    starting = starts.find(fitsAll(c, items.slice(0, 1))) ?? st ?? null;
+  }
+  const core = coreRow;
   const singles = [...lists("other"), ...lists("boots"), ...lists("starting")].filter((r) => r.items.length === 1);
   const taken = new Set(core?.items ?? []);
   const pool = alongCore(
@@ -122,7 +140,7 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
   );
 
   return {
-    starting: scoreRows(lists("starting"), FIT.items)[0] ?? null,
+    starting,
     augments,
     skill: bestRow(skills, 0.1),
     core: coreRow,

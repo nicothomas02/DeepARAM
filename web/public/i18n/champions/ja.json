@@ -267,5 +267,6 @@
  "Support": "サポート",
  "Tied": "互角",
  "Rush": "先行",
- "With {augment}: buy {item} first": "{augment}があれば：{item}を最初に"
+ "With {augment}: buy {item} first": "{augment}があれば：{item}を最初に",
+ "Then": "その後"
 }

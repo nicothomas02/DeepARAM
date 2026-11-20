@@ -267,5 +267,6 @@
  "Support": "서포터",
  "Tied": "동률",
  "Rush": "우선",
- "With {augment}: buy {item} first": "{augment} 보유 시: {item} 먼저"
+ "With {augment}: buy {item} first": "{augment} 보유 시: {item} 먼저",
+ "Then": "그다음"
 }
