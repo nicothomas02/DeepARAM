@@ -1,8 +1,8 @@
 // "Best pick for your team": ranks champions for a team from public live stats only (lib/team-fit.ts builds the
 // data, /data/team-fit.json serves it to the Tier List and the desktop app). Pure, so the site and the app score alike.
 //
-// A pick's score, in win-rate points: the champion's expected win rate over 50% (DeepScore's next-patch estimate),
-// plus its synergy with each ally already on the team. Synergy is the Duos tab's Win rate boost for that exact pair,
+// A pick's score, in win-rate points: the champion's expected win rate over 50% (DeepScore's next-patch estimate).
+// Its synergy with each ally already on the team is worked out too, as context, but doesn't move the ranking. Synergy is the Duos tab's Win rate boost for that exact pair,
 // else the boost of the two champions' archetypes (Enchanter + Marksman), averaged over their subclasses, so two
 // marksmen or a team with no frontline show up even for pairs the stats don't list. Ranking only: the duo list
 // leans to pairs that do well together, so the synergy part is a guide, not a promised gain.
@@ -80,7 +80,9 @@ export function rankPicks(
         return { ally, boost: p.boost - (avg.get(ally) ?? 0), exact: p.exact };
       });
       const fit = parts.reduce((s, p) => s + p.boost, 0);
-      return { id, score: strength + fit, strength, fit, parts };
+      // Ranked on strength alone: tested on held-out games, adding pair or archetype fit didn't predict the
+      // winner any better than each champion's own strength (it slightly hurt). Fit stays as context only.
+      return { id, score: strength, strength, fit, parts };
     })
     .sort((x, y) => y.score - x.score);
 }

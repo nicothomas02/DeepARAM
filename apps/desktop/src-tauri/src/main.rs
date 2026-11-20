@@ -418,7 +418,7 @@ fn main() {
         .plugin(tauri_plugin_autostart::init(MacosLauncher::LaunchAgent, Some(vec![HIDDEN_ARG])))
         .plugin(
             tauri_plugin_global_shortcut::Builder::new()
-                .with_handler(|app, _shortcut, event| overlay::on_shortcut(app, event.state()))
+                .with_handler(|app, shortcut, event| overlay::on_shortcut(app, shortcut, event.state()))
                 .build(),
         )
         .setup(|app| {

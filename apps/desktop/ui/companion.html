@@ -67,7 +67,7 @@
   const icon = (alias) => `<img src="${SITE}/icons/champions/${encodeURIComponent(alias)}.webp" alt="">`;
   const label = (alias) => alias.replace(/([a-z])([A-Z])/g, "$1 $2");
 
-  // Same scoring as the site's Best pick (web/src/lib/team-fit-score.ts).
+  // Same scoring as the site's Best pick (web/src/lib/team-fit-score.ts): ranked on strength; fit is context only.
   let fit = null;
   const loadFit = () => fit ?? (fit = fetch(`${SITE}/data/team-fit.json`).then((r) => r.json()).catch(() => null));
   function pairBoost(d, a, b) {
@@ -88,16 +88,10 @@
       const parts = team.map((ally) => ({ ally, boost: pairBoost(d, id, ally) - avg.get(ally) }));
       const fitSum = parts.reduce((s, p) => s + p.boost, 0);
       const strength = d.champions[id][0] - 0.5;
-      return { id, strength, fit: fitSum, score: strength + fitSum, parts };
+      return { id, strength, fit: fitSum, score: strength, parts };
     }).sort((a, b) => b.score - a.score);
   }
-  function reason(p) {
-    const best = [...p.parts].sort((a, b) => b.boost - a.boost)[0];
-    const worst = [...p.parts].sort((a, b) => a.boost - b.boost)[0];
-    if (p.fit >= 0.003 && best?.boost >= 0.005) return `Pairs well with ${label(best.ally)}`;
-    if (p.fit <= -0.003 && worst?.boost <= -0.005) return `Clashes with ${label(worst.ally)}`;
-    return p.strength >= 0.01 ? "Strong this patch" : "";
-  }
+
 
   window.showPick = async ({ allies, mine, bench }) => {
     const d = await loadFit();
@@ -109,15 +103,15 @@
     const rows = ranked.map((p, i) => `
       <div class="row${i === 0 && p.id !== byId[mine] ? " best" : ""}">
         ${icon(p.id)}
-        <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${esc(reason(p))}</div></div>
-        <div class="num">Strength ${pts(p.strength)}${team.length ? `<br>Team fit ${pts(p.fit)}` : ""}</div>
+        <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${p.strength >= 0.01 ? "Strong this patch" : ""}</div></div>
+        <div class="num">Strength ${pts(p.strength)}</div>
       </div>`).join("");
     view.innerHTML = `
       <h1>Champion select</h1>
       ${team.length ? `<h2>Your team</h2><div class="mates">${team.map(icon).join("")}</div>` : ""}
       <h2>Your choices, best first</h2>
       ${rows || `<p class="note">Waiting for your champion and bench…</p>`}
-      <p class="note">Strength this patch plus how well each pairs with your team, in win-rate points. A guide for ranking picks, not a promise. You make the pick.</p>`;
+      <p class="note">Strength this patch, in win-rate points. A guide, not a promise. You make the pick.</p>`;
   };
 
   function chart(points, from) {
@@ -149,7 +143,9 @@
   function readTaken() { try { return JSON.parse(localStorage.getItem("taken") ?? "null"); } catch { return null; } }
   function getTaken(g) {
     const s = readTaken(), start = Date.now() / 1000 - g.t;
-    return s && s.champ === g.champ && Math.abs(s.start - start) < 300 ? s.ids : [];
+    const mine = s && s.champ === g.champ && Math.abs(s.start - start) < 300 ? s.ids : [];
+    // Plus the ones marked on the overlay with Ctrl+Shift+1-9.
+    return [...new Set([...mine, ...(g.taken ?? [])])];
   }
   function setTaken(g, ids) {
     try { localStorage.setItem("taken", JSON.stringify({ champ: g.champ, start: Date.now() / 1000 - g.t, ids })); } catch {}
@@ -286,6 +282,7 @@
     head.classList.toggle("now", pickNow);
     document.getElementById("live").innerHTML = liveBlock(g.live);
     const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.enemies]);
+    if (prev && JSON.stringify(prev.taken) !== JSON.stringify(g.taken)) renderAugments();
     if (!prev || key(prev) !== key(g)) renderItems();
   };
 

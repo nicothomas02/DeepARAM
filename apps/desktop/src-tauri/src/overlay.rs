@@ -67,6 +67,39 @@ pub fn toggle_shortcut() -> Shortcut {
     Shortcut::new(Some(Modifiers::CONTROL | Modifiers::SHIFT), Code::KeyO)
 }
 
+const DIGITS: [Code; 10] = [
+    Code::Digit0,
+    Code::Digit1,
+    Code::Digit2,
+    Code::Digit3,
+    Code::Digit4,
+    Code::Digit5,
+    Code::Digit6,
+    Code::Digit7,
+    Code::Digit8,
+    Code::Digit9,
+];
+
+/// Ctrl+Shift+1 to 9 marks that numbered augment as taken; Ctrl+Shift+0 means "not listed" and just hides the panel.
+pub fn pick_shortcuts() -> Vec<Shortcut> {
+    DIGITS.iter().map(|c| Shortcut::new(Some(Modifiers::CONTROL | Modifiers::SHIFT), *c)).collect()
+}
+
+/// The augment ids in the order the panel numbers them: prismatic, gold, then silver, as overlay.json lists them.
+pub fn pick_order(build: &Value) -> Vec<i64> {
+    ["prismatic", "gold", "silver"]
+        .iter()
+        .flat_map(|r| {
+            build.get("augments").and_then(|a| a.get(r)).and_then(Value::as_array).cloned().unwrap_or_default()
+        })
+        .filter_map(|a| {
+            let icon = a.get("icon")?.as_str()?;
+            icon.rsplit('/').next()?.split('.').next()?.parse().ok()
+        })
+        .take(9)
+        .collect()
+}
+
 #[derive(Default)]
 pub struct State {
     /// A Mayhem game is running and its build is on the panel.
@@ -89,6 +122,10 @@ pub struct State {
     strengths: Option<HashMap<String, f64>>,
     next_sample: f64,
     result: Option<String>,
+    /// The "Augments to look for" on the panel, numbered 1 to 9 in the order shown, and the ones the player marked
+    /// as taken with Ctrl+Shift+1-9 (read by the companion window's augment panel).
+    pick_ids: Vec<i64>,
+    pub taken: Vec<i64>,
 }
 
 pub type Shared = Mutex<State>;
@@ -265,6 +302,8 @@ fn start(app: &AppHandle, agent: &ureq::Agent, game_time: f64) -> bool {
             .and_then(|r| r.get("team")?.as_str().map(str::to_owned));
         s.next_sample = 0.0;
         s.result = None;
+        s.pick_ids = pick_order(build);
+        s.taken.clear();
     }
     match window(app) {
         Some(win) => {
@@ -279,6 +318,7 @@ fn start(app: &AppHandle, agent: &ureq::Agent, game_time: f64) -> bool {
     }
     // The shortcut is only held during the game, so the keys stay free for other apps the rest of the time.
     let _ = app.global_shortcut().register(toggle_shortcut());
+    let _ = app.global_shortcut().register_multiple(pick_shortcuts());
     tick(app, agent, game_time);
     let first = app.state::<Store>().update(|s| !std::mem::replace(&mut s.overlay_hint_shown, true));
     if first {
@@ -301,6 +341,7 @@ pub fn stop(app: &AppHandle) {
     };
     if was {
         let _ = app.global_shortcut().unregister(toggle_shortcut());
+        let _ = app.global_shortcut().unregister_multiple(pick_shortcuts());
     }
     // Closing the panel's web view frees its memory until the next game.
     if let Some(win) = window(app) {
@@ -416,10 +457,16 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
     apply(app, smart_wants(game_time, dead, popup_until));
 }
 
-/// Ctrl+Shift+O during a game: flips the panel until the game next changes what it would show by itself.
-pub fn on_shortcut(app: &AppHandle, state: ShortcutState) {
+/// During a game: Ctrl+Shift+O flips the panel until the game next changes what it would show by itself;
+/// Ctrl+Shift+1-9 marks that augment as taken and closes the pick popup; Ctrl+Shift+0 just closes it.
+pub fn on_shortcut(app: &AppHandle, shortcut: &Shortcut, state: ShortcutState) {
     if state != ShortcutState::Pressed {
         return;
+    }
+    let digit =
+        DIGITS.iter().position(|c| *c == shortcut.key && shortcut.mods == Modifiers::CONTROL | Modifiers::SHIFT);
+    if let Some(n) = digit {
+        return mark(app, n);
     }
     let want = {
         let state = app.state::<Shared>();
@@ -431,6 +478,30 @@ pub fn on_shortcut(app: &AppHandle, state: ShortcutState) {
         s.want
     };
     apply(app, want);
+}
+
+fn mark(app: &AppHandle, n: usize) {
+    let taken = {
+        let state = app.state::<Shared>();
+        let mut s = state.lock().unwrap();
+        if !s.in_game {
+            return;
+        }
+        if let Some(id) = n.checked_sub(1).and_then(|i| s.pick_ids.get(i).copied()) {
+            if let Some(at) = s.taken.iter().position(|t| *t == id) {
+                s.taken.remove(at); // pressed again: undo
+            } else {
+                s.taken.push(id);
+            }
+        }
+        // The pick is done: the next tick hides the panel unless the game still calls for it (dead, first 90 s).
+        s.popup_until = 0.0;
+        s.forced = None;
+        s.taken.clone()
+    };
+    if let Some(win) = window(app) {
+        let _ = win.eval(format!("window.markTaken({})", json!(taken)));
+    }
 }
 
 /// Checks every few seconds whether a Mayhem game is running. A refused connection on 127.0.0.1 costs
@@ -527,5 +598,16 @@ mod tests {
         let page = include_str!("../../ui/overlay.html");
         assert!(page.contains("window.showBuild"));
         assert!(!page.to_lowercase().contains("win rate"));
+    }
+
+    #[test]
+    fn numbers_the_augments_in_panel_order() {
+        let build = serde_json::json!({ "augments": {
+            "prismatic": [{ "icon": "/icons/augments/1361.webp" }],
+            "gold": [{ "icon": "/icons/augments/3081.webp" }, { "icon": "/icons/augments/1152.webp" }],
+            "silver": [{ "icon": "/icons/augments/3262.webp" }]
+        } });
+        assert_eq!(pick_order(&build), vec![1361, 3081, 1152, 3262]);
+        assert_eq!(pick_shortcuts().len(), 10);
     }
 }

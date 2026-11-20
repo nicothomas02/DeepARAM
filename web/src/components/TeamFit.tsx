@@ -10,8 +10,8 @@ import { getParam, setParams } from "@/lib/url-state";
 import { rankPicks, type Pick, type TeamFitData } from "@/lib/team-fit-score";
 
 // "Best pick": under the Tier List's Champions tab (ChampionsPanel, ?cview=team). Add the champions already on your
-// team, and optionally the ones you can pick (bench or rerolls); it ranks the picks by strength plus how well they
-// pair with your team (lib/team-fit-score.ts, the same scoring the desktop app uses). Loads /data/team-fit.json when
+// team, and optionally the ones you can pick (bench or rerolls); it ranks the picks by strength (lib/team-fit-score.ts,
+// the same scoring the desktop app uses; pair fit didn't predict wins better, so it doesn't rank). Loads /data/team-fit.json when
 // first opened. The team and choices are kept in the link (?team=Lux,Vi&opts=Jinx,Nami).
 
 const NAMES = championNames as Record<string, string>;
@@ -77,16 +77,8 @@ export default function TeamFit({ version }: { version: string }) {
     opts.length ? MAX_OPTS : SHOWN,
   );
 
-  const reason = (p: Pick) => {
-    const best = [...p.parts].sort((a, b) => b.boost - a.boost)[0];
-    const worst = [...p.parts].sort((a, b) => a.boost - b.boost)[0];
-    // The reason follows the overall fit, so a pick that fits the team well never reads "clashes".
-    if (p.fit >= 0.003 && best && best.boost >= 0.005)
-      return t("Pairs well with {name}", { name: label(best.ally) });
-    if (p.fit <= -0.003 && worst && worst.boost <= -0.005)
-      return t("Clashes with {name}", { name: label(worst.ally) });
-    return p.strength >= 0.01 ? t("Strong this patch") : "";
-  };
+  const reason = (p: Pick) =>
+    p.strength >= 0.01 ? t("Strong this patch") : "";
 
   const picker = (
     which: "team" | "opts",
@@ -184,20 +176,17 @@ export default function TeamFit({ version }: { version: string }) {
             <span
               className="tf-nums"
               title={t(
-                "Strength: expected win rate this patch over 50%. Team fit: how much better it pairs with your team than the average pick. Both in win-rate points.",
+                "Strength: expected win rate this patch over 50%, in win-rate points.",
               )}
             >
               <span>{t("Strength {n}", { n: pts(p.strength) })}</span>
-              {team.length > 0 && (
-                <span>{t("Team fit {n}", { n: pts(p.fit) })}</span>
-              )}
             </span>
           </li>
         ))}
       </ol>
       <p className="patch-note">
         {t(
-          "Team fit is a guide for ranking picks, not a promised win-rate gain: pairs the stats don't list use their archetypes (two marksmen, no frontline).",
+          "Ranked by each champion's strength. We tested adding how champions pair with your team, and it didn't predict wins any better, so it's left out.",
         )}
       </p>
     </div>

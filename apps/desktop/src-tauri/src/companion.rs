@@ -331,6 +331,8 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         "dead": row.get("isDead").and_then(Value::as_bool).unwrap_or(false),
         "items": items,
         "enemies": enemies,
+        // Marked from the overlay with Ctrl+Shift+1-9, without leaving the game.
+        "taken": app.state::<crate::overlay::Shared>().lock().unwrap().taken.clone(),
         "live": null,
     });
     if owner {

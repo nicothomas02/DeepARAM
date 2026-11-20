@@ -27,14 +27,14 @@ describe("best pick for your team", () => {
     expect(pairBoost(data, "Vi", "Nami")).toEqual({ boost: 0, exact: false });
   });
 
-  it("ranks by strength alone with no team, and adds team fit with one", () => {
+  it("ranks by strength, with or without a team, and still works out fit", () => {
     expect(rankPicks(data, [])[0].id).toBe("Ashe");
     const withJinx = rankPicks(data, ["Jinx"]);
     expect(withJinx.map((p) => p.id)).not.toContain("Jinx");
-    // A second marksman drops below the enchanter that pairs with Jinx.
-    expect(withJinx.findIndex((p) => p.id === "Nami")).toBeLessThan(
-      withJinx.findIndex((p) => p.id === "Ashe"),
-    );
+    expect(withJinx[0].id).toBe("Ashe");
+    const nami = withJinx.find((p) => p.id === "Nami")!;
+    const ashe = withJinx.find((p) => p.id === "Ashe")!;
+    expect(nami.fit).toBeGreaterThan(ashe.fit);
   });
 
   it("ranks only the given choices when there are some", () => {
@@ -42,5 +42,8 @@ describe("best pick for your team", () => {
       "Jinx",
       "Vi",
     ]);
+    expect(rankPicks(data, ["Lux"], ["Ashe", "Jinx"]).map((p) => p.id)).toEqual(
+      ["Ashe", "Jinx"],
+    );
   });
 });
