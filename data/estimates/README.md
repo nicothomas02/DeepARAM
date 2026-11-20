@@ -112,6 +112,12 @@ estimated boost plus their synergy with the taken ones (`web/src/lib/synergy-pic
   augments' own text (Ethereal Weapon + Mystic Punch, Vulnerability + Jeweled Gauntlet, snowball augments...). They
   are simulated when the Simulator models both, with the rule's points (2 strong, 1 some) as a floor, since the sim can
   miss part of an interaction; otherwise the rule's points are used.
+- **Full pool** (`--full`, the GitHub workflow `augment-synergy-full.yml`, 24 runners, about 15 minutes): every pair
+  of every modeled augment in the champion's pool (~800,000 pairs). A 400-fight screen, then the largest 3% per
+  champion rerun on 3 seeds of 1,500 fights; `points` is the mean, `lo`/`hi` one standard deviation either side, and
+  a pair is kept only when `lo` (or `hi` for clashes) clears 0.15 points. `hidden` marks pairs whose two augments are
+  both in the lower half of the champion's pool (real grade, else sim value alone) but strong together: the
+  off-meta picks. `augment_synergy_full.json` also keeps the screen value, each augment's value alone and grades.
 - There is still no real pair data, so this answers "what does the model expect", not "what do players win".
 
 Not scheduled (needs `make -C simulator mayhem_sim`): rerun after patches and after Simulator changes, about 90

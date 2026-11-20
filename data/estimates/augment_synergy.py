@@ -18,7 +18,16 @@ The real-game feed has no augment pairs (data/estimates/README.md), so every num
 Only pairs worth at least MIN_POINTS either way are written. Pairs are symmetric, except rule pairs where pick order
 decides (`a_first` / `b_first`: One Hit Wonder and Purist Caster).
 
+Full pool (--full): every pair of the champion's modeled augments, for "weak alone, strong together" picks. A quick
+screen (SCREEN_TRIALS) of all ~800,000 pairs, then the top RECHECK_SHARE by size rerun at PAIR_TRIALS on RECHECK_SEEDS
+independent seeds; a pair's points are the mean and `lo`/`hi` its mean -+ one standard deviation across seeds. Rows
+also carry each augment's sim value alone (`a_alone`, `b_alone`, points) and its real grade on the champion
+(`a_grade`, `b_grade`), and `hidden` when both are in the lower half of the champion's pool. Split across machines
+with --shard i --shards N (GitHub: .github/workflows/augment-synergy-full.yml), then --merge the shard files.
+
 Usage: python3 data/estimates/augment_synergy.py [--only Ahri,Jinx] [--jobs 4]
+       python3 data/estimates/augment_synergy.py --full --shard 0 --shards 24
+       python3 data/estimates/augment_synergy.py --merge augment_synergy.shard-*.json
 Needs `make -C simulator mayhem_sim`. Shares champion_upgrades.py's sim cache (~/.cache/deeparam-sim/upgrades/), so a
 rerun only plays new builds. About 90 minutes on 4 cores.
 """
@@ -40,6 +49,10 @@ MOST_PICKED = 30  # the champion's most picked modeled augments, every pair simu
 MIN_PICK = 0.002  # an augment under this share of the champion's games counts as not taken
 MIN_POINTS = 0.15  # win-rate points; smaller pairs are sim noise as often as not
 TRIALS = cu.PAIR_TRIALS
+SCREEN_TRIALS = 400  # --full: first pass over every pair
+RECHECK_SHARE = 0.03  # --full: share of each champion's pairs (largest first) rerun at TRIALS
+RECHECK_SEEDS = 3
+GRADE_RANK = {"S": 5, "A": 4, "B": 3, "C": 2, "D": 1}
 
 
 def load_rules():
@@ -87,11 +100,112 @@ def champion_pairs(e, ctx):
     return out
 
 
+def champion_pairs_full(e, ctx):
+    """Every pair of the champion's modeled augments: [(key a, key b, points, source, why, extra)]."""
+    champ, role, cid = e["id"], e["role"], str(e["champion_id"])
+    rows = ctx["builds"].get(cid, {}).get("augments", {}).get("all", [])
+    taken = [(ctx["aug_key"].get(a["id"]), a.get("grade")) for a in rows]
+    taken = [(k, g) for k, g in taken if k and ctx["augs"][k]["id"] not in ctx["selection"]]
+    grade = dict(taken)
+    keys = {k for k, _ in taken}
+    modeled = sorted(k for k in keys if k in ctx["modeled"])
+    items = cu.legal(e["build"]["items"])
+    pts = lambda syn: 100 * cu.synergy_points(ctx["beta"] * syn)
+
+    base = cu.sim(champ, items, [], cu.LATE, trials=SCREEN_TRIALS)
+    single = {k: cu.gain(base, cu.sim(champ, items, [k], cu.LATE, trials=SCREEN_TRIALS), role) for k in modeled}
+    screen = {}
+    for a, b in itertools.combinations(modeled, 2):
+        both = cu.gain(base, cu.sim(champ, items, [a, b], cu.LATE, trials=SCREEN_TRIALS), role)
+        screen[(a, b)] = pts(both - single[a] - single[b])
+    rules = {p: r for p, r in ctx["rules"].items() if p <= keys and "points" in r}
+    n = max(1, round(RECHECK_SHARE * len(screen)))
+    pick = set(sorted(screen, key=lambda p: -abs(screen[p]))[:n])
+    pick |= {tuple(sorted(p)) for p in rules if all(x in ctx["modeled"] for x in p)}
+
+    seeds = [cu.SEED + i for i in range(RECHECK_SEEDS)]
+    bases = {s_: cu.sim(champ, items, [], cu.LATE, trials=TRIALS, seed=s_) for s_ in seeds}
+    alone_full = {}
+
+    def alone(k, s_):
+        if (k, s_) not in alone_full:
+            alone_full[(k, s_)] = cu.gain(bases[s_], cu.sim(champ, items, [k], cu.LATE, trials=TRIALS, seed=s_), role)
+        return alone_full[(k, s_)]
+
+    # The lower half of the champion's pool, by real grade where it has one, else by sim value alone.
+    by_grade = sorted((k for k in modeled if grade.get(k) in GRADE_RANK), key=lambda k: GRADE_RANK[grade[k]])
+    weak_grade = set(by_grade[: len(by_grade) // 2])
+    by_sim = sorted(modeled, key=lambda k: single[k])
+    weak_sim = set(by_sim[: len(by_sim) // 2])
+    weak = lambda k: k in weak_grade if grade.get(k) in GRADE_RANK else k in weak_sim
+
+    out = []
+    for a, b in sorted(pick):
+        vals = []
+        for s_ in seeds:
+            both = cu.gain(bases[s_], cu.sim(champ, items, [a, b], cu.LATE, trials=TRIALS, seed=s_), role)
+            vals.append(pts(both - alone(a, s_) - alone(b, s_)))
+        mean = sum(vals) / len(vals)
+        sd = (sum((v - mean) ** 2 for v in vals) / max(1, len(vals) - 1)) ** 0.5
+        lo, hi = mean - sd, mean + sd
+        r = rules.get(frozenset((a, b)))
+        extra = {"lo": round(lo, 2), "hi": round(hi, 2), "screen": round(screen.get((a, b), 0), 2),
+                 "a_alone": round(100 * cu.synergy_points(ctx["beta"] * sum(alone(a, s_) for s_ in seeds) / len(seeds)), 2),
+                 "b_alone": round(100 * cu.synergy_points(ctx["beta"] * sum(alone(b, s_) for s_ in seeds) / len(seeds)), 2),
+                 **({"a_grade": grade[a]} if grade.get(a) else {}), **({"b_grade": grade[b]} if grade.get(b) else {}),
+                 **({"hidden": True} if weak(a) and weak(b) and lo >= MIN_POINTS else {})}
+        if r and (mean < r["points"] if r["points"] >= 0 else mean > r["points"]):
+            out.append((a, b, float(r["points"]), "rule", r["why"], extra))
+        elif lo >= MIN_POINTS or hi <= -MIN_POINTS or r:
+            out.append((a, b, round(mean, 2), "sim", r["why"] if r else None, extra))
+    for p, r in rules.items():
+        if tuple(sorted(p)) not in pick:
+            a, b = sorted(p)
+            out.append((a, b, float(r["points"]), "rule", r["why"], {}))
+    for r in ctx["rules"].values():
+        if frozenset((r["a"], r["b"])) <= keys and "points" not in r:
+            out.append((r["a"], r["b"], (float(r["a_first"]), float(r["b_first"])), "order", r["why"], {}))
+    return out
+
+
+def write_rows(champions, e, rows, augs):
+    size = lambda r: max(map(abs, r[2])) if isinstance(r[2], tuple) else abs(r[2])
+    champions[str(e["champion_id"])] = [
+        {"a": augs[a]["id"], "b": augs[b]["id"], "source": src,
+         **({"a_first": pts[0], "b_first": pts[1]} if isinstance(pts, tuple) else {"points": pts}),
+         **({"why": why} if why else {}), **extra}
+        for a, b, pts, src, why, extra in sorted(rows, key=lambda r: -size(r))
+    ]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
     ap.add_argument("--jobs", type=int, default=os.cpu_count() or 2)
+    ap.add_argument("--full", action="store_true", help="every pair of the champion's modeled augments")
+    ap.add_argument("--shard", type=int, default=0)
+    ap.add_argument("--shards", type=int, default=1)
+    ap.add_argument("--merge", nargs="+", help="combine --full shard files into augment_synergy.json")
     args = ap.parse_args()
+    if args.merge:
+        merged = None
+        for path in args.merge:
+            part = cm.load(path)
+            if merged is None:
+                merged = {**part, "champions": {}}
+            merged["champions"].update(part["champions"])
+        merged["method"].pop("shard", None)
+        # Everything goes to augment_synergy_full.json (analysis); the site's file keeps only what pages use.
+        site_keys = {"a", "b", "source", "points", "a_first", "b_first", "why", "lo", "hidden"}
+        site = {**merged, "champions": {c: [{k: v for k, v in r.items() if k in site_keys} for r in rows]
+                                         for c, rows in merged["champions"].items()}}
+        for path, data in ((OUT.replace(".json", "_full.json"), merged), (OUT, site)):
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(data, f, separators=(",", ":"), ensure_ascii=False)
+                f.write("\n")
+        n = sum(len(v) for v in merged["champions"].values())
+        print(f"{len(merged['champions'])} champions, {n} pairs -> {os.path.relpath(OUT, cm.REPO)}", file=sys.stderr)
+        return
 
     cu.BIN_STAMP = hashlib.sha1(open(cu.SIM_BIN, "rb").read()).hexdigest()[:12]
     enemies = cm.load(os.path.join(cu.SIM, "data", "cn_enemy_pool.json"))["enemies"]
@@ -99,6 +213,7 @@ def main():
     if args.only:
         keep = set(args.only.split(","))
         enemies = [e for e in enemies if e["id"] in keep or e["name"] in keep]
+    enemies = sorted(enemies, key=lambda e: e["id"])[args.shard::args.shards]
     augs = cm.load(os.path.join(cu.SIM, "data", "augments.json"))["augments"]
     upgrades = cm.load(cu.OUT)
     ctx = {
@@ -113,7 +228,9 @@ def main():
 
     def safe(e):
         try:
-            return champion_pairs(e, ctx)
+            if args.full:
+                return champion_pairs_full(e, ctx)
+            return [r + ({},) for r in champion_pairs(e, ctx)]
         except RuntimeError as err:
             print("skipped", err, file=sys.stderr)
             return None
@@ -123,22 +240,19 @@ def main():
 
     champions = {}
     for e, rows in zip(enemies, results):
-        if not rows:
-            continue
-        size = lambda r: max(map(abs, r[2])) if isinstance(r[2], tuple) else abs(r[2])
-        champions[str(e["champion_id"])] = [
-            {"a": augs[a]["id"], "b": augs[b]["id"], "source": src,
-             **({"a_first": pts[0], "b_first": pts[1]} if isinstance(pts, tuple) else {"points": pts}),
-             **({"why": why} if why else {})}
-            for a, b, pts, src, why in sorted(rows, key=lambda r: -size(r))
-        ]
+        if rows:
+            write_rows(champions, e, rows, augs)
     out = {
         "patch": cm.live_patch(), "estimated": True,
-        "method": {"trials": TRIALS, "seed": cu.SEED, "beta": ctx["beta"], "most_picked": MOST_PICKED,
-                   "min_pick": MIN_PICK, "min_points": MIN_POINTS, "cap": cu.SYNERGY_CAP},
+        "method": {"trials": TRIALS, "seed": cu.SEED, "beta": ctx["beta"], "min_points": MIN_POINTS, "cap": cu.SYNERGY_CAP,
+                   **({"pool": "full", "screen_trials": SCREEN_TRIALS, "recheck_share": RECHECK_SHARE,
+                       "recheck_seeds": RECHECK_SEEDS, "shard": [args.shard, args.shards]} if args.full else
+                      {"most_picked": MOST_PICKED, "min_pick": MIN_PICK})},
         "champions": champions,
     }
     path = OUT if not args.only else OUT.replace(".json", ".partial.json")
+    if args.shards > 1:
+        path = OUT.replace(".json", f".shard-{args.shard}.json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(out, f, separators=(",", ":"), ensure_ascii=False)
         f.write("\n")
