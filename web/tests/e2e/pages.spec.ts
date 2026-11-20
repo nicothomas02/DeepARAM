@@ -285,22 +285,23 @@ test("augment and item pages show the official description under the name, the l
 });
 
 test("champion pages list Synergies and the Adjusted / Raw switch relabels build win rates", async ({ page }) => {
-  await page.goto("/champions/Jinx");
-  const syn = page.locator("#synergies + .cp-panel .syn");
+  // Win rate boosts sit in a fold; its section link opens it.
+  await page.goto("/champions/Jinx#synergies");
+  const syn = page.locator(".cp-panel .syn");
   await expect(syn.locator(".syn-row").first()).toContainText("pts");
   await syn.getByRole("button", { name: /Items/ }).click();
   await expect(syn.locator(".syn-row").first()).toBeVisible();
-  // Adjusted (the default): each build row says Real or Expected; Raw: "Win rate" under each value.
+  // Adjusted (the default) shows the adjusted win rate, tagging Expected ones; Raw shows the plain one.
   const boots = page.locator(".cp-panel").filter({ has: page.locator("h3", { hasText: /^Boots$/ }) });
   const adjusted = page.getByRole("button", { name: "Adjusted", exact: true });
   const raw = page.getByRole("button", { name: "Raw", exact: true });
   await expect(adjusted).toHaveAttribute("aria-pressed", "true");
-  await expect(boots.locator(".cp-cell small.xp-exp").first()).toBeVisible();
+  await expect(boots.locator(".cp-cell b.xp-exp").first()).toBeVisible();
   await raw.click();
   await expect(raw).toHaveAttribute("aria-pressed", "true");
-  await expect(boots.locator(".cp-cell small.xp-exp").first()).toBeHidden();
+  await expect(boots.locator(".cp-cell b.xp-exp").first()).toBeHidden();
   await adjusted.click();
-  await expect(boots.locator(".cp-cell small.xp-exp").first()).toBeVisible();
+  await expect(boots.locator(".cp-cell b.xp-exp").first()).toBeVisible();
 });
 
 test("share links for a Chef Special and a build give link previews their card", async ({ page, request }) => {
@@ -382,7 +383,8 @@ test("each Synergies list opens on its best score, and no Simulator-made panel s
   await page.goto("/champions/Braum");
   // The Simulator is a fun tool only for now (lib/sim-policy.ts): no build picker, Best upgrades or "Changes your build" tag.
   await expect(page.locator("#augment-builds, #upgrades, .cp-changes")).toHaveCount(0);
-  const syn = page.locator("#synergies + .cp-panel .syn");
+  await page.locator('.cp-rail a[href="#synergies"]').click();
+  const syn = page.locator(".cp-panel .syn");
   await syn.locator(".syn-sort").filter({ hasText: "Pick rate" }).click();
   await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Pick rate");
   await syn.getByRole("button", { name: /Full builds/ }).click();

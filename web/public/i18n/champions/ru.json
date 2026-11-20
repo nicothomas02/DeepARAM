@@ -249,5 +249,9 @@
  "From earlier games": "По прошлым играм",
  "Augment synergies": "Синергии аугментов",
  "Augments that make each other stronger on this champion: worth more together than apart.": "Аугменты, усиливающие друг друга на этом чемпионе: вместе они ценнее, чем по отдельности.",
- "No confirmed augment synergies for this champion yet.": "Подтверждённых синергий аугментов для этого чемпиона пока нет."
+ "No confirmed augment synergies for this champion yet.": "Подтверждённых синергий аугментов для этого чемпиона пока нет.",
+ "Items": "Предметы",
+ "Win rate boosts": "Прибавка к винрейту",
+ "Spells and skills": "Заклинания и умения",
+ "Stats": "Статистика"
 }

@@ -1789,3 +1789,12 @@ html:not([data-raw]) .cp-row.aug-item {
   overflow: visible;
   z-index: 30;
 }
+
+/* Tables with a header row don't repeat "Win rate" / "Pick rate" under every value (Nico, 2026-11-20: condense);
+   only the Expected tag stays, since it says something the header doesn't. */
+.cp-panel:has(.cp-th) .cp-row .cp-cell > small:not(.xp-tag) {
+  display: none;
+}
+.cp-panel:has(.cp-th) .cp-row {
+  align-items: center;
+}

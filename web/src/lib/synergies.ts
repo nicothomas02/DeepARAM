@@ -139,7 +139,8 @@ export function championSynergies(id: number): SynTab[] {
   ];
   // "Augment combos" added two augments' own scores, which lists pairs that are just two strong augments; pairs that
   // feed each other are on the champion page's Augment synergies panel instead (Nico, 2026-11-20).
-  return tabs.filter((t) => t.rows.length && t.id !== "combos").map((t) => ({ ...t, rows: t.rows.map(clean) }));
+  // The Augments tab repeated the Augments panel just above it on the champion page (Nico, 2026-11-20: condense).
+  return tabs.filter((t) => t.rows.length && t.id !== "combos" && t.id !== "augments").map((t) => ({ ...t, rows: t.rows.map(clean) }));
 }
 
 /** An augment's Synergies tabs: the champions it fits, the augments it pairs with, and the items built with it. */

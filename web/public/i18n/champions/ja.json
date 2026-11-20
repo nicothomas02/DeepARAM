@@ -249,5 +249,9 @@
  "From earlier games": "過去の試合から",
  "Augment synergies": "オーグメントのシナジー",
  "Augments that make each other stronger on this champion: worth more together than apart.": "このチャンピオンで互いを強化し合うオーグメント。単体の合計より組み合わせたほうが強い。",
- "No confirmed augment synergies for this champion yet.": "このチャンピオンで確認済みのオーグメントシナジーはまだありません。"
+ "No confirmed augment synergies for this champion yet.": "このチャンピオンで確認済みのオーグメントシナジーはまだありません。",
+ "Items": "アイテム",
+ "Win rate boosts": "勝率への貢献",
+ "Spells and skills": "スペルとスキル",
+ "Stats": "統計"
 }

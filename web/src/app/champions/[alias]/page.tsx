@@ -258,16 +258,16 @@ export async function generateMetadata({
 
 // The section links, in page order.
 // What a player checks mid-match comes first; stats and graphs follow, and More details sits last.
+// One link per section, named for what a player looks for (Nico, 2026-11-20: "Builds" hid the items).
 const SPOTS = [
   { id: "augments", label: "Augments" },
   { id: "combos", label: "Augment synergies" },
-  { id: "interactions", label: "Kit interactions" },
-  { id: "upgrades", label: "Best upgrades" },
-  { id: "synergies", label: "Synergies" },
-  { id: "builds", label: "Builds" },
-  { id: "playstyle", label: "Playstyle" },
+  { id: "builds", label: "Items" },
+  { id: "synergies", label: "Win rate boosts" },
+  { id: "spells", label: "Spells and skills" },
   { id: "teammates", label: "Teammates" },
-  { id: "performance", label: "Performance" },
+  { id: "playstyle", label: "Playstyle" },
+  { id: "performance", label: "Stats" },
   { id: "details", label: "More details" },
 ];
 
@@ -759,22 +759,8 @@ export default async function ChampionPage({
           {interactions.length > 0 && <KitInteractions rows={interactions} />}
           {upgrades && <BestUpgrades u={upgrades} />}
 
-          {synergies.length > 0 && (
-            <>
-              <h2 className="cp-group" id="synergies">
-                <T ns={NS}>Synergies</T>
-              </h2>
-              <Panel
-                title="What fits this champion"
-                note={<T ns={NS}>{"Score: points of win rate over the usual choice. Choices with few games lean on the estimate."}</T>}
-              >
-                <Synergies tabs={synergies} few={fewGames()} subject={{ kind: "champions", id: c.alias, name: c.name }} />
-              </Panel>
-            </>
-          )}
-
           <h2 className="cp-group" id="builds">
-            <T ns={NS}>Builds</T>
+            <T ns={NS}>Items</T>
           </h2>
           {expected.size > 0 && <ExpectedSwitch />}
           {augBuilds && (
@@ -976,22 +962,26 @@ export default async function ChampionPage({
             </Fold>
           )}
 
-          <h2 className="cp-group" id="playstyle">
-            <T ns={NS}>Playstyle</T>
+          {synergies.length > 0 && (
+            <>
+              <h2 className="cp-group" id="synergies">
+                <T ns={NS}>Win rate boosts</T>
+              </h2>
+              {/* It repeats the item lists above as points over the usual pick, so Simple view folds it. */}
+              <Fold section="synergies" titles={["What fits this champion"]}>
+              <Panel
+                title="What fits this champion"
+                note={<T ns={NS}>{"Score: points of win rate over the usual choice. Choices with few games lean on the estimate."}</T>}
+              >
+                <Synergies tabs={synergies} few={fewGames()} subject={{ kind: "champions", id: c.alias, name: c.name }} />
+              </Panel>
+              </Fold>
+            </>
+          )}
+
+          <h2 className="cp-group" id="spells">
+            <T ns={NS}>Spells and skills</T>
           </h2>
-          {/* Tags and the 3D model moved here from the header, so the top of the page is only what a game needs
-              (Nico, 2026-11-20). */}
-          <div className="cp-style-top">
-            <ArchetypeTags names={championTags(c.alias)} info={championTagData().info} link />
-            {championRatings(c.alias) && (
-              <div className="cp-bars">
-                <PlaystyleBars ratings={championRatings(c.alias)!} />
-              </div>
-            )}
-            <div className="cp-model">
-              <ChampionShowcase alias={c.alias} name={c.name} />
-            </div>
-          </div>
           <Panel
             title="Summoner spells"
             count={spells.length || undefined}
@@ -1135,8 +1125,24 @@ export default async function ChampionPage({
             names={Object.fromEntries(all.map((x) => [x.id, x.name]))}
           />
 
+          <h2 className="cp-group" id="playstyle">
+            <T ns={NS}>Playstyle</T>
+          </h2>
+          {/* Tags and the 3D model moved here from the header, so the top of the page is only what a game needs
+              (Nico, 2026-11-20). */}
+          <div className="cp-style-top">
+            <ArchetypeTags names={championTags(c.alias)} info={championTagData().info} link />
+            {championRatings(c.alias) && (
+              <div className="cp-bars">
+                <PlaystyleBars ratings={championRatings(c.alias)!} />
+              </div>
+            )}
+            <div className="cp-model">
+              <ChampionShowcase alias={c.alias} name={c.name} />
+            </div>
+          </div>
           <h2 className="cp-group" id="performance">
-            <T ns={NS}>Performance</T>
+            <T ns={NS}>Stats</T>
           </h2>
           {perf.length > 0 && (
             <TfPerf alias={c.alias} patches={c.patches} matches={matches}>
@@ -1344,7 +1350,7 @@ export default async function ChampionPage({
           )}
         </div>
 
-        <SectionRail spots={SPOTS.filter((s) => (s.id !== "interactions" || interactions.length > 0) && (s.id !== "upgrades" || upgrades))} />
+        <SectionRail spots={SPOTS.filter((s) => s.id !== "synergies" || synergies.length > 0)} />
       </div>
     </>
   );
