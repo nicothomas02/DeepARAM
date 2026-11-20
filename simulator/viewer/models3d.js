@@ -44,8 +44,35 @@ import("./effects3d.js" + BUST).then((m) => { effects = m.default; api.effects =
 
 const gltfs = new Map();         // champion id (lower case) -> Promise<gltf | null>
 
+// Summons ("summon:tibbers"): models next to the map (summons.json from tools/build_props3d.py), drawn
+// like a champion; a tint makes one glow (Viego's souls).
+const SUMMONS = "/assets/map3d/";
+let summonList = null;
+function loadSummon(key) {
+  summonList = summonList || fetch(SUMMONS + "summons.json" + BUST).then((r) => (r.ok ? r.json() : {})).catch(() => ({}));
+  return summonList.then((list) => {
+    const entry = list[key.slice("summon:".length)];
+    if (!entry) return null;
+    return loader.loadAsync(SUMMONS + entry.file + BUST).then((g) => {
+      // Unlit, as the props on the map.
+      g.scene.traverse((o) => {
+        if (!o.isMesh) return;
+        o.material = entry.tint
+          ? new THREE.MeshBasicMaterial({ map: o.material.map, color: new THREE.Color(entry.tint), transparent: true, opacity: 0.85,
+            blending: THREE.AdditiveBlending, depthWrite: false })
+          : new THREE.MeshBasicMaterial({ map: o.material.map });
+      });
+      return { gltf: g, entry, anim: null };
+    }).catch(() => null);
+  });
+}
+
 function loadChampion(id) {
   const key = String(id).toLowerCase();
+  if (key.startsWith("summon:")) {
+    if (!gltfs.has(key)) gltfs.set(key, loadSummon(key));
+    return gltfs.get(key);
+  }
   if (!gltfs.has(key)) {
     gltfs.set(key, Promise.all([manifestReady, animsReady]).then(() => {
       const entry = manifest[key];
