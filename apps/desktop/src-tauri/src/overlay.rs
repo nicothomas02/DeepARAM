@@ -9,6 +9,7 @@
 // - It shows only the champion page's static picks, the same for everyone before the game: no win rates
 //   (Riot bans augment win rates in overlays), nothing about other players, no timers, and it never picks.
 use std::{
+    collections::HashMap,
     sync::Mutex,
     thread,
     time::{Duration, Instant},
@@ -21,10 +22,18 @@ use tauri::{
 };
 use tauri_plugin_global_shortcut::{Code, GlobalShortcutExt, Modifiers, Shortcut, ShortcutState};
 
-use crate::{notify, Store, SITE};
+use crate::{
+    companion, notify,
+    review::{self, Sample},
+    Store, SITE,
+};
 
 const LIVE: &str = "https://127.0.0.1:2999/liveclientdata";
 const DATA_URL: &str = "https://deeparam.com/data/overlay.json";
+/// Each champion's expected win rate, for the after-game review's team strength.
+const FIT_URL: &str = "https://deeparam.com/data/team-fit.json";
+/// Games shorter than this (remakes) get no review.
+const REVIEW_MIN_SECONDS: f64 = 300.0;
 
 /// Where the builds come from: the site, or in a debug build a file named by DEEPARAM_OVERLAY_DATA (for testing).
 fn data_url() -> String {
@@ -35,7 +44,7 @@ fn data_url() -> String {
     DATA_URL.to_owned()
 }
 /// The game mode the Live Client Data API reports for ARAM Mayhem.
-const MAYHEM_MODE: &str = "KIWI";
+pub(crate) const MAYHEM_MODE: &str = "KIWI";
 const CHECK_EVERY: Duration = Duration::from_secs(5);
 /// How often to look again during a game in "only when useful" mode, so the panel follows deaths quickly.
 const CHECK_IN_GAME: Duration = Duration::from_secs(2);
@@ -74,6 +83,16 @@ pub struct State {
     /// The last script sent to the panel, sent again if the page reloads.
     script: Option<String>,
     data: Option<(Instant, Value)>,
+    /// After-game review: this game's samples, the player's team, champion strengths and the game's result.
+    samples: Vec<Sample>,
+    team: Option<String>,
+    strengths: Option<HashMap<String, f64>>,
+    next_sample: f64,
+    result: Option<String>,
+    /// Augments the player clicked on the panel as taken this game (read by the companion's augment panel).
+    pub taken: Vec<i64>,
+    /// Whether the panel takes clicks right now (during an augment pick).
+    clickable: bool,
 }
 
 pub type Shared = Mutex<State>;
@@ -128,7 +147,7 @@ pub fn position(
 
 /// The Live Client Data API serves a certificate made for the game's own use, not one a public authority
 /// signs, so this client skips certificate checks. It only ever talks to 127.0.0.1, so nothing leaves the PC.
-fn local_agent() -> ureq::Agent {
+pub(crate) fn local_agent() -> ureq::Agent {
     ureq::Agent::config_builder()
         .tls_config(ureq::tls::TlsConfig::builder().disable_verification(true).build())
         // Never send 127.0.0.1 through a proxy set for the internet.
@@ -180,6 +199,8 @@ fn build_window(app: &AppHandle) -> tauri::Result<WebviewWindow> {
         .skip_taskbar(true)
         .resizable(false)
         .focused(false)
+        // Clicking an augment on it never takes focus (or keyboard and camera) away from the game.
+        .focusable(false)
         .visible(false)
         .on_page_load(move |win, payload| {
             if payload.event() == PageLoadEvent::Finished {
@@ -212,8 +233,10 @@ fn show(app: &AppHandle) {
     if let Some(win) = window(app) {
         place(app);
         let _ = win.show();
-        // Clicks go to the game underneath. Set once the window is on screen: GTK needs it shown first.
-        let _ = win.set_ignore_cursor_events(true);
+        // Clicks go to the game underneath, except during an augment pick. Set once the window is on screen: GTK
+        // needs it shown first.
+        let clickable = app.state::<Shared>().lock().unwrap().clickable;
+        let _ = win.set_ignore_cursor_events(!clickable);
         let _ = win.set_always_on_top(true);
     }
 }
@@ -245,6 +268,13 @@ fn start(app: &AppHandle, agent: &ureq::Agent, game_time: f64) -> bool {
         s.visible = false;
         s.level = 0;
         s.popup_until = 0.0;
+        s.samples.clear();
+        s.team = my_row(s.me.as_deref().unwrap_or_default(), &players)
+            .and_then(|r| r.get("team")?.as_str().map(str::to_owned));
+        s.next_sample = 0.0;
+        s.result = None;
+        s.taken.clear();
+        s.clickable = false;
     }
     match window(app) {
         Some(win) => {
@@ -273,11 +303,11 @@ fn start(app: &AppHandle, agent: &ureq::Agent, game_time: f64) -> bool {
 
 /// The game ended or the overlay was turned off.
 pub fn stop(app: &AppHandle) {
-    let was = {
+    let (was, samples, result) = {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
         s.visible = false;
-        std::mem::take(&mut s.in_game)
+        (std::mem::take(&mut s.in_game), std::mem::take(&mut s.samples), s.result.take())
     };
     if was {
         let _ = app.global_shortcut().unregister(toggle_shortcut());
@@ -286,6 +316,68 @@ pub fn stop(app: &AppHandle) {
     if let Some(win) = window(app) {
         let _ = win.destroy();
     }
+    if was && samples.last().is_some_and(|s| s.t >= REVIEW_MIN_SECONDS) {
+        show_review(app, &samples, result);
+    }
+}
+
+fn strengths(app: &AppHandle) -> HashMap<String, f64> {
+    if let Some(s) = app.state::<Shared>().lock().unwrap().strengths.clone() {
+        return s;
+    }
+    let fit: Option<Value> = ureq::get(FIT_URL).call().ok().and_then(|mut r| r.body_mut().read_json().ok());
+    let map: HashMap<String, f64> = fit
+        .as_ref()
+        .and_then(|f| f.get("champions")?.as_object())
+        .map(|o| o.iter().filter_map(|(k, v)| Some((k.clone(), v.get(0)?.as_f64()?))).collect())
+        .unwrap_or_default();
+    if !map.is_empty() {
+        app.state::<Shared>().lock().unwrap().strengths = Some(map.clone());
+    }
+    map
+}
+
+/// During a game, every review::SAMPLE_EVERY seconds: team kills, structures and levels, ally minus enemy.
+fn sample(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
+    let team = {
+        let state = app.state::<Shared>();
+        let s = state.lock().unwrap();
+        if game_time < s.next_sample {
+            return;
+        }
+        s.team.clone()
+    };
+    let Some(team) = team else { return };
+    let players = live(agent, "/playerlist").and_then(|v| v.as_array().cloned()).unwrap_or_default();
+    if players.is_empty() {
+        return;
+    }
+    let events = live(agent, "/eventdata").and_then(|v| v.get("Events")?.as_array().cloned()).unwrap_or_default();
+    let fit = strengths(app);
+    let s = companion::sample_from(game_time, &team, &players, &events, &fit);
+    let result = events
+        .iter()
+        .find(|e| e.get("EventName").and_then(Value::as_str) == Some("GameEnd"))
+        .and_then(|e| e.get("Result")?.as_str().map(str::to_owned));
+    let state = app.state::<Shared>();
+    let mut st = state.lock().unwrap();
+    st.samples.push(s);
+    st.next_sample = game_time + review::SAMPLE_EVERY;
+    if result.is_some() {
+        st.result = result;
+    }
+}
+
+/// After the game: the predicted chance over time, in the companion window.
+fn show_review(app: &AppHandle, samples: &[Sample], result: Option<String>) {
+    let r = review::analyse(samples);
+    let turns: Vec<Value> = r
+        .turns
+        .iter()
+        .map(|t| json!({ "from": t.from, "to": t.to, "before": t.before, "after": t.after, "kills": t.kills, "towers": t.towers }))
+        .collect();
+    let points: Vec<Value> = r.points.iter().map(|(t, p)| json!([t, p])).collect();
+    companion::show_review(app, json!({ "points": points, "turns": turns, "ffFrom": r.ff_from, "result": result }));
 }
 
 /// Shows or hides the panel when `want` (or the shortcut's choice) says it should change.
@@ -312,15 +404,12 @@ fn apply(app: &AppHandle, want: bool) {
 
 /// During a game: works out whether the panel should be up right now.
 fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
-    if !smart(app) {
-        return apply(app, true);
-    }
     let me = app.state::<Shared>().lock().unwrap().me.clone();
     let players = live(agent, "/playerlist").and_then(|v| v.as_array().cloned()).unwrap_or_default();
     let row = me.as_deref().and_then(|me| my_row(me, &players));
     let dead = row.and_then(|r| r.get("isDead")?.as_bool()).unwrap_or(false);
     let level = row.and_then(|r| r.get("level")?.as_u64()).unwrap_or(0);
-    let popup_until = {
+    let (popup_until, picking) = {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
         if level > s.level {
@@ -329,9 +418,58 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
             }
             s.level = level;
         }
-        s.popup_until
+        // An augment pick is on: the game's first seconds (level 1's pick) or just after an augment level, until
+        // the player clicks the one they took.
+        let picking = game_time < s.popup_until || (game_time < START_FOR && s.taken.is_empty());
+        (s.popup_until, picking)
     };
+    set_clickable(app, picking);
+    if !smart(app) {
+        return apply(app, true);
+    }
     apply(app, smart_wants(game_time, dead, popup_until));
+}
+
+/// During an augment pick the panel takes clicks (on the augment you took) without taking focus from the game;
+/// the rest of the time clicks pass through to the game.
+fn set_clickable(app: &AppHandle, on: bool) {
+    let changed = {
+        let state = app.state::<Shared>();
+        let mut s = state.lock().unwrap();
+        std::mem::replace(&mut s.clickable, on) != on
+    };
+    if !changed {
+        return;
+    }
+    if let Some(win) = window(app) {
+        let _ = win.set_ignore_cursor_events(!on);
+        let _ = win.eval(format!("window.setPicking({on})"));
+    }
+}
+
+/// The player clicked the augment they took on the panel (or clicked it again to undo).
+#[tauri::command]
+pub fn take_augment(app: AppHandle, id: i64) {
+    let taken = {
+        let state = app.state::<Shared>();
+        let mut s = state.lock().unwrap();
+        if !s.in_game {
+            return;
+        }
+        if let Some(at) = s.taken.iter().position(|t| *t == id) {
+            s.taken.remove(at);
+        } else {
+            s.taken.push(id);
+            // The pick is done: the next tick hides the panel unless the game still calls for it.
+            s.popup_until = 0.0;
+            s.forced = None;
+        }
+        s.taken.clone()
+    };
+    if let Some(win) = window(&app) {
+        let _ = win.eval(format!("window.markTaken({})", json!(taken)));
+    }
+    set_clickable(&app, false);
 }
 
 /// Ctrl+Shift+O during a game: flips the panel until the game next changes what it would show by itself.
@@ -365,6 +503,7 @@ pub fn watch(app: AppHandle) {
                 start(&app, &agent, game_time);
             } else if mayhem {
                 tick(&app, &agent, game_time);
+                sample(&app, &agent, game_time);
             } else if in_game {
                 stop(&app);
             }

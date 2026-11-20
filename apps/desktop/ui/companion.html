@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepARAM</title>
+<style>
+  /* The companion window (src-tauri/src/companion.rs): a normal window for a second screen, in the site's dark look. */
+  :root { color-scheme: dark; --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3;
+    --line: #222936; --accent: #5cc0ff; --good: #4cc98b; --bad: #f0776f; --gold: #e0b45c; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); }
+  body { font: 14px/1.4 "Mona Sans", "Segoe UI Variable", "Segoe UI", Cantarell, "Noto Sans", system-ui, sans-serif; padding: 16px; }
+  h1 { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  h2 { font-size: 12px; font-weight: 600; color: var(--muted); margin: 16px 0 8px; }
+  .row { display: grid; grid-template-columns: 36px 1fr auto; gap: 10px; align-items: center; padding: 8px 10px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 6px; }
+  .row.best { border-color: var(--accent); }
+  .row img, .mates img { width: 36px; height: 36px; border-radius: 8px; background: var(--raised); }
+  .name { font-weight: 600; }
+  .why { color: var(--muted); font-size: 12px; }
+  .num { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; }
+  .mates { display: flex; gap: 6px; }
+  .mates img { width: 28px; height: 28px; }
+  .big { font-size: 44px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
+  .bar { height: 14px; border-radius: 7px; background: var(--raised); overflow: hidden; margin: 12px 0; }
+  .bar span { display: block; height: 100%; transition: width .6s; }
+  .box { padding: 10px 12px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); margin-top: 10px; }
+  .box.yes { border-color: var(--bad); color: var(--bad); font-weight: 600; }
+  .note { color: var(--muted); font-size: 12px; margin-top: 14px; }
+  svg { width: 100%; height: 140px; display: block; margin-top: 8px; }
+  button.row { width: 100%; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+  button.row:hover { border-color: var(--muted); }
+  h2.now { color: var(--accent); }
+  input[type=search] { width: 100%; font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line);
+    border-radius: 10px; padding: 7px 10px; margin-bottom: 8px; }
+  .taken { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .chip { display: flex; align-items: center; gap: 6px; font: inherit; font-size: 12px; color: var(--muted); cursor: pointer;
+    background: var(--raised); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px 3px 3px; }
+  .chip img { width: 22px; height: 22px; border-radius: 50%; }
+  .items { display: grid; gap: 8px; }
+  .item { display: flex; gap: 10px; align-items: center; }
+  .item img { width: 32px; height: 32px; border-radius: 6px; }
+  .box.now { border-color: var(--gold); }
+  .tip { margin-top: 8px; }
+  .filters { display: flex; gap: 6px; margin-bottom: 8px; }
+  .chip.f { padding: 3px 10px; }
+  .chip.on { color: var(--fg); border-color: var(--accent); }
+  .aug { padding: 6px 10px; margin-bottom: 4px; }
+  .aug img { width: 30px; height: 30px; }
+  .tip b { color: var(--fg); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main id="view"><h1>DeepARAM</h1><p class="note">Opens by itself in Mayhem champion select and after each game.</p></main>
+<script>
+  // The app calls showPick({allies, mine, bench}) in champion select (champion ids), showGame({t, champ, level, dead,
+  // items, enemies, live}) during a game (live: the site owner only) and showReview({points, turns, ffFrom, result}) after it.
+  const SITE = "https://deeparam.com";
+  const view = document.getElementById("view");
+  const pct = (p) => `${Math.round(p * 100)}%`;
+  const pts = (n) => (Math.abs(n) < 0.0005 ? "0.0" : `${n > 0 ? "+" : "−"}${Math.abs(n * 100).toFixed(1)}`);
+  const clock = (t) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
+  const color = (p) => (p >= 0.6 ? "var(--good)" : p >= 0.4 ? "var(--gold)" : "var(--bad)");
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const icon = (alias) => `<img src="${SITE}/icons/champions/${encodeURIComponent(alias)}.webp" alt="">`;
+  const label = (alias) => alias.replace(/([a-z])([A-Z])/g, "$1 $2");
+
+  // Same scoring as the site's Best pick (web/src/lib/team-fit-score.ts): ranked on strength; fit is context only.
+  let fit = null;
+  const loadFit = () => fit ?? (fit = fetch(`${SITE}/data/team-fit.json`).then((r) => r.json()).catch(() => null));
+  function pairBoost(d, a, b) {
+    const exact = d.pairs[[a, b].sort().join(" ")];
+    if (exact !== undefined) return exact;
+    let sum = 0, n = 0;
+    for (const x of d.champions[a]?.[1] ?? []) for (const y of d.champions[b]?.[1] ?? []) {
+      const v = d.archetypes[[x, y].sort().join("+")];
+      if (v !== undefined) { sum += v; n += 1; }
+    }
+    return n ? sum / n : 0;
+  }
+  function rank(d, allies, options) {
+    const team = allies.filter((a) => d.champions[a]);
+    const others = Object.keys(d.champions).filter((id) => !team.includes(id));
+    const avg = new Map(team.map((a) => [a, others.reduce((s, id) => s + pairBoost(d, id, a), 0) / (others.length || 1)]));
+    return options.filter((id) => d.champions[id]).map((id) => {
+      const parts = team.map((ally) => ({ ally, boost: pairBoost(d, id, ally) - avg.get(ally) }));
+      const fitSum = parts.reduce((s, p) => s + p.boost, 0);
+      const strength = d.champions[id][0] - 0.5;
+      return { id, strength, fit: fitSum, score: strength, parts };
+    }).sort((a, b) => b.score - a.score);
+  }
+
+
+  window.showPick = async ({ allies, mine, bench }) => {
+    const d = await loadFit();
+    if (!d) { view.innerHTML = `<h1>Champion select</h1><p class="note">Couldn't load the picks. Check your connection.</p>`; return; }
+    const byId = Object.fromEntries(Object.entries(d.ids ?? {}).map(([a, id]) => [id, a]));
+    const team = allies.map((id) => byId[id]).filter(Boolean);
+    const options = [mine, ...bench].map((id) => byId[id]).filter(Boolean);
+    const ranked = rank(d, team, [...new Set(options)]);
+    const rows = ranked.map((p, i) => `
+      <div class="row${i === 0 && p.id !== byId[mine] ? " best" : ""}">
+        ${icon(p.id)}
+        <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${p.strength >= 0.01 ? "Strong this patch" : ""}</div></div>
+        <div class="num">Strength ${pts(p.strength)}</div>
+      </div>`).join("");
+    view.innerHTML = `
+      <h1>Champion select</h1>
+      ${team.length ? `<h2>Your team</h2><div class="mates">${team.map(icon).join("")}</div>` : ""}
+      <h2>Your choices, best first</h2>
+      ${rows || `<p class="note">Waiting for your champion and bench…</p>`}
+      <p class="note">Strength this patch, in win-rate points. A guide, not a promise. You make the pick.</p>`;
+  };
+
+  function chart(points, from) {
+    if (points.length < 2) return "";
+    const end = Math.max(points[points.length - 1][0], 60);
+    const x = (t) => (t / end) * 500, y = (p) => 130 - p * 120;
+    const path = points.map(([t, p], i) => `${i ? "L" : "M"}${x(t).toFixed(1)},${y(p).toFixed(1)}`).join(" ");
+    const ff = from != null ? `<line x1="${x(from)}" x2="${x(from)}" y1="10" y2="130" stroke="var(--bad)" stroke-dasharray="3 4"/>` : "";
+    return `<svg viewBox="0 0 500 140" role="img" aria-label="Predicted chance to win over the game">
+      <line x1="0" x2="500" y1="${y(0.5)}" y2="${y(0.5)}" stroke="var(--line)" stroke-dasharray="4 4"/>${ff}
+      <path d="${path}" fill="none" stroke="var(--accent)" stroke-width="2.5"/></svg>`;
+  }
+
+  // In game, for everyone: the augment ranking for your champion (tap what you took, the rest re-rank by synergy with
+  // it) and your next item. Rankings only, never win rates (Riot's policy for overlays). The live chance and the
+  // surrender line come only for the site owner (game.live).
+  const AUGMENT_LEVELS = [1, 7, 11, 15];
+  let picks = null, builds = null, kinds = null;
+  const loadKinds = () => kinds ?? (kinds = fetch(`${SITE}/data/damage-types.json`).then((r) => r.json()).catch(() => null));
+  const loadPicks = () => picks ?? (picks = fetch(`${SITE}/data/augment-picks.json`).then((r) => r.json()).catch(() => null));
+  const loadBuilds = () => builds ?? (builds = fetch(`${SITE}/data/overlay.json`).then((r) => r.json()).catch(() => null));
+  const augIcon = (id) => `<img src="${SITE}/icons/augments/${id}.webp" alt="">`;
+  const itemId = (icon) => Number((icon.match(/(\d+)\.png$/) ?? [])[1]) % 10000;
+  let game = null, query = "", rarity = "", reached = {};
+  // The champion's key in a data file, whatever its capitals (the game says "FiddleSticks", files may not).
+  const keyIn = (obj, champ) => (obj && champ ? Object.keys(obj).find((k) => k.toLowerCase() === champ.toLowerCase()) : undefined);
+
+  // What you took, kept per game (your champion plus when the game started) so a reopened window remembers.
+  function readTaken() { try { return JSON.parse(localStorage.getItem("taken") ?? "null"); } catch { return null; } }
+  function getTaken(g) {
+    const s = readTaken(), start = Date.now() / 1000 - g.t;
+    const mine = s && s.champ === g.champ && Math.abs(s.start - start) < 300 ? s.ids : [];
+    // Plus the ones clicked on the in-game overlay.
+    return [...new Set([...mine, ...(g.taken ?? [])])];
+  }
+  function setTaken(g, ids) {
+    try { localStorage.setItem("taken", JSON.stringify({ champ: g.champ, start: Date.now() / 1000 - g.t, ids })); } catch {}
+  }
+
+  function rankAugments(d, champ, taken) {
+    const own = d.champions[champ] ?? [];
+    const pairs = d.pairs[champ] ?? [];
+    return own.filter(([id]) => !taken.includes(id)).map(([id, score]) => {
+      let bonus = 0, mate = null, best = 0;
+      for (const [a, b, p] of pairs) {
+        const other = a === id ? b : b === id ? a : null;
+        if (other !== null && taken.includes(other)) { bonus += p; if (p > best) { best = p; mate = other; } }
+      }
+      return { id, score: score + bonus, mate };
+    }).sort((x, y) => y.score - x.score);
+  }
+
+  async function renderAugments() {
+    const box = document.getElementById("augs");
+    if (!box || !game) return;
+    const d = await loadPicks();
+    const ck = keyIn(d?.champions, game.champ);
+    if (!d || !ck) { box.innerHTML = `<p class="note">No augment ranking for this champion yet.</p>`; return; }
+    const taken = getTaken(game);
+    const name = (id) => d.augments[id]?.[0] ?? `#${id}`;
+    const q = query.trim().toLowerCase();
+    const ranked = rankAugments(d, ck, taken).filter((a) => !rarity || d.augments[a.id]?.[1] === rarity);
+    const shown = q ? ranked.filter((a) => name(a.id).toLowerCase().includes(q)) : ranked.slice(0, 8);
+    const row = (a, i) => `
+      <button class="row aug${i === 0 && !q ? " best" : ""}" data-id="${a.id}">
+        ${augIcon(a.id)}
+        <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
+        <div class="num">#${ranked.indexOf(a) + 1}</div>
+      </button>`;
+    box.innerHTML = `
+      ${taken.length ? `<div class="taken">${taken.map((id) => `<button class="chip" data-id="${id}" title="Tap to undo">${augIcon(id)}${esc(name(id))}</button>`).join("")}</div>` : ""}
+      ${shown.map(row).join("") || `<p class="note">No augment matches "${esc(query)}".</p>`}
+      <p class="note">Best first for ${esc(label(game.champ))}. Tap the one you take and the rest re-rank around it. If yours isn't listed, search for it.</p>`;
+    box.querySelectorAll("button[data-id]").forEach((b) => b.addEventListener("click", () => {
+      const id = Number(b.dataset.id), t = getTaken(game);
+      setTaken(game, t.includes(id) ? t.filter((x) => x !== id) : [...t, id]);
+      // The next pick can be any rarity, so a tap clears the search and the rarity filter.
+      query = ""; rarity = ""; const s = document.getElementById("search"); if (s) s.value = "";
+      document.querySelectorAll(".chip.f").forEach((x) => x.classList.toggle("on", x.dataset.r === ""));
+      renderAugments();
+    }));
+  }
+
+  // The enemy team's damage, 0 (all physical) to 1 (all magic): each champion's usual mix, pulled toward what their
+  // finished items say as they buy them. League doesn't show this. Shown only when it leans hard one way, as a fact,
+  // without an item prescription: no defense tip has been shown to pay off yet.
+  function enemyMagic(k, enemies) {
+    const lower = new Map(Object.entries(k.champions).map(([a, m]) => [a.toLowerCase(), m]));
+    const mixes = enemies.filter((e) => e.champ).map((e) => {
+      let ap = 0, ad = 0;
+      for (const id of e.items) {
+        const g = k.items[String(id % 10000)] ?? [];
+        if (g.includes("ap") && !g.includes("ad")) ap += 1;
+        if (g.includes("ad") && !g.includes("ap")) ad += 1;
+      }
+      return (2 * (lower.get(e.champ.toLowerCase()) ?? 0.5) + ap) / (2 + ap + ad);
+    });
+    return mixes.length ? mixes.reduce((a, b) => a + b, 0) / mixes.length : null;
+  }
+  function damageLine(k, g) {
+    const magic = enemyMagic(k, g.enemies ?? []);
+    if (magic === null || (magic > 0.35 && magic < 0.65)) return "";
+    const kind = magic >= 0.65 ? "magic" : "physical";
+    return `<div class="why tip">Enemy damage is mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.</div>`;
+  }
+
+  const STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
+  // Items that grow with time or takedowns: worth buying first when they're in your build.
+  const STACKING = new Set([6697, 3084, 3070, 3004, 3003, 3119]);
+  const BACK_TO_BASICS = new Set([1004, 4]);
+
+  // The build to follow: the champion's usual one, or, once the augments you took point to another of its build
+  // styles (on-hit, crit, AP...), that style's build from the same public stats.
+  function pickBuild(base, picks, k, taken) {
+    const ck = keyIn(picks?.builds, game.champ);
+    const styles = ck ? picks.builds[ck] : [];
+    if (!styles.length || !taken.length || !k) return { list: base, style: null };
+    const votes = {};
+    for (const id of taken) for (const st of picks.styles[id] ?? []) votes[st] = (votes[st] ?? 0) + 1;
+    const top = Object.entries(votes).sort((x, y) => y[1] - x[1])[0]?.[0];
+    const found = styles.find(([st]) => st === top);
+    if (!found || found === styles[0]) return { list: base, style: null };
+    const prefix = (base[0]?.icon ?? "").replace(/\d+\.png$/, "");
+    const list = [...found[2].slice(0, 1), ...found[3], ...found[4]].map((id) => ({
+      name: k.recipes[id % 10000]?.[0] ?? `#${id}`, icon: `${prefix}${id}.png`,
+    }));
+    return { list, style: STYLE_NAMES[top] ?? top };
+  }
+
+  // What your gold buys right now toward the next item: the item itself, else its priciest missing part you can afford.
+  function buyNow(k, nextId, owned, gold) {
+    const r = k.recipes[nextId];
+    if (!r) return null;
+    const have = r[2].filter((c) => owned.has(c)).reduce((sum, c) => sum + (k.recipes[c]?.[1] ?? 0), 0);
+    if (gold >= r[1] - have) return { name: r[0], whole: true };
+    const parts = r[2].filter((c) => !owned.has(c) && (k.recipes[c]?.[1] ?? 1e9) <= gold)
+      .sort((x, y) => k.recipes[y][1] - k.recipes[x][1]);
+    return parts.length ? { name: k.recipes[parts[0]][0], whole: false, cost: k.recipes[parts[0]][1] } : null;
+  }
+
+  // On level-up: where the point goes, from the champion's skill order (R at 6, 11 and 16, never with Back to Basics).
+  function skillUp(order, pts, level, taken) {
+    const spent = pts.reduce((a, b) => a + b, 0);
+    if (!order?.length || !pts.length || spent >= level) return "";
+    const noR = taken.some((id) => BACK_TO_BASICS.has(id));
+    const rDue = [6, 11, 16].filter((l) => l <= level).length;
+    if (!noR && pts[3] < rDue) return "R";
+    const idx = { Q: 0, W: 1, E: 2 };
+    const cap = Math.min(5, Math.ceil(level / 2));
+    const first = level <= 3 && order.find((key) => pts[idx[key]] === 0);
+    return first || order.find((key) => pts[idx[key]] < cap) || "";
+  }
+
+  async function renderItems() {
+    const box = document.getElementById("items");
+    if (!box || !game) return;
+    const [d, k, picks] = await Promise.all([loadBuilds(), loadKinds(), loadPicks()]);
+    const champ = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase());
+    const taken = getTaken(game);
+    const { list: build, style } = pickBuild(champ?.items ?? [], picks, k, taken);
+    const owned = new Set(game.items.map((i) => i % 10000));
+    // Any boots fill the build's boots slot: someone on other boots shouldn't be told to buy the build's pair.
+    const bootIds = new Set(k?.boots ?? []);
+    const hasBoots = [...owned].some((i) => bootIds.has(i));
+    let next = build.filter((it) => !owned.has(itemId(it.icon)) && !(hasBoots && bootIds.has(itemId(it.icon))));
+    // A stacking item (Hubris, Heartsteel, tear items) in the build goes first while you have no finished item yet.
+    const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000).length;
+    const stack = !finished && next.findIndex((it) => STACKING.has(itemId(it.icon)));
+    if (stack > 0) next = [next[stack], ...next.filter((_, i) => i !== stack)];
+    next = next.slice(0, 2);
+    const lines = [];
+    const point = skillUp(champ?.skills, game.skills ?? [], game.level, taken);
+    if (point) lines.push(`Skill point: <b>${point}</b>`);
+    if (style) lines.push(`Build switched to <b>${esc(style)}</b> to fit your augments.`);
+    if (stack > 0) lines.push(`<b>${esc(next[0].name)}</b> stacks over time, so it goes first.`);
+    const shop = game.dead ? "You're dead: a good time to shop." : game.t < 60 ? "In base: a good time to shop." : "";
+    if (shop && k && next.length) {
+      const buy = buyNow(k, itemId(next[0].icon), owned, game.gold ?? 0);
+      if (buy) lines.push(buy.whole ? `Your gold buys <b>${esc(buy.name)}</b> now.` : `Buy <b>${esc(buy.name)}</b> now (${buy.cost} gold) toward it.`);
+    }
+    // Six items and gold for the next one: sell an item that isn't in the build.
+    const slots = game.items.filter((i) => !(k?.recipes[i % 10000]?.[0] ?? "").includes("Totem") && ![3340, 3363, 3364].includes(i % 10000)).length;
+    if (k && slots >= 6 && next.length) {
+      const inBuild = new Set(build.map((it) => itemId(it.icon)));
+      const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !inBuild.has(i) && !bootIds.has(i));
+      const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
+      if (sell && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
+        lines.push(`Full build: sell <b>${esc(k.recipes[sell][0])}</b> for <b>${esc(next[0].name)}</b>.`);
+    }
+    const tip = (k ? damageLine(k, game) : "") + lines.map((l) => `<div class="why tip">${l}</div>`).join("");
+    if (!next.length) { box.innerHTML = (build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`) + tip; return; }
+    box.innerHTML = `<div class="box${shop ? " now" : ""}">
+      ${shop ? `<div class="why">${shop}</div>` : ""}
+      <div class="items">${next.map((it, i) => `<div class="item"><img src="${it.icon.startsWith("http") ? "" : SITE}${it.icon}" alt=""><div><div class="name">${esc(it.name)}</div><div class="why">${i ? "After that" : "Next"}</div></div></div>`).join("")}</div>
+      ${tip}</div>`;
+  }
+
+  function liveBlock(l) {
+    if (!l) return "";
+    let ff = `<div class="box">Too early to call a surrender (from minute 8).</div>`;
+    if (l.ffLine != null)
+      ff = l.ffHint
+        ? `<div class="box yes">Surrender: yes. Under ${pct(l.ffLine)} for a full minute, so a new game is worth more.</div>`
+        : `<div class="box">Surrender: no. The line at this minute is ${pct(l.ffLine)}.</div>`;
+    return `<h2>Chance to win</h2>
+      <div class="big" style="color:${color(l.win)}">${pct(l.win)}</div>
+      <div class="bar"><span style="width:${pct(l.win)};background:${color(l.win)}"></span></div>
+      ${ff}${chart(l.history, null)}
+      <p class="note">Predicted from kills, towers, levels and team strength.</p>`;
+  }
+
+  window.showGame = (g) => {
+    const prev = game;
+    game = g;
+    if (!document.getElementById("augs") || prev?.champ !== g.champ) {
+      view.innerHTML = `
+        <h1 id="head"></h1>
+        <h2>Items</h2><div id="items"></div>
+        <h2 id="augHead">Augments</h2>
+        <div class="filters">${["", "prismatic", "gold", "silver"].map((r) => `<button class="chip f${r === rarity ? " on" : ""}" data-r="${r}">${r ? r[0].toUpperCase() + r.slice(1) : "All"}</button>`).join("")}</div>
+        <input id="search" type="search" placeholder="Type your augment, then Enter" autocomplete="off">
+        <div id="augs"></div>
+        <div id="live"></div>`;
+      document.getElementById("search").addEventListener("input", (e) => { query = e.target.value; renderAugments(); });
+      // Typing a few letters and Enter marks the top match as taken.
+      document.getElementById("search").addEventListener("keydown", (e) => {
+        if (e.key !== "Enter") return;
+        const first = document.querySelector("#augs button.aug");
+        if (first) first.click();
+      });
+      document.querySelectorAll(".chip.f").forEach((b) => b.addEventListener("click", () => {
+        rarity = b.dataset.r;
+        document.querySelectorAll(".chip.f").forEach((x) => x.classList.toggle("on", x === b));
+        renderAugments();
+      }));
+      renderAugments();
+    }
+    // "Augment pick" lights up for 90 seconds after each augment level, and stays lit only while one is untaken.
+    if (!prev || prev.champ !== g.champ) reached = {};
+    for (const l of AUGMENT_LEVELS) if (l <= g.level && reached[l] === undefined) reached[l] = prev ? g.t : 0;
+    const recent = AUGMENT_LEVELS.some((l) => reached[l] !== undefined && g.t - reached[l] < 90);
+    const pickNow = recent && AUGMENT_LEVELS.filter((l) => l <= g.level).length > getTaken(g).length;
+    document.getElementById("head").textContent = `In game · ${clock(g.t)} · Level ${g.level}`;
+    const head = document.getElementById("augHead");
+    head.textContent = pickNow ? "Augment pick: best first" : "Augments";
+    head.classList.toggle("now", pickNow);
+    document.getElementById("live").innerHTML = liveBlock(g.live);
+    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.enemies, x.skills, x.level, x.taken, x.dead && Math.round((x.gold ?? 0) / 100)]);
+    if (prev && JSON.stringify(prev.taken) !== JSON.stringify(g.taken)) renderAugments();
+    if (!prev || key(prev) !== key(g)) renderItems();
+  };
+
+  window.showOver = () => {
+    game = null;
+    view.innerHTML = `<h1>Game over</h1><p class="note">The game review shows here after games of 5 minutes or more, while the in-game overlay is switched on.</p>`;
+  };
+
+  window.showReview = ({ points, turns, ffFrom, result }) => {
+    const verdict = result === "Win" ? "Victory" : result === "Lose" ? "Defeat" : "Game over";
+    const turnRows = turns.map((t) => `
+      <div class="box">${clock(t.from)}–${clock(t.to)}: ${pct(t.before)} → <b style="color:${color(t.after)}">${pct(t.after)}</b>
+        <div class="why">${t.kills >= 0 ? "+" : "−"}${Math.abs(t.kills)} kills${t.towers ? `, ${t.towers > 0 ? "+" : "−"}${Math.abs(t.towers)} towers` : ""} for your team</div></div>`).join("");
+    const ff = ffFrom != null
+      ? `<div class="box yes">From ${clock(ffFrom)} a surrender would have saved time: the chance stayed under the line for a full minute.</div>`
+      : `<div class="box">A surrender never paid off this game.</div>`;
+    view.innerHTML = `
+      <h1>Game review · ${verdict}</h1>
+      <h2>Chance to win over the game</h2>
+      ${chart(points, ffFrom)}
+      ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
+      <h2>Surrender</h2>${ff}
+      <p class="note">Predicted, not measured: an estimate from kills, towers, levels and team strength.</p>`;
+  };
+</script>
+</body>
+</html>

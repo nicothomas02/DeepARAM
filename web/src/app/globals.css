@@ -6384,3 +6384,92 @@ html[data-view="detailed"] .wr-ci {
     padding-top: 1rem;
   }
 }
+
+/* Best pick (Tier List > Champions > Best pick, components/TeamFit.tsx). */
+.team-fit .tf-h {
+  margin: 1rem 0 0.4rem;
+  font-size: 1rem;
+}
+.tf-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.tf-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.6rem 0.25rem 0.3rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+  cursor: pointer;
+}
+.tf-chip img {
+  border-radius: 50%;
+}
+.tf-chip:hover {
+  border-color: var(--accent);
+}
+.tf-input {
+  min-width: 18rem;
+  max-width: 100%;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+}
+.tf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+.tf-row {
+  display: grid;
+  grid-template-columns: minmax(9rem, 14rem) 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 0.6rem;
+  background: var(--surface);
+}
+.tf-champ {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+.tf-champ img {
+  border-radius: 0.4rem;
+}
+.tf-why {
+  color: var(--muted);
+}
+.tf-nums {
+  display: inline-flex;
+  gap: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .tf-row {
+    grid-template-columns: 1fr auto;
+  }
+  .tf-why {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+  .tf-input {
+    min-width: 0;
+    width: 100%;
+  }
+}

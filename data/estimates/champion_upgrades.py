@@ -104,18 +104,20 @@ def load_json(path):
     return cm.load(path)
 
 
-def sim(champ, items, augs, settings, trials=TRIALS, wod=None, takedowns=0):
-    """Summary of one build; cached on disk by its inputs (and the simulator binary)."""
+def sim(champ, items, augs, settings, trials=TRIALS, wod=None, takedowns=0, seed=None):
+    """Summary of one build; cached on disk by its inputs (and the simulator binary). seed: another run of the same
+    fights (augment_synergy.py's rechecks); None is SEED."""
     augs = list(augs)
+    seed = SEED if seed is None else seed
     # The Weapon's upgrade rides on a synthetic augment holding `takedowns` worth of its stats (ensure_scaled).
     extra = [f"wod_{wod}"] if wod else []
-    key = json.dumps([champ, items, sorted(augs), extra, takedowns, settings, trials, SEED, BIN_STAMP])
+    key = json.dumps([champ, items, sorted(augs), extra, takedowns, settings, trials, seed, BIN_STAMP])
     h = hashlib.sha1(key.encode()).hexdigest()
     path = os.path.join(CACHE, "runs", h[:2], h + ".json")
     if os.path.exists(path):
         return load_json(path)
     cmd = [SIM_BIN, "--champ", champ, "--items", ",".join(items), "--set", settings, "--json",
-           "--trials", str(trials), "--threads", "1", "--seed", str(SEED)]
+           "--trials", str(trials), "--threads", "1", "--seed", str(seed)]
     all_augs = augs + extra
     if all_augs:
         cmd += ["--augs", ",".join(all_augs)]

@@ -6,6 +6,8 @@ import { AdvancedProvider } from "@/components/Advanced";
 import ChampionTiers from "@/components/ChampionTiers";
 import ChampionsPanel from "@/components/ChampionsPanel";
 import DuosTable from "@/components/DuosTable";
+import TeamFit from "@/components/TeamFit";
+import { teamFitVersion } from "@/lib/team-fit";
 import { questPairs } from "@/components/champion/Quests";
 import { archetypeRows, duoVersion, hasDuos } from "@/lib/duos";
 import { augmentHref, augmentPages } from "@/lib/augments";
@@ -107,6 +109,7 @@ export default function TierListPage() {
             />
           }
           duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} quests={teamQuests()} /> : undefined}
+          team={duos ? <TeamFit version={teamFitVersion()} /> : undefined}
         />
       ),
     },
