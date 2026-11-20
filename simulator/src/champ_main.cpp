@@ -200,6 +200,8 @@ bool writeTrace(const Library& lib, const ChampionKit& c, const Build& b, const 
         if ((e.kind == "self" || e.kind == "death") && e.shielded >= 0.5) o << ", \"ab\": " << std::lround(e.shielded);
         if (e.total > 0) o << ", \"tot\": " << num(e.total);
         if (e.flag) o << ", \"f\": 1";
+        if (e.by >= 0) o << ", \"by\": " << e.by;
+        if (e.kind == "summon") o << ", \"ax\": " << std::lround(e.x) << ", \"ay\": " << std::lround(e.y);
         if (e.kind == "cast" || e.kind == "poro") o << ", \"ax\": " << std::lround(e.x) << ", \"ay\": " << std::lround(e.y) << ", \"fl\": " << num(e.flight);
         if (!e.pos.empty()) {
             o << ", \"p\": [";  // uid, x, y for everyone standing; uid -1 is the champion

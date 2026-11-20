@@ -1,6 +1,6 @@
 {
  "meta": {
-  "built_at": "2026-11-18T16:34:10+00:00",
+  "built_at": "2026-11-20T22:01:35+00:00",
   "game_version": "16.23",
   "cdragon": "latest",
   "mayhem_balance_patch": "wiki read 2026-11-18",
@@ -2180,8 +2180,9 @@
      ],
      "mode_overrides": [],
      "notes": [
-      "hand override: Tibbers' own attacks (TibbersAADamage 60 + 10% AP at rank 3, about one a second while enraged) added to his per-second burn"
-     ]
+      "hand override: Tibbers' own attacks (TibbersAADamage 60 + 10% AP at rank 3, about one a second while enraged) added to his per-second burn; the replay draws Tibbers where R lands while the burn lasts"
+     ],
+     "summon": "tibbers"
     }
    ],
    "parse_quality": "good",
@@ -12248,7 +12249,8 @@
         "per_second": false,
         "alt": false
        }
-      ]
+      ],
+      "model": "daisy"
      }
     }
    ],
