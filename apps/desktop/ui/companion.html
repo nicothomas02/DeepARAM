@@ -42,6 +42,8 @@
   .item { display: flex; gap: 10px; align-items: center; }
   .item img { width: 32px; height: 32px; border-radius: 6px; }
   .box.now { border-color: var(--gold); }
+  .tip { margin-top: 8px; }
+  .tip b { color: var(--fg); }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -49,7 +51,7 @@
 <main id="view"><h1>DeepARAM</h1><p class="note">Opens by itself in Mayhem champion select and after each game.</p></main>
 <script>
   // The app calls showPick({allies, mine, bench}) in champion select (champion ids), showGame({t, champ, level, dead,
-  // items, live}) during a game (live: the site owner only) and showReview({points, turns, ffFrom, result}) after it.
+  // items, enemies, live}) during a game (live: the site owner only) and showReview({points, turns, ffFrom, result}) after it.
   const SITE = "https://deeparam.com";
   const view = document.getElementById("view");
   const pct = (p) => `${Math.round(p * 100)}%`;
@@ -128,7 +130,8 @@
   // it) and your next item. Rankings only, never win rates (Riot's policy for overlays). The live chance and the
   // surrender line come only for the site owner (game.live).
   const AUGMENT_LEVELS = [1, 7, 11, 15];
-  let picks = null, builds = null;
+  let picks = null, builds = null, kinds = null;
+  const loadKinds = () => kinds ?? (kinds = fetch(`${SITE}/data/damage-types.json`).then((r) => r.json()).catch(() => null));
   const loadPicks = () => picks ?? (picks = fetch(`${SITE}/data/augment-picks.json`).then((r) => r.json()).catch(() => null));
   const loadBuilds = () => builds ?? (builds = fetch(`${SITE}/data/overlay.json`).then((r) => r.json()).catch(() => null));
   const augIcon = (id) => `<img src="${SITE}/icons/augments/${id}.webp" alt="">`;
@@ -186,17 +189,51 @@
     }));
   }
 
+  // The enemy team's damage, 0 (all physical) to 1 (all magic): each champion's usual mix, pulled toward what their
+  // finished items say as they buy them. A tip only when it leans hard one way and you aren't covered yet, since
+  // resists matched to a mixed team rarely pay off.
+  function enemyMagic(k, enemies) {
+    const lower = new Map(Object.entries(k.champions).map(([a, m]) => [a.toLowerCase(), m]));
+    const mixes = enemies.filter((e) => e.champ).map((e) => {
+      let ap = 0, ad = 0;
+      for (const id of e.items) {
+        const g = k.items[String(id % 10000)] ?? [];
+        if (g.includes("ap") && !g.includes("ad")) ap += 1;
+        if (g.includes("ad") && !g.includes("ap")) ad += 1;
+      }
+      return (2 * (lower.get(e.champ.toLowerCase()) ?? 0.5) + ap) / (2 + ap + ad);
+    });
+    return mixes.length ? mixes.reduce((a, b) => a + b, 0) / mixes.length : null;
+  }
+  function defenseTip(k, g, build, next) {
+    const magic = enemyMagic(k, g.enemies ?? []);
+    if (magic === null || (magic > 0.35 && magic < 0.65)) return "";
+    const want = magic >= 0.65 ? "mr" : "armor";
+    const has = (id) => (k.items[String(id % 10000)] ?? []).includes(want);
+    if (g.items.filter(has).length >= 2) return "";
+    const owned = new Set(g.items.map((i) => i % 10000));
+    const pick = build.find((it) => !owned.has(itemId(it.icon)) && has(itemId(it.icon)))?.name
+      ?? (!g.items.some((i) => [3111, 3047].includes(i % 10000)) ? (want === "mr" ? "Mercury's Treads" : "Plated Steelcaps") : null);
+    if (pick && pick === next[0]?.name) return "";
+    const kind = want === "mr" ? "magic" : "physical";
+    const advice = pick === next[1]?.name ? `Consider <b>${esc(pick)}</b> first.` : pick ? `Good next defense: <b>${esc(pick)}</b>.`
+      : `A ${want === "mr" ? "magic resist" : "armor"} item would help.`;
+    return `<div class="why tip">Enemy damage is mostly ${kind} (about ${pct(want === "mr" ? magic : 1 - magic)}). ${advice}</div>`;
+  }
+
   async function renderItems() {
     const box = document.getElementById("items");
     if (!box || !game) return;
-    const d = await loadBuilds();
+    const [d, k] = await Promise.all([loadBuilds(), loadKinds()]);
     const build = d?.champions?.find((c) => c.id === game.champ)?.items ?? [];
     const owned = new Set(game.items.map((i) => i % 10000));
     const next = build.filter((it) => !owned.has(itemId(it.icon))).slice(0, 2);
-    if (!next.length) { box.innerHTML = build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`; return; }
+    const tip = k ? defenseTip(k, game, build, next) : "";
+    if (!next.length) { box.innerHTML = (build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`) + tip; return; }
     box.innerHTML = `<div class="box${game.dead ? " now" : ""}">
       ${game.dead ? `<div class="why">You're dead: a good time to shop.</div>` : ""}
-      <div class="items">${next.map((it, i) => `<div class="item"><img src="${SITE}${it.icon}" alt=""><div><div class="name">${esc(it.name)}</div><div class="why">${i ? "After that" : "Next"}</div></div></div>`).join("")}</div></div>`;
+      <div class="items">${next.map((it, i) => `<div class="item"><img src="${SITE}${it.icon}" alt=""><div><div class="name">${esc(it.name)}</div><div class="why">${i ? "After that" : "Next"}</div></div></div>`).join("")}</div>
+      ${tip}</div>`;
   }
 
   function liveBlock(l) {
@@ -233,8 +270,8 @@
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
     document.getElementById("live").innerHTML = liveBlock(g.live);
-    if (prev && (prev.items.join() !== g.items.join() || prev.dead !== g.dead)) renderItems();
-    else if (!prev || prev.champ !== g.champ) renderItems();
+    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.enemies]);
+    if (!prev || key(prev) !== key(g)) renderItems();
   };
 
   window.showReview = ({ points, turns, ffFrom, result }) => {

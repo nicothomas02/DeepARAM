@@ -286,8 +286,8 @@ fn champ_select(app: &AppHandle, client: &Client) {
     }
 }
 
-/// During a game, for everyone: the player's champion, level, items and whether they're dead, for the augment panel
-/// and the next item (build suggestions, which Riot allows). For the owner only, also the live chance to win.
+/// During a game, for everyone: the player's champion, level, items and whether they're dead, plus the enemy
+/// champions and their items (all on the scoreboard), for the augment panel and the next item (build suggestions, which Riot allows). For the owner only, also the live chance to win.
 fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, owner: bool) {
     let Some(data) = agent.get(LIVE).call().ok().and_then(|mut r| r.body_mut().read_json::<Value>().ok()) else {
         return;
@@ -308,17 +308,29 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
     };
     let team = row.get("team").and_then(Value::as_str).unwrap_or_default().to_owned();
     let champ = row.get("rawChampionName").and_then(Value::as_str).and_then(champion_alias).unwrap_or_default();
-    let items: Vec<i64> = row
-        .get("items")
-        .and_then(Value::as_array)
-        .map(|a| a.iter().filter_map(|i| i.get("itemID")?.as_i64()).collect())
-        .unwrap_or_default();
+    let items_of = |p: &Value| -> Vec<i64> {
+        p.get("items")
+            .and_then(Value::as_array)
+            .map(|a| a.iter().filter_map(|i| i.get("itemID")?.as_i64()).collect())
+            .unwrap_or_default()
+    };
+    let items = items_of(row);
+    // The enemy champions and the items they've bought, as the scoreboard shows them (no names), for the item tip.
+    let enemies: Vec<Value> = players
+        .iter()
+        .filter(|p| p.get("team").and_then(Value::as_str).is_some_and(|x| x != team))
+        .map(|p| {
+            let champ = p.get("rawChampionName").and_then(Value::as_str).and_then(champion_alias).unwrap_or_default();
+            json!({ "champ": champ, "items": items_of(p) })
+        })
+        .collect();
     let mut game = json!({
         "t": t,
         "champ": champ,
         "level": row.get("level").and_then(Value::as_u64).unwrap_or(0),
         "dead": row.get("isDead").and_then(Value::as_bool).unwrap_or(false),
         "items": items,
+        "enemies": enemies,
         "live": null,
     });
     if owner {
