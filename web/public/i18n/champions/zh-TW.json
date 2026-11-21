@@ -276,5 +276,11 @@
  "With combos": "含組合",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "估算：依每個強化的提升排序，並在還有選擇時加上其最佳已確認組合的一部分。",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "估算：已確認的搭檔仍可能出現；還有選擇時計入該組合分數的一部分。",
- "Combos with {name} {n}": "與{name}組合 {n}"
+ "Combos with {name} {n}": "與{name}組合 {n}",
+ "Lethality": "穿甲",
+ "Crit": "暴擊",
+ "On-hit": "命中特效",
+ "Fighter": "鬥士",
+ "Enchanter": "附魔者",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "召喚師技能和技能加點在每種出裝下都相同：數據沒有按出裝區分。"
 }

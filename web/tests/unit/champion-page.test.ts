@@ -107,3 +107,39 @@ describe("DeepScore ranking of build lists", () => {
     expect(p.core[0].items[0] % 10000).toBe(3032);
   });
 });
+
+// Build styles on the card (Nico 2026-11-21: crit vs AP Ashe, everything follows the build, best DeepScore first).
+describe("champion card builds by style", () => {
+  it("gives Ashe a crit and an AP build, best DeepScore first, each with its own core", () => {
+    const p = championPage("Ashe")!;
+    const styles = p.builds.map((b) => b.style);
+    expect(styles).toEqual(expect.arrayContaining(["crit", "ap"]));
+    const scores = p.builds.map((b) => b.deepScore);
+    expect(scores).toEqual([...scores].sort((a, b) => b - a));
+    expect(p.builds.filter((b) => b.main)).toHaveLength(1);
+    const crit = p.builds.find((b) => b.style === "crit")!;
+    expect(crit.core.items.map((i) => i % 10000)).toEqual(expect.arrayContaining([3031]));
+    expect(new Set(p.builds.map((b) => b.core.items.join())).size).toBe(p.builds.length);
+    for (const b of p.builds) for (const i of b.core.items) expect(p.itemInfo[i]?.name).toBeTruthy();
+  });
+
+  it("has no build tabs for a one-style champion", () => {
+    expect(championPage("Annie")!.builds).toEqual([]);
+  });
+});
+
+// Build lists with real games (Nico 2026-11-21): popularity adds certainty, never score by itself.
+describe("DeepScore with real games", () => {
+  it("doesn't rank a popular row above an equally winning rare one, and still trusts a big sample", () => {
+    const ranked = scoreRows([
+      { id: "popular", winRate: 0.52, pickRate: 0.5, games: 50000 },
+      { id: "rare", winRate: 0.52, pickRate: 0.05, games: 5000 },
+      { id: "lucky", winRate: 0.7, pickRate: 0.0005, games: 50 },
+      { id: "weak", winRate: 0.47, pickRate: 0.3, games: 30000 },
+    ]);
+    const ds = Object.fromEntries(ranked.map((r) => [r.id, r.deepScore!]));
+    expect(Math.abs(ds.popular - ds.rare)).toBeLessThanOrEqual(3);
+    expect(ds.weak).toBeLessThan(ds.rare);
+  });
+});
+

@@ -276,5 +276,11 @@
  "With combos": "С комбо",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Оценка: по приросту каждого усиления плюс часть его лучшего подтверждённого комбо, пока остаются выборы.",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Оценка: подтверждённый партнёр ещё может выпасть; пока остаются выборы, учитывается часть очков пары.",
- "Combos with {name} {n}": "Комбо с {name} {n}"
+ "Combos with {name} {n}": "Комбо с {name} {n}",
+ "Lethality": "Смертоносность",
+ "Crit": "Крит",
+ "On-hit": "При попадании",
+ "Fighter": "Воин",
+ "Enchanter": "Чародей",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Заклинания призывателя и порядок умений одинаковы для всех сборок: статистика не делит их по сборкам."
 }

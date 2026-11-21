@@ -276,5 +276,11 @@
  "With combos": "Με combos",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Εκτίμηση: κατάταξη με την ενίσχυση κάθε augment συν μέρος του καλύτερου επιβεβαιωμένου combo του όσο μένουν επιλογές.",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Εκτίμηση: ένας επιβεβαιωμένος συνεργάτης μπορεί ακόμα να έρθει· όσο μένουν επιλογές μετράει μέρος των πόντων του ζεύγους.",
- "Combos with {name} {n}": "Combo με {name} {n}"
+ "Combos with {name} {n}": "Combo με {name} {n}",
+ "Lethality": "Φονικότητα",
+ "Crit": "Καίρια",
+ "On-hit": "On-hit",
+ "Fighter": "Μαχητής",
+ "Enchanter": "Γητευτής",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Τα ξόρκια επικαλεστή και η σειρά ικανοτήτων είναι ίδια για κάθε build: τα στατιστικά δεν τα χωρίζουν ανά build."
 }

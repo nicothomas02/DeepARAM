@@ -1,4 +1,4 @@
-import { fittedBound, grade, lowerBound, type Fit } from "./deepscore";
+import { fittedBound, grade, lowerBound, trueSpread, type Fit } from "./deepscore";
 import type { ItemTier } from "./items";
 
 // Scoring shared by the champion page's server code (lib/champion-page.ts) and the top card's timeframe picker,
@@ -36,6 +36,23 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(list:
   const median = picks[Math.floor(picks.length / 2)] || 1;
   const total = list.reduce((s, r) => s + r.pickRate, 0) || 1;
   const mean = list.reduce((s, r) => s + r.winRate * r.pickRate, 0) / total;
+  // Real games when every row has them (Nico, 2026-11-21: popularity alone shouldn't read as good). Each row's lead
+  // over the list is shrunk by its own sampling noise (empirical Bayes: tau2 / (tau2 + v)) and its score sits one
+  // posterior spread below, so more games only add certainty. Without games (estimates), pick rate stands in.
+  const games = list.map((r) => (r as { games?: number }).games ?? 0);
+  if (games.every((g) => g > 0)) {
+    const vs = list.map((r, i) => (r.winRate * (1 - r.winRate)) / games[i]);
+    const tau2 = trueSpread(list.map((r) => r.winRate), vs);
+    const bounds = list.map((r, i) => {
+      if (fit) return fittedBound(r.winRate, 1, mean, fit, { v: vs[i], tau2 });
+      const w = tau2 / (tau2 + vs[i]);
+      return mean + w * (r.winRate - mean) - Math.sqrt(w * vs[i]);
+    });
+    const grades = grade(bounds);
+    return list
+      .map((r, i) => ({ ...r, deepScore: grades[i].deepScore }))
+      .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
+  }
   const bounds = list.map((r) =>
     fit
       ? fittedBound(r.winRate, r.pickRate / median, mean, fit)

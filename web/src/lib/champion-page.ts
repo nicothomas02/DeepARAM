@@ -68,6 +68,35 @@ const TEAR_CORE_SHARE = 0.3;
 const EARLIER_CORE_SUPPORT = 0.5;
 const START_FOLLOWING = 0.75;
 
+/** One build style on the card: its own core, start, later and situational items, and its augments (estimated). */
+export type BuildOption = {
+  style: string;
+  /** Share of the champion's games. */
+  share: number;
+  games: number;
+  winRate: number;
+  deepScore: number;
+  /** The card's own best build (the one the rest of the page shows) rather than the style's summary. */
+  main: boolean;
+  core: ItemRow;
+  start: ItemRow | null;
+  situational: SituationRow[];
+  rush: number[];
+  /** Augments whose official build tags fit the style (or have none), most picked first: estimated. */
+  augments: number[];
+};
+type Archetype = {
+  style: string;
+  share: number;
+  games: number;
+  win_rate: number;
+  starters?: number[];
+  core?: number[];
+  boots?: number[];
+  later?: number[];
+  augments?: Record<string, number[]>;
+};
+
 type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
 /** data/estimates/boots_slot.json: per champion [core items bought before the boots or null, boots buyers]. */
 type BootsSlots = { champions: Record<string, [number | null, number]>; all: number };
@@ -128,6 +157,11 @@ export type ChampionPage = {
   situational: SituationRow[];
   /** One entry per real build style when the champion has two (lib/build-plan.ts styleCores), else empty. */
   buildStyles: { style: string; core: ItemRow; situational: SituationRow[]; rush: number[] }[];
+  /**
+   * The champion's builds by style when it has two or more (crit and AP Ashe; data/estimates/build_archetypes.json),
+   * best DeepScore first, else empty. The card switches everything it can between them (Nico, 2026-11-21).
+   */
+  builds: BuildOption[];
   /** Components to rush for the best core's first item. */
   rush: number[];
   /** Augments the champion takes that upgrade one of its items: with it, buy that item first. */
@@ -325,17 +359,58 @@ export function championPage(alias: string): ChampionPage | null {
     const { items } = buyingOrder(st ? startFirst(c.items, st.items, itemParts, standalone) : c.items, orderRows);
     return { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
   });
-  const starting = core[0]
+  const startingRows = core[0]
     ? [startFollowed, () => true]
         .flatMap((tier) => [fitsFirst(core[0]), fits(core[0]), () => true].map((ok) => (r: ItemRow) => tier(r) && ok(r)))
         .reduce<ItemRow[]>((out, ok) => [...out, ...scoredStart.filter((r) => ok(r) && !out.includes(r))], [])
     : scoredStart;
+  const starting = startingRows;
+  const page0Start = (core[0] ? starting.find(fits(core[0])) : starting[0]) ?? null;
+  // Builds by style (Nico, 2026-11-21: crit vs AP Ashe, everything on the card follows the build). The card's own
+  // best core stands for the style it belongs to; the other styles take their summary from build_archetypes.json.
+  const base10k = (i: number) => i % 10000;
+  const archetypes = readRepoJson<{ champions: Record<string, Archetype[]> }>("data/estimates/build_archetypes.json")?.champions[String(id)] ?? [];
+  const known = (i: number) => (all.has(i) ? i : ([...all.keys()].find((k) => base10k(k) === base10k(i)) ?? i));
+  const overlap = (a: number[], b: number[]) => a.filter((i) => b.some((j) => base10k(j) === base10k(i))).length;
+  const mainArch = core[0] && archetypes.length > 1
+    ? archetypes.reduce((best, a) => (overlap(a.core ?? [], core[0].items) > overlap(best.core ?? [], core[0].items) ? a : best))
+    : null;
+  // Each style's DeepScore is its build's, scored together with the champion's cores: the card's own core with its
+  // games, the other styles with all of their style's games.
+  const archScores = (() => {
+    const others = archetypes.filter((a) => a !== mainArch).map((a) => ({ style: a.style, items: [] as number[], winRate: a.win_rate, pickRate: a.share, lift: a.win_rate - base, games: a.games }));
+    const scored = scoreRows([...core.map((c) => ({ ...c, style: "" })), ...others]);
+    const mainScore = scored.find((r) => r.style === "" && r.items === core[0]?.items)?.deepScore;
+    return archetypes
+      .map((a) => ({ style: a.style, deepScore: a === mainArch ? mainScore : scored.find((r) => r.style === a.style)?.deepScore }))
+      .sort((x, y) => (y.deepScore ?? 0) - (x.deepScore ?? 0));
+  })();
+  const builds: BuildOption[] = !mainArch
+    ? []
+    : archScores
+        .map((sc) => {
+          const a = archetypes.find((x) => x.style === sc.style)!;
+          const augs = Object.values(a.augments ?? {}).flat();
+          if (a === mainArch)
+            return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: true,
+              core: core[0], start: page0Start, situational: situationalItems(core[0], single, full), rush: rushParts(core[0].items[0], itemRecipe), augments: augs };
+          const coreIds = (a.core ?? []).map(known);
+          const bootsId = noBoots ? undefined : a.boots?.[0] !== undefined ? known(a.boots[0]) : undefined;
+          const row: ItemRow = { items: coreIds, ...rated(a.win_rate, a.share), boots: bootsId, bootsAt: bootsId !== undefined ? (playedSlot ?? undefined) : undefined };
+          const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find(fits(row)) ?? null;
+          const ordered = buyingOrder(st ? startFirst(coreIds, st.items, itemParts, standalone) : coreIds, orderRows).items;
+          const c: ItemRow = { ...row, items: ordered, rest: (a.later ?? []).map(known).filter((i) => !ordered.includes(i)).slice(0, 3) };
+          const start = st ?? (a.starters?.length ? { items: a.starters.map(known), winRate: NaN, pickRate: 0, lift: 0 } : null);
+          return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false,
+            core: c, start, situational: situationalItems(c, single, full), rush: rushParts(c.items[0], itemRecipe), augments: augs };
+        });
   const page = {
+    builds,
     winRate: base,
     skills,
     starting,
     // The card shows a starter only when one fits its core; the full list below keeps every row.
-    cardStart: (core[0] ? starting.find(fits(core[0])) : starting[0]) ?? null,
+    cardStart: page0Start,
     boots: noBoots ? [] : boots,
     core,
     full,
@@ -365,7 +440,9 @@ export function championPage(alias: string): ChampionPage | null {
     [page.starting, page.boots, page.core, page.full, page.items]
       .flat()
       .flatMap((r) => (r.boots ? [r.boots, ...r.items] : r.items))
-      .concat(page.rush, page.swaps.map((s) => s.item), page.buildStyles.flatMap((s) => s.rush), page.core.flatMap((c) => c.rest ?? [])),
+      .concat(page.rush, page.swaps.map((s) => s.item), page.buildStyles.flatMap((s) => s.rush), page.core.flatMap((c) => c.rest ?? []))
+      .concat(page.builds.flatMap((b) => [...b.core.items, ...(b.core.boots !== undefined ? [b.core.boots] : []), ...(b.core.rest ?? []), ...(b.start?.items ?? []), ...b.rush, ...b.situational.flatMap((s) => s.options.flatMap((o) => o.items))]))
+      .filter((i) => all.has(i)),
   );
   const itemInfo = Object.fromEntries(
     [...used].map((i) => [

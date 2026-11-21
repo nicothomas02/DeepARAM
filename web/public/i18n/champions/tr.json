@@ -276,5 +276,11 @@
  "With combos": "Kombolarla",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Tahmini: her güçlendirmenin artışı ve seçim kaldıkça en iyi onaylı kombosunun bir kısmıyla sıralanır.",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Tahmini: onaylı bir eş hâlâ gelebilir; seçim kaldıkça çiftin puanlarının bir kısmı sayılır.",
- "Combos with {name} {n}": "{name} ile kombo {n}"
+ "Combos with {name} {n}": "{name} ile kombo {n}",
+ "Lethality": "Ölümcüllük",
+ "Crit": "Kritik",
+ "On-hit": "İsabet halinde",
+ "Fighter": "Dövüşçü",
+ "Enchanter": "Efsuncu",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Sihirdar büyüleri ve yetenek sırası her dizilimde aynı: istatistikler bunları dizilime göre ayırmıyor."
 }

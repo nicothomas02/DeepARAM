@@ -208,6 +208,8 @@ const BOOTS_WHEN: Record<number, string> = {
 };
 // Build style tabs (lib/build-plan.ts buildStyle).
 const STYLE_LABEL: Record<string, string> = { ap: "AP", ad: "AD", tank: "Tank", support: "Support" };
+// Build styles from data/estimates/build_archetypes.json (the card's build tabs).
+const ARCH_LABEL: Record<string, string> = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "Fighter", tank: "Tank", enchanter: "Enchanter" };
 const BOOTS_HELP =
   "Boots are placed where players usually buy them, unless another point clearly wins more games.";
 // The slots after the core are narrow: win rate sits under the item's name, DeepScore on the right.
@@ -555,6 +557,87 @@ export default async function ChampionPage({
             )}
           </div>
   );
+  // The card's tiles for one build (Nico, 2026-11-21: everything on the card follows the build tab). Skill order and
+  // spells come champion-wide from the stats, so with several builds they say they're the same for each.
+  // Augments for a style: the champion's ranking, kept to those whose build tags fit the style (estimated).
+  const styleAugs = (ids: number[]) => {
+    const keep = new Set(ids);
+    const fit = augRows.filter((a) => keep.has(a.id));
+    return fit.length >= 3 ? fit : augRows;
+  };
+  const cardTiles = (start: ItemRow | null, augs: typeof augRows, plan: React.ReactNode, perBuild: boolean) => (
+    <>
+          {spellsTile}
+          {start && (
+            <div className="cp-best">
+              <h4>
+                <T ns={NS}>Starter items</T>
+              </h4>
+              <div className="cp-icons">
+                {start.items.map((id, i) => (
+                  <ItemIcon key={i} id={id} info={info} named />
+                ))}
+              </div>
+              <div className="cp-mini">
+                {Number.isFinite(start.winRate) ? <RatedCells r={start} /> : <small className="cp-stale-tag"><T ns={NS}>Estimated</T></small>}
+              </div>
+            </div>
+          )}
+          {augs.length > 0 && (
+            <div className="cp-best cp-best-wide cp-best-augs">
+              <h4>
+                <T>Best augments</T>
+                {perBuild && (
+                  <>
+                    {" "}
+                    <small className="cp-stale-tag" title="Augments whose build tags fit this build: estimated.">
+                      <T ns={NS}>Estimated</T>
+                    </small>
+                  </>
+                )}
+              </h4>
+              {/* The best on this champion whatever their rarity; the icon's ring shows the rarity. */}
+              <span className="cp-icons">
+                {augs.slice(0, 6).map((a) => (
+                  <RowLink key={a.id} href={a.href ?? "#augments"} title={a.name} className={`cp-named rarity-${a.rarity}`}>
+                    <img className="cp-icon round" src={`/icons/augments/${a.id}.webp`} alt={a.name} width={40} height={40} />
+                    <small aria-hidden="true">
+                      <Name kind="augments" id={a.id}>
+                        {a.name}
+                      </Name>
+                    </small>
+                  </RowLink>
+                ))}
+              </span>
+            </div>
+          )}
+          {bestSkill && (
+            <div className="cp-best cp-best-skill">
+              <h4>
+                <T ns={NS}>Best skill order</T>
+              </h4>
+              <Keys keys={bestSkill.max} />
+              <div className="cp-mini">
+                <RatedCells r={bestSkill} />
+              </div>
+              {p.skillsStale && (
+                <small className="cp-stale-tag" title="From earlier games: skill orders are not updating right now.">
+                  <T ns={NS}>From earlier games</T>
+                </small>
+              )}
+            </div>
+          )}
+          {plan}
+      {perBuild && (
+        <p className="cp-same-note">
+          <T ns={NS}>Summoner spells and skill order are the same for every build: the stats don't split them by build.</T>
+        </p>
+      )}
+    </>
+  );
+  // The glance row follows the card's default build (the first tab: best DeepScore).
+  const glanceCore = p.builds[0]?.core ?? bestCore;
+  const glanceAugs = p.builds.length > 1 ? styleAugs(p.builds[0].augments) : augRows;
   const matches = matchesByPatch();
 
   return (
@@ -678,18 +761,18 @@ export default async function ChampionPage({
           </TfStrip>
         )}
         {/* One glance: the core, the best augments and the skill order; the card below has the detail. */}
-        {(bestCore || augRows.length > 0 || bestSkill) && (
+        {(glanceCore || augRows.length > 0 || bestSkill) && (
           <a className="cp-glance" href="#build" aria-label="Build at a glance">
-            {bestCore && (
+            {glanceCore && (
               <span className="cp-glance-part">
-                {buildOrder(bestCore).map((id) => (
+                {buildOrder(glanceCore).map((id) => (
                   <ItemIcon key={id} id={id} info={info} />
                 ))}
               </span>
             )}
-            {augRows.length > 0 && (
+            {glanceAugs.length > 0 && (
               <span className="cp-glance-part">
-                {augRows.slice(0, 3).map((a) => (
+                {glanceAugs.slice(0, 3).map((a) => (
                   <img key={a.id} className={`cp-icon round rarity-${a.rarity}`} src={`/icons/augments/${a.id}.webp`} alt={a.name} title={a.name} width={28} height={28} />
                 ))}
               </span>
@@ -708,69 +791,23 @@ export default async function ChampionPage({
           late game (Nico, 2026-11-20). The taken-augments row (drag to replace) is planned to sit at its end. */}
       <TfCard alias={c.alias} patches={c.patches} matches={matches} spells={spellsTile}>
       <section className="cp-game" id="build" aria-label="Build for your game">
-          {spellsTile}
-          {bestStart && (
-            <div className="cp-best">
-              <h4>
-                <T ns={NS}>Starter items</T>
-              </h4>
-              <div className="cp-icons">
-                {bestStart.items.map((id, i) => (
-                  <ItemIcon key={i} id={id} info={info} named />
-                ))}
-              </div>
-              <div className="cp-mini">
-                <RatedCells r={bestStart} />
-              </div>
-            </div>
-          )}
-          {augRows.length > 0 && (
-            <div className="cp-best cp-best-wide cp-best-augs">
-              <h4>
-                <T>Best augments</T>
-              </h4>
-              {/* The best on this champion whatever their rarity; the icon's ring shows the rarity. */}
-              <span className="cp-icons">
-                {augRows.slice(0, 6).map((a) => (
-                  <RowLink key={a.id} href={a.href ?? "#augments"} title={a.name} className={`cp-named rarity-${a.rarity}`}>
-                    <img className="cp-icon round" src={`/icons/augments/${a.id}.webp`} alt={a.name} width={40} height={40} />
-                    <small aria-hidden="true">
-                      <Name kind="augments" id={a.id}>
-                        {a.name}
-                      </Name>
-                    </small>
-                  </RowLink>
-                ))}
-              </span>
-            </div>
-          )}
-          {bestSkill && (
-            <div className="cp-best cp-best-skill">
-              <h4>
-                <T ns={NS}>Best skill order</T>
-              </h4>
-              <Keys keys={bestSkill.max} />
-              <div className="cp-mini">
-                <RatedCells r={bestSkill} />
-              </div>
-              {p.skillsStale && (
-                <small className="cp-stale-tag" title="From earlier games: skill orders are not updating right now.">
-                  <T ns={NS}>From earlier games</T>
-                </small>
-              )}
-            </div>
-          )}
-          {p.buildStyles.length > 1 ? (
+          {p.builds.length > 1 ? (
             <StyleTabs
-              tabs={p.buildStyles.map((st, i) => ({
-                key: st.style,
-                label: STYLE_LABEL[st.style] ?? st.style,
-                share: pct(st.core.pickRate),
-                panel: buildPlan(st.core, st.situational, st.rush, i === 0 ? p.swaps : []),
+              whole
+              tabs={p.builds.map((b) => ({
+                key: b.style,
+                label: ARCH_LABEL[b.style] ?? b.style,
+                share: `${pct(b.share)} · DeepScore ${b.deepScore}`,
+                panel: cardTiles(
+                  b.start,
+                  styleAugs(b.augments),
+                  buildPlan(b.core, b.situational, b.rush, b.main ? p.swaps : []),
+                  true,
+                ),
               }))}
             />
           ) : (
-            bestCore && buildPlan(bestCore, p.situational, p.rush, p.swaps)
+            cardTiles(bestStart, augRows, bestCore && buildPlan(bestCore, p.situational, p.rush, p.swaps), false)
           )}
       </section>
       </TfCard>
