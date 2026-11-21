@@ -1,8 +1,15 @@
 {
+ "0.25 to 0.75 seconds, longer as the snowball grows": "0,25–0,75 másodperc, hosszabb, ahogy nő a hógolyó",
+ "100%": "100%",
+ "40%, growing to full as it flies": "40%, repülés közben teljes méretűre nő",
+ "50 to 120 units, farther as the snowball grows": "50–120 egység, messzebb, ahogy nő a hógolyó",
+ "65%, speeding up as it flies": "65%, repülés közben gyorsul",
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "A képességértékek az 1-5. (alapképességek) vagy az 1-3. (végső képességek) szintre vonatkoznak.",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Hősváltozások az alapjátékban a tesztszerveren. A Mayhemben is érvényesek.",
  "Changes to items in the Mayhem shop. Runes are unchanged.": "Az ARAM: Káosz boltjának tárgyváltozásai. A rúnák nem változnak.",
  "Gain the Surge Field summoner spell. Casting it creates a zone for 10 seconds: while in it, you gain 40% Movement Speed and 150 Ability Haste, and fire missiles at enemies that deal 30% of the damage you deal.": "Megkapod a Surge Field idézővarázslatot. Használatakor 10 másodpercre egy zóna jön létre: benne 40% mozgási sebességet és 150 képességgyorsítást kapsz, és lövedékeket lősz az ellenfelekre, amelyek az általad okozott sebzés 30%-át okozzák.",
+ "Knockback": "Visszalökés",
+ "Knockback: none → 50 to 120 units, farther as the snowball grows": "Visszalökés: nincs → 50–120 egység, messzebb, ahogy nő a hógolyó",
  "Live is patch 26.23. This page lists what patch 26.24 changes.": "Az élő verzió a 26.23-es. Ez az oldal azt sorolja fel, mit változtat a 26.24-as verzió.",
  "Mayhem Patch 26.24 on the test server.": "Mayhem 26.24-as verzió a tesztszerveren.",
  "No new Fame bands on the test server yet.": "A tesztszerveren még nincsenek új Hírnév-sávok.",
@@ -10,6 +17,14 @@
  "PBE content can change before release.": "A PBE tartalma a megjelenés előtt még változhat.",
  "Patch 26.24": "26.24-as verzió",
  "Q AD ratio 70% → 80%": "Q AD-arány 70% → 80%",
+ "Snowball size when thrown": "Hógolyó mérete dobáskor",
+ "Snowball size when thrown: 100% → 40%, growing to full as it flies": "Hógolyó mérete dobáskor: 100% → 40%, repülés közben teljes méretűre nő",
+ "Snowball speed when thrown": "Hógolyó sebessége dobáskor",
+ "Snowball speed when thrown: 100% → 65%, speeding up as it flies": "Hógolyó sebessége dobáskor: 100% → 65%, repülés közben gyorsul",
+ "Stun": "Kábítás",
+ "Stun: none → 0.25 to 0.75 seconds, longer as the snowball grows": "Kábítás: nincs → 0,25–0,75 másodperc, hosszabb, ahogy nő a hógolyó",
  "Update 2026-11-18: patch 26.23 is live, so its changes left this page. The first patch 26.24 test build changes no Mayhem augments, Headliners or items. Akshan's Q scales more with AD (70% → 80%), and Goliath gets an extra effect for clones.": "Frissítés 2026-11-18: a 26.23-as verzió élesben van, ezért a változásai lekerültek erről az oldalról. A 26.24-es verzió első tesztbuildje nem változtat Mayhem augmenteken, Headlinereken vagy tárgyakon. Akshan Q-ja jobban skálázódik AD-vel (70% → 80%), és Góliát extra hatást kap a klónokra.",
- "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "Frissítés 2026-11-20 (26.24-es frissítés): a Surge Field visszatér a fejlesztések közé."
+ "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "Frissítés 2026-11-20 (26.24-es frissítés): a Surge Field visszatér a fejlesztések közé.",
+ "Update 2026-11-21 (patch 26.24): Biggest Snowball Ever now starts small and slow, grows as it flies, and gains a stun and a knockback.": "Frissítés 2026-11-21 (26.24-es patch): A világ legnagyobb hógolyója most kicsiként és lassan indul, repülés közben nő, és kábítást meg visszalökést kap.",
+ "none": "nincs"
 }

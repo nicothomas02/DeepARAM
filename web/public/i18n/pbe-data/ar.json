@@ -1,8 +1,15 @@
 {
+ "0.25 to 0.75 seconds, longer as the snowball grows": "من 0.25 إلى 0.75 ثانية، أطول كلما كبرت كرة الثلج",
+ "100%": "100%",
+ "40%, growing to full as it flies": "40%، تكبر حتى حجمها الكامل أثناء طيرانها",
+ "50 to 120 units, farther as the snowball grows": "من 50 إلى 120 وحدة، أبعد كلما كبرت كرة الثلج",
+ "65%, speeding up as it flies": "65%، تتسارع أثناء طيرانها",
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "قيم القدرات معروضة للمراتب 1-5 (القدرات الأساسية) أو 1-3 (القدرات النهائية).",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "تغييرات الأبطال في اللعبة الأساسية على خادم الاختبار. تنطبق أيضًا في Mayhem.",
  "Changes to items in the Mayhem shop. Runes are unchanged.": "تغييرات على العناصر في متجر آرام: الفوضى. الرونات بلا تغيير.",
  "Gain the Surge Field summoner spell. Casting it creates a zone for 10 seconds: while in it, you gain 40% Movement Speed and 150 Ability Haste, and fire missiles at enemies that deal 30% of the damage you deal.": "احصل على تعويذة الاستدعاء Surge Field. يؤدي استخدامها إلى إنشاء منطقة لمدة 10 ثوانٍ: أثناء وجودك فيها تحصل على 40% سرعة حركة و150 تسريع قدرات، وتطلق على الأعداء مقذوفات تُلحق 30% من الضرر الذي تُلحقه.",
+ "Knockback": "دفع للخلف",
+ "Knockback: none → 50 to 120 units, farther as the snowball grows": "دفع للخلف: لا شيء ← من 50 إلى 120 وحدة، أبعد كلما كبرت كرة الثلج",
  "Live is patch 26.23. This page lists what patch 26.24 changes.": "الإصدار الحالي هو 26.23. تعرض هذه الصفحة ما يغيّره الإصدار 26.24.",
  "Mayhem Patch 26.24 on the test server.": "Mayhem الإصدار 26.24 على خادم الاختبار.",
  "No new Fame bands on the test server yet.": "لا توجد نطاقات شهرة جديدة على خادم الاختبار حتى الآن.",
@@ -10,6 +17,14 @@
  "PBE content can change before release.": "قد يتغير محتوى PBE قبل الإصدار.",
  "Patch 26.24": "الإصدار 26.24",
  "Q AD ratio 70% → 80%": "نسبة AD لـ Q ‏70% ← 80%",
+ "Snowball size when thrown": "حجم كرة الثلج عند رميها",
+ "Snowball size when thrown: 100% → 40%, growing to full as it flies": "حجم كرة الثلج عند رميها: 100% ← 40%، تكبر حتى حجمها الكامل أثناء طيرانها",
+ "Snowball speed when thrown": "سرعة كرة الثلج عند رميها",
+ "Snowball speed when thrown: 100% → 65%, speeding up as it flies": "سرعة كرة الثلج عند رميها: 100% ← 65%، تتسارع أثناء طيرانها",
+ "Stun": "صعق",
+ "Stun: none → 0.25 to 0.75 seconds, longer as the snowball grows": "صعق: لا شيء ← من 0.25 إلى 0.75 ثانية، أطول كلما كبرت كرة الثلج",
  "Update 2026-11-18: patch 26.23 is live, so its changes left this page. The first patch 26.24 test build changes no Mayhem augments, Headliners or items. Akshan's Q scales more with AD (70% → 80%), and Goliath gets an extra effect for clones.": "تحديث 2026-11-18: الإصدار 26.23 متاح الآن، لذا أُزيلت تغييراته من هذه الصفحة. أول نسخة اختبار للإصدار 26.24 لا تغيّر أي معززات أو Headliners أو عناصر في Mayhem. تزداد قوة Q لـ أكشان مع AD ‏(70% ← 80%)، ويحصل جالوت على تأثير إضافي للنسخ.",
- "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "تحديث 2026-11-20 (التحديث 26.24): يعود Surge Field إلى مجموعة التعزيزات."
+ "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "تحديث 2026-11-20 (التحديث 26.24): يعود Surge Field إلى مجموعة التعزيزات.",
+ "Update 2026-11-21 (patch 26.24): Biggest Snowball Ever now starts small and slow, grows as it flies, and gains a stun and a knockback.": "تحديث 2026-11-21 (التحديث 26.24): أكبر كرة ثلج على الإطلاق تبدأ الآن صغيرة وبطيئة، وتكبر أثناء طيرانها، وتكتسب صعقًا ودفعًا للخلف.",
+ "none": "لا شيء"
 }
