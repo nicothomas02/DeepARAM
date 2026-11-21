@@ -61,6 +61,10 @@ type Builds = {
 
 
 /** Per champion id: core build ("id,id,id") -> boots id -> core items bought before the boots. */
+/** Tear items: they turn into Muramana / Seraph's Embrace, which the feed's six-item builds never list. */
+const TEAR_ITEMS = new Set([3003, 3004]);
+const TEAR_CORE_SHARE = 0.3;
+
 type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
 /** data/estimates/boots_slot.json: per champion [core items bought before the boots or null, boots buyers]. */
 type BootsSlots = { champions: Record<string, [number | null, number]>; all: number };
@@ -133,6 +137,8 @@ export type ChampionPage = {
   stats: BaseStats | null;
   /** The skill orders stopped updating: shown with a note. */
   skillsStale: boolean;
+  /** The core rows come from the feed's last own cores (tear builds the six-item builds can't show). */
+  coreFromEarlier: boolean;
   /** Core builds come from the six-item builds, so their order is estimated. */
   coreDerived: boolean;
   /**
@@ -256,7 +262,29 @@ export function championPage(alias: string): ChampionPage | null {
   const playedSlot = slots ? (slots.champions[String(id)]?.[0] ?? slots.all) : undefined;
   const bootsRows = rows(b?.items?.boots);
   const noBoots = skipsBoots(bootsRows, full, (i) => itemTier(i) === "boots");
-  const scoredCore = followed(scoreItems(rows(b?.items?.core)));
+  // Tear builds (Manamune, Archangel's Staff) end the game as Muramana and Seraph's Embrace, which the feed's six-item
+  // builds never list, so a core rebuilt from them can't show those builds. Found comparing with another stats site
+  // (2026-11-21): Ezreal, Kassadin, Veigar and others lost their most played build. For a champion whose last cores
+  // from the feed itself were mostly tear builds, the card keeps those cores (labeled from earlier games).
+  const orderRows = orderedCores(id);
+  const tearShare = (() => {
+    const all = orderRows.reduce((t, r) => t + r.weight, 0);
+    const tear = orderRows.filter((r) => r.items.some((i) => TEAR_ITEMS.has(i % 10000))).reduce((t, r) => t + r.weight, 0);
+    return all ? tear / all : 0;
+  })();
+  const coreFromEarlier = !early && !!b?.derived?.includes("items.core") && tearShare >= TEAR_CORE_SHARE;
+  const earlierCores = () => {
+    const m = new Map<string, { items: number[]; pick: number; wins: number }>();
+    for (const r of orderRows) {
+      const k = [...r.items].sort((x, y) => x - y).join(",");
+      const e = m.get(k) ?? { items: [...r.items].sort((x, y) => x - y), pick: 0, wins: 0 };
+      e.pick += r.weight;
+      e.wins += r.weight * (r.win ?? 0.5);
+      m.set(k, e);
+    }
+    return [...m.values()].map((e) => ({ items: e.items, ...rated(e.wins / e.pick, e.pick) })).filter((r) => r.items.every((i) => all.has(i)));
+  };
+  const scoredCore = followed(scoreItems(coreFromEarlier ? earlierCores() : rows(b?.items?.core)));
   const withBootsCore = noBoots ? scoredCore : withBoots(scoredCore, full, boots[0], timing, playedSlot ?? undefined);
   // Items in the order players buy them (Nico, 2026-11-20): the feed's cores listed in buying order (lib/build-plan.ts
   // buyingOrder), on top of the starting items: a core opens with the item its starter builds into (Cloak + Tome:
@@ -269,7 +297,6 @@ export function championPage(alias: string): ChampionPage | null {
   const withBootsOf = (c: ItemRow, its: number[]) => [...its, ...(c.boots !== undefined ? [c.boots] : [])];
   const fits = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items), itemParts, standalone);
   const fitsFirst = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items.slice(0, 1)), itemParts, standalone);
-  const orderRows = orderedCores(id);
   const isBoots = (i: number) => itemTier(i) === "boots";
   const core = withBootsCore.map((c) => {
     const st = scoredStart.find(fits(c));
@@ -306,6 +333,7 @@ export function championPage(alias: string): ChampionPage | null {
     modifiers,
     stats: client?.stats ?? null,
     skillsStale: !!b?.stale?.includes("skills"),
+    coreFromEarlier,
     coreDerived: !early && !!b?.derived?.includes("items.core"),
     buildsEstimated: !!early,
   };

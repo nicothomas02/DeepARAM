@@ -268,5 +268,13 @@
  "Tied": "Ngang nhau",
  "Rush": "Ưu tiên",
  "With {augment}: buy {item} first": "Có {augment}: mua {item} trước",
- "Then": "Sau đó"
+ "Then": "Sau đó",
+ "{n} pts boost": "tăng {n} điểm",
+ "Rank by": "Sắp xếp theo",
+ "Own power": "Sức mạnh riêng",
+ "Combo potential": "Tiềm năng combo",
+ "With combos": "Kèm combo",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Ước tính: xếp theo mức tăng của từng lõi cộng một phần combo đã xác nhận tốt nhất khi còn lượt chọn.",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Ước tính: đối tác đã xác nhận vẫn có thể đến; khi còn lượt chọn, tính một phần điểm của cặp.",
+ "Combos with {name} {n}": "Combo với {name} {n}"
 }

@@ -154,5 +154,6 @@
  "Bias %": "편향 %",
  "Order within role": "역할 내 순위",
  "Real ÷ predicted": "실제 ÷ 예측",
- "Find an item": "아이템 찾기"
+ "Find an item": "아이템 찾기",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "추정치. 이 아이템을 사는 챔피언의 승률을 얼마나 올리는지이며, DeepScore는 여기서 출발합니다."
 }

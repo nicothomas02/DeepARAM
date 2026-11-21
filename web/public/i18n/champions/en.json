@@ -268,5 +268,13 @@
  "Tied": "Tied",
  "Rush": "Rush",
  "With {augment}: buy {item} first": "With {augment}: buy {item} first",
- "Then": "Then"
+ "Then": "Then",
+ "{n} pts boost": "{n} pts boost",
+ "Rank by": "Rank by",
+ "Own power": "Own power",
+ "Combo potential": "Combo potential",
+ "With combos": "With combos",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.",
+ "Combos with {name} {n}": "Combos with {name} {n}"
 }

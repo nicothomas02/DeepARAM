@@ -154,5 +154,6 @@
  "Bias %": "Abatere %",
  "Order within role": "Ordine în rol",
  "Real ÷ predicted": "Real ÷ prezis",
- "Find an item": "Caută un obiect"
+ "Find an item": "Caută un obiect",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Estimare. Cât crește rata de victorii a campionilor care îl construiesc: de aici pornește DeepScore-ul său."
 }

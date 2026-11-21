@@ -154,5 +154,6 @@
  "Bias %": "バイアス %",
  "Order within role": "ロール内の順位",
  "Real ÷ predicted": "実際 ÷ 予測",
- "Find an item": "アイテムを検索"
+ "Find an item": "アイテムを検索",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "推定。このアイテムを積むチャンピオンの勝率をどれだけ上げるか。DeepScoreはここから算出します。"
 }

@@ -152,5 +152,6 @@
  "Bias %": "Bias %",
  "Order within role": "Order within role",
  "Real ÷ predicted": "Real ÷ predicted",
- "Find an item": "Find an item"
+ "Find an item": "Find an item",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from."
 }

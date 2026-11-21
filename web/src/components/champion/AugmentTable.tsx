@@ -10,8 +10,8 @@ import DeepScore from "@/components/DeepScore";
 import { signedPts, tone } from "@/components/champion/Ranked";
 import type { AugmentRow } from "@/lib/champion-page";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
-import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
-import { synergyWith, type SynergyPair } from "@/lib/synergy-picks";
+import { PICK_TAG_SHARE, SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
+import { comboPotential, synergyWith, type SynergyPair } from "@/lib/synergy-picks";
 
 // A champion's augments as one ranked table with rarity and augment pick filters, best DeepScore first, each with the game's
 // build tags, ten to a page. The number columns' headers re-sort it (highest first; a second click flips it). The search box
@@ -32,7 +32,7 @@ const PAGE = 10;
 const PICKS = ["any", 0, 1, 2, 3] as const;
 const PICK_LABEL = ["1st augment", "2nd augment", "3rd augment", "4th augment"];
 const FAIR_SHARE = 0.25;
-type SortKey = "deepScore" | "winRate" | "lift" | "pickRate" | "fit";
+type SortKey = "deepScore" | "winRate" | "lift" | "pickRate" | "fit" | "combo";
 // Four augments a game: four slots, in pick order (order matters for some pairs, lib/synergy-picks.ts).
 const MAX_TAKEN = 4;
 const SLOT_LABEL = ["1st augment", "2nd augment", "3rd augment", "4th augment"];
@@ -95,9 +95,16 @@ export default function AugmentTable({
   const taken = took.filter((id) => byId.has(id));
   const syn = synergyWith(synergy, taken);
   // With augments taken, each other one's boost gains its synergy with them, and "fit" ranks by that.
+  // Combo potential (Nico 2026-11-21): a confirmed partner still to come is worth part of the pair while picks remain,
+  // so Ethereal Weapon climbs before Mystic Punch is taken. A second sort; the default stays each augment's own power.
+  const combos = comboPotential(synergy, taken, new Set(allRows.map((r) => r.id)), MAX_TAKEN);
   const rows = allRows
     .filter((r) => !taken.includes(r.id))
-    .map((r) => ({ ...r, fit: taken.length ? (r.lift ?? 0) + (syn.get(r.id)?.total ?? 0) : undefined }));
+    .map((r) => ({
+      ...r,
+      fit: taken.length ? (r.lift ?? 0) + (syn.get(r.id)?.total ?? 0) : undefined,
+      combo: r.lift === undefined ? undefined : r.lift + (syn.get(r.id)?.total ?? 0) + (combos.get(r.id)?.points ?? 0) / 100,
+    }));
   const take = (id: number) => {
     if (taken.includes(id) || taken.length >= MAX_TAKEN) return;
     setTook([...taken, id]);
@@ -296,6 +303,30 @@ export default function AugmentTable({
             ))}
           </div>
         )}
+        {est && Array.from(combos.values()).some((c) => c.points > 0) && (
+          <div className="cp-seg" role="group" aria-label={t("Rank by")}>
+            <button
+              type="button"
+              aria-pressed={sortKey !== "combo"}
+              onClick={() => {
+                setSort({ key: taken.length ? "fit" : "deepScore", desc: true });
+                setPage(0);
+              }}
+            >
+              {t("Own power")}
+            </button>
+            <button
+              type="button"
+              aria-pressed={sortKey === "combo"}
+              onClick={() => {
+                setSort({ key: "combo", desc: true });
+                setPage(0);
+              }}
+            >
+              {t("Combo potential")}
+            </button>
+          </div>
+        )}
         {lonely.length > 0 && (
           <p className="cp-filter-note">
             {t("No known synergy with {names} on this champion yet, so the rest rank by their boost alone.", {
@@ -304,7 +335,9 @@ export default function AugmentTable({
           </p>
         )}
         <p className="cp-filter-note">
-          {taken.length
+          {sortKey === "combo"
+            ? t("Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.")
+            : taken.length
             ? t("Estimated: ranked by each augment's boost plus its synergy with the ones you took.")
             : t("Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.")}
         </p>
@@ -321,7 +354,9 @@ export default function AugmentTable({
         <span>{t("Augment")}</span>
         {head("deepScore", "DeepScore")}
         {est &&
-          (taken.length
+          (sortKey === "combo"
+            ? head("combo", "With combos")
+            : taken.length
             ? head("fit", "With your picks")
             : SHOW_AUGMENT_WIN_RATES
               ? head("winRate", "Est. win rate")
@@ -378,7 +413,7 @@ export default function AugmentTable({
                 {/* The game's own build tags for the augment (lib/build-tags.ts). */}
                 {/* The augment picks (1st to 4th) where it usually shows up on this champion (estimated). */}
                 {(() => {
-                  const at = (a.stages ?? []).flatMap((share, k) => (share >= FAIR_SHARE ? [k + 1] : []));
+                  const at = (a.stages ?? []).flatMap((share, k) => (share >= PICK_TAG_SHARE ? [k + 1] : []));
                   return at.length ? (
                     <span className="cp-pill cp-tag" title={t("Estimated: the augment picks (1st to 4th) where it usually shows up.")}>
                       {t("Pick {n}", { n: at.join(" · ") })}
@@ -408,6 +443,17 @@ export default function AugmentTable({
                   return Math.abs(total) >= 0.003 ? (
                     <span className={`cp-pill cp-syn ${tone(total) ?? ""}`} title={t("Estimated synergy with the augments you took.")}>
                       {t("Synergy {n}", { n: tt("{n} pts", { n: signedPts(total) }) })}
+                    </span>
+                  ) : null;
+                })()}
+                {(() => {
+                  const c = combos.get(a.id);
+                  return c && c.points > 0 ? (
+                    <span
+                      className="cp-pill cp-syn up"
+                      title={t("Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.")}
+                    >
+                      {t("Combos with {name} {n}", { name: augName(c.with), n: tt("{n} pts", { n: signedPts(c.points / 100) }) })}
                     </span>
                   ) : null;
                 })()}
@@ -442,7 +488,9 @@ export default function AugmentTable({
               </div>
               {est && (
                 <div className="cp-cell">
-                  {taken.length && a.fit !== undefined ? (
+                  {sortKey === "combo" && a.combo !== undefined ? (
+                    <b className={tone(a.combo)}>{tt("{n} pts", { n: signedPts(a.combo) })}</b>
+                  ) : taken.length && a.fit !== undefined ? (
                     <b className={tone(a.fit)}>{tt("{n} pts", { n: signedPts(a.fit) })}</b>
                   ) : !SHOW_AUGMENT_WIN_RATES && a.lift !== undefined ? (
                     // Riot's policy rules out augment win rates (lib/augment-policy.ts): just the boost, in points.

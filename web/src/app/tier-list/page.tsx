@@ -23,6 +23,7 @@ import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";
 import HowRankings from "@/components/HowRankings";
 import ItemIndex from "@/components/ItemIndex";
+import { PICK_TAG_SHARE } from "@/lib/augment-policy";
 import { augmentSpread, augmentStages, championAugmentReliance, itemEstimate, powerCurveLists } from "@/lib/estimates";
 import { itemPages } from "@/lib/item-pages";
 import { text } from "@/lib/content";
@@ -118,9 +119,9 @@ export default function TierListPage() {
     const graded = new Map(augmentTiers().map((a) => [a.id, a]));
     const augName = (a: Record<string, unknown>) => names[String(a.augment_id)] ?? String(a.key).replace(/^ARAM_/, "");
     const bestById = new Map(augmentPages().map((p) => [p.id, p.best]));
-    // The augment picks (1st to 4th) where at least a fair share (a quarter) of an augment's picks happen (estimated).
+    // The augment picks (1st to 4th) where a clear share of an augment's picks happen (estimated, PICK_TAG_SHARE).
     const picksAt = (id: number) =>
-      (augmentStages(id)?.stages ?? []).flatMap((share, i) => (share >= 0.25 ? [String(i + 1)] : []));
+      (augmentStages(id)?.stages ?? []).flatMap((share, i) => (share >= PICK_TAG_SHARE ? [String(i + 1)] : []));
     const pickCol = {
       key: "picks",
       label: "Augment pick",
@@ -138,7 +139,16 @@ export default function TierListPage() {
       { key: "pick_rate", label: "Pick rate", format: "pct" as const, phone: "hide" as const },
     ];
     // No augment win rate column while Riot's policy rules them out (lib/augment-policy.ts).
-    const shownAugCols = augCols.filter((c) => SHOW_AUGMENT_WIN_RATES || c.key !== "win_rate");
+    // DeepScore starts from the win rate boost, so the boost is shown beside it.
+    const liftCol = {
+      key: "lift",
+      label: "Win rate boost",
+      format: "pts" as const,
+      hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
+    };
+    const shownAugCols = augCols
+      .filter((c) => SHOW_AUGMENT_WIN_RATES || c.key !== "win_rate")
+      .flatMap((c) => (c.key === "deepScore" ? [c, liftCol] : [c]));
     tabs.push({
       id: "augments",
       label: "Augments",
@@ -151,12 +161,7 @@ export default function TierListPage() {
             advancedColumns={[
               ...augCols.slice(0, 3),
               ...(SHOW_AUGMENT_WIN_RATES ? [augCols[4]] : []),
-              {
-                key: "lift",
-                label: "Win rate boost",
-                format: "pts" as const,
-                hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
-              },
+              liftCol,
               {
                 key: "spread",
                 label: "Varies by champion",
@@ -241,6 +246,7 @@ export default function TierListPage() {
       tier,
       deepScore,
       winRate: est?.winRate ?? null,
+      lift: est?.lift ?? null,
       buildShare: est?.buildShare ?? null,
       granted: est?.granted ?? false,
       slots: est?.slots ?? [],

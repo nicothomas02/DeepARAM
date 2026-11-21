@@ -44,6 +44,7 @@ import {
   RatedCells,
   Row,
   signed,
+  signedPts,
   tone,
 } from "@/components/champion/Ranked";
 import ShowMore from "@/components/champion/ShowMore";
@@ -153,7 +154,8 @@ const vsAvg = (key: string, d: number) =>
     : `${d > 0 ? "+" : ""}${(d * 100).toFixed(1)} pts`;
 
 // Build lists rank by DeepScore against the champion's other builds in the same list.
-const SCORED_COLS = ["DeepScore", "Win rate", "Pick rate"];
+// DeepScore ranks these lists; it rewards a win rate above the champion's own, so the win rate boost sits beside it.
+const SCORED_COLS = ["DeepScore", "Win rate boost", "Win rate", "Pick rate"];
 // With the switch on Adjusted, the default (components/champion/ExpectedSwitch.tsx), a row with few games of its own shows its
 // expected win rate, leaning on the estimate (lib/synergies.ts), labelled "Expected"; the rest show "Real".
 type Expected = { delta: number; expected: boolean };
@@ -169,6 +171,17 @@ function ScoredCells({ r, x }: { r: ItemRow; x?: Expected }) {
       </div>
       {x ? (
         <div className="cp-cell">
+          <b className={`xp-real ${tone(r.lift) ?? ""}`}>{signed(r.lift)}</b>
+          <b className={`xp-exp ${tone(r.lift + x.delta) ?? ""}`}>{signed(r.lift + (x.expected ? x.delta : 0))}</b>
+          <small>
+            <T ns={NS}>Win rate boost</T>
+          </small>
+        </div>
+      ) : (
+        <Cell value={signed(r.lift)} label="Win rate boost" tone={tone(r.lift)} />
+      )}
+      {x ? (
+        <div className="cp-cell">
           <b className={`xp-real ${tone(r.lift) ?? ""}`}><WinRate p={r.winRate} n={r.games} /></b>
           <b className={`xp-exp ${tone(r.lift + x.delta) ?? ""}`}>{pct(r.winRate + (x.expected ? x.delta : 0))}</b>
           <small className="xp-real">
@@ -179,7 +192,7 @@ function ScoredCells({ r, x }: { r: ItemRow; x?: Expected }) {
           </small>
         </div>
       ) : (
-        <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" tone={tone(r.lift)} />
+        <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" />
       )}
       <Cell value={pct(r.pickRate)} label="Pick rate" />
     </>
@@ -351,6 +364,14 @@ export default async function ChampionPage({
       <div className="cp-best cp-best-wide">
         <h4>
           <T ns={NS}>Best core build</T>
+          {p.coreFromEarlier && (
+            <>
+              {" "}
+              <small className="cp-stale-tag" title="From earlier games: these builds turn into items the newest numbers don't list.">
+                <T ns={NS}>From earlier games</T>
+              </small>
+            </>
+          )}
         </h4>
         <ol className="cp-icons cp-buy-order">
           {buildOrder(core).map((id) => (
@@ -485,7 +506,7 @@ export default async function ChampionPage({
     ) : null;
   const itemRows = (rows: typeof p.core, sep = false, fam: "starting" | "full_builds" | null = null) =>
     rows.map((r, i) => (
-      <Row key={i} rank={i + 1} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
+      <Row key={i} rank={i + 1} cols={4} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
         {buildOrder(r).map((id, j) => (
           <span key={j} className="cp-chain">
             {sep && j > 0 && (
@@ -501,7 +522,7 @@ export default async function ChampionPage({
     ));
   const singleRows = (rows: typeof p.core, fam: "boots" | null = null) =>
     rows.map((r, i) => (
-      <Row key={i} rank={i + 1} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
+      <Row key={i} rank={i + 1} cols={4} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
         <ItemIcon id={r.items[0]} info={info} />
         <ItemName id={r.items[0]} info={info} />
         {augTag(r)}
@@ -930,6 +951,10 @@ export default async function ChampionPage({
                             </small>
                           )}
                           <small className={tone(r.lift)}>
+                            <T ns={NS} v={{ n: signedPts(r.lift) }}>
+                              {"{n} pts boost"}
+                            </T>
+                            {" · "}
                             <Sampled n={r.games} p={r.winRate}>
                               <T ns={NS} v={{ n: pct(r.winRate) }}>
                                 {"{n} win rate"}
@@ -1018,11 +1043,8 @@ export default async function ChampionPage({
                                 help={ITEM_DEEPSCORE_HELP}
                               />
                             )}
-                            <Cell
-                              value={<WinRate p={r.winRate} n={r.games} />}
-                              label="Win rate"
-                              tone={tone(r.lift)}
-                            />
+                            <Cell value={signed(r.lift)} label="Win rate boost" tone={tone(r.lift)} />
+                            <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" />
                             <Cell value={pct(r.pickRate)} label="Pick rate" />
                           </div>
                         ))}

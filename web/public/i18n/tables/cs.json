@@ -154,5 +154,6 @@
  "Bias %": "Zkreslení %",
  "Order within role": "Pořadí v roli",
  "Real ÷ predicted": "Skutečné ÷ předpověď",
- "Find an item": "Najít předmět"
+ "Find an item": "Najít předmět",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Odhad. O kolik zvyšuje míru výher šampionů, kteří ho staví: z toho vychází jeho DeepScore."
 }

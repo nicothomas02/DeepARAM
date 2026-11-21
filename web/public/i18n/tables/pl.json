@@ -154,5 +154,6 @@
  "Bias %": "Odchylenie %",
  "Order within role": "Kolejność w roli",
  "Real ÷ predicted": "Prawdziwe ÷ przewidywane",
- "Find an item": "Znajdź przedmiot"
+ "Find an item": "Znajdź przedmiot",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Szacunek. O ile podnosi współczynnik zwycięstw bohaterów, którzy go budują: od tego zaczyna się jego DeepScore."
 }

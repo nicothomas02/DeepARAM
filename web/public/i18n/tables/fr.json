@@ -154,5 +154,6 @@
  "Bias %": "Biais %",
  "Order within role": "Ordre dans le rôle",
  "Real ÷ predicted": "Réel ÷ prédit",
- "Find an item": "Chercher un objet"
+ "Find an item": "Chercher un objet",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Estimé. De combien il augmente le taux de victoire des champions qui le construisent : c'est la base de son DeepScore."
 }

@@ -92,4 +92,11 @@ describe("DeepScore ranking of build lists", () => {
     expect(p.core[0].items[0] % 10000).toBe(3430);
     expect(p.cardStart?.items).toEqual(expect.arrayContaining([1018]));
   });
+
+  it("keeps tear builds the six-item builds can't show (Kassadin: Rod of Ages + Archangel's Staff)", () => {
+    const p = championPage("Kassadin")!;
+    expect(p.coreFromEarlier).toBe(true);
+    expect(p.core[0].items.map((i) => i % 10000)).toEqual(expect.arrayContaining([3003]));
+    expect(championPage("Annie")!.coreFromEarlier).toBe(false);
+  });
 });

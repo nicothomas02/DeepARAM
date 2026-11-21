@@ -154,5 +154,6 @@
  "Bias %": "Verzerrung %",
  "Order within role": "Reihenfolge in der Rolle",
  "Real ÷ predicted": "Echt ÷ vorhergesagt",
- "Find an item": "Gegenstand suchen"
+ "Find an item": "Gegenstand suchen",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Geschätzt. Wie stark es die Siegquote der Champions erhöht, die es bauen: Davon geht sein DeepScore aus."
 }

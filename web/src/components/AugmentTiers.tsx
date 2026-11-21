@@ -10,7 +10,7 @@ import { useT } from "./I18n";
 // for rarity and build style (under a "Filter by tags" fold) above one sortable table of every augment (rows and columns from the page).
 // Each row carries its rarity (`tier`) and its build styles (`styles`, comma-separated) for the filters.
 
-// Augment picks: an augment counts for a pick when at least a quarter of its picks happen there (estimated, `stages`).
+// Augment picks: an augment counts for a pick when a clear share of its picks happen there (lib/augment-policy.ts PICK_TAG_SHARE) (estimated, `stages`).
 const PICKS: [string, string][] = [
   ["", "Any pick"],
   ["1", "1st augment"],

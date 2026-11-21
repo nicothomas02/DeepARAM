@@ -86,10 +86,10 @@ export function championHistory(alias: string): HistFile | null {
 /** Core rows listed in buying order from the patches whose core block still came from the feed (it froze in
  *  mid-October 2026 and is rebuilt from six-item builds since, which carry no order). A patch counts as ordered when
  *  most champions have the same three items in two orders, which a rebuilt block almost never has. */
-export function orderedCores(id: number): { items: number[]; weight: number }[] {
-  const out: { items: number[]; weight: number }[] = [];
+export function orderedCores(id: number): { items: number[]; weight: number; win: number | null }[] {
+  const out: { items: number[]; weight: number; win: number | null }[] = [];
   for (const s of snapshots().filter(isOrdered))
-    for (const [ids, pick] of s.champions[String(id)]?.items.core ?? []) out.push({ items: ids, weight: pick ?? 0 });
+    for (const [ids, pick, win] of s.champions[String(id)]?.items.core ?? []) out.push({ items: ids, weight: pick ?? 0, win: win ?? null });
   return out;
 }
 

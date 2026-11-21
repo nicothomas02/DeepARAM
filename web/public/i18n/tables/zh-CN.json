@@ -154,5 +154,6 @@
  "Bias %": "偏差 %",
  "Order within role": "定位内排名",
  "Real ÷ predicted": "实际 ÷ 预测",
- "Find an item": "查找装备"
+ "Find an item": "查找装备",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "估算。它让出这件装备的英雄胜率提高多少：DeepScore 以此为起点。"
 }

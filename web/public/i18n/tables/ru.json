@@ -154,5 +154,6 @@
  "Bias %": "Смещение %",
  "Order within role": "Порядок в роли",
  "Real ÷ predicted": "Реально ÷ прогноз",
- "Find an item": "Найти предмет"
+ "Find an item": "Найти предмет",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Оценка. Насколько предмет повышает процент побед чемпионов, которые его собирают: от этого отталкивается его DeepScore."
 }

@@ -268,5 +268,13 @@
  "Tied": "동률",
  "Rush": "우선",
  "With {augment}: buy {item} first": "{augment} 보유 시: {item} 먼저",
- "Then": "그다음"
+ "Then": "그다음",
+ "{n} pts boost": "{n}p 상승",
+ "Rank by": "정렬 기준",
+ "Own power": "단독 성능",
+ "Combo potential": "콤보 잠재력",
+ "With combos": "콤보 포함",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "추정치: 각 증강의 상승치에 남은 선택이 있는 동안 확인된 최고의 콤보 일부를 더해 정렬합니다.",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "추정치: 확인된 짝이 아직 나올 수 있어, 남은 선택이 있는 동안 짝 점수의 일부를 더합니다.",
+ "Combos with {name} {n}": "{name}와 콤보 {n}"
 }
