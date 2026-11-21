@@ -66,7 +66,10 @@ const TEAR_ITEMS = new Set([3003, 3004]);
 const TEAR_CORE_SHARE = 0.3;
 /** An earlier core still holds when each of its items is in at least this share of today's six-item builds. */
 const EARLIER_CORE_SUPPORT = 0.5;
-const START_FOLLOWING = 0.75;
+/** A starter can lead the card with MIN_FOLLOWING of the most common start's pick rate, or this many real games:
+ *  starts with real game counts are shrunk by their own noise, and a rare start's lead held up on the next patch as
+ *  well as a common one's (101 history 16.20-16.23). Nico, 2026-11-21: allow overlooked starters (Guardian's Blade on Zeri). */
+const START_MIN_GAMES = 2000;
 
 /** One build style on the card: its own core, start, later and situational items, and its augments (estimated). */
 export type BuildOption = {
@@ -342,13 +345,11 @@ export function championPage(alias: string): ChampionPage | null {
   // Guardian's Blade). A finished item can't be afforded at the start, so a row holding one is noise.
   const startRows = scoreItems(rows(b?.items?.starting), FIT.items);
   const affordable = startRows.filter((r) => !r.items.some((i) => itemTier(i) === "legendary"));
-  // A starter needs a strong following to lead: a rare start that builds into the first item shouldn't outrank one
-  // most players buy (Lost Chapter on Ahri). Starts are close in cost and their win rates mostly reflect who buys them,
-  // so the card takes a start with at least START_FOLLOWING of the most common one's pick rate; checked against a much
-  // larger sample 2026-11-21: same start as it on 91 of 173 champions, from 20.
+  // A starter needs a real following to lead (same 1/4 rule as builds, Nico 2026-11-21) or enough games of its own
+  // (START_MIN_GAMES), so a start bought in a handful of games can't lead on luck.
   const scoredStart = followed(affordable.length ? affordable : startRows);
   const startTop = Math.max(0, ...scoredStart.map((r) => r.pickRate));
-  const startFollowed = (r: ItemRow) => r.pickRate >= START_FOLLOWING * startTop;
+  const startFollowed = (r: ItemRow) => r.pickRate >= MIN_FOLLOWING * startTop || (r.games ?? 0) >= START_MIN_GAMES;
   const standalone = (i: number) => ["starter", "consumable"].includes(itemTier(i));
   const withBootsOf = (c: ItemRow, its: number[]) => [...its, ...(c.boots !== undefined ? [c.boots] : [])];
   const fits = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items), itemParts, standalone);
