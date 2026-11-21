@@ -402,6 +402,10 @@ fn parse_lockfile(text: &str) -> Option<(String, String)> {
 
 /// For installs outside the usual folder: the running client's command line has the port and password.
 fn command_line() -> Option<(String, String)> {
+    // PowerShell costs about a second of processor time: only ask it when the client is actually running.
+    if !crate::procs::running("LeagueClientUx.exe") {
+        return None;
+    }
     let mut cmd = if cfg!(windows) {
         let mut c = std::process::Command::new("powershell");
         c.args([
