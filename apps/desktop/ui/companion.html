@@ -181,13 +181,14 @@
   function rankAugments(d, champ, taken) {
     const own = d.champions[champ] ?? [];
     const pairs = d.pairs[champ] ?? [];
-    return own.filter(([id]) => !taken.includes(id)).map(([id, score, deep = -1]) => {
+    // The ranking score is the estimated boost (a fraction) and synergy pairs are in win-rate points: both in points.
+    return own.filter(([id]) => !taken.includes(id)).map(([id, score, deep = -1, est = 1]) => {
       let bonus = 0, mate = null, best = 0;
       for (const [a, b, p] of pairs) {
         const other = a === id ? b : b === id ? a : null;
         if (other !== null && taken.includes(other)) { bonus += p; if (p > best) { best = p; mate = other; } }
       }
-      return { id, score: score + bonus, mate, deep };
+      return { id, score: score * 100 + bonus, boost: est ? score * 100 + bonus : null, mate, deep };
     }).sort((x, y) => y.score - x.score);
   }
 
@@ -206,12 +207,12 @@
       <button class="row aug${i === 0 && !q ? " best" : ""}" data-id="${a.id}">
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
-        <div class="num" title="DeepScore on this champion">${deepLabel(a.deep) || `#${ranked.indexOf(a) + 1}`}</div>
+        <div class="num" title="Estimated boost on this champion (win-rate points, with synergy), then DeepScore">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `<br><small>${deepLabel(a.deep)}</small>` : a.boost === null ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </button>`;
     box.innerHTML = `
       ${taken.length ? `<div class="taken">${taken.map((id) => `<button class="chip" data-id="${id}" title="Tap to undo">${augIcon(id)}${esc(name(id))}</button>`).join("")}</div>` : ""}
       ${shown.map(row).join("") || `<p class="note">No augment matches "${esc(query)}".</p>`}
-      <p class="note">Best first for ${esc(label(game.champ))}, with each augment's DeepScore here (50 is average). Tap the one you take and the rest re-rank around it. If yours isn't listed, search for it.</p>`;
+      <p class="note">Best first for ${esc(label(game.champ))}, by estimated boost here (points, including synergy with what you took), with DeepScore below. Tap the one you take and the rest re-rank around it. If yours isn't listed, search for it.</p>`;
     box.querySelectorAll("button[data-id]").forEach((b) => b.addEventListener("click", () => {
       const id = Number(b.dataset.id), t = getTaken(game);
       setTaken(game, t.includes(id) ? t.filter((x) => x !== id) : [...t, id]);

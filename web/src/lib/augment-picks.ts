@@ -17,9 +17,10 @@ import { augmentScores } from "./champion-augments";
 export type AugmentPicks = {
   /** id -> [name, rarity] */
   augments: Record<string, [string, string]>;
-  /** alias -> augment ids, best first, each one's ranking score (boost, as a fraction) and its DeepScore on this
-   *  champion (as on the champion page; -1 when there's no estimate) */
-  champions: Record<string, [number, number, number][]>;
+  /** alias -> augment ids, best first: [id, ranking score (boost, as a fraction), DeepScore on this champion (as on
+   *  the champion page; -1 when there's none), 1 when the score is the estimated boost, 0 when it stands in from
+   *  DeepScore] */
+  champions: Record<string, [number, number, number, number][]>;
   /** alias -> [a, b, points] synergy pairs (points: estimated win-rate points; order-dependent pairs use the larger) */
   pairs: Record<string, [number, number, number][]>;
   /** augment id -> the build styles it points to (crit, onhit, ap, lethality, fighter, tank, enchanter) */
@@ -66,7 +67,7 @@ export function augmentPicks(): AugmentPicks {
       const lift = est?.augments.get(a.id)?.lift;
       // No estimate: fall back to DeepScore around its middle (50), scaled to about the same size as a boost.
       const score = lift ?? ((scores.get(a.id) ?? 50) - 50) / 1000;
-      return [a.id, r4(score), deep.get(a.id) ?? -1] as [number, number, number];
+      return [a.id, r4(score), deep.get(a.id) ?? -1, lift === undefined ? 0 : 1] as [number, number, number, number];
     });
     out.champions[alias] = rows.sort((x, y) => y[1] - x[1]);
     const builds = arch[String(ids0[alias])] ?? [];
