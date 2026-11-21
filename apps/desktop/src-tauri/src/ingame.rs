@@ -115,7 +115,7 @@ pub fn enabled(app: &AppHandle) -> bool {
 }
 
 fn scan_on(app: &AppHandle) -> bool {
-    augscan::AVAILABLE && !app.state::<Store>().saved.lock().unwrap().scan_off
+    augscan::available() && !app.state::<Store>().saved.lock().unwrap().scan_off
 }
 
 /// The game started: notes who the player is and resets the game's state.
@@ -322,6 +322,18 @@ pub fn watch(app: AppHandle) {
                 let now = game_time + last_check.map_or(0.0, |at| at.elapsed().as_secs_f64());
                 (s.in_game, s.in_game && scanning(now, s.first_done, s.scan_until))
             };
+            // The reading window closed with an offer still up (picked between two reads): it's gone now.
+            let left = {
+                let state = app.state::<Shared>();
+                let mut s = state.lock().unwrap();
+                (!read && !s.offer.is_empty()).then(|| {
+                    s.offer.clear();
+                    s.first_done = true;
+                })
+            };
+            if left.is_some() {
+                companion::show_offer(&app, &[]);
+            }
             if read && scan_on(&app) {
                 let now = game_time + last_check.map_or(0.0, |at| at.elapsed().as_secs_f64());
                 scan(&app, now);

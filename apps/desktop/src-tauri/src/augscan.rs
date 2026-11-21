@@ -148,18 +148,35 @@ pub fn game_window() -> Option<(i32, i32, i32, i32)> {
 }
 
 /// Reads the text in the card area of League's window. None when there's no game window to read.
-#[cfg(windows)]
 pub fn read_screen() -> Option<Vec<Line>> {
-    win::read_screen()
-}
-
-#[cfg(not(windows))]
-pub fn read_screen() -> Option<Vec<Line>> {
+    #[cfg(debug_assertions)]
+    if let Some(lines) = fake_screen() {
+        return Some(lines);
+    }
+    #[cfg(windows)]
+    return win::read_screen();
+    #[cfg(not(windows))]
     None
 }
 
-/// Screen reading works on Windows only (its built-in text recognition).
-pub const AVAILABLE: bool = cfg!(windows);
+/// Debug builds only, for a test game: DEEPARAM_FAKE_SCREEN names a JSON file of [text, x] pairs, read each time
+/// (an empty list or a missing file means no offer on screen).
+#[cfg(debug_assertions)]
+fn fake_screen() -> Option<Vec<Line>> {
+    let path = std::env::var("DEEPARAM_FAKE_SCREEN").ok()?;
+    let rows: Vec<(String, f64)> =
+        std::fs::read(path).ok().and_then(|b| serde_json::from_slice(&b).ok()).unwrap_or_default();
+    Some(rows.into_iter().map(|(text, x)| Line { text, x, y: 200.0, w: 180.0, h: 24.0 }).collect())
+}
+
+/// Screen reading works on Windows only (its built-in text recognition), or with a test game's fake screen.
+pub fn available() -> bool {
+    #[cfg(debug_assertions)]
+    if std::env::var_os("DEEPARAM_FAKE_SCREEN").is_some() {
+        return true;
+    }
+    cfg!(windows)
+}
 
 #[cfg(windows)]
 mod win {

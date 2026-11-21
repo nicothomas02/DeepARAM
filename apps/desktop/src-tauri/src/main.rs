@@ -129,6 +129,8 @@ struct Status {
 struct Store {
     file: PathBuf,
     saved: Mutex<Saved>,
+    /// No saved state yet: the app's first launch on this PC.
+    fresh: bool,
 }
 
 impl Store {
@@ -136,8 +138,9 @@ impl Store {
         let dir = app.path().app_data_dir().unwrap_or_else(|_| PathBuf::from("."));
         let _ = fs::create_dir_all(&dir);
         let file = dir.join("state.json");
+        let fresh = !file.exists();
         let saved = fs::read(&file).ok().and_then(|b| serde_json::from_slice(&b).ok()).unwrap_or_default();
-        Store { file, saved: Mutex::new(saved) }
+        Store { file, saved: Mutex::new(saved), fresh }
     }
 
     fn update<R>(&self, f: impl FnOnce(&mut Saved) -> R) -> R {
@@ -325,8 +328,8 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
         app,
         "scan",
         "Read augment offers off the screen",
-        augscan::AVAILABLE,
-        scan_on && augscan::AVAILABLE,
+        augscan::available(),
+        scan_on && augscan::available(),
         None::<&str>,
     )?;
     let second =
@@ -416,6 +419,12 @@ fn main() {
             app.manage(ingame::Shared::default());
             app.manage(companion::Shared::default());
             app.manage(sharing::Sharing::load(&handle));
+            // First launch: start with Windows (hidden in the tray), so champion select and the game are followed
+            // without opening the app first. The tray's switch turns it off.
+            if handle.state::<Store>().fresh && autostart_available() {
+                let _ = handle.autolaunch().enable();
+                handle.state::<Store>().update(|_| ());
+            }
             let hidden = std::env::args().any(|a| a == HIDDEN_ARG);
             build_window(&handle, hidden)?;
             build_tray(&handle)?;
