@@ -1,11 +1,12 @@
 {
  "builds": {
-  "pbe": "16.24.8403318",
+  "pbe": "16.24.8407700",
   "live": "16.23.8406595"
  },
- "dataAsOf": "2026-11-20",
+ "dataAsOf": "2026-11-21",
  "counts": {
   "buff": 1,
+  "mixed": 1,
   "new": 1
  },
  "entries": [
@@ -19,6 +20,31 @@
     }
    ],
    "tag": "buff"
+  },
+  {
+   "kind": "augment",
+   "name": "Biggest Snowball Ever",
+   "tier": "prismatic",
+   "icon": "/assets/augments/pbe/biggestsnowballever_large.png",
+   "lines": [
+    {
+     "text": "Snowball size when thrown: 100% → 40%, growing to full as it flies",
+     "tag": "nerf"
+    },
+    {
+     "text": "Snowball speed when thrown: 100% → 65%, speeding up as it flies",
+     "tag": "nerf"
+    },
+    {
+     "text": "Stun: none → 0.25 to 0.75 seconds, longer as the snowball grows",
+     "tag": "buff"
+    },
+    {
+     "text": "Knockback: none → 50 to 120 units, farther as the snowball grows",
+     "tag": "buff"
+    }
+   ],
+   "tag": "mixed"
   },
   {
    "kind": "augment",
