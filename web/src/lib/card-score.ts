@@ -1,4 +1,4 @@
-import { fittedBound, grade, lowerBound, type Fit } from "./deepscore";
+import { fittedBound, grade, lowerBound, nextPatch, trueSpread, type Fit } from "./deepscore";
 import type { ItemTier } from "./items";
 
 // Scoring shared by the champion page's server code (lib/champion-page.ts) and the top card's timeframe picker,
@@ -36,6 +36,26 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(list:
   const median = picks[Math.floor(picks.length / 2)] || 1;
   const total = list.reduce((s, r) => s + r.pickRate, 0) || 1;
   const mean = list.reduce((s, r) => s + r.winRate * r.pickRate, 0) / total;
+  // Real games when every row has them (Nico, 2026-11-21: popularity alone shouldn't read as good). Each row's lead
+  // over the list is shrunk by its own sampling noise (empirical Bayes: tau2 / (tau2 + v)) and scored on that
+  // estimate, with no extra penalty for a smaller sample: once a row has a real following (MIN_FOLLOWING or enough
+  // games), the shrunk win rate alone picked rows that led more on the next patch (101 history 16.20-16.23: starters
+  // +1.44 pts vs +1.40 with a one-spread penalty, boots +1.71 vs +1.63; Nico, 2026-11-21: weigh win rate a little
+  // more, e.g. Guardian's Blade). Without games (estimates), pick rate stands in.
+  const games = list.map((r) => (r as { games?: number }).games ?? 0);
+  if (games.every((g) => g > 0)) {
+    const vs = list.map((r, i) => (r.winRate * (1 - r.winRate)) / games[i]);
+    const tau2 = trueSpread(list.map((r) => r.winRate), vs);
+    const bounds = list.map((r, i) => {
+      if (fit) return nextPatch(r.winRate, 1, mean, fit, { v: vs[i], tau2 }).est;
+      const w = tau2 / (tau2 + vs[i]);
+      return mean + w * (r.winRate - mean);
+    });
+    const grades = grade(bounds);
+    return list
+      .map((r, i) => ({ ...r, deepScore: grades[i].deepScore }))
+      .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
+  }
   const bounds = list.map((r) =>
     fit
       ? fittedBound(r.winRate, r.pickRate / median, mean, fit)

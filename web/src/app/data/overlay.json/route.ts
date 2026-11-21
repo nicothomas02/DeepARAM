@@ -9,7 +9,7 @@ import { quickBuilds } from "@/lib/quick-build";
 export const dynamic = "force-static";
 
 export function GET() {
-  const champions = quickBuilds().map(({ id, name, skills, spells, start, items, rest, situational, rush, swaps, augments }) => ({
+  const champions = quickBuilds().map(({ id, name, skills, spells, start, items, rest, situational, rush, swaps, augments, builds }) => ({
     id,
     name,
     icon: `/icons/champions/${id}.webp`,
@@ -22,6 +22,8 @@ export function GET() {
     rush,
     swaps,
     augments,
+    // Build styles (crit and AP Ashe), best DeepScore first; the overlay switches between them.
+    builds,
   }));
   return Response.json({ patch: patchName(livePatch()) || null, champions });
 }

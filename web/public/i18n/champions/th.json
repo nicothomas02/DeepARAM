@@ -276,5 +276,11 @@
  "With combos": "รวมคอมโบ",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "ค่าประมาณ: เรียงตามค่าเพิ่มของแต่ละออคเมนต์ บวกส่วนหนึ่งของคอมโบที่ยืนยันแล้วที่ดีที่สุดระหว่างที่ยังเหลือการเลือก",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "ค่าประมาณ: คู่ที่ยืนยันแล้วยังอาจมา ระหว่างที่ยังเหลือการเลือก จะนับส่วนหนึ่งของแต้มคู่",
- "Combos with {name} {n}": "คอมโบกับ {name} {n}"
+ "Combos with {name} {n}": "คอมโบกับ {name} {n}",
+ "Lethality": "Lethality",
+ "Crit": "คริ",
+ "On-hit": "On-hit",
+ "Fighter": "ไฟท์เตอร์",
+ "Enchanter": "เอนแชนเตอร์",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "สเปลล์ซัมมอนเนอร์และลำดับสกิลเหมือนกันทุกบิลด์ เพราะสถิติไม่ได้แยกตามบิลด์"
 }

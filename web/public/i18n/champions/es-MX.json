@@ -276,5 +276,11 @@
  "With combos": "Con combos",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Estimado: ordenado por la mejora de cada aumento más parte de su mejor combo confirmado mientras queden elecciones.",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Estimado: aún puede llegar un compañero confirmado; mientras queden elecciones cuenta parte de los puntos de la pareja.",
- "Combos with {name} {n}": "Combo con {name} {n}"
+ "Combos with {name} {n}": "Combo con {name} {n}",
+ "Lethality": "Letalidad",
+ "Crit": "Crítico",
+ "On-hit": "Al impactar",
+ "Fighter": "Luchador",
+ "Enchanter": "Encantador",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Los hechizos de invocador y el orden de habilidades son iguales en cada build: las estadísticas no los separan por build."
 }

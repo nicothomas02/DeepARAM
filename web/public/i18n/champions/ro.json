@@ -276,5 +276,11 @@
  "With combos": "Cu combo-uri",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Estimare: ordonate după creșterea fiecărei augmentări plus o parte din cel mai bun combo confirmat cât timp mai sunt alegeri.",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Estimare: un partener confirmat poate încă veni; cât timp mai sunt alegeri contează o parte din punctele perechii.",
- "Combos with {name} {n}": "Combo cu {name} {n}"
+ "Combos with {name} {n}": "Combo cu {name} {n}",
+ "Lethality": "Letalitate",
+ "Crit": "Crit",
+ "On-hit": "La lovire",
+ "Fighter": "Luptător",
+ "Enchanter": "Fermecător",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Vrăjile de invocator și ordinea abilităților sunt aceleași pentru fiecare build: statisticile nu le separă pe build."
 }

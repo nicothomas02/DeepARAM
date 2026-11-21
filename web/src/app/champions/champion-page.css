@@ -1976,3 +1976,16 @@ html:not([data-raw]) .cp-row.aug-item {
 .cp-style-panel[hidden] {
   display: none;
 }
+/* Build tabs that switch the whole card: each panel is laid out like the card. */
+.cp-style-whole {
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+}
+.cp-style-tablist {
+  flex-wrap: wrap;
+}
+.cp-same-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}

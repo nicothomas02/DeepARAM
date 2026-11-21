@@ -17,6 +17,8 @@
   .name { font-size: 16px; font-weight: 600; }
   .sub { color: var(--muted); font-size: 11px; }
   h2 { margin: 10px 0 6px; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .tabs button { font: inherit; font-size: 14px; padding: 3px 10px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .25); background: transparent; color: inherit; cursor: pointer; }
+  .tabs button.on { background: rgba(127, 127, 255, .3); border-color: #8f8fff; }
   .row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
   .key { min-width: 26px; height: 26px; display: grid; place-items: center; border-radius: 8px; background: rgba(255, 255, 255, .08); font-weight: 600; }
   .arrow { color: var(--muted); }
@@ -48,6 +50,7 @@
       <div class="sub" id="sub"></div>
     </div>
   </header>
+  <div class="row tabs" id="builds" hidden></div>
   <h2>Skill order</h2>
   <div class="row" id="skills"></div>
   <h2 id="spells-title">Spells</h2>
@@ -80,7 +83,18 @@
     i.onerror = () => { i.style.visibility = "hidden"; };
     return i;
   };
-  window.showBuild = ({ site, patch, build: b }) => {
+  // Build styles (crit and AP Ashe), best DeepScore first, as on the champion page: a tab switches every part.
+  const STYLE = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "Fighter", tank: "Tank", enchanter: "Enchanter" };
+  window.showBuild = ({ site, patch, build, pick = 0 }) => {
+    const opts = build.builds || [];
+    const b = opts.length > 1 ? { ...build, ...opts[pick] } : build;
+    const tabs = document.getElementById("builds");
+    tabs.replaceChildren(...(opts.length > 1 ? opts.map((o, i) => {
+      const t = el("button", i === pick ? "on" : "", `${STYLE[o.style] || o.style} · DeepScore ${o.deepScore}`);
+      t.addEventListener("click", () => window.showBuild({ site, patch, build, pick: i }));
+      return t;
+    }) : []));
+    tabs.hidden = opts.length < 2;
     document.getElementById("champ").src = site + b.icon;
     document.getElementById("name").textContent = b.name;
     document.getElementById("sub").textContent = patch ? `Quick build · patch ${patch}` : "Quick build";
