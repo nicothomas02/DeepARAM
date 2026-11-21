@@ -143,3 +143,17 @@ describe("DeepScore with real games", () => {
   });
 });
 
+
+describe("card boots", () => {
+  it("takes the best-scoring boots among those with a real following alongside the core", () => {
+    // Zeri: Berserker's Greaves are paired more often, but Gluttonous Greaves have a real following and score higher.
+    const p = championPage("Zeri")!;
+    const name = (i: number | undefined) => (i === undefined ? undefined : p.itemInfo[i]?.name);
+    expect(name(p.core[0].boots)).toBe("Gluttonous Greaves");
+    for (const alias of ["Ashe", "Yunara", "Alistar"]) {
+      const c = championPage(alias)!;
+      if (!c.boots.length || c.core[0]?.boots === undefined) continue;
+      expect(c.boots.some((b) => b.items[0] === c.core[0].boots)).toBe(true);
+    }
+  });
+});

@@ -4,7 +4,7 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
-import { alongCore, bestRow, buildOrder, followed, scoreRows, sameStyle, situational, skipsBoots, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, type ItemRow, type Rated } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
@@ -335,7 +335,7 @@ export function championPage(alias: string): ChampionPage | null {
     // Ranked by their own numbers from those games: today's six-item builds can't say which items came first.
     scoreItems(coreFromEarlier ? earlierCores().filter((r) => tearShare >= TEAR_CORE_SHARE || supported(r.items)) : rows(b?.items?.core)),
   );
-  const withBootsCore = noBoots ? scoredCore : withBoots(scoredCore, full, boots[0], timing, playedSlot ?? undefined);
+  const withBootsCore = noBoots ? scoredCore : withBoots(scoredCore, full, boots, timing, playedSlot ?? undefined);
   // Items in the order players buy them (Nico, 2026-11-20): the feed's cores listed in buying order (lib/build-plan.ts
   // buyingOrder), on top of the starting items: a core opens with the item its starter builds into (Cloak + Tome:
   // Rite of Ruin), and a starter's parts build into the first item or the boots, or are standalone starters (Tear,
@@ -481,13 +481,16 @@ function tiered(list: ItemRow[]): ItemRow[] {
 }
 
 /**
- * Each core build with the boots most often bought alongside it in six-item builds, or the best boots overall, and
+ * Each core build with its boots: among the boots bought alongside it in six-item builds with a real following
+ * (MIN_FOLLOWING of the most common pairing), the one with the best DeepScore on the boots list, so the most popular
+ * pairing doesn't win on popularity alone (Nico, 2026-11-21: Zeri's card showed Berserker's Greaves over the higher
+ * scoring Gluttonous Greaves); the best boots overall when no six-item build has the core. Then
  * when to buy them: the simulated step for that core, else the step the champion's other cores use most with those boots.
  */
 function withBoots(
   core: ItemRow[],
   full: ItemRow[],
-  best: ItemRow | undefined,
+  scored: ItemRow[],
   timing: BootsTiming["champions"][string],
   played?: number,
 ): ItemRow[] {
@@ -507,8 +510,12 @@ function withBoots(
         if (itemTier(i) === "boots")
           share.set(i, (share.get(i) ?? 0) + f.pickRate);
     }
-    const paired = [...share].sort((x, y) => y[1] - x[1])[0]?.[0];
-    const boots = paired ?? best?.items[0];
+    const top = Math.max(0, ...share.values());
+    const score = (i: number) => scored.find((b) => b.items[0] === i)?.deepScore ?? -1;
+    const paired = [...share]
+      .filter(([, s]) => s >= MIN_FOLLOWING * top)
+      .sort((x, y) => score(y[0]) - score(x[0]) || y[1] - x[1])[0]?.[0];
+    const boots = paired ?? scored[0]?.items[0];
     if (boots === undefined) return r;
     const bootsAt = played ?? timing[r.items.join(",")]?.[String(boots)] ?? usual(boots);
     return bootsAt === undefined ? { ...r, boots } : { ...r, boots, bootsAt };
