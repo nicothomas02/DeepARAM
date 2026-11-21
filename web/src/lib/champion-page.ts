@@ -66,6 +66,7 @@ const TEAR_ITEMS = new Set([3003, 3004]);
 const TEAR_CORE_SHARE = 0.3;
 /** An earlier core still holds when each of its items is in at least this share of today's six-item builds. */
 const EARLIER_CORE_SUPPORT = 0.5;
+const START_FOLLOWING = 0.75;
 
 type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
 /** data/estimates/boots_slot.json: per champion [core items bought before the boots or null, boots buyers]. */
@@ -307,19 +308,27 @@ export function championPage(alias: string): ChampionPage | null {
   // Guardian's Blade). A finished item can't be afforded at the start, so a row holding one is noise.
   const startRows = scoreItems(rows(b?.items?.starting), FIT.items);
   const affordable = startRows.filter((r) => !r.items.some((i) => itemTier(i) === "legendary"));
-  const scoredStart = affordable.length ? affordable : startRows;
+  // A starter needs a strong following to lead: a rare start that builds into the first item shouldn't outrank one
+  // most players buy (Lost Chapter on Ahri). Starts are close in cost and their win rates mostly reflect who buys them,
+  // so the card takes a start with at least START_FOLLOWING of the most common one's pick rate; checked against a much
+  // larger sample 2026-11-21: same start as it on 91 of 173 champions, from 20.
+  const scoredStart = followed(affordable.length ? affordable : startRows);
+  const startTop = Math.max(0, ...scoredStart.map((r) => r.pickRate));
+  const startFollowed = (r: ItemRow) => r.pickRate >= START_FOLLOWING * startTop;
   const standalone = (i: number) => ["starter", "consumable"].includes(itemTier(i));
   const withBootsOf = (c: ItemRow, its: number[]) => [...its, ...(c.boots !== undefined ? [c.boots] : [])];
   const fits = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items), itemParts, standalone);
   const fitsFirst = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items.slice(0, 1)), itemParts, standalone);
   const isBoots = (i: number) => itemTier(i) === "boots";
   const core = withBootsCore.map((c) => {
-    const st = scoredStart.find(fits(c));
+    const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find(fits(c));
     const { items } = buyingOrder(st ? startFirst(c.items, st.items, itemParts, standalone) : c.items, orderRows);
     return { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
   });
   const starting = core[0]
-    ? [fitsFirst(core[0]), fits(core[0]), () => true].reduce<ItemRow[]>((out, ok) => [...out, ...scoredStart.filter((r) => ok(r) && !out.includes(r))], [])
+    ? [startFollowed, () => true]
+        .flatMap((tier) => [fitsFirst(core[0]), fits(core[0]), () => true].map((ok) => (r: ItemRow) => tier(r) && ok(r)))
+        .reduce<ItemRow[]>((out, ok) => [...out, ...scoredStart.filter((r) => ok(r) && !out.includes(r))], [])
     : scoredStart;
   const page = {
     winRate: base,
