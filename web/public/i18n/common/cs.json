@@ -251,5 +251,6 @@
  "Builds cover patch {patch} on.": "Buildy pokrývají patch {patch} a novější.",
  "The rest of the page shows the live patch.": "Zbytek stránky ukazuje aktuální patch.",
  "Not played in these patches.": "V těchto patchích se nehrál.",
- "No saved builds for these patches.": "Pro tyto patche nejsou uložené buildy."
+ "No saved builds for these patches.": "Pro tyto patche nejsou uložené buildy.",
+ "Kitchen": "Kuchyně"
 }

@@ -251,5 +251,6 @@
  "Builds cover patch {patch} on.": "Buildler {patch} yamasından itibaren.",
  "The rest of the page shows the live patch.": "Sayfanın geri kalanı güncel yamayı gösteriyor.",
  "Not played in these patches.": "Bu yamalarda oynanmadı.",
- "No saved builds for these patches.": "Bu yamalar için kayıtlı build yok."
+ "No saved builds for these patches.": "Bu yamalar için kayıtlı build yok.",
+ "Kitchen": "Mutfak"
 }

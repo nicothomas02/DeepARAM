@@ -251,5 +251,6 @@
  "Builds cover patch {patch} on.": "บิลด์ครอบคลุมตั้งแต่แพตช์ {patch}",
  "The rest of the page shows the live patch.": "ส่วนอื่นของหน้าแสดงแพตช์ปัจจุบัน",
  "Not played in these patches.": "ไม่ได้เล่นในแพตช์เหล่านี้",
- "No saved builds for these patches.": "ไม่มีบิลด์ที่บันทึกไว้สำหรับแพตช์เหล่านี้"
+ "No saved builds for these patches.": "ไม่มีบิลด์ที่บันทึกไว้สำหรับแพตช์เหล่านี้",
+ "Kitchen": "ครัว"
 }
