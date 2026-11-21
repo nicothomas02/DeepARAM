@@ -21,7 +21,6 @@ import {
   ranked,
   items,
   rewardItems,
-  type ItemTier,
 } from "./items";
 import { repoHas, repoPath, readRepoJson } from "./repo-data";
 import { matesOf, type Mate } from "./duos";

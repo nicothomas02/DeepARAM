@@ -206,8 +206,6 @@ const BOOTS_WHEN: Record<number, string> = {
   2: "Boots after the 2nd item",
   3: "Boots after the 3rd item",
 };
-// Build style tabs (lib/build-plan.ts buildStyle).
-const STYLE_LABEL: Record<string, string> = { ap: "AP", ad: "AD", tank: "Tank", support: "Support" };
 // Build styles from data/estimates/build_archetypes.json (the card's build tabs).
 const ARCH_LABEL: Record<string, string> = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "Fighter", tank: "Tank", enchanter: "Enchanter" };
 const BOOTS_HELP =
@@ -630,7 +628,7 @@ export default async function ChampionPage({
           {plan}
       {perBuild && (
         <p className="cp-same-note">
-          <T ns={NS}>Summoner spells and skill order are the same for every build: the stats don't split them by build.</T>
+          <T ns={NS}>{"Summoner spells and skill order are the same for every build: the stats don't split them by build."}</T>
         </p>
       )}
     </>
