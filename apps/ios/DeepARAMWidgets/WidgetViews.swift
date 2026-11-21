@@ -67,7 +67,11 @@ struct WeeklyView: View {
     @Environment(\.widgetFamily) private var family
 
     var body: some View {
-        if let s = entry.summary {
+        if let live = entry.summary?.live {
+            LiveGameCard(game: live, large: family == .systemLarge)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                .widgetURL(URL(string: "deeparam://champions/\(live.championId)"))
+        } else if let s = entry.summary {
             switch family {
             case .systemSmall: small(s)
             case .systemMedium: medium(s)
@@ -164,7 +168,17 @@ struct TipView: View {
     @Environment(\.widgetFamily) private var family
 
     var body: some View {
-        if let s = entry.summary {
+        if let live = entry.summary?.live {
+            if family == .accessoryRectangular {
+                VStack(alignment: .leading, spacing: 1) {
+                    Text("\(live.champion) · \(live.kda)").font(.headline).widgetAccentable()
+                    Text(live.headline).font(.caption).lineLimit(2)
+                }
+            } else {
+                LiveGameCard(game: live, large: false)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            }
+        } else if let s = entry.summary {
             if family == .accessoryRectangular {
                 VStack(alignment: .leading, spacing: 1) {
                     Text(s.tip.title).font(.headline).widgetAccentable()

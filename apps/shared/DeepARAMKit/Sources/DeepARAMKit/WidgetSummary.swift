@@ -49,6 +49,8 @@ public struct WidgetSummary: Codable, Equatable, Sendable {
     public let week: Week
     public let tip: Tip
     public let patch: Patch
+    /// The live game while the owner's PC app is sending one.
+    public var live: LiveGame? = nil
 
     public var updatedDate: Date { Date(timeIntervalSince1970: updated / 1000) }
 
@@ -162,6 +164,25 @@ public enum WidgetStore {
             _ = try? await URLSession.shared.data(for: req)
         }
         setToken(nil)
+    }
+
+    /// Tells the site where Apple should push the live game: kind "start" (push-to-start) or "activity" (the running
+    /// Live Activity). nil forgets it. The owner's PC app reads these back and sends the pushes.
+    public static func registerPush(kind: String, token: Data?) async {
+        guard let auth = self.token else { return }
+        var req = URLRequest(url: Site.url("/api/widget/push"))
+        req.httpMethod = "POST"
+        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        req.setValue("Bearer \(auth)", forHTTPHeaderField: "Authorization")
+        #if DEBUG
+        let sandbox = true // Xcode builds get development pushes; TestFlight and the App Store production ones
+        #else
+        let sandbox = false
+        #endif
+        var hex: Any = NSNull()
+        if let token { hex = token.map { String(format: "%02x", $0) }.joined() }
+        req.httpBody = try? JSONSerialization.data(withJSONObject: ["kind": kind, "token": hex, "sandbox": sandbox])
+        _ = try? await URLSession.shared.data(for: req)
     }
 
     /// Fetches the latest summary and caches it. Throws .notConnected without a token and .signedOut when the site refuses it.

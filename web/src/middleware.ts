@@ -22,6 +22,8 @@ function ruleFor(req: NextRequest): Rule | null {
   if (path === "/api/games") return req.method === "GET" ? null : SHARE;
   // The owner's own games go to their account 100 at a time, the same way.
   if (path === "/api/history") return req.method === "GET" ? null : SHARE;
+  // The owner's PC app sends the live game for the iPhone every few seconds during a game.
+  if (path === "/api/widget/live") return SHARE;
   if (path.startsWith("/api/account")) {
     // Sign in with Google, Apple and the rest start and finish with GETs (Apple's finish is a POST).
     if (path.startsWith("/api/account/oauth/")) return SIGNIN;

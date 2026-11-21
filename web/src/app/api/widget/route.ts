@@ -6,7 +6,8 @@ import { patchList } from "@/lib/champions";
 import { patchName } from "@/lib/patch-name";
 import { readRepoJson } from "@/lib/repo-data";
 import { historyGamesSince } from "@/lib/match-history";
-import { cleanDevice, createWidgetToken, deleteWidgetToken, widgetTokenAccount } from "@/lib/widget-tokens";
+import { bearerToken as bearer, cleanDevice, createWidgetToken, deleteWidgetToken, widgetTokenAccount } from "@/lib/widget-tokens";
+import { currentLive } from "@/lib/widget-live";
 import { widgetSummary, type ChampionTier } from "@/lib/widget-summary";
 
 // The iPhone widgets' data (apps/ios/DeepARAMWidgets, lib/widget-summary.ts). Private: the owner's own week, a tip
@@ -16,8 +17,6 @@ import { widgetSummary, type ChampionTier } from "@/lib/widget-summary";
 // DELETE with the same header: forgets the token (Disconnect in the app).
 
 const DAY = 86_400_000;
-
-const bearer = (req: NextRequest) => /^Bearer\s+(\S+)$/i.exec(req.headers.get("authorization") ?? "")?.[1] ?? null;
 
 const tiers = (patch: string | null): ChampionTier[] =>
   patch ? liveTiers(patch).map((t) => ({ id: t.id, name: t.name, tier: t.tier, deepScore: Math.round(t.deepScore) })) : [];
@@ -42,11 +41,13 @@ export async function GET(req: NextRequest) {
   const now = Date.now();
   const games = await historyGamesSince(account, now - 120 * DAY).catch(() => []);
   const patches = patchList();
-  const live = patches.at(-1) ?? null;
-  const name = live ? patchName(live) : null;
+  const current = patches.at(-1) ?? null;
+  const name = current ? patchName(current) : null;
   const notes = readRepoJson<Notes>("data/official/patch_notes.json")?.patches?.find((p) => p.patch === name)?.champions ?? [];
-  const summary = widgetSummary(games, now, name, tiers(live), tiers(patches.at(-2) ?? null), Object.fromEntries(notes.map((c) => [c.name, c.changes])));
-  return json(summary);
+  const summary = widgetSummary(games, now, name, tiers(current), tiers(patches.at(-2) ?? null), Object.fromEntries(notes.map((c) => [c.name, c.changes])));
+  // The live game, when the owner's PC app is sending one (lib/widget-live.ts).
+  const live = await currentLive(account, now).catch(() => null);
+  return json({ ...summary, live });
 }
 
 export async function DELETE(req: NextRequest) {
