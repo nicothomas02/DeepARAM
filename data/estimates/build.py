@@ -155,12 +155,27 @@ def augment_pairs(stats, builds, augs, tiers, top=12):
     return out
 
 
-def augment_stages(fitted):
+# Pick timing comes only from lobbies in the owner's games (no public source has it), so each augment's counts
+# are pulled toward its rarity's timing (as the game offers that rarity) by STAGE_PRIOR picks: an augment seen
+# 10 times keeps mostly the rarity's shape, one seen 700 times keeps its own (Nico 2026-11-20: don't draw
+# conclusions from thin data). Below STAGE_MIN picks there's no "usual" pick.
+STAGE_PRIOR = 100
+STAGE_MIN = 100
+
+
+def augment_stages(fitted, fair, tiers):
+    by_stage = fitted["stages"]["by_stage"]
     out = {}
     for a, v in fitted["augment_stages"].items():
         tot = sum(x[0] for x in v)
-        shares = [round(x[0] / tot, 3) for x in v]
-        out[a] = {"stages": shares, "usual": 1 + max(range(4), key=lambda i: shares[i])}
+        rarity = tiers.get(a) or (fair.get(a) or {}).get("tier")
+        prior = [s.get(rarity, 0.25) for s in by_stage] if rarity in cm.RARITIES else [1.0] * 4
+        psum = sum(prior) or 1.0
+        shares = [round((x[0] + STAGE_PRIOR * q / psum) / (tot + STAGE_PRIOR), 3) for x, q in zip(v, prior)]
+        row = {"stages": shares, "picks": tot}
+        if tot >= STAGE_MIN:
+            row["usual"] = 1 + max(range(4), key=lambda i: shares[i])
+        out[a] = row
     return out
 
 
@@ -282,7 +297,7 @@ def main():
         "profiles": prof,
         "augments": augs,
         "augment_pairs": augment_pairs(stats, builds, augs, tiers),
-        "augment_stages": augment_stages(fitted),
+        "augment_stages": augment_stages(fitted, fair, tiers),
         "augment_items": augment_items(stats, builds),
         "rarity_odds": rarity_odds(fair, tiers, fitted),
         "items": items(stats, builds, granted),

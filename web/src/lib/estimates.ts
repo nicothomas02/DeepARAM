@@ -11,7 +11,7 @@ type Rarity = "Silver" | "Gold" | "Prismatic";
 type Estimates = {
   patch?: string;
   items?: { id: number; win_rate: number; lift: number; build_share: number; slots: number[] | null; granted: boolean }[];
-  augment_stages?: Record<string, { stages: number[]; usual: number }>;
+  augment_stages?: Record<string, { stages: number[]; picks?: number; usual?: number }>;
   augment_items?: Record<string, { id: number; share: number }[]>;
   rarity_odds?: { overall: Record<Rarity, number>; by_stage: Record<Rarity, number>[] };
   game_length?: { minutes: { mean: number; sd: number } };
