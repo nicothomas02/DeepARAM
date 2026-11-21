@@ -1,11 +1,13 @@
-// The companion window: a normal window (put it on a second screen) that opens by itself when a Mayhem champion
-// select starts and closes after the game's review.
+// The companion window: a normal window that opens by itself when a Mayhem champion select starts. Once the game
+// is on, it goes full screen on a monitor League isn't on (Nico 2026-11-21: never over the game), and Esc or F11
+// takes it out of full screen. With one monitor it stays an ordinary window behind the game.
 //
 //   champion select   best picks for your team from your bench and your own champion (public data: each
 //                     champion's strength plus how it pairs with your allies, /data/team-fit.json). It only
 //                     suggests; it never picks, and it shows no player names.
-//   in game           everyone: the augment panel (your champion's augments in ranking order, re-ranked by synergy
-//                     with the ones you mark as taken, plus a search) and the next item for your build. Build
+//   in game           everyone: the quick build, the augment panel (your champion's augments in ranking order,
+//                     re-ranked by synergy with the ones you mark as taken, plus a search; during a pick, the
+//                     offered augments read off the screen by augscan.rs) and the next item for your build. Build
 //                     suggestions are allowed; augment win rates are not, so the panel shows a ranking only.
 //                     The site owner only: also the live chance to win and when a surrender pays off. Riot's rules
 //                     don't let apps draw conclusions for players during a game, so nobody else gets that. Owner = this Riot account is connected to the site
@@ -14,7 +16,7 @@
 //                     would have paid off (overlay.rs samples the game, review.rs works it out).
 //
 // Light on purpose: one request to the League client every POLL seconds while it's open, one to the game every
-// LIVE_EVERY seconds for the owner's live view, none while League is closed (a lockfile check every IDLE seconds).
+// LIVE_EVERY seconds, none while League is closed (a lockfile and process-list check every IDLE seconds).
 // It reads only the League client's and the game's own local APIs on 127.0.0.1; nothing is injected or read from
 // game memory. The window's web view exists only while it's open.
 use std::{
@@ -26,10 +28,12 @@ use std::{
 };
 
 use serde_json::{json, Value};
-use tauri::{webview::PageLoadEvent, AppHandle, Manager, WebviewUrl, WebviewWindowBuilder};
+use tauri::{webview::PageLoadEvent, AppHandle, Manager, PhysicalPosition, WebviewUrl, WebviewWindowBuilder};
 
 use crate::{
-    overlay::{champion_alias, local_agent, my_row, MAYHEM_MODE},
+    augscan,
+    ingame::{self, champion_alias, local_agent, my_row, MAYHEM_MODE},
+    procs,
     review::{self, Sample},
     Store, SITE,
 };
@@ -37,7 +41,7 @@ use crate::{
 const LABEL: &str = "companion";
 const POLL: Duration = Duration::from_secs(3);
 const IDLE: Duration = Duration::from_secs(15);
-const LIVE_EVERY: f64 = 5.0;
+const LIVE_EVERY: Duration = Duration::from_secs(5);
 const LIVE: &str = "https://127.0.0.1:2999/liveclientdata/allgamedata";
 #[cfg(windows)]
 const LOCKFILES: &[&str] = &[r"C:\Riot Games\League of Legends\lockfile", r"D:\Riot Games\League of Legends\lockfile"];
@@ -79,7 +83,9 @@ pub struct State {
     phase: String,
     under_since: Option<f64>,
     history: Vec<(f64, f64)>,
-    last_live: f64,
+    last_live: Option<Instant>,
+    /// Moved to the second monitor for this game.
+    placed: bool,
 }
 
 pub type Shared = Mutex<State>;
@@ -103,6 +109,10 @@ fn find_client() -> Option<(u16, String)> {
         if let Some(found) = fs::read_to_string(p).ok().as_deref().and_then(parse_lockfile) {
             return Some(found);
         }
+    }
+    // Asking PowerShell costs about a second of processor time, so only when the client is actually running.
+    if !procs::running("LeagueClientUx.exe") {
+        return None;
     }
     from_process()
 }
@@ -195,7 +205,7 @@ fn send(app: &AppHandle, script: String) {
     let loaded = app.clone();
     let built = WebviewWindowBuilder::new(app, LABEL, WebviewUrl::App("companion.html".into()))
         .title("DeepARAM")
-        .inner_size(400.0, 600.0)
+        .inner_size(420.0, 680.0)
         .min_inner_size(320.0, 420.0)
         .focused(false)
         .on_page_load(move |win, payload| {
@@ -213,6 +223,60 @@ fn send(app: &AppHandle, script: String) {
                 app.state::<Shared>().lock().unwrap().dismissed = true;
             }
         });
+    }
+}
+
+/// The augments on offer changed (read off the screen by the in-game watcher): shown right away.
+pub fn show_offer(app: &AppHandle, offer: &[i64]) {
+    if let Some(win) = app.get_webview_window(LABEL) {
+        let _ = win.eval(format!("window.showOffer && window.showOffer({})", json!(offer)));
+    }
+}
+
+/// Which monitor the window goes full screen on: one that doesn't hold the game (or, without a game window to
+/// go by, isn't the main monitor, where League runs). None with a single monitor. Monitors are (x, y, w, h).
+pub fn other_monitor(monitors: &[(i32, i32, u32, u32)], game: Option<(i32, i32)>, primary: usize) -> Option<usize> {
+    if monitors.len() < 2 {
+        return None;
+    }
+    let holds = |m: &(i32, i32, u32, u32), (x, y): (i32, i32)| {
+        x >= m.0
+            && y >= m.1
+            && i64::from(x) < i64::from(m.0) + i64::from(m.2)
+            && i64::from(y) < i64::from(m.1) + i64::from(m.3)
+    };
+    let game_at = game.and_then(|g| monitors.iter().position(|m| holds(m, g))).unwrap_or(primary);
+    (0..monitors.len()).find(|i| *i != game_at)
+}
+
+fn second_screen_on(app: &AppHandle) -> bool {
+    !app.state::<Store>().saved.lock().unwrap().second_screen_off
+}
+
+/// Once per game: full screen on a monitor League isn't on.
+fn to_second_screen(app: &AppHandle) {
+    let Some(win) = app.get_webview_window(LABEL) else { return };
+    let Ok(monitors) = win.available_monitors() else { return };
+    let rects: Vec<(i32, i32, u32, u32)> =
+        monitors.iter().map(|m| (m.position().x, m.position().y, m.size().width, m.size().height)).collect();
+    let primary = win
+        .primary_monitor()
+        .ok()
+        .flatten()
+        .and_then(|p| rects.iter().position(|r| (r.0, r.1) == (p.position().x, p.position().y)))
+        .unwrap_or(0);
+    let game = augscan::game_window().map(|(x, y, w, h)| (x + w / 2, y + h / 2));
+    let Some(i) = other_monitor(&rects, game, primary) else { return };
+    let _ = win.set_fullscreen(false);
+    let _ = win.set_position(PhysicalPosition::new(rects[i].0 + 40, rects[i].1 + 40));
+    let _ = win.set_fullscreen(true);
+}
+
+/// Esc or F11 in the window.
+#[tauri::command]
+pub fn companion_fullscreen(app: AppHandle, on: bool) {
+    if let Some(win) = app.get_webview_window(LABEL) {
+        let _ = win.set_fullscreen(on);
     }
 }
 
@@ -289,18 +353,20 @@ fn champ_select(app: &AppHandle, client: &Client) {
 /// During a game, for everyone: the player's champion, level, items and whether they're dead, plus the enemy
 /// champions and their items (all on the scoreboard), for the augment panel and the next item (build suggestions, which Riot allows). For the owner only, also the live chance to win.
 fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, owner: bool) {
+    // All of the game's data is a big answer for the game to put together, so it's asked for every LIVE_EVERY
+    // seconds only (before, it was fetched every POLL and most answers were thrown away).
+    {
+        let state = app.state::<Shared>();
+        let mut s = state.lock().unwrap();
+        if s.last_live.is_some_and(|at| at.elapsed() < LIVE_EVERY) {
+            return;
+        }
+        s.last_live = Some(Instant::now());
+    }
     let Some(data) = agent.get(LIVE).call().ok().and_then(|mut r| r.body_mut().read_json::<Value>().ok()) else {
         return;
     };
     let t = data.get("gameData").and_then(|g| g.get("gameTime")?.as_f64()).unwrap_or(0.0);
-    {
-        let state = app.state::<Shared>();
-        let mut s = state.lock().unwrap();
-        if t - s.last_live < LIVE_EVERY && t >= s.last_live {
-            return;
-        }
-        s.last_live = t;
-    }
     let me = data.get("activePlayer").and_then(|p| p.get("riotId")?.as_str().map(str::to_owned)).unwrap_or_default();
     let players = data.get("allPlayers").and_then(Value::as_array).cloned().unwrap_or_default();
     let Some(row) = my_row(&me, &players) else {
@@ -348,8 +414,8 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         "stats": stats,
         // Points in Q, W, E and R, for the skill-up note.
         "skills": skills,
-        // Clicked on the overlay during the pick, without leaving the game.
-        "taken": app.state::<crate::overlay::Shared>().lock().unwrap().taken.clone(),
+        // The augments on offer right now, read off the screen (empty when no pick is on).
+        "offer": app.state::<ingame::Shared>().lock().unwrap().offer.clone(),
         "live": null,
     });
     if owner {
@@ -377,6 +443,14 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         game["live"] = json!({ "win": p, "ffLine": line, "ffHint": hint, "history": history });
     }
     send(app, format!("window.showGame({game})"));
+    let place = {
+        let state = app.state::<Shared>();
+        let mut s = state.lock().unwrap();
+        !std::mem::replace(&mut s.placed, true)
+    };
+    if place && second_screen_on(app) {
+        to_second_screen(app);
+    }
 }
 
 fn strengths() -> HashMap<String, f64> {
@@ -440,7 +514,10 @@ pub fn watch(app: AppHandle) {
                         s.dismissed = false;
                         s.history.clear();
                         s.under_since = None;
-                        s.last_live = 0.0;
+                    }
+                    if phase == "InProgress" {
+                        s.last_live = None;
+                        s.placed = false;
                     }
                 }
             }
@@ -505,9 +582,30 @@ mod tests {
     }
 
     #[test]
+    fn full_screen_goes_to_a_monitor_without_the_game() {
+        let two = [(0, 0, 1920, 1080), (1920, 0, 2560, 1440)];
+        assert_eq!(other_monitor(&two, Some((960, 540)), 0), Some(1));
+        // The game on the second monitor: the window takes the main one.
+        assert_eq!(other_monitor(&two, Some((3000, 700)), 0), Some(0));
+        // No game window found yet: League runs on the main monitor.
+        assert_eq!(other_monitor(&two, None, 1), Some(0));
+        // One monitor: no full screen over the game.
+        assert_eq!(other_monitor(&two[..1], Some((960, 540)), 0), None);
+        // A monitor to the left (negative coordinates).
+        assert_eq!(other_monitor(&[(-1920, 0, 1920, 1080), (0, 0, 1920, 1080)], Some((960, 540)), 1), Some(0));
+    }
+
+    #[test]
     fn companion_page_has_the_entry_points() {
         let page = include_str!("../../ui/companion.html");
-        for f in ["window.showPick", "window.showGame", "window.showOver", "window.showReview", "Predicted"] {
+        for f in [
+            "window.showPick",
+            "window.showGame",
+            "window.showOffer",
+            "window.showOver",
+            "window.showReview",
+            "Predicted",
+        ] {
             assert!(page.contains(f), "{f}");
         }
     }

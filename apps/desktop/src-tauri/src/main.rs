@@ -1,8 +1,10 @@
 // DeepARAM for desktop: the live site in a native window, with a tray menu and patch notifications.
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+mod augscan;
 mod companion;
-mod overlay;
+mod ingame;
+mod procs;
 mod review;
 mod sharing;
 
@@ -108,15 +110,13 @@ struct Saved {
     last_path: Option<String>,
     tray_hint_shown: bool,
     notifications_off: bool,
-    /// The in-game overlay is off (it's on unless the player turns it off in the tray).
-    overlay_off: bool,
-    /// The overlay sits on the right edge of the screen instead of the left.
-    overlay_right: bool,
-    /// The overlay shows all game instead of only when useful (game start, while dead, augment picks).
-    overlay_all_game: bool,
-    overlay_hint_shown: bool,
-    /// The companion window (champion select picks, the game's review) doesn't open by itself.
+    /// The companion window (champion select picks, the game, the game's review) doesn't open by itself.
     companion_off: bool,
+    /// Augment offers aren't read off the screen.
+    scan_off: bool,
+    /// The companion window doesn't go full screen on a second monitor during games.
+    second_screen_off: bool,
+    scan_hint_shown: bool,
 }
 
 #[derive(Deserialize)]
@@ -307,35 +307,35 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let auto = CheckMenuItem::with_id(app, "auto", AUTOSTART_LABEL, true, autostart_on, None::<&str>)?;
     let quit = MenuItem::with_id(app, "quit", "Quit DeepARAM", true, None::<&str>)?;
     let sep = || PredefinedMenuItem::separator(app);
-    let overlay_right = app.state::<Store>().saved.lock().unwrap().overlay_right;
-    let ov_on =
-        CheckMenuItem::with_id(app, "ov_on", "Show during Mayhem games", true, overlay::enabled(app), None::<&str>)?;
-    let all_game = app.state::<Store>().saved.lock().unwrap().overlay_all_game;
-    let ov_smart = CheckMenuItem::with_id(
-        app,
-        "ov_smart",
-        "Only at game start, while dead and at augment picks",
-        true,
-        !all_game,
-        None::<&str>,
-    )?;
-    let ov_left = CheckMenuItem::with_id(app, "ov_left", "Left side", true, !overlay_right, None::<&str>)?;
-    let ov_right = CheckMenuItem::with_id(app, "ov_right", "Right side", true, overlay_right, None::<&str>)?;
-    let overlay_menu =
-        Submenu::with_items(app, "In-game overlay", true, &[&ov_on, &ov_smart, &sep()?, &ov_left, &ov_right])?;
-    let companion_on = !app.state::<Store>().saved.lock().unwrap().companion_off;
+    // Everything for a Mayhem game shows in the companion window, never over the game.
+    let (companion_on, scan_on, second_on) = {
+        let store = app.state::<Store>();
+        let saved = store.saved.lock().unwrap();
+        (!saved.companion_off, !saved.scan_off, !saved.second_screen_off)
+    };
     let comp = CheckMenuItem::with_id(
         app,
         "companion",
-        "Companion window in champ select and after games",
+        "Open by itself (champ select, game, review)",
         true,
         companion_on,
         None::<&str>,
     )?;
+    let scan = CheckMenuItem::with_id(
+        app,
+        "scan",
+        "Read augment offers off the screen",
+        augscan::AVAILABLE,
+        scan_on && augscan::AVAILABLE,
+        None::<&str>,
+    )?;
+    let second =
+        CheckMenuItem::with_id(app, "second", "Full screen on a second monitor", true, second_on, None::<&str>)?;
+    let companion_menu = Submenu::with_items(app, "Mayhem companion", true, &[&comp, &scan, &second])?;
     let share = sharing::menu_item(app)?;
     let menu = Menu::with_items(
         app,
-        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &overlay_menu, &comp, &share, &sep()?, &check, &notes],
+        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &companion_menu, &share, &sep()?, &check, &notes],
     )?;
     if autostart_available() {
         menu.append(&auto)?;
@@ -344,12 +344,6 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
 
     let notes_item = notes.clone();
     let auto_item = auto.clone();
-    let side = move |app: &AppHandle, right: bool| {
-        app.state::<Store>().update(|s| s.overlay_right = right);
-        let _ = ov_left.set_checked(!right);
-        let _ = ov_right.set_checked(right);
-        overlay::place(app);
-    };
     TrayIconBuilder::with_id("tray")
         .icon(app.default_window_icon().cloned().expect("app icon"))
         .tooltip("DeepARAM")
@@ -365,27 +359,23 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
                 let app = app.clone();
                 thread::spawn(move || check_patch(&app, true));
             }
-            "ov_on" => {
-                let on = ov_on.is_checked().unwrap_or(true);
-                app.state::<Store>().update(|s| s.overlay_off = !on);
-                if !on {
-                    overlay::stop(app);
-                }
+            "scan" => {
+                let on = scan.is_checked().unwrap_or(true);
+                app.state::<Store>().update(|s| s.scan_off = !on);
             }
-            "ov_smart" => {
-                let on = ov_smart.is_checked().unwrap_or(true);
-                app.state::<Store>().update(|s| s.overlay_all_game = !on);
+            "second" => {
+                let on = second.is_checked().unwrap_or(true);
+                app.state::<Store>().update(|s| s.second_screen_off = !on);
             }
             "share" => sharing::on_menu(app),
             "companion" => {
                 let on = comp.is_checked().unwrap_or(true);
                 app.state::<Store>().update(|s| s.companion_off = !on);
                 if !on {
+                    ingame::stop(app);
                     companion::close(app);
                 }
             }
-            "ov_left" => side(app, false),
-            "ov_right" => side(app, true),
             "notes" => {
                 let on = notes_item.is_checked().unwrap_or(true);
                 app.state::<Store>().update(|s| s.notifications_off = !on);
@@ -409,7 +399,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![overlay::take_augment, sharing::share_choice])
+        .invoke_handler(tauri::generate_handler![companion::companion_fullscreen, sharing::share_choice])
         // Must come first: a second launch focuses the running app instead of opening another.
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| show(app)))
         .plugin(
@@ -420,21 +410,16 @@ fn main() {
         .plugin(tauri_plugin_notification::init())
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_autostart::init(MacosLauncher::LaunchAgent, Some(vec![HIDDEN_ARG])))
-        .plugin(
-            tauri_plugin_global_shortcut::Builder::new()
-                .with_handler(|app, _shortcut, event| overlay::on_shortcut(app, event.state()))
-                .build(),
-        )
         .setup(|app| {
             let handle = app.handle().clone();
             app.manage(Store::load(&handle));
-            app.manage(overlay::Shared::default());
+            app.manage(ingame::Shared::default());
             app.manage(companion::Shared::default());
             app.manage(sharing::Sharing::load(&handle));
             let hidden = std::env::args().any(|a| a == HIDDEN_ARG);
             build_window(&handle, hidden)?;
             build_tray(&handle)?;
-            overlay::watch(handle.clone());
+            ingame::watch(handle.clone());
             companion::watch(handle.clone());
             sharing::watch(handle.clone());
             if !hidden {
