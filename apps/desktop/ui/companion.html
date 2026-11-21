@@ -65,9 +65,8 @@
   @media (min-width: 1000px) {
     body { font-size: 16px; padding: 28px 36px; }
     main { max-width: 1500px; margin: 0 auto; }
-    .cols { display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: 32px; align-items: start; }
+    .cols { display: grid; grid-template-columns: 1fr 1.4fr; gap: 32px; align-items: start; }
     .cols > section > h2:first-child { margin-top: 0; }
-    .cols:has(#live:empty) { grid-template-columns: 1fr 1.4fr; }
     .aug img, .row img { width: 40px; height: 40px; }
     .row { grid-template-columns: 40px 1fr auto; }
     .why, .num, .note { font-size: 14px; }
@@ -102,8 +101,9 @@
 <main id="view"><div class="brand"><img src="icon.png" alt=""><b>DeepARAM</b></div><p class="note">Opens by itself in Mayhem champion select, follows the game on your second monitor, and shows a review after it.</p></main>
 <script>
   // The app calls showPick({allies, mine, bench}) in champion select (champion ids), showGame({t, champ, level, dead,
-  // items, enemies, offer, live}) during a game (live: the site owner only; offer: the augments on offer, read off the
-  // screen), showOffer(ids) the moment the offer changes, and showReview({points, turns, ffFrom, result}) after it.
+  // items, enemies, offer}) during a game (offer: the augments on offer, read off the screen), showOffer(ids) the
+  // moment the offer changes, and showReview({points, turns, ffFrom, result}) after it. In game the screen holds only
+  // the build (Nico 2026-11-21); the chance to win, the surrender call and the enemy damage split wait for the review.
   const SITE = "https://deeparam.com";
   const view = document.getElementById("view");
   const pct = (p) => `${Math.round(p * 100)}%`;
@@ -118,6 +118,8 @@
   const hero = (alias, title, sub, subId = "") => `<div class="hero">${alias ? `<img class="bg" src="${splash(alias)}" alt="" onerror="this.remove()">` : ""}
       ${alias ? icon(alias) : `<img src="icon.png" alt="">`}<div><div class="title">${title}</div><div class="sub"${subId ? ` id="${subId}"` : ""}>${sub}</div></div></div>`;
   let lastChamp = null;
+  // The game's last update, kept for the review's recap (your augments, your items, the enemy damage).
+  let lastGame = null;
   const setView = (html) => { document.body.classList.remove("idle"); view.innerHTML = html; };
 
   // Same scoring as the site's Best pick (web/src/lib/team-fit-score.ts): ranked on strength; fit is context only.
@@ -147,6 +149,7 @@
 
 
   window.showPick = async ({ allies, mine, bench }) => {
+    lastGame = null;
     const d = await loadFit();
     if (!d) { setView(`${hero(null, "Champion select", "Couldn't load the picks")}<p class="note">Check your connection.</p>`); return; }
     const byId = Object.fromEntries(Object.entries(d.ids ?? {}).map(([a, id]) => [id, a]));
@@ -320,9 +323,10 @@
   }
   function damageLine(k, g) {
     const magic = enemyMagic(k, g.enemies ?? []);
-    if (magic === null || (magic > 0.35 && magic < 0.65)) return "";
+    if (magic === null) return "";
+    if (magic > 0.35 && magic < 0.65) return `The enemy team's damage was mixed: about ${pct(magic)} magic.`;
     const kind = magic >= 0.65 ? "magic" : "physical";
-    return `<div class="why tip">Enemy damage is mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.</div>`;
+    return `The enemy team's damage was mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.`;
   }
 
   const STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
@@ -444,8 +448,6 @@
       if (sell && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
         add(3, `Full build: sell <b>${esc(k.recipes[sell][0])}</b> for <b>${esc(next[0].name)}</b>.`);
     }
-    const dmg = k ? damageLine(k, game) : "";
-    if (dmg) add(6, dmg.replace(/^<div class="why tip">|<\/div>$/g, ""));
     const lines = tips.sort((x, y) => x[0] - y[0]).slice(0, 2).map((x) => x[1]);
     const tip = lines.map((l) => `<div class="why tip">${l}</div>`).join("");
     if (!next.length) { box.innerHTML = (build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`) + tip; return; }
@@ -455,23 +457,10 @@
       ${tip}</div>`;
   }
 
-  function liveBlock(l) {
-    if (!l) return "";
-    let ff = `<div class="box">Too early to call a surrender (from minute 8).</div>`;
-    if (l.ffLine != null)
-      ff = l.ffHint
-        ? `<div class="box yes">Surrender: yes. Under ${pct(l.ffLine)} for a full minute, so a new game is worth more.</div>`
-        : `<div class="box">Surrender: no. The line at this minute is ${pct(l.ffLine)}.</div>`;
-    return `<h2>Chance to win</h2>
-      <div class="big" style="color:${color(l.win)}">${pct(l.win)}</div>
-      <div class="bar"><span style="width:${pct(l.win)};background:${color(l.win)}"></span></div>
-      ${ff}${chart(l.history, null)}
-      <p class="note">Predicted from kills, towers, levels and team strength.</p>`;
-  }
-
   window.showGame = (g) => {
     const prev = game;
     game = g;
+    lastGame = { ...g, taken: getTaken(g) };
     lastChamp = g.champ;
     if (!document.getElementById("augs") || prev?.champ !== g.champ) {
       setView(`
@@ -483,7 +472,6 @@
         <div class="filters">${["", "prismatic", "gold", "silver"].map((r) => `<button class="chip f${r === rarity ? " on" : ""}" data-r="${r}">${r ? r[0].toUpperCase() + r.slice(1) : "All"}</button>`).join("")}</div>
         <input id="search" type="search" placeholder="Type your augment, then Enter" autocomplete="off">
         <div id="augs"></div></section>
-        <section id="live"></section>
         </div>`);
       renderQuick();
       document.getElementById("search").addEventListener("input", (e) => { query = e.target.value; renderAugments(); });
@@ -511,7 +499,6 @@
     const head = document.getElementById("augHead");
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
-    document.getElementById("live").innerHTML = liveBlock(g.live);
     const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.t >= 600, x.enemies, x.skills, x.level, x.stats?.map((v) => Math.round(v * 10)), x.dead && Math.round((x.gold ?? 0) / 100)]);
     if (setOffer(g.offer)) renderAugments();
     if (!prev || key(prev) !== key(g)) renderItems();
@@ -561,6 +548,7 @@
   };
 
   window.showReview = ({ points, turns, ffFrom, result }) => {
+    game = null;
     const verdict = result === "Win" ? "Victory" : result === "Lose" ? "Defeat" : "Game over";
     const turnRows = turns.map((t) => `
       <div class="box">${clock(t.from)}–${clock(t.to)}: ${pct(t.before)} → <b style="color:${color(t.after)}">${pct(t.after)}</b>
@@ -574,8 +562,34 @@
       ${chart(points, ffFrom)}
       ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
       <h2>Surrender</h2>${ff}
-      <p class="note">Predicted, not measured: an estimate from kills, towers, levels and team strength.</p>`);
+      <p class="note">Predicted, not measured: an estimate from kills, towers, levels and team strength.</p>
+      <div id="recap"></div>`);
+    renderRecap();
   };
+
+  // What you built and took this game, and what the enemy hit you with: kept off the in-game screen, shown here.
+  async function renderRecap() {
+    const box = document.getElementById("recap");
+    const g = lastGame;
+    if (!box || !g) return;
+    const [d, k, p] = await Promise.all([loadBuilds(), loadKinds(), loadPicks()]);
+    const champ = d?.champions?.find((c) => c.id.toLowerCase() === g.champ.toLowerCase());
+    const prefix = (champ?.items?.[0]?.icon ?? "").replace(/\d+\.png$/, "");
+    const src = (u) => (u.startsWith("http") ? u : SITE + u);
+    const items = g.items.filter((i) => (k?.recipes[i % 10000]?.[1] ?? 0) >= 1000);
+    const itemRow = prefix && items.length
+      ? `<div class="items">${items.map((i) => `<div class="item"><img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" alt="" onerror="this.remove()"><div><div class="name">${esc(k?.recipes[i % 10000]?.[0] ?? `#${i}`)}</div></div></div>`).join("")}</div>`
+      : "";
+    const augs = g.taken.length
+      ? `<div class="items">${g.taken.map((id) => `<div class="item">${augIcon(id)}<div><div class="name">${esc(p?.augments?.[id]?.[0] ?? `#${id}`)}</div></div></div>`).join("")}</div>`
+      : "";
+    const dmg = k ? damageLine(k, g) : "";
+    if (!itemRow && !augs && !dmg) return;
+    box.innerHTML = `<h2>Your build</h2>
+      ${augs ? `<div class="box"><div class="why">Augments you took</div>${augs}</div>` : ""}
+      ${itemRow ? `<div class="box"><div class="why">Items at the end</div>${itemRow}</div>` : ""}
+      ${dmg ? `<div class="box">${dmg}</div>` : ""}`;
+  }
 </script>
 </body>
 </html>
