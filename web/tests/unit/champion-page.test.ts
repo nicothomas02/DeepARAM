@@ -87,9 +87,9 @@ describe("DeepScore ranking of build lists", () => {
     expect(starts.filter((x, i) => i > 0 && x > starts[i - 1]).length).toBeLessThanOrEqual(2);
   });
 
-  it("opens Yasuo's core with the item his common start builds into (Cloak + Tome: Rite of Ruin)", () => {
+  it("orders Yasuo's core the way players buy it (Yun Tal, Rite of Ruin, Death's Dance), with a start that builds into it", () => {
     const p = championPage("Yasuo")!;
-    expect(p.core[0].items[0] % 10000).toBe(3430);
+    expect(p.core[0].items.map((i) => i % 10000)).toEqual([3032, 3430, 6333]);
     expect(p.cardStart?.items).toEqual(expect.arrayContaining([1018]));
   });
 
@@ -97,6 +97,13 @@ describe("DeepScore ranking of build lists", () => {
     const p = championPage("Kassadin")!;
     expect(p.coreFromEarlier).toBe(true);
     expect(p.core[0].items.map((i) => i % 10000)).toEqual(expect.arrayContaining([3003]));
-    expect(championPage("Annie")!.coreFromEarlier).toBe(false);
+    // Annie's earlier cores are still backed by today's six-item builds, so they stay too (see the Yunara case).
+    expect(championPage("Annie")!.coreFromEarlier).toBe(true);
+  });
+
+  it("keeps the item bought first that six-item builds rank low (Yunara: Yun Tal first, Nico 2026-11-21)", () => {
+    const p = championPage("Yunara")!;
+    expect(p.coreFromEarlier).toBe(true);
+    expect(p.core[0].items[0] % 10000).toBe(3032);
   });
 });

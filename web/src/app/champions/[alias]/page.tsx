@@ -367,7 +367,7 @@ export default async function ChampionPage({
           {p.coreFromEarlier && (
             <>
               {" "}
-              <small className="cp-stale-tag" title="From earlier games: these builds turn into items the newest numbers don't list.">
+              <small className="cp-stale-tag" title="From earlier games, in the order players bought them: the newest numbers only list finished builds. Shown while today's builds still use these items.">
                 <T ns={NS}>From earlier games</T>
               </small>
             </>
