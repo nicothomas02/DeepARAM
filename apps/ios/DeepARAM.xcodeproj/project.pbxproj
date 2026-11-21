@@ -11,6 +11,8 @@
 		D1A000000000000000000011 /* DeepARAMPad in Frameworks */ = {isa = PBXBuildFile; productRef = D1A000000000000000000033 /* DeepARAMPad */; };
 		D1C000000000000000000010 /* DeepARAMWatchKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1C000000000000000000031 /* DeepARAMWatchKit */; };
 		D1C000000000000000000011 /* DeepARAMWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D1C000000000000000000020 /* DeepARAMWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D1E000000000000000000010 /* DeepARAMKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1E000000000000000000031 /* DeepARAMKit */; };
+		D1E000000000000000000011 /* DeepARAMWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D1E000000000000000000020 /* DeepARAMWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,6 +22,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = D1C000000000000000000070;
 			remoteInfo = DeepARAMWatch;
+		};
+		D1E000000000000000000060 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D1A000000000000000000080 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D1E000000000000000000070;
+			remoteInfo = DeepARAMWidgets;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -35,17 +44,33 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1E000000000000000000053 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D1E000000000000000000011 /* DeepARAMWidgets.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D1A000000000000000000020 /* DeepARAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepARAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C000000000000000000020 /* DeepARAMWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeepARAMWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1E000000000000000000020 /* DeepARAMWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DeepARAMWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1E000000000000000000021 /* Widgets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Widgets-Info.plist"; sourceTree = "<group>"; };
+		D1E000000000000000000022 /* DeepARAM.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeepARAM.entitlements; sourceTree = "<group>"; };
+		D1E000000000000000000023 /* DeepARAMWidgets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeepARAMWidgets.entitlements; sourceTree = "<group>"; };
 		D1A000000000000000000021 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D1A000000000000000000040 /* DeepARAM */ = {isa = PBXFileSystemSynchronizedRootGroup; path = DeepARAM; sourceTree = "<group>"; };
 		D1C000000000000000000040 /* DeepARAMWatch */ = {isa = PBXFileSystemSynchronizedRootGroup; name = DeepARAMWatch; path = ../watchos/DeepARAMWatch; sourceTree = "<group>"; };
+		D1E000000000000000000040 /* DeepARAMWidgets */ = {isa = PBXFileSystemSynchronizedRootGroup; path = DeepARAMWidgets; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +91,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D1E000000000000000000050 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1E000000000000000000010 /* DeepARAMKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -74,6 +107,7 @@
 			children = (
 				D1A000000000000000000040 /* DeepARAM */,
 				D1C000000000000000000040 /* DeepARAMWatch */,
+				D1E000000000000000000040 /* DeepARAMWidgets */,
 				D1A000000000000000000062 /* Config */,
 				D1A000000000000000000061 /* Products */,
 			);
@@ -84,6 +118,7 @@
 			children = (
 				D1A000000000000000000020 /* DeepARAM.app */,
 				D1C000000000000000000020 /* DeepARAMWatch.app */,
+				D1E000000000000000000020 /* DeepARAMWidgets.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,6 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				D1A000000000000000000021 /* Info.plist */,
+				D1E000000000000000000021 /* Widgets-Info.plist */,
+				D1E000000000000000000022 /* DeepARAM.entitlements */,
+				D1E000000000000000000023 /* DeepARAMWidgets.entitlements */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -107,11 +145,13 @@
 				D1A000000000000000000050 /* Frameworks */,
 				D1A000000000000000000052 /* Resources */,
 				D1C000000000000000000053 /* Embed Watch Content */,
+				D1E000000000000000000053 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				D1C000000000000000000061 /* PBXTargetDependency */,
+				D1E000000000000000000061 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				D1A000000000000000000040 /* DeepARAM */,
@@ -148,6 +188,29 @@
 			productReference = D1C000000000000000000020 /* DeepARAMWatch.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D1E000000000000000000070 /* DeepARAMWidgets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1E000000000000000000092 /* Build configuration list for PBXNativeTarget "DeepARAMWidgets" */;
+			buildPhases = (
+				D1E000000000000000000051 /* Sources */,
+				D1E000000000000000000050 /* Frameworks */,
+				D1E000000000000000000052 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D1E000000000000000000040 /* DeepARAMWidgets */,
+			);
+			name = DeepARAMWidgets;
+			packageProductDependencies = (
+				D1E000000000000000000031 /* DeepARAMKit */,
+			);
+			productName = DeepARAMWidgets;
+			productReference = D1E000000000000000000020 /* DeepARAMWidgets.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -162,6 +225,9 @@
 						CreatedOnToolsVersion = 16.0;
 					};
 					D1C000000000000000000070 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					D1E000000000000000000070 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -187,11 +253,19 @@
 			targets = (
 				D1A000000000000000000070 /* DeepARAM */,
 				D1C000000000000000000070 /* DeepARAMWatch */,
+				D1E000000000000000000070 /* DeepARAMWidgets */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D1E000000000000000000052 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D1A000000000000000000052 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,6 +283,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D1E000000000000000000051 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D1A000000000000000000051 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,6 +307,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D1E000000000000000000061 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D1E000000000000000000070 /* DeepARAMWidgets */;
+			targetProxy = D1E000000000000000000060 /* PBXContainerItemProxy */;
+		};
 		D1C000000000000000000061 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D1C000000000000000000070 /* DeepARAMWatch */;
@@ -234,6 +320,64 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		D1E0000000000000000000B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/DeepARAMWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Widgets-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = DeepARAM;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deeparam.app.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D1E0000000000000000000B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/DeepARAMWidgets.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Widgets-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = DeepARAM;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.deeparam.app.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		D1A0000000000000000000A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -286,6 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/DeepARAM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -320,6 +465,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Config/DeepARAM.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -412,6 +558,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D1E000000000000000000092 /* Build configuration list for PBXNativeTarget "DeepARAMWidgets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1E0000000000000000000B1 /* Debug */,
+				D1E0000000000000000000B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D1A000000000000000000091 /* Build configuration list for PBXProject "DeepARAM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -457,6 +612,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D1E000000000000000000031 /* DeepARAMKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DeepARAMKit;
+		};
 		D1A000000000000000000031 /* DeepARAMKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DeepARAMKit;

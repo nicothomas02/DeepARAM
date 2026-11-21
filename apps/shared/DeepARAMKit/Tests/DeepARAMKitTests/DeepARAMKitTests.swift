@@ -83,3 +83,31 @@ final class DeepARAMKitTests: XCTestCase {
         }
     }
 }
+
+final class WidgetSummaryTests: XCTestCase {
+    /// The shape /api/widget sends (web/src/lib/widget-summary.ts).
+    func testDecodesTheSiteSummary() throws {
+        let json = """
+        {"updated":1763726400000,
+         "week":{"from":1763121600000,"games":3,"wins":2,"losses":1,"indicators":[
+           {"key":"deaths","label":"Deaths per 10 min","unit":"","week":4,"usual":2,"better":false},
+           {"key":"kp","label":"Kill share","unit":"%","week":60,"usual":null,"better":null}]},
+         "tip":{"title":"Stay alive longer","body":"4 deaths per 10 min lately, 2 usual.","key":"deaths"},
+         "patch":{"live":"26.23","champions":[{"id":"MonkeyKing","name":"Wukong","tier":"S","deepScore":74,"games":3,"change":null,"tierBefore":null,"notes":["Q damage: 20 ⇒ 30"]}]}}
+        """
+        let s = try WidgetSummary.decode(Data(json.utf8))
+        XCTAssertEqual(s.week.wins, 2)
+        XCTAssertEqual(s.week.indicators[0].better, false)
+        XCTAssertNil(s.week.indicators[1].usual)
+        XCTAssertEqual(s.tip.key, "deaths")
+        XCTAssertEqual(s.patch.champions.first?.name, "Wukong")
+        XCTAssertNil(s.patch.champions.first?.change)
+    }
+
+    func testNoTipKeyDecodes() throws {
+        let json = #"{"updated":0,"week":{"from":0,"games":0,"wins":0,"losses":0,"indicators":[]},"tip":{"title":"Play a few games","body":"x","key":null},"patch":{"live":null,"champions":[]}}"#
+        let s = try WidgetSummary.decode(Data(json.utf8))
+        XCTAssertNil(s.tip.key)
+        XCTAssertNil(s.patch.live)
+    }
+}

@@ -48,6 +48,7 @@ struct MoreView: View {
                 } footer: {
                     Text(alertsDenied ? "Notifications are off for DeepARAM. Turn them on in Settings to get patch alerts." : "Get a notification when a new live patch or PBE update is on DeepARAM.")
                 }
+                WidgetsSection()
                 Section {
                     ForEach(SiteTab.legal) { tab in
                         NavigationLink(value: tab) { Label(tab.title, systemImage: tab.symbol) }

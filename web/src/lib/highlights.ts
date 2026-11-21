@@ -130,9 +130,8 @@ export function searchItems(): SearchItem[] {
 /** next: expected win rate next patch (fitted DeepScore settings), else the live win rate. */
 export type HomeChamp = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number; next: number };
 
-/** Live-patch tiers for every champion (same DeepScore tiers as the Tier List's default view). */
-export function liveTiers(): HomeChamp[] {
-  const patch = livePatch();
+/** Live-patch tiers for every champion (same DeepScore tiers as the Tier List's default view); pass a patch for an earlier one. */
+export function liveTiers(patch: string | null = livePatch()): HomeChamp[] {
   const num = (v?: string) => (v === undefined || v === "" ? null : Number(v));
   const rows: PatchRow[] = (readRepoCsv("data/cn/history/by_patch.csv") ?? [])
     .filter((r) => r.patch === patch)
