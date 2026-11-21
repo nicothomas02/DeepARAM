@@ -351,6 +351,14 @@ export default async function ChampionPage({
       <div className="cp-best cp-best-wide">
         <h4>
           <T ns={NS}>Best core build</T>
+          {p.coreFromEarlier && (
+            <>
+              {" "}
+              <small className="cp-stale-tag" title="From earlier games: these builds turn into items the newest numbers don't list.">
+                <T ns={NS}>From earlier games</T>
+              </small>
+            </>
+          )}
         </h4>
         <ol className="cp-icons cp-buy-order">
           {buildOrder(core).map((id) => (
