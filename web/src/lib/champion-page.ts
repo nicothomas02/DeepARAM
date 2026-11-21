@@ -347,12 +347,16 @@ export function championPage(alias: string): ChampionPage | null {
   const affordable = startRows.filter((r) => !r.items.some((i) => itemTier(i) === "legendary"));
   // A starter needs a real following to lead (same 1/4 rule as builds, Nico 2026-11-21) or enough games of its own
   // (START_MIN_GAMES), so a start bought in a handful of games can't lead on luck.
-  const scoredStart = followed(affordable.length ? affordable : startRows);
-  const startTop = Math.max(0, ...scoredStart.map((r) => r.pickRate));
+  const startPool = affordable.length ? affordable : startRows;
+  const startTop = Math.max(0, ...startPool.map((r) => r.pickRate));
   const startFollowed = (r: ItemRow) => r.pickRate >= MIN_FOLLOWING * startTop || (r.games ?? 0) >= START_MIN_GAMES;
+  const scoredStart = [...startPool.filter(startFollowed), ...startPool.filter((r) => !startFollowed(r))];
   const standalone = (i: number) => ["starter", "consumable"].includes(itemTier(i));
   const withBootsOf = (c: ItemRow, its: number[]) => [...its, ...(c.boots !== undefined ? [c.boots] : [])];
-  const fits = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items), itemParts, standalone);
+  // A start fits when its parts go into the core, its boots or the rest of the usual build (Long Sword + Guardian's
+  // Blade on Zeri: the Long Sword goes into Lord Dominik's after the core).
+  const fits = (c: ItemRow) => (r: ItemRow) =>
+    starterFits(r.items, withBootsOf(c, [...c.items, ...(c.rest ?? restOfBuild(c.items, c.boots, full, isBoots))]), itemParts, standalone);
   const fitsFirst = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items.slice(0, 1)), itemParts, standalone);
   const isBoots = (i: number) => itemTier(i) === "boots";
   const core = withBootsCore.map((c) => {

@@ -81,10 +81,10 @@ describe("DeepScore ranking of build lists", () => {
     expect(p.core.slice(0, followedCores.length)).toEqual(followedCores);
     const scores = followedCores.map((r) => r.deepScore!);
     expect(scores).toEqual([...scores].sort((a, b) => b - a));
-    // Starting items come in up to three groups (build into the first core item, into the core, the rest), each
-    // best DeepScore first.
+    // Starting items come in up to six groups (with a real following or not; each split into build into the first
+    // core item, into the build, the rest), each best DeepScore first.
     const starts = p.starting.map((r) => r.deepScore!);
-    expect(starts.filter((x, i) => i > 0 && x > starts[i - 1]).length).toBeLessThanOrEqual(2);
+    expect(starts.filter((x, i) => i > 0 && x > starts[i - 1]).length).toBeLessThanOrEqual(5);
   });
 
   it("orders Yasuo's core the way players buy it (Yun Tal, Rite of Ruin, Death's Dance), with a start that builds into it", () => {
@@ -150,6 +150,8 @@ describe("card boots", () => {
     const p = championPage("Zeri")!;
     const name = (i: number | undefined) => (i === undefined ? undefined : p.itemInfo[i]?.name);
     expect(name(p.core[0].boots)).toBe("Gluttonous Greaves");
+    // Nico 2026-11-21: an overlooked starter with enough games can lead (Long Sword + Guardian's Blade on Zeri).
+    expect(p.cardStart?.items.map(name)).toContain("Guardian's Blade");
     for (const alias of ["Ashe", "Yunara", "Alistar"]) {
       const c = championPage(alias)!;
       if (!c.boots.length || c.core[0]?.boots === undefined) continue;
