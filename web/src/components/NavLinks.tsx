@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import RowLink from "./RowLink";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { NavItem } from "@/lib/tabs";
@@ -19,9 +19,11 @@ export default function NavLinks({ items }: { items: NavItem[] }) {
         it.children ? (
           <NavMenu key={it.href} item={it} current={it.children.some((c) => active(c.href))} pathname={pathname} />
         ) : (
-          <Link key={it.href} href={it.href} data-accent={ACCENT[it.href]} aria-current={active(it.href) ? "page" : undefined}>
+          // Not a plain <Link>: that loads every tab's page as soon as the header renders (about 100 kB on each page view
+          // on a phone). RowLink gets the tab ready when it is pointed at, touched or focused, still before the click.
+          <RowLink key={it.href} href={it.href} data-accent={ACCENT[it.href]} aria-current={active(it.href) ? "page" : undefined}>
             {t(it.label)}
-          </Link>
+          </RowLink>
         ),
       )}
     </nav>
@@ -82,10 +84,10 @@ function NavMenu({ item, current, pathname }: { item: NavItem; current: boolean;
       {at && (
         <div ref={menu} className="nav-menu" style={at}>
           {item.children!.map((c) => (
-            <Link key={c.href} href={c.href} data-accent={ACCENT[c.href]} aria-current={pathname === c.href ? "page" : undefined}>
+            <RowLink key={c.href} href={c.href} data-accent={ACCENT[c.href]} aria-current={pathname === c.href ? "page" : undefined}>
               <b>{t(c.label)}</b>
               {c.body && <span>{t(c.body)}</span>}
-            </Link>
+            </RowLink>
           ))}
         </div>
       )}
