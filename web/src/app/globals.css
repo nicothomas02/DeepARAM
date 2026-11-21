@@ -1711,6 +1711,25 @@ html[data-device="mobile"] .tabbar button {
     transform 0.15s;
 }
 
+/* One line per label: on a 375px screen (iPhone Duo folded) a two-line label ran off the bottom of the bar. */
+html[data-device="mobile"] .tabbar span {
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+  html[data-device="mobile"] .tabbar {
+    gap: 0;
+  }
+
+  html[data-device="mobile"] .tabbar a,
+  html[data-device="mobile"] .tabbar button {
+    letter-spacing: 0;
+  }
+}
+
 html[data-device="mobile"] .tabbar a:active,
 html[data-device="mobile"] .tabbar button:active {
   transform: scale(0.92);
@@ -5959,6 +5978,12 @@ html[data-view="simple"] [data-detailed] {
 @media (max-width: 640px) {
   .stat-range .seg {
     width: 100%;
+  }
+
+  /* Four choices in a 293px card (iPhone Duo folded): tighter buttons so "All time" isn't cut off. */
+  .stat-range .seg button {
+    min-width: 0;
+    padding: 0 0.4rem;
   }
 }
 

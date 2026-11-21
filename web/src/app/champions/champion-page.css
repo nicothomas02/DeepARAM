@@ -1732,8 +1732,13 @@ html:not([data-raw]) .cp-row.aug-item {
 .cp-game .cp-best .cp-mini .cp-cell b {
   font-size: 1rem;
 }
+.cp-game .cp-best .cp-mini .cp-cell {
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+/* Narrow tiles (iPhone Duo folded): a long label ("Win rate boost") wraps inside the tile instead of running out. */
 .cp-game .cp-best .cp-mini .cp-cell small {
-  white-space: nowrap;
+  white-space: normal;
 }
 .cp-game .cp-best {
   padding: 0.75rem 0.9rem;
