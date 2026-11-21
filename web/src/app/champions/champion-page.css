@@ -1862,28 +1862,34 @@ html:not([data-raw]) .cp-row.aug-item {
   color: var(--muted);
   font-size: 18px;
 }
-.cp-rush {
+.cp-rush,
+.cp-rest {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem;
   margin: 0.4rem 0 0;
   font-size: 14px;
 }
-.cp-rush small {
+.cp-rush small,
+.cp-rest small {
   color: var(--muted);
   font-size: 14px;
 }
-.cp-rush .cp-icon {
+.cp-rush .cp-icon,
+.cp-rest .cp-icon {
   width: 24px;
   height: 24px;
 }
-.cp-rush .cp-named {
+.cp-rush .cp-named,
+.cp-rest .cp-named {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
   width: auto;
 }
-.cp-rush .cp-named > small {
+.cp-rush .cp-named > small,
+.cp-rest .cp-named > small {
   display: inline;
   color: inherit;
 }

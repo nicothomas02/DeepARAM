@@ -82,11 +82,28 @@ function recipeMap(): Map<number, Recipe> {
   return recipes;
 }
 
-/** An item's recipe parts and total price, from the client's item list. */
+/** An item's recipe parts and total price, from the client's item list. An item whose plain entry lists no parts
+ *  (Rite of Ruin) takes them from its mode variant (123430, 223430), which the shop uses. */
 export const itemRecipe = (id: number): { from: number[]; price: number } | undefined => {
   const r = recipeMap().get(id);
-  return r ? { from: r.from ?? [], price: r.priceTotal ?? 0 } : undefined;
+  if (!r) return undefined;
+  const v = r.from?.length ? r : [120000 + id, 220000 + id].map((x) => recipeMap().get(x)).find((x) => x?.from?.length);
+  return { from: (v?.from ?? []).map((x) => (x >= 100000 ? x % 10000 : x)), price: r.priceTotal ?? v?.priceTotal ?? 0 };
 };
+
+/** Every component an item is built from, all the way down (Infinity Edge: B. F. Sword, Pickaxe, Cloak...). */
+export function itemParts(id: number): number[] {
+  const out = new Set<number>();
+  const walk = (i: number, depth: number) => {
+    if (depth > 4) return;
+    for (const p of itemRecipe(i)?.from ?? []) {
+      out.add(p);
+      walk(p, depth + 1);
+    }
+  };
+  walk(id, 0);
+  return [...out];
+}
 
 /** When to buy this item, from its shop text (lib/situations.ts), or null for a general item. */
 export const itemSituation = (id: number): Situation | null => {

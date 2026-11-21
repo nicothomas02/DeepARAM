@@ -267,5 +267,6 @@
  "Support": "辅助",
  "Tied": "持平",
  "Rush": "优先",
- "With {augment}: buy {item} first": "有 {augment} 时：先买 {item}"
+ "With {augment}: buy {item} first": "有 {augment} 时：先买 {item}",
+ "Then": "然后"
 }

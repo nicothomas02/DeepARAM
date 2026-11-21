@@ -267,5 +267,6 @@
  "Support": "Υποστήριξη",
  "Tied": "Ισοπαλία",
  "Rush": "Πρώτα",
- "With {augment}: buy {item} first": "Με {augment}: αγοράστε πρώτα {item}"
+ "With {augment}: buy {item} first": "Με {augment}: αγοράστε πρώτα {item}",
+ "Then": "Μετά"
 }

@@ -81,9 +81,17 @@ describe("DeepScore ranking of build lists", () => {
     const top = Math.max(...p.core.map((r) => r.pickRate));
     const followedCores = p.core.filter((r) => r.pickRate >= MIN_FOLLOWING * top);
     expect(p.core.slice(0, followedCores.length)).toEqual(followedCores);
-    for (const list of [p.starting, followedCores]) {
-      const scores = list.map((r) => r.deepScore!);
-      expect(scores).toEqual([...scores].sort((a, b) => b - a));
-    }
+    const scores = followedCores.map((r) => r.deepScore!);
+    expect(scores).toEqual([...scores].sort((a, b) => b - a));
+    // Starting items come in up to three groups (build into the first core item, into the core, the rest), each
+    // best DeepScore first.
+    const starts = p.starting.map((r) => r.deepScore!);
+    expect(starts.filter((x, i) => i > 0 && x > starts[i - 1]).length).toBeLessThanOrEqual(2);
+  });
+
+  it("opens Yasuo's core with the item his common start builds into (Cloak + Tome: Rite of Ruin)", () => {
+    const p = championPage("Yasuo")!;
+    expect(p.core[0].items[0] % 10000).toBe(3430);
+    expect(p.cardStart?.items).toEqual(expect.arrayContaining([1018]));
   });
 });

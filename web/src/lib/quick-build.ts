@@ -20,8 +20,12 @@ export type QuickBuild = {
   deepScore: number | null;
   skills: string[];
   spells: Named[];
+  /** Starting items that build into the core (none when no common start does). */
+  start: Named[];
   /** Boots (when the champion buys them) and the best core, in buying order. */
   items: Named[];
+  /** The rest of the usual six-item build after the core, most built first. */
+  rest: Named[];
   /** Items to swap in after the core, each with when to buy it ("Vs healing"), as on the champion page's card. */
   situational: (Named & { when: string })[];
   /** Components to rush for the first core item. */
@@ -44,6 +48,8 @@ export function quickBuilds(): QuickBuild[] {
     const named = (i: number | undefined) =>
       i !== undefined && p.itemInfo[i] ? { name: p.itemInfo[i].name, icon: p.itemInfo[i].icon ?? null } : null;
     const items = (core ? buildOrder(core) : []).flatMap((i) => named(i) ?? []);
+    const start = (p.cardStart?.items ?? []).flatMap((i) => named(i) ?? []);
+    const rest = (core?.rest ?? []).flatMap((i) => named(i) ?? []);
     const situational = p.situational.flatMap((s) => {
       const n = named(s.options[0]?.items[0]);
       return n ? [{ ...n, when: SITUATIONS[s.situation] }] : [];
@@ -77,7 +83,9 @@ export function quickBuilds(): QuickBuild[] {
         deepScore: t?.deepScore ?? null,
         skills: bestRow(p.skills, 0.1)?.max ?? [],
         spells: spells?.spells.map((s) => ({ name: s.name, icon: s.icon ?? null })) ?? [],
+        start,
         items,
+        rest,
         situational,
         rush,
         swaps,

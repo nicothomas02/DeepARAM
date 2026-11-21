@@ -267,5 +267,6 @@
  "Support": "Suporte",
  "Tied": "Empate",
  "Rush": "Priorize",
- "With {augment}: buy {item} first": "Com {augment}: compre {item} primeiro"
+ "With {augment}: buy {item} first": "Com {augment}: compre {item} primeiro",
+ "Then": "Depois"
 }
