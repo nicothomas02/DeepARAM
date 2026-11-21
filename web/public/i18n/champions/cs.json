@@ -276,5 +276,11 @@
  "With combos": "S komby",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Odhad: řazeno podle zvýšení každé augmentace plus části jejího nejlepšího potvrzeného komba, dokud zbývají výběry.",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Odhad: potvrzený partner teprve přijde; dokud zbývají výběry, počítá se část bodů dvojice.",
- "Combos with {name} {n}": "Kombo s {name} {n}"
+ "Combos with {name} {n}": "Kombo s {name} {n}",
+ "Lethality": "Smrtonosnost",
+ "Crit": "Krit",
+ "On-hit": "On-hit",
+ "Fighter": "Bojovník",
+ "Enchanter": "Zaklínač",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Vyvolávací kouzla a pořadí schopností jsou pro každý build stejné: statistiky je podle buildu nerozdělují."
 }

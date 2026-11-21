@@ -5,7 +5,8 @@ import { T } from "@/components/I18n";
 
 // Build style tabs on the champion card (lib/build-plan.ts styleCores): one tab per real style, e.g. Tank and AP
 // for Alistar-like champions. The server renders every panel; this only picks which one shows.
-export default function StyleTabs({ tabs }: { tabs: { key: string; label: string; share: string; panel: ReactNode }[] }) {
+// `whole`: the tabs switch the whole card (every tile), so each panel lays its tiles out like the card itself.
+export default function StyleTabs({ tabs, whole = false }: { tabs: { key: string; label: string; share: string; panel: ReactNode }[]; whole?: boolean }) {
   const [on, setOn] = useState(0);
   return (
     <div className="cp-style-tabs">
@@ -17,7 +18,7 @@ export default function StyleTabs({ tabs }: { tabs: { key: string; label: string
         ))}
       </div>
       {tabs.map((t, i) => (
-        <div key={t.key} role="tabpanel" hidden={i !== on} className="cp-style-panel">
+        <div key={t.key} role="tabpanel" hidden={i !== on} className={whole ? "cp-style-panel cp-style-whole" : "cp-style-panel"}>
           {t.panel}
         </div>
       ))}

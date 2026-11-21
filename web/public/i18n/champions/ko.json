@@ -276,5 +276,11 @@
  "With combos": "콤보 포함",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "추정치: 각 증강의 상승치에 남은 선택이 있는 동안 확인된 최고의 콤보 일부를 더해 정렬합니다.",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "추정치: 확인된 짝이 아직 나올 수 있어, 남은 선택이 있는 동안 짝 점수의 일부를 더합니다.",
- "Combos with {name} {n}": "{name}와 콤보 {n}"
+ "Combos with {name} {n}": "{name}와 콤보 {n}",
+ "Lethality": "물리 관통력",
+ "Crit": "치명타",
+ "On-hit": "적중 시",
+ "Fighter": "전사",
+ "Enchanter": "인챈터",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "소환사 주문과 스킬 순서는 모든 빌드에서 같습니다. 통계가 빌드별로 나누지 않습니다."
 }

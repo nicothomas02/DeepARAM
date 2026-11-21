@@ -276,5 +276,11 @@
  "With combos": "Kombókkal",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Becslés: minden kiegészítő növelése, plusz a legjobb megerősített kombója egy része, amíg van még választás.",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Becslés: egy megerősített társ még jöhet; amíg van választás, a pár pontjainak egy része számít.",
- "Combos with {name} {n}": "Kombó: {name} {n}"
+ "Combos with {name} {n}": "Kombó: {name} {n}",
+ "Lethality": "Halálosság",
+ "Crit": "Kritikus",
+ "On-hit": "Találatkor",
+ "Fighter": "Harcos",
+ "Enchanter": "Bűvölő",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Az idézővarázslatok és a képességsorrend minden buildnél ugyanaz: a statisztikák nem bontják buildenként."
 }

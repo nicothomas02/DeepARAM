@@ -276,5 +276,11 @@
  "With combos": "مع التوليفات",
  "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "تقديري: مرتبة حسب تعزيز كل معزز مع جزء من أفضل توليفة مؤكدة له ما دامت هناك اختيارات متبقية.",
  "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "تقديري: شريك مؤكد لا يزال قادمًا، ويُحتسب جزء من نقاط الثنائي ما دامت هناك اختيارات متبقية.",
- "Combos with {name} {n}": "يتوافق مع {name} {n}"
+ "Combos with {name} {n}": "يتوافق مع {name} {n}",
+ "Lethality": "الفتك",
+ "Crit": "الضربات الحرجة",
+ "On-hit": "عند الإصابة",
+ "Fighter": "مقاتل",
+ "Enchanter": "مُعزِّز",
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "تعويذات الاستدعاء وترتيب المهارات نفسها لكل بناء: الإحصاءات لا تفصلها حسب البناء."
 }
