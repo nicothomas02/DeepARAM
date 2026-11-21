@@ -86,6 +86,22 @@ pub struct State {
     last_live: Option<Instant>,
     /// Moved to the second monitor for this game.
     placed: bool,
+    /// When the owner check last failed (no answer): tried again after OWNER_RETRY, not every poll.
+    owner_tried: Option<Instant>,
+    /// The game's result from the client's end-of-game screen ("Win" or "Lose").
+    result: Option<String>,
+}
+
+const OWNER_RETRY: Duration = Duration::from_secs(300);
+
+/// "Win" or "Lose" from the client's end-of-game stats (/lol-end-of-game/v1/eog-stats-block).
+pub fn eog_result(block: &Value) -> Option<&'static str> {
+    let mine =
+        block.get("teams")?.as_array()?.iter().find(|t| t.get("isPlayerTeam").and_then(Value::as_bool) == Some(true));
+    let won = mine
+        .and_then(|t| t.get("isWinningTeam")?.as_bool())
+        .or_else(|| Some(block.get("localPlayer")?.get("stats")?.get("WIN")?.as_f64()? > 0.0))?;
+    Some(if won { "Win" } else { "Lose" })
 }
 
 pub type Shared = Mutex<State>;
@@ -105,6 +121,11 @@ pub fn parse_lockfile(text: &str) -> Option<(u16, String)> {
 }
 
 fn find_client() -> Option<(u16, String)> {
+    // Debug builds: a test client named by DEEPARAM_LCU ("port:password").
+    #[cfg(debug_assertions)]
+    if let Some((port, pw)) = std::env::var("DEEPARAM_LCU").ok().as_deref().and_then(|v| v.split_once(':')) {
+        return Some((port.parse().ok()?, pw.to_owned()));
+    }
     for p in LOCKFILES {
         if let Some(found) = fs::read_to_string(p).ok().as_deref().and_then(parse_lockfile) {
             return Some(found);
@@ -217,6 +238,10 @@ fn send(app: &AppHandle, script: String) {
         })
         .build();
     if let Ok(win) = built {
+        // Straight to the second monitor, from champion select on, so it's never in front of League.
+        if second_screen_on(app) {
+            to_second_screen(app);
+        }
         let app = app.clone();
         win.on_window_event(move |e| {
             if let tauri::WindowEvent::CloseRequested { .. } = e {
@@ -288,11 +313,22 @@ pub fn close(app: &AppHandle) {
 
 /// The game's review, from overlay.rs once a game ends. Opens even if the player closed the window during
 /// champion select, since it's a new thing to see.
-pub fn show_review(app: &AppHandle, review: Value) {
+pub fn show_review(app: &AppHandle, mut review: Value) {
     if !enabled(app) {
         return;
     }
-    app.state::<Shared>().lock().unwrap().dismissed = false;
+    let known = {
+        let state = app.state::<Shared>();
+        let mut s = state.lock().unwrap();
+        s.dismissed = false;
+        s.result.clone()
+    };
+    // The game's feed often closes before it reports the result; the client's end-of-game screen has it.
+    if review.get("result").is_none_or(Value::is_null) {
+        if let Some(r) = known {
+            review["result"] = json!(r);
+        }
+    }
     send(app, format!("window.showReview({review})"));
 }
 
@@ -518,6 +554,20 @@ pub fn watch(app: AppHandle) {
                     if phase == "InProgress" {
                         s.last_live = None;
                         s.placed = false;
+                        s.result = None;
+                    }
+                    if phase == "EndOfGame" && mayhem {
+                        drop(s);
+                        let result = c.get("/lol-end-of-game/v1/eog-stats-block").as_ref().and_then(eog_result);
+                        s = state.lock().unwrap();
+                        if let Some(r) = result {
+                            s.result = Some(r.to_owned());
+                            drop(s);
+                            if let Some(win) = app.get_webview_window(LABEL) {
+                                let _ = win.eval(format!("window.setResult && window.setResult({})", json!(r)));
+                            }
+                            s = state.lock().unwrap();
+                        }
                     }
                 }
             }
@@ -526,12 +576,21 @@ pub fn watch(app: AppHandle) {
                 "ChampSelect" if mayhem && !dismissed => champ_select(&app, c),
                 "InProgress" if mayhem => {
                     let owner = {
-                        let known = app.state::<Shared>().lock().unwrap().owner;
+                        let (known, tried) = {
+                            let s = app.state::<Shared>();
+                            let s = s.lock().unwrap();
+                            (s.owner, s.owner_tried)
+                        };
                         match known {
                             Some(o) => o,
+                            // No answer last time (signed out, offline): ask again every few minutes, not every poll.
+                            None if tried.is_some_and(|at| at.elapsed() < OWNER_RETRY) => false,
                             None => {
                                 let o = is_owner(c);
-                                app.state::<Shared>().lock().unwrap().owner = o;
+                                let s = app.state::<Shared>();
+                                let mut s = s.lock().unwrap();
+                                s.owner = o;
+                                s.owner_tried = Some(Instant::now());
                                 o.unwrap_or(false)
                             }
                         }
@@ -579,6 +638,16 @@ mod tests {
         let s = sample_from(600.0, "ORDER", &players, &events, &fit);
         assert_eq!((s.kills, s.levels, s.towers), (3.0, 2.0, 1.0));
         assert!((s.comp - 0.03).abs() < 1e-9);
+    }
+
+    #[test]
+    fn reads_the_result_from_the_end_of_game_screen() {
+        let won = json!({"teams": [{"isPlayerTeam": false, "isWinningTeam": false}, {"isPlayerTeam": true, "isWinningTeam": true}]});
+        assert_eq!(eog_result(&won), Some("Win"));
+        let lost = json!({"teams": [{"isPlayerTeam": true, "isWinningTeam": false}]});
+        assert_eq!(eog_result(&lost), Some("Lose"));
+        assert_eq!(eog_result(&json!({"teams": [], "localPlayer": {"stats": {"WIN": 1}}})), Some("Win"));
+        assert_eq!(eog_result(&json!({})), None);
     }
 
     #[test]
