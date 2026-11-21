@@ -62,6 +62,8 @@ type Builds = {
 
 /** Per champion id: core build ("id,id,id") -> boots id -> core items bought before the boots. */
 type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
+/** data/estimates/boots_slot.json: per champion [core items bought before the boots or null, boots buyers]. */
+type BootsSlots = { champions: Record<string, [number | null, number]>; all: number };
 /** The options for one item slot after the core (4th, 5th, 6th), best DeepScore first. */
 /** A situation the champion's items answer, with its best items (lib/card-score.ts situational). */
 export type SituationRow = { situation: Situation; options: ItemRow[] };
@@ -247,10 +249,15 @@ export function championPage(alias: string): ChampionPage | null {
   ]);
   const timing =
     (SIMULATOR_IN_STATS ? readRepoJson<BootsTiming>("data/estimates/boots_timing.json")?.champions[String(id)] : undefined) ?? {};
+  // When players buy boots (Nico, 2026-11-20: boots in their real slot), from the purchase timelines of the owner's
+  // archived games, all ten players (data/estimates/boots_slot.json): the champion's usual slot, moved only when
+  // another slot clearly wins more (Nico: judge by outcomes, not habits). Too few buyers: the slot most players use.
+  const slots = readRepoJson<BootsSlots>("data/estimates/boots_slot.json");
+  const playedSlot = slots ? (slots.champions[String(id)]?.[0] ?? slots.all) : undefined;
   const bootsRows = rows(b?.items?.boots);
   const noBoots = skipsBoots(bootsRows, full, (i) => itemTier(i) === "boots");
   const scoredCore = followed(scoreItems(rows(b?.items?.core)));
-  const withBootsCore = noBoots ? scoredCore : withBoots(scoredCore, full, boots[0], timing);
+  const withBootsCore = noBoots ? scoredCore : withBoots(scoredCore, full, boots[0], timing, playedSlot ?? undefined);
   // Items in the order players buy them (Nico, 2026-11-20): the feed's cores listed in buying order (lib/build-plan.ts
   // buyingOrder), on top of the starting items: a core opens with the item its starter builds into (Cloak + Tome:
   // Rite of Ruin), and a starter's parts build into the first item or the boots, or are standalone starters (Tear,
@@ -353,6 +360,7 @@ function withBoots(
   full: ItemRow[],
   best: ItemRow | undefined,
   timing: BootsTiming["champions"][string],
+  played?: number,
 ): ItemRow[] {
   const usual = (boots: number) => {
     const n = new Map<number, number>();
@@ -373,7 +381,7 @@ function withBoots(
     const paired = [...share].sort((x, y) => y[1] - x[1])[0]?.[0];
     const boots = paired ?? best?.items[0];
     if (boots === undefined) return r;
-    const bootsAt = timing[r.items.join(",")]?.[String(boots)] ?? usual(boots);
+    const bootsAt = played ?? timing[r.items.join(",")]?.[String(boots)] ?? usual(boots);
     return bootsAt === undefined ? { ...r, boots } : { ...r, boots, bootsAt };
   });
 }

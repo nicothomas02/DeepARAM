@@ -186,7 +186,7 @@ function ScoredCells({ r, x }: { r: ItemRow; x?: Expected }) {
   );
 }
 
-// When the boots are bought in a core build: after how many core items (simulated, lib/champion-page.ts withBoots).
+// When the boots are bought in a core build: after how many core items (from game timelines, lib/champion-page.ts withBoots).
 const BOOTS_WHEN: Record<number, string> = {
   0: "Boots before the 1st item",
   1: "Boots after the 1st item",
@@ -196,7 +196,7 @@ const BOOTS_WHEN: Record<number, string> = {
 // Build style tabs (lib/build-plan.ts buildStyle).
 const STYLE_LABEL: Record<string, string> = { ap: "AP", ad: "AD", tank: "Tank", support: "Support" };
 const BOOTS_HELP =
-  "Core builds show the boots where the Simulator says to buy them: the first point where they add as much per gold as the next item.";
+  "Boots are placed where players usually buy them, unless another point clearly wins more games.";
 // The slots after the core are narrow: win rate sits under the item's name, DeepScore on the right.
 function LateScore({ r }: { r: ItemRow }) {
   return (
@@ -381,7 +381,10 @@ export default async function ChampionPage({
         )}
         {core.boots !== undefined && core.bootsAt !== undefined && (
           <p className="cp-boots-when">
-            <T ns={NS}>{BOOTS_WHEN[core.bootsAt]}</T> <SimTag title={BOOTS_HELP} />
+            <T ns={NS}>{BOOTS_WHEN[core.bootsAt]}</T>{" "}
+            <small className="cp-stale-tag" title={BOOTS_HELP}>
+              <T ns={NS}>Estimated</T>
+            </small>
           </p>
         )}
         <div className="cp-mini">
@@ -864,7 +867,9 @@ export default async function ChampionPage({
               {p.core.some((r) => r.bootsAt !== undefined) && (
                 <p className="cp-boots-when cp-boots-note">
                   <T ns={NS}>Boots are shown where to buy them.</T>{" "}
-                  <SimTag title={BOOTS_HELP} />
+                  <small className="cp-stale-tag" title={BOOTS_HELP}>
+                    <T ns={NS}>Estimated</T>
+                  </small>
                 </p>
               )}
               {est && est.timing.length > 0 && (

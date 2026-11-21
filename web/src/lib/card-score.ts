@@ -12,14 +12,13 @@ export type ItemRow = Rated & {
   tier?: ItemTier;
   /** Core builds: the boots that go with the core. */
   boots?: number;
-  /** Core builds: how many core items come before the boots (simulated, data/estimates/boots_timing.json). */
+  /** Core builds: how many core items come before the boots (from game timelines, data/estimates/boots_slot.json). */
   bootsAt?: number;
   /** Core builds: the rest of the usual six-item build, most built first (lib/build-plan.ts restOfBuild). */
   rest?: number[];
 };
 
-/** A row's items in the order they're bought: the boots go in at bootsAt (last when it isn't known, as real data
- *  doesn't say when they're bought). */
+/** A row's items in the order they're bought: the boots go in at bootsAt (after the core when it isn't known). */
 export function buildOrder(r: ItemRow): number[] {
   if (r.boots === undefined) return r.items;
   const at = Math.min(r.bootsAt ?? r.items.length, r.items.length);

@@ -22,6 +22,8 @@ export type HistFile = {
   augments: Record<string, { name: string; rarity: Rarity }>;
   /** Core rows in buying order with their pick rates (lib/champion-history.ts orderedCores). */
   order?: [number[], number][];
+  /** Core items players buy before the boots (data/estimates/boots_slot.json), when known. */
+  bootsAt?: number;
 };
 
 const GRADE: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
@@ -109,7 +111,7 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
       for (const i of f.items) if (file.items[i]?.tier === "boots") share.set(i, (share.get(i) ?? 0) + f.pickRate);
     }
     const b = [...share].sort((x, y) => y[1] - x[1])[0]?.[0] ?? boots[0]?.items[0];
-    if (b !== undefined) coreRow = { ...best, boots: b };
+    if (b !== undefined) coreRow = file.bootsAt !== undefined ? { ...best, boots: b, bootsAt: file.bootsAt } : { ...best, boots: b };
   }
   // Buying order, starting items that build into the core, and the rest of the build, as on the live card
   // (lib/champion-page.ts).

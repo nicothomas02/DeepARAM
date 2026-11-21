@@ -2,14 +2,13 @@ import { describe, expect, it } from "vitest";
 import { buildOrder, championPage, scoreRows } from "@/lib/champion-page";
 import { itemSituation, itemTier } from "@/lib/items";
 import { championAugmentStages } from "@/lib/estimates";
-import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
 import { MIN_FOLLOWING } from "@/lib/card-score";
 
 // Champion page builds: the core shows its boots where they're bought, then the 4th, 5th and 6th item options.
 describe("champion page core build", () => {
   const p = championPage("Annie")!;
 
-  it("puts real boots in every core build, after the core while the Simulator's buy step is off", () => {
+  it("puts real boots in every core build, where players buy them (game timelines, not the Simulator)", () => {
     expect(p.core.length).toBeGreaterThan(0);
     for (const r of p.core) {
       expect(r.boots).toBeDefined();
@@ -18,11 +17,10 @@ describe("champion page core build", () => {
       const order = buildOrder(r);
       expect(order).toHaveLength(r.items.length + 1);
       expect(order.filter((i) => i !== r.boots)).toEqual(r.items);
-      // The Simulator is a fun tool only for now (lib/sim-policy.ts), so no simulated buy step.
-      if (!SIMULATOR_IN_STATS) {
-        expect(r.bootsAt).toBeUndefined();
-        expect(order.at(-1)).toBe(r.boots);
-      }
+      // The step comes from players' purchase timelines (data/estimates/boots_slot.json); the Simulator is a fun
+      // tool only for now (lib/sim-policy.ts), so it never sets one.
+      expect(r.bootsAt).toBe(1);
+      expect(order[1]).toBe(r.boots);
     }
   });
 
