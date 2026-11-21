@@ -29,7 +29,7 @@ import { itemPages } from "@/lib/item-pages";
 import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
 import SubTabs from "@/components/SubTabs";
-import { readRepoCsv, readRepoJson } from "@/lib/repo-data";
+import { readRepoCsv } from "@/lib/repo-data";
 import { allChampionTags, championTagData } from "@/lib/champion-tags";
 import { fillGames } from "@/lib/fill";
 import { matchesByPatch } from "@/lib/sample";
@@ -90,7 +90,6 @@ export default function TierListPage() {
       dead: num(r.avg_death_time),
       augs: r.augment_ids ?? "",
     }));
-  const champName = (alias?: string) => (alias ? (NAMES[alias] ?? alias) : null);
   const tabs: { id: string; label: string; content: React.ReactNode; lazy?: boolean }[] = [
     {
       id: "champions",
