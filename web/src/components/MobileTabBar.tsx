@@ -12,6 +12,8 @@ type Tab = { href: string; label: string; group?: string };
 const PRIMARY = ["/tier-list", "/simulator", "/kitchen"];
 // Each tab tints in its section's colour when active, like iOS tab bars.
 const ACCENT: Record<string, string> = { "/tier-list": "tier", "/simulator": "sim", "/kitchen": "lab", more: "info" };
+// Five tabs share a 375px-wide phone (iPhone Duo folded), so long names get a short one that fits on one line.
+const SHORT: Record<string, string> = { "/kitchen": "Kitchen" };
 
 const ICONS: Record<string, React.ReactNode> = {
   "/": <path d="M4 11.5 12 5l8 6.5V19a1 1 0 0 1-1 1h-4.5v-5h-5v5H5a1 1 0 0 1-1-1z" />,
@@ -104,7 +106,7 @@ export default function MobileTabBar({ tabs }: { tabs: Tab[] }) {
         {primary.map((t) => (
           <Link key={t.href} href={t.href} data-accent={ACCENT[t.href]} aria-current={isActive(t.href) ? "page" : undefined}>
             <Icon name={t.href} />
-            <span>{tr(t.label)}</span>
+            <span>{tr(SHORT[t.href] ?? t.label)}</span>
           </Link>
         ))}
         <button

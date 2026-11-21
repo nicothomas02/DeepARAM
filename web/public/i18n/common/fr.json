@@ -251,5 +251,6 @@
  "Builds cover patch {patch} on.": "Les builds couvrent le patch {patch} et suivants.",
  "The rest of the page shows the live patch.": "Le reste de la page montre le patch actuel.",
  "Not played in these patches.": "Pas joué sur ces patchs.",
- "No saved builds for these patches.": "Aucun build enregistré pour ces patchs."
+ "No saved builds for these patches.": "Aucun build enregistré pour ces patchs.",
+ "Kitchen": "Cuisine"
 }

@@ -251,5 +251,6 @@
  "Builds cover patch {patch} on.": "빌드는 {patch} 패치 이후를 다룹니다.",
  "The rest of the page shows the live patch.": "페이지의 나머지는 현재 패치를 보여 줍니다.",
  "Not played in these patches.": "이 패치들에서 플레이되지 않았습니다.",
- "No saved builds for these patches.": "이 패치들에 저장된 빌드가 없습니다."
+ "No saved builds for these patches.": "이 패치들에 저장된 빌드가 없습니다.",
+ "Kitchen": "주방"
 }

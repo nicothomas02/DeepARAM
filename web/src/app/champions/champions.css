@@ -52,3 +52,34 @@
     grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
   }
 }
+/* Touch screens (iPhone Duo folded and open): the tier letter sits on the icon's corner so the name gets the
+   room, and a two-word name may take two lines instead of being cut to "Aureli…". */
+@media (pointer: coarse) {
+  .champ-index a {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 0.55rem;
+    padding-right: 0.5rem;
+  }
+  .champ-index img,
+  .champ-index-tier {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .champ-index-tier {
+    align-self: end;
+    justify-self: end;
+    min-width: 1.35rem;
+    margin: 0 -0.4rem -0.3rem 0;
+    padding: 0 0.25rem;
+    line-height: 1.35;
+    box-shadow: 0 0 0 2px var(--surface);
+  }
+  .champ-index-name {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 0.9375rem;
+    line-height: 1.2;
+    white-space: normal;
+  }
+}

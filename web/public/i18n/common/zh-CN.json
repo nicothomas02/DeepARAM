@@ -251,5 +251,6 @@
  "Builds cover patch {patch} on.": "出装数据从 {patch} 版本开始。",
  "The rest of the page shows the live patch.": "页面其余部分显示当前版本。",
  "Not played in these patches.": "这些版本中没有出场。",
- "No saved builds for these patches.": "这些版本没有保存的出装。"
+ "No saved builds for these patches.": "这些版本没有保存的出装。",
+ "Kitchen": "厨房"
 }

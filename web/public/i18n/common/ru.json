@@ -251,5 +251,6 @@
  "Builds cover patch {patch} on.": "Сборки охватывают патч {patch} и новее.",
  "The rest of the page shows the live patch.": "Остальная страница показывает текущий патч.",
  "Not played in these patches.": "В этих патчах не играли.",
- "No saved builds for these patches.": "Для этих патчей нет сохранённых сборок."
+ "No saved builds for these patches.": "Для этих патчей нет сохранённых сборок.",
+ "Kitchen": "Кухня"
 }
