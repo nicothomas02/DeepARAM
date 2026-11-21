@@ -21,5 +21,7 @@
  "Page not found": "ページが見つかりません",
  "{name} {mode} Build & Augments": "{name}：{mode}のビルドとオーグメント",
  "{name} {mode} Augment": "{name}：{mode}のオーグメント",
- "{name} in {mode}": "{mode}の{name}"
+ "{name} in {mode}": "{mode}の{name}",
+ "Infinite Ashe": "無限アッシュ",
+ "{mode} Calculators": "{mode} 計算ツール"
 }

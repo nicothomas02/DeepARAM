@@ -21,5 +21,7 @@
  "Page not found": "ไม่พบหน้า",
  "{name} {mode} Build & Augments": "{name}: บิลด์และAugmentsใน {mode}",
  "{name} {mode} Augment": "{name}: Augmentsใน {mode}",
- "{name} in {mode}": "{name} ใน {mode}"
+ "{name} in {mode}": "{name} ใน {mode}",
+ "Infinite Ashe": "Ashe ไม่สิ้นสุด",
+ "{mode} Calculators": "เครื่องคำนวณ {mode}"
 }

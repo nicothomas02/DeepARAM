@@ -21,5 +21,7 @@
  "Page not found": "الصفحة غير موجودة",
  "{name} {mode} Build & Augments": "{name}: تشكيلة وتعزيزات {mode}",
  "{name} {mode} Augment": "{name}: تعزيز في {mode}",
- "{name} in {mode}": "{name} في {mode}"
+ "{name} in {mode}": "{name} في {mode}",
+ "Infinite Ashe": "آش اللانهائية",
+ "{mode} Calculators": "حاسبات {mode}"
 }

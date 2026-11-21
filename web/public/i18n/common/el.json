@@ -251,5 +251,7 @@
  "Builds cover patch {patch} on.": "Τα builds καλύπτουν από το patch {patch} και μετά.",
  "The rest of the page shows the live patch.": "Η υπόλοιπη σελίδα δείχνει το τρέχον patch.",
  "Not played in these patches.": "Δεν παίχτηκε σε αυτά τα patches.",
- "No saved builds for these patches.": "Δεν υπάρχουν αποθηκευμένα builds για αυτά τα patches."
+ "No saved builds for these patches.": "Δεν υπάρχουν αποθηκευμένα builds για αυτά τα patches.",
+ "Calculators": "Υπολογιστές",
+ "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP and Infinite Ashe's endless R.": "Πόσο μακριά φτάνουν οι πιο τρελές λούπες του ARAM Mayhem: η Δύναμη Ικανότητας του ατελείωτου Ράιζ και το ατελείωτο R της ατελείωτης Άσε."
 }

@@ -251,5 +251,7 @@
  "Builds cover patch {patch} on.": "빌드는 {patch} 패치 이후를 다룹니다.",
  "The rest of the page shows the live patch.": "페이지의 나머지는 현재 패치를 보여 줍니다.",
  "Not played in these patches.": "이 패치들에서 플레이되지 않았습니다.",
- "No saved builds for these patches.": "이 패치들에 저장된 빌드가 없습니다."
+ "No saved builds for these patches.": "이 패치들에 저장된 빌드가 없습니다.",
+ "Calculators": "계산기",
+ "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP and Infinite Ashe's endless R.": "ARAM 메이헴의 가장 정신 나간 루프는 어디까지 갈까: 무한 라이즈의 주문력과 무한 애쉬의 끝없는 R."
 }

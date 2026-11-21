@@ -7,7 +7,7 @@ import type { NavItem } from "@/lib/tabs";
 import { useT } from "./I18n";
 
 // Each tab has its own accent colour (globals.css, [data-accent]).
-const ACCENT: Record<string, string> = { "/tier-list": "tier", "/simulator": "sim", "/pbe": "pbe", "/info": "info", "/kitchen": "lab" };
+const ACCENT: Record<string, string> = { "/tier-list": "tier", "/simulator": "sim", "/pbe": "pbe", "/info": "info", "/kitchen": "lab", "/calculators": "lab" };
 
 export default function NavLinks({ items }: { items: NavItem[] }) {
   const pathname = usePathname();

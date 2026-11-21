@@ -21,5 +21,7 @@
  "Page not found": "Halaman tidak ditemukan",
  "{name} {mode} Build & Augments": "{name}: Build & Augment {mode}",
  "{name} {mode} Augment": "{name}: Augment {mode}",
- "{name} in {mode}": "{name} di {mode}"
+ "{name} in {mode}": "{name} di {mode}",
+ "Infinite Ashe": "Ashe tanpa batas",
+ "{mode} Calculators": "Kalkulator {mode}"
 }

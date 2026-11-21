@@ -251,5 +251,7 @@
  "Builds cover patch {patch} on.": "ビルドはパッチ{patch}以降が対象です。",
  "The rest of the page shows the live patch.": "ページの他の部分は現在のパッチを表示します。",
  "Not played in these patches.": "これらのパッチではプレイされていません。",
- "No saved builds for these patches.": "これらのパッチの保存済みビルドはありません。"
+ "No saved builds for these patches.": "これらのパッチの保存済みビルドはありません。",
+ "Calculators": "計算ツール",
+ "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP and Infinite Ashe's endless R.": "ARAMメイヘムの無茶なループはどこまで行くか: 無限ライズの魔力と、無限アッシュの終わらないR。"
 }

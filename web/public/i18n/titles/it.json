@@ -21,5 +21,7 @@
  "Page not found": "Pagina non trovata",
  "{name} {mode} Build & Augments": "{name}: build e potenziamenti per {mode}",
  "{name} {mode} Augment": "{name}: potenziamento di {mode}",
- "{name} in {mode}": "{name} in {mode}"
+ "{name} in {mode}": "{name} in {mode}",
+ "Infinite Ashe": "Ashe infinita",
+ "{mode} Calculators": "Calcolatori di {mode}"
 }

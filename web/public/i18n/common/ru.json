@@ -251,5 +251,7 @@
  "Builds cover patch {patch} on.": "Сборки охватывают патч {patch} и новее.",
  "The rest of the page shows the live patch.": "Остальная страница показывает текущий патч.",
  "Not played in these patches.": "В этих патчах не играли.",
- "No saved builds for these patches.": "Для этих патчей нет сохранённых сборок."
+ "No saved builds for these patches.": "Для этих патчей нет сохранённых сборок.",
+ "Calculators": "Калькуляторы",
+ "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP and Infinite Ashe's endless R.": "Как далеко заходят самые безумные циклы ARAM Mayhem: сила умений бесконечного Райза и бесконечный R бесконечной Эш."
 }

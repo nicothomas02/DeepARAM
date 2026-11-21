@@ -251,5 +251,7 @@
  "Builds cover patch {patch} on.": "出裝資料從 {patch} 版本開始。",
  "The rest of the page shows the live patch.": "頁面其餘部分顯示目前版本。",
  "Not played in these patches.": "這些版本中沒有出場。",
- "No saved builds for these patches.": "這些版本沒有保存的出裝。"
+ "No saved builds for these patches.": "這些版本沒有保存的出裝。",
+ "Calculators": "計算器",
+ "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP and Infinite Ashe's endless R.": "ARAM 大混戰最瘋狂的循環能走多遠：無限雷茲的魔法攻擊，和無限艾希停不下來的 R。"
 }
