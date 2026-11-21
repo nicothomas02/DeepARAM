@@ -37,6 +37,10 @@ FORBIDDEN = [
 # Known current violations: {(file, label)}. Empty today; add one only for a real, reported bug.
 KNOWN = set()
 
+# The one allowed credit: the match-statistics source's license (CC BY-NC 4.0) requires naming it with a link, and
+# Nico chose a single line on the Info page (2026-11-21). Only that paragraph is exempt, nothing else on the page.
+CREDIT = re.compile(r'<p[^>]*id="data-credit"[^>]*>.*?</p>', re.S)
+
 EMBED_FILES = shipped_embed_files()
 OTHER_FILES = ["data/pbe/kiwi-s3.json", "web/src/content/site.json"]
 
@@ -44,7 +48,7 @@ OTHER_FILES = ["data/pbe/kiwi-s3.json", "web/src/content/site.json"]
 @functools.lru_cache(maxsize=None)
 def shipped_text(f):
     if f in EMBED_FILES:
-        return embed_transform(read(f))
+        return CREDIT.sub("", embed_transform(read(f)))
     data = load_json(f)
     return "\n".join(flatten_strings(data))  # JSON the Next.js pages render: values only, keys never show
 
@@ -114,3 +118,10 @@ def test_pending_tabs_do_not_link_pull_requests():
     assert "Coming soon." in src
     assert "REPO_URL" not in src and "/pull/" not in src
     assert "Open full screen" not in read("web/src/components/Embed.tsx")
+
+
+def test_info_page_credits_match_statistics():
+    """The license needs the credit and its link (Nico 2026-11-21: Info page only)."""
+    html = read("guide/index.html")
+    m = CREDIT.search(html)
+    assert m and "github.com/czgreat/aramhex-data" in m.group(0) and "by-nc/4.0" in m.group(0)

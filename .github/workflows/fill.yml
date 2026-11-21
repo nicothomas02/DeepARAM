@@ -47,6 +47,9 @@ jobs:
       - name: Estimate spells and game counts
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/fill/build_estimates.py
+      - name: Real spells and counts from AramHex replace the estimates where it has the live patch
+        if: steps.fresh.outputs.run == 'true'
+        run: python3 data/aramhex/merge.py
       - name: Early-window builds (blend in the previous window while builds have few games; needs the git history)
         if: steps.fresh.outputs.run == 'true'
         run: python3 data/estimates/early_builds.py || echo "::warning::Early-window builds not refreshed"

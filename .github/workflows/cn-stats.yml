@@ -29,12 +29,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          sparse-checkout: data/cn
+          sparse-checkout: |
+            data/cn
+            data/aramhex
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - id: newest
-        run: cd data/cn && python3 newest.py >> "$GITHUB_OUTPUT" && cat "$GITHUB_OUTPUT"
+        # A new 101 day, or a new AramHex release (every 2-4 days, data/aramhex/fetch.py), triggers the refresh.
+        run: |
+          out=$(cd data/cn && python3 newest.py)
+          echo "$out"
+          ah=$(python3 data/aramhex/fetch.py --is-new || echo "new=false")
+          echo "aramhex: $ah"
+          if [ "$ah" = "new=true" ]; then echo "$out" | sed 's/^new=.*/new=true/' >> "$GITHUB_OUTPUT"; else echo "$out" >> "$GITHUB_OUTPUT"; fi
+          cat "$GITHUB_OUTPUT"
 
   refresh:
     needs: check
@@ -66,6 +75,15 @@ jobs:
       - name: Estimate how many games the stats come from (confidence intervals)
         continue-on-error: true
         run: python3 data/stats/games.py
+      - name: Download the AramHex dataset (real game counts; keep the last copy if it fails)
+        run: python3 data/aramhex/fetch.py || echo "::warning::AramHex not refreshed"
+      - name: Lay AramHex's real numbers over the 101 files (101 keeps skill orders, starters, six-item builds, teammates)
+        run: python3 data/aramhex/merge.py
+      - name: Refresh the Simulator's augment pools again with AramHex's augment lists
+        continue-on-error: true
+        run: |
+          python3 simulator/tools/build_augment_pools.py
+          python3 simulator/tools/strip_notes.py simulator/viewer/replay-data/pbe simulator/data/pbe/augment_pools.json
       - name: Rebuild champion pages with the new builds
         # a game-data download hiccup shouldn't hold back the stats themselves
         continue-on-error: true
@@ -94,7 +112,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/cn data/stats champions/data.js champions/i18n web/public/assets simulator/data/augment_pools.json simulator/data/pbe/augment_pools.json simulator/viewer/replay-data/pbe/augment_pools.json
+          git add data/cn data/stats data/aramhex data/fill/spells_games.json champions/data.js champions/i18n web/public/assets simulator/data/augment_pools.json simulator/data/pbe/augment_pools.json simulator/viewer/replay-data/pbe/augment_pools.json
           if git diff --cached --quiet; then
             echo "No new data"
           else
