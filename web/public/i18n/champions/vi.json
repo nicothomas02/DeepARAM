@@ -282,5 +282,6 @@
  "On-hit": "Hiệu ứng đòn đánh",
  "Fighter": "Đấu Sĩ",
  "Enchanter": "Phù Phép",
- "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Phép bổ trợ và thứ tự kỹ năng giống nhau ở mọi lối lên đồ: số liệu không tách theo lối lên đồ."
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Phép bổ trợ và thứ tự kỹ năng giống nhau ở mọi lối lên đồ: số liệu không tách theo lối lên đồ.",
+ "No ranked augment on this champion matches that name.": "Không có lõi nâng cấp được xếp hạng nào của tướng này khớp với tên đó."
 }
