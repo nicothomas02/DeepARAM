@@ -249,8 +249,9 @@
   // Items that grow with time or takedowns: worth buying first when they're in your build.
   const STACKING = new Set([6697, 3084, 3070, 3004, 3003, 3119]);
   const BACK_TO_BASICS = new Set([1004, 4]);
-  // Champions whose R has a passive that works once R has a point, so Back to Basics still levels R (Nico 2026-11-20).
-  const R_PASSIVE = new Set(["ryze", "pantheon", "olaf", "reksai", "xinzhao", "masteryi", "teemo", "jax", "shyvana", "gnar", "sona", "belveth"]);
+  // Champions whose R has a passive that works once R has a point (from Riot's R descriptions), so Back to Basics
+  // still levels R; for the rest it takes R's only use away (Nico 2026-11-20).
+  const R_PASSIVE = new Set(["ambessa", "annie", "belveth", "blitzcrank", "fiora", "galio", "gnar", "jax", "kayn", "khazix", "lux", "masteryi", "mel", "nidalee", "olaf", "pantheon", "reksai", "rengar", "ryze", "shyvana", "sona", "syndra", "teemo", "xinzhao", "zaahen"]);
 
   // The build to follow: the champion's usual one, or, once the augments you took point to another of its build
   // styles (on-hit, crit, AP...), that style's build from the same public stats.
