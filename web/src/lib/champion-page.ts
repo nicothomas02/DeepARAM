@@ -64,6 +64,9 @@ type Builds = {
 /** Tear items: they turn into Muramana / Seraph's Embrace, which the feed's six-item builds never list. */
 const TEAR_ITEMS = new Set([3003, 3004]);
 const TEAR_CORE_SHARE = 0.3;
+/** An earlier core still holds when each of its items is in at least this share of today's six-item builds. */
+const EARLIER_CORE_SUPPORT = 0.5;
+const START_FOLLOWING = 0.75;
 
 type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
 /** data/estimates/boots_slot.json: per champion [core items bought before the boots or null, boots buyers]. */
@@ -272,7 +275,14 @@ export function championPage(alias: string): ChampionPage | null {
     const tear = orderRows.filter((r) => r.items.some((i) => TEAR_ITEMS.has(i % 10000))).reduce((t, r) => t + r.weight, 0);
     return all ? tear / all : 0;
   })();
-  const coreFromEarlier = !early && !!b?.derived?.includes("items.core") && tearShare >= TEAR_CORE_SHARE;
+  // Cores rebuilt from six-item builds take the three items most often finished, which favours late items (Lord
+  // Dominik's) over the one bought first (Yunara's Yun Tal, Nico 2026-11-21). So an earlier core from the feed itself, in
+  // buying order, stays when today's six-item builds still back every one of its items.
+  const fullWeight = full.reduce((t, r) => t + r.pickRate, 0);
+  const inFull = (i: number) =>
+    TEAR_ITEMS.has(i % 10000) ? 1 : (fullWeight ? full.filter((r) => r.items.includes(i)).reduce((t, r) => t + r.pickRate, 0) / fullWeight : 0);
+  const supported = (items: number[]) => items.every((i) => inFull(i) >= EARLIER_CORE_SUPPORT);
+  const derivedCore = !early && !!b?.derived?.includes("items.core");
   const earlierCores = () => {
     const m = new Map<string, { items: number[]; pick: number; wins: number }>();
     for (const r of orderRows) {
@@ -284,7 +294,13 @@ export function championPage(alias: string): ChampionPage | null {
     }
     return [...m.values()].map((e) => ({ items: e.items, ...rated(e.wins / e.pick, e.pick) })).filter((r) => r.items.every((i) => all.has(i)));
   };
-  const scoredCore = followed(scoreItems(coreFromEarlier ? earlierCores() : rows(b?.items?.core)));
+  const earlierTop = derivedCore ? [...earlierCores()].sort((x, y) => y.pickRate - x.pickRate)[0] : undefined;
+  const coreFromEarlier =
+    derivedCore && (tearShare >= TEAR_CORE_SHARE || (!!earlierTop && supported(earlierTop.items)));
+  const scoredCore = followed(
+    // Ranked by their own numbers from those games: today's six-item builds can't say which items came first.
+    scoreItems(coreFromEarlier ? earlierCores().filter((r) => tearShare >= TEAR_CORE_SHARE || supported(r.items)) : rows(b?.items?.core)),
+  );
   const withBootsCore = noBoots ? scoredCore : withBoots(scoredCore, full, boots[0], timing, playedSlot ?? undefined);
   // Items in the order players buy them (Nico, 2026-11-20): the feed's cores listed in buying order (lib/build-plan.ts
   // buyingOrder), on top of the starting items: a core opens with the item its starter builds into (Cloak + Tome:
@@ -292,19 +308,27 @@ export function championPage(alias: string): ChampionPage | null {
   // Guardian's Blade). A finished item can't be afforded at the start, so a row holding one is noise.
   const startRows = scoreItems(rows(b?.items?.starting), FIT.items);
   const affordable = startRows.filter((r) => !r.items.some((i) => itemTier(i) === "legendary"));
-  const scoredStart = affordable.length ? affordable : startRows;
+  // A starter needs a strong following to lead: a rare start that builds into the first item shouldn't outrank one
+  // most players buy (Lost Chapter on Ahri). Starts are close in cost and their win rates mostly reflect who buys them,
+  // so the card takes a start with at least START_FOLLOWING of the most common one's pick rate; checked against a much
+  // larger sample 2026-11-21: same start as it on 91 of 173 champions, from 20.
+  const scoredStart = followed(affordable.length ? affordable : startRows);
+  const startTop = Math.max(0, ...scoredStart.map((r) => r.pickRate));
+  const startFollowed = (r: ItemRow) => r.pickRate >= START_FOLLOWING * startTop;
   const standalone = (i: number) => ["starter", "consumable"].includes(itemTier(i));
   const withBootsOf = (c: ItemRow, its: number[]) => [...its, ...(c.boots !== undefined ? [c.boots] : [])];
   const fits = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items), itemParts, standalone);
   const fitsFirst = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items.slice(0, 1)), itemParts, standalone);
   const isBoots = (i: number) => itemTier(i) === "boots";
   const core = withBootsCore.map((c) => {
-    const st = scoredStart.find(fits(c));
+    const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find(fits(c));
     const { items } = buyingOrder(st ? startFirst(c.items, st.items, itemParts, standalone) : c.items, orderRows);
     return { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
   });
   const starting = core[0]
-    ? [fitsFirst(core[0]), fits(core[0]), () => true].reduce<ItemRow[]>((out, ok) => [...out, ...scoredStart.filter((r) => ok(r) && !out.includes(r))], [])
+    ? [startFollowed, () => true]
+        .flatMap((tier) => [fitsFirst(core[0]), fits(core[0]), () => true].map((ok) => (r: ItemRow) => tier(r) && ok(r)))
+        .reduce<ItemRow[]>((out, ok) => [...out, ...scoredStart.filter((r) => ok(r) && !out.includes(r))], [])
     : scoredStart;
   const page = {
     winRate: base,
