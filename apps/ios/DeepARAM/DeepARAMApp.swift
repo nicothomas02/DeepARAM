@@ -1,6 +1,7 @@
 import DeepARAMKit
 import DeepARAMPad
 import SwiftUI
+import WidgetKit
 
 @main
 struct DeepARAMApp: App {
@@ -19,7 +20,11 @@ struct DeepARAMApp: App {
         .commands { PadCommands() }
         .onChange(of: scenePhase) { _, phase in
             if phase == .background { PatchAlerts.shared.scheduleRefresh() }
-            if phase == .active { Task { await PatchAlerts.shared.checkNow() } }
+            if phase == .active {
+                Task { await PatchAlerts.shared.checkNow() }
+                // The widgets pick up games saved since they last refreshed.
+                if WidgetStore.isConnected { WidgetCenter.shared.reloadAllTimelines() }
+            }
         }
 
         // iPad: a champion page in a window of its own (Stage Manager, or Split View beside another app).

@@ -20,6 +20,19 @@ matching deeparam.com page, so every site update reaches the app without a new r
 - Riot's "not endorsed" notice is at the bottom of More.
 - **Apple Watch:** the `DeepARAMWatch` target (sources in `apps/watchos`) is embedded, so the watch app installs with the phone app. See `apps/watchos/README.md`.
 
+- **Widgets** (`DeepARAMWidgets`, an app extension embedded in the app): three widgets for between games, made for
+  StandBy's Modular face on a stand (This week large, the other two small) and fine on the Home Screen too.
+  - **This week** (small, medium, large): record, a win bar, and three leading indicators against your own previous
+    60 days: deaths per 10 minutes, damage to champions per minute, and share of your team's kills. Large adds the tip.
+  - **Next game** (small, medium, Lock Screen): one thing to work on, the indicator furthest below your usual.
+  - **Your champions** (small, medium): the three champions you played most in the last 30 days, with their DeepScore
+    tier on the live patch, how it moved since last patch, and Riot's Mayhem balance lines for them.
+  The data is private. More > iPhone widgets trades the app's sign-in (the web view's cookies) for a widget token,
+  kept in the keychain and shared with the extension through the App Group `group.com.deeparam.app`. The widgets read
+  `https://deeparam.com/api/widget` with it (`web/src/app/api/widget/route.ts`, `web/src/lib/widget-summary.ts`).
+  Only the site owner's account can connect, since it's the owner's own games. Disconnect deletes the token on the site.
+  The first build with your team in Xcode registers the App Group for both `com.deeparam.app` and `com.deeparam.app.widgets`.
+
 Shared code (tabs, web view, offline copies, patch checks) lives in `apps/shared/DeepARAMKit` so the iPad and Mac apps use the same pieces.
 
 ## Run it

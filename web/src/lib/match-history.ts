@@ -96,6 +96,13 @@ export async function historyGames(account: string): Promise<HistoryGame[]> {
   return results.map((r) => JSON.parse(r.data) as HistoryGame);
 }
 
+/** The account's games played after a time (ms), newest first: what the iPhone widgets read (/api/widget). */
+export async function historyGamesSince(account: string, since: number): Promise<HistoryGame[]> {
+  const d = await table();
+  const { results } = await d.prepare("SELECT data FROM account_games WHERE account = ? AND played > ? ORDER BY played DESC").bind(account, since).all<{ data: string }>();
+  return results.map((r) => JSON.parse(r.data) as HistoryGame);
+}
+
 export async function removeHistory(account: string) {
   await (await table()).prepare("DELETE FROM account_games WHERE account = ?").bind(account).run();
 }
