@@ -55,7 +55,8 @@ def test_spell_model_matches_features():
 
 def test_estimates_file_shape():
     d = load_json("data/fill/spells_games.json")
-    assert d["estimated"] is True and d["total_games"] > 0
+    # Real spell pairs from AramHex (data/aramhex/merge.py) once it has the live patch, else the estimate.
+    assert (d["estimated"] is True or d.get("source") == "aramhex") and d["total_games"] > 0
     for c in d["champions"].values():
         assert c["games"] > 0
         for s in c["spells"]:
@@ -63,5 +64,7 @@ def test_estimates_file_shape():
             assert len(set(s["ids"])) == 2 and m.EXHAUST not in s["ids"]
             # Win rates show only for pairs with enough outside games behind them (build_estimates.MIN_WIN_GAMES).
             assert s["win_rate"] is None or 0 < s["win_rate"] < 1
+            if not d["estimated"]:
+                assert s["win_rate"] is not None and s["games"] > 0
         # each pick rate is rounded to 4 decimals, so the sum can overshoot by half a unit per spell
         assert sum(s["pick_rate"] for s in c["spells"]) <= 1 + 0.00005 * len(c["spells"])
