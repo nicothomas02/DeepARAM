@@ -133,7 +133,7 @@ pub fn halve(px: &[u8], w: usize, h: usize) -> (Vec<u8>, usize, usize) {
 /// An all-dark copy: the game is in exclusive Fullscreen (or still loading), so there's nothing to read.
 #[cfg_attr(not(windows), allow(dead_code))]
 pub fn is_blank(px: &[u8]) -> bool {
-    px.chunks_exact(4).step_by(97).all(|p| p[0] < 12 && p[1] < 12 && p[2] < 12)
+    px.as_chunks::<4>().0.iter().step_by(97).all(|p| p[0] < 12 && p[1] < 12 && p[2] < 12)
 }
 
 /// Where League's game window is on screen: (left, top, width, height) of its picture, if it's open.
