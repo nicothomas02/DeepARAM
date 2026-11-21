@@ -25,6 +25,7 @@
   .spell .icon { width: 24px; height: 24px; }
   .augs { display: grid; gap: 4px; }
   .aug { display: flex; align-items: center; gap: 8px; }
+  .aug .ds { margin-left: auto; opacity: 0.7; font-variant-numeric: tabular-nums; font-size: 11px; }
   .aug .icon { width: 26px; height: 26px; border-radius: 50%; }
   .aug.prismatic .icon { box-shadow: 0 0 0 2px var(--prismatic); }
   .aug.gold .icon { box-shadow: 0 0 0 2px var(--gold); }
@@ -142,6 +143,11 @@
         const row = el("div", `aug ${rarity}`);
         row.dataset.id = (a.icon.match(/(\d+)\.\w+$/) || [])[1] || "";
         row.append(img(site, a.icon, ""), el("span", "", a.name));
+        // DeepScore on this champion, as on the site (S from 70, A 59, B 44, C 32).
+        if (typeof a.deepScore === "number") {
+          const ds = a.deepScore, tier = ds >= 70 ? "S" : ds >= 59 ? "A" : ds >= 44 ? "B" : ds >= 32 ? "C" : "D";
+          row.append(el("span", "ds", `${tier} ${ds}`));
+        }
         // During a pick the panel takes clicks: clicking the augment you took marks it (again to undo).
         row.addEventListener("click", () => {
           const id = Number(row.dataset.id);

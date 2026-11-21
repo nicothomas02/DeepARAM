@@ -10,7 +10,8 @@ import { readRepoJson } from "./repo-data";
 export type DamageTypes = {
   /** alias -> the share of the champion's damage that's magic, 0 to 1 (Data Dragon's attack and magic ratings) */
   champions: Record<string, number>;
-  /** item id (last four digits, so Mayhem's copies match) -> what it gives: "ad", "ap", "armor", "mr" */
+  /** item id (last four digits, so Mayhem's copies match) -> what it gives: "ad", "ap", "armor", "mr", "crit", "as",
+   *  "haste", "armorpen", "magicpen" */
   items: Record<string, string[]>;
   /** boots ids (last four digits), to tell whether the player has bought boots yet */
   boots: number[];
@@ -33,6 +34,11 @@ const KIND: [string, string[]][] = [
   ["ap", ["SpellDamage", "MagicPenetration"]],
   ["armor", ["Armor"]],
   ["mr", ["SpellBlock"]],
+  ["crit", ["CriticalStrike"]],
+  ["as", ["AttackSpeed"]],
+  ["haste", ["AbilityHaste", "CooldownReduction"]],
+  ["armorpen", ["ArmorPenetration"]],
+  ["magicpen", ["MagicPenetration"]],
 ];
 
 export function damageTypes(): DamageTypes {

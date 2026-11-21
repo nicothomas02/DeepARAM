@@ -32,7 +32,8 @@ export type QuickBuild = {
   rush: Named[];
   /** "With this augment, buy this item first", as on the champion page's card. */
   swaps: { augment: Named; item: Named }[];
-  augments: Record<Rarity, Named[]>;
+  /** Top augments per rarity, each with its DeepScore on this champion when there's an estimate. */
+  augments: Record<Rarity, (Named & { deepScore?: number })[]>;
 };
 
 export function quickBuilds(): QuickBuild[] {
@@ -62,16 +63,17 @@ export function quickBuilds(): QuickBuild[] {
       return item && a ? [{ augment: { name: a.name, icon: `/icons/augments/${a.id}.webp` }, item }] : [];
     });
     // The site's one augment ranking for this champion (lib/champion-augments.ts), as on its page.
-    const byScore = [...p.augments].sort(augmentOrder(augmentScores(id)));
+    const deep = augmentScores(id);
+    const byScore = [...p.augments].sort(augmentOrder(deep));
     const augments = Object.fromEntries(
       RARITIES.map((r) => [
         r,
         byScore
           .filter((a) => a.rarity === r)
           .slice(0, 3)
-          .map((a) => ({ name: a.name, icon: `/icons/augments/${a.id}.webp` })),
+          .map((a) => ({ name: a.name, icon: `/icons/augments/${a.id}.webp`, deepScore: deep.get(a.id) })),
       ]),
-    ) as Record<Rarity, Named[]>;
+    ) as QuickBuild["augments"];
     return [
       {
         id,
