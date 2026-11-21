@@ -268,5 +268,13 @@
  "Tied": "Empate",
  "Rush": "Prioriza",
  "With {augment}: buy {item} first": "Con {augment}: compra {item} primero",
- "Then": "Después"
+ "Then": "Después",
+ "{n} pts boost": "{n} pts de mejora",
+ "Rank by": "Ordenar por",
+ "Own power": "Poder propio",
+ "Combo potential": "Potencial de combo",
+ "With combos": "Con combos",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Estimado: ordenado por la mejora de cada aumento más parte de su mejor combo confirmado mientras queden elecciones.",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Estimado: aún puede llegar un compañero confirmado; mientras queden elecciones cuenta parte de los puntos de la pareja.",
+ "Combos with {name} {n}": "Combo con {name} {n}"
 }

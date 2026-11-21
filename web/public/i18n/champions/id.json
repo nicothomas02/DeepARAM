@@ -268,5 +268,13 @@
  "Tied": "Seri",
  "Rush": "Utamakan",
  "With {augment}: buy {item} first": "Dengan {augment}: beli {item} dulu",
- "Then": "Lalu"
+ "Then": "Lalu",
+ "{n} pts boost": "naik {n} poin",
+ "Rank by": "Urutkan menurut",
+ "Own power": "Kekuatan sendiri",
+ "Combo potential": "Potensi kombo",
+ "With combos": "Dengan kombo",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Perkiraan: diurutkan menurut boost tiap augment ditambah sebagian kombo terkonfirmasi terbaiknya selama masih ada pilihan.",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Perkiraan: pasangan terkonfirmasi masih bisa datang; selama masih ada pilihan, sebagian poin pasangan dihitung.",
+ "Combos with {name} {n}": "Kombo dengan {name} {n}"
 }

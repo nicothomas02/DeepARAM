@@ -268,5 +268,13 @@
  "Tied": "Berabere",
  "Rush": "Önce",
  "With {augment}: buy {item} first": "{augment} ile: önce {item} alın",
- "Then": "Sonra"
+ "Then": "Sonra",
+ "{n} pts boost": "{n} puan artış",
+ "Rank by": "Sırala",
+ "Own power": "Kendi gücü",
+ "Combo potential": "Kombo potansiyeli",
+ "With combos": "Kombolarla",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Tahmini: her güçlendirmenin artışı ve seçim kaldıkça en iyi onaylı kombosunun bir kısmıyla sıralanır.",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Tahmini: onaylı bir eş hâlâ gelebilir; seçim kaldıkça çiftin puanlarının bir kısmı sayılır.",
+ "Combos with {name} {n}": "{name} ile kombo {n}"
 }

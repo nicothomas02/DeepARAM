@@ -396,6 +396,10 @@
 .cp-row[data-cols="2"] {
   grid-template-columns: 2.6rem minmax(0, 1fr) repeat(2, 5.4rem);
 }
+.cp-th[data-cols="4"],
+.cp-row[data-cols="4"] {
+  grid-template-columns: 2.6rem minmax(0, 1fr) repeat(4, 5.4rem);
+}
 /* Teammates: the numbers sit right beside the champion instead of at the far edge. */
 @media (min-width: 561px) {
   #mates .cp-th,
@@ -812,6 +816,20 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   .cp-th[data-cols="2"],
   .cp-row[data-cols="2"] {
     grid-template-columns: 2rem minmax(0, 1fr) repeat(2, 3.9rem);
+  }
+  /* Phones keep DeepScore, the boost and pick rate; the plain win rate gives way so the items have room. */
+  .cp-th[data-cols="4"],
+  .cp-row[data-cols="4"] {
+    grid-template-columns: 2rem minmax(0, 1fr) repeat(3, 3.9rem);
+  }
+  .cp-th[data-cols="4"] > :nth-child(5),
+  .cp-row[data-cols="4"] > :nth-child(5) {
+    display: none;
+  }
+  /* A build of four items with boots wraps onto a second line instead of running under the numbers. */
+  .cp-row[data-cols="4"] .cp-what {
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
   }
   .cp-th {
     padding-block: 0.4rem;

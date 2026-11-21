@@ -268,5 +268,13 @@
  "Tied": "Remis",
  "Rush": "Najpierw",
  "With {augment}: buy {item} first": "Z {augment}: kup najpierw {item}",
- "Then": "Potem"
+ "Then": "Potem",
+ "{n} pts boost": "{n} pkt wzrostu",
+ "Rank by": "Sortuj według",
+ "Own power": "Własna siła",
+ "Combo potential": "Potencjał kombinacji",
+ "With combos": "Z kombinacjami",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Szacunek: według wzmocnienia każdego ulepszenia plus części jego najlepszej potwierdzonej kombinacji, póki zostają wybory.",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Szacunek: potwierdzony partner może jeszcze przyjść; póki zostają wybory, liczy się część punktów pary.",
+ "Combos with {name} {n}": "Kombinacja z {name} {n}"
 }

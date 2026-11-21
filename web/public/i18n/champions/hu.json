@@ -268,5 +268,13 @@
  "Tied": "Holtverseny",
  "Rush": "Először",
  "With {augment}: buy {item} first": "{augment} mellett: először {item}",
- "Then": "Utána"
+ "Then": "Utána",
+ "{n} pts boost": "{n} pont növelés",
+ "Rank by": "Rendezés",
+ "Own power": "Saját erő",
+ "Combo potential": "Kombó potenciál",
+ "With combos": "Kombókkal",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Becslés: minden kiegészítő növelése, plusz a legjobb megerősített kombója egy része, amíg van még választás.",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Becslés: egy megerősített társ még jöhet; amíg van választás, a pár pontjainak egy része számít.",
+ "Combos with {name} {n}": "Kombó: {name} {n}"
 }

@@ -154,5 +154,6 @@
  "Bias %": "Bias %",
  "Order within role": "Urutan dalam peran",
  "Real ÷ predicted": "Asli ÷ prediksi",
- "Find an item": "Cari item"
+ "Find an item": "Cari item",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Perkiraan. Seberapa besar item ini menaikkan win rate champion yang membangunnya: dasar DeepScore-nya."
 }

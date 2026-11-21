@@ -154,5 +154,6 @@
  "Bias %": "Độ lệch %",
  "Order within role": "Thứ tự trong vai trò",
  "Real ÷ predicted": "Thật ÷ dự đoán",
- "Find an item": "Tìm trang bị"
+ "Find an item": "Tìm trang bị",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Ước tính. Mức nó tăng tỉ lệ thắng của các tướng lên đồ này: DeepScore bắt đầu từ đây."
 }

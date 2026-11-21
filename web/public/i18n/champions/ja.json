@@ -268,5 +268,13 @@
  "Tied": "互角",
  "Rush": "先行",
  "With {augment}: buy {item} first": "{augment}があれば：{item}を最初に",
- "Then": "その後"
+ "Then": "その後",
+ "{n} pts boost": "{n}ポイント上昇",
+ "Rank by": "並び替え",
+ "Own power": "単体の強さ",
+ "Combo potential": "コンボの可能性",
+ "With combos": "コンボ込み",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "推定：各オーグメントの上昇値に、残りの選択がある間は確認済みの最良コンボの一部を加えて並べています。",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "推定：確認済みの相方がまだ来る可能性があり、残りの選択がある間はペアのポイントの一部を加えます。",
+ "Combos with {name} {n}": "{name}とコンボ {n}"
 }

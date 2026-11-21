@@ -154,5 +154,6 @@
  "Bias %": "Απόκλιση %",
  "Order within role": "Σειρά στον ρόλο",
  "Real ÷ predicted": "Πραγματικό ÷ πρόβλεψη",
- "Find an item": "Βρες αντικείμενο"
+ "Find an item": "Βρες αντικείμενο",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Εκτίμηση. Πόσο ανεβάζει το ποσοστό νικών των champions που το φτιάχνουν: από εδώ ξεκινά το DeepScore του."
 }

@@ -268,5 +268,13 @@
  "Tied": "Наравне",
  "Rush": "Сначала",
  "With {augment}: buy {item} first": "С {augment}: сначала купите {item}",
- "Then": "Затем"
+ "Then": "Затем",
+ "{n} pts boost": "прирост {n} п.",
+ "Rank by": "Сортировать по",
+ "Own power": "Собственная сила",
+ "Combo potential": "Потенциал комбо",
+ "With combos": "С комбо",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Оценка: по приросту каждого усиления плюс часть его лучшего подтверждённого комбо, пока остаются выборы.",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Оценка: подтверждённый партнёр ещё может выпасть; пока остаются выборы, учитывается часть очков пары.",
+ "Combos with {name} {n}": "Комбо с {name} {n}"
 }

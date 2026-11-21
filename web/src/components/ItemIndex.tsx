@@ -26,6 +26,8 @@ type Item = {
   deepScore: number | null;
   /** Estimated (lib/estimates.ts): win rate, share of builds, and whether an augment can grant it. */
   winRate: number | null;
+  /** How much it raises the win rate of the champions who build it: what its DeepScore starts from. */
+  lift: number | null;
   buildShare: number | null;
   granted: boolean;
   /** Estimated share of its builds at the 1st, 2nd and 3rd item slot. */
@@ -66,6 +68,7 @@ const COLUMNS: Column[] = [
   { key: "name", label: "Item", format: "item", iconKey: "icon", hrefKey: "href" },
   { key: "type", label: "Type", format: "text", sortKey: "typeOrder", phone: "hide" },
   { key: "deepScore", label: "DeepScore", format: "deepscore", hint: ITEM_TIER_DEEPSCORE_HELP },
+  { key: "lift", label: "Win rate boost", format: "pts", hint: "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from." },
   { key: "winRate", label: "Est. win rate", format: "pct", hint: "Estimated win rate of the champions who build it." },
   { key: "buildShare", label: "In builds", format: "pct", hint: "Estimated share of builds that include it.", phone: "wide" },
   { key: "cost", label: "Cost", format: "int", phone: "hide" },
@@ -129,6 +132,7 @@ export default function ItemIndex({ items }: { items: Item[] }) {
         typeOrder: TIERS.length - at,
         deepScore: i.deepScore,
         winRate: i.winRate,
+        lift: i.lift,
         buildShare: i.buildShare,
         cost: i.cost || null,
       };

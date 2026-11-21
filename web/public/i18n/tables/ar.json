@@ -154,5 +154,6 @@
  "Bias %": "الانحياز %",
  "Order within role": "الترتيب داخل الدور",
  "Real ÷ predicted": "الحقيقي ÷ المتوقع",
- "Find an item": "ابحث عن عنصر"
+ "Find an item": "ابحث عن عنصر",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "تقديري. مقدار ما يرفعه من نسبة فوز الأبطال الذين يبنونه: ومنه يبدأ حساب DeepScore."
 }

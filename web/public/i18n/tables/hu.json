@@ -154,5 +154,6 @@
  "Bias %": "Torzítás %",
  "Order within role": "Sorrend a szerepen belül",
  "Real ÷ predicted": "Valódi ÷ becsült",
- "Find an item": "Tárgy keresése"
+ "Find an item": "Tárgy keresése",
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Becslés. Mennyivel növeli az azt építő hősök győzelmi arányát: ebből indul a DeepScore-ja."
 }

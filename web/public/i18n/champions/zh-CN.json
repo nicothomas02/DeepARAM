@@ -268,5 +268,13 @@
  "Tied": "持平",
  "Rush": "优先",
  "With {augment}: buy {item} first": "有 {augment} 时：先买 {item}",
- "Then": "然后"
+ "Then": "然后",
+ "{n} pts boost": "提升 {n} 个百分点",
+ "Rank by": "排序方式",
+ "Own power": "自身强度",
+ "Combo potential": "组合潜力",
+ "With combos": "含组合",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "估算：按每个强化的提升排序，并在还有选择时加上其最佳已确认组合的一部分。",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "估算：已确认的搭档仍可能出现；还有选择时计入该组合分数的一部分。",
+ "Combos with {name} {n}": "与{name}组合 {n}"
 }

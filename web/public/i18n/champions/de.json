@@ -268,5 +268,13 @@
  "Tied": "Gleichauf",
  "Rush": "Zuerst",
  "With {augment}: buy {item} first": "Mit {augment}: zuerst {item} kaufen",
- "Then": "Danach"
+ "Then": "Danach",
+ "{n} pts boost": "{n} Pkt. Boost",
+ "Rank by": "Sortieren nach",
+ "Own power": "Eigene Stärke",
+ "Combo potential": "Combo-Potenzial",
+ "With combos": "Mit Combos",
+ "Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.": "Geschätzt: sortiert nach dem Boost jeder Augmentierung plus einem Teil ihrer besten bestätigten Combo, solange Wahlen übrig sind.",
+ "Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.": "Geschätzt: Ein bestätigter Partner kann noch kommen; solange Wahlen übrig sind, zählt ein Teil der Punkte des Paars.",
+ "Combos with {name} {n}": "Combo mit {name} {n}"
 }
