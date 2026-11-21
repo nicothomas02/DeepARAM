@@ -1,627 +1,627 @@
 {
-  "id": "trundle-skibidi-pillar",
-  "title": "Skibidi Pillar",
-  "champion": "Trundle",
-  "champion_name": "Trundle",
-  "chef": "2026-11-18",
-  "why": "Trundle quits being a melee bruiser and plays like a mage: every Pillar of Ice heals him, hurts everything nearby and launches bees, and every heal zaps the closest enemy champion.",
-  "play": "Max E first. Drop pillars on the enemy carry, then step back and let the regen do the poking. Never press Q, never right-click.",
+  "id": "lulu-whimsy-locked-in",
+  "title": "Whimsy Locked In",
+  "champion": "Lulu",
+  "champion_name": "Lulu",
+  "chef": "2026-11-20",
+  "why": "Lulu stops shielding anyone and presses Whimsy twice a second until the enemy team is a petting zoo.",
+  "play": "Max Whimsy first and leave Glitterlance at one point: it's 7 seconds at every rank and cheapest there. Whimsy an enemy, cast anything else, Whimsy the next one, punch a squirrel while you wait, and press Wild Growth on yourself the moment it's up.",
   "items": [
-    "Spirit Visage",
-    "Warmog's Armor",
-    "Rylai's Crystal Scepter",
-    "Cosmic Drive",
-    "Redemption",
+    "Seraph's Embrace",
+    "Malignance",
+    "Blackfire Torch",
+    "Frozen Heart",
+    "Essence Reaver",
     "Ionian Boots of Lucidity"
   ],
   "core": 4,
-  "tagline": "Every pillar is a snack. Every snack hits the nearest enemy.",
+  "tagline": "One enemy is a squirrel, then the other three, and the fifth one is just watching",
   "how": [
     [
-      "Pillar of Ice",
-      "Knocks back whoever stands on it and slows everyone nearby. It normally deals no damage and never heals."
+      "Whimsy",
+      "Turns an enemy into a harmless critter for 2 seconds at max rank, on an 18-second cooldown. That long cooldown is the whole trick."
     ],
     [
       "Augments",
-      "Ravenous Bind and Terrain'd, both rolled on Pillar of Ice, make each knock heal Trundle and the pillar hurt everything around it. That damage counts as an ability hit, so BEES!!! keep launching hives off it. Circle of Death turns 70% of every heal and all his Health Regen into magic damage on the nearest enemy champion."
+      "Overloaded, rolled on Whimsy, resets it every time she casts Glitterlance, Help, Pix! or Wild Growth, and every Whimsy makes Archmage hand 5.4 seconds (30% of its 18) to one of those three. Ultimate Awakening refreshes Q and E and adds 300 haste after each Wild Growth, and Mystic Punch takes 1.25 seconds off everything per attack."
     ],
     [
       "Items",
-      "Spirit Visage boosts every heal and Rylai's slows everyone the pillar hurts. Rylai's, Cosmic Drive and Warmog's push his bonus Health past 2,000, so Warmog's regenerates him whenever he goes 8 seconds untouched, and that regen keeps zapping the nearest enemy. Redemption heals him again from far away."
+      "Seraph's Embrace, Malignance, Blackfire Torch and Frozen Heart are the mana bar, because four squirrels are expensive. Essence Reaver pays mana back on the attack after each cast."
     ]
   ],
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/48.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/117.png",
   "augments": [
     {
-      "name": "Ravenous Bind",
-      "rarity": "Gold",
-      "core": true,
-      "text": "Immobilizing or Grounding enemy champions with the chosen ability deals extra damage and heals you.",
-      "icon": "/embed/fun/cook-builds/icons/augments/ravenous-bind.png",
-      "id": 2077
-    },
-    {
-      "name": "Circle of Death",
+      "name": "Overloaded",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Your healing and Health Regen deal 70% of the value magic damage to the nearest enemy champion.",
-      "icon": "/embed/fun/cook-builds/icons/augments/circle-of-death.png",
-      "id": 1015
+      "text": "Using another Ability resets the cooldown of the chosen ability.",
+      "icon": "/embed/fun/cook-builds/icons/augments/overloaded.png",
+      "id": 2123
     },
     {
-      "name": "Terrain'd",
-      "rarity": "Gold",
+      "name": "Archmage",
+      "rarity": "Prismatic",
       "core": true,
-      "text": "Your chosen ability deals damage in an area around it.",
-      "icon": "/embed/fun/cook-builds/icons/augments/terrain-d.png",
-      "id": 2129
+      "text": "Casting a spell refunds another random spell's cost by 30% of the original spell's Cooldown.",
+      "icon": "/embed/fun/cook-builds/icons/augments/archmage.png",
+      "id": 2087
     },
     {
-      "name": "BEES!!!",
-      "rarity": "Gold",
+      "name": "Ultimate Awakening",
+      "rarity": "Prismatic",
       "core": true,
-      "text": "Periodically, your next Ability hit against an enemy champion launches a hive of Bees that explodes, Slowing and dealing magic damage over a short duration. Bees apply On-Hit effects.",
-      "icon": "/embed/fun/cook-builds/icons/augments/bees.png",
-      "id": 3086
+      "text": "Gain 30 Ultimate Ability Haste. After using your Ultimate, refresh your basic abilities and gain 300 basic ability haste for 15s. (20s Cooldown)",
+      "icon": "/embed/fun/cook-builds/icons/augments/ultimate-awakening.png",
+      "id": 1349
+    },
+    {
+      "name": "Mystic Punch",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
+      "icon": "/embed/fun/cook-builds/icons/augments/mystic-punch.png",
+      "id": 1058
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-18",
-  "share_image": "/embed/fun/cook-builds/share/trundle-skibidi-pillar.png",
+  "share_href": "/kitchen/2026-11-20",
+  "share_image": "/embed/fun/cook-builds/share/lulu-whimsy-locked-in.png",
   "item_ids": [
-    3065,
-    3083,
-    3116,
-    4629,
-    3107,
+    3040,
+    3118,
+    2503,
+    3110,
+    3508,
     3158
   ],
   "i18n": {
     "ar": {
-      "title": "عمود سكيبيدي",
-      "why": "يتوقف ترندل عن كونه مقاتلًا قريبًا ويلعب كساحر: كل عمود الجليد يشفيه ويؤذي كل ما حوله ويطلق النحل، وكل شفاء يصعق أقرب بطل عدو.",
-      "play": "ارفع E أولًا. ضع الأعمدة على حامل الفريق المعادي، ثم تراجع ودع التجدد يقوم بالمناوشة. لا تضغط Q أبدًا، ولا تنقر بالزر الأيمن أبدًا.",
-      "tagline": "كل عمود وجبة خفيفة. وكل وجبة خفيفة تضرب أقرب عدو.",
+      "title": "النزوة مقفلة",
+      "why": "لولو توقف حماية الجميع وتضغط النزوة مرتين كل ثانية حتى يتحول الفريق المعادي إلى حديقة حيوانات للمداعبة.",
+      "play": "ارفع النزوة أولًا واترك الرمح اللامع عند نقطة واحدة: مدته 7 ثوانٍ في كل رتبة وهو الأرخص هناك. استخدم النزوة على عدو، ثم أي مهارة أخرى، ثم النزوة على التالي، والكم سنجابًا أثناء الانتظار، واضغط النمو المفرط على نفسك لحظة جاهزيته.",
+      "tagline": "عدو واحد يصبح سنجابًا، ثم الثلاثة الآخرون، والخامس يتفرج فقط",
       "how": [
         [
-          "عمود الجليد",
-          "يدفع من يقف عليه ويبطئ كل من حوله. عادةً لا يسبب أي ضرر ولا يشفي أبدًا."
+          "النزوة",
+          "تحوّل عدوًا إلى مخلوق صغير مسالم لمدة ثانيتين في أعلى رتبة، مع فترة تبريد 18 ثانية. فترة التبريد الطويلة هي سر اللعبة كلها."
         ],
         [
           "التعزيزات",
-          "القيود المفترسة وسلاح التضاريس، وكلاهما على عمود الجليد، يجعلان كل دفعة تشفي ترندل والعمود يؤذي كل ما حوله. هذا الضرر يُحسب إصابة بقدرة، لذا يطلق النحل!!! الخلايا باستمرار. حلقة الموت تحوّل 70% من كل شفاء وكل تجدد الصحة لديه إلى ضرر سحري على أقرب بطل عدو."
+          "الحمل الزائد، عند اختياره على النزوة، يعيد تبريدها في كل مرة تستخدم فيها الرمح اللامع أو النجدة يا بيكس! أو النمو المفرط، وكل نزوة تجعل كبير السحرة يمنح 5.4 ثانية (30% من 18) لواحدة من هذه الثلاث. الصحوة الخارقة تجدد Q وE وتضيف 300 تسارع مهارات بعد كل نمو مفرط، ولكمة الغموض تخصم 1.25 ثانية من كل شيء مع كل ضربة."
         ],
         [
           "العتاد",
-          "وجه الروح يعزز كل شفاء، وصولجان كريستال رايلاي يبطئ كل من يؤذيه العمود. رايلاي والحافز الكوني ودرع وارموغ ترفع صحته الإضافية فوق 2,000، لذا يجدده درع وارموغ كلما مرت 8 ثوانٍ دون أن يُصاب، ويستمر هذا التجدد في ضرب أقرب عدو. الافتداء يشفيه مرة أخرى من بعيد."
+          "عناق سيراف والخبث ومشعل النار السوداء والقلب المتجمد هي شريط المانا، لأن أربعة سناجب غالية الثمن. ناهب الجوهر يعيد المانا في الضربة التي تلي كل تفعيل."
         ]
       ],
       "augments": [
-        "شلّ حركة أبطال الأعداء أو تثبيتهم بالأرض بالقدرة المختارة يُلحق ضررًا إضافيًا ويشفيك.",
-        "علاجك وتجدد صحتك يُلحقان ضررًا سحريًا بنسبة 70% من القيمة بأقرب بطل عدو.",
-        "القدرة التي اخترتها تسبب ضررًا في منطقة حولها.",
-        "بشكل دوري، تطلق إصابتك التالية بقدرة على بطل عدو خلية نحل تنفجر، فتبطئ وتسبب ضررًا سحريًا لمدة قصيرة. النحل يطبق تأثيرات عند الإصابة."
+        "استخدام قدرة أخرى يعيد ضبط فترة تبريد القدرة المختارة.",
+        "يؤدي إلقاء تعويذة إلى استعادة جزءٍ من تكلفة تعويذة عشوائية أخرى بنسبة 30% من فترة تبريد التعويذة الأصلية.",
+        "تكسب 30 تسارع قدرة خارقة. بعد استخدام القدرة الخارقة، تجدد قدراتك الأساسية وتكسب 300 تسارع قدرة أساسية لمدة 15ث. (فترة تبريد 20ث)",
+        "عند الإصابة، تقلل فترة تهدئة مهاراتك بمقدار 1.25 ثانية."
       ]
     },
     "cs": {
-      "title": "Skibidi sloup",
-      "why": "Trundle přestane být bojovníkem na blízko a hraje se jako mág: každý Sloup ledu ho vyléčí, zraní vše kolem a vypustí včely, a každé léčení zasáhne nejbližšího nepřátelského šampiona.",
-      "play": "Nejdřív maxuj E. Pokládej sloupy pod nepřátelského carryho, pak ustup a nech regeneraci pokovat. Nikdy nemačkej Q, nikdy neklikej pravým.",
-      "tagline": "Každý sloup je svačinka. Každá svačinka zasáhne nejbližšího nepřítele.",
+      "title": "Rozmar zamčen",
+      "why": "Lulu přestane kohokoli štítit a mačká Rozmar dvakrát za sekundu, dokud se nepřátelský tým nezmění v dětskou zoo.",
+      "play": "Nejdřív maxni Rozmar a Blýskavici nech na jednom bodu: má 7 sekund na každé úrovni a tam je nejlevnější. Rozmar na nepřítele, seslat cokoli jiného, Rozmar na dalšího, mezitím praštit veverku a Rychlorůst si dát na sebe, jakmile je k dispozici.",
+      "tagline": "Jeden nepřítel je veverka, pak další tři a ten pátý se jen dívá",
       "how": [
         [
-          "Sloup ledu",
-          "Odhodí každého, kdo na něm stojí, a zpomalí všechny poblíž. Normálně neudělí žádné poškození a nikdy neléčí."
+          "Rozmar",
+          "Promění nepřítele v neškodné zvířátko na 2 sekundy na max. úrovni, s odpočtem 18 sekund. Ten dlouhý odpočet je celý trik."
         ],
         [
           "Augmenty",
-          "Hladové pouto a Nebezpečný terén, obojí padlé na Sloup ledu, zajistí, že každé odhození léčí Trundla a sloup zraňuje vše kolem. Toto poškození se počítá jako zásah schopností, takže VČELY!!! neustále vypouštějí úly. Kruh smrti mění 70 % každého léčení a veškerou jeho regeneraci zdraví v magické poškození nejbližšímu nepřátelskému šampionovi."
+          "Naprosté přesycení, vylosované na Rozmar, ho resetuje pokaždé, když seslá Blýskavici, Pomoc, Pixi! nebo Rychlorůst, a každý Rozmar způsobí, že Arcimág věnuje 5,4 sekundy (30 % z 18) jedné z těch tří. Ultimátní probuzení obnoví Q a E a po každém Rychlorůstu přidá 300 urychlení schopností a Mystický úder ubere 1,25 sekundy všemu s každým útokem."
         ],
         [
           "Předměty",
-          "Otisk duše posiluje každé léčení a Rylaino křišťálové žezlo zpomaluje každého, koho sloup zraní. Rylai, Kosmický pohon a Warmogova zbroj zvednou jeho bonusové zdraví nad 2 000, takže ho Warmog regeneruje vždy, když 8 sekund nedostane zásah, a ta regenerace dál zasahuje nejbližšího nepřítele. Odplata ho vyléčí znovu zdálky."
+          "Andělská náruč, Zhoubnost, Černá pochodeň a Ledové srdce jsou ukazatel many, protože čtyři veverky jsou drahé. Lovec esence vrací manu při útoku po každém seslání."
         ]
       ],
       "augments": [
-        "Znehybnění nebo uzemnění nepřátelských šampionů zvolenou schopností způsobí dodatečné poškození a vyléčí tě.",
-        "Tvé léčení a regenerace zdraví udělí nejbližšímu nepřátelskému šampionovi magické poškození ve výši 70 % své hodnoty.",
-        "Zvolená schopnost způsobí poškození v oblasti kolem sebe.",
-        "Tvůj další zásah schopností proti nepřátelskému šampionovi pravidelně vypustí úl včel, který vybuchne, zpomalí a krátce udílí magické poškození. Včely aplikují efekty při zásahu."
+        "Použití jiné schopnosti resetuje přebíjecí dobu zvolené schopnosti.",
+        "Seslání schopnosti vrátí část nákladů jiné náhodné schopnosti ve výši 30 % přebíjecí doby té původní.",
+        "Získáš 30 ke zrychlení ultimátní schopnosti. Po použití ultimátky se ti obnoví základní schopnosti a na 15 sek. získáš 300 ke zrychlení základních schopností. (Přebíjecí doba 20 sek.)",
+        "Při zásahu zkrátí přebíjecí dobu tvých schopností o 1,25 s."
       ]
     },
     "de": {
-      "title": "Skibidi-Säule",
-      "why": "Trundle ist kein Nahkampf-Bruiser mehr und spielt sich wie ein Magier: Jede Eissäule heilt ihn, verletzt alles in der Nähe und schießt Bienen ab, und jede Heilung trifft den nächsten gegnerischen Champion.",
-      "play": "Maximiere zuerst E. Setz Säulen auf den gegnerischen Carry, geh dann zurück und lass die Regeneration den Poke machen. Drück nie Q, klick nie rechts.",
-      "tagline": "Jede Säule ist ein Snack. Jeder Snack trifft den nächsten Gegner.",
+      "title": "Laune eingerastet",
+      "why": "Lulu schützt niemanden mehr und drückt zweimal pro Sekunde Laune, bis das gegnerische Team ein Streichelzoo ist.",
+      "play": "Skille zuerst Laune auf Max und lass Glitterlanze auf einem Punkt: Sie hält auf jedem Rang 7 Sekunden und ist dort am billigsten. Laune auf einen Gegner, irgendwas anderes casten, Laune auf den nächsten, nebenbei ein Eichhörnchen verhauen und Wildwuchs auf dich selbst drücken, sobald er bereit ist.",
+      "tagline": "Ein Gegner ist ein Eichhörnchen, dann die anderen drei, und der Fünfte guckt nur zu",
       "how": [
         [
-          "Eissäule",
-          "Stößt jeden zurück, der darauf steht, und verlangsamt alle in der Nähe. Normalerweise verursacht sie keinen Schaden und heilt nie."
+          "Laune",
+          "Verwandelt einen Gegner auf maximalem Rang für 2 Sekunden in ein harmloses Tierchen, bei 18 Sekunden Abklingzeit. Die lange Abklingzeit ist der ganze Trick."
         ],
         [
           "Augments",
-          "Gefräßige Bindung und Terrainiert, beide auf Eissäule gerollt, lassen jeden Stoß Trundle heilen und die Säule alles um sich herum verletzen. Dieser Schaden zählt als Fähigkeitstreffer, also schießt BIENEN!!! ständig Bienenstöcke davon ab. Kreis des Todes verwandelt 70 % jeder Heilung und seine gesamte Lebensregeneration in magischen Schaden am nächsten gegnerischen Champion."
+          "Überladen, auf Laune gewürfelt, setzt sie jedes Mal zurück, wenn sie Glitterlanze, Hilf, Pix! oder Wildwuchs wirkt, und jede Laune lässt Erzmagier 5,4 Sekunden (30 % von 18) an einen dieser drei verschenken. Ultimatives Erwachen frischt Q und E auf und gibt nach jedem Wildwuchs 300 Fähigkeitentempo, und Mystischer Schlag nimmt mit jedem Angriff 1,25 Sekunden von allem ab."
         ],
         [
           "Gegenstände",
-          "Geistessicht verstärkt jede Heilung, und Rylais Kristallzepter verlangsamt jeden, den die Säule verletzt. Rylais, Kosmischer Antrieb und Warmogs Rüstung bringen sein zusätzliches Leben über 2.000, also regeneriert Warmogs ihn, sobald er 8 Sekunden lang unberührt bleibt, und diese Regeneration trifft immer wieder den nächsten Gegner. Befreiungsschlag heilt ihn noch einmal aus der Ferne."
+          "Umarmung des Seraphen, Bösartigkeit, Schwarzfeuer-Fackel und Gefrorenes Herz sind die Manaleiste, denn vier Eichhörnchen sind teuer. Essenzräuber zahlt beim Angriff nach jedem Zauber Mana zurück."
         ]
       ],
       "augments": [
-        "Gegnerische Champions mit der gewählten Fähigkeit bewegungsunfähig zu machen oder zu fesseln, verursacht zusätzlichen Schaden und heilt dich.",
-        "Deine Heilung und Lebensregeneration fügen dem nächsten gegnerischen Champion 70 % des Werts als magischen Schaden zu.",
-        "Deine gewählte Fähigkeit verursacht Schaden in einem Bereich um sie herum.",
-        "Dein nächster Fähigkeitstreffer gegen einen gegnerischen Champion schießt regelmäßig einen Bienenstock ab, der explodiert, verlangsamt und über kurze Zeit magischen Schaden verursacht. Bienen lösen Treffereffekte aus."
+        "Der Einsatz einer anderen Fähigkeit setzt die Abklingzeit der gewählten Fähigkeit zurück.",
+        "Das Wirken eines Zaubers verkürzt die Abklingzeit eines anderen zufälligen Zaubers um 30 % der ursprünglichen Abklingzeit des gewirkten Zaubers.",
+        "Erhalte 30 ultimatives Fähigkeitstempo. Nach dem Einsatz deiner ultimativen Fähigkeit werden deine Basisfähigkeiten aufgefrischt und du erhältst 15 Sek. lang 300 Fähigkeitstempo für Basisfähigkeiten. (20 Sek. Abklingzeit)",
+        "Treffereffekt: Verringert die Abklingzeit deiner Fähigkeiten um 1,25 Sekunden."
       ]
     },
     "el": {
-      "title": "Skibidi Βράχος",
-      "why": "Ο Τράντλ παύει να είναι μαχητής σώμα με σώμα και παίζει σαν μάγος: κάθε Παγωμένος Βράχος τον θεραπεύει, πληγώνει ό,τι είναι γύρω και εκτοξεύει μέλισσες, και κάθε θεραπεία χτυπά τον πιο κοντινό αντίπαλο πρωταθλητή.",
-      "play": "Ανέβασε πρώτα το E. Ρίξε βράχους πάνω στον αντίπαλο carry, μετά κάνε πίσω και άσε την αναγέννηση να κάνει το poke. Μην πατάς ποτέ Q, μην κάνεις ποτέ δεξί κλικ.",
-      "tagline": "Κάθε βράχος είναι ένα σνακ. Κάθε σνακ χτυπά τον πιο κοντινό εχθρό.",
+      "title": "Φάρσα κλειδωμένη",
+      "why": "Η Λούλου σταματά να προστατεύει όλους και πατά τη Φάρσα δύο φορές το δευτερόλεπτο, μέχρι η εχθρική ομάδα να γίνει ζωολογικός κήπος με χάδια.",
+      "play": "Μάξαρε πρώτα τη Φάρσα και άφησε τη Νεραϊδολόγχη σε έναν βαθμό: κρατά 7 δευτερόλεπτα σε κάθε επίπεδο και εκεί κοστίζει φθηνότερα. Φάρσα σε έναν εχθρό, ρίξε οτιδήποτε άλλο, Φάρσα στον επόμενο, χτύπα έναν σκίουρο όσο περιμένεις και πάτα τη Ραγδαία Ανάπτυξη στον εαυτό σου μόλις είναι έτοιμη.",
+      "tagline": "Ένας εχθρός είναι σκίουρος, μετά οι άλλοι τρεις, και ο πέμπτος απλώς κοιτάζει",
       "how": [
         [
-          "Παγωμένος Βράχος",
-          "Σπρώχνει όποιον στέκεται πάνω του και επιβραδύνει όλους γύρω. Κανονικά δεν προκαλεί ζημιά και δεν θεραπεύει ποτέ."
+          "Φάρσα",
+          "Μετατρέπει έναν εχθρό σε αβλαβές ζωάκι για 2 δευτερόλεπτα στο μέγιστο επίπεδο, με επαναφόρτιση 18 δευτερολέπτων. Η μεγάλη επαναφόρτιση είναι όλο το κόλπο."
         ],
         [
           "Ενισχύσεις",
-          "Ο Αδηφάγος Δεσμός και το Ένα με το Έδαφος, και τα δύο στον Παγωμένο Βράχο, κάνουν κάθε σπρώξιμο να θεραπεύει τον Τράντλ και τον βράχο να πληγώνει ό,τι είναι γύρω του. Αυτή η ζημιά μετράει ως χτύπημα ικανότητας, οπότε το ΜΕΛΙΣΣΕΣ!!! εκτοξεύει συνέχεια κυψέλες. Ο Κύκλος Θανάτου μετατρέπει το 70% κάθε θεραπείας και όλη την αναγέννηση Ζωής του σε μαγική ζημιά στον πιο κοντινό αντίπαλο πρωταθλητή."
+          "Η Υπέρταση, που τραβήχτηκε στη Φάρσα, την επαναφέρει κάθε φορά που ρίχνει Νεραϊδολόγχη, Βοήθεια, Πιξ! ή Ραγδαία Ανάπτυξη, και κάθε Φάρσα κάνει τον Αρχιμάγο να δίνει 5,4 δευτερόλεπτα (30% του 18) σε μία από αυτές τις τρεις. Η Υπέρτατη Αφύπνιση ανανεώνει τα Q και E και προσθέτει 300 επιτάχυνση ικανοτήτων μετά από κάθε Ραγδαία Ανάπτυξη, και η Μυστικιστική Γροθιά αφαιρεί 1,25 δευτερόλεπτα από τα πάντα σε κάθε επίθεση."
         ],
         [
           "Αντικείμενα",
-          "Η Όψη Πνευμάτων ενισχύει κάθε θεραπεία και το Κρυστάλλινο Σκήπτρο της Ριλάι επιβραδύνει όποιον πληγώνει ο βράχος. Το Σκήπτρο, η Κοσμική Ενέργεια και η Πανοπλία του Γόρμογκ ανεβάζουν την πρόσθετη Ζωή του πάνω από 2.000, οπότε η Πανοπλία τον αναγεννά όταν μένει 8 δευτερόλεπτα ανέγγιχτος, και αυτή η αναγέννηση συνεχίζει να χτυπά τον πιο κοντινό εχθρό. Η Λύτρωση τον θεραπεύει ξανά από μακριά."
+          "Η Προστασία των Σεραφείμ, η Κακοήθεια, ο Πυρσός Μαύρου Πυρός και η Παγωμένη Καρδιά είναι η μπάρα μάνα, γιατί τέσσερις σκίουροι κοστίζουν ακριβά. Ο Θεριστής Ψυχών επιστρέφει μάνα στην επίθεση μετά από κάθε ρίψη."
         ]
       ],
       "augments": [
-        "Η ακινητοποίηση ή η καθήλωση εχθρικών ηρώων με την επιλεγμένη ικανότητα προκαλεί επιπλέον ζημιά και σε θεραπεύει.",
-        "Οι θεραπείες και η Ανανέωση Ζωής σου προκαλούν το 70% της τιμής τους ως μαγική ζημιά στον πλησιέστερο εχθρικό ήρωα.",
-        "Η επιλεγμένη ικανότητα προκαλεί ζημιά σε μια περιοχή γύρω της.",
-        "Περιοδικά, το επόμενο χτύπημα Ικανότητάς σου σε αντίπαλο πρωταθλητή εκτοξεύει μια κυψέλη με Μέλισσες που εκρήγνυται, επιβραδύνοντας και προκαλώντας μαγική ζημιά για λίγο. Οι Μέλισσες εφαρμόζουν εφέ κατά το χτύπημα."
+        "Η χρήση άλλης Ικανότητας επαναφέρει τον χρόνο επαναφόρτισης της επιλεγμένης ικανότητας.",
+        "Η χρήση μιας ικανότητας σάς αποζημιώνει για το 30% του Χρόνου Επαναφόρτισης επί του κόστους μιας άλλης τυχαίας ικανότητας.",
+        "Αποκτάτε 30 Επιτάχυνση Υπέρτατης Ικανότητας. Αφού χρησιμοποιήσετε την Υπέρτατη Ικανότητά σας, ανανεώνετε τις βασικές ικανότητές σας και αποκτάτε 300 Επιτάχυνση βασικών ικανοτήτων για 15 δευτ. (Χρόνος Επαναφόρτισης: 20 δευτ.)",
+        "Κατά το χτύπημα, μειώνει τον χρόνο επαναφόρτισης των ικανοτήτων σου κατά 1,25 δευτερόλεπτα."
       ]
     },
     "es-MX": {
-      "title": "Pilar Skibidi",
-      "why": "Trundle deja de ser un peleador cuerpo a cuerpo y se juega como un mago: cada Pilar de Hielo lo cura, daña todo a su alrededor y lanza abejas, y cada curación golpea al campeón enemigo más cercano.",
-      "play": "Sube la E primero. Pon pilares sobre el carry enemigo, luego retrocede y deja que la regeneración haga el poke. Nunca presiones Q, nunca hagas clic derecho.",
-      "tagline": "Cada pilar es una botana. Cada botana golpea al enemigo más cercano.",
+      "title": "Capricho fijado",
+      "why": "Lulu deja de cubrir a todos con escudos y le da a Capricho dos veces por segundo hasta que el equipo enemigo es un zoológico de mascotas.",
+      "play": "Sube Capricho al máximo primero y deja Lanza Brillantina en un punto: dura 7 segundos en cada rango y ahí es más barata. Capricho a un enemigo, lanza cualquier otra cosa, Capricho al siguiente, dale un puñetazo a una ardilla mientras esperas y ponte Enormamiento en cuanto esté listo.",
+      "tagline": "Un enemigo es una ardilla, luego los otros tres, y el quinto nomás está viendo",
       "how": [
         [
-          "Pilar de Hielo",
-          "Empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no inflige daño y nunca cura."
+          "Capricho",
+          "Convierte a un enemigo en un animalito inofensivo por 2 segundos al rango máximo, con 18 segundos de enfriamiento. Ese enfriamiento largo es todo el truco."
         ],
         [
           "Aumentos",
-          "Vínculo Voraz y Terraneitor, ambos asignados a Pilar de Hielo, hacen que cada empujón cure a Trundle y que el pilar dañe todo a su alrededor. Ese daño cuenta como golpe de habilidad, así que ¡¡¡ABEJAS!!! no para de lanzar colmenas. Círculo de la Muerte convierte el 70 % de cada curación y toda su regeneración de vida en daño mágico al campeón enemigo más cercano."
+          "Sobrecargado, sacado en Capricho, lo reinicia cada vez que lanza Lanza Brillantina, ¡Ayudita, Pix! o Enormamiento, y cada Capricho hace que Archimago le dé 5.4 segundos (30% de sus 18) a uno de esos tres. Despertar Definitivo refresca Q y E y agrega 300 de aceleración de habilidad después de cada Enormamiento, y Golpe Místico quita 1.25 segundos de todo por cada ataque."
         ],
         [
           "Objetos",
-          "Apariencia Espiritual potencia cada curación y el Cetro de Cristal de Rylai ralentiza a todos los que daña el pilar. Rylai, Impulso Cósmico y la Armadura de Warmog suben su vida adicional por encima de 2000, así que Warmog lo regenera cada vez que pasa 8 segundos sin recibir daño, y esa regeneración sigue golpeando al enemigo más cercano. Redención lo cura otra vez desde lejos."
+          "Abrazo del Serafín, Maldad, Antorcha de Fuegoscuro y Corazón de Hielo son la barra de maná, porque cuatro ardillas salen caras. Saqueador de Esencias devuelve maná en el ataque después de cada lanzamiento."
         ]
       ],
       "augments": [
-        "Inmovilizar o dejar sin movilidad a campeones enemigos con la habilidad elegida inflige daño adicional y te cura.",
-        "Tus curaciones y Regeneración de Vida infligen el 70% del valor como daño mágico al campeón enemigo más cercano.",
-        "Tu habilidad elegida inflige daño en un área a su alrededor.",
-        "Periódicamente, tu siguiente golpe de habilidad contra un campeón enemigo lanza una colmena de abejas que explota, ralentiza e inflige daño mágico durante un breve tiempo. Las abejas aplican efectos al impactar."
+        "Usar otra habilidad reinicia el enfriamiento de la habilidad elegida.",
+        "Lanzar un hechizo reduce el enfriamiento de otro hechizo aleatorio en 30% del enfriamiento original del hechizo lanzado.",
+        "Obtienes 30 de velocidad de habilidades definitivas. Después de usar tu definitiva, se reinician tus habilidades básicas y obtienes 300 de velocidad de habilidades básicas por 15 s. (20 s de enfriamiento)",
+        "Al golpear, reduce el enfriamiento de tus habilidades en 1.25 segundos."
       ]
     },
     "es": {
-      "title": "Pilar Skibidi",
-      "why": "Trundle deja de ser un luchador cuerpo a cuerpo y se juega como un mago: cada Pilar de hielo lo cura, daña todo a su alrededor y lanza abejas, y cada curación golpea al campeón enemigo más cercano.",
-      "play": "Sube la E primero. Pon pilares sobre el carry enemigo, luego retrocede y deja que la regeneración haga el poke. Nunca pulses Q, nunca hagas clic derecho.",
-      "tagline": "Cada pilar es un aperitivo. Cada aperitivo golpea al enemigo más cercano.",
+      "title": "Banal fijado",
+      "why": "Lulu deja de proteger a nadie y pulsa Banal dos veces por segundo hasta que el equipo enemigo parece un zoo de mascotas.",
+      "play": "Sube Banal al máximo primero y deja Lanza reluciente en un punto: dura 7 segundos en cada rango y ahí es más barata. Banal a un enemigo, lanza cualquier otra cosa, Banal al siguiente, dale un guantazo a una ardilla mientras esperas y ponte Crecimiento salvaje en cuanto esté lista.",
+      "tagline": "Un enemigo es una ardilla, luego los otros tres, y el quinto solo mira",
       "how": [
         [
-          "Pilar de hielo",
-          "Empuja a quien esté encima y ralentiza a todos los que estén cerca. Normalmente no inflige daño y nunca cura."
+          "Banal",
+          "Convierte a un enemigo en un bichito inofensivo durante 2 segundos al rango máximo, con 18 segundos de reutilización. Esa reutilización tan larga es todo el truco."
         ],
         [
           "Aumentos",
-          "Vínculo voraz y Terrinator, ambos asignados a Pilar de hielo, hacen que cada empujón cure a Trundle y que el pilar dañe todo a su alrededor. Ese daño cuenta como golpe de habilidad, así que ¡ABEJAS! no para de lanzar colmenas. Círculo de muerte convierte el 70 % de cada curación y toda su regeneración de vida en daño mágico al campeón enemigo más cercano."
+          "Sobrecarga, sacada en Banal, lo reinicia cada vez que lanza Lanza reluciente, ¡Ayuda, Pix! o Crecimiento salvaje, y cada Banal hace que Archimago regale 5,4 segundos (el 30 % de sus 18) a una de esas tres. Despertar definitivo refresca Q y E y añade 300 de aceleración de habilidad tras cada Crecimiento salvaje, y Guantazo místico quita 1,25 segundos a todo con cada ataque."
         ],
         [
           "Objetos",
-          "Rostro espiritual potencia cada curación y el Cetro de cristal de Rylai ralentiza a todos los que daña el pilar. Rylai, Impulso cósmico y la Armadura de Warmog suben su vida adicional por encima de 2000, así que Warmog lo regenera cada vez que pasa 8 segundos sin recibir daño, y esa regeneración sigue golpeando al enemigo más cercano. Redención lo cura otra vez desde lejos."
+          "Abrazo del serafín, Malignidad, Antorcha de fuego negro y Corazón de hielo son la barra de maná, porque cuatro ardillas salen caras. Segador de esencia devuelve maná en el ataque posterior a cada lanzamiento."
         ]
       ],
       "augments": [
-        "Inmovilizar o dejar sin movilidad a campeones enemigos con la habilidad elegida inflige daño adicional y te cura.",
-        "Tu curación y regeneración de vida infligen un 70 % de su valor como daño mágico al campeón enemigo más cercano.",
-        "Tu habilidad elegida inflige daño en un área a su alrededor.",
-        "Periódicamente, tu siguiente golpe de habilidad contra un campeón enemigo lanza una colmena de abejas que explota, ralentiza e inflige daño mágico durante un breve tiempo. Las abejas aplican efectos al impactar."
+        "Usar otra habilidad reinicia el enfriamiento de la habilidad elegida.",
+        "Lanzar un hechizo reduce el enfriamiento de otro hechizo aleatorio en un 30 % del enfriamiento original del hechizo lanzado.",
+        "Obtienes 30 de velocidad de habilidades definitivas. Tras usar tu definitiva, se reinician tus habilidades básicas y obtienes 300 de velocidad de habilidades básicas durante 15 s. (20 s de enfriamiento)",
+        "Al impactar, reduce el enfriamiento de tus habilidades en 1,25 segundos."
       ]
     },
     "fr": {
-      "title": "Pilier Skibidi",
-      "why": "Trundle arrête d'être un combattant de mêlée et se joue comme un mage : chaque Montagne de glace le soigne, blesse tout autour et lance des abeilles, et chaque soin frappe le champion ennemi le plus proche.",
-      "play": "Montez E en premier. Posez des piliers sur le carry ennemi, puis reculez et laissez la régénération faire le poke. N'appuyez jamais sur Q, ne faites jamais de clic droit.",
-      "tagline": "Chaque pilier est un snack. Chaque snack frappe l'ennemi le plus proche.",
+      "title": "Fantaisie verrouillée",
+      "why": "Lulu arrête de protéger qui que ce soit et appuie sur Fantaisie deux fois par seconde jusqu'à ce que l'équipe ennemie devienne une mini-ferme.",
+      "play": "Monte Fantaisie en premier et laisse Duo éclatant à un seul point : il dure 7 secondes à chaque rang et c'est là qu'il coûte le moins. Fantaisie sur un ennemi, lance n'importe quoi d'autre, Fantaisie sur le suivant, colle un coup de poing à un écureuil en attendant et lance Croissance prodigieuse sur toi dès qu'elle est prête.",
+      "tagline": "Un ennemi devient un écureuil, puis les trois autres, et le cinquième regarde juste",
       "how": [
         [
-          "Montagne de glace",
-          "Repousse quiconque se tient dessus et ralentit tout le monde autour. Normalement, il n'inflige aucun dégât et ne soigne jamais."
+          "Fantaisie",
+          "Transforme un ennemi en petite bestiole inoffensive pendant 2 secondes au rang max, avec 18 secondes de délai de récupération. Ce long délai, c'est toute l'astuce."
         ],
         [
           "Augments",
-          "Entrave vorace et Terrain, tous deux tirés sur Montagne de glace, font que chaque projection soigne Trundle et que le pilier blesse tout autour de lui. Ces dégâts comptent comme un coup de compétence, donc ABEILLES !!! lance sans arrêt des ruches. Soins meurtriers transforme 70 % de chaque soin et toute sa régénération de PV en dégâts magiques sur le champion ennemi le plus proche."
+          "Réinitialisation, tirée sur Fantaisie, la remet à zéro chaque fois qu'elle lance Duo éclatant, Pix à la rescousse ! ou Croissance prodigieuse, et chaque Fantaisie fait céder à Archimage 5,4 secondes (30 % de ses 18) à l'un de ces trois sorts. Éveil ultime rafraîchit Q et E et ajoute 300 d'accélération de compétence après chaque Croissance prodigieuse, et Coups accélérants retire 1,25 seconde à tout à chaque attaque."
         ],
         [
           "Objets",
-          "Visage spirituel renforce chaque soin et le Sceptre de Rylai ralentit tous ceux que le pilier blesse. Rylai, Volonté cosmique et l'Armure de Warmog font passer ses PV supplémentaires au-delà de 2 000, donc Warmog le régénère dès qu'il reste 8 secondes sans être touché, et cette régénération continue de frapper l'ennemi le plus proche. Rédemption le soigne encore de loin."
+          "Étreinte du séraphin, Malfaisance, Torche noire et Cœur gelé forment la barre de mana, parce que quatre écureuils, ça coûte cher. Faux spectrale rend du mana à l'attaque qui suit chaque lancer."
         ]
       ],
       "augments": [
-        "Immobiliser ou clouer au sol des champions ennemis avec la compétence choisie inflige des dégâts supplémentaires et vous soigne.",
-        "Vos soins et votre régénération de PV infligent 70 % de leur valeur en dégâts magiques au champion ennemi le plus proche.",
-        "Votre compétence choisie inflige des dégâts dans une zone autour d'elle.",
-        "Périodiquement, votre prochain coup de compétence contre un champion ennemi lance une ruche d'abeilles qui explose, ralentissant et infligeant des dégâts magiques sur une courte durée. Les abeilles appliquent les effets à l'impact."
+        "Utiliser une autre compétence réinitialise le délai de récupération de la compétence choisie.",
+        "Lancer un sort réduit le délai de récupération d'un autre sort au hasard de 30 % du délai de récupération d'origine du sort lancé.",
+        "Gagnez 30 d'accélération de compétence ultime. Après avoir utilisé votre ultime, vos compétences de base sont réinitialisées et vous gagnez 300 d'accélération de compétence de base pendant 15 s. (20 s de délai de récupération)",
+        "À l'impact, réduit le délai de récupération de vos compétences de 1,25 seconde."
       ]
     },
     "hu": {
-      "title": "Skibidi oszlop",
-      "why": "Trundle többé nem közelharci bruiser, hanem mágusként játszik: minden Jégoszlop gyógyítja, megsebez mindent a közelben és méheket lő ki, és minden gyógyulás eltalálja a legközelebbi ellenséges hőst.",
-      "play": "Először az E-t maxold. Rakj oszlopokat az ellenséges carryre, aztán lépj hátra, és hagyd, hogy a regeneráció pokeoljon. Soha ne nyomd meg a Q-t, soha ne kattints jobbal.",
-      "tagline": "Minden oszlop egy nasi. Minden nasi eltalálja a legközelebbi ellenfelet.",
+      "title": "Szeszély bezárva",
+      "why": "Lulu abbahagyja a pajzsolást, és másodpercenként kétszer nyomja a Szeszélyt, amíg az ellenséges csapat egy kisállat-simogató nem lesz.",
+      "play": "Először maxold a Szeszélyt, a Ragyogó sugárból pedig elég egy pont: minden szinten 7 másodperc, és ott a legolcsóbb. Szeszély az egyik ellenfélre, bármi más képesség, Szeszély a következőre, üss meg egy mókust, amíg vársz, és a Vadon szava mehet magadra, amint lehet.",
+      "tagline": "Az egyik ellenfél mókus, aztán a másik három is, az ötödik meg csak nézi",
       "how": [
         [
-          "Jégoszlop",
-          "Visszalöki, aki rajta áll, és lelassít mindenkit a közelben. Alapból nem sebez és sosem gyógyít."
+          "Szeszély",
+          "Max szinten 2 másodpercre ártalmatlan kis jószággá változtat egy ellenfelet, 18 másodperces újratöltéssel. Az a hosszú újratöltés a trükk lényege."
         ],
         [
           "Bővítések",
-          "A Vérszomjas kötelék és a Tereplés, mindkettő a Jégoszlopra dobva, minden lökésnél gyógyítja Trundle-t, az oszlop pedig mindent megsebez maga körül. Ez a sebzés képességtalálatnak számít, így a MÉHEK!!! folyamatosan kaptárakat lő ki róla. A halál körforgása minden gyógyulás 70%-át és teljes életerő-regenerációját mágikus sebzéssé alakítja a legközelebbi ellenséges hősön."
+          "A Szeszélyre húzott Túltöltött minden alkalommal visszaállítja, amikor Lulu Ragyogó sugarat, Segíts, Pix!-et vagy A vadon szavát használ, és minden Szeszély után a Főmágus 5,4 másodpercet (a 18 30%-át) ad az egyik ilyen képességnek. A Végső ébredés újratölti a Q-t és az E-t, és minden A vadon szava után 300 gyorsítást ad, a Misztikus ütés pedig támadásonként 1,25 másodpercet vesz le mindenről."
         ],
         [
           "Tárgyak",
-          "A Szellemarc minden gyógyulást felerősít, Rylai kristálybotja pedig lelassít mindenkit, akit az oszlop megsebez. Rylai, a Kozmikus hajtómű és Warmog vértje 2000 fölé viszi a bónusz életerejét, így Warmog regenerálja, valahányszor 8 másodpercig nem éri sebzés, és ez a regeneráció tovább csapkodja a legközelebbi ellenfelet. A Megváltás messziről is újra meggyógyítja."
+          "A szeráf ölelése, Rosszindulat, Fekete fáklya és Fagyos szív a mana-sáv, mert négy mókus drága mulatság. Az Esszenciamartalóc minden képesség után a következő támadáson visszatölti a manát."
         ]
       ],
       "augments": [
-        "Ha a választott képességgel mozgásképtelenné teszel vagy földhöz szegezel ellenséges hősöket, extra sebzést okozol és gyógyulsz.",
-        "A gyógyulásod és életerő-regenerációd az érték 70%-ának megfelelő mágikus sebzést okoz a legközelebbi ellenséges hősnek.",
-        "A választott képességed sebzést okoz egy körülötte lévő területen.",
-        "Időnként a következő képességtalálatod egy ellenséges hősön kilő egy méhkaptárt, ami felrobban, lelassít és rövid ideig mágikus sebzést okoz. A méhek alkalmazzák a találati hatásokat."
+        "Egy másik képesség használata visszaállítja a választott képesség töltési idejét.",
+        "Egy képesség elsütése az eredeti képesség töltési idejének 30%-ával megegyező mértékben tölti vissza egy másik, véletlenszerű képesség költségét.",
+        "30 végsőképesség-gyorsítást kapsz. A végső képességed használata után minden alapképességed töltési ideje visszaáll, és 15 másodpercre 300 alapképesség-gyorsítást kapsz. (20 mp. töltési idő)",
+        "Találatkor 1,25 másodperccel csökkenti a képességeid töltési idejét."
       ]
     },
     "id": {
-      "title": "Pilar Skibidi",
-      "why": "Trundle berhenti jadi bruiser jarak dekat dan bermain seperti mage: setiap Pillar of Ice menyembuhkannya, melukai semua di sekitarnya, dan meluncurkan lebah, dan setiap heal menyetrum champion musuh terdekat.",
-      "play": "Maksimalkan E dulu. Taruh pilar di bawah carry musuh, lalu mundur dan biarkan regen yang melakukan poke. Jangan pernah tekan Q, jangan pernah klik kanan.",
-      "tagline": "Setiap pilar adalah camilan. Setiap camilan mengenai musuh terdekat.",
+      "title": "Whimsy Terkunci",
+      "why": "Lulu berhenti ngasih shield ke siapa pun dan mencet Whimsy dua kali per detik sampai tim musuh jadi kebun binatang mini.",
+      "play": "Max Whimsy duluan dan Glitterlance cukup 1 poin: durasinya 7 detik di semua rank dan paling murah di situ. Whimsy satu musuh, cast skill lain, Whimsy musuh berikutnya, tonjok tupai sambil nunggu, lalu pakai Wild Growth ke diri sendiri begitu siap.",
+      "tagline": "Satu musuh jadi tupai, lalu tiga lainnya, dan yang kelima cuma nonton",
       "how": [
         [
-          "Pillar of Ice",
-          "Mendorong siapa pun yang berdiri di atasnya dan memperlambat semua yang di dekatnya. Biasanya tidak memberi damage dan tidak pernah heal."
+          "Whimsy",
+          "Mengubah musuh jadi hewan kecil tak berbahaya selama 2 detik di rank maksimal, dengan cooldown 18 detik. Cooldown panjang itu kunci triknya."
         ],
         [
           "Augment",
-          "Ravenous Bind dan Terrain'd, keduanya didapat di Pillar of Ice, membuat setiap dorongan menyembuhkan Trundle dan pilar melukai semua di sekitarnya. Damage itu dihitung sebagai hit ability, jadi BEES!!! terus meluncurkan sarang. Circle of Death mengubah 70% dari setiap heal dan seluruh Health Regen-nya menjadi magic damage ke champion musuh terdekat."
+          "Overloaded, di-roll di Whimsy, mereset Whimsy setiap kali Lulu cast Glitterlance, Help, Pix! atau Wild Growth, dan setiap Whimsy bikin Archmage ngasih 5,4 detik (30% dari 18) ke salah satu dari tiga skill itu. Ultimate Awakening me-refresh Q dan E dan nambah 300 haste setelah tiap Wild Growth, dan Mystic Punch memotong 1,25 detik dari semuanya per serangan."
         ],
         [
           "Item",
-          "Spirit Visage memperkuat setiap heal dan Rylai's Crystal Scepter memperlambat semua yang dilukai pilar. Rylai's, Cosmic Drive, dan Warmog's Armor mendorong bonus Health-nya melewati 2.000, jadi Warmog's meregenerasinya setiap kali ia tidak terkena serangan selama 8 detik, dan regen itu terus menyetrum musuh terdekat. Redemption menyembuhkannya lagi dari jauh."
+          "Seraph's Embrace, Malignance, Blackfire Torch dan Frozen Heart jadi bar mana, karena empat tupai itu mahal. Essence Reaver mengembalikan mana lewat serangan setelah tiap cast."
         ]
       ],
       "augments": [
-        "Immobilize atau Ground champion musuh dengan ability pilihan memberikan damage tambahan dan menyembuhkanmu.",
-        "Healing dan Health Regen-mu memberikan 70% nilainya sebagai magic damage ke champion musuh terdekat.",
-        "Ability pilihanmu memberi damage di area sekitarnya.",
-        "Secara berkala, hit Ability berikutnya ke champion musuh meluncurkan sarang lebah yang meledak, memberi Slow dan magic damage selama waktu singkat. Lebah menerapkan efek On-Hit."
+        "Memakai Ability lain mereset cooldown ability yang dipilih.",
+        "Meng-cast spell mengembalikan biaya spell acak lain sebesar 30% dari Cooldown spell aslinya.",
+        "Dapatkan 30 Ultimate Ability Haste. Setelah memakai Ultimate, segarkan ability dasarmu dan dapatkan 300 Ability Haste dasar selama 15 detik. (Cooldown 20 detik)",
+        "On-Hit mengurangi cooldown skill-mu sebesar 1,25 detik."
       ]
     },
     "it": {
-      "title": "Pilastro Skibidi",
-      "why": "Trundle smette di essere un combattente in mischia e si gioca come un mago: ogni Pilastro di ghiaccio lo cura, ferisce tutto intorno e lancia api, e ogni cura colpisce il campione nemico più vicino.",
-      "play": "Porta al massimo prima la E. Piazza pilastri sul carry nemico, poi fai un passo indietro e lascia che la rigenerazione faccia il poke. Non premere mai Q, non cliccare mai col destro.",
-      "tagline": "Ogni pilastro è uno spuntino. Ogni spuntino colpisce il nemico più vicino.",
+      "title": "Metamorfosi bloccata",
+      "why": "Lulu smette di proteggere chiunque e preme Metamorfosi due volte al secondo finché la squadra nemica non diventa uno zoo di contatto.",
+      "play": "Porta al massimo Metamorfosi per prima e lascia Lancia luccicante a un punto: dura 7 secondi a ogni rango ed è più economica lì. Metamorfosi su un nemico, lancia qualsiasi altra cosa, Metamorfosi sul successivo, prendi a pugni uno scoiattolo mentre aspetti e usa Crescita selvaggia su te stessa appena è pronta.",
+      "tagline": "Un nemico è uno scoiattolo, poi gli altri tre, e il quinto sta solo a guardare",
       "how": [
         [
-          "Pilastro di ghiaccio",
-          "Respinge chiunque ci stia sopra e rallenta tutti quelli vicini. Di solito non infligge danni e non cura mai."
+          "Metamorfosi",
+          "Trasforma un nemico in una creaturina innocua per 2 secondi al rango massimo, con 18 secondi di ricarica. Quella ricarica lunga è tutto il trucco."
         ],
         [
           "Potenziamenti",
-          "Vincolo famelico e Colpa del terreno, entrambi ottenuti su Pilastro di ghiaccio, fanno sì che ogni spinta curi Trundle e che il pilastro ferisca tutto intorno. Quel danno conta come colpo di abilità, quindi API! continua a lanciare alveari. Cerchio della morte trasforma il 70% di ogni cura e tutta la sua rigenerazione salute in danni magici sul campione nemico più vicino."
+          "Sovraccaricato, scelto su Metamorfosi, la resetta ogni volta che lancia Lancia luccicante, Aiuto, Pix! o Crescita selvaggia, e ogni Metamorfosi fa sì che Arcimago passi 5,4 secondi (il 30% di 18) a una di quelle tre. Risveglio supremo ricarica Q ed E e aggiunge 300 di rapidità dopo ogni Crescita selvaggia, e Pugno mistico toglie 1,25 secondi a tutto a ogni attacco."
         ],
         [
           "Oggetti",
-          "Corazza spirituale potenzia ogni cura e lo Scettro di cristallo di Rylai rallenta chiunque il pilastro ferisca. Rylai, Spirito cosmico e l'Armatura di Warmog portano la sua salute bonus oltre 2.000, quindi Warmog lo rigenera ogni volta che resta 8 secondi senza essere colpito, e quella rigenerazione continua a colpire il nemico più vicino. Redenzione lo cura ancora da lontano."
+          "Abbraccio serafico, Malignità, Torcia del fuoco tetro e Fulcro dei geli sono la barra del mana, perché quattro scoiattoli costano cari. Predatore d'essenza ridà mana con l'attacco dopo ogni lancio."
         ]
       ],
       "augments": [
-        "Immobilizzare o bloccare a terra i campioni nemici con l'abilità scelta infligge danni extra e ti cura.",
-        "Le tue cure e la rigenerazione salute infliggono il 70% del valore in danni magici al campione nemico più vicino.",
-        "L'abilità scelta infligge danni in un'area intorno a sé.",
-        "Periodicamente, il tuo prossimo colpo di abilità contro un campione nemico lancia un alveare di api che esplode, rallentando e infliggendo danni magici per un breve periodo. Le api applicano gli effetti sul colpo."
+        "Usare un'altra abilità azzera la ricarica dell'abilità scelta.",
+        "Lanciare un incantesimo riduce la ricarica di un altro incantesimo casuale del 30% della ricarica originale dell'incantesimo lanciato.",
+        "Ottieni 30 di velocità abilità suprema. Dopo aver usato la tua suprema, le tue abilità base vengono ripristinate e ottieni 300 di velocità abilità base per 15 s. (20 s di ricarica)",
+        "Sul colpo, riduce la ricarica delle tue abilità di 1,25 secondi."
       ]
     },
     "ja": {
-      "title": "スキビディ柱",
-      "why": "トランドルは近接ファイターをやめてメイジのように戦う：「氷冷の柱」が毎回彼を回復し、周囲にダメージを与えて蜂を飛ばし、その回復がすべて最寄りの敵チャンピオンに当たる。",
-      "play": "Eを最優先で上げる。敵キャリーに柱を置いたら下がって、リジェネにポークを任せよう。Qは絶対押さない、右クリックも絶対しない。",
-      "tagline": "柱はおやつ。おやつは一番近い敵に当たる。",
+      "title": "イタズラ全振り",
+      "why": "ルルはもう誰もシールドせず、敵チームが触れ合い動物園になるまで1秒に2回イタズラを押し続けます。",
+      "play": "まずイタズラを最大にして、ぴかぴかビームは1ポイントでストップ。どのランクでも7秒で、そこが一番お安いです。敵にイタズラ、別のスキルを使って、次の敵にイタズラ、待ち時間にリスをパンチして、おおきくなぁれ！は使えるようになったらすぐ自分に。",
+      "tagline": "まず1人がリス、次に残りの3人、そして5人目はただ見てるだけ",
       "how": [
         [
-          "氷冷の柱",
-          "上に立つ敵をノックバックし、周囲の全員をスロウにする。普段はダメージを与えず、回復もしない。"
+          "イタズラ",
+          "最大ランクで敵を2秒間無害な小動物に変えます。クールダウンは18秒。この長いクールダウンこそがキモです。"
         ],
         [
           "オーグメント",
-          "「貪欲な束縛」と「地形でドン」をどちらも「氷冷の柱」に付けると、ノックバックのたびにトランドルが回復し、柱が周囲にダメージを与える。そのダメージはスキル命中扱いなので「ブンブン！」が次々と巣を飛ばす。「死者の集い」は毎回の回復の70%と体力自動回復のすべてを、最寄りの敵チャンピオンへの魔法ダメージに変える。"
+          "イタズラに付けたオーバーロードは、ルルがぴかぴかビーム、ピックス、おねがい！、おおきくなぁれ！のどれかを使うたびにイタズラをリセットし、イタズラのたびに魔帝がその3つのどれかに5.4秒（18の30%）を渡します。究極の目覚めはQとEをリフレッシュし、おおきくなぁれ！のたびに加速を300追加。神秘の鉄拳は攻撃ごとにすべてのクールダウンを1.25秒短縮します。"
         ],
         [
           "アイテム",
-          "「スピリット ビサージュ」が回復を強化し、「リーライ クリスタル セプター」が柱で傷つけた敵をスロウにする。リーライ、「コズミック ドライブ」、「ワーモグ アーマー」で増加体力が2,000を超えるので、8秒間ダメージを受けないたびにワーモグが回復し、その回復が最寄りの敵を撃ち続ける。「リデンプション」で遠くからさらに回復。"
+          "セラフ エンブレイス、マリグナンス、黒炎のトーチ、フローズン ハートがマナ源です。だってリス4匹は高くつくので。エッセンス リーバーはスキルを使った後の攻撃でマナを返してくれます。"
         ]
       ],
       "augments": [
-        "選択したスキルで敵チャンピオンに行動妨害またはグラウンドを与えると、追加ダメージを与えて自身の体力を回復する。",
-        "回復と体力自動回復の量の70%を、最寄りの敵チャンピオンに魔法ダメージとして与える。",
-        "選択したスキルが周囲の範囲にダメージを与える。",
-        "一定間隔で、敵チャンピオンへの次のスキル命中時に蜂の巣を飛ばす。巣は爆発し、短時間スロウ効果と魔法ダメージを与える。蜂は通常攻撃時効果を発動する。"
+        "他のスキルを使うと、選んだスキルのクールダウンがリセットされる。",
+        "スキルを使うと、元のスキルのクールダウンの30%分、ランダムな別のスキルのコストを返還する。",
+        "アルティメットスキルヘイスト30を獲得。アルティメット使用後、通常スキルをリフレッシュし、15秒間通常スキルのスキルヘイスト300を獲得する。(クールダウン20秒)",
+        "通常攻撃時: スキルのクールダウンを1.25秒短縮する。"
       ]
     },
     "ko": {
-      "title": "스키비디 기둥",
-      "why": "트런들이 근접 브루저를 그만두고 마법사처럼 싸웁니다: 얼음 기둥마다 그를 회복시키고, 주변 모두에게 피해를 주고 벌을 날리며, 모든 회복은 가장 가까운 적 챔피언을 지집니다.",
-      "play": "E를 먼저 마스터하세요. 적 원딜 위에 기둥을 세우고 물러나서 재생이 견제하게 두세요. Q는 절대 누르지 말고, 우클릭도 절대 하지 마세요.",
-      "tagline": "모든 기둥은 간식. 모든 간식은 가장 가까운 적을 때린다.",
+      "title": "변덕쟁이 올인",
+      "why": "룰루는 아무에게도 보호막을 씌우지 않고, 적 팀이 동물 체험장이 될 때까지 변덕쟁이를 1초에 두 번씩 누릅니다.",
+      "play": "변덕쟁이를 먼저 마스터하고 반짝반짝 창은 1포인트만 찍으세요. 어느 랭크든 7초라 거기가 제일 가성비입니다. 적 하나에 변덕쟁이, 다른 스킬 쓰고, 다음 적에게 변덕쟁이, 기다리는 동안 다람쥐를 한 대 치고, 급성장은 쿨이 돌자마자 자기한테 쓰세요.",
+      "tagline": "한 명은 다람쥐, 그다음 나머지 세 명, 다섯 번째는 그냥 구경 중",
       "how": [
         [
-          "얼음 기둥",
-          "위에 선 적을 밀쳐내고 주변 모두를 둔화시킵니다. 원래는 피해를 주지 않고 회복도 하지 않습니다."
+          "변덕쟁이",
+          "최대 랭크에서 적을 2초 동안 무해한 동물로 바꾸고, 재사용 대기시간은 18초입니다. 이 긴 쿨타임이 핵심입니다."
         ],
         [
           "증강",
-          "굶주린 속박과 지형 생성됨을 둘 다 얼음 기둥에 받으면 밀쳐낼 때마다 트런들이 회복하고 기둥이 주변 모두에게 피해를 줍니다. 그 피해는 스킬 적중으로 치니 벌이다!!!가 계속 벌집을 날립니다. 죽음의 순환은 모든 회복의 70%와 체력 재생 전부를 가장 가까운 적 챔피언에게 마법 피해로 바꿉니다."
+          "변덕쟁이에 뽑은 과충전은 룰루가 반짝반짝 창, 도와줘, 픽스!, 급성장을 쓸 때마다 변덕쟁이를 초기화하고, 변덕쟁이를 쓸 때마다 대마법사가 그 셋 중 하나에 5.4초(18초의 30%)를 줍니다. 궁극의 각성은 Q와 E를 초기화하고 급성장 후마다 가속 300을 더하며, 신비한 주먹은 공격할 때마다 모든 스킬의 대기시간을 1.25초 줄입니다."
         ],
         [
           "아이템",
-          "정령의 형상이 모든 회복을 늘리고 라일라이의 수정홀이 기둥에 맞은 모두를 둔화시킵니다. 라일라이, 우주의 추진력, 워모그의 갑옷으로 추가 체력이 2,000을 넘으니 8초간 맞지 않을 때마다 워모그가 회복시키고, 그 재생이 계속 가장 가까운 적을 지집니다. 구원으로 멀리서 한 번 더 회복합니다."
+          "대천사의 포옹, 악의, 어둠불꽃 횃불, 얼어붙은 심장이 마나통입니다. 다람쥐 네 마리는 비싸니까요. 정수 약탈자는 스킬을 쓴 뒤 공격할 때마다 마나를 돌려줍니다."
         ]
       ],
       "augments": [
-        "선택한 스킬로 적 챔피언에게 이동 불가 또는 이동기 사용 불가 효과를 적용하면 추가 피해를 입히고 체력을 회복합니다.",
-        "회복량과 체력 재생량의 70%만큼 가장 가까운 적 챔피언에게 마법 피해를 입힙니다.",
-        "선택한 스킬이 주변 범위에 피해를 입힙니다.",
-        "주기적으로 적 챔피언에게 다음 스킬을 적중시키면 벌집을 날려 폭발시키고, 잠시 동안 둔화와 마법 피해를 입힙니다. 벌은 적중 시 효과를 적용합니다."
+        "다른 스킬을 쓰면 선택한 스킬의 재사용 대기시간이 초기화된다.",
+        "스킬을 쓰면 원래 스킬 재사용 대기시간의 30%만큼 다른 무작위 스킬의 비용을 환급한다.",
+        "궁극기 스킬 가속 30을 얻는다. 궁극기를 쓴 후 기본 스킬을 초기화하고 15초 동안 기본 스킬 가속 300을 얻는다. (재사용 대기시간 20초)",
+        "적중 시 스킬 재사용 대기시간이 1.25초 감소합니다."
       ]
     },
     "pl": {
-      "title": "Skibidi Kolumna",
-      "why": "Trundle przestaje być wojownikiem do walki wręcz i gra jak mag: każda Kolumna Lodu leczy go, rani wszystko wokół i wypuszcza pszczoły, a każde leczenie trafia najbliższego wrogiego bohatera.",
-      "play": "Najpierw maksuj E. Stawiaj kolumny pod wrogim carry, potem cofnij się i pozwól regeneracji pokować. Nigdy nie wciskaj Q, nigdy nie klikaj prawym.",
-      "tagline": "Każda kolumna to przekąska. Każda przekąska trafia najbliższego wroga.",
+      "title": "Fanaberia na full",
+      "why": "Lulu przestaje komukolwiek dawać tarczę i wciska Fanaberię dwa razy na sekundę, aż wrogi zespół zamieni się w mini zoo.",
+      "play": "Najpierw wymaksuj Fanaberię, a Lśniącą Lancę zostaw na jednym punkcie: trwa 7 sekund na każdym poziomie i tam jest najtańsza. Fanaberia na jednego wroga, rzuć cokolwiek innego, Fanaberia na następnego, przywal wiewiórce, póki czekasz, i użyj Szalonego Rozrostu na sobie, gdy tylko będzie gotowy.",
+      "tagline": "Jeden wróg to wiewiórka, potem pozostała trójka, a piąty tylko się gapi",
       "how": [
         [
-          "Kolumna Lodu",
-          "Odrzuca każdego, kto na niej stoi, i spowalnia wszystkich w pobliżu. Normalnie nie zadaje obrażeń i nigdy nie leczy."
+          "Fanaberia",
+          "Na maksymalnym poziomie zamienia wroga w nieszkodliwe zwierzątko na 2 sekundy, z czasem odnowienia 18 sekund. Ten długi czas odnowienia to cały trik."
         ],
         [
           "Wzmocnienia",
-          "Krwiożercze Sidła i Terenowość, oba wylosowane na Kolumnie Lodu, sprawiają, że każde odrzucenie leczy Trundle'a, a kolumna rani wszystko wokół. Te obrażenia liczą się jako trafienie umiejętnością, więc PSZCZOŁY!!! ciągle wypuszczają ule. Krąg Śmierci zamienia 70% każdego leczenia i całą jego regenerację zdrowia w obrażenia magiczne dla najbliższego wrogiego bohatera."
+          "Przeciążenie wybrane na Fanaberii resetuje ją za każdym razem, gdy Lulu rzuci Lśniącą Lancę, Na pomoc, Pix! albo Szalony Rozrost, a każda Fanaberia sprawia, że Arcymag oddaje 5,4 sekundy (30% z 18) jednej z tych trzech umiejętności. Ostateczne Przebudzenie odświeża Q i E i dodaje 300 przyspieszenia po każdym Szalonym Rozroście, a Mistyczny Cios zabiera 1,25 sekundy ze wszystkiego przy każdym ataku."
         ],
         [
           "Przedmioty",
-          "Oblicze Ducha wzmacnia każde leczenie, a Kryształowy Kostur Rylai spowalnia każdego, kogo rani kolumna. Rylai, Kosmiczny Impuls i Plemienna Zbroja podnoszą jego dodatkowe zdrowie ponad 2000, więc Zbroja regeneruje go, gdy przez 8 sekund nikt go nie trafi, a ta regeneracja dalej razi najbliższego wroga. Odkupienie leczy go jeszcze raz z daleka."
+          "Uścisk Serafina, Złowrogość, Pochodnia Mrocznego Ognia i Mroźne Serce to pasek many, bo cztery wiewiórki słono kosztują. Złodziej Esencji zwraca manę przy ataku po każdym rzuceniu zaklęcia."
         ]
       ],
       "augments": [
-        "Unieruchomienie lub uziemienie wrogich bohaterów wybraną umiejętnością zadaje dodatkowe obrażenia i cię leczy.",
-        "Twoje leczenie i regeneracja zdrowia zadają najbliższemu wrogiemu bohaterowi obrażenia magiczne równe 70% ich wartości.",
-        "Wybrana umiejętność zadaje obrażenia na obszarze wokół siebie.",
-        "Co jakiś czas twoje następne trafienie umiejętnością we wrogiego bohatera wypuszcza ul pszczół, który wybucha, spowalniając i zadając obrażenia magiczne przez krótki czas. Pszczoły nakładają efekty przy trafieniu."
+        "Użycie innej umiejętności resetuje czas odnowienia wybranej umiejętności.",
+        "Rzucenie zaklęcia zwraca koszt innego losowego zaklęcia o 30% czasu odnowienia rzucanego zaklęcia.",
+        "Zyskujesz 30 jedn. przyspieszenia superumiejętności. Po użyciu swojej superumiejętności odświeżasz umiejętności podstawowe i zyskujesz 300 jedn. przyspieszenia podstawowych umiejętności na 15 sek. (20 sek. odnowienia).",
+        "Przy trafieniu skraca czas odnowienia twoich umiejętności o 1,25 sekundy."
       ]
     },
     "pt-BR": {
-      "title": "Pilar Skibidi",
-      "why": "Trundle deixa de ser um lutador corpo a corpo e joga como um mago: cada Pilar de Gelo o cura, fere tudo por perto e lança abelhas, e cada cura acerta o campeão inimigo mais próximo.",
-      "play": "Upe o E primeiro. Solte pilares no carry inimigo, depois recue e deixe a regeneração fazer o poke. Nunca aperte Q, nunca clique com o botão direito.",
-      "tagline": "Cada pilar é um lanchinho. Cada lanchinho acerta o inimigo mais próximo.",
+      "title": "Caprichos no Talo",
+      "why": "Lulu para de proteger qualquer um e aperta Caprichos duas vezes por segundo até o time inimigo virar um zoológico de contato.",
+      "play": "Maximize Caprichos primeiro e deixe Lança-Purpurina com um ponto: dura 7 segundos em qualquer nível e é mais barata ali. Caprichos num inimigo, lance qualquer outra coisa, Caprichos no próximo, soque um esquilo enquanto espera e use Crescimento Virente em si mesma assim que estiver pronto.",
+      "tagline": "Um inimigo vira esquilo, depois os outros três, e o quinto só fica olhando",
       "how": [
         [
-          "Pilar de Gelo",
-          "Empurra quem estiver em cima e deixa todos por perto mais lentos. Normalmente não causa dano e nunca cura."
+          "Caprichos",
+          "Transforma um inimigo em um bichinho inofensivo por 2 segundos no nível máximo, com 18 segundos de recarga. Essa recarga longa é o truque todo."
         ],
         [
           "Aumentos",
-          "Vínculo Voraz e Aterramento, ambos sorteados no Pilar de Gelo, fazem cada empurrão curar o Trundle e o pilar ferir tudo ao redor. Esse dano conta como acerto de habilidade, então ABELHAS!!! não para de lançar colmeias. Círculo da Morte transforma 70% de cada cura e toda a sua Regeneração de Vida em dano mágico no campeão inimigo mais próximo."
+          "Sobrecarga, escolhida em Caprichos, reinicia a habilidade toda vez que Lulu lança Lança-Purpurina, Socorro, Pix! ou Crescimento Virente, e cada Caprichos faz Arquimago dar 5,4 segundos (30% de 18) a uma dessas três. Despertar Supremo reinicia Q e E e adiciona 300 de aceleração após cada Crescimento Virente, e Soco Místico tira 1,25 segundo de tudo a cada ataque."
         ],
         [
           "Itens",
-          "Semblante Espiritual aumenta cada cura e o Cetro de Cristal de Rylai deixa lento todo mundo que o pilar fere. Rylai, Ímpeto Cósmico e a Armadura de Warmog levam a Vida adicional dele acima de 2.000, então a Warmog o regenera sempre que ele passa 8 segundos sem ser atingido, e essa regeneração continua acertando o inimigo mais próximo. Redenção o cura de novo de longe."
+          "Abraço de Seraph, Malevolência, Tocha de Chamas Negras e Coração Congelado são a barra de mana, porque quatro esquilos saem caro. Colhedor de Essência devolve mana no ataque depois de cada lançamento."
         ]
       ],
       "augments": [
-        "Imobilizar ou Prender ao Chão campeões inimigos com a habilidade escolhida causa dano extra e cura você.",
-        "Suas curas e Regeneração de Vida causam 70% do valor como dano mágico no campeão inimigo mais próximo.",
-        "Sua habilidade escolhida causa dano em uma área ao redor dela.",
-        "Periodicamente, seu próximo acerto de Habilidade em um campeão inimigo lança uma colmeia de abelhas que explode, causando Lentidão e dano mágico por um curto período. As abelhas aplicam efeitos Ao Atingir."
+        "Usar outra habilidade reinicia a recarga da habilidade escolhida.",
+        "Lançar um feitiço reduz a recarga de outro feitiço aleatório em 30% da recarga original do feitiço lançado.",
+        "Ganhe 30 de Aceleração de Habilidade suprema. Depois de usar sua suprema, suas habilidades básicas são renovadas e você ganha 300 de Aceleração de Habilidade básica por 15s. (20s de Recarga)",
+        "Ao atingir, reduz a recarga das suas habilidades em 1,25 segundo."
       ]
     },
     "ro": {
-      "title": "Stâlpul Skibidi",
-      "why": "Trundle nu mai e un luptător corp la corp și se joacă precum un mag: fiecare Stâlp de gheață îl vindecă, rănește tot ce e în jur și lansează albine, iar fiecare vindecare lovește cel mai apropiat campion inamic.",
-      "play": "Maximizează E prima dată. Pune stâlpi sub carry-ul inamic, apoi dă-te înapoi și lasă regenerarea să facă poke. Nu apăsa niciodată Q, nu da niciodată click dreapta.",
-      "tagline": "Fiecare stâlp e o gustare. Fiecare gustare lovește cel mai apropiat inamic.",
+      "title": "Capriciu pe repeat",
+      "why": "Lulu nu mai protejează pe nimeni și apasă Capriciu de două ori pe secundă până când echipa inamică devine grădină zoologică.",
+      "play": "Maximizează întâi Capriciu și lasă Val de scântei la un punct: durează 7 secunde la orice rang și costă cel mai puțin acolo. Capriciu pe un inamic, lansezi orice altceva, Capriciu pe următorul, dai un pumn unei veverițe cât aștepți și apeși Creștere sălbatică pe tine imediat ce e gata.",
+      "tagline": "Un inamic e veveriță, apoi ceilalți trei, iar al cincilea doar se uită",
       "how": [
         [
-          "Stâlp de gheață",
-          "Împinge pe oricine stă pe el și încetinește pe toți din apropiere. În mod normal nu provoacă daune și nu vindecă niciodată."
+          "Capriciu",
+          "Transformă un inamic într-o făptură inofensivă pentru 2 secunde la rangul maxim, cu un timp de reactivare de 18 secunde. Timpul ăsta lung de reactivare e tot trucul."
         ],
         [
           "Augmentări",
-          "Legătură lacomă și Teren special, ambele primite pe Stâlp de gheață, fac ca fiecare împingere să-l vindece pe Trundle, iar stâlpul să rănească tot ce e în jur. Aceste daune contează ca lovitură cu abilitate, așa că ALBINE!!! lansează stupi întruna. Cercul morții transformă 70% din fiecare vindecare și toată regenerarea lui de viață în daune magice asupra celui mai apropiat campion inamic."
+          "Supraîncărcat, luat pe Capriciu, îl resetează de fiecare dată când ea lansează Val de scântei, Pix, ajutor! sau Creștere sălbatică, iar fiecare Capriciu îl face pe Arhimag să dea 5,4 secunde (30% din 18) uneia dintre cele trei. Trezire supremă reîmprospătează Q și E și adaugă 300 de viteză de abilitate după fiecare Creștere sălbatică, iar Lovitură mistică scade 1,25 secunde din toate la fiecare atac."
         ],
         [
           "Obiecte",
-          "Înfățișarea sufletului amplifică fiecare vindecare, iar Sceptrul de cristal al lui Rylai încetinește pe toți cei răniți de stâlp. Rylai, Avânt cosmic și Armura lui Warmog îi duc viața bonus peste 2.000, așa că Warmog îl regenerează oricând trec 8 secunde fără să fie lovit, iar regenerarea continuă să lovească cel mai apropiat inamic. Izbăvire îl vindecă din nou de la distanță."
+          "Îmbrățișarea serafimului, Nocivitate, Torța focului negru și Inimă înghețată sunt bara de mană, pentru că patru veverițe costă scump. Hoțul de esență îți dă mana înapoi la atacul de după fiecare lansare."
         ]
       ],
       "augments": [
-        "Imobilizarea sau țintuirea la sol a campionilor inamici cu abilitatea aleasă provoacă daune suplimentare și te vindecă.",
-        "Vindecările și regenerarea ta de viață provoacă 70% din valoare ca daune magice celui mai apropiat campion inamic.",
-        "Abilitatea aleasă provoacă daune într-o zonă din jurul ei.",
-        "Periodic, următoarea ta lovitură cu abilitate asupra unui campion inamic lansează un stup de albine care explodează, încetinind și provocând daune magice pe o durată scurtă. Albinele aplică efectele la impact."
+        "Folosirea altei abilități resetează timpul de reîncărcare al abilității alese.",
+        "Lansarea unei vrăji reduce timpul de reîncărcare al altei vrăji aleatorii cu 30% din timpul de reîncărcare inițial al vrăjii lansate.",
+        "Primești 30 de grabă a abilităților supreme. După ce folosești abilitatea supremă, abilitățile de bază se reîmprospătează și primești 300 de grabă a abilităților de bază timp de 15 s. (20 s timp de reîncărcare)",
+        "La impact, reduce timpul de reîncărcare al abilităților tale cu 1,25 secunde."
       ]
     },
     "ru": {
-      "title": "Скибиди-столп",
-      "why": "Трандл перестает быть брузером ближнего боя и играет как маг: каждый Ледяной столп лечит его, ранит всех вокруг и выпускает пчел, а каждое лечение бьет ближайшего вражеского чемпиона.",
-      "play": "Сначала качайте E. Ставьте столпы на вражеского керри, потом отходите и пусть регенерация покает. Никогда не жмите Q и не кликайте правой кнопкой.",
-      "tagline": "Каждый столп — перекус. Каждый перекус бьет ближайшего врага.",
+      "title": "Причуда на повторе",
+      "why": "Лулу больше никого не защищает и жмёт Причуду два раза в секунду, пока вражеская команда не превратится в контактный зоопарк.",
+      "play": "Сначала качайте Причуду на максимум, а Сияющую стрелу оставьте на одном очке: она длится 7 секунд на любом ранге и дешевле всего на первом. Причуда на врага, любое другое заклинание, Причуда на следующего, пока ждёте, врежьте белке и нажмите Буйный рост на себя, как только он будет готов.",
+      "tagline": "Сначала один враг становится белкой, потом остальные трое, а пятый просто смотрит",
       "how": [
         [
-          "Ледяной столп",
-          "Отбрасывает того, кто на нем стоит, и замедляет всех вокруг. Обычно не наносит урона и никогда не лечит."
+          "Причуда",
+          "На максимальном ранге превращает врага в безобидного зверька на 2 секунды, перезарядка 18 секунд. Вся хитрость в этой долгой перезарядке."
         ],
         [
           "Аугменты",
-          "Алчущие оковы и Угроза снизу, оба выпавшие на Ледяной столп, заставляют каждый толчок лечить Трандла, а столп — ранить всех вокруг. Этот урон считается попаданием умения, так что ПЧЕЛЫ! постоянно запускают ульи. Цикл смерти превращает 70% каждого лечения и всю его регенерацию здоровья в магический урон по ближайшему вражескому чемпиону."
+          "Подзарядка, выпавшая на Причуду, сбрасывает её каждый раз, когда Лулу применяет Сияющую стрелу, Помоги, Пикс! или Буйный рост, а каждая Причуда заставляет Архимага отдать 5,4 секунды (30% от 18) одной из этих трёх способностей. Абсолютное пробуждение обновляет Q и E и даёт 300 ускорения умений после каждого Буйного роста, а Мистический удар убирает 1,25 секунды перезарядки у всего с каждой атакой."
         ],
         [
           "Предметы",
-          "Облачение духов усиливает каждое лечение, а Хрустальный скипетр Рилай замедляет всех, кого ранит столп. Рилай, Космический ускоритель и Доспех Вармога поднимают его дополнительное здоровье выше 2000, так что Вармог восстанавливает его каждый раз, когда он 8 секунд не получает урона, и эта регенерация продолжает бить ближайшего врага. Искупление лечит его еще раз издалека."
+          "Объятья серафима, Пагубность, Факел темного огня и Ледяное сердце — это полоска маны, потому что четыре белки стоят дорого. Похититель сущности возвращает ману при атаке после каждого применения."
         ]
       ],
       "augments": [
-        "Обездвиживание или приземление вражеских чемпионов выбранным умением наносит дополнительный урон и лечит вас.",
-        "Ваше лечение и регенерация здоровья наносят ближайшему вражескому чемпиону магический урон, равный 70% восстановленного.",
-        "Выбранное умение наносит урон в области вокруг себя.",
-        "Периодически ваше следующее попадание умением по вражескому чемпиону запускает улей пчел, который взрывается, замедляя и нанося магический урон в течение короткого времени. Пчелы применяют эффекты при попадании."
+        "Применение другого умения сбрасывает перезарядку выбранного умения.",
+        "Применение умения сокращает перезарядку другого, случайного умения на 30% от перезарядки исходного.",
+        "Вы получаете 30 ускорения абсолютного умения. После применения абсолютного умения перезарядка всех ваших базовых умений сбрасывается, и вы получаете 300 ускорения базовых умений на 15 сек. Перезарядка: 20 сек.",
+        "При попадании сокращает время перезарядки ваших умений на 1,25 сек."
       ]
     },
     "th": {
-      "title": "เสาสกิบิดี้",
-      "why": "Trundle เลิกเป็นนักสู้ระยะประชิดแล้วเล่นเหมือนเมจ: ทุก Pillar of Ice ฮีลเขา สร้างความเสียหายรอบตัว และปล่อยผึ้ง และทุกการฮีลจะช็อตแชมเปี้ยนศัตรูที่ใกล้ที่สุด",
-      "play": "อัป E ให้สุดก่อน วางเสาใต้แครี่ศัตรู แล้วถอยออกมาให้การฟื้นฟูทำหน้าที่ก่อกวน ห้ามกด Q ห้ามคลิกขวาเด็ดขาด",
-      "tagline": "ทุกเสาคือขนม ทุกขนมโจมตีศัตรูที่ใกล้ที่สุด",
+      "title": "Whimsy ล็อกแน่น",
+      "why": "Lulu เลิกปกป้องใครทั้งนั้น แล้วกด Whimsy วินาทีละสองครั้ง จนทีมศัตรูกลายเป็นสวนสัตว์เปิดให้เข้าไปลูบ",
+      "play": "อัป Whimsy ให้เต็มก่อน แล้วเหลือ Glitterlance ไว้แค่หนึ่งแต้ม เพราะมัน 7 วินาทีทุกเลเวลและถูกสุดที่เลเวลนั้น Whimsy ศัตรูคนหนึ่ง ร่ายสกิลอื่นอะไรก็ได้ แล้ว Whimsy คนต่อไป ระหว่างรอก็ต่อยกระรอกเล่น แล้วกด Wild Growth ใส่ตัวเองทันทีที่ใช้ได้",
+      "tagline": "ศัตรูคนแรกเป็นกระรอก ตามด้วยอีกสามคน ส่วนคนที่ห้าได้แต่ยืนดู",
       "how": [
         [
-          "Pillar of Ice",
-          "ผลักทุกคนที่ยืนอยู่บนเสาและทำให้ทุกคนรอบ ๆ ช้าลง ปกติไม่สร้างความเสียหายและไม่ฮีลเลย"
+          "Whimsy",
+          "เปลี่ยนศัตรูให้เป็นสัตว์ตัวน้อยไร้พิษภัยนาน 2 วินาทีเมื่ออัปเต็ม คูลดาวน์ 18 วินาที คูลดาวน์ที่ยาวนี่แหละคือเคล็ดลับทั้งหมด"
         ],
         [
           "Augment",
-          "Ravenous Bind และ Terrain'd ที่สุ่มได้บน Pillar of Ice ทั้งคู่ ทำให้ทุกการผลักฮีล Trundle และเสาสร้างความเสียหายรอบตัว ความเสียหายนั้นนับเป็นการโดนสกิล BEES!!! จึงปล่อยรังผึ้งไม่หยุด Circle of Death เปลี่ยน 70% ของทุกการฮีลและ Health Regen ทั้งหมดของเขาเป็นความเสียหายเวทใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด"
+          "Overloaded ที่สุ่มได้บน Whimsy จะรีเซ็ตมันทุกครั้งที่เธอร่าย Glitterlance, Help, Pix! หรือ Wild Growth และทุกครั้งที่ใช้ Whimsy ก็ทำให้ Archmage ลดคูลดาวน์ 5.4 วินาที (30% ของ 18) ให้หนึ่งในสามสกิลนั้น Ultimate Awakening รีเฟรช Q กับ E และเพิ่มความเร็วสกิล 300 หลังใช้ Wild Growth ทุกครั้ง ส่วน Mystic Punch ลดคูลดาวน์ทุกอย่างลง 1.25 วินาทีต่อการโจมตีหนึ่งครั้ง"
         ],
         [
           "ไอเทม",
-          "Spirit Visage เพิ่มทุกการฮีล และ Rylai's Crystal Scepter ทำให้ทุกคนที่โดนเสาช้าลง Rylai's, Cosmic Drive และ Warmog's Armor ดัน Health โบนัสของเขาเกิน 2,000 Warmog's จึงฟื้นฟูเขาทุกครั้งที่ไม่โดนโจมตี 8 วินาที และการฟื้นฟูนั้นจะช็อตศัตรูที่ใกล้ที่สุดต่อไป Redemption ฮีลเขาอีกครั้งจากระยะไกล"
+          "Seraph's Embrace, Malignance, Blackfire Torch และ Frozen Heart คือหลอดมานา เพราะกระรอกสี่ตัวมันแพง ส่วน Essence Reaver คืนมานาให้ตอนโจมตีหลังร่ายสกิลแต่ละครั้ง"
         ]
       ],
       "augments": [
-        "การ Immobilize หรือ Ground แชมเปี้ยนศัตรูด้วยสกิลที่เลือกจะสร้างดาเมจเพิ่มและฮีลคุณ",
-        "การฮีลและการฟื้นฟูพลังชีวิตของคุณสร้างความเสียหายเวท 70% ของค่านั้นใส่แชมเปี้ยนศัตรูที่ใกล้ที่สุด",
-        "สกิลที่คุณเลือกสร้างดาเมจเป็นวงรอบตัวมัน",
-        "เป็นระยะ ๆ การโจมตีด้วยสกิลครั้งถัดไปใส่แชมเปี้ยนศัตรูจะปล่อยรังผึ้งที่ระเบิด ทำให้ช้าลงและสร้างความเสียหายเวทในช่วงเวลาสั้น ๆ ผึ้งใช้เอฟเฟกต์ On-Hit"
+        "การใช้สกิลอื่นจะรีเซ็ตคูลดาวน์ของสกิลที่เลือก",
+        "การร่ายสกิลจะคืนค่าใช้จ่ายของสกิลสุ่มอีกอันเท่ากับ 30% ของคูลดาวน์เดิมของสกิลนั้น",
+        "รับ Ultimate Ability Haste 30 หลังใช้อัลติเมต รีเฟรชสกิลพื้นฐานและรับ Ability Haste สกิลพื้นฐาน 300 เป็นเวลา 15 วินาที (คูลดาวน์ 20 วินาที)",
+        "On-Hit ลดคูลดาวน์สกิลของคุณ 1.25 วินาที"
       ]
     },
     "tr": {
-      "title": "Skibidi Sütun",
-      "why": "Trundle yakın dövüş dövüşçüsü olmayı bırakıp büyücü gibi oynuyor: Her Buzdan Sütun onu iyileştiriyor, yakındaki her şeye hasar veriyor ve arı fırlatıyor, her iyileşme de en yakın rakip şampiyona vuruyor.",
-      "play": "Önce E'yi fulle. Sütunları rakip carry'nin üstüne koy, sonra geri çekil ve dürtmeyi yenilenmeye bırak. Asla Q'ya basma, asla sağ tıklama.",
-      "tagline": "Her sütun bir atıştırmalık. Her atıştırmalık en yakın rakibe vuruyor.",
+      "title": "Kapris Kilitlendi",
+      "why": "Lulu kimseyi korumayı bırakıp saniyede iki kere Kapris basıyor, ta ki düşman takım bir mini hayvanat bahçesine dönene kadar.",
+      "play": "Önce Kapris'i son seviyeye çıkar, Işıltılı Ok'ta tek puan bırak: her seviyede 7 saniye sürüyor ve en ucuzu orada. Bir düşmana Kapris at, başka bir şey kullan, sıradaki düşmana Kapris at, beklerken bir sincaba yumruk salla ve Vahşi Büyüme hazır olur olmaz kendine bas.",
+      "tagline": "Önce bir düşman sincap olur, sonra diğer üçü, beşincisi ise sadece izler",
       "how": [
         [
-          "Buzdan Sütun",
-          "Üstünde duranı geri iter ve yakındaki herkesi yavaşlatır. Normalde hasar vermez ve asla iyileştirmez."
+          "Kapris",
+          "Son seviyede bir düşmanı 2 saniyeliğine zararsız bir hayvana çevirir, bekleme süresi 18 saniye. Bütün olay o uzun bekleme süresinde."
         ],
         [
           "Güçlendirmeler",
-          "Açgözlü Bağ ve Yüzey Şeklinç, ikisi de Buzdan Sütun'a gelmişken, her itiş Trundle'ı iyileştirir ve sütun etrafındaki her şeye hasar verir. Bu hasar yetenek isabeti sayılır, yani ARILAR!!! sürekli kovan fırlatır. Ölüm Döngüsü her iyileşmenin %70'ini ve tüm Can Yenilenmesini en yakın rakip şampiyona büyü hasarı olarak çevirir."
+          "Kapris'e denk gelen Aşırı Yüklü, Lulu her Işıltılı Ok, Yetiş, Pix! veya Vahşi Büyüme kullandığında onu sıfırlıyor ve her Kapris, Baş Büyücü'nün bu üçünden birine 5,4 saniye (18'in %30'u) vermesini sağlıyor. Ulti Uyanışı, Q ve E'yi yeniliyor ve her Vahşi Büyüme'den sonra 300 hız ekliyor; Mistik Yumruk ise her saldırıda her şeyden 1,25 saniye düşüyor."
         ],
         [
           "Eşyalar",
-          "Ruh Gömleği her iyileşmeyi güçlendirir, Rylai'nin Kristal Asası da sütunun vurduğu herkesi yavaşlatır. Rylai, Kozmik Hızlandırıcı ve Warmog'un Zırhı ek canını 2.000'in üstüne çıkarır, böylece Warmog 8 saniye hasar almadığı her an onu yeniler ve bu yenilenme en yakın rakibe vurmaya devam eder. Kefaret onu uzaktan bir kez daha iyileştirir."
+          "Seraph'ın Şefkati, Habaset, Siyahateş Meşalesi ve Donmuş Yürek mana barı oluyor, çünkü dört sincap pahalıya patlıyor. Canbiçen ise her kullanımdan sonraki saldırıda mana geri veriyor."
         ]
       ],
       "augments": [
-        "Seçilen yetenekle rakip şampiyonları etkisiz bırakmak veya yere çakmak ek hasar verir ve seni iyileştirir.",
-        "İyileştirmelerin ve Can Yenilemen, değerin %70'i kadar büyü hasarını en yakın rakip şampiyona verir.",
-        "Seçtiğin yetenek etrafındaki bir alana hasar verir.",
-        "Belirli aralıklarla, rakip bir şampiyona yaptığın bir sonraki Yetenek isabeti patlayan bir arı kovanı fırlatır, kısa süre boyunca Yavaşlatır ve büyü hasarı verir. Arılar isabet etkilerini uygular."
+        "Başka bir Yetenek kullanmak seçilen yeteneğin bekleme süresini sıfırlar.",
+        "Bir yetenek kullandığında rasgele başka bir yeteneğin bekleme süresi, kullandığın yeteneğin bekleme süresinin %30 kadarı azalır.",
+        "30 Ulti Hızı kazanırsın. Ultini kullandıktan sonra temel yeteneklerinin bekleme süreleri sıfırlanır ve 15 saniyeliğine 300 Temel Yetenek Hızı kazanırsın (20 sn. bekleme süresi).",
+        "İsabette yeteneklerinin bekleme süresini 1,25 saniye azaltır."
       ]
     },
     "vi": {
-      "title": "Cột Skibidi",
-      "why": "Trundle thôi làm đấu sĩ cận chiến và chơi như pháp sư: mỗi Cột Băng hồi máu cho hắn, gây sát thương mọi thứ xung quanh và phóng ong, và mỗi lần hồi máu lại giật vào tướng địch gần nhất.",
-      "play": "Tối đa E trước. Thả cột lên xạ thủ địch, rồi lùi lại để hồi máu tự cấu rỉa. Đừng bao giờ bấm Q, đừng bao giờ click chuột phải.",
-      "tagline": "Mỗi cột là một món ăn vặt. Mỗi món ăn vặt đánh trúng kẻ địch gần nhất.",
+      "title": "Biến Hóa Khóa Chặt",
+      "why": "Lulu thôi che chắn cho ai hết và bấm Biến Hóa hai lần mỗi giây cho tới khi cả đội địch thành sở thú mini.",
+      "play": "Tối đa Biến Hóa trước và chỉ để Ngọn Thương Ánh Sáng một điểm: nó kéo dài 7 giây ở mọi cấp và rẻ nhất ở cấp đó. Biến Hóa một tên địch, tung chiêu nào đó khác, Biến Hóa tên kế tiếp, vừa chờ vừa đấm một con sóc, rồi bấm Khổng Lồ Hóa lên bản thân ngay khi nó sẵn sàng.",
+      "tagline": "Một tên địch thành sóc, rồi ba tên còn lại, còn tên thứ năm thì chỉ đứng xem",
       "how": [
         [
-          "Cột Băng",
-          "Đẩy lùi kẻ đứng trên nó và làm chậm mọi người xung quanh. Bình thường nó không gây sát thương và không bao giờ hồi máu."
+          "Biến Hóa",
+          "Biến một tên địch thành sinh vật vô hại trong 2 giây ở cấp tối đa, hồi chiêu 18 giây. Thời gian hồi chiêu dài đó chính là mấu chốt."
         ],
         [
           "Lõi nâng cấp",
-          "Lòng Tham Trói Buộc và Kiến Tạo Địa Hình, cả hai đều rơi vào Cột Băng, khiến mỗi lần hất hồi máu cho Trundle và cột gây sát thương xung quanh. Sát thương đó tính là đòn kỹ năng, nên ONG KÌA!!! liên tục bắn tổ ong. Vòng Tròn Tử Thần biến 70% mỗi lần hồi máu và toàn bộ Hồi Máu của hắn thành sát thương phép lên tướng địch gần nhất."
+          "Quá Tải Sát Thương, quay trúng Biến Hóa, sẽ làm mới nó mỗi khi cô ấy dùng Ngọn Thương Ánh Sáng, Giúp Nào Pix! hoặc Khổng Lồ Hóa, và mỗi lần Biến Hóa khiến Đại Pháp Sư tặng 5,4 giây (30% của 18) cho một trong ba chiêu đó. Thức Tỉnh Tối Thượng làm mới Q và E và thêm 300 tốc độ chiêu sau mỗi lần Khổng Lồ Hóa, còn Cú Đấm Thần Bí giảm 1,25 giây hồi chiêu của mọi thứ sau mỗi đòn đánh."
         ],
         [
           "Trang bị",
-          "Giáp Tâm Linh tăng mọi lượng hồi máu và Trượng Pha Lê Rylai làm chậm mọi kẻ bị cột gây sát thương. Rylai, Động Cơ Vũ Trụ và Giáp Máu Warmog đẩy Máu cộng thêm của hắn vượt 2.000, nên Giáp Máu hồi máu cho hắn mỗi khi 8 giây không bị đánh, và lượng hồi đó tiếp tục giật vào kẻ địch gần nhất. Dây Chuyền Chuộc Tội hồi máu cho hắn thêm lần nữa từ xa."
+          "Quyền Trượng Đại Thiên Sứ, Hỏa Khuẩn, Đuốc Lửa Đen và Tim Băng là thanh năng lượng, vì bốn con sóc tốn kém lắm. Lưỡi Hái Linh Hồn hoàn lại năng lượng ở đòn đánh sau mỗi lần dùng chiêu."
         ]
       ],
       "augments": [
-        "Làm bất động hoặc Trói Chân tướng địch bằng kỹ năng đã chọn gây thêm sát thương và hồi máu cho bạn.",
-        "Lượng hồi máu và Hồi Máu của bạn gây sát thương phép bằng 70% giá trị lên tướng địch gần nhất.",
-        "Kỹ năng bạn chọn gây sát thương trong một vùng xung quanh nó.",
-        "Định kỳ, đòn Kỹ năng tiếp theo trúng tướng địch sẽ phóng ra một tổ ong phát nổ, làm Chậm và gây sát thương phép trong thời gian ngắn. Ong áp dụng hiệu ứng Trên Đòn Đánh."
+        "Dùng kỹ năng khác sẽ đặt lại hồi chiêu của kỹ năng đã chọn.",
+        "Dùng kỹ năng sẽ hoàn lại chi phí của một kỹ năng ngẫu nhiên khác bằng 30% thời gian hồi chiêu gốc của kỹ năng đó.",
+        "Nhận 30 Gia Tốc Chiêu Cuối. Sau khi dùng Chiêu Cuối, làm mới các kỹ năng cơ bản và nhận 300 gia tốc kỹ năng cơ bản trong 15 giây. (Hồi chiêu 20 giây)",
+        "Hiệu ứng trên đòn đánh: giảm 1,25 giây thời gian hồi chiêu của các kỹ năng."
       ]
     },
     "zh-CN": {
-      "title": "斯奇必迪冰柱",
-      "why": "特朗德尔不再当近战战士，而是像法师一样玩：每根寒冰之柱都会治疗他、伤害周围一切并放出蜜蜂，而每次治疗都会电击最近的敌方英雄。",
-      "play": "主E。把柱子放在敌方核心脚下，然后后退，让回血去消耗。永远别按Q，永远别右键。",
-      "tagline": "每根柱子都是零食。每份零食都打最近的敌人。",
+      "title": "奇思妙想锁定",
+      "why": "璐璐不再给任何人套盾，一秒按两次奇思妙想，直到敌方全队变成一座儿童动物园。",
+      "play": "先把奇思妙想加满，闪耀长枪只留一点：它每一级都是7秒，而且那里最省蓝。对一个敌人用奇思妙想，放点别的技能，再对下一个用奇思妙想，等的时候顺手揍只松鼠，狂野生长一好就给自己来一下。",
+      "tagline": "先是一个敌人变松鼠，然后是另外三个，第五个只能干看着",
       "how": [
         [
-          "寒冰之柱",
-          "击退站在上面的敌人并减速周围所有人。平时它不造成伤害，也从不治疗。"
+          "奇思妙想",
+          "满级时把敌人变成无害的小动物，持续2秒，冷却时间18秒。这个超长冷却就是全部的秘诀。"
         ],
         [
           "海克斯强化",
-          "贪欲束缚和地形专家都随机到寒冰之柱时，每次击退都会治疗特朗德尔，柱子还会伤害周围一切。这份伤害算作技能命中，所以小蜜蜂！！！会不停放出蜂巢。死亡之环把每次治疗的70%和他全部的生命回复转化为对最近敌方英雄的魔法伤害。"
+          "超负荷刷在奇思妙想上，她每放一次闪耀长枪、帮忙，皮克斯！或狂野生长就会重置它，而每次奇思妙想都会让大法师给这三个技能中的一个减少5.4秒冷却（18秒的30%）。终极唤醒会刷新Q和E，并在每次狂野生长后增加300技能急速，秘术冲拳则让每次攻击减少所有技能1.25秒冷却。"
         ],
         [
           "装备",
-          "振奋盔甲强化每次治疗，瑞莱的冰晶节杖减速被柱子伤到的所有人。瑞莱、星界驱驰和狂徒铠甲让他的额外生命值超过2000，所以只要8秒没挨打，狂徒就会给他回血，而这份回血会持续电击最近的敌人。救赎还能从远处再奶他一口。"
+          "炽天使之拥、残疫、黯炎火炬和冰霜之心就是蓝条，因为四只松鼠很烧钱。夺萃之镰会在每次施法后的那下攻击里把蓝还给你。"
         ]
       ],
       "augments": [
-        "使用所选技能对敌方英雄施加定身或禁锢效果，会造成额外伤害并治疗你。",
-        "你的治疗和生命回复会对最近的敌方英雄造成相当于该数值70%的魔法伤害。",
-        "你选择的技能会对其周围区域造成伤害。",
-        "周期性地，你对敌方英雄的下一次技能命中会发射一个蜂巢，蜂巢爆炸，在短时间内造成减速和魔法伤害。蜜蜂会施加攻击特效。"
+        "使用其他技能会重置所选技能的冷却时间。",
+        "施放技能后，按原技能冷却时间的30%返还另一个随机技能的消耗。",
+        "获得30终极技能急速。使用终极技能后，刷新你的基础技能，并在15秒内获得300基础技能急速。（20秒冷却）",
+        "攻击特效：使你的技能冷却时间减少1.25秒。"
       ]
     },
     "zh-TW": {
-      "title": "斯奇必迪冰柱",
-      "why": "特朗德不再當近戰鬥士，而是像法師一樣玩：每根狡詰冰柱都會治療他、傷害周圍一切並放出蜜蜂，而每次治療都會電擊最近的敵方英雄。",
-      "play": "主E。把冰柱放在敵方核心腳下，然後後退，讓回血去消耗。永遠別按Q，永遠別右鍵。",
-      "tagline": "每根冰柱都是零食。每份零食都打最近的敵人。",
+      "title": "幻想曲鎖定",
+      "why": "露璐不再替任何人套盾，一秒按兩次幻想曲，直到敵方全隊變成一座小動物園。",
+      "play": "先把幻想曲點滿，閃耀雙重奏只留一點：它每一級都是7秒，而且那裡最省魔。對一個敵人用幻想曲，放點別的技能，再對下一個用幻想曲，等的時候順手揍隻松鼠，究極鍊化一好就對自己來一下。",
+      "tagline": "先是一個敵人變松鼠，然後是另外三個，第五個只能乾看著",
       "how": [
         [
-          "狡詰冰柱",
-          "擊退站在上面的敵人並緩速周圍所有人。平時它不造成傷害，也從不治療。"
+          "幻想曲",
+          "滿級時把敵人變成無害的小動物，持續2秒，冷卻時間18秒。這個超長冷卻就是全部的秘訣。"
         ],
         [
           "強化",
-          "貪婪束縛和劃地為王都抽到狡詰冰柱時，每次擊退都會治療特朗德，冰柱還會傷害周圍一切。這份傷害算作技能命中，所以蜜蜂來襲！！！會不停放出蜂巢。死亡循環把每次治療的70%和他全部的生命回復轉化為對最近敵方英雄的魔法傷害。"
+          "輸出超負荷骰在幻想曲上，她每放一次閃耀雙重奏、帥啊小皮！或究極鍊化就會重置它，而每次幻想曲都會讓大法師給這三個技能中的一個減少5.4秒冷卻（18秒的30%）。大絕覺醒會刷新Q和E，並在每次究極鍊化後增加300技能加速，祕術拳擊則讓每次攻擊減少所有技能1.25秒冷卻。"
         ],
         [
           "裝備",
-          "振奮盔甲強化每次治療，瑞萊的冰晶節杖緩速被冰柱傷到的所有人。瑞萊、星河馳騁和好戰者鎧甲讓他的額外生命超過2000，所以只要8秒沒挨打，好戰者就會幫他回血，而這份回血會持續電擊最近的敵人。贖罪神石還能從遠處再補他一口。"
+          "熾天使的擁抱、惡意、黑焰火炬和冰霜之心就是魔力條，因為四隻松鼠很燒錢。奪魄之鐮會在每次施法後的那下攻擊把魔力還給你。"
         ]
       ],
       "augments": [
-        "使用所選技能對敵方英雄施加定身或禁錮效果，會造成額外傷害並治療你。",
-        "你的治療和生命回復會對最近的敵方英雄造成相當於該數值70%的魔法傷害。",
-        "你選擇的技能會對其周圍區域造成傷害。",
-        "週期性地，你對敵方英雄的下一次技能命中會發射一個蜂巢，蜂巢爆炸，在短時間內造成緩速和魔法傷害。蜜蜂會施加攻擊特效。"
+        "使用其他技能會重置所選技能的冷卻時間。",
+        "施放技能後，依原技能冷卻時間的30%返還另一個隨機技能的消耗。",
+        "獲得30終極技能加速。使用終極技能後，刷新你的基礎技能，並在15秒內獲得300基礎技能加速。（20秒冷卻）",
+        "命中特效：使你的技能冷卻時間減少1.25秒。"
       ]
     }
   }
