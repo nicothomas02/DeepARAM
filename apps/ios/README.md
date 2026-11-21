@@ -31,6 +31,9 @@ matching deeparam.com page, so every site update reaches the app without a new r
   kept in the keychain and shared with the extension through the App Group `group.com.deeparam.app`. The widgets read
   `https://deeparam.com/api/widget` with it (`web/src/app/api/widget/route.ts`, `web/src/lib/widget-summary.ts`).
   Only the site owner's account can connect, since it's the owner's own games. Disconnect deletes the token on the site.
+  **Live game:** while the owner's PC app reports a game, This week and Next game switch to it (refreshing about once
+  a minute), and a Live Activity follows it on the Lock Screen, in the Dynamic Island and full screen in StandBy,
+  updated by pushes the PC app sends. See `docs/iphone-live-game.md`.
   The first build with your team in Xcode registers the App Group for both `com.deeparam.app` and `com.deeparam.app.widgets`.
 
 Shared code (tabs, web view, offline copies, patch checks) lives in `apps/shared/DeepARAMKit` so the iPad and Mac apps use the same pieces.

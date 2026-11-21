@@ -111,3 +111,23 @@ final class WidgetSummaryTests: XCTestCase {
         XCTAssertNil(s.patch.live)
     }
 }
+
+final class LiveGameTests: XCTestCase {
+    func testSummaryWithLiveGameDecodes() throws {
+        let json = #"{"updated":0,"week":{"from":0,"games":0,"wins":0,"losses":0,"indicators":[]},"tip":{"title":"t","body":"b","key":null},"patch":{"live":null,"champions":[]},"live":{"champion":"Wukong","championId":"MonkeyKing","startedAt":1763690000000,"level":11,"kills":6,"deaths":3,"assists":14,"nextAugment":11,"augmentReady":true,"nextItems":["Sterak's Gage"],"winChance":0.61,"dead":false}}"#
+        let s = try WidgetSummary.decode(Data(json.utf8))
+        XCTAssertEqual(s.live?.kda, "6/3/14")
+        XCTAssertEqual(s.live?.headline, "Augment pick ready")
+        XCTAssertEqual(s.live?.winPercent, "61%")
+    }
+
+    func testHeadlineOrder() {
+        var g = LiveGame.preview
+        g.augmentReady = false
+        g.dead = true
+        XCTAssertEqual(g.headline, "Dead: buy Sterak's Gage")
+        g.dead = false
+        g.nextItems = []
+        XCTAssertEqual(g.headline, "Next augment at level 11")
+    }
+}

@@ -59,3 +59,6 @@ export async function widgetTokenAccount(token: string | null): Promise<string |
 export async function deleteWidgetToken(token: string) {
   await (await table()).prepare("DELETE FROM widget_tokens WHERE id = ?").bind(await sha256(token)).run();
 }
+
+/** The token in an "Authorization: Bearer ..." header, or null. */
+export const bearerToken = (req: Request) => /^Bearer\s+(\S+)$/i.exec(req.headers.get("authorization") ?? "")?.[1] ?? null;

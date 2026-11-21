@@ -23,7 +23,10 @@ struct DeepARAMApp: App {
             if phase == .active {
                 Task { await PatchAlerts.shared.checkNow() }
                 // The widgets pick up games saved since they last refreshed.
-                if WidgetStore.isConnected { WidgetCenter.shared.reloadAllTimelines() }
+                if WidgetStore.isConnected {
+                    WidgetCenter.shared.reloadAllTimelines()
+                    LiveActivities.shared.start()
+                }
             }
         }
 

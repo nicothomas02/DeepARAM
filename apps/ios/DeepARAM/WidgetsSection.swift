@@ -30,7 +30,7 @@ struct WidgetsSection: View {
             Text("iPhone widgets")
         } footer: {
             Text(message ?? (connected
-                ? "Connected. Add This week, Next game and Your champions from the widget gallery. On a stand in StandBy, pick the Modular face: This week large, the other two small."
+                ? "Connected. Add This week, Next game and Your champions from the widget gallery. On a stand in StandBy, pick the Modular face: This week large, the other two small. During a game, with the DeepARAM PC app open, they show the game and a Live Activity follows it."
                 : "Shows your week, a tip for your next game and your champions on the live patch. Sign in to your account (More > Account & My Stats) first."))
         }
     }
@@ -45,6 +45,7 @@ struct WidgetsSection: View {
             message = nil
             Haptics.shared.play(.done)
             WidgetCenter.shared.reloadAllTimelines()
+            LiveActivities.shared.start()
         } catch WidgetStore.Failure.server(let text) {
             message = text
         } catch {
