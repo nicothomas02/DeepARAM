@@ -254,16 +254,21 @@
   const deepTier = (ds) => (ds >= 70 ? "S" : ds >= 59 ? "A" : ds >= 44 ? "B" : ds >= 32 ? "C" : "D");
   const deepLabel = (ds) => (ds >= 0 ? `${deepTier(ds)} ${ds}` : "");
 
-  const COMBO_ODDS = 0.25;
+  // Re-measured 2026-11-22 on 11,702 real player-games (every player in the owner's archive, picks in order): the
+  // partner of a half-taken combo arrived only ~4% of the time per pick left, and taking the half cost 4-7 win-rate
+  // points against the champion's strong solo augment at the same pick (most at pick 1). The fitted share is 0.04
+  // per pick left, at most 12% (was 0.25 and 60%). Real games only, no Simulator.
+  const COMBO_ODDS = 0.04;
+  const COMBO_CAP = 0.12;
 
   function rankAugments(d, champ, taken) {
     const own = d.champions[champ] ?? [];
     const pairs = d.pairs[champ] ?? [];
     // Picks still to come after this one (four in a game). A partner you haven't taken can still be offered, so a
-    // combo counts at a share of its points: COMBO_ODDS per pick left, at most 60%. That lifts augments like
-    // Ethereal Weapon that are modest alone but strong with a partner (Nico 2026-11-20).
+    // combo counts at a share of its points: COMBO_ODDS per pick left, at most COMBO_CAP. A small lift for
+    // augments like Ethereal Weapon that are modest alone but strong with a partner (Nico 2026-11-20).
     const left = Math.max(0, 3 - taken.length);
-    const odds = Math.min(0.6, COMBO_ODDS * left);
+    const odds = Math.min(COMBO_CAP, COMBO_ODDS * left);
     // The ranking score is the estimated boost (a fraction) and synergy pairs are in win-rate points: both in points.
     return own.filter(([id]) => !taken.includes(id)).map(([id, score, deep = -1, est = 1]) => {
       let bonus = 0, mate = null, best = 0, potential = 0, combo = null;
