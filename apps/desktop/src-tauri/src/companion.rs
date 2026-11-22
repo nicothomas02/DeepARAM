@@ -9,8 +9,10 @@
 //                     re-ranked by synergy with the ones you mark as taken, plus a search; during a pick, the
 //                     offered augments read off the screen by augscan.rs) and the next item for your build. Build
 //                     suggestions are allowed; augment win rates are not, so the panel shows a ranking only.
-//                     Only build information in game (Nico 2026-11-21): the chance to win, the surrender call and
-//                     the enemy damage split wait for the review.
+//                     The site owner only: also the chance to win and whether a surrender pays off now, kept small
+//                     under the build (the build stays the focus; the chart waits for the review). Riot's rules don't
+//                     let apps draw conclusions for players during a game, so nobody else gets that. Owner = this Riot account is connected to the site
+//                     owner's account (the site's /api/history "available" answer, as the My Stats helper asks).
 //   after the game    everyone: the predicted chance over the game, its turning points and from when a surrender
 //                     would have paid off (overlay.rs samples the game, review.rs works it out).
 //
@@ -34,7 +36,7 @@ use crate::{
     ingame::{self, champion_alias, local_agent, my_row, MAYHEM_MODE},
     procs,
     review::{self, Sample},
-    Store,
+    Store, SITE,
 };
 
 const LABEL: &str = "companion";
@@ -46,20 +48,51 @@ const LIVE: &str = "https://127.0.0.1:2999/liveclientdata/allgamedata";
 const LOCKFILES: &[&str] = &[r"C:\Riot Games\League of Legends\lockfile", r"D:\Riot Games\League of Legends\lockfile"];
 #[cfg(not(windows))]
 const LOCKFILES: &[&str] = &[];
+/// League client region -> the site's platform id (as the My Stats helper sends it).
+const PLATFORMS: &[(&str, &str)] = &[
+    ("NA", "na1"),
+    ("BR", "br1"),
+    ("LAN", "la1"),
+    ("LA1", "la1"),
+    ("LAS", "la2"),
+    ("LA2", "la2"),
+    ("EUW", "euw1"),
+    ("EUNE", "eun1"),
+    ("EUN", "eun1"),
+    ("TR", "tr1"),
+    ("RU", "ru"),
+    ("ME", "me1"),
+    ("KR", "kr"),
+    ("JP", "jp1"),
+    ("OCE", "oc1"),
+    ("OC1", "oc1"),
+    ("SG", "sg2"),
+    ("PH", "sg2"),
+    ("TH", "sg2"),
+    ("TW", "tw2"),
+    ("VN", "vn2"),
+];
 
 #[derive(Default)]
 pub struct State {
     /// The last script sent to the window, sent again when its page (re)loads.
     script: Option<String>,
+    /// Whether this Riot account belongs to the site owner (None until asked).
+    owner: Option<bool>,
     /// Closed by the player during this phase: stays closed until the next champion select.
     dismissed: bool,
     phase: String,
+    under_since: Option<f64>,
     last_live: Option<Instant>,
     /// Moved to the second monitor for this game.
     placed: bool,
+    /// When the owner check last failed (no answer): tried again after OWNER_RETRY, not every poll.
+    owner_tried: Option<Instant>,
     /// The game's result from the client's end-of-game screen ("Win" or "Lose").
     result: Option<String>,
 }
+
+const OWNER_RETRY: Duration = Duration::from_secs(300);
 
 /// "Win" or "Lose" from the client's end-of-game stats (/lol-end-of-game/v1/eog-stats-block).
 pub fn eog_result(block: &Value) -> Option<&'static str> {
@@ -167,6 +200,28 @@ fn basic_auth(password: &str) -> String {
     format!("Basic {out}")
 }
 
+/// Asks the site whether this Riot account is connected to the owner's account.
+fn is_owner(client: &Client) -> Option<bool> {
+    // Debug builds: DEEPARAM_OWNER=1 stands in for the site's answer, for test runs against a fake client.
+    #[cfg(debug_assertions)]
+    if std::env::var_os("DEEPARAM_OWNER").is_some() {
+        return Some(true);
+    }
+    let region = client.get("/riotclient/region-locale")?.get("region")?.as_str()?.to_uppercase();
+    let platform = PLATFORMS.iter().find(|(r, _)| *r == region).map(|(_, p)| *p)?;
+    let token = client.get("/lol-rso-auth/v1/authorization/access-token").and_then(|t| match t {
+        Value::String(s) => Some(s),
+        v => v.get("token")?.as_str().map(str::to_owned),
+    })?;
+    let reply: Value = ureq::post(format!("{SITE}/api/history"))
+        .send_json(json!({ "action": "status", "token": token, "platform": platform }))
+        .ok()?
+        .body_mut()
+        .read_json()
+        .ok()?;
+    Some(reply.get("available").and_then(Value::as_bool).unwrap_or(false))
+}
+
 fn send(app: &AppHandle, script: String) {
     app.state::<Shared>().lock().unwrap().script = Some(script.clone());
     if let Some(win) = app.get_webview_window(LABEL) {
@@ -245,14 +300,19 @@ fn to_second_screen(app: &AppHandle) {
     let _ = win.set_fullscreen(false);
     let _ = win.set_position(PhysicalPosition::new(rects[i].0 + 40, rects[i].1 + 40));
     let _ = win.set_fullscreen(true);
+    let _ = win.eval("window.setFull && window.setFull(true)");
 }
 
-/// Esc or F11 in the window.
+/// The window's full-screen button, Esc and F11: `on` sets it, None flips it. Answers whether it's full screen now.
 #[tauri::command]
-pub fn companion_fullscreen(app: AppHandle, on: bool) {
-    if let Some(win) = app.get_webview_window(LABEL) {
-        let _ = win.set_fullscreen(on);
+pub fn companion_fullscreen(app: AppHandle, on: Option<bool>) -> bool {
+    let Some(win) = app.get_webview_window(LABEL) else { return false };
+    let now = win.is_fullscreen().unwrap_or(false);
+    let want = on.unwrap_or(!now);
+    if want != now {
+        let _ = win.set_fullscreen(want);
     }
+    want
 }
 
 pub fn close(app: &AppHandle) {
@@ -337,8 +397,8 @@ fn champ_select(app: &AppHandle, client: &Client) {
 }
 
 /// During a game, for everyone: the player's champion, level, items and whether they're dead, plus the enemy
-/// champions and their items (all on the scoreboard), for the augment panel and the next item (build suggestions, which Riot allows).
-fn live_game(app: &AppHandle, agent: &ureq::Agent) {
+/// champions and their items (all on the scoreboard), for the augment panel and the next item (build suggestions, which Riot allows). For the owner only, also the live chance to win.
+fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, owner: bool) {
     // All of the game's data is a big answer for the game to put together, so it's asked for every LIVE_EVERY
     // seconds only (before, it was fetched every POLL and most answers were thrown away).
     {
@@ -388,7 +448,7 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent) {
         .iter()
         .map(|k| data.get("activePlayer").and_then(|p| p.get("championStats")?.get(*k)?.as_f64()).unwrap_or(0.0))
         .collect();
-    let game = json!({
+    let mut game = json!({
         "t": t,
         "champ": champ,
         "level": row.get("level").and_then(Value::as_u64).unwrap_or(0),
@@ -402,7 +462,29 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent) {
         "skills": skills,
         // The augments on offer right now, read off the screen (empty when no pick is on).
         "offer": app.state::<ingame::Shared>().lock().unwrap().offer.clone(),
+        "live": null,
     });
+    if owner {
+        let events = data.get("events").and_then(|e| e.get("Events")?.as_array().cloned()).unwrap_or_default();
+        let p = review::chance(&sample_from(t, &team, &players, &events, fit));
+        let line = review::ff_line(t / 60.0);
+        let hint = {
+            let state = app.state::<Shared>();
+            let mut s = state.lock().unwrap();
+            match line {
+                Some(l) if p < l => {
+                    let since = *s.under_since.get_or_insert(t);
+                    t - since >= review::FF_HOLD
+                }
+                _ => {
+                    s.under_since = None;
+                    false
+                }
+            }
+        };
+        // Secondary to the build on screen (Nico 2026-11-22); the chart over the game stays in the review.
+        game["live"] = json!({ "win": p, "surrender": hint });
+    }
     send(app, format!("window.showGame({game})"));
     let place = {
         let state = app.state::<Shared>();
@@ -414,11 +496,25 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent) {
     }
 }
 
+fn strengths() -> HashMap<String, f64> {
+    ureq::get(format!("{SITE}/data/team-fit.json"))
+        .call()
+        .ok()
+        .and_then(|mut r| r.body_mut().read_json::<Value>().ok())
+        .and_then(|f| {
+            f.get("champions")?
+                .as_object()
+                .map(|o| o.iter().filter_map(|(k, v)| Some((k.clone(), v.get(0)?.as_f64()?))).collect())
+        })
+        .unwrap_or_default()
+}
+
 /// Watches the League client's game phase and opens or fills the window.
 pub fn watch(app: AppHandle) {
     thread::spawn(move || {
         let game_agent = local_agent();
         let mut client: Option<Client> = None;
+        let mut fit: (Option<Instant>, HashMap<String, f64>) = (None, HashMap::new());
         loop {
             if !enabled(&app) {
                 thread::sleep(IDLE);
@@ -459,6 +555,7 @@ pub fn watch(app: AppHandle) {
                     }
                     if phase == "ChampSelect" {
                         s.dismissed = false;
+                        s.under_since = None;
                     }
                     if phase == "InProgress" {
                         s.last_live = None;
@@ -483,7 +580,34 @@ pub fn watch(app: AppHandle) {
             let dismissed = app.state::<Shared>().lock().unwrap().dismissed;
             match phase.as_str() {
                 "ChampSelect" if mayhem && !dismissed => champ_select(&app, c),
-                "InProgress" if mayhem && !dismissed => live_game(&app, &game_agent),
+                "InProgress" if mayhem => {
+                    let owner = {
+                        let (known, tried) = {
+                            let s = app.state::<Shared>();
+                            let s = s.lock().unwrap();
+                            (s.owner, s.owner_tried)
+                        };
+                        match known {
+                            Some(o) => o,
+                            // No answer last time (signed out, offline): ask again every few minutes, not every poll.
+                            None if tried.is_some_and(|at| at.elapsed() < OWNER_RETRY) => false,
+                            None => {
+                                let o = is_owner(c);
+                                let s = app.state::<Shared>();
+                                let mut s = s.lock().unwrap();
+                                s.owner = o;
+                                s.owner_tried = Some(Instant::now());
+                                o.unwrap_or(false)
+                            }
+                        }
+                    };
+                    if !dismissed {
+                        if owner && fit.0.is_none_or(|at| at.elapsed() > Duration::from_secs(3600)) {
+                            fit = (Some(Instant::now()), strengths());
+                        }
+                        live_game(&app, &game_agent, &fit.1, owner);
+                    }
+                }
                 _ => {}
             }
             thread::sleep(POLL);

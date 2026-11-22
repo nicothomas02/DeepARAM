@@ -138,14 +138,24 @@ export function buyingOrder(core: number[], ordered: OrderedRow[]): { items: num
 /**
  * The rest of the usual six-item build after a core (Nico, 2026-11-20: show the rest of the build above situational
  * items): the items most often bought with this core in six-item builds, most built first, filling the slots the core
- * and boots leave. Builds holding the whole core count; when none do, builds sharing two core items.
+ * and boots leave. Builds holding the whole core count first; slots they leave empty fill from builds sharing two
+ * core items.
  */
 export function restOfBuild(core: number[], boots: number | undefined, full: { items: number[]; pickRate: number }[], isBoots: (id: number) => boolean, slots = 6): number[] {
   const need = slots - core.length - (boots !== undefined ? 1 : 0);
   if (need <= 0) return [];
   const holding = (k: number) => full.filter((f) => core.filter((i) => f.items.includes(i)).length >= k);
-  const with_ = holding(core.length).length ? holding(core.length) : holding(Math.min(2, core.length));
-  const share = new Map<number, number>();
-  for (const f of with_) for (const i of new Set(f.items)) if (!core.includes(i) && !isBoots(i)) share.set(i, (share.get(i) ?? 0) + f.pickRate);
-  return [...share].sort((x, y) => y[1] - x[1] || x[0] - y[0]).slice(0, need).map(([i]) => i);
+  const ranked = (rows: { items: number[]; pickRate: number }[], skip: number[]) => {
+    const share = new Map<number, number>();
+    for (const f of rows) for (const i of new Set(f.items)) if (!core.includes(i) && !skip.includes(i) && !isBoots(i)) share.set(i, (share.get(i) ?? 0) + f.pickRate);
+    return [...share].sort((x, y) => y[1] - x[1] || x[0] - y[0]).map(([i]) => i);
+  };
+  // Builds holding the whole core first; when they don't name enough later items (few full builds hold all of it),
+  // fill the remaining slots from builds holding most of the core, so the build reaches six without leaving its style.
+  const out: number[] = [];
+  for (const rows of [holding(core.length), holding(Math.min(2, core.length))]) {
+    if (out.length >= need) break;
+    out.push(...ranked(rows, out).slice(0, need - out.length));
+  }
+  return out;
 }

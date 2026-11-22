@@ -82,6 +82,10 @@
   .hero .title { font-size: 24px; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
   .hero .sub { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-top: 4px; }
   .hero .sub.now { color: var(--accent); }
+  .live-mini { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 12px; color: var(--muted); }
+  .live-mini .bar { flex: 1; height: 6px; margin: 0; }
+  .hero .fs { position: absolute; top: 10px; right: 10px; z-index: 2; font: inherit; font-size: 11px; font-weight: 600; color: var(--text, #fff);
+    background: rgb(9 11 15 / .6); border: 1px solid var(--line); border-radius: 8px; padding: 4px 9px; cursor: pointer; }
   .ink { background: var(--prismatic); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .offer { border: 1px solid transparent; background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--prismatic) border-box; }
   .offer.ask { background: linear-gradient(var(--bg), var(--bg)) padding-box, linear-gradient(90deg, var(--gold), var(--gold)) border-box; }
@@ -102,8 +106,8 @@
 <script>
   // The app calls showPick({allies, mine, bench}) in champion select (champion ids), showGame({t, champ, level, dead,
   // items, enemies, offer}) during a game (offer: the augments on offer, read off the screen), showOffer(ids) the
-  // moment the offer changes, and showReview({points, turns, ffFrom, result}) after it. In game the screen holds only
-  // the build (Nico 2026-11-21); the chance to win, the surrender call and the enemy damage split wait for the review.
+  // moment the offer changes, and showReview({points, turns, ffFrom, result}) after it. In game the build is the focus;
+  // the owner's chance to win and surrender call sit small under it, and the chart over the game waits for the review.
   const SITE = "https://deeparam.com";
   const view = document.getElementById("view");
   const pct = (p) => `${Math.round(p * 100)}%`;
@@ -115,8 +119,16 @@
   const label = (alias) => alias.replace(/([a-z])([A-Z])/g, "$1 $2");
   // The champion's splash, as on the site's champion page (Data Dragon spells Fiddlesticks with one capital).
   const splash = (alias) => `${SITE}/assets/dd/img/champion/splash/${encodeURIComponent(alias === "FiddleSticks" ? "Fiddlesticks" : alias)}_0.jpg`;
-  const hero = (alias, title, sub, subId = "") => `<div class="hero">${alias ? `<img class="bg" src="${splash(alias)}" alt="" onerror="this.remove()">` : ""}
-      ${alias ? icon(alias) : `<img src="icon.png" alt="">`}<div><div class="title">${title}</div><div class="sub"${subId ? ` id="${subId}"` : ""}>${sub}</div></div></div>`;
+  const hero = (alias, title, sub, subId = "") => `<div class="hero">${alias ? `<img class="bg" src="${splash(alias)}" alt="" data-drop>` : ""}
+      ${alias ? icon(alias) : `<img src="icon.png" alt="">`}<div><div class="title">${title}</div><div class="sub"${subId ? ` id="${subId}"` : ""}>${sub}</div></div>
+      ${window.__TAURI_INTERNALS__ ? `<button class="fs">${isFull ? "Exit full screen" : "Full screen"}</button>` : ""}</div>`;
+  // Full screen from the button, F11 or Esc; the app answers with the state it ended in, which labels the button.
+  let isFull = false;
+  window.fullScreen = (on) => window.__TAURI_INTERNALS__?.invoke("companion_fullscreen", { on: on ?? null })
+    .then((full) => { isFull = full; document.querySelectorAll(".hero .fs").forEach((b) => (b.textContent = full ? "Exit full screen" : "Full screen")); })
+    .catch((e) => console.error("fullscreen", e));
+  // The app went full screen by itself (second monitor): relabel the button.
+  window.setFull = (full) => { isFull = full; document.querySelectorAll(".hero .fs").forEach((b) => (b.textContent = full ? "Exit full screen" : "Full screen")); };
   let lastChamp = null;
   // The game's last update, kept for the review's recap (your augments, your items, the enemy damage).
   let lastGame = null;
@@ -321,12 +333,16 @@
     });
     return mixes.length ? mixes.reduce((a, b) => a + b, 0) / mixes.length : null;
   }
-  function damageLine(k, g) {
+  // In game (live) only when it leans hard one way, since that's when it should steer defense; in the review always.
+  function damageLine(k, g, live = false) {
     const magic = enemyMagic(k, g.enemies ?? []);
     if (magic === null) return "";
-    if (magic > 0.35 && magic < 0.65) return `The enemy team's damage was mixed: about ${pct(magic)} magic.`;
+    const lean = magic <= 0.35 || magic >= 0.65;
+    if (live && !lean) return "";
+    const v = live ? "is" : "was";
+    if (!lean) return `The enemy team's damage ${v} mixed: about ${pct(magic)} magic.`;
     const kind = magic >= 0.65 ? "magic" : "physical";
-    return `The enemy team's damage was mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.`;
+    return `Enemy damage ${v} mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.`;
   }
 
   const STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
@@ -402,7 +418,9 @@
     const [d, k, picks] = await Promise.all([loadBuilds(), loadKinds(), loadPicks()]);
     const champ = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase());
     const taken = getTaken(game);
-    const { list: build, style } = pickBuild(champ?.items ?? [], picks, k, taken);
+    // The core (boots and first three) and then the rest of the usual six: without the rest, the panel ran out of
+    // items once the core was bought.
+    const { list: build, style } = pickBuild([...(champ?.items ?? []), ...(champ?.rest ?? [])], picks, k, taken);
     const owned = new Set(game.items.map((i) => i % 10000));
     // Any boots fill the build's boots slot: someone on other boots shouldn't be told to buy the build's pair.
     const bootIds = new Set(k?.boots ?? []);
@@ -448,6 +466,8 @@
       if (sell && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
         add(3, `Full build: sell <b>${esc(k.recipes[sell][0])}</b> for <b>${esc(next[0].name)}</b>.`);
     }
+    const dmg = k ? damageLine(k, game, true) : "";
+    if (dmg) add(6, dmg);
     const lines = tips.sort((x, y) => x[0] - y[0]).slice(0, 2).map((x) => x[1]);
     const tip = lines.map((l) => `<div class="why tip">${l}</div>`).join("");
     if (!next.length) { box.innerHTML = (build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`) + tip; return; }
@@ -496,6 +516,13 @@
     const head0 = document.getElementById("head");
     head0.textContent = `In game · ${clock(g.t)} · Level ${g.level}${g.dead ? " · Dead: shop now" : ""}`;
     head0.classList.toggle("now", !!g.dead);
+    // The owner's chance to win and surrender call: small, under the build, so the build stays the focus.
+    let ff = document.getElementById("ff");
+    if (!ff) { ff = document.createElement("div"); ff.id = "ff"; document.querySelector(".cols section")?.append(ff); }
+    const l = g.live;
+    ff.innerHTML = l ? `<div class="live-mini"><span>Chance to win <b style="color:${color(l.win)}">${pct(l.win)}</b></span>
+        <div class="bar"><span style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
+      ${l.surrender ? `<div class="box yes">Surrender: yes. A new game is worth more than this one now.</div>` : ""}` : "";
     const head = document.getElementById("augHead");
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
@@ -525,11 +552,14 @@
     </div>`;
   }
 
-  // Esc leaves full screen, F11 goes back in.
+  // The app's page rules block inline handlers (onclick=, onerror=), so these listen on the document instead.
+  document.addEventListener("click", (e) => { if (e.target.closest?.(".hero .fs")) fullScreen(); });
+  document.addEventListener("error", (e) => { if (e.target.matches?.("img[data-drop]")) e.target.remove(); }, true);
+  // Esc leaves full screen, F11 flips it.
   addEventListener("keydown", (e) => {
     if ((e.key === "Escape" || e.key === "F11") && window.__TAURI_INTERNALS__) {
       e.preventDefault();
-      window.__TAURI_INTERNALS__.invoke("companion_fullscreen", { on: e.key === "F11" });
+      fullScreen(e.key === "F11" ? !isFull : false);
     }
   });
 
@@ -578,7 +608,7 @@
     const src = (u) => (u.startsWith("http") ? u : SITE + u);
     const items = g.items.filter((i) => (k?.recipes[i % 10000]?.[1] ?? 0) >= 1000);
     const itemRow = prefix && items.length
-      ? `<div class="items">${items.map((i) => `<div class="item"><img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" alt="" onerror="this.remove()"><div><div class="name">${esc(k?.recipes[i % 10000]?.[0] ?? `#${i}`)}</div></div></div>`).join("")}</div>`
+      ? `<div class="items">${items.map((i) => `<div class="item"><img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" alt="" data-drop><div><div class="name">${esc(k?.recipes[i % 10000]?.[0] ?? `#${i}`)}</div></div></div>`).join("")}</div>`
       : "";
     const augs = g.taken.length
       ? `<div class="items">${g.taken.map((id) => `<div class="item">${augIcon(id)}<div><div class="name">${esc(p?.augments?.[id]?.[0] ?? `#${id}`)}</div></div></div>`).join("")}</div>`
