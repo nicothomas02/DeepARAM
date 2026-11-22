@@ -9,9 +9,9 @@
 //                     re-ranked by synergy with the ones you mark as taken, plus a search; during a pick, the
 //                     offered augments read off the screen by augscan.rs) and the next item for your build. Build
 //                     suggestions are allowed; augment win rates are not, so the panel shows a ranking only.
-//                     The site owner only: also whether a surrender pays off now. Riot's rules don't let apps draw
-//                     conclusions for players during a game, so nobody else gets that. Suggestions stay in game; plain
-//                     stats (the chance to win, its chart) wait for the review (Nico 2026-11-21). Owner = this Riot account is connected to the site
+//                     The site owner only: also the chance to win and whether a surrender pays off now, kept small
+//                     under the build (the build stays the focus; the chart waits for the review). Riot's rules don't
+//                     let apps draw conclusions for players during a game, so nobody else gets that. Owner = this Riot account is connected to the site
 //                     owner's account (the site's /api/history "available" answer, as the My Stats helper asks).
 //   after the game    everyone: the predicted chance over the game, its turning points and from when a surrender
 //                     would have paid off (overlay.rs samples the game, review.rs works it out).
@@ -202,6 +202,11 @@ fn basic_auth(password: &str) -> String {
 
 /// Asks the site whether this Riot account is connected to the owner's account.
 fn is_owner(client: &Client) -> Option<bool> {
+    // Debug builds: DEEPARAM_OWNER=1 stands in for the site's answer, for test runs against a fake client.
+    #[cfg(debug_assertions)]
+    if std::env::var_os("DEEPARAM_OWNER").is_some() {
+        return Some(true);
+    }
     let region = client.get("/riotclient/region-locale")?.get("region")?.as_str()?.to_uppercase();
     let platform = PLATFORMS.iter().find(|(r, _)| *r == region).map(|(_, p)| *p)?;
     let token = client.get("/lol-rso-auth/v1/authorization/access-token").and_then(|t| match t {
@@ -477,8 +482,8 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
                 }
             }
         };
-        // Only the call, not the numbers behind it: the chance itself is a stat for the review.
-        game["live"] = json!({ "surrender": hint, "early": line.is_none() });
+        // Secondary to the build on screen (Nico 2026-11-22); the chart over the game stays in the review.
+        game["live"] = json!({ "win": p, "surrender": hint });
     }
     send(app, format!("window.showGame({game})"));
     let place = {

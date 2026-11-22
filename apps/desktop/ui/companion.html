@@ -82,6 +82,8 @@
   .hero .title { font-size: 24px; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
   .hero .sub { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-top: 4px; }
   .hero .sub.now { color: var(--accent); }
+  .live-mini { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 12px; color: var(--muted); }
+  .live-mini .bar { flex: 1; height: 6px; margin: 0; }
   .hero .fs { position: absolute; top: 10px; right: 10px; z-index: 2; font: inherit; font-size: 11px; font-weight: 600; color: var(--text, #fff);
     background: rgb(9 11 15 / .6); border: 1px solid var(--line); border-radius: 8px; padding: 4px 9px; cursor: pointer; }
   .ink { background: var(--prismatic); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -104,9 +106,8 @@
 <script>
   // The app calls showPick({allies, mine, bench}) in champion select (champion ids), showGame({t, champ, level, dead,
   // items, enemies, offer}) during a game (offer: the augments on offer, read off the screen), showOffer(ids) the
-  // moment the offer changes, and showReview({points, turns, ffFrom, result}) after it. In game the screen holds only
-  // suggestions and the build (Nico 2026-11-21: the owner's surrender call too); plain stats like the chance to win wait
-  // for the review.
+  // moment the offer changes, and showReview({points, turns, ffFrom, result}) after it. In game the build is the focus;
+  // the owner's chance to win and surrender call sit small under it, and the chart over the game waits for the review.
   const SITE = "https://deeparam.com";
   const view = document.getElementById("view");
   const pct = (p) => `${Math.round(p * 100)}%`;
@@ -515,10 +516,13 @@
     const head0 = document.getElementById("head");
     head0.textContent = `In game · ${clock(g.t)} · Level ${g.level}${g.dead ? " · Dead: shop now" : ""}`;
     head0.classList.toggle("now", !!g.dead);
-    // The owner's surrender call: a suggestion, so it stays in game; the chance behind it waits for the review.
+    // The owner's chance to win and surrender call: small, under the build, so the build stays the focus.
     let ff = document.getElementById("ff");
-    if (!ff) { ff = document.createElement("div"); ff.id = "ff"; document.querySelector(".cols section")?.prepend(ff); }
-    ff.innerHTML = g.live?.surrender ? `<div class="box yes">Surrender: yes. A new game is worth more than this one now.</div>` : "";
+    if (!ff) { ff = document.createElement("div"); ff.id = "ff"; document.querySelector(".cols section")?.append(ff); }
+    const l = g.live;
+    ff.innerHTML = l ? `<div class="live-mini"><span>Chance to win <b style="color:${color(l.win)}">${pct(l.win)}</b></span>
+        <div class="bar"><span style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
+      ${l.surrender ? `<div class="box yes">Surrender: yes. A new game is worth more than this one now.</div>` : ""}` : "";
     const head = document.getElementById("augHead");
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
