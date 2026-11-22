@@ -260,6 +260,11 @@
   // per pick left, at most 12% (was 0.25 and 60%). Real games only, no Simulator.
   const COMBO_ODDS = 0.04;
   const COMBO_CAP = 0.12;
+  // "I'm feeling lucky" (Nico 2026-11-22): for chasing rare combos over win rate. Combos then count at 35% of their
+  // points per pick left, up to their full points. Off by default; remembered on this PC.
+  const LUCKY_ODDS = 0.35;
+  const LUCKY_CAP = 1;
+  let lucky = (() => { try { return localStorage.getItem("lucky") === "1"; } catch { return false; } })();
 
   function rankAugments(d, champ, taken) {
     const own = d.champions[champ] ?? [];
@@ -268,7 +273,7 @@
     // combo counts at a share of its points: COMBO_ODDS per pick left, at most COMBO_CAP. A small lift for
     // augments like Ethereal Weapon that are modest alone but strong with a partner (Nico 2026-11-20).
     const left = Math.max(0, 3 - taken.length);
-    const odds = Math.min(COMBO_CAP, COMBO_ODDS * left);
+    const odds = lucky ? Math.min(LUCKY_CAP, LUCKY_ODDS * left) : Math.min(COMBO_CAP, COMBO_ODDS * left);
     // The ranking score is the estimated boost (a fraction) and synergy pairs are in win-rate points: both in points.
     return own.filter(([id]) => !taken.includes(id)).map(([id, score, deep = -1, est = 1]) => {
       let bonus = 0, mate = null, best = 0, potential = 0, combo = null;
@@ -530,7 +535,8 @@
         <section><h2>Quick build</h2><div id="quick"></div>
         <h2>Items</h2><div id="items"></div></section>
         <section><h2 id="augHead">Augments</h2>
-        <div class="filters">${["", "prismatic", "gold", "silver"].map((r) => `<button class="chip f${r === rarity ? " on" : ""}" data-r="${r}">${r ? r[0].toUpperCase() + r.slice(1) : "All"}</button>`).join("")}</div>
+        <div class="filters">${["", "prismatic", "gold", "silver"].map((r) => `<button class="chip f${r === rarity ? " on" : ""}" data-r="${r}">${r ? r[0].toUpperCase() + r.slice(1) : "All"}</button>`).join("")}
+          <button class="chip lucky${lucky ? " on" : ""}" title="Ranks augments that can complete a combo much higher, for chasing rare synergies over win rate">I'm feeling lucky</button></div>
         <input id="search" type="search" placeholder="Type your augment, then Enter" autocomplete="off">
         <div id="augs"></div></section>
         </div>`);
@@ -594,7 +600,16 @@
   }
 
   // The app's page rules block inline handlers (onclick=, onerror=), so these listen on the document instead.
-  document.addEventListener("click", (e) => { if (e.target.closest?.(".hero .fs")) fullScreen(); });
+  document.addEventListener("click", (e) => {
+    if (e.target.closest?.(".hero .fs")) fullScreen();
+    const l = e.target.closest?.(".chip.lucky");
+    if (l) {
+      lucky = !lucky;
+      l.classList.toggle("on", lucky);
+      try { localStorage.setItem("lucky", lucky ? "1" : "0"); } catch {}
+      renderAugments();
+    }
+  });
   document.addEventListener("error", (e) => { if (e.target.matches?.("img[data-drop]")) e.target.remove(); }, true);
   // Esc leaves full screen, F11 flips it.
   addEventListener("keydown", (e) => {
