@@ -1,8 +1,15 @@
 {
+ "0.25 to 0.75 seconds, longer as the snowball grows": "Od 0,25 do 0,75 sekundy, dłużej, gdy śnieżka rośnie",
+ "100%": "100%",
+ "40%, growing to full as it flies": "40%, w locie rośnie do pełnego rozmiaru",
+ "50 to 120 units, farther as the snowball grows": "Od 50 do 120 jednostek, dalej, gdy śnieżka rośnie",
+ "65%, speeding up as it flies": "65%, w locie przyspiesza",
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "Wartości umiejętności podano dla poziomów 1-5 (umiejętności podstawowe) lub 1-3 (superumiejętności).",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Zmiany bohaterów w grze podstawowej na serwerze testowym. Działają też w Mayhem.",
  "Changes to items in the Mayhem shop. Runes are unchanged.": "Zmiany przedmiotów w sklepie ARAM: Chaos. Runy bez zmian.",
  "Gain the Surge Field summoner spell. Casting it creates a zone for 10 seconds: while in it, you gain 40% Movement Speed and 150 Ability Haste, and fire missiles at enemies that deal 30% of the damage you deal.": "Zyskujesz czar przywoływacza Surge Field. Jego użycie tworzy strefę na 10 sekund: przebywając w niej, zyskujesz 40% prędkości ruchu i 150 przyspieszenia umiejętności oraz wystrzeliwujesz w przeciwników pociski zadające 30% zadawanych przez ciebie obrażeń.",
+ "Knockback": "Odrzucenie",
+ "Knockback: none → 50 to 120 units, farther as the snowball grows": "Odrzucenie: brak → Od 50 do 120 jednostek, dalej, gdy śnieżka rośnie",
  "Live is patch 26.23. This page lists what patch 26.24 changes.": "Aktualna jest wersja 26.23. Ta strona wymienia zmiany wprowadzane w wersji 26.24.",
  "Mayhem Patch 26.24 on the test server.": "Mayhem wersja 26.24 na serwerze testowym.",
  "No new Fame bands on the test server yet.": "Na serwerze testowym nie ma jeszcze nowych progów Sławy.",
@@ -10,6 +17,14 @@
  "PBE content can change before release.": "Zawartość PBE może się zmienić przed premierą.",
  "Patch 26.24": "Wersja 26.24",
  "Q AD ratio 70% → 80%": "Przelicznik AD Q 70% → 80%",
+ "Snowball size when thrown": "Rozmiar śnieżki przy rzucie",
+ "Snowball size when thrown: 100% → 40%, growing to full as it flies": "Rozmiar śnieżki przy rzucie: 100% → 40%, w locie rośnie do pełnego rozmiaru",
+ "Snowball speed when thrown": "Prędkość śnieżki przy rzucie",
+ "Snowball speed when thrown: 100% → 65%, speeding up as it flies": "Prędkość śnieżki przy rzucie: 100% → 65%, w locie przyspiesza",
+ "Stun": "Ogłuszenie",
+ "Stun: none → 0.25 to 0.75 seconds, longer as the snowball grows": "Ogłuszenie: brak → Od 0,25 do 0,75 sekundy, dłużej, gdy śnieżka rośnie",
  "Update 2026-11-18: patch 26.23 is live, so its changes left this page. The first patch 26.24 test build changes no Mayhem augments, Headliners or items. Akshan's Q scales more with AD (70% → 80%), and Goliath gets an extra effect for clones.": "Aktualizacja 2026-11-18: wersja 26.23 jest już aktualna, więc jej zmiany zniknęły z tej strony. Pierwsza testowa kompilacja wersji 26.24 nie zmienia augmentów, Headlinerów ani przedmiotów w Mayhem. Q Akshana mocniej skaluje się z AD (70% → 80%), a Goliat zyskuje dodatkowy efekt dla klonów.",
- "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "Aktualizacja 2026-11-20 (patch 26.24): Surge Field wraca do puli ulepszeń."
+ "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "Aktualizacja 2026-11-20 (patch 26.24): Surge Field wraca do puli ulepszeń.",
+ "Update 2026-11-21 (patch 26.24): Biggest Snowball Ever now starts small and slow, grows as it flies, and gains a stun and a knockback.": "Aktualizacja 2026-11-21 (patch 26.24): Największa Śnieżka na Świecie startuje teraz mała i wolna, rośnie w locie i zyskuje ogłuszenie oraz odrzucenie.",
+ "none": "brak"
 }

@@ -1,8 +1,15 @@
 {
+ "0.25 to 0.75 seconds, longer as the snowball grows": "0,25 až 0,75 sekundy, déle s růstem koule",
+ "100%": "100%",
+ "40%, growing to full as it flies": "40 %, během letu roste na plnou velikost",
+ "50 to 120 units, farther as the snowball grows": "50 až 120 jednotek, dál s růstem koule",
+ "65%, speeding up as it flies": "65 %, během letu zrychluje",
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "Hodnoty schopností jsou uvedeny pro úrovně 1-5 (základní schopnosti) nebo 1-3 (superschopnosti).",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Změny šampionů v základní hře na testovacím serveru. Platí i v Mayhem.",
  "Changes to items in the Mayhem shop. Runes are unchanged.": "Změny předmětů v obchodě ARAM: Mela. Runy se nemění.",
  "Gain the Surge Field summoner spell. Casting it creates a zone for 10 seconds: while in it, you gain 40% Movement Speed and 150 Ability Haste, and fire missiles at enemies that deal 30% of the damage you deal.": "Získáš vyvolávačské kouzlo Surge Field. Jeho seslání vytvoří na 10 sekund zónu: když v ní stojíš, získáš 40 % rychlosti pohybu a 150 zrychlení schopností a střílíš na nepřátele střely, které způsobí 30 % poškození, které způsobíš.",
+ "Knockback": "Odhození",
+ "Knockback: none → 50 to 120 units, farther as the snowball grows": "Odhození: žádné → 50 až 120 jednotek, dál s růstem koule",
  "Live is patch 26.23. This page lists what patch 26.24 changes.": "Aktuální je verze 26.23. Tato stránka uvádí, co mění verze 26.24.",
  "Mayhem Patch 26.24 on the test server.": "Mayhem verze 26.24 na testovacím serveru.",
  "No new Fame bands on the test server yet.": "Na testovacím serveru zatím nejsou žádná nová pásma slávy.",
@@ -10,6 +17,14 @@
  "PBE content can change before release.": "Obsah PBE se může před vydáním změnit.",
  "Patch 26.24": "Verze 26.24",
  "Q AD ratio 70% → 80%": "Poměr AD u Q 70 % → 80 %",
+ "Snowball size when thrown": "Velikost koule při hodu",
+ "Snowball size when thrown: 100% → 40%, growing to full as it flies": "Velikost koule při hodu: 100% → 40 %, během letu roste na plnou velikost",
+ "Snowball speed when thrown": "Rychlost koule při hodu",
+ "Snowball speed when thrown: 100% → 65%, speeding up as it flies": "Rychlost koule při hodu: 100% → 65 %, během letu zrychluje",
+ "Stun": "Omráčení",
+ "Stun: none → 0.25 to 0.75 seconds, longer as the snowball grows": "Omráčení: žádné → 0,25 až 0,75 sekundy, déle s růstem koule",
  "Update 2026-11-18: patch 26.23 is live, so its changes left this page. The first patch 26.24 test build changes no Mayhem augments, Headliners or items. Akshan's Q scales more with AD (70% → 80%), and Goliath gets an extra effect for clones.": "Aktualizace 2026-11-18: verze 26.23 je aktuální, takže její změny z této stránky zmizely. První testovací build verze 26.24 nemění žádné augmenty, Headlinery ani předměty v Mayhem. Akshanovo Q víc škáluje s AD (70 % → 80 %) a Goliáš získává další efekt pro klony.",
- "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "Aktualizace 2026-11-20 (patch 26.24): Surge Field se vrací do nabídky vylepšení."
+ "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "Aktualizace 2026-11-20 (patch 26.24): Surge Field se vrací do nabídky vylepšení.",
+ "Update 2026-11-21 (patch 26.24): Biggest Snowball Ever now starts small and slow, grows as it flies, and gains a stun and a knockback.": "Aktualizace 2026-11-21 (patch 26.24): Největší sněhová koule nyní začíná malá a pomalá, během letu roste a získává omráčení a odhození.",
+ "none": "žádné"
 }

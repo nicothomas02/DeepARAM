@@ -562,7 +562,9 @@ export default function AugmentTable({
       )}
       {shown.length === 0 && (
         <p className="cp-empty-line cp-filter-note">
-          {t("No augments match these filters.")}
+          {q && ranked.length > 0
+            ? t("No ranked augment on this champion matches that name.")
+            : t("No augments match these filters.")}
         </p>
       )}
     </>

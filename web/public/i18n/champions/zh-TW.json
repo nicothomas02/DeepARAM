@@ -282,5 +282,6 @@
  "On-hit": "命中特效",
  "Fighter": "鬥士",
  "Enchanter": "附魔者",
- "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "召喚師技能和技能加點在每種出裝下都相同：數據沒有按出裝區分。"
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "召喚師技能和技能加點在每種出裝下都相同：數據沒有按出裝區分。",
+ "No ranked augment on this champion matches that name.": "此英雄的已排名強化中沒有符合此名稱的。"
 }

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { pageMeta } from "@/lib/meta";
-import DataTable from "@/components/DataTable";
 import Embed from "@/components/Embed";
 import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";

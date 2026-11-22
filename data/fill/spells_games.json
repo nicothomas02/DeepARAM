@@ -3,7 +3,7 @@
  "estimated": false,
  "source": "aramhex",
  "total_games": 4991976,
- "daily_games": 2495988,
+ "daily_games": 1663992,
  "champions": {
   "1": {
    "games": 132616,
@@ -15514,5 +15514,5 @@
    ]
   }
  },
- "built": "2026-11-20T22:06:14Z"
+ "built": "2026-11-21T19:34:43Z"
 }

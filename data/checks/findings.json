@@ -1,9 +1,9 @@
 {
  "patch": "16.23",
- "built": "2026-11-20",
+ "built": "2026-11-21",
  "checks": {
   "loops": 3,
-  "gap": 45,
+  "gap": 44,
   "sim": 11,
   "wasted": 0,
   "kitchen": 41
@@ -848,24 +848,6 @@
    "items": [],
    "theory": "At least 93% of champions get Get Jinxed, but Syndra has never been seen taking it, even though Syndra is picked often.",
    "test": "Play Syndra and watch your augment choices. If it never shows up, Riot has left it out for Syndra. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
-   "id": "gap-Talon",
-   "kind": "gap",
-   "title": "Talon never gets Bread and Cheese and 3 more",
-   "champions": [
-    "Talon"
-   ],
-   "augments": [
-    1151,
-    1028,
-    1058,
-    3116
-   ],
-   "items": [],
-   "theory": "At least 91% of champions get Bread and Cheese, Erosion, Mystic Punch and Take'em Down Down Down, but Talon has never been seen taking them, even though Talon is picked often.",
-   "test": "Play Talon and watch your augment choices. If they never show up, Riot has left them out for Talon. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {

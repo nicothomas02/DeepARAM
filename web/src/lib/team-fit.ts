@@ -21,6 +21,8 @@ export function teamFitData(): TeamFitData {
     champions,
     pairs,
     archetypes: arch,
+    // The desktop companion's champion select reports champion ids, not names.
+    ids: championIds as Record<string, number>,
   };
 }
 

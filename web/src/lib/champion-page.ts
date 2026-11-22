@@ -21,7 +21,6 @@ import {
   ranked,
   items,
   rewardItems,
-  type ItemTier,
 } from "./items";
 import { repoHas, repoPath, readRepoJson } from "./repo-data";
 import { matesOf, type Mate } from "./duos";
@@ -406,7 +405,9 @@ export function championPage(alias: string): ChampionPage | null {
             return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: true,
               core: core[0], start: page0Start, situational: situationalItems(core[0], single, full), rush: rushParts(core[0].items[0], itemRecipe), augments: augs };
           const coreIds = (a.core ?? []).map(known);
-          const bootsId = noBoots ? undefined : a.boots?.[0] !== undefined ? known(a.boots[0]) : undefined;
+          // A style whose core already holds boots (Bel'Veth: Gluttonous Greaves) gets no second pair.
+          const coreHasBoots = coreIds.some((i) => itemTier(i) === "boots");
+          const bootsId = noBoots || coreHasBoots ? undefined : a.boots?.[0] !== undefined ? known(a.boots[0]) : undefined;
           const row: ItemRow = { items: coreIds, ...rated(a.win_rate, a.share), boots: bootsId, bootsAt: bootsId !== undefined ? (playedSlot ?? undefined) : undefined };
           const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find(fits(row)) ?? null;
           const ordered = buyingOrder(st ? startFirst(coreIds, st.items, itemParts, standalone) : coreIds, orderRows).items;
