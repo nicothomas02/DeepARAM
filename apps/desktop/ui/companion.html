@@ -345,6 +345,40 @@
     return `Enemy damage ${v} mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.`;
   }
 
+  // The champion's situational items (the site's "when to buy" list) checked against this game's enemy team: the
+  // first whose condition holds shows as a tip. A pointer, like the site's list: the build itself doesn't change.
+  const TANKY = new Set(["Vanguard", "Warden", "Juggernaut"]);
+  const BURSTY = new Set(["Burst", "Assassin"]);
+  const CATCH = new Set(["Catcher", "Vanguard"]);
+  // Champions whose kits heal a lot (from their ability descriptions), for "Vs healing".
+  const HEALERS = new Set(["aatrox", "akshan", "alistar", "belveth", "briar", "drmundo", "fiddlesticks", "illaoi", "ivern", "kayn", "kled", "maokai", "milio", "nami", "nidalee", "olaf", "renataglasc", "senna", "sona", "soraka", "swain", "sylas", "taric", "trundle", "vladimir", "warwick", "yuumi", "zac", "seraphine", "darius", "fiora", "irelia", "masteryi", "udyr", "volibear", "yone"]);
+  function situational(champ, k, fit, g, owned) {
+    const list = (champ?.situational ?? []).filter((it) => !owned.has(itemId(it.icon)));
+    if (!list.length) return null;
+    const enemies = (g.enemies ?? []).filter((e) => e.champ);
+    const arch = (e) => fit?.champions?.[keyIn(fit.champions, e.champ)]?.[1] ?? [];
+    const count = (set) => enemies.filter((e) => arch(e).some((a) => set.has(a))).length;
+    const tags = (e) => e.items.flatMap((i) => k.items[String(i % 10000)] ?? []);
+    const tanky = enemies.filter((e) => arch(e).some((a) => TANKY.has(a)) || tags(e).filter((t) => t === "armor" || t === "mr").length >= 2).length;
+    const crit = enemies.filter((e) => tags(e).filter((t) => t === "crit").length >= 2).length;
+    const healers = enemies.filter((e) => HEALERS.has(e.champ.toLowerCase().replace(/[^a-z]/g, ""))).length;
+    const magic = enemyMagic(k, enemies);
+    const n = (x, what) => `${x} ${x === 1 ? "enemy" : "enemies"} ${what}.`;
+    const checks = {
+      "Vs tanks": tanky >= 2 && n(tanky, tanky === 1 ? "is tanky" : "are tanky"),
+      "Vs burst": count(BURSTY) >= 2 && n(count(BURSTY), "deal burst damage"),
+      "Vs healing": healers >= 2 && n(healers, "heal a lot"),
+      "Vs magic damage": magic !== null && magic >= 0.65 && `Enemy damage is about ${pct(magic)} magic.`,
+      "Vs physical damage": magic !== null && magic <= 0.35 && `Enemy damage is about ${pct(1 - magic)} physical.`,
+      "Vs mixed damage": magic !== null && magic > 0.4 && magic < 0.6 && `Enemy damage is mixed.`,
+      "Vs crit carries": crit >= 1 && n(crit, "build crit"),
+      "Vs shields": count(new Set(["Enchanter"])) >= 2 && n(count(new Set(["Enchanter"])), "shield allies"),
+      "Vs heavy crowd control": count(CATCH) >= 3 && n(count(CATCH), "lock you down"),
+    };
+    for (const it of list) if (checks[it.when]) return { name: it.name, why: checks[it.when] };
+    return null;
+  }
+
   const STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
   // Items that grow with time or takedowns: worth buying first when they're in your build.
   const STACKING = new Set([6697, 3084, 3070, 3004, 3003, 3119]);
@@ -415,7 +449,7 @@
   async function renderItems() {
     const box = document.getElementById("items");
     if (!box || !game) return;
-    const [d, k, picks] = await Promise.all([loadBuilds(), loadKinds(), loadPicks()]);
+    const [d, k, picks, fitData] = await Promise.all([loadBuilds(), loadKinds(), loadPicks(), loadFit()]);
     const champ = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase());
     const taken = getTaken(game);
     // The core (boots and first three) and then the rest of the usual six: without the rest, the panel ran out of
@@ -454,6 +488,8 @@
     }
     if (capNote) add(3, capNote);
     if (style) add(4, `Build switched to <b>${esc(style)}</b> to fit your augments.`);
+    const sit = k ? situational(champ, k, fitData, game, owned) : null;
+    if (sit) add(4, `Situational: <b>${esc(sit.name)}</b>. ${esc(sit.why)}`);
     if (stack > 0) add(4, `<b>${esc(next[0].name)}</b> stacks over time, so it goes first.`);
     const pen = shop && k ? penTip(k, game, owned) : "";
     if (pen) add(5, pen);
