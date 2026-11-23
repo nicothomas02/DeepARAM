@@ -440,6 +440,11 @@
   const CATCH = new Set(["Catcher", "Vanguard"]);
   // Champions whose kits heal a lot (from their ability descriptions), for "Vs healing".
   const HEALERS = new Set(["aatrox", "akshan", "alistar", "belveth", "briar", "drmundo", "fiddlesticks", "illaoi", "ivern", "kayn", "kled", "maokai", "milio", "nami", "nidalee", "olaf", "renataglasc", "senna", "sona", "soraka", "swain", "sylas", "taric", "trundle", "vladimir", "warwick", "yuumi", "zac", "seraphine", "darius", "fiora", "irelia", "masteryi", "udyr", "volibear", "yone"]);
+  // Enemy items that heal (life steal, omnivamp, healing) and that shield (shield and heal power, self-shields), by
+  // name from the item list so new ids follow: "Vs healing" and "Vs shields" count them, not only kits.
+  const HEAL_ITEMS = ["Bloodthirster", "Ravenous Hydra", "Blade of The Ruined King", "Riftmaker", "Sundered Sky", "Overlord's Bloodmail", "Hextech Gunblade", "Unending Despair", "Spirit Visage"];
+  const SHIELD_ITEMS = ["Moonstone Renewer", "Redemption", "Ardent Censer", "Staff of Flowing Water", "Echoes of Helia", "Dawncore", "Locket of the Iron Solari", "Mikael's Blessing", "Immortal Shieldbow", "Sterak's Gage", "Eclipse", "Maw of Malmortius"];
+  const idsByName = (k, names) => new Set(Object.entries(k.recipes ?? {}).filter(([, r]) => names.includes(r[0])).map(([id]) => Number(id)));
   function situational(champ, k, fit, g, skip, augName = (id) => `#${id}`) {
     const list = (champ?.situational ?? []).filter((it) => !skip.has(itemId(it.icon)));
     if (!list.length) return [];
@@ -449,18 +454,21 @@
     const tags = (e) => e.items.flatMap((i) => k.items[String(i % 10000)] ?? []);
     const tanky = enemies.filter((e) => arch(e).some((a) => TANKY.has(a)) || tags(e).filter((t) => t === "armor" || t === "mr").length >= 2).length;
     const crit = enemies.filter((e) => tags(e).filter((t) => t === "crit").length >= 2).length;
-    const healers = enemies.filter((e) => HEALERS.has(e.champ.toLowerCase().replace(/[^a-z]/g, ""))).length;
+    const healIds = idsByName(k, HEAL_ITEMS), shieldIds = idsByName(k, SHIELD_ITEMS);
+    const holds = (e, ids) => e.items.some((i) => ids.has(i % 10000));
+    const healers = enemies.filter((e) => HEALERS.has(e.champ.toLowerCase().replace(/[^a-z]/g, "")) || holds(e, healIds)).length;
+    const shielders = enemies.filter((e) => arch(e).includes("Enchanter") || holds(e, shieldIds)).length;
     const magic = enemyMagic(k, enemies);
     const n = (x, what) => `${x} ${x === 1 ? "enemy" : "enemies"} ${what}.`;
     const checks = {
       "Vs tanks": tanky >= 2 && n(tanky, tanky === 1 ? "is tanky" : "are tanky"),
       "Vs burst": count(BURSTY) >= 2 && n(count(BURSTY), "deal burst damage"),
-      "Vs healing": healers >= 2 && n(healers, "heal a lot"),
+      "Vs healing": healers >= 2 && n(healers, "heal a lot (kits or items)"),
       "Vs magic damage": magic !== null && magic >= 0.65 && `Enemy damage is about ${pct(magic)} magic.`,
       "Vs physical damage": magic !== null && magic <= 0.35 && `Enemy damage is about ${pct(1 - magic)} physical.`,
       "Vs mixed damage": magic !== null && magic > 0.4 && magic < 0.6 && `Enemy damage is mixed.`,
       "Vs crit carries": crit >= 1 && n(crit, "build crit"),
-      "Vs shields": count(new Set(["Enchanter"])) >= 2 && n(count(new Set(["Enchanter"])), "shield allies"),
+      "Vs shields": shielders >= 2 && n(shielders, "shield themselves or allies"),
       "Vs heavy crowd control": count(CATCH) >= 3 && n(count(CATCH), "lock you down"),
     };
     // Entries tied to augments (the site's "augments" list) light up once you've taken one of them.
@@ -667,12 +675,23 @@
     // The core is boots plus three items; what follows is numbered on from the core's items (boots not counted), so
     // usually the 4th and 5th item, and a 6th where the build sells boots for one.
     const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
+    // Hover: why this item, in one line (its place in the build, DeepScore, or the reason it swapped in).
+    const isCore = (it) => build.slice(0, coreLen).some((x) => itemId(x.icon) === itemId(it.icon));
+    const slotWhy = (it, lbl, boot) => {
+      const r = allSits.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
+      const parts = [it.name];
+      if (it.swapFor && r) parts.push(`${r.when}: ${r.why} Replaces ${it.swapFor.name}.`);
+      else if (it.filled) parts.push("You bought it, so it takes this slot.");
+      else parts.push(boot ? "The boots most builds take with this core." : isCore(it) ? `Core item, bought ${lbl}.` : `Most bought as the ${lbl} item with this core.`);
+      if (it.deepScore != null) parts.push(`DeepScore ${deepLabel(it.deepScore)}.`);
+      return parts.join(" · ");
+    };
     // Each icon labelled with its slot: boots, then 1st to 6th item; a gap after the core.
     let n = 0;
     const tiles = path.map((it, i) => {
       const boot = bootIds.has(itemId(it.icon));
       const lbl = boot ? "Boots" : ord(++n);
-      return `${i === coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${it.swapFor ? " sw" : ""}" title="${esc(it.name)}"><img src="${src(it.icon)}" alt="" data-drop><span>${lbl}</span></div>`;
+      return `${i === coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${it.swapFor ? " sw" : ""}" title="${esc(slotWhy(it, lbl, boot))}"><img src="${src(it.icon)}" alt="" data-drop><span>${lbl}</span></div>`;
     }).join("");
     // Why a slot changed, and a path item this game's enemies call for: one short line each, with the icons.
     const img = (it) => `<img class="ii" src="${src(it.icon)}" alt="" data-drop>`;
@@ -805,6 +824,8 @@
     const t = document.querySelector(".hero .title");
     if (!t || game || !/^(Game over)$/.test(t.textContent)) return;
     t.innerHTML = result === "Win" ? `<span class="ink">Victory</span>` : result === "Lose" ? "Defeat" : t.innerHTML;
+    // The result often lands after the review is up: the invitation waits for it.
+    if (result === "Win" && document.getElementById("invite")) inviteToShare();
   };
 
   window.showReview = ({ points, turns, ffFrom, result }) => {
@@ -823,9 +844,32 @@
       ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
       <h2>Surrender</h2>${ff}
       <p class="note">Predicted, not measured: an estimate from kills, towers, levels and team strength.</p>
-      <div id="recap"></div>`);
+      <div id="recap"></div><div id="invite"></div>`);
     renderRecap();
+    if (result === "Win") inviteToShare();
   };
+
+  // After a won game, now and then: a dismissible invitation to share match data (game data only, never names or
+  // accounts). Never in game; at most once every two weeks, three times in all, and never again after "Don't ask".
+  async function inviteToShare() {
+    const box = document.getElementById("invite");
+    if (!box || !window.__TAURI_INTERNALS__) return;
+    const invoke = (cmd, args) => window.__TAURI_INTERNALS__.invoke(cmd, args);
+    let st = { n: 0, at: 0, never: false };
+    try { st = { ...st, ...JSON.parse(localStorage.getItem("shareInvite") ?? "{}") }; } catch {}
+    if (st.never || st.n >= 3 || Date.now() - st.at < 14 * 864e5) return;
+    if (await invoke("share_status").catch(() => true)) return;
+    const save = (x) => { try { localStorage.setItem("shareInvite", JSON.stringify({ ...st, ...x })); } catch {} };
+    save({ n: st.n + 1, at: Date.now() });
+    box.innerHTML = `<div class="box invite"><b>Nice win.</b> Want to help DeepARAM's builds get sharper? Share your Mayhem games: champions, items, augments and the result only, never your name or account. You can turn it off any time from the tray, which removes what was sent.
+      <div class="filters" data-style="margin:10px 0 0"><button class="chip on" data-share="yes">Share my games</button><button class="chip" data-share="later">Not now</button><button class="chip" data-share="never">Don't ask again</button></div></div>`;
+    box.querySelectorAll("[data-share]").forEach((b) => b.addEventListener("click", () => {
+      const v = b.dataset.share;
+      if (v === "yes") invoke("share_choice", { enabled: true }).catch(() => {});
+      if (v === "never") save({ never: true });
+      box.innerHTML = v === "yes" ? `<div class="box">Thanks! Sharing is on. The tray's "Share match data" turns it off.</div>` : "";
+    }));
+  }
 
   // What you built and took this game, and what the enemy hit you with: kept off the in-game screen, shown here.
   async function renderRecap() {
