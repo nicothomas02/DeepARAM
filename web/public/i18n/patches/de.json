@@ -51,5 +51,11 @@
  "Worked": "Gewirkt",
  "Backfired": "Nach hinten losgegangen",
  "Within noise": "Im Rauschen",
- "Moved": "Bewegt"
+ "Moved": "Bewegt",
+ "How our picks held up": "Wie unsere Picks gehalten haben",
+ "So far": "Bisher",
+ "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "Augments: {hit} weiter vorne ({lead} Pkt.), meistgewählte {phit} ({plead})",
+ "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "Items: {hit} weiter vorne ({lead} Pkt.), meistgekaufte {phit} ({plead})",
+ "Top {n} champions: {kept} still above 50%": "Top {n} Champions: {kept} weiter über 50 %",
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "Jeden Patch nehmen wir die 5 besten Augments und 3 besten Items jedes Champions nach DeepScore und prüfen sie an den Spielen des nächsten Patches: wie oft sie den Schnitt des Champions noch schlagen und um wie viele Punkte. Die meistgewählten sind die Vergleichsbasis. Halten beweist nicht, dass ein Augment die Siege verursacht."
 }
