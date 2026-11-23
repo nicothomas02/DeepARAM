@@ -265,6 +265,28 @@
   const loadPicks = () => picks ?? (picks = fetch(`${SITE}/data/augment-picks.json`).then((r) => r.json()).catch(() => null));
   const loadBuilds = () => builds ?? (builds = fetch(`${SITE}/data/overlay.json`).then((r) => r.json()).catch(() => null));
   const augIcon = (id) => `<img src="${SITE}/icons/augments/${id}.webp" alt="">`;
+  // "What it does (estimated)": the same rule as the site's lib/mechanisms.ts whatItDoes (|z| >= 3, at least 8% a
+  // minute or 0.3 deaths per 10 minutes, largest |z| first, at most 2, no healing line on picks that shield). Hover only.
+  let mech = null, mechData = null;
+  const loadMech = () => mech ?? (mech = fetch(`${SITE}/data/mechanism-profiles.json`).then((r) => r.json()).then((j) => (mechData = j)).catch(() => null));
+  const MECH_LABEL = { damage: "damage to champions", healing: "healing", mitigated: "damage blocked", cc: "crowd control", deaths: "deaths per 10 minutes" };
+  const whatItDoes = (kind, id) => {
+    const all = mechData?.[kind];
+    if (!all) return "";
+    const base = kind === "items" && id >= 100000 ? id % 10000 : id;
+    const key = all[String(base)] ? String(base) : kind === "augments" && base < 1000 && all[String(base + 1000)] ? String(base + 1000) : "";
+    const p = key && all[key];
+    if (!p) return "";
+    const shield = (mechData.shield?.[kind] ?? []).includes(key);
+    const big = (m) => Math.abs(p[m].change) >= (m === "deaths" ? 0.3 : 8);
+    const fx = Object.keys(MECH_LABEL).filter((m) => p[m] && Math.abs(p[m].z) >= 3 && big(m) && !(shield && m === "healing"))
+      .sort((a, b) => Math.abs(p[b].z) - Math.abs(p[a].z)).slice(0, 2)
+      .map((m) => {
+        const c = p[m].change, sign = c > 0 ? "+" : c < 0 ? "-" : "";
+        return `${m === "deaths" ? `${sign}${Math.abs(c).toFixed(1)}` : `${sign}${Math.round(Math.abs(c))}%`} ${MECH_LABEL[m]}`;
+      });
+    return fx.length ? `What it does (estimated): ${fx.join(", ")}` : "";
+  };
   const augIco = (id) => `<img class="ii round" src="${SITE}/icons/augments/${id}.webp" alt="" data-drop>`;
   const itemId = (icon) => Number((icon.match(/(\d+)\.png$/) ?? [])[1]) % 10000;
   let game = null, query = "", rarity = "", reached = {}, offer = [], asked = [];
@@ -338,7 +360,7 @@
   async function renderAugments() {
     const box = document.getElementById("augs");
     if (!box || !game) return;
-    const d = await loadPicks();
+    const [d] = await Promise.all([loadPicks(), loadMech()]);
     const ck = keyIn(d?.champions, game.champ);
     if (!d || !ck) { box.innerHTML = `<p class="note">No augment ranking for this champion yet.</p>`; return; }
     const taken = getTaken(game);
@@ -353,7 +375,7 @@
     const reroll = offered.length >= 2 && !asking ? rerollAdvice(d, rankAugments(d, ck, taken), offered, taken) : "";
     const shown = q ? ranked.filter((a) => name(a.id).toLowerCase().includes(q)) : ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
     const row = (a, best) => `
-      <button class="row aug${best ? " best" : ""}" data-id="${a.id}" data-r="${d.augments[a.id]?.[1] ?? ""}">
+      <button class="row aug${best ? " best" : ""}" data-id="${a.id}" data-r="${d.augments[a.id]?.[1] ?? ""}"${whatItDoes("augments", Number(a.id)) ? ` title="${esc(whatItDoes("augments", Number(a.id)))}"` : ""}>
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : a.combo !== null && a.potential >= 0.3 ? `Combo potential with ${esc(name(a.combo))} (+${a.potential.toFixed(1)})` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
         <div class="num" title="DeepScore on this champion (ranking adds synergy with what you took)">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `${a.boost !== null ? "<br>" : ""}<small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
@@ -399,7 +421,7 @@
   async function renderItems() {
     const box = document.getElementById("items");
     if (!box || !game) return;
-    const [d, k, picks, fitData] = await Promise.all([loadBuilds(), loadKinds(), loadPicks(), loadFit()]);
+    const [d, k, picks, fitData] = await Promise.all([loadBuilds(), loadKinds(), loadPicks(), loadFit(), loadMech()]);
     const champ = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase());
     if (champ?.items?.[0]?.icon) iconPrefix = champ.items[0].icon.replace(/\d+\.png$/, "");
     renderFoes(k);
@@ -431,7 +453,7 @@
     const tiles = shown.map(({ it, why, sw }, i) => {
       const boot = bootIds.has(itemId(it.icon));
       const lbl = boot ? "Boots" : ord(++n);
-      return `${i === p.coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${sw ? " sw" : ""}" title="${esc(`${it.name} · ${why}`)}"><img src="${src(it.icon ?? "")}" alt="" data-drop><span>${lbl}</span></div>`;
+      return `${i === p.coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${sw ? " sw" : ""}" title="${esc([`${it.name} · ${why}`, whatItDoes("items", itemId(it.icon ?? ""))].filter(Boolean).join("\n"))}"><img src="${src(it.icon ?? "")}" alt="" data-drop><span>${lbl}</span></div>`;
     }).join("");
     const img = (it) => (it?.icon ? `<img class="ii" src="${src(it.icon)}" alt="" data-drop>` : "");
     const lower = (t) => esc(String(t ?? "").replace(/\.$/, "").replace(/^./, (c) => c.toLowerCase()));
