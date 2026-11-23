@@ -5,18 +5,19 @@ import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
 import { clashWith, withoutClashes } from "./item-limits";
-import { alongCore, bestRow, buildOrder, followed, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, type ItemRow, type Rated, type SlotCounts } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
 import type { Situation } from "./situations";
-import { buyingOrder, restOfBuild, rushParts, startFirst, starterFits, styleCores, upgradeSwaps } from "./build-plan";
+import { augmentSwaps, buyingOrder, restOfBuild, rushParts, startFirst, starterFits, styleCores, upgradeSwaps, type AugmentSwap } from "./build-plan";
 import { orderedCores } from "./champion-history";
 import {
   ITEM_TIERS,
   itemClasses,
   itemParts,
   itemRecipe,
+  itemRoles,
   itemSituation,
   itemTier,
   ranked,
@@ -85,6 +86,8 @@ export type BuildOption = {
   core: ItemRow;
   start: ItemRow | null;
   situational: SituationRow[];
+  /** Items to swap in once you take certain augments (lib/build-plan.ts augmentSwaps). */
+  augmentSwaps: AugmentSwap[];
   rush: number[];
   /** Augments whose official build tags fit the style (or have none), most picked first: estimated. */
   augments: number[];
@@ -174,6 +177,8 @@ export type ChampionPage = {
   rush: number[];
   /** Augments the champion takes that upgrade one of its items: with it, buy that item first. */
   swaps: { augment: number; item: number }[];
+  /** Items to swap in once you take certain augments (Upgrade augments, build-changing ones), for the main core. */
+  augmentSwaps: AugmentSwap[];
   augments: AugmentRow[];
   mates: Mate[];
   styles: Style[];
@@ -374,8 +379,22 @@ export function championPage(alias: string): ChampionPage | null {
   const withLater = (row: ItemRow): ItemRow => {
     const pool = afterCore(row, single, full);
     const bySlot = slotItems(pool, row, itemClasses, itemSlots?.champions[String(id)], itemSlots?.all);
-    return { ...row, later: laterItems(pool, row, itemClasses), ...(bySlot ? { slots: bySlot } : {}) };
+    const later = laterItems(pool, row, itemClasses);
+    return { ...row, later, ...(bySlot ? { slots: bySlot } : {}), full: fullPicks(row, bySlot ?? undefined, later) };
   };
+  // Augment-triggered swaps for a core (lib/build-plan.ts augmentSwaps): rule-based tips, labelled as such.
+  const legendaryPool = single.filter((r) => r.tier === "legendary");
+  const swapsFor = (c: ItemRow | undefined): AugmentSwap[] =>
+    c
+      ? augmentSwaps(
+          augments,
+          [...buildOrder(c), ...(c.full ?? []).map((r) => r.items[0])],
+          legendaryPool,
+          itemRoles,
+          (i) => all.get(i)?.name,
+          [...c.items, ...followed(sameStyle(legendaryPool, c.items, itemClasses)).map((r) => r.items[0])].filter((i, k, a) => a.indexOf(i) === k),
+        )
+      : [];
   const core = withBootsCore.map((c) => {
     const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find(fits(c));
     const { items } = buyingOrder(st ? startFirst(c.items, st.items, itemParts, standalone) : c.items, orderRows);
@@ -416,7 +435,7 @@ export function championPage(alias: string): ChampionPage | null {
           const augs = Object.values(a.augments ?? {}).flat();
           if (a === mainArch)
             return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: true,
-              core: core[0], start: page0Start, situational: situationalItems(core[0], single, full), rush: rushParts(core[0].items[0], itemRecipe), augments: augs };
+              core: core[0], start: page0Start, situational: situationalItems(core[0], single, full), augmentSwaps: swapsFor(core[0]), rush: rushParts(core[0].items[0], itemRecipe), augments: augs };
           const coreIds = (a.core ?? []).map(known);
           // A style whose core already holds boots (Bel'Veth: Gluttonous Greaves) gets no second pair.
           const coreHasBoots = coreIds.some((i) => itemTier(i) === "boots");
@@ -428,7 +447,7 @@ export function championPage(alias: string): ChampionPage | null {
           const c: ItemRow = withLater(c0);
           const start = st ?? (a.starters?.length ? { items: a.starters.map(known), winRate: NaN, pickRate: 0, lift: 0 } : null);
           return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false,
-            core: c, start, situational: situationalItems(c, single, full), rush: rushParts(c.items[0], itemRecipe), augments: augs };
+            core: c, start, situational: situationalItems(c, single, full), augmentSwaps: swapsFor(c), rush: rushParts(c.items[0], itemRecipe), augments: augs };
         });
   const page = {
     builds,
@@ -451,6 +470,7 @@ export function championPage(alias: string): ChampionPage | null {
         .filter((i, k, a) => a.indexOf(i) === k)
         .flatMap((i) => (all.get(i) ? [{ id: i, name: all.get(i)!.name }] : [])),
     ),
+    augmentSwaps: swapsFor(core[0]),
     augments,
     mates,
     styles,

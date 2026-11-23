@@ -361,11 +361,14 @@ export function TfCard({ alias, patches, matches, spells, children }: Common & {
           {card.core && (
             <div className="cp-best cp-best-wide">
               <h4>
-                <T ns="champions">Best core build</T>
+                <T ns="champions">{(card.core.full ?? []).length ? "Full build" : "Best core build"}</T>
               </h4>
               <div className="cp-icons">
                 {buildOrder(card.core).map((id) => (
                   <ItemIcon key={id} id={id} info={info} named />
+                ))}
+                {(card.core.full ?? []).map((r) => (
+                  <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named />
                 ))}
               </div>
               {!card.core.later?.length && (card.core.rest ?? []).length > 0 && (
@@ -383,7 +386,14 @@ export function TfCard({ alias, patches, matches, spells, children }: Common & {
               </div>
             </div>
           )}
-          {(card.core?.later ?? []).length > 0 && <LaterItems rows={card.core!.later!} slots={card.core!.slots} info={info} />}
+          {(card.core?.later ?? []).length > 0 && (
+            <LaterItems
+              rows={card.core!.later!}
+              slots={card.core!.slots?.map((sl, k) => ({ ...sl, items: sl.items.filter((r) => !card.core!.full?.some((f) => f.items[0] === r.items[0])) }))}
+              info={info}
+              title={(card.core!.full ?? []).length ? "Other options" : undefined}
+            />
+          )}
           {card.situational.length > 0 && (
             <div className="cp-best cp-best-wide cp-best-sit">
               <h4>

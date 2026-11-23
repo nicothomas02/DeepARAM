@@ -7,7 +7,7 @@ import limits from "@/data/item-limits.json";
 import { clashes, clashWith, withoutClashes } from "@/lib/item-limits";
 
 type Named = { name: string; icon: string | null };
-type Card = { items: Named[]; rest: Named[]; later: Named[]; laterSlots: { slot: number; items: Named[] }[]; situational: (Named & { when: string; replaces?: Named })[] };
+type Card = { items: Named[]; rest: Named[]; full?: Named[]; later: Named[]; laterSlots: { slot: number; items: Named[] }[]; situational: (Named & { when: string; replaces?: Named })[] };
 const id = (n: Named) => Number(/(\d+)\.png$/.exec(n.icon ?? "")?.[1] ?? NaN);
 
 describe("item limits", () => {
@@ -36,6 +36,7 @@ describe("item limits", () => {
           ids.forEach((a, i) => ids.slice(i + 1).forEach((b) => clashes(a, b) && bad.push(`${c.id} ${what}: ${a} + ${b}`)));
         };
         check("core + rest", [...core, ...card.rest.map(id)]);
+        check("full path", [...core, ...(card.full ?? []).map(id)]);
         for (const l of card.later) check("core + later", [...core, id(l)]);
         for (const s of card.laterSlots ?? []) for (const l of s.items) check(`core + slot ${s.slot}`, [...core, id(l)]);
         for (const s of card.situational) {

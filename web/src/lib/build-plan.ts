@@ -161,3 +161,51 @@ export function restOfBuild(core: number[], boots: number | undefined, full: { i
   }
   return out;
 }
+
+/** An item to swap in once you've taken one of these augments (Nico, 2026-11-23: situational items that rely on
+ *  augments). Rule-based tips, not measured effects. */
+export type AugmentSwap = { augments: number[]; item: number; kind: "upgrade" | "style"; why: string };
+
+/** Augments that change what a champion should build, and the item roles they favour (the same list as
+ *  data/estimates/augment_builds.py BUILD_CHANGERS). Roles are simulator/data/items.json item roles. */
+export const BUILD_CHANGERS: { ids: number[]; roles: string[]; why: string }[] = [
+  { ids: [1029, 29], roles: ["onhit", "ap_onhit"], why: "Your abilities apply on-hit effects, so on-hit items pay off more." },
+  { ids: [1205, 205], roles: ["ap", "ap_onhit", "ap_tank"], why: "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it." },
+  { ids: [1206, 206], roles: ["ad", "bruiser", "ability_ad", "crit", "lethality"], why: "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it." },
+  { ids: [3049], roles: ["tank", "ap_tank"], why: "Its empowered attack scales with bonus armor." },
+  { ids: [1324], roles: ["tank", "ap_tank", "support"], why: "It turns bonus armor and magic resist into heal and shield power." },
+];
+
+/**
+ * Augment-triggered swaps for one core: "Upgrade X" augments the champion takes point to item X, and build-changing
+ * augments in its pool point to its best DeepScore item of the roles they favour, among items players really build
+ * on it with a following (a quarter of the most built one of those roles). Items already in the build are skipped, and
+ * so is an augment whose roles the build already has (two or more of its items): ADAPt on a mage changes nothing.
+ * Upgrade tips only name items in the build or its style (upgradeIds).
+ */
+export function augmentSwaps(
+  augments: { id: number; name: string; pickRate: number }[],
+  build: number[],
+  pool: { items: number[]; pickRate: number; deepScore?: number }[],
+  rolesOf: (id: number) => string[],
+  nameOf: (id: number) => string | undefined,
+  upgradeIds: number[],
+): AugmentSwap[] {
+  const out: AugmentSwap[] = [];
+  const has = new Set(build);
+  const byPick = [...augments].sort((x, y) => y.pickRate - x.pickRate);
+  const candidates = upgradeIds.flatMap((i) => (nameOf(i) ? [{ id: i, name: nameOf(i)! }] : []));
+  for (const u of upgradeSwaps(byPick, candidates, 3)) out.push({ augments: [u.augment], item: u.item, kind: "upgrade", why: "The augment upgrades this item, so buy it first." });
+  const own = new Set(augments.map((a) => a.id));
+  for (const c of BUILD_CHANGERS) {
+    const ids = c.ids.filter((i) => own.has(i));
+    if (!ids.length || build.filter((i) => rolesOf(i).some((x) => c.roles.includes(x))).length >= 2) continue;
+    const fit = pool.filter((r) => rolesOf(r.items[0]).some((x) => c.roles.includes(x)));
+    const top = Math.max(0, ...fit.map((r) => r.pickRate));
+    const pick = fit
+      .filter((r) => r.pickRate >= 0.25 * top && !has.has(r.items[0]))
+      .sort((a, b) => (b.deepScore ?? 0) - (a.deepScore ?? 0))[0];
+    if (pick && !out.some((o) => o.item === pick.items[0])) out.push({ augments: ids, item: pick.items[0], kind: "style", why: c.why });
+  }
+  return out;
+}

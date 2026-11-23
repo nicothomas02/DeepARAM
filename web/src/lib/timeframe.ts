@@ -1,5 +1,5 @@
 import { FIT } from "./deepscore";
-import { alongCore, bestRow, followed, laterItems, scoreRows, sameStyle, situational, skipsBoots, slotItems, type ItemRow, type Rated, type SlotCounts } from "./card-score";
+import { alongCore, bestRow, followed, laterItems, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 import { buyingOrder, restOfBuild, startFirst, starterFits } from "./build-plan";
 import type { ItemTier } from "./items";
 import type { Situation } from "./situations";
@@ -151,7 +151,8 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
     core: coreRow
       ? (() => {
           const bySlot = slotItems(pool, coreRow, classesOf, file.itemSlots?.champ, file.itemSlots?.all);
-          return { ...coreRow, later: laterItems(pool, coreRow, classesOf), ...(bySlot ? { slots: bySlot } : {}) };
+          const later = laterItems(pool, coreRow, classesOf);
+          return { ...coreRow, later, ...(bySlot ? { slots: bySlot } : {}), full: fullPicks(coreRow, bySlot ?? undefined, later) };
         })()
       : null,
     situational: core ? situational(sameStyle(pool, core.items, (i) => file.items[i]?.classes ?? []), (i) => file.items[i]?.situation) : [],

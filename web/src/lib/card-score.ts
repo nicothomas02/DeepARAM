@@ -1,5 +1,6 @@
 import { fittedBound, grade, lowerBound, nextPatch, trueSpread, type Fit } from "./deepscore";
 import type { ItemTier } from "./items";
+import { clashWith } from "./item-limits";
 
 // Scoring shared by the champion page's server code (lib/champion-page.ts) and the top card's timeframe picker,
 // which re-ranks builds in the browser for the patches picked (components/champion/Timeframe.tsx).
@@ -20,6 +21,8 @@ export type ItemRow = Rated & {
   later?: ItemRow[];
   /** The same items split by the slot they're bought in (4th, 5th, 6th legendary), when purchase order is known. */
   slots?: { slot: number; items: ItemRow[] }[];
+  /** The card's full build after the core: one pick per slot, so core, boots and picks make six items. */
+  full?: ItemRow[];
 };
 
 /** A row's items in the order they're bought: the boots go in at bootsAt (after the core when it isn't known). */
@@ -247,5 +250,23 @@ export function slotItems<T extends ItemRow>(
       .sort((x, y) => shares.get(y.items[0])![k] - shares.get(x.items[0])![k]);
     o.items = [...o.items, ...rest.slice(0, per - o.items.length)].sort((x, y) => cands.indexOf(x) - cands.indexOf(y));
   });
+  return out;
+}
+
+/**
+ * One full build (Nico, 2026-11-23: "all items in build displayed", picked so they work together): after the core and
+ * boots, the best DeepScore item of each slot's list (followed, same style as the core), each item used once, until
+ * the build holds six items. A slot with nothing left takes the best remaining item after the core.
+ */
+export function fullPicks<T extends ItemRow>(core: ItemRow, slots: { slot: number; items: T[] }[] | undefined, later: T[] | undefined, size = 6): T[] {
+  const room = Math.max(0, size - core.items.length - (core.boots !== undefined ? 1 : 0));
+  const out: T[] = [];
+  // never two items the game won't let you own together (lib/item-limits.ts)
+  const taken = (r: T) => out.some((o) => o.items[0] === r.items[0]) || clashWith(r.items[0], [...core.items, ...out.map((o) => o.items[0])]) !== undefined;
+  const best = (rows: T[]) => [...rows].filter((r) => !taken(r)).sort((a, b) => (b.deepScore ?? 0) - (a.deepScore ?? 0))[0];
+  for (let k = 0; k < room; k++) {
+    const pick = best(slots?.[k]?.items ?? []) ?? best(later ?? []);
+    if (pick) out.push(pick);
+  }
   return out;
 }
