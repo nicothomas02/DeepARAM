@@ -282,5 +282,6 @@
  "On-hit": "On-hit",
  "Fighter": "Bojovník",
  "Enchanter": "Zaklínač",
- "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Vyvolávací kouzla a pořadí schopností jsou pro každý build stejné: statistiky je podle buildu nerozdělují."
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Vyvolávací kouzla a pořadí schopností jsou pro každý build stejné: statistiky je podle buildu nerozdělují.",
+ "No ranked augment on this champion matches that name.": "Žádné hodnocené vylepšení tohoto šampiona neodpovídá tomuto názvu."
 }

@@ -1,6 +1,6 @@
 {
- "about": "Effective matches behind each patch's stats (data/stats/games.py). A champion's games = pick_rate x matches; an item's or a teammate pair's = its share x the champion's games.",
- "updated": "2026-11-21",
+ "about": "Matches behind each patch's stats: real counts from AramHex where it has the patch (source: aramhex), else estimated from 101's day-to-day win-rate noise (data/stats/games.py). A champion's games = pick_rate x matches; an item's or a teammate pair's = its share x the champion's games.",
+ "updated": "2026-11-23",
  "median_per_day": 3971116,
  "patches": {
   "15.21": {
@@ -131,33 +131,38 @@
   },
   "16.19": {
    "days": 19,
-   "per_day": 3971116,
-   "matches": 75451197,
-   "estimated": false
+   "per_day": 1071438,
+   "matches": 20357328,
+   "estimated": false,
+   "source": "aramhex"
   },
   "16.20": {
    "days": 10,
-   "per_day": 3971116,
-   "matches": 39711156,
-   "estimated": false
+   "per_day": 5057017,
+   "matches": 50570166,
+   "estimated": false,
+   "source": "aramhex"
   },
   "16.21": {
    "days": 14,
-   "per_day": 3227124,
-   "matches": 45179740,
-   "estimated": true
+   "per_day": 3012075,
+   "matches": 42169050,
+   "estimated": false,
+   "source": "aramhex"
   },
   "16.22": {
    "days": 14,
-   "per_day": 3911104,
-   "matches": 54755450,
-   "estimated": true
+   "per_day": 4130221,
+   "matches": 57823093,
+   "estimated": false,
+   "source": "aramhex"
   },
   "16.23": {
-   "days": 2,
-   "per_day": 3971116,
-   "matches": 7942231,
-   "estimated": false
+   "days": 4,
+   "per_day": 1247994,
+   "matches": 4991976,
+   "estimated": false,
+   "source": "aramhex"
   }
  }
 }

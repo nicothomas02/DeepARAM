@@ -1,8 +1,15 @@
 {
+ "0.25 to 0.75 seconds, longer as the snowball grows": "0,25 έως 0,75 δευτερόλεπτα, περισσότερο όσο μεγαλώνει η χιονόμπαλα",
+ "100%": "100%",
+ "40%, growing to full as it flies": "40%, μεγαλώνει ως το πλήρες μέγεθος καθώς πετά",
+ "50 to 120 units, farther as the snowball grows": "50 έως 120 μονάδες, μακρύτερα όσο μεγαλώνει η χιονόμπαλα",
+ "65%, speeding up as it flies": "65%, επιταχύνει καθώς πετά",
  "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates).": "Οι τιμές των ικανοτήτων αφορούν τα επίπεδα 1-5 (βασικές ικανότητες) ή 1-3 (υπέρτατες ικανότητες).",
  "Base-game champion changes on the test server. They also apply in Mayhem.": "Αλλαγές Ηρώων του βασικού παιχνιδιού στον δοκιμαστικό server. Ισχύουν και στο Mayhem.",
  "Changes to items in the Mayhem shop. Runes are unchanged.": "Αλλαγές σε αντικείμενα του καταστήματος του ARAM: Χαμός. Οι ρούνοι δεν αλλάζουν.",
  "Gain the Surge Field summoner spell. Casting it creates a zone for 10 seconds: while in it, you gain 40% Movement Speed and 150 Ability Haste, and fire missiles at enemies that deal 30% of the damage you deal.": "Αποκτάς το ξόρκι επικαλεστή Surge Field. Η χρήση του δημιουργεί μια ζώνη για 10 δευτερόλεπτα: όσο βρίσκεσαι μέσα, κερδίζεις 40% ταχύτητα κίνησης και 150 επιτάχυνση ικανοτήτων και εκτοξεύεις βλήματα στους εχθρούς που προκαλούν το 30% της ζημιάς που προκαλείς.",
+ "Knockback": "Απώθηση",
+ "Knockback: none → 50 to 120 units, farther as the snowball grows": "Απώθηση: καμία → 50 έως 120 μονάδες, μακρύτερα όσο μεγαλώνει η χιονόμπαλα",
  "Live is patch 26.23. This page lists what patch 26.24 changes.": "Η τρέχουσα έκδοση είναι η 26.23. Αυτή η σελίδα παραθέτει τι αλλάζει η έκδοση 26.24.",
  "Mayhem Patch 26.24 on the test server.": "Mayhem έκδοση 26.24 στον δοκιμαστικό server.",
  "No new Fame bands on the test server yet.": "Δεν υπάρχουν ακόμη νέες ζώνες Φήμης στον δοκιμαστικό server.",
@@ -10,6 +17,14 @@
  "PBE content can change before release.": "Το περιεχόμενο του PBE μπορεί να αλλάξει πριν από την κυκλοφορία.",
  "Patch 26.24": "Έκδοση 26.24",
  "Q AD ratio 70% → 80%": "Αναλογία AD του Q 70% → 80%",
+ "Snowball size when thrown": "Μέγεθος χιονόμπαλας κατά τη ρίψη",
+ "Snowball size when thrown: 100% → 40%, growing to full as it flies": "Μέγεθος χιονόμπαλας κατά τη ρίψη: 100% → 40%, μεγαλώνει ως το πλήρες μέγεθος καθώς πετά",
+ "Snowball speed when thrown": "Ταχύτητα χιονόμπαλας κατά τη ρίψη",
+ "Snowball speed when thrown: 100% → 65%, speeding up as it flies": "Ταχύτητα χιονόμπαλας κατά τη ρίψη: 100% → 65%, επιταχύνει καθώς πετά",
+ "Stun": "Ζάλη",
+ "Stun: none → 0.25 to 0.75 seconds, longer as the snowball grows": "Ζάλη: καμία → 0,25 έως 0,75 δευτερόλεπτα, περισσότερο όσο μεγαλώνει η χιονόμπαλα",
  "Update 2026-11-18: patch 26.23 is live, so its changes left this page. The first patch 26.24 test build changes no Mayhem augments, Headliners or items. Akshan's Q scales more with AD (70% → 80%), and Goliath gets an extra effect for clones.": "Ενημέρωση 2026-11-18: η έκδοση 26.23 κυκλοφόρησε, οπότε οι αλλαγές της αφαιρέθηκαν από αυτή τη σελίδα. Το πρώτο δοκιμαστικό build της έκδοσης 26.24 δεν αλλάζει augments, Headliners ή αντικείμενα του Mayhem. Το Q του Ακσάν κλιμακώνεται περισσότερο με AD (70% → 80%) και ο Γολιάθ αποκτά επιπλέον επίδραση για τους κλώνους.",
- "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "Ενημέρωση 2026-11-20 (patch 26.24): το Surge Field επιστρέφει στις διαθέσιμες ενισχύσεις."
+ "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.": "Ενημέρωση 2026-11-20 (patch 26.24): το Surge Field επιστρέφει στις διαθέσιμες ενισχύσεις.",
+ "Update 2026-11-21 (patch 26.24): Biggest Snowball Ever now starts small and slow, grows as it flies, and gains a stun and a knockback.": "Ενημέρωση 2026-11-21 (patch 26.24): Το Η Μεγαλύτερη Χιονόμπαλα Όλων των Εποχών ξεκινά πλέον μικρό και αργό, μεγαλώνει καθώς πετά και αποκτά ζάλη και απώθηση.",
+ "none": "καμία"
 }

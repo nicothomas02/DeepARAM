@@ -155,5 +155,9 @@
  "Order within role": "定位內排名",
  "Real ÷ predicted": "實際 ÷ 預測",
  "Find an item": "搜尋裝備",
- "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "估算。它讓出這件裝備的英雄勝率提高多少：DeepScore 以此為起點。"
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "估算。它讓出這件裝備的英雄勝率提高多少：DeepScore 以此為起點。",
+ "Next patch": "下個版本",
+ "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "若英雄未被調整，下個版本的預期勝率，依據過去各版本之間勝率的變化擬合。詳細檢視會加上 5 次中有 4 次落入的區間。",
+ "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "下個版本預期勝率的下限，比預期低一個典型誤差。DeepScore 以此排名。",
+ "Estimated games on the live patch.": "目前版本的估計對局數。"
 }

@@ -15,6 +15,7 @@ import { championAliases, championSummary, champList, type RadarAxis } from "@/l
 import { TfCard, TfPerf, TfStrip, TfTier, TimeframePicker } from "@/components/champion/Timeframe";
 import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
+import { followed } from "@/lib/card-score";
 import {
   bestRow,
   buildOrder,
@@ -38,6 +39,7 @@ import {
   Head,
   ItemIcon,
   ItemName,
+  LaterItems,
   Keys,
   Panel,
   pct,
@@ -206,8 +208,6 @@ const BOOTS_WHEN: Record<number, string> = {
   2: "Boots after the 2nd item",
   3: "Boots after the 3rd item",
 };
-// Build style tabs (lib/build-plan.ts buildStyle).
-const STYLE_LABEL: Record<string, string> = { ap: "AP", ad: "AD", tank: "Tank", support: "Support" };
 // Build styles from data/estimates/build_archetypes.json (the card's build tabs).
 const ARCH_LABEL: Record<string, string> = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "Fighter", tank: "Tank", enchanter: "Enchanter" };
 const BOOTS_HELP =
@@ -382,7 +382,7 @@ export default async function ChampionPage({
             </li>
           ))}
         </ol>
-        {(core.rest ?? []).length > 0 && (
+        {!core.later?.length && (core.rest ?? []).length > 0 && (
           <p className="cp-rest">
             <small>
               <T ns={NS}>Then</T>
@@ -431,6 +431,7 @@ export default async function ChampionPage({
           </small>
         )}
       </div>
+      {(core.later ?? []).length > 0 && <LaterItems rows={core.later!} slots={core.slots} info={info} />}
       {situ.length > 0 && (
         <div className="cp-best cp-best-wide cp-best-sit">
           <h4>
@@ -483,7 +484,9 @@ export default async function ChampionPage({
   const spellsEstimated = rawSpells.some((r) => r.estimated);
   // Spell pairs rank by DeepScore like the build lists. Estimated spells have no win rate, so they keep
   // their most-picked-first order.
-  const spells = spellsEstimated ? rawSpells : scoreRows(rawSpells);
+  // Real spell pairs (AramHex) lead only with a real following, the same 1/4 rule as builds, so a pair a few percent
+  // of players take can't top the card on win rate alone (Ghost + Barrier over Flash on Ahri).
+  const spells = spellsEstimated ? rawSpells : followed(scoreRows(rawSpells));
   const bestSpells = spells[0];
   const games = fillGames()?.[c.alias];
   const gamesEstimated = fillEstimated();
@@ -630,7 +633,7 @@ export default async function ChampionPage({
           {plan}
       {perBuild && (
         <p className="cp-same-note">
-          <T ns={NS}>Summoner spells and skill order are the same for every build: the stats don't split them by build.</T>
+          <T ns={NS}>{"Summoner spells and skill order are the same for every build: the stats don't split them by build."}</T>
         </p>
       )}
     </>

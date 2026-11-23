@@ -47,3 +47,12 @@ describe("best pick for your team", () => {
     );
   });
 });
+
+describe("team-fit.json for the desktop app", () => {
+  it("maps champion ids, since champion select reports ids", async () => {
+    const { teamFitData } = await import("@/lib/team-fit");
+    const d = teamFitData();
+    expect(d.ids?.Ashe).toBe(22);
+    expect(Object.keys(d.ids ?? {}).length).toBeGreaterThan(150);
+  });
+});

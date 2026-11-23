@@ -4,7 +4,7 @@
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { T, useT } from "@/components/I18n";
 import WinRate from "@/components/WinRate";
-import { Cell, ItemIcon, Keys, RatedCells, pct } from "@/components/champion/Ranked";
+import { Cell, ItemIcon, Keys, LaterItems, RatedCells, pct } from "@/components/champion/Ranked";
 import { buildOrder } from "@/lib/card-score";
 import { radarFor } from "@/lib/radar";
 import { bySet } from "@/lib/sets";
@@ -368,7 +368,7 @@ export function TfCard({ alias, patches, matches, spells, children }: Common & {
                   <ItemIcon key={id} id={id} info={info} named />
                 ))}
               </div>
-              {(card.core.rest ?? []).length > 0 && (
+              {!card.core.later?.length && (card.core.rest ?? []).length > 0 && (
                 <p className="cp-rest">
                   <small>
                     <T ns="champions">Then</T>
@@ -383,6 +383,7 @@ export function TfCard({ alias, patches, matches, spells, children }: Common & {
               </div>
             </div>
           )}
+          {(card.core?.later ?? []).length > 0 && <LaterItems rows={card.core!.later!} slots={card.core!.slots} info={info} />}
           {card.situational.length > 0 && (
             <div className="cp-best cp-best-wide cp-best-sit">
               <h4>

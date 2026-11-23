@@ -155,5 +155,9 @@
  "Order within role": "Sorrend a szerepen belül",
  "Real ÷ predicted": "Valódi ÷ becsült",
  "Find an item": "Tárgy keresése",
- "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Becslés. Mennyivel növeli az azt építő hősök győzelmi arányát: ebből indul a DeepScore-ja."
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Becslés. Mennyivel növeli az azt építő hősök győzelmi arányát: ebből indul a DeepScore-ja.",
+ "Next patch": "Következő patch",
+ "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Várható győzelmi arány a következő patchben, ha a hős nem változik, a korábbi patchek közötti győzelmiarány-változások alapján. A részletes nézet megmutatja a tartományt, ahová 5-ből 4-szer esik.",
+ "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "A következő patch várható győzelmi arányának alsó széle, egy szokásos eltéréssel alatta. A DeepScore ez alapján rangsorol.",
+ "Estimated games on the live patch.": "Becsült meccsek száma az aktuális patchben."
 }

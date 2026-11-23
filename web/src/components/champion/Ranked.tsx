@@ -206,3 +206,73 @@ export function Keys({ keys }: { keys: string[] }) {
     </span>
   );
 }
+
+type LaterRow = Rated & { items: number[]; deepScore?: number };
+const SLOT_NAMES: Record<number, string> = { 4: "4th item", 5: "5th item", 6: "6th item" };
+
+function LaterList({ rows, info }: { rows: LaterRow[]; info: Record<number, { name: string; icon?: string }> }) {
+  return (
+    <ol className="cp-later">
+      {rows.map((r) => (
+        <li key={r.items[0]}>
+          <ItemIcon id={r.items[0]} info={info} named />
+          <span className="cp-later-nums">
+            {r.deepScore !== undefined && (
+              <span>
+                <b>{r.deepScore}</b> <small>DeepScore</small>
+              </span>
+            )}
+            <span>
+              <b>{pct(r.winRate)}</b>{" "}
+              <small>
+                <T ns={NS}>Win rate</T>
+              </small>
+            </span>
+            <span>
+              <b>{pct(r.pickRate)}</b>{" "}
+              <small>
+                <T ns={NS}>Pick rate</T>
+              </small>
+            </span>
+          </span>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/** The items to buy after the core, each with the DeepScore that orders it, then win and pick rate (Nico,
+ *  2026-11-23: core, then the rest of the items singly, above the situational ones), split into the 4th, 5th and 6th
+ *  item slots when the buying order is known. */
+export function LaterItems({
+  rows,
+  slots,
+  info,
+}: {
+  rows: LaterRow[];
+  slots?: { slot: number; items: LaterRow[] }[];
+  info: Record<number, { name: string; icon?: string }>;
+}) {
+  const bySlot = (slots ?? []).filter((s) => s.items.length > 0 && SLOT_NAMES[s.slot]);
+  return (
+    <div className="cp-best cp-best-wide cp-best-later">
+      <h4>
+        <T ns={NS}>After the core</T>
+      </h4>
+      {bySlot.length > 0 ? (
+        <div className="cp-later-slots">
+          {bySlot.map((s) => (
+            <div key={s.slot}>
+              <h5>
+                <T ns={NS}>{SLOT_NAMES[s.slot]}</T>
+              </h5>
+              <LaterList rows={s.items} info={info} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <LaterList rows={rows} info={info} />
+      )}
+    </div>
+  );
+}

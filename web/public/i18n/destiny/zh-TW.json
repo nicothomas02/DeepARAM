@@ -41,5 +41,13 @@
  "Predicted": "預測",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "預測：數據無法區分哪些對局選了命定武器，因此裝備依升級屬性的價值排序，而不是依勝率。",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "每名英雄最適合作為命定武器的裝備：每件候選裝備都在使用該英雄最熱門出裝的模擬戰鬥中升級，選出讓其最強的一件。",
- "Simulated. Champions near the top gain the most from the augment in fights.": "模擬。排在前面的英雄在戰鬥中從這個強化中獲益最多。"
+ "Simulated. Champions near the top gain the most from the augment in fights.": "模擬。排在前面的英雄在戰鬥中從這個強化中獲益最多。",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average: its win rate in games where it was the Weapon of Destiny, above what its champions usually win with the augment, trusted more the more games it has. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore 把每件裝備與其他裝備比較，按 0 到 100 評分（50 為平均）：它作為命運之武的對戰勝率，比其英雄攜帶該強化時的平常勝率高出多少；對戰越多越可信。等級：S 70+、A 59+、B 44+、C 32+、D 以下。",
+ "Games with Weapon of Destiny where this was the first Legendary item, so the Weapon.": "帶命運之武、且這是第一件傳說裝備（即武器）的對戰數。",
+ "Games": "對戰",
+ "The champion who makes it their Weapon of Destiny most often.": "最常把它做成命運之武的英雄。",
+ "From real games with Weapon of Destiny. A high score means the item did well as the Weapon, which can also come from the games and players who pick it: correlated, not proof it causes the wins.": "來自帶命運之武的真實對戰。分數高表示它作為武器表現好，但也可能與選擇它的對戰和玩家有關：是相關，不能證明它帶來了勝利。",
+ "How the best item does on this champion, 0 to 100 against every champion's best item: its win rate as the Weapon above the champion's usual win rate with the augment, trusted more the more games it has.": "最佳裝備在這個英雄上的表現，與每個英雄的最佳裝備比較，0 到 100：作為武器的勝率比該英雄帶此強化的平常勝率高出多少；對戰越多越可信。",
+ "The second-best item to make the Weapon for this champion.": "這個英雄做成武器的第二好的裝備。",
+ "Each champion's best item to make its Weapon of Destiny, from real games with the augment: among the items it often makes its Weapon, the one that wins most above its usual.": "每個英雄做命運之武的最佳裝備，來自帶該強化的真實對戰：在它常做成武器的裝備中，比平常勝率高出最多的那件。"
 }

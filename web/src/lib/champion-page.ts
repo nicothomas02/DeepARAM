@@ -4,7 +4,7 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
-import { alongCore, bestRow, buildOrder, followed, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
@@ -21,7 +21,6 @@ import {
   ranked,
   items,
   rewardItems,
-  type ItemTier,
 } from "./items";
 import { repoHas, repoPath, readRepoJson } from "./repo-data";
 import { matesOf, type Mate } from "./duos";
@@ -39,7 +38,8 @@ const AUGS = augmentNames as Record<string, string>;
 /** A pair only counts as a teammate once it shows up in at least this share of games. */
 export const MIN_PAIR_PICK = 0.008;
 
-type Raw = { items: number[]; pick_rate: number; win_rate?: number };
+/** games: real games behind the row when the source has them (AramHex rows, data/aramhex/merge.py). */
+type Raw = { items: number[]; pick_rate: number; win_rate?: number; games?: number };
 type Builds = {
   items?: Partial<
     Record<"starting" | "boots" | "core" | "other" | "full_builds", Raw[]>
@@ -52,7 +52,7 @@ type Builds = {
   }[];
   augments?: Record<
     string,
-    { id: number; pick_rate: number; grade?: string }[]
+    { id: number; pick_rate: number; grade?: string; win_rate?: number; games?: number }[]
   >;
   /** Blocks that stopped updating (data/cn/builds.py), and ones rebuilt from the six-item builds. */
   stale?: string[];
@@ -114,6 +114,10 @@ export type AugmentRow = {
   pickRate: number;
   /** The feed's letter grade for this augment on this champion (S, A, B, C), when it has one. */
   grade?: string;
+  /** Real win rate and games with the augment on this champion, when the data has them (AramHex). Never shown
+   *  raw on the site (augment win rates stay hidden, PR #551); they feed DeepScore. */
+  winRate?: number;
+  games?: number;
   /** The game's own build tags, as style names (lib/build-tags.ts). */
   tags: string[];
 };
@@ -241,7 +245,7 @@ export function championPage(alias: string): ChampionPage | null {
   const rows = (list: Raw[] | undefined) =>
     (list ?? [])
       .filter((r) => r.items.every((i) => all.has(i) && !rewards.has(i)))
-      .map((r) => ({ items: r.items, ...rated(r.win_rate, r.pick_rate) }));
+      .map((r) => ({ items: r.items, ...rated(r.win_rate, r.pick_rate), ...(r.games ? { games: r.games } : {}) }));
 
   const skills = (b?.skills ?? []).map((s) => ({
     max: s.max_order,
@@ -261,6 +265,7 @@ export function championPage(alias: string): ChampionPage | null {
       rarity: rarity.get(a.id) ?? "silver",
       pickRate: a.pick_rate,
       grade: a.grade,
+      ...(a.games && a.win_rate !== undefined ? { winRate: a.win_rate, games: a.games } : {}),
     }));
 
   // Win rate boost: the Duos list's numbers (lib/duos.ts), the synergy adjusted for how often a pair is played,
@@ -359,10 +364,19 @@ export function championPage(alias: string): ChampionPage | null {
     starterFits(r.items, withBootsOf(c, [...c.items, ...(c.rest ?? restOfBuild(c.items, c.boots, full, isBoots))]), itemParts, standalone);
   const fitsFirst = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items.slice(0, 1)), itemParts, standalone);
   const isBoots = (i: number) => itemTier(i) === "boots";
+  // The items after the core, one by one, and split by the slot players buy them in (data/estimates/item_slots.json,
+  // purchase order from the owner's archived games, all ten players: the feeds list six-item builds as sets).
+  const itemSlots = readRepoJson<{ all: SlotCounts; champions: Record<string, SlotCounts> }>("data/estimates/item_slots.json");
+  const withLater = (row: ItemRow): ItemRow => {
+    const pool = afterCore(row, single, full);
+    const bySlot = slotItems(pool, row, itemClasses, itemSlots?.champions[String(id)], itemSlots?.all);
+    return { ...row, later: laterItems(pool, row, itemClasses), ...(bySlot ? { slots: bySlot } : {}) };
+  };
   const core = withBootsCore.map((c) => {
     const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find(fits(c));
     const { items } = buyingOrder(st ? startFirst(c.items, st.items, itemParts, standalone) : c.items, orderRows);
-    return { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
+    const row: ItemRow = { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
+    return withLater(row);
   });
   const startingRows = core[0]
     ? [startFollowed, () => true]
@@ -400,11 +414,14 @@ export function championPage(alias: string): ChampionPage | null {
             return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: true,
               core: core[0], start: page0Start, situational: situationalItems(core[0], single, full), rush: rushParts(core[0].items[0], itemRecipe), augments: augs };
           const coreIds = (a.core ?? []).map(known);
-          const bootsId = noBoots ? undefined : a.boots?.[0] !== undefined ? known(a.boots[0]) : undefined;
+          // A style whose core already holds boots (Bel'Veth: Gluttonous Greaves) gets no second pair.
+          const coreHasBoots = coreIds.some((i) => itemTier(i) === "boots");
+          const bootsId = noBoots || coreHasBoots ? undefined : a.boots?.[0] !== undefined ? known(a.boots[0]) : undefined;
           const row: ItemRow = { items: coreIds, ...rated(a.win_rate, a.share), boots: bootsId, bootsAt: bootsId !== undefined ? (playedSlot ?? undefined) : undefined };
           const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find(fits(row)) ?? null;
           const ordered = buyingOrder(st ? startFirst(coreIds, st.items, itemParts, standalone) : coreIds, orderRows).items;
-          const c: ItemRow = { ...row, items: ordered, rest: (a.later ?? []).map(known).filter((i) => !ordered.includes(i)).slice(0, 3) };
+          const c0: ItemRow = { ...row, items: ordered, rest: (a.later ?? []).map(known).filter((i) => !ordered.includes(i)).slice(0, 3) };
+          const c: ItemRow = withLater(c0);
           const start = st ?? (a.starters?.length ? { items: a.starters.map(known), winRate: NaN, pickRate: 0, lift: 0 } : null);
           return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false,
             core: c, start, situational: situationalItems(c, single, full), rush: rushParts(c.items[0], itemRecipe), augments: augs };

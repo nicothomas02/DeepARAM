@@ -29,15 +29,15 @@ import { itemPages } from "@/lib/item-pages";
 import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
 import SubTabs from "@/components/SubTabs";
-import { readRepoCsv, readRepoJson } from "@/lib/repo-data";
+import { readRepoCsv } from "@/lib/repo-data";
 import { allChampionTags, championTagData } from "@/lib/champion-tags";
 import { fillGames } from "@/lib/fill";
 import { matchesByPatch } from "@/lib/sample";
 import { patchName } from "@/lib/patch-name";
 import WeaponOfDestiny from "@/components/WeaponOfDestiny";
+import { bracketData } from "@/lib/brackets";
 import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
 import Pentakill from "@/components/Pentakill";
-import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
 import { pentakill } from "@/lib/pentakill";
 
 export const metadata: Metadata = pageMeta(
@@ -90,7 +90,6 @@ export default function TierListPage() {
       dead: num(r.avg_death_time),
       augs: r.augment_ids ?? "",
     }));
-  const champName = (alias?: string) => (alias ? (NAMES[alias] ?? alias) : null);
   const tabs: { id: string; label: string; content: React.ReactNode; lazy?: boolean }[] = [
     {
       id: "champions",
@@ -107,6 +106,7 @@ export default function TierListPage() {
               matches={matchesByPatch()}
               scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
               reliance={Object.fromEntries([...championAugmentReliance()].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+              brackets={bracketData()}
             />
           }
           duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} quests={teamQuests()} /> : undefined}
@@ -271,9 +271,10 @@ export default function TierListPage() {
     });
   }
 
-  // Which Legendary item to make the Weapon of Destiny (gold augment): how often it's upgraded and how rare its stats are.
-  // This tab and Pentakill's are Simulator-made, so they stay off while it is a fun tool only (lib/sim-policy.ts).
-  const destiny = SIMULATOR_IN_STATS ? weaponOfDestiny() : null;
+  // Which Legendary item to make the Weapon of Destiny (gold augment), from real games with the augment (AramHex).
+  // This tab and Pentakill's were Simulator-made and hidden while it is a fun tool only (lib/sim-policy.ts); since
+  // AramHex (2026-11-23) both rank on real games and are back.
+  const destiny = weaponOfDestiny();
   if (destiny?.rows.length) {
     tabs.push({
       id: "weapon-of-destiny",
@@ -283,8 +284,8 @@ export default function TierListPage() {
     });
   }
 
-  // Which abilities to Empower in a Pentakill game, by the estimated win rate boost.
-  const penta = SIMULATOR_IN_STATS ? pentakill() : [];
+  // Which abilities to Empower in a Pentakill game, from real games with each Empower (AramHex).
+  const penta = pentakill();
   if (penta.length) {
     tabs.push({ id: "pentakill", label: "Pentakill", lazy: true, content: <Pentakill rows={penta} /> });
   }

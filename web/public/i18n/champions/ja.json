@@ -282,5 +282,6 @@
  "On-hit": "通常攻撃時効果",
  "Fighter": "ファイター",
  "Enchanter": "エンチャンター",
- "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "サモナースペルとスキル順はどのビルドでも同じです。統計がビルドごとに分けていないためです。"
+ "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "サモナースペルとスキル順はどのビルドでも同じです。統計がビルドごとに分けていないためです。",
+ "No ranked augment on this champion matches that name.": "このチャンピオンのランク付けされたオーグメントに、その名前に一致するものはありません。"
 }

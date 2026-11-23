@@ -6,7 +6,10 @@
 <title>DeepARAM</title>
 <style>
   /* The companion window (src-tauri/src/companion.rs): a normal window for a second screen, in the site's dark look. */
-  :root { color-scheme: dark; --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3;
+  /* Mona Sans, the site's typeface, shipped with the app. */
+  @font-face { font-family: "Mona Sans"; font-style: normal; font-weight: 200 900; font-display: swap; src: url(fonts/mona-sans-latin.woff2) format("woff2"); }
+  :root { color-scheme: dark; --prismatic: linear-gradient(100deg, #9fe7ff, #c9b8ff 40%, #ffb8e0 70%, #ffe2a3); --silver: #a3adbb;
+    --depth: inset 0 1px 0 rgb(255 255 255 / .06), 0 1px 2px rgb(0 0 0 / .4), 0 4px 12px rgb(0 0 0 / .35); --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3;
     --line: #222936; --accent: #5cc0ff; --good: #4cc98b; --bad: #f0776f; --gold: #e0b45c; }
   * { box-sizing: border-box; }
   html, body { margin: 0; background: var(--bg); color: var(--fg); }
@@ -42,6 +45,19 @@
   .item { display: flex; gap: 10px; align-items: center; }
   .item img { width: 32px; height: 32px; border-radius: 6px; }
   .box.now { border-color: var(--gold); }
+  .why.lbl { margin: 10px 0 6px; text-transform: uppercase; letter-spacing: .04em; font-size: 11px; font-weight: 600; }
+  .why.lbl:first-child, .box > .why:first-child + .why.lbl { margin-top: 0; }
+  .core { display: flex; gap: 6px; flex-wrap: wrap; }
+  .core img { width: 40px; height: 40px; border-radius: 8px; }
+  .core img.own, .item.own { opacity: .35; }
+  .core img.nx, .item.nx img { box-shadow: 0 0 0 2px var(--gold); }
+  .items.lst { gap: 6px; }
+  .items.lst .item img { width: 28px; height: 28px; }
+  .item.lit .why { color: var(--gold); }
+  .alts img { width: 18px !important; height: 18px !important; border-radius: 4px; vertical-align: middle; margin-left: 3px; opacity: .8; }
+  .offer .reroll { margin: 8px 2px 2px; }
+  .why.lbl b { text-transform: none; letter-spacing: 0; }
+  .items.lst .why.lbl { margin: 4px 0 -2px; }
   .tip { margin-top: 8px; }
   .plan { display: flex; justify-content: space-between; align-items: center; }
   .plan .keys b { color: var(--accent); }
@@ -51,14 +67,60 @@
   .aug { padding: 6px 10px; margin-bottom: 4px; }
   .aug img { width: 30px; height: 30px; }
   .tip b { color: var(--fg); }
+  .offer { border: 1px solid var(--accent); border-radius: 14px; padding: 8px; margin-bottom: 10px; }
+  .offer .why.src { margin: 2px 4px 6px; }
+  .quick { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+  .quick .keys { display: flex; gap: 4px; align-items: center; }
+  .quick .key { min-width: 24px; height: 24px; display: grid; place-items: center; border-radius: 7px; background: var(--raised); font-weight: 600; font-size: 12px; }
+  .quick .spell { display: flex; gap: 6px; align-items: center; font-size: 12px; color: var(--muted); }
+  .quick img { width: 24px; height: 24px; border-radius: 6px; }
+  /* Full screen on a second monitor: three columns, bigger type so it reads at a glance. */
+  @media (min-width: 1000px) {
+    body { font-size: 16px; padding: 28px 36px; }
+    main { max-width: 1500px; margin: 0 auto; }
+    .cols { display: grid; grid-template-columns: 1fr 1.4fr; gap: 32px; align-items: start; }
+    .cols > section > h2:first-child { margin-top: 0; }
+    .aug img, .row img { width: 40px; height: 40px; }
+    .row { grid-template-columns: 40px 1fr auto; }
+    .why, .num, .note { font-size: 14px; }
+  }
+  /* The site's look: a champion splash banner, cards with depth, rarity rings, the prismatic flourish. */
+  .row, .box { box-shadow: var(--depth); }
+  .hero { position: relative; display: flex; align-items: flex-end; gap: 14px; min-height: 132px; padding: 16px 18px; margin: -4px 0 14px;
+    border-radius: 18px; border: 1px solid var(--line); overflow: hidden; background: var(--surface); box-shadow: var(--depth); }
+  .hero > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; border: 0; border-radius: 0; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgb(9 11 15 / .92) 15%, rgb(9 11 15 / .55) 55%, rgb(9 11 15 / .15)), linear-gradient(0deg, rgb(9 11 15 / .7), transparent 60%); }
+  .hero > :not(.bg) { position: relative; z-index: 2; }
+  .hero > img { width: 56px; height: 56px; border-radius: 14px; border: 2px solid rgb(255 255 255 / .15); }
+  .hero .title { font-size: 24px; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
+  .hero .sub { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-top: 4px; }
+  .hero .sub.now { color: var(--accent); }
+  .live-mini { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 12px; color: var(--muted); }
+  .live-mini .bar { flex: 1; height: 6px; margin: 0; }
+  .hero .fs { position: absolute; top: 10px; right: 10px; z-index: 2; font: inherit; font-size: 11px; font-weight: 600; color: var(--text, #fff);
+    background: rgb(9 11 15 / .6); border: 1px solid var(--line); border-radius: 8px; padding: 4px 9px; cursor: pointer; }
+  .ink { background: var(--prismatic); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .offer { border: 1px solid transparent; background: linear-gradient(var(--bg), var(--bg)) padding-box, var(--prismatic) border-box; }
+  .offer.ask { background: linear-gradient(var(--bg), var(--bg)) padding-box, linear-gradient(90deg, var(--gold), var(--gold)) border-box; }
+  .aug[data-r="prismatic"] img { box-shadow: 0 0 0 2px #c9b8ff; }
+  .aug[data-r="gold"] img { box-shadow: 0 0 0 2px var(--gold); }
+  .aug[data-r="silver"] img { box-shadow: 0 0 0 2px var(--silver); }
+  .aug img { border-radius: 50%; }
+  body.idle { background: var(--bg) url(art/howling-abyss.webp) center / cover no-repeat; min-height: 100vh; }
+  .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .brand img { width: 36px; height: 36px; border-radius: 9px; }
+  .brand b { font-size: 20px; letter-spacing: -.01em; }
+  @media (min-width: 1000px) { .hero { min-height: 220px; padding: 24px 28px; } .hero .title { font-size: 34px; } .hero > img { width: 72px; height: 72px; } }
   [hidden] { display: none !important; }
 </style>
 </head>
-<body>
-<main id="view"><h1>DeepARAM</h1><p class="note">Opens by itself in Mayhem champion select and after each game.</p></main>
+<body class="idle">
+<main id="view"><div class="brand"><img src="icon.png" alt=""><b>DeepARAM</b></div><p class="note">Opens by itself in Mayhem champion select, follows the game on your second monitor, and shows a review after it.</p></main>
 <script>
   // The app calls showPick({allies, mine, bench}) in champion select (champion ids), showGame({t, champ, level, dead,
-  // items, enemies, live}) during a game (live: the site owner only) and showReview({points, turns, ffFrom, result}) after it.
+  // items, enemies, offer}) during a game (offer: the augments on offer, read off the screen), showOffer(ids) the
+  // moment the offer changes, and showReview({points, turns, ffFrom, result}) after it. In game the build is the focus;
+  // the owner's chance to win and surrender call sit small under it, and the chart over the game waits for the review.
   const SITE = "https://deeparam.com";
   const view = document.getElementById("view");
   const pct = (p) => `${Math.round(p * 100)}%`;
@@ -68,6 +130,22 @@
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const icon = (alias) => `<img src="${SITE}/icons/champions/${encodeURIComponent(alias)}.webp" alt="">`;
   const label = (alias) => alias.replace(/([a-z])([A-Z])/g, "$1 $2");
+  // The champion's splash, as on the site's champion page (Data Dragon spells Fiddlesticks with one capital).
+  const splash = (alias) => `${SITE}/assets/dd/img/champion/splash/${encodeURIComponent(alias === "FiddleSticks" ? "Fiddlesticks" : alias)}_0.jpg`;
+  const hero = (alias, title, sub, subId = "") => `<div class="hero">${alias ? `<img class="bg" src="${splash(alias)}" alt="" data-drop>` : ""}
+      ${alias ? icon(alias) : `<img src="icon.png" alt="">`}<div><div class="title">${title}</div><div class="sub"${subId ? ` id="${subId}"` : ""}>${sub}</div></div>
+      ${window.__TAURI_INTERNALS__ ? `<button class="fs">${isFull ? "Exit full screen" : "Full screen"}</button>` : ""}</div>`;
+  // Full screen from the button, F11 or Esc; the app answers with the state it ended in, which labels the button.
+  let isFull = false;
+  window.fullScreen = (on) => window.__TAURI_INTERNALS__?.invoke("companion_fullscreen", { on: on ?? null })
+    .then((full) => { isFull = full; document.querySelectorAll(".hero .fs").forEach((b) => (b.textContent = full ? "Exit full screen" : "Full screen")); })
+    .catch((e) => console.error("fullscreen", e));
+  // The app went full screen by itself (second monitor): relabel the button.
+  window.setFull = (full) => { isFull = full; document.querySelectorAll(".hero .fs").forEach((b) => (b.textContent = full ? "Exit full screen" : "Full screen")); };
+  let lastChamp = null;
+  // The game's last update, kept for the review's recap (your augments, your items, the enemy damage).
+  let lastGame = null;
+  const setView = (html) => { document.body.classList.remove("idle"); view.innerHTML = html; };
 
   // Same scoring as the site's Best pick (web/src/lib/team-fit-score.ts): ranked on strength; fit is context only.
   let fit = null;
@@ -96,8 +174,9 @@
 
 
   window.showPick = async ({ allies, mine, bench }) => {
+    lastGame = null;
     const d = await loadFit();
-    if (!d) { view.innerHTML = `<h1>Champion select</h1><p class="note">Couldn't load the picks. Check your connection.</p>`; return; }
+    if (!d) { setView(`${hero(null, "Champion select", "Couldn't load the picks")}<p class="note">Check your connection.</p>`); return; }
     const byId = Object.fromEntries(Object.entries(d.ids ?? {}).map(([a, id]) => [id, a]));
     const team = allies.map((id) => byId[id]).filter(Boolean);
     const options = [mine, ...bench].map((id) => byId[id]).filter(Boolean);
@@ -127,14 +206,14 @@
         : magic < 0.25 ? "Your team deals little magic damage: an AP or hybrid item helps if your champion can use one."
         : magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
     }
-    view.innerHTML = `
-      <h1>Champion select</h1>
+    setView(`
+      ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion")}
       ${team.length ? `<h2>Your team</h2><div class="mates">${team.map(icon).join("")}</div>` : ""}
       ${gap ? `<div class="box">${esc(gap)}</div>` : ""}
       <h2>Your choices, best first</h2>
       ${rows || `<p class="note">Waiting for your champion and bench…</p>`}
       ${planHtml}
-      <p class="note">Strength this patch, in win-rate points. A guide, not a promise. You make the pick.</p>`;
+      <p class="note">Strength this patch, in win-rate points. A guide, not a promise. You make the pick.</p>`);
   };
 
   function chart(points, from) {
@@ -158,7 +237,18 @@
   const loadBuilds = () => builds ?? (builds = fetch(`${SITE}/data/overlay.json`).then((r) => r.json()).catch(() => null));
   const augIcon = (id) => `<img src="${SITE}/icons/augments/${id}.webp" alt="">`;
   const itemId = (icon) => Number((icon.match(/(\d+)\.png$/) ?? [])[1]) % 10000;
-  let game = null, query = "", rarity = "", reached = {};
+  let game = null, query = "", rarity = "", reached = {}, offer = [], asked = [];
+  // A new reading of the offer. When an offer goes away without a tap (picked in the game), its augments stay up as
+  // "Which one did you take?" so marking it is one tap, until the next offer or that tap.
+  function setOffer(ids) {
+    ids = ids ?? [];
+    if (JSON.stringify(ids) === JSON.stringify(offer)) return false;
+    const taken = game ? getTaken(game) : [];
+    if (ids.length) asked = [];
+    else if (offer.length && !offer.some((id) => taken.includes(id))) asked = offer;
+    offer = ids;
+    return true;
+  }
   // The champion's key in a data file, whatever its capitals (the game says "FiddleSticks", files may not).
   const keyIn = (obj, champ) => (obj && champ ? Object.keys(obj).find((k) => k.toLowerCase() === champ.toLowerCase()) : undefined);
 
@@ -167,8 +257,7 @@
   function getTaken(g) {
     const s = readTaken(), start = Date.now() / 1000 - g.t;
     const mine = s && s.champ === g.champ && Math.abs(s.start - start) < 300 ? s.ids : [];
-    // Plus the ones clicked on the in-game overlay.
-    return [...new Set([...mine, ...(g.taken ?? [])])];
+    return mine;
   }
   function setTaken(g, ids) {
     try { localStorage.setItem("taken", JSON.stringify({ champ: g.champ, start: Date.now() / 1000 - g.t, ids })); } catch {}
@@ -178,16 +267,26 @@
   const deepTier = (ds) => (ds >= 70 ? "S" : ds >= 59 ? "A" : ds >= 44 ? "B" : ds >= 32 ? "C" : "D");
   const deepLabel = (ds) => (ds >= 0 ? `${deepTier(ds)} ${ds}` : "");
 
-  const COMBO_ODDS = 0.25;
+  // Re-measured 2026-11-22 on 11,702 real player-games (every player in the owner's archive, picks in order): the
+  // partner of a half-taken combo arrived only ~4% of the time per pick left, and taking the half cost 4-7 win-rate
+  // points against the champion's strong solo augment at the same pick (most at pick 1). The fitted share is 0.04
+  // per pick left, at most 12% (was 0.25 and 60%). Real games only, no Simulator.
+  const COMBO_ODDS = 0.04;
+  const COMBO_CAP = 0.12;
+  // "I'm feeling lucky" (Nico 2026-11-22): for chasing rare combos over win rate. Combos then count at 35% of their
+  // points per pick left, up to their full points. Off by default; remembered on this PC.
+  const LUCKY_ODDS = 0.35;
+  const LUCKY_CAP = 1;
+  let lucky = (() => { try { return localStorage.getItem("lucky") === "1"; } catch { return false; } })();
 
   function rankAugments(d, champ, taken) {
     const own = d.champions[champ] ?? [];
     const pairs = d.pairs[champ] ?? [];
     // Picks still to come after this one (four in a game). A partner you haven't taken can still be offered, so a
-    // combo counts at a share of its points: COMBO_ODDS per pick left, at most 60%. That lifts augments like
-    // Ethereal Weapon that are modest alone but strong with a partner (Nico 2026-11-20).
+    // combo counts at a share of its points: COMBO_ODDS per pick left, at most COMBO_CAP. A small lift for
+    // augments like Ethereal Weapon that are modest alone but strong with a partner (Nico 2026-11-20).
     const left = Math.max(0, 3 - taken.length);
-    const odds = Math.min(0.6, COMBO_ODDS * left);
+    const odds = lucky ? Math.min(LUCKY_CAP, LUCKY_ODDS * left) : Math.min(COMBO_CAP, COMBO_ODDS * left);
     // The ranking score is the estimated boost (a fraction) and synergy pairs are in win-rate points: both in points.
     return own.filter(([id]) => !taken.includes(id)).map(([id, score, deep = -1, est = 1]) => {
       let bonus = 0, mate = null, best = 0, potential = 0, combo = null;
@@ -202,6 +301,32 @@
     }).sort((x, y) => y.score - x.score);
   }
 
+  // Reroll or keep: compares the offer with what a reroll would likely bring, drawn from this champion's own Mayhem
+  // pool (the augments it's seen taking) at the offer's rarity, minus the cards on screen and the ones you took.
+  // Rerolling a card keeps the other two, so a reroll is worth it when, on average over that pool, the best card
+  // you'd end up with beats the best card now. Assumes each augment in the pool is equally likely to come up.
+  function rerollAdvice(d, all, offered, taken) {
+    const r = d.augments[offered[0].id]?.[1];
+    const pool = all.filter((a) => d.augments[a.id]?.[1] === r && !offered.some((o) => o.id === a.id) && !taken.includes(a.id)).map((a) => a.score);
+    if (pool.length < 5) return "";
+    // A card with no stats on this champion (rarely or never taken on it) counts as the pool's weakest.
+    const low = Math.min(...pool);
+    const v = offered.map((a) => a.score ?? low);
+    const best = Math.max(...v);
+    let pick = -1, gain = 0;
+    v.forEach((_, j) => {
+      const keep = Math.max(...v.filter((__, k) => k !== j), -Infinity);
+      const g = pool.reduce((t, x) => t + Math.max(keep, x), 0) / pool.length - best;
+      if (g > gain) { gain = g; pick = j; }
+    });
+    const beats = pool.filter((x) => x > best).length / pool.length;
+    const nm = (a) => esc(d.augments[a.id]?.[0] ?? `#${a.id}`);
+    const bestCard = offered[v.indexOf(best)];
+    if (pick >= 0 && gain >= 0.25)
+      return `<div class="why tip reroll">Reroll <b>${nm(offered[pick])}</b>: ${pct(beats)} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat <b>${nm(bestCard)}</b>, worth about +${gain.toFixed(1)} on average.</div>`;
+    return `<div class="why tip reroll">Keep: ${beats ? `only ${pct(beats)}` : "none"} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat <b>${nm(bestCard)}</b>, so a reroll is unlikely to help.</div>`;
+  }
+
   async function renderAugments() {
     const box = document.getElementById("augs");
     if (!box || !game) return;
@@ -212,19 +337,28 @@
     const name = (id) => d.augments[id]?.[0] ?? `#${id}`;
     const q = query.trim().toLowerCase();
     const ranked = rankAugments(d, ck, taken).filter((a) => !rarity || d.augments[a.id]?.[1] === rarity);
-    const shown = q ? ranked.filter((a) => name(a.id).toLowerCase().includes(q)) : ranked.slice(0, 8);
-    const row = (a, i) => `
-      <button class="row aug${i === 0 && !q ? " best" : ""}" data-id="${a.id}">
+    // An offer on screen: its augments side by side in ranking order (highlighted, never picked for you). The rest of
+    // the list stays below for when the reading misses a card.
+    const asking = !offer.length && asked.length > 0 && !asked.some((id) => taken.includes(id));
+    const onOffer = (asking ? asked : offer).filter((id) => !taken.includes(id));
+    const offered = onOffer.length ? [...ranked.filter((a) => onOffer.includes(a.id)), ...onOffer.filter((id) => !ranked.some((a) => a.id === id)).map((id) => ({ id, boost: null, deep: -1, mate: null, combo: null, potential: 0 }))] : [];
+    const reroll = offered.length >= 2 && !asking ? rerollAdvice(d, rankAugments(d, ck, taken), offered, taken) : "";
+    const shown = q ? ranked.filter((a) => name(a.id).toLowerCase().includes(q)) : ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
+    const row = (a, best) => `
+      <button class="row aug${best ? " best" : ""}" data-id="${a.id}" data-r="${d.augments[a.id]?.[1] ?? ""}">
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : a.combo !== null && a.potential >= 0.3 ? `Combo potential with ${esc(name(a.combo))} (+${a.potential.toFixed(1)})` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
-        <div class="num" title="Estimated boost on this champion (win-rate points, with synergy), then DeepScore">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `<br><small>${deepLabel(a.deep)}</small>` : a.boost === null ? `#${ranked.indexOf(a) + 1}` : ""}</div>
+        <div class="num" title="Estimated boost on this champion (win-rate points, with synergy), then DeepScore">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `<br><small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </button>`;
     box.innerHTML = `
-      ${taken.length ? `<div class="taken">${taken.map((id) => `<button class="chip" data-id="${id}" title="Tap to undo">${augIcon(id)}${esc(name(id))}</button>`).join("")}</div>` : ""}
-      ${shown.map(row).join("") || `<p class="note">No augment matches "${esc(query)}".</p>`}
+      ${offered.length ? `<div class="offer${asking ? " ask" : ""}"><div class="why src">${asking ? "Which one did you take? One tap and the rest re-rank around it." : "On offer now, best first for you. Tap the one you take."}</div>${offered.map((a, i) => row(a, i === 0)).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
+      ${taken.length ? `<div class="taken">${taken.map((id) => `<button class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}" data-id="${id}" title="Tap to undo">${augIcon(id)}${esc(name(id))}</button>`).join("")}</div>` : ""}
+      ${shown.map((a, i) => row(a, i === 0 && !q && !offered.length)).join("") || `<p class="note">No augment matches "${esc(query)}".</p>`}
       <p class="note">Best first for ${esc(label(game.champ))}, by estimated boost here (points, including synergy with what you took) plus combo potential with partners that can still come, with DeepScore below. Tap the one you take and the rest re-rank around it. If yours isn't listed, search for it.</p>`;
     box.querySelectorAll("button[data-id]").forEach((b) => b.addEventListener("click", () => {
       const id = Number(b.dataset.id), t = getTaken(game);
+      // Taking one of the offered augments ends the pick: the offer goes until the next one is read.
+      if ((offer.includes(id) || asked.includes(id)) && !t.includes(id)) { offer = []; asked = []; }
       setTaken(game, t.includes(id) ? t.filter((x) => x !== id) : [...t, id]);
       // The next pick can be any rarity, so a tap clears the search and the rarity filter.
       query = ""; rarity = ""; const s = document.getElementById("search"); if (s) s.value = "";
@@ -249,11 +383,49 @@
     });
     return mixes.length ? mixes.reduce((a, b) => a + b, 0) / mixes.length : null;
   }
-  function damageLine(k, g) {
+  // In game (live) only when it leans hard one way, since that's when it should steer defense; in the review always.
+  function damageLine(k, g, live = false) {
     const magic = enemyMagic(k, g.enemies ?? []);
-    if (magic === null || (magic > 0.35 && magic < 0.65)) return "";
+    if (magic === null) return "";
+    const lean = magic <= 0.35 || magic >= 0.65;
+    if (live && !lean) return "";
+    const v = live ? "is" : "was";
+    if (!lean) return `The enemy team's damage ${v} mixed: about ${pct(magic)} magic.`;
     const kind = magic >= 0.65 ? "magic" : "physical";
-    return `<div class="why tip">Enemy damage is mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.</div>`;
+    return `Enemy damage ${v} mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.`;
+  }
+
+  // The champion's situational items (the site's "when to buy" list) checked against this game's enemy team: the ones
+  // whose condition holds light up with the reason. A pointer, like the site's list: the build itself doesn't change.
+  const TANKY = new Set(["Vanguard", "Warden", "Juggernaut"]);
+  const BURSTY = new Set(["Burst", "Assassin"]);
+  const CATCH = new Set(["Catcher", "Vanguard"]);
+  // Champions whose kits heal a lot (from their ability descriptions), for "Vs healing".
+  const HEALERS = new Set(["aatrox", "akshan", "alistar", "belveth", "briar", "drmundo", "fiddlesticks", "illaoi", "ivern", "kayn", "kled", "maokai", "milio", "nami", "nidalee", "olaf", "renataglasc", "senna", "sona", "soraka", "swain", "sylas", "taric", "trundle", "vladimir", "warwick", "yuumi", "zac", "seraphine", "darius", "fiora", "irelia", "masteryi", "udyr", "volibear", "yone"]);
+  function situational(champ, k, fit, g, skip) {
+    const list = (champ?.situational ?? []).filter((it) => !skip.has(itemId(it.icon)));
+    if (!list.length) return [];
+    const enemies = (g.enemies ?? []).filter((e) => e.champ);
+    const arch = (e) => fit?.champions?.[keyIn(fit.champions, e.champ)]?.[1] ?? [];
+    const count = (set) => enemies.filter((e) => arch(e).some((a) => set.has(a))).length;
+    const tags = (e) => e.items.flatMap((i) => k.items[String(i % 10000)] ?? []);
+    const tanky = enemies.filter((e) => arch(e).some((a) => TANKY.has(a)) || tags(e).filter((t) => t === "armor" || t === "mr").length >= 2).length;
+    const crit = enemies.filter((e) => tags(e).filter((t) => t === "crit").length >= 2).length;
+    const healers = enemies.filter((e) => HEALERS.has(e.champ.toLowerCase().replace(/[^a-z]/g, ""))).length;
+    const magic = enemyMagic(k, enemies);
+    const n = (x, what) => `${x} ${x === 1 ? "enemy" : "enemies"} ${what}.`;
+    const checks = {
+      "Vs tanks": tanky >= 2 && n(tanky, tanky === 1 ? "is tanky" : "are tanky"),
+      "Vs burst": count(BURSTY) >= 2 && n(count(BURSTY), "deal burst damage"),
+      "Vs healing": healers >= 2 && n(healers, "heal a lot"),
+      "Vs magic damage": magic !== null && magic >= 0.65 && `Enemy damage is about ${pct(magic)} magic.`,
+      "Vs physical damage": magic !== null && magic <= 0.35 && `Enemy damage is about ${pct(1 - magic)} physical.`,
+      "Vs mixed damage": magic !== null && magic > 0.4 && magic < 0.6 && `Enemy damage is mixed.`,
+      "Vs crit carries": crit >= 1 && n(crit, "build crit"),
+      "Vs shields": count(new Set(["Enchanter"])) >= 2 && n(count(new Set(["Enchanter"])), "shield allies"),
+      "Vs heavy crowd control": count(CATCH) >= 3 && n(count(CATCH), "lock you down"),
+    };
+    return list.map((it) => ({ ...it, why: checks[it.when] || "" }));
   }
 
   const STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
@@ -269,17 +441,17 @@
   function pickBuild(base, picks, k, taken) {
     const ck = keyIn(picks?.builds, game.champ);
     const styles = ck ? picks.builds[ck] : [];
-    if (!styles.length || !taken.length || !k) return { list: base, style: null };
+    if (!styles.length || !taken.length || !k) return { list: base, style: null, core: null };
     const votes = {};
     for (const id of taken) for (const st of picks.styles[id] ?? []) votes[st] = (votes[st] ?? 0) + 1;
     const top = Object.entries(votes).sort((x, y) => y[1] - x[1])[0]?.[0];
     const found = styles.find(([st]) => st === top);
-    if (!found || found === styles[0]) return { list: base, style: null };
+    if (!found || found === styles[0]) return { list: base, style: null, core: null };
     const prefix = (base[0]?.icon ?? "").replace(/\d+\.png$/, "");
     const list = [...found[2].slice(0, 1), ...found[3], ...found[4]].map((id) => ({
       name: k.recipes[id % 10000]?.[0] ?? `#${id}`, icon: `${prefix}${id}.png`,
     }));
-    return { list, style: STYLE_NAMES[top] ?? top };
+    return { list, style: STYLE_NAMES[top] ?? top, core: 1 + found[3].length };
   }
 
   // What your gold buys right now toward the next item: the item itself, else its priciest missing part you can afford.
@@ -323,16 +495,40 @@
     return "";
   }
 
+  // One pick per 4th/5th/6th item slot from the site's slot lists (most bought there first): an item you already
+  // own from a slot's list fills that slot, else its first item not already in the core or an earlier slot. The
+  // slot's other items show small, as alternatives. Null when the site has no slot data for the champion.
+  function laterPicks(champ, owned) {
+    const slots = champ?.laterSlots;
+    if (!slots?.length) return null;
+    const used = new Set((champ.items ?? []).map((it) => itemId(it.icon)));
+    const out = [];
+    for (const s of [...slots].sort((a, b) => a.slot - b.slot)) {
+      const free = (s.items ?? []).filter((it) => !used.has(itemId(it.icon)));
+      const it = free.find((x) => owned.has(itemId(x.icon))) ?? free[0];
+      if (!it) continue;
+      used.add(itemId(it.icon));
+      out.push({ slot: s.slot, it, alts: free.filter((x) => x !== it).slice(0, 2) });
+    }
+    return out.length ? out : null;
+  }
+
   async function renderItems() {
     const box = document.getElementById("items");
     if (!box || !game) return;
-    const [d, k, picks] = await Promise.all([loadBuilds(), loadKinds(), loadPicks()]);
+    const [d, k, picks, fitData] = await Promise.all([loadBuilds(), loadKinds(), loadPicks(), loadFit()]);
     const champ = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase());
     const taken = getTaken(game);
-    const { list: build, style } = pickBuild(champ?.items ?? [], picks, k, taken);
     const owned = new Set(game.items.map((i) => i % 10000));
     // Any boots fill the build's boots slot: someone on other boots shouldn't be told to buy the build's pair.
     const bootIds = new Set(k?.boots ?? []);
+    // The core (boots and first three) and then the rest of the usual six: without the rest, the panel ran out of
+    // items once the core was bought. Where the site splits the rest into 4th, 5th and 6th item slots (by when
+    // players buy them), each slot's pick comes from there.
+    let slotRows = laterPicks(champ, owned);
+    const { list: build, style, core } = pickBuild([...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? [])], picks, k, taken);
+    if (style) slotRows = null;
+    const coreLen = core ?? (champ?.items ?? []).length;
     const hasBoots = [...owned].some((i) => bootIds.has(i));
     let next = build.filter((it) => !owned.has(itemId(it.icon)) && !(hasBoots && bootIds.has(itemId(it.icon))));
     // A stacking item (Hubris, Heartsteel, tear items) in the build goes first while you have no finished item yet.
@@ -375,43 +571,62 @@
       if (sell && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
         add(3, `Full build: sell <b>${esc(k.recipes[sell][0])}</b> for <b>${esc(next[0].name)}</b>.`);
     }
-    const dmg = k ? damageLine(k, game) : "";
-    if (dmg) add(6, dmg.replace(/^<div class="why tip">|<\/div>$/g, ""));
+    const dmg = k ? damageLine(k, game, true) : "";
+    if (dmg) add(6, dmg);
     const lines = tips.sort((x, y) => x[0] - y[0]).slice(0, 2).map((x) => x[1]);
     const tip = lines.map((l) => `<div class="why tip">${l}</div>`).join("");
-    if (!next.length) { box.innerHTML = (build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`) + tip; return; }
+    if (!build.length) { box.innerHTML = `<p class="note">No build for this champion yet.</p>` + tip; return; }
+    // As on the site: the core in a row, then the rest of the usual six one by one, then situational items with when
+    // to buy them (lit when this game's enemy team calls for one). Owned items fade; the next one is ringed.
+    const src = (u) => (u.startsWith("http") ? u : SITE + u);
+    const nextId = next[0] ? itemId(next[0].icon) : -1;
+    const state = (it) => {
+      const id = itemId(it.icon);
+      return owned.has(id) || (hasBoots && bootIds.has(id)) ? " own" : id === nextId ? " nx" : "";
+    };
+    // The core is boots plus three items; what follows is numbered on from the core's items (boots not counted), so
+    // usually the 4th and 5th item, and a 6th where the build sells boots for one.
+    const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
+    const coreItems = build.slice(0, coreLen), rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, coreLen + 3);
+    const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
+    const inBuild = new Set(build.map((it) => itemId(it.icon)));
+    const allSits = k ? situational(champ, k, fitData, game, owned) : [];
+    const sits = allSits.filter((it) => !inBuild.has(itemId(it.icon)));
+    // A build item that's also situational shows its reason when this game calls for it.
+    const reason = (it) => allSits.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
+    const row = (it, sub = "", cls = "") => `<div class="item${state(it)}${cls}"><img src="${src(it.icon)}" alt=""><div><div class="name">${esc(it.name)}</div>${sub ? `<div class="why">${sub}</div>` : ""}</div></div>`;
     box.innerHTML = `<div class="box${shop ? " now" : ""}">
       ${shop ? `<div class="why">${shop}</div>` : ""}
-      <div class="items">${next.map((it, i) => `<div class="item"><img src="${it.icon.startsWith("http") ? "" : SITE}${it.icon}" alt=""><div><div class="name">${esc(it.name)}</div><div class="why">${i ? "After that" : "Next"}</div></div></div>`).join("")}</div>
+      <div class="why lbl">Core${next[0] && coreItems.includes(next[0]) ? ` · next: <b>${esc(next[0].name)}</b>` : ""}</div>
+      <div class="core">${coreItems.map((it) => `<img class="${state(it).trim()}" src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</div>
+      ${rest.length ? `<div class="items lst">${rest.map((it, i) => {
+        const r = reason(it), alts = slotRows?.[i]?.alts ?? [];
+        const or = alts.length ? `<span class="alts">or ${alts.map((a) => `<img src="${src(a.icon)}" alt="" title="${esc(a.name)}">`).join("")}</span>` : "";
+        return `<div class="why lbl">${ord(slotRows?.[i]?.slot ?? first + i)} item</div>` + row(it, [it === next[0] ? "Next" : "", r ? `${esc(r.when)}: ${esc(r.why)}` : "", or].filter(Boolean).join(" · "), r ? " lit" : "");
+      }).join("")}</div>` : ""}
+      ${sits.length ? `<div class="why lbl">Situational</div><div class="items lst">${sits.map((it) => row(it, it.why ? `${esc(it.when)}: ${esc(it.why)}` : esc(it.when), it.why ? " lit" : "")).join("")}</div>` : ""}
+      ${next.length ? "" : `<p class="note">You have the whole build.</p>`}
       ${tip}</div>`;
-  }
-
-  function liveBlock(l) {
-    if (!l) return "";
-    let ff = `<div class="box">Too early to call a surrender (from minute 8).</div>`;
-    if (l.ffLine != null)
-      ff = l.ffHint
-        ? `<div class="box yes">Surrender: yes. Under ${pct(l.ffLine)} for a full minute, so a new game is worth more.</div>`
-        : `<div class="box">Surrender: no. The line at this minute is ${pct(l.ffLine)}.</div>`;
-    return `<h2>Chance to win</h2>
-      <div class="big" style="color:${color(l.win)}">${pct(l.win)}</div>
-      <div class="bar"><span style="width:${pct(l.win)};background:${color(l.win)}"></span></div>
-      ${ff}${chart(l.history, null)}
-      <p class="note">Predicted from kills, towers, levels and team strength.</p>`;
   }
 
   window.showGame = (g) => {
     const prev = game;
     game = g;
+    lastGame = { ...g, taken: getTaken(g) };
+    lastChamp = g.champ;
     if (!document.getElementById("augs") || prev?.champ !== g.champ) {
-      view.innerHTML = `
-        <h1 id="head"></h1>
-        <h2>Items</h2><div id="items"></div>
-        <h2 id="augHead">Augments</h2>
-        <div class="filters">${["", "prismatic", "gold", "silver"].map((r) => `<button class="chip f${r === rarity ? " on" : ""}" data-r="${r}">${r ? r[0].toUpperCase() + r.slice(1) : "All"}</button>`).join("")}</div>
+      setView(`
+        ${hero(g.champ, esc(label(g.champ)), "", "head")}
+        <div class="cols">
+        <section><h2>Quick build</h2><div id="quick"></div>
+        <h2>Items</h2><div id="items"></div></section>
+        <section><h2 id="augHead">Augments</h2>
+        <div class="filters">${["", "prismatic", "gold", "silver"].map((r) => `<button class="chip f${r === rarity ? " on" : ""}" data-r="${r}">${r ? r[0].toUpperCase() + r.slice(1) : "All"}</button>`).join("")}
+          <button class="chip lucky${lucky ? " on" : ""}" title="Ranks augments that can complete a combo much higher, for chasing rare synergies over win rate">I'm feeling lucky</button></div>
         <input id="search" type="search" placeholder="Type your augment, then Enter" autocomplete="off">
-        <div id="augs"></div>
-        <div id="live"></div>`;
+        <div id="augs"></div></section>
+        </div>`);
+      renderQuick();
       document.getElementById("search").addEventListener("input", (e) => { query = e.target.value; renderAugments(); });
       // Typing a few letters and Enter marks the top match as taken.
       document.getElementById("search").addEventListener("keydown", (e) => {
@@ -431,22 +646,81 @@
     for (const l of AUGMENT_LEVELS) if (l <= g.level && reached[l] === undefined) reached[l] = prev ? g.t : 0;
     const recent = AUGMENT_LEVELS.some((l) => reached[l] !== undefined && g.t - reached[l] < 90);
     const pickNow = recent && AUGMENT_LEVELS.filter((l) => l <= g.level).length > getTaken(g).length;
-    document.getElementById("head").textContent = `In game · ${clock(g.t)} · Level ${g.level}`;
+    const head0 = document.getElementById("head");
+    head0.textContent = `In game · ${clock(g.t)} · Level ${g.level}${g.dead ? " · Dead: shop now" : ""}`;
+    head0.classList.toggle("now", !!g.dead);
+    // The owner's chance to win and surrender call: small, under the build, so the build stays the focus.
+    let ff = document.getElementById("ff");
+    if (!ff) { ff = document.createElement("div"); ff.id = "ff"; document.querySelector(".cols section")?.append(ff); }
+    const l = g.live;
+    ff.innerHTML = l ? `<div class="live-mini"><span>Chance to win <b style="color:${color(l.win)}">${pct(l.win)}</b></span>
+        <div class="bar"><span style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
+      ${l.surrender ? `<div class="box yes">Surrender: yes. A new game is worth more than this one now.</div>` : ""}` : "";
     const head = document.getElementById("augHead");
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
-    document.getElementById("live").innerHTML = liveBlock(g.live);
-    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.t >= 600, x.enemies, x.skills, x.level, x.taken, x.stats?.map((v) => Math.round(v * 10)), x.dead && Math.round((x.gold ?? 0) / 100)]);
-    if (prev && JSON.stringify(prev.taken) !== JSON.stringify(g.taken)) renderAugments();
+    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.t >= 600, x.enemies, x.skills, x.level, x.stats?.map((v) => Math.round(v * 10)), x.dead && Math.round((x.gold ?? 0) / 100)]);
+    if (setOffer(g.offer)) renderAugments();
     if (!prev || key(prev) !== key(g)) renderItems();
   };
 
+  // The offer changed (read off the screen the moment it did): re-rank right away instead of at the next update.
+  window.showOffer = (ids) => {
+    if (setOffer(ids) && game) renderAugments();
+  };
+
+  // The champion's quick build, as on the site's card: skill order and spells (the items are just above, live).
+  async function renderQuick() {
+    const box = document.getElementById("quick");
+    if (!box || !game) return;
+    const d = await loadBuilds();
+    const c = d?.champions?.find((x) => x.id.toLowerCase() === game.champ.toLowerCase());
+    if (!c) { box.innerHTML = `<p class="note">No quick build for this champion yet.</p>`; return; }
+    const b = (c.builds ?? []).length > 1 ? { ...c, ...c.builds[0] } : c;
+    const src = (u) => (u?.startsWith("http") ? u : SITE + (u ?? ""));
+    box.innerHTML = `<div class="quick">
+      <div class="keys">${(b.skills ?? []).map((k, i) => `${i ? `<span class="why">›</span>` : ""}<span class="key">${esc(k)}</span>`).join("")}</div>
+      ${(b.spells ?? []).map((sp) => `<span class="spell"><img src="${src(sp.icon)}" alt="">${esc(sp.name)}</span>`).join("")}
+      ${(b.start ?? []).length ? `<span class="spell">Start ${b.start.map((it) => `<img src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</span>` : ""}
+    </div>`;
+  }
+
+  // The app's page rules block inline handlers (onclick=, onerror=), so these listen on the document instead.
+  document.addEventListener("click", (e) => {
+    if (e.target.closest?.(".hero .fs")) fullScreen();
+    const l = e.target.closest?.(".chip.lucky");
+    if (l) {
+      lucky = !lucky;
+      l.classList.toggle("on", lucky);
+      try { localStorage.setItem("lucky", lucky ? "1" : "0"); } catch {}
+      renderAugments();
+    }
+  });
+  document.addEventListener("error", (e) => { if (e.target.matches?.("img[data-drop]")) e.target.remove(); }, true);
+  // Esc leaves full screen, F11 flips it.
+  addEventListener("keydown", (e) => {
+    if ((e.key === "Escape" || e.key === "F11") && window.__TAURI_INTERNALS__) {
+      e.preventDefault();
+      fullScreen(e.key === "F11" ? !isFull : false);
+    }
+  });
+
   window.showOver = () => {
     game = null;
-    view.innerHTML = `<h1>Game over</h1><p class="note">The game review shows here after games of 5 minutes or more, while the in-game overlay is switched on.</p>`;
+    offer = [];
+    asked = [];
+    setView(`${hero(lastChamp, "Game over", "The review shows after games of 5 minutes or more")}`);
+  };
+
+  // The game's result from the League client's end-of-game screen, when the game's own feed closed before saying it.
+  window.setResult = (result) => {
+    const t = document.querySelector(".hero .title");
+    if (!t || game || !/^(Game over)$/.test(t.textContent)) return;
+    t.innerHTML = result === "Win" ? `<span class="ink">Victory</span>` : result === "Lose" ? "Defeat" : t.innerHTML;
   };
 
   window.showReview = ({ points, turns, ffFrom, result }) => {
+    game = null;
     const verdict = result === "Win" ? "Victory" : result === "Lose" ? "Defeat" : "Game over";
     const turnRows = turns.map((t) => `
       <div class="box">${clock(t.from)}–${clock(t.to)}: ${pct(t.before)} → <b style="color:${color(t.after)}">${pct(t.after)}</b>
@@ -454,14 +728,40 @@
     const ff = ffFrom != null
       ? `<div class="box yes">From ${clock(ffFrom)} a surrender would have saved time: the chance stayed under the line for a full minute.</div>`
       : `<div class="box">A surrender never paid off this game.</div>`;
-    view.innerHTML = `
-      <h1>Game review · ${verdict}</h1>
+    setView(`
+      ${hero(lastChamp, `<span class="${result === "Win" ? "ink" : ""}">${verdict}</span>`, "Game review")}
       <h2>Chance to win over the game</h2>
       ${chart(points, ffFrom)}
       ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
       <h2>Surrender</h2>${ff}
-      <p class="note">Predicted, not measured: an estimate from kills, towers, levels and team strength.</p>`;
+      <p class="note">Predicted, not measured: an estimate from kills, towers, levels and team strength.</p>
+      <div id="recap"></div>`);
+    renderRecap();
   };
+
+  // What you built and took this game, and what the enemy hit you with: kept off the in-game screen, shown here.
+  async function renderRecap() {
+    const box = document.getElementById("recap");
+    const g = lastGame;
+    if (!box || !g) return;
+    const [d, k, p] = await Promise.all([loadBuilds(), loadKinds(), loadPicks()]);
+    const champ = d?.champions?.find((c) => c.id.toLowerCase() === g.champ.toLowerCase());
+    const prefix = (champ?.items?.[0]?.icon ?? "").replace(/\d+\.png$/, "");
+    const src = (u) => (u.startsWith("http") ? u : SITE + u);
+    const items = g.items.filter((i) => (k?.recipes[i % 10000]?.[1] ?? 0) >= 1000);
+    const itemRow = prefix && items.length
+      ? `<div class="items">${items.map((i) => `<div class="item"><img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" alt="" data-drop><div><div class="name">${esc(k?.recipes[i % 10000]?.[0] ?? `#${i}`)}</div></div></div>`).join("")}</div>`
+      : "";
+    const augs = g.taken.length
+      ? `<div class="items">${g.taken.map((id) => `<div class="item">${augIcon(id)}<div><div class="name">${esc(p?.augments?.[id]?.[0] ?? `#${id}`)}</div></div></div>`).join("")}</div>`
+      : "";
+    const dmg = k ? damageLine(k, g) : "";
+    if (!itemRow && !augs && !dmg) return;
+    box.innerHTML = `<h2>Your build</h2>
+      ${augs ? `<div class="box"><div class="why">Augments you took</div>${augs}</div>` : ""}
+      ${itemRow ? `<div class="box"><div class="why">Items at the end</div>${itemRow}</div>` : ""}
+      ${dmg ? `<div class="box">${dmg}</div>` : ""}`;
+  }
 </script>
 </body>
 </html>
