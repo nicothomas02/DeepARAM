@@ -1,17 +1,18 @@
 import "server-only";
 import championIds from "@/data/champion-ids.json";
-import { followed, scoreRows } from "./card-score";
-import { grade, trueSpread } from "./deepscore";
+import { grade } from "./deepscore";
 import { itemPages } from "./item-pages";
 import { items as clientItems } from "./items";
+import { aramhexLatest, shrunkLifts } from "./aramhex-real";
 import { readRepoJson } from "./repo-data";
 
-// Weapon of Destiny tab (/tier-list?tab=weapon-of-destiny): which Legendary item is best to upgrade with the
-// Weapon of Destiny augment. Each takedown adds 200 gold worth of the item's own stats, shared equally among
-// them. The tab is "Predicted" and ranks by stat value from data/estimates/weapon_of_destiny.py: how much each
-// of the item's stats is worth (most for Critical Strike Damage and Armor or Magic Penetration %) and how few
-// items give it, shared among its stats. The stats feed can't tell which games had the augment, so win rates
-// of builds that start with an item aren't the augment's and aren't used (Nico 2026-10-27).
+// Weapon of Destiny tab (/tier-list?tab=weapon-of-destiny): which Legendary item is best to make your Weapon of
+// Destiny. Each takedown adds 200 gold worth of the item's own stats, shared equally among them. Since AramHex
+// (2026-11-23) the tab ranks on real games: AramHex counts each champion's first Legendary item in games with the
+// augment (its top items per champion, data/aramhex/patches/<patch>/destiny.json). An item's score is its win rate
+// in those games above its champions' Weapon of Destiny average, shrunk by sample size (lib/aramhex-real.ts), so it
+// doesn't just favour items strong champions buy. Correlated, not causal (Nico 2026-11-20). The stat value per
+// takedown from data/estimates/weapon_of_destiny.py stays as the "Each takedown" column.
 
 type Data = {
   patch: string;
@@ -35,216 +36,123 @@ export type DestinyRow = {
   icon: string;
   /** Simulator stat key -> amount one takedown adds (fractions for percentages). */
   perTakedown: Record<string, number>;
-  /** Estimated share of Weapon of Destiny games where it's the Weapon, for "Best with". */
+  /** Share of the listed Weapon of Destiny games (each champion's top few Weapons in AramHex) where it's the Weapon. */
   share: number;
-  /** Stat value, 0-100 against the other items with 50 average (lib/deepscore.ts grade): what each takedown's
-   *  gold is worth to it, its stats counted by rarity and worth and shared among them, so items with many
-   *  stats spread it thin. */
+  /** Real Weapon of Destiny games with it as the Weapon. */
+  games: number;
+  /** DeepScore, 0-100 against the other items with 50 average (lib/deepscore.ts grade): its win rate in Weapon of
+   *  Destiny games above its champions' average, shrunk by sample size. */
   score: number;
   tier: string;
   /** What the score is cut from, for sorting ties. */
   rank: number;
-  /** The champion who'd upgrade it most often. */
+  /** The champion who makes it their Weapon most often. */
   best: string | null;
 };
 
+type Destiny = Record<string, { all: [number, number]; items: Record<string, [number, number]> }>;
+const ALIAS = new Map(Object.entries(championIds).map(([alias, key]) => [String(key), alias]));
+const base10k = (i: number) => (i >= 100000 ? i % 10000 : i);
+
 export function weaponOfDestiny(): { gold: number; rows: DestinyRow[] } | null {
   const data = readRepoJson<Data>("data/estimates/weapon_of_destiny.json");
-  if (!data) return null;
-  const pages = new Map<
-    number,
-    { id: number; slug: string | null; name: string; icon?: string }
-  >(itemPages().map((p) => [p.id, p]));
-  // Legendary items without a page count when some champion buys them first (Mayhem's Hubris, only in core builds).
-  for (const [id, i] of clientItems())
-    if (!pages.has(id) && data.items[id]?.share)
-      pages.set(id, { id, slug: null, name: i.name, icon: i.icon });
-  const entries = Object.entries(data.items).filter(([id]) =>
-    pages.has(Number(id)),
+  const real = aramhexLatest<Destiny>("destiny");
+  if (!data || !real) return null;
+  const pages = new Map<number, { id: number; slug: string | null; name: string; icon?: string }>(
+    itemPages().map((p) => [base10k(p.id), p]),
   );
+  // Legendary items without a page count too (Mayhem's Hubris is only in core builds).
+  for (const [id, i] of clientItems()) if (!pages.has(base10k(id)) && real && Object.values(real).some((c) => String(base10k(id)) in c.items)) pages.set(base10k(id), { id, slug: null, name: i.name, icon: i.icon });
+  // Per item: its games and wins, and the wins its champions would expect on average with the augment.
+  const sum = new Map<number, { games: number; wins: number; expect: number; top: [string, number] | null }>();
+  for (const [key, c] of Object.entries(real)) {
+    const [g, w] = c.all;
+    if (!g) continue;
+    for (const [id, [n, k]] of Object.entries(c.items)) {
+      const s0 = sum.get(Number(id)) ?? { games: 0, wins: 0, expect: 0, top: null };
+      s0.games += n;
+      s0.wins += k;
+      s0.expect += (n * w) / g;
+      const alias = ALIAS.get(key);
+      if (alias && (!s0.top || n > s0.top[1])) s0.top = [alias, n];
+      sum.set(Number(id), s0);
+    }
+  }
+  const entries = [...sum].filter(([id, v]) => pages.has(id) && v.games > 0);
   if (!entries.length) return null;
-  const grades = grade(entries.map(([, v]) => v.value));
+  // Shares of the listed Weapons (AramHex lists each champion's top few).
+  const total = entries.reduce((t, [, v]) => t + v.games, 0);
+  const lifts = shrunkLifts(entries.map(([, v]) => ({ games: v.games, wins: v.wins, base: v.expect / v.games })));
+  const grades = grade(lifts);
   return {
     gold: data.gold_per_takedown,
     rows: entries.map(([id, v], k) => {
-      const page = pages.get(Number(id))!;
+      const page = pages.get(id)!;
       return {
         id: page.id,
         slug: page.slug,
         name: page.name,
         icon: page.icon ?? "",
-        perTakedown: v.per_takedown,
-        share: v.share,
+        perTakedown: data.items[id]?.per_takedown ?? {},
+        share: total ? v.games / total : 0,
+        games: v.games,
         score: grades[k].deepScore,
         tier: grades[k].tier,
-        rank: v.value,
-        best: v.best.find((c) => c in championIds) ?? null,
+        rank: lifts[k],
+        best: v.top?.[0] ?? null,
       };
     }),
   };
 }
 
-// By champion: each champion's best Weapon of Destiny item from data/estimates/champion_upgrades.py, which upgrades
-// every candidate (items the champion buys first, or in its popular build) in the Simulator. Ranked by the simulated
-// gain alone, since the file's score also adds the item's first-item win rate, which isn't the augment's.
-
-type Upgrades = {
-  champions: Record<
-    string,
-    {
-      weapon_of_destiny: {
-        takedowns: number;
-        best: number;
-        options: { item: number; sim_gain: number }[];
-      } | null;
-    }
-  >;
-};
+// By champion: each champion's best item to make its Weapon of Destiny, from the same real games: among its items
+// with a real following (a quarter of its most made Weapon's games), the best win rate above the champion's
+// Weapon of Destiny average, shrunk by sample size.
 
 export type DestinyChampionRow = {
   /** Champion id, as the tables and pages use it ("MonkeyKing"). */
   champion: string;
   item: { id: number; slug: string; name: string; icon: string };
-  /** Simulated: how much stronger the upgrades make the champion in fights, as a fraction. */
-  power: number;
+  /** DeepScore of the best item on this champion, 0-100 against every champion's best item. */
+  score: number;
+  /** Real Weapon of Destiny games with that item as the Weapon. */
+  games: number;
   /** The second-best item, when there is one. */
   next: { id: number; slug: string; name: string; icon: string } | null;
-  /** Takedowns per game the upgrade was simulated with. */
-  takedowns: number;
 };
 
 export function destinyByChampion(): DestinyChampionRow[] {
-  const data = readRepoJson<Upgrades>("data/estimates/champion_upgrades.json");
-  if (!data) return [];
-  const pages = new Map(itemPages().map((p) => [p.id, p]));
+  const real = aramhexLatest<Destiny>("destiny");
+  if (!real) return [];
+  const pages = new Map(itemPages().map((p) => [base10k(p.id), p]));
   const item = (id: number) => {
     const p = pages.get(id);
-    return p ? { id, slug: p.slug, name: p.name, icon: p.icon ?? "" } : null;
+    return p && p.slug ? { id: p.id, slug: p.slug, name: p.name, icon: p.icon ?? "" } : null;
   };
-  const byKey = new Map(
-    Object.entries(championIds).map(([alias, key]) => [String(key), alias]),
-  );
-  const rows: DestinyChampionRow[] = [];
-  for (const [key, c] of Object.entries(data.champions)) {
-    const wd = c.weapon_of_destiny;
-    const champion = byKey.get(key);
-    if (!wd || !champion) continue;
-    const options = wd.options
-      .filter((o) => pages.has(o.item))
-      .sort((a, b) => b.sim_gain - a.sim_gain);
-    const [best, second] = options;
-    if (!best) continue;
-    rows.push({
-      champion,
-      item: item(best.item)!,
-      power: best.sim_gain / 100,
-      next: second ? item(second.item) : null,
-      takedowns: wd.takedowns,
-    });
+  const all: { champion: string; id: number; games: number; wins: number; base: number }[] = [];
+  for (const [key, c] of Object.entries(real)) {
+    const champion = ALIAS.get(key);
+    const [g, w] = c.all;
+    if (!champion || !g) continue;
+    for (const [id, [n, k]] of Object.entries(c.items)) if (n > 0 && item(Number(id))) all.push({ champion, id: Number(id), games: n, wins: k, base: w / g });
   }
-  return rows;
-}
-
-// Real games (AramHex, data/aramhex/patches/<patch>/destiny.json): for every champion, its games with Weapon of
-// Destiny and the first Legendary item each of those games upgraded, with wins. Replaces the Predicted stat-value
-// ranking and the simulated "by champion" pick (Nico 2026-11-21: base all data on AramHex). Raw win rates stay off the
-// site; items rank by DeepScore on their lead over what the same champions win with the augment on average.
-
-// Each champion lists its three most upgraded items only, so rarer picks count only where they're in a top three.
-type Destiny = Record<string, { all: [number, number]; items: Record<string, [number, number]> }>;
-
-/** An item needs this share of all Weapon of Destiny games to be listed: below it one champion's niche pick tops the
- *  list for every champion (Thornmail, nearly all Rammus, read S on 16.23; sanity rule). */
-const MIN_ITEM_SHARE = 0.002;
-
-export type RealDestinyItem = Omit<DestinyRow, "perTakedown"> & {
-  perTakedown: Record<string, number>;
-  games: number;
-};
-
-export type RealDestinyChampion = {
-  champion: string;
-  /** The item most of its Weapon of Destiny games upgrade, and that share of them. */
-  usual: { id: number; slug: string | null; name: string; icon: string; share: number };
-  /** The best DeepScore among items with a real following (1/4 of the usual item's games), when it isn't the usual one. */
-  best: { id: number; slug: string | null; name: string; icon: string; deepScore: number } | null;
-  games: number;
-};
-
-function destinyPatch(): { patch: string; data: Destiny } | null {
-  const idx = readRepoJson<{ patches: string[] }>("data/aramhex/patches/index.json");
-  for (const p of [...(idx?.patches ?? [])].reverse()) {
-    const data = readRepoJson<Destiny>(`data/aramhex/patches/${p}/destiny.json`);
-    if (data && Object.keys(data).length) return { patch: p, data };
-  }
-  return null;
-}
-
-function itemLookup() {
-  const pages = new Map<number, { id: number; slug: string | null; name: string; icon: string }>(
-    itemPages().map((p) => [p.id, { id: p.id, slug: p.slug, name: p.name, icon: p.icon ?? "" }]),
-  );
-  for (const [id, i] of clientItems()) if (!pages.has(id)) pages.set(id, { id, slug: null, name: i.name, icon: i.icon ?? "" });
-  return pages;
-}
-
-export function realDestiny(): { patch: string; gold: number; items: RealDestinyItem[]; champions: RealDestinyChampion[] } | null {
-  const src = destinyPatch();
-  if (!src) return null;
-  const pages = itemLookup();
-  const stats = readRepoJson<Data>("data/estimates/weapon_of_destiny.json");
-  const byKey = new Map(Object.entries(championIds).map(([alias, key]) => [String(key), alias]));
-
-  // By item: games, wins and the wins expected from each champion's own Weapon of Destiny win rate.
-  const agg = new Map<number, { g: number; w: number; e: number; top: [string, number] | null }>();
-  const champions: RealDestinyChampion[] = [];
-  let allGames = 0;
-  for (const [key, c] of Object.entries(src.data)) {
-    const alias = byKey.get(key);
-    const [ag, aw] = c.all;
-    if (!alias || ag <= 0) continue;
-    const base = aw / ag;
-    allGames += ag;
-    const rows = Object.entries(c.items)
-      .map(([id, [g, w]]) => ({ id: Number(id), g, w }))
-      .filter((r) => r.g > 0 && pages.has(r.id));
-    for (const r of rows) {
-      const a = agg.get(r.id) ?? { g: 0, w: 0, e: 0, top: null };
-      a.g += r.g;
-      a.w += r.w;
-      a.e += r.g * base;
-      const share = r.g / ag;
-      if (r.g >= 100 && (!a.top || share > a.top[1])) a.top = [alias, share];
-      agg.set(r.id, a);
-    }
-    if (!rows.length) continue;
-    const usual = rows.reduce((x, y) => (y.g > x.g ? y : x));
-    const scored = followed(scoreRows(rows.map((r) => ({ id: r.id, winRate: r.w / r.g, pickRate: r.g / ag, games: r.g }))));
-    const top = scored[0];
-    champions.push({
-      champion: alias,
-      usual: { ...pages.get(usual.id)!, share: usual.g / ag },
-      best: top && top.id !== usual.id && top.deepScore !== undefined ? { ...pages.get(top.id)!, deepScore: top.deepScore } : null,
-      games: ag,
-    });
-  }
-
-  const listed = [...agg.entries()].filter(([, a]) => a.g >= MIN_ITEM_SHARE * allGames);
-  if (!listed.length) return null;
-  const lifts = listed.map(([, a]) => (a.w - a.e) / a.g);
-  const vs = listed.map(([, a]) => 0.25 / a.g);
-  const tau2 = trueSpread(lifts, vs);
-  const shrunk = lifts.map((l, i) => (l * tau2) / (tau2 + vs[i]));
-  const grades = grade(shrunk);
-  const items: RealDestinyItem[] = listed.map(([id, a], i) => ({
-    ...pages.get(id)!,
-    perTakedown: stats?.items[id]?.per_takedown ?? {},
-    share: a.g / allGames,
-    score: grades[i].deepScore,
-    tier: grades[i].tier,
-    rank: shrunk[i],
-    best: a.top?.[0] ?? null,
-    games: a.g,
+  const lifts = shrunkLifts(all);
+  const byChamp = new Map<string, { id: number; games: number; lift: number }[]>();
+  all.forEach((r, k) => byChamp.set(r.champion, [...(byChamp.get(r.champion) ?? []), { id: r.id, games: r.games, lift: lifts[k] }]));
+  const picks = [...byChamp].map(([champion, opts]) => {
+    const top = Math.max(...opts.map((o) => o.games));
+    const [first, ...rest] = [...opts].sort((a, b) => Number(b.games >= MIN_SHARE * top) - Number(a.games >= MIN_SHARE * top) || b.lift - a.lift);
+    return { champion, best: first, next: rest[0] ?? null };
+  });
+  const grades = grade(picks.map((p) => p.best.lift));
+  return picks.map((p, k) => ({
+    champion: p.champion,
+    item: item(p.best.id)!,
+    score: grades[k].deepScore,
+    games: p.best.games,
+    next: p.next ? item(p.next.id) : null,
   }));
-  return { patch: src.patch, gold: stats?.gold_per_takedown ?? 200, items, champions };
 }
+
+/** A champion's item counts as followed with at least this share of its most made Weapon's games (as builds). */
+const MIN_SHARE = 0.25;

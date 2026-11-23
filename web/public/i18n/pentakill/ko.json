@@ -16,5 +16,13 @@
  "Simulated": "시뮬레이션",
  "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.": "펜타킬 게임에서는 시작 시 기본 스킬 하나를, 레벨 18에 두 번째 스킬을 강화하며, 이때는 궁극기도 선택할 수 있습니다: Q는 {heavy}, W는 {power}, E는 {thrash}, R은 {doom}. 각각 스킬에 스킬 가속 20과 피해량, 회복량, 보호막 10% 증가를 줍니다.",
  "Find a champion": "챔피언 찾기",
- "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "시뮬레이션. 각 선택은 챔피언의 가장 인기 있는 빌드로 한 한타에 가장 크게 기여하는 스킬이며, 역할에 따라 판단합니다: 캐리는 피해, 서포터와 탱커는 회복, 보호막, 군중 제어. 승률 상승은 이를 추정 승률 포인트로 바꾼 것으로, 위쪽 챔피언일수록 펜타킬 게임에서 이득이 큽니다."
+ "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.": "시뮬레이션. 각 선택은 챔피언의 가장 인기 있는 빌드로 한 한타에 가장 크게 기여하는 스킬이며, 역할에 따라 판단합니다: 캐리는 피해, 서포터와 탱커는 회복, 보호막, 군중 제어. 승률 상승은 이를 추정 승률 포인트로 바꾼 것으로, 위쪽 챔피언일수록 펜타킬 게임에서 이득이 큽니다.",
+ "How the start pick does on this champion, 0 to 100 against every champion's start pick: its win rate above the champion's usual in Pentakill games, trusted more the more games it has.": "이 챔피언에서 시작 선택의 성적. 모든 챔피언의 시작 선택과 비교한 0~100: 펜타킬 게임에서 챔피언의 평소 승률보다 얼마나 높은지이며, 게임이 많을수록 더 신뢰합니다.",
+ "Level 18 DeepScore": "18레벨 DeepScore",
+ "The same for the level 18 pick. The ultimate's Empower is only taken at level 18, in long games, so it's judged against how it does on every champion.": "18레벨 선택도 마찬가지입니다. 궁극기 강화는 18레벨, 긴 게임에서만 고르므로 모든 챔피언에서의 성적과 비교해 판단합니다.",
+ "Games": "게임 수",
+ "Pentakill games on this champion.": "이 챔피언의 펜타킬 게임 수.",
+ "The next best start pick when it's within the noise of the first. Either one works.": "첫 선택과 오차 범위 안에 있는 다음으로 좋은 시작 선택. 둘 다 괜찮습니다.",
+ "From real Pentakill games. Each pick is the Empower that wins most above the champion's usual, among the ones players often pick. A high score can also come from the games and players who pick it: correlated, not proof it causes the wins.": "실제 펜타킬 게임 기준입니다. 각 선택은 플레이어가 자주 고르는 것 중 챔피언의 평소보다 가장 많이 이기는 강화입니다. 점수가 높은 것은 이를 고르는 게임과 플레이어 때문일 수도 있습니다. 상관관계이지 승리의 원인이라는 증거는 아닙니다.",
+ "The basic ability to Empower at the start of the game: the one that wins most above the champion's usual, among those players often pick.": "게임 시작 때 강화할 기본 스킬: 플레이어가 자주 고르는 것 중 챔피언의 평소보다 가장 많이 이기는 것."
 }

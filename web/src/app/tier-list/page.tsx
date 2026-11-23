@@ -33,12 +33,11 @@ import { readRepoCsv } from "@/lib/repo-data";
 import { allChampionTags, championTagData } from "@/lib/champion-tags";
 import { fillGames } from "@/lib/fill";
 import { matchesByPatch } from "@/lib/sample";
-import { bracketData } from "@/lib/brackets";
 import { patchName } from "@/lib/patch-name";
 import WeaponOfDestiny from "@/components/WeaponOfDestiny";
-import { realDestiny } from "@/lib/weapon-of-destiny";
+import { bracketData } from "@/lib/brackets";
+import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
 import Pentakill from "@/components/Pentakill";
-import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
 import { pentakill } from "@/lib/pentakill";
 
 export const metadata: Metadata = pageMeta(
@@ -105,9 +104,9 @@ export default function TierListPage() {
               tagInfo={championTagData().info}
               games={fillGames()}
               matches={matchesByPatch()}
-              brackets={bracketData()}
               scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
               reliance={Object.fromEntries([...championAugmentReliance()].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+              brackets={bracketData()}
             />
           }
           duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} quests={teamQuests()} /> : undefined}
@@ -272,20 +271,21 @@ export default function TierListPage() {
     });
   }
 
-  // Which Legendary item to make the Weapon of Destiny (gold augment), from real games: which items players upgrade
-  // and how the same champions win with each (lib/weapon-of-destiny.ts realDestiny).
-  const destiny = realDestiny();
-  if (destiny?.items.length) {
+  // Which Legendary item to make the Weapon of Destiny (gold augment), from real games with the augment (AramHex).
+  // This tab and Pentakill's were Simulator-made and hidden while it is a fun tool only (lib/sim-policy.ts); since
+  // AramHex (2026-11-23) both rank on real games and are back.
+  const destiny = weaponOfDestiny();
+  if (destiny?.rows.length) {
     tabs.push({
       id: "weapon-of-destiny",
       label: "Weapon of Destiny",
       lazy: true,
-      content: <WeaponOfDestiny items={destiny.items} gold={destiny.gold} champions={destiny.champions} />,
+      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} champions={destinyByChampion()} />,
     });
   }
 
-  // Which abilities to Empower in a Pentakill game, by the estimated win rate boost.
-  const penta = SIMULATOR_IN_STATS ? pentakill() : [];
+  // Which abilities to Empower in a Pentakill game, from real games with each Empower (AramHex).
+  const penta = pentakill();
   if (penta.length) {
     tabs.push({ id: "pentakill", label: "Pentakill", lazy: true, content: <Pentakill rows={penta} /> });
   }

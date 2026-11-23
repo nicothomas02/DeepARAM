@@ -41,5 +41,13 @@
  "Predicted": "预测",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "预测：数据无法区分哪些对局选了命运之武器，因此装备按升级属性的价值排序，而不是按胜率。",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "每名英雄最适合作为命运之武器的装备：每件候选装备都在使用该英雄最热门出装的模拟战斗中升级，选出让其最强的一件。",
- "Simulated. Champions near the top gain the most from the augment in fights.": "模拟。排在前面的英雄在战斗中从这个强化中获益最多。"
+ "Simulated. Champions near the top gain the most from the augment in fights.": "模拟。排在前面的英雄在战斗中从这个强化中获益最多。",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average: its win rate in games where it was the Weapon of Destiny, above what its champions usually win with the augment, trusted more the more games it has. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScore 把每件装备与其他装备比较，按 0 到 100 打分（50 为平均）：它作为命运之武的对局胜率，比其英雄携带该强化时的平常胜率高出多少；对局越多越可信。等级：S 70+、A 59+、B 44+、C 32+、D 以下。",
+ "Games with Weapon of Destiny where this was the first Legendary item, so the Weapon.": "带命运之武、且这是第一件传说装备（即武器）的对局数。",
+ "Games": "对局",
+ "The champion who makes it their Weapon of Destiny most often.": "最常把它做成命运之武的英雄。",
+ "From real games with Weapon of Destiny. A high score means the item did well as the Weapon, which can also come from the games and players who pick it: correlated, not proof it causes the wins.": "来自带命运之武的真实对局。分数高说明它作为武器表现好，但也可能与选择它的对局和玩家有关：是相关，不能证明它带来了胜利。",
+ "How the best item does on this champion, 0 to 100 against every champion's best item: its win rate as the Weapon above the champion's usual win rate with the augment, trusted more the more games it has.": "最佳装备在这个英雄上的表现，与每个英雄的最佳装备比较，0 到 100：作为武器的胜率比该英雄带此强化的平常胜率高出多少；对局越多越可信。",
+ "The second-best item to make the Weapon for this champion.": "这个英雄做成武器的第二好的装备。",
+ "Each champion's best item to make its Weapon of Destiny, from real games with the augment: among the items it often makes its Weapon, the one that wins most above its usual.": "每个英雄做命运之武的最佳装备，来自带该强化的真实对局：在它常做成武器的装备中，比平常胜率高出最多的那件。"
 }
