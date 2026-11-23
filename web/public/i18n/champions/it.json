@@ -287,7 +287,6 @@
  "Full build": "Build completa",
  "Other options": "Altre opzioni",
  "With {augment}": "Con {augment}",
- "The augment upgrades this item, so buy it first.": "L'aumento potenzia questo oggetto, quindi compralo per primo.",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "Le tue abilità applicano gli effetti sul colpo, quindi gli oggetti con effetti sul colpo rendono di più.",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Converte il tuo attacco fisico bonus in potere magico, quindi gli oggetti con potere magico si sommano.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Converte il tuo potere magico in attacco fisico bonus, quindi gli oggetti con attacco fisico si sommano.",
@@ -296,5 +295,8 @@
  "Few players": "Pochi giocatori",
  "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Ha un buon punteggio, ma pochi giocatori lo costruiscono (meno di un quarto dell'oggetto più costruito), quindi la build resta sugli oggetti davvero seguiti. I campioni piccoli oscillano, soprattutto a inizio patch.",
  "Mostly built with {augment}.": "Costruito soprattutto con {augment}.",
- "It makes you melee, and players who take it build Death's Dance far more often.": "Ti rende corpo a corpo, e chi lo prende costruisce Death's Dance molto più spesso."
+ "It makes you melee, and players who take it build Death's Dance far more often.": "Ti rende corpo a corpo, e chi lo prende costruisce Death's Dance molto più spesso.",
+ "Unverified": "Non verificato",
+ "The augment upgrades this item.": "L'aumento potenzia questo oggetto.",
+ "Players who take this augment build this item far more often.": "Chi prende questo aumento costruisce questo oggetto molto più spesso."
 }

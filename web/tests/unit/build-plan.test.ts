@@ -87,16 +87,14 @@ describe("augmentSwaps", () => {
     { items: [22], pickRate: 0.01, deepScore: 95 },
   ];
   it("shows no role-based tip until it's measured", () => {
-    expect(augmentSwaps([{ id: 1029, name: "Ethereal Weapon", pickRate: 0.02 }], [10, 11], pool, rolesOf, nameOf, [10, 11])).toEqual([]);
+    expect(augmentSwaps([{ id: 1205, name: "ADAPt", pickRate: 0.02 }], [30], [{ items: [10], pickRate: 0.2, deepScore: 70 }], rolesOf, nameOf, [30])).toEqual([]);
   });
   it("points a measured on-hit augment at the best followed on-hit item, with its reason", () => {
-    MEASURED_CHANGERS.add(1029);
-    try {
+    expect(MEASURED_CHANGERS.has(1029)).toBe(true);
+    {
       const out = augmentSwaps([{ id: 1029, name: "Ethereal Weapon", pickRate: 0.02 }], [10, 11], pool, rolesOf, nameOf, [10, 11]);
       expect(out).toEqual([expect.objectContaining({ augments: [1029], item: 21, kind: "style" })]);
       expect(out[0].why).toMatch(/on-hit/);
-    } finally {
-      MEASURED_CHANGERS.delete(1029);
     }
   });
   it("skips an augment whose style the build already has", () => {

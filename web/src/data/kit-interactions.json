@@ -1,5 +1,5 @@
 {
- "_about": "Champion and augment interactions, checked by hand against each kit and the augment's own text. Only shown on a champion page while that champion's players take the augment.",
+ "_about": "Champion and augment interactions, checked by hand against each kit and the augment's own text. Only shown on a champion page while that champion's players take the augment. `confirmed`: the same entry in data/cook-builds/MECHANICS.md covers this champion and augment (confirmed by the wiki or Nico); the rest show as unverified (Nico 2026-11-23: no claims from assumptions).",
  "interactions": [
   {
    "champion": "Ashe",
@@ -7,7 +7,8 @@
    "keys": [
     "E"
    ],
-   "text": "Her E costs nothing and has a long recharge, so each cast takes a big chunk off her W or R cooldown."
+   "text": "Her E costs nothing and has a long recharge, so each cast takes a big chunk off her W or R cooldown.",
+   "confirmed": true
   },
   {
    "champion": "Ashe",
@@ -39,7 +40,8 @@
    "keys": [
     "Q"
    ],
-   "text": "The spear splits at max range or on recast, so near misses can still land."
+   "text": "The spear splits at max range or on recast, so near misses can still land.",
+   "confirmed": true
   },
   {
    "champion": "Trundle",
@@ -47,7 +49,8 @@
    "keys": [
     "E"
    ],
-   "text": "His E pillar is terrain, so it also blasts enemies around it."
+   "text": "His E pillar is terrain, so it also blasts enemies around it.",
+   "confirmed": true
   },
   {
    "champion": "Anivia",
@@ -184,7 +187,8 @@
    "keys": [
     "Q"
    ],
-   "text": "His Q splits at max range or on recast, giving two more chances to grab."
+   "text": "His Q splits at max range or on recast, giving two more chances to grab.",
+   "confirmed": true
   },
   {
    "champion": "AurelionSol",
@@ -200,7 +204,8 @@
    "keys": [
     "P"
    ],
-   "text": "His abilities give twice the passive stacks, so every ability grows twice as fast."
+   "text": "His abilities give twice the passive stacks, so every ability grows twice as fast.",
+   "confirmed": true
   },
   {
    "champion": "Nunu",
@@ -216,7 +221,8 @@
    "keys": [
     "W"
    ],
-   "text": "His W is a channel, so he gets a shield while draining."
+   "text": "His W is a channel, so he gets a shield while draining.",
+   "confirmed": true
   },
   {
    "champion": "Veigar",
@@ -256,7 +262,8 @@
    "keys": [
     "P"
    ],
-   "text": "He builds a lot of mana, so half of it as health makes him much harder to kill."
+   "text": "He builds a lot of mana, so half of it as health makes him much harder to kill.",
+   "confirmed": true
   },
   {
    "champion": "Kassadin",
@@ -310,7 +317,8 @@
    "champion": "Gragas",
    "augment": 2078,
    "keys": [],
-   "text": "His knock-backs send enemies crashing into each other or walls for extra damage and a stun."
+   "text": "His knock-backs send enemies crashing into each other or walls for extra damage and a stun.",
+   "confirmed": true
   },
   {
    "champion": "Syndra",
@@ -318,7 +326,8 @@
    "keys": [
     "E"
    ],
-   "text": "Her E knocks enemies back, so they crash into each other or walls for extra damage and a stun."
+   "text": "Her E knocks enemies back, so they crash into each other or walls for extra damage and a stun.",
+   "confirmed": true
   },
   {
    "champion": "Gnar",
@@ -326,7 +335,8 @@
    "keys": [
     "R"
    ],
-   "text": "Mega Gnar's R throws enemies, so they crash into each other or walls for extra damage."
+   "text": "Mega Gnar's R throws enemies, so they crash into each other or walls for extra damage.",
+   "confirmed": true
   },
   {
    "champion": "Qiyana",
@@ -334,7 +344,8 @@
    "keys": [
     "R"
    ],
-   "text": "Her R pushes enemies back, so they crash into each other or walls for extra damage."
+   "text": "Her R pushes enemies back, so they crash into each other or walls for extra damage.",
+   "confirmed": true
   },
   {
    "champion": "Kayn",
@@ -602,7 +613,8 @@
    "keys": [
     "P"
    ],
-   "text": "In melee range all of his shotgun pellets hit the same target."
+   "text": "In melee range all of his shotgun pellets hit the same target.",
+   "confirmed": true
   },
   {
    "champion": "Samira",

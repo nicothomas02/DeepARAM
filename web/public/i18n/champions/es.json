@@ -287,7 +287,6 @@
  "Full build": "Build completa",
  "Other options": "Otras opciones",
  "With {augment}": "Con {augment}",
- "The augment upgrades this item, so buy it first.": "El aumento mejora este objeto, así que cómpralo primero.",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "Tus habilidades aplican efectos al impactar, así que los objetos al impactar rinden más.",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Convierte tu daño de ataque adicional en poder de habilidad, así que los objetos de poder de habilidad se acumulan con él.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Convierte tu poder de habilidad en daño de ataque adicional, así que los objetos de daño de ataque se acumulan con él.",
@@ -296,5 +295,8 @@
  "Few players": "Pocos jugadores",
  "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Puntúa bien, pero pocos jugadores lo construyen (menos de una cuarta parte que el objeto más construido), así que la build se queda con objetos que la gente usa de verdad. Las muestras pequeñas varían, sobre todo al inicio de un parche.",
  "Mostly built with {augment}.": "Se construye sobre todo con {augment}.",
- "It makes you melee, and players who take it build Death's Dance far more often.": "Te vuelve cuerpo a cuerpo, y quienes lo eligen construyen Death's Dance mucho más a menudo."
+ "It makes you melee, and players who take it build Death's Dance far more often.": "Te vuelve cuerpo a cuerpo, y quienes lo eligen construyen Death's Dance mucho más a menudo.",
+ "Unverified": "Sin verificar",
+ "The augment upgrades this item.": "El aumento mejora este objeto.",
+ "Players who take this augment build this item far more often.": "Quienes eligen este aumento construyen este objeto mucho más a menudo."
 }

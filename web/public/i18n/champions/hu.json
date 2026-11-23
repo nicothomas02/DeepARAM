@@ -287,7 +287,6 @@
  "Full build": "Teljes build",
  "Other options": "További lehetőségek",
  "With {augment}": "{augment} esetén",
- "The augment upgrades this item, so buy it first.": "Az augment fejleszti ezt a tárgyat, ezért vedd meg elsőként.",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "A képességeid alkalmazzák a találati hatásokat, így a találati tárgyak többet érnek.",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "A bónusz támadósebzésedet képességerővé alakítja, így a képességerő-tárgyak összeadódnak vele.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "A képességerődet bónusz támadósebzéssé alakítja, így a támadósebzés-tárgyak összeadódnak vele.",
@@ -296,5 +295,8 @@
  "Few players": "Kevés játékos",
  "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Jó a pontszáma, de kevés játékos építi (a legtöbbet épített tárgy negyedénél ritkábban), ezért a build a valóban használt tárgyaknál marad. A kis minták ingadoznak, főleg a patch elején.",
  "Mostly built with {augment}.": "Főleg {augment} mellett építik.",
- "It makes you melee, and players who take it build Death's Dance far more often.": "Közelharcossá tesz, és akik választják, sokkal gyakrabban építenek Death's Dance-et."
+ "It makes you melee, and players who take it build Death's Dance far more often.": "Közelharcossá tesz, és akik választják, sokkal gyakrabban építenek Death's Dance-et.",
+ "Unverified": "Nem ellenőrzött",
+ "The augment upgrades this item.": "Az augment fejleszti ezt a tárgyat.",
+ "Players who take this augment build this item far more often.": "Akik ezt az augmentet választják, sokkal gyakrabban építik ezt a tárgyat."
 }

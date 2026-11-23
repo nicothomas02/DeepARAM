@@ -287,7 +287,6 @@
  "Full build": "Pełny build",
  "Other options": "Inne opcje",
  "With {augment}": "Z {augment}",
- "The augment upgrades this item, so buy it first.": "Augment ulepsza ten przedmiot, więc kup go jako pierwszy.",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "Twoje umiejętności nakładają efekty przy trafieniu, więc przedmioty z efektami przy trafieniu opłacają się bardziej.",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Zamienia twoje dodatkowe obrażenia od ataku na moc umiejętności, więc przedmioty z mocą umiejętności się z nim sumują.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Zamienia twoją moc umiejętności na dodatkowe obrażenia od ataku, więc przedmioty z obrażeniami od ataku się z nim sumują.",
@@ -296,5 +295,8 @@
  "Few players": "Niewielu graczy",
  "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Ma dobry wynik, ale buduje go niewielu graczy (mniej niż ćwierć tego, co najczęściej budowany przedmiot), więc build trzyma się przedmiotów, które gracze naprawdę budują. Małe próby się wahają, zwłaszcza na początku patcha.",
  "Mostly built with {augment}.": "Budowany głównie z {augment}.",
- "It makes you melee, and players who take it build Death's Dance far more often.": "Czyni cię walczącym wręcz, a gracze, którzy go biorą, budują Death's Dance znacznie częściej."
+ "It makes you melee, and players who take it build Death's Dance far more often.": "Czyni cię walczącym wręcz, a gracze, którzy go biorą, budują Death's Dance znacznie częściej.",
+ "Unverified": "Niepotwierdzone",
+ "The augment upgrades this item.": "Augment ulepsza ten przedmiot.",
+ "Players who take this augment build this item far more often.": "Gracze z tym augmentem budują ten przedmiot znacznie częściej."
 }

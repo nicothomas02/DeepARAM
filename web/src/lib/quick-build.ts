@@ -40,7 +40,7 @@ export type QuickBuild = {
   situational: (Named & { when: string; why?: string; augments?: number[] })[];
   /** Components to rush for the first core item. */
   rush: Named[];
-  /** "With this augment, buy this item first", as on the champion page's card. */
+  /** "This augment upgrades this item" (the augment's own effect). Not a buy-order tip: when to buy it is unmeasured. */
   swaps: { augment: Named; item: Named }[];
   /** Top augments per rarity, each with its DeepScore on this champion when there's an estimate. */
   augments: Record<Rarity, (Named & { deepScore?: number })[]>;

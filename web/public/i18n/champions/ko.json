@@ -287,7 +287,6 @@
  "Full build": "전체 빌드",
  "Other options": "다른 선택지",
  "With {augment}": "{augment} 보유 시",
- "The augment upgrades this item, so buy it first.": "증강이 이 아이템을 강화하므로 먼저 구매하세요.",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "스킬이 적중 시 효과를 적용하므로 적중 시 효과 아이템의 효율이 높아집니다.",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "추가 공격력을 주문력으로 바꾸므로 주문력 아이템과 함께 쌓입니다.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "주문력을 추가 공격력으로 바꾸므로 공격력 아이템과 함께 쌓입니다.",
@@ -296,5 +295,8 @@
  "Few players": "소수 플레이어",
  "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "점수는 높지만 만드는 플레이어가 적어(가장 많이 만드는 아이템의 4분의 1 미만) 빌드는 실제로 많이 쓰이는 아이템으로 구성합니다. 표본이 적으면 특히 패치 초반에 수치가 크게 흔들립니다.",
  "Mostly built with {augment}.": "주로 {augment}와 함께 만듭니다.",
- "It makes you melee, and players who take it build Death's Dance far more often.": "근접 챔피언이 되며, 이를 고른 플레이어는 죽음의 무도를 훨씬 자주 만듭니다."
+ "It makes you melee, and players who take it build Death's Dance far more often.": "근접 챔피언이 되며, 이를 고른 플레이어는 죽음의 무도를 훨씬 자주 만듭니다.",
+ "Unverified": "미확인",
+ "The augment upgrades this item.": "증강이 이 아이템을 강화합니다.",
+ "Players who take this augment build this item far more often.": "이 증강을 고른 플레이어는 이 아이템을 훨씬 자주 만듭니다."
 }

@@ -37,5 +37,6 @@
  "Points of win rate this augment adds on each champion, estimated.": "此強化為每個英雄增加的勝率點數(估計)。",
  "Estimated across the champions that often take both: no games record the pair together.": "依據常同時選擇兩者的英雄估計:沒有對局同時記錄這個組合。",
  "Share of the champions who take this augment that build each item.": "選擇此強化的英雄中,出每件裝備的占比。",
- "this build": "這套出裝"
+ "this build": "這套出裝",
+ "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "常選這個強化的英雄通常出的裝備，無論是否選了它。並不說明哪些裝備與該強化搭配。"
 }

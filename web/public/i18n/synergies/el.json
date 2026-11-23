@@ -37,5 +37,6 @@
  "Points of win rate this augment adds on each champion, estimated.": "Μονάδες ποσοστού νικών που προσθέτει αυτή η βελτίωση σε κάθε ήρωα, εκτίμηση.",
  "Estimated across the champions that often take both: no games record the pair together.": "Εκτίμηση από τους ήρωες που συχνά παίρνουν και τα δύο: κανένα παιχνίδι δεν καταγράφει το ζεύγος μαζί.",
  "Share of the champions who take this augment that build each item.": "Μερίδιο των ηρώων που παίρνουν αυτή τη βελτίωση και χτίζουν κάθε αντικείμενο.",
- "this build": "αυτό το build"
+ "this build": "αυτό το build",
+ "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "Τι φτιάχνουν συνήθως οι champions που παίρνουν συχνά αυτό το augment, με ή χωρίς αυτό. Δεν δείχνει ποια αντικείμενα ταιριάζουν με το augment."
 }

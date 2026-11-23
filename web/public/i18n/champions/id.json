@@ -287,7 +287,6 @@
  "Full build": "Build lengkap",
  "Other options": "Opsi lain",
  "With {augment}": "Dengan {augment}",
- "The augment upgrades this item, so buy it first.": "Augment ini meningkatkan item ini, jadi beli lebih dulu.",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "Skill-mu menerapkan efek on-hit, jadi item on-hit lebih menguntungkan.",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Mengubah bonus Attack Damage-mu menjadi Ability Power, jadi item Ability Power menumpuk dengannya.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Mengubah Ability Power-mu menjadi bonus Attack Damage, jadi item Attack Damage menumpuk dengannya.",
@@ -296,5 +295,8 @@
  "Few players": "Sedikit pemain",
  "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Skornya bagus, tetapi sedikit pemain membangunnya (kurang dari seperempat item yang paling sering dibangun), jadi build tetap pada item yang benar-benar dipakai. Sampel kecil mudah berubah, terutama di awal patch.",
  "Mostly built with {augment}.": "Kebanyakan dibangun dengan {augment}.",
- "It makes you melee, and players who take it build Death's Dance far more often.": "Membuatmu jadi melee, dan pemain yang mengambilnya jauh lebih sering membangun Death's Dance."
+ "It makes you melee, and players who take it build Death's Dance far more often.": "Membuatmu jadi melee, dan pemain yang mengambilnya jauh lebih sering membangun Death's Dance.",
+ "Unverified": "Belum terverifikasi",
+ "The augment upgrades this item.": "Augment ini meningkatkan item ini.",
+ "Players who take this augment build this item far more often.": "Pemain yang mengambil augment ini jauh lebih sering membangun item ini."
 }

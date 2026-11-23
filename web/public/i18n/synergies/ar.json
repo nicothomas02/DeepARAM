@@ -37,5 +37,6 @@
  "Points of win rate this augment adds on each champion, estimated.": "نقاط نسبة الفوز التي يضيفها هذا التعزيز لكل بطل، تقديري.",
  "Estimated across the champions that often take both: no games record the pair together.": "تقدير عبر الأبطال الذين يختارون الاثنين غالبًا: لا توجد مباريات تسجّل الزوج معًا.",
  "Share of the champions who take this augment that build each item.": "حصة الأبطال الذين يختارون هذا التعزيز ويبنون كل عنصر.",
- "this build": "هذه البنية"
+ "this build": "هذه البنية",
+ "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "ما يبنيه عادة الأبطال الذين يختارون هذا التعزيز كثيراً، معه أو بدونه. لا يُظهر أي العناصر تناسب التعزيز."
 }

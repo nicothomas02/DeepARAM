@@ -287,7 +287,6 @@
  "Full build": "完整出裝",
  "Other options": "其他選擇",
  "With {augment}": "擁有{augment}時",
- "The augment upgrades this item, so buy it first.": "該強化會升級這件裝備，所以先買它。",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "你的技能會觸發攻擊特效，所以攻擊特效裝備收益更高。",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "它把你的額外攻擊力轉化為魔法攻擊，所以魔攻裝備能與它疊加。",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "它把你的魔法攻擊轉化為額外攻擊力，所以攻擊力裝備能與它疊加。",
@@ -296,5 +295,8 @@
  "Few players": "少數玩家",
  "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "評分很高，但很少玩家出（不到最常出裝備的四分之一），所以出裝只採用真正有人跟的裝備。小樣本波動大，版本初期尤其如此。",
  "Mostly built with {augment}.": "多與{augment}一起出。",
- "It makes you melee, and players who take it build Death's Dance far more often.": "它讓你變成近戰，選它的玩家出死亡之舞的頻率高得多。"
+ "It makes you melee, and players who take it build Death's Dance far more often.": "它讓你變成近戰，選它的玩家出死亡之舞的頻率高得多。",
+ "Unverified": "未驗證",
+ "The augment upgrades this item.": "該強化會升級這件裝備。",
+ "Players who take this augment build this item far more often.": "選這個強化的玩家出這件裝備的頻率高得多。"
 }

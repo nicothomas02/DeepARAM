@@ -287,7 +287,6 @@
  "Full build": "フルビルド",
  "Other options": "その他の選択肢",
  "With {augment}": "{augment}がある時",
- "The augment upgrades this item, so buy it first.": "このオーグメントがこのアイテムを強化するので、先に購入しましょう。",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "スキルが通常攻撃時効果を発動するので、通常攻撃時効果のアイテムがより活きます。",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "増加攻撃力を魔力に変換するので、魔力アイテムと相乗効果があります。",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "魔力を増加攻撃力に変換するので、攻撃力アイテムと相乗効果があります。",
@@ -296,5 +295,8 @@
  "Few players": "少数のプレイヤー",
  "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "スコアは高いものの、作るプレイヤーが少ない（最も作られるアイテムの4分の1未満）ため、ビルドには実際によく使われるアイテムを採用しています。サンプルが少ないと、特にパッチ序盤は数値が大きく変動します。",
  "Mostly built with {augment}.": "主に{augment}と一緒に作られます。",
- "It makes you melee, and players who take it build Death's Dance far more often.": "近接になり、これを選んだプレイヤーはデスダンスをはるかに多く作ります。"
+ "It makes you melee, and players who take it build Death's Dance far more often.": "近接になり、これを選んだプレイヤーはデスダンスをはるかに多く作ります。",
+ "Unverified": "未確認",
+ "The augment upgrades this item.": "このオーグメントがこのアイテムを強化します。",
+ "Players who take this augment build this item far more often.": "このオーグメントを選んだプレイヤーは、このアイテムをはるかに多く作ります。"
 }

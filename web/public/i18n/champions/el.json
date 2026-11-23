@@ -287,7 +287,6 @@
  "Full build": "Πλήρες build",
  "Other options": "Άλλες επιλογές",
  "With {augment}": "Με {augment}",
- "The augment upgrades this item, so buy it first.": "Το augment αναβαθμίζει αυτό το αντικείμενο, οπότε αγόρασέ το πρώτο.",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "Οι ικανότητές σου εφαρμόζουν εφέ on-hit, οπότε τα αντικείμενα on-hit αποδίδουν περισσότερο.",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Μετατρέπει την επιπλέον Ζημιά Επίθεσης σε Δύναμη Ικανοτήτων, οπότε τα αντικείμενα Δύναμης Ικανοτήτων αθροίζονται μαζί του.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Μετατρέπει τη Δύναμη Ικανοτήτων σε επιπλέον Ζημιά Επίθεσης, οπότε τα αντικείμενα Ζημιάς Επίθεσης αθροίζονται μαζί του.",
@@ -296,5 +295,8 @@
  "Few players": "Λίγοι παίκτες",
  "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Έχει καλό σκορ, αλλά λίγοι παίκτες το φτιάχνουν (κάτω από το ένα τέταρτο του πιο συχνού αντικειμένου), οπότε το build μένει σε αντικείμενα με πραγματική χρήση. Τα μικρά δείγματα κυμαίνονται, κυρίως νωρίς στο patch.",
  "Mostly built with {augment}.": "Φτιάχνεται κυρίως με {augment}.",
- "It makes you melee, and players who take it build Death's Dance far more often.": "Σε κάνει melee, και οι παίκτες που το παίρνουν φτιάχνουν Death's Dance πολύ συχνότερα."
+ "It makes you melee, and players who take it build Death's Dance far more often.": "Σε κάνει melee, και οι παίκτες που το παίρνουν φτιάχνουν Death's Dance πολύ συχνότερα.",
+ "Unverified": "Μη επιβεβαιωμένο",
+ "The augment upgrades this item.": "Το augment αναβαθμίζει αυτό το αντικείμενο.",
+ "Players who take this augment build this item far more often.": "Οι παίκτες με αυτό το augment φτιάχνουν αυτό το αντικείμενο πολύ συχνότερα."
 }
