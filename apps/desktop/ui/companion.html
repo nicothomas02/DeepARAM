@@ -229,10 +229,10 @@
       const front = all.some((a) => (d.champions[a]?.[1] ?? []).some((x) => FRONT.has(x)));
       const lower = new Map(Object.entries(k?.champions ?? {}).map(([a, m]) => [a.toLowerCase(), m]));
       const magic = all.reduce((t, a) => t + (lower.get(a.toLowerCase()) ?? 0.5), 0) / all.length;
-      // The team gap line is off until tested (2026-11-23).
-      gap = true ? "" : !front ? "No frontline on your team: tanky items go further this game."
-        : magic < 0.25 ? "Your team deals little magic damage: an AP or hybrid item helps if your champion can use one."
-        : magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
+      // Only the tested half of the team gap line (2026-11-23): teams over 75% magic won 9.7 ± 7.2 points below
+      // expected (178 teams). "No frontline" failed its test and "under 25% magic" had too few teams, so both stay off.
+      void front;
+      gap = magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
     }
     setView(`
       ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion")}
