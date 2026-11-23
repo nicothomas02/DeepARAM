@@ -1,6 +1,7 @@
 // The champion page's quick build for every champion, with names and icons resolved: skill order, summoner
 // spells, boots, core and situational items, and the top augments as ranked on the page. Feeds /data/watch.json (Apple Watch)
 // and /data/overlay.json (the desktop app's in-game overlay).
+import { clashWith } from "./item-limits";
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
 import type { AugmentSwap } from "@/lib/build-plan";
 import { bestRow, buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
@@ -36,8 +37,9 @@ export type QuickBuild = {
   /** The card's top six-item path: the core plus the best 4th, 5th and 6th picks (lib/card-score.ts fullPicks). */
   full: LaterItem[];
   /** Items to swap in after the core, each with when to buy it ("Vs healing", "With Ethereal Weapon"), as on the
-   *  champion page's card. Augment-triggered entries also carry the augment ids and a one-line reason. */
-  situational: (Named & { when: string; why?: string; augments?: number[] })[];
+   *  champion page's card, and the build item it replaces when the game won't let you own both (lib/item-limits.ts).
+   *  Augment-triggered entries also carry the augment ids and a one-line reason. */
+  situational: (Named & { when: string; why?: string; augments?: number[]; replaces?: Named })[];
   /** Components to rush for the first core item. */
   rush: Named[];
   /** "With this augment, buy this item first", as on the champion page's card. */
@@ -74,13 +76,21 @@ export function quickBuilds(): QuickBuild[] {
       later: (core?.later ?? []).flatMap(laterOf),
       laterSlots: (core?.slots ?? []).map((sl) => ({ slot: sl.slot, items: sl.items.flatMap(laterOf) })),
       situational: situ.flatMap((s): QuickBuild["situational"] => {
-        const n = named(s.options[0]?.items[0]);
+        const id = s.options[0]?.items[0];
+        const n = named(id);
         return n ? [{ ...n, when: SITUATIONS[s.situation] }] : [];
       }).concat(augSwaps.flatMap((sw) => {
         const n = named(sw.item);
         const a = p.augments.find((x) => sw.augments.includes(x.id));
         return n && a ? [{ ...n, when: `With ${a.name}`, why: sw.why, augments: sw.augments }] : [];
-      })),
+      })).map((s) => {
+        // An item the game won't let you own with one of the build's items swaps that one out (Mortal Reminder for
+        // Lord Dominik's): name it, so the card and the apps replace it instead of adding a seventh item.
+        const id = Number(/(\d+)\.png$/.exec(s.icon ?? "")?.[1] ?? NaN);
+        const clash = Number.isNaN(id) ? undefined : clashWith(id, [...(core?.items ?? []), ...(core?.rest ?? [])]);
+        const replaces = named(clash);
+        return replaces ? { ...s, replaces } : s;
+      }),
       rush: rushIds.flatMap((i) => named(i) ?? []),
     });
     const rawSpells = fillSpells(id, t?.winRate ?? p.winRate ?? 0.5);

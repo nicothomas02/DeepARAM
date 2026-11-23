@@ -2,6 +2,9 @@ import "server-only";
 import championIds from "@/data/champion-ids.json";
 import { ddVersion } from "./dd-swap";
 import { readRepoJson } from "./repo-data";
+import limits from "@/data/item-limits.json";
+import substitutes from "@/data/item-substitutes.json";
+import { UNENFORCED } from "./item-limits";
 
 // What kind of damage each champion deals and what each finished item gives, for the desktop app's enemy-aware
 // damage line (apps/desktop companion.html): the enemy team's mix of physical and magic damage, from their champions
@@ -17,6 +20,10 @@ export type DamageTypes = {
   boots: number[];
   /** item id (last four digits) -> [name, total cost, the components it's built from (ids)], for "buy now" */
   recipes: Record<string, [string, number, number[]]>;
+  /** The game's "own only one" groups (item ids, last four digits) the build engine enforces (lib/item-limits.ts). */
+  limits: number[][];
+  /** Role substitutes, rarely built together: a swap replaces its substitute (data/item-substitutes.json). */
+  substitutes: number[][];
 };
 
 type DdChampion = { info: { attack: number; magic: number } };
@@ -52,7 +59,16 @@ export function damageTypes(): DamageTypes {
   const byLower = new Map(
     Object.entries(champs).map(([k, v]) => [k.toLowerCase(), v]),
   );
-  const out: DamageTypes = { champions: {}, items: {}, boots: [], recipes: {} };
+  const out: DamageTypes = {
+    champions: {},
+    items: {},
+    boots: [],
+    recipes: {},
+    limits: (limits as { group: string; items: number[] }[])
+      .filter((g) => !UNENFORCED.has(g.group))
+      .map((g) => [...new Set(g.items.map((i) => (i >= 100000 ? i % 10000 : i)))]),
+    substitutes: substitutes.pairs,
+  };
   for (const alias of Object.keys(championIds)) {
     const c = byLower.get(alias.toLowerCase());
     if (!c) continue;
