@@ -41,5 +41,13 @@
  "Predicted": "予測",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "予測：統計からは「運命の武器」を取った試合を特定できないため、勝率ではなく、強化するステータスの価値でアイテムを並べています。",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "各チャンピオンが運命の武器にすべき最適アイテム：候補ごとにチャンピオンの最も人気のビルドでシミュレーション戦闘を行って強化し、最も強くなるものを選んでいます。",
- "Simulated. Champions near the top gain the most from the augment in fights.": "シミュレーション。上位のチャンピオンほど、戦闘でこのオーグメントの恩恵を大きく受けます。"
+ "Simulated. Champions near the top gain the most from the augment in fights.": "シミュレーション。上位のチャンピオンほど、戦闘でこのオーグメントの恩恵を大きく受けます。",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average: its win rate in games where it was the Weapon of Destiny, above what its champions usually win with the augment, trusted more the more games it has. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "DeepScoreは各アイテムを他と比べて0〜100で評価します（50が平均）。運命の武器になった試合での勝率が、そのチャンピオンたちがこのオーグメントで普段勝つ率をどれだけ上回るかで、試合数が多いほど信頼度が上がります。ティア: S 70+、A 59+、B 44+、C 32+、D それ未満。",
+ "Games with Weapon of Destiny where this was the first Legendary item, so the Weapon.": "運命の武器の試合で、これが最初のレジェンダリーアイテム、つまり武器だった試合数。",
+ "Games": "試合数",
+ "The champion who makes it their Weapon of Destiny most often.": "これを最もよく運命の武器にするチャンピオン。",
+ "From real games with Weapon of Destiny. A high score means the item did well as the Weapon, which can also come from the games and players who pick it: correlated, not proof it causes the wins.": "運命の武器の実際の試合から。高いスコアは武器として好成績だったことを示しますが、それを選ぶ試合やプレイヤーによる場合もあります。相関であり、勝利の原因の証明ではありません。",
+ "How the best item does on this champion, 0 to 100 against every champion's best item: its win rate as the Weapon above the champion's usual win rate with the augment, trusted more the more games it has.": "このチャンピオンでの最良アイテムの成績。全チャンピオンの最良アイテムと比べて0〜100：武器としての勝率がこのオーグメントでの普段の勝率をどれだけ上回るかで、試合数が多いほど信頼度が上がります。",
+ "The second-best item to make the Weapon for this champion.": "このチャンピオンで武器にする2番目に良いアイテム。",
+ "Each champion's best item to make its Weapon of Destiny, from real games with the augment: among the items it often makes its Weapon, the one that wins most above its usual.": "各チャンピオンの運命の武器に最適なアイテム。オーグメントの実際の試合から、よく武器にするアイテムのうち普段より最も勝っているもの。"
 }

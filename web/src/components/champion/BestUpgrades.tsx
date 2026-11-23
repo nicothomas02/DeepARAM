@@ -127,8 +127,8 @@ export default function BestUpgrades({ u }: { u: ChampionUpgrades }) {
             label="Pentakill"
             cells={
               <>
-                <Cell value={signed(u.pentakill.boost)} label="Est. boost" tone={u.pentakill.boost > 0 ? "up" : undefined} />
-                <Cell value={`+${Math.round(u.pentakill.startGain * 100)}%`} label="Simulated gain" />
+                <Cell value={u.pentakill.startScore} label="DeepScore" />
+                <Cell value={u.pentakill.games.toLocaleString("en-US")} label="Games" />
               </>
             }
           >

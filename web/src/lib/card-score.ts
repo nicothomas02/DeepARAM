@@ -206,7 +206,11 @@ export function slotItems<T extends ItemRow>(
   const first = core.items.length + 1;
   const slots = Array.from({ length: Math.max(0, 7 - first) }, (_, k) => first + k);
   if (!slots.length || !all) return null;
-  const cands = laterItems(pool, core, classesOf, 12);
+  // Only items with a real following (MIN_FOLLOWING of the most bought one), as for builds: a 1% pick shouldn't fill a
+  // slot just because its few buyers bought it 5th.
+  const all12 = laterItems(pool, core, classesOf, 12);
+  const top = Math.max(0, ...all12.map((r) => r.pickRate));
+  const cands = all12.filter((r) => r.pickRate >= MIN_FOLLOWING * top);
   const shares = new Map<number, number[]>();
   for (const r of cands) {
     // Counts are keyed by the base item id; the card may hold the mode's copy (223031 for 3031).
