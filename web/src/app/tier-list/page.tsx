@@ -35,6 +35,7 @@ import { fillGames } from "@/lib/fill";
 import { matchesByPatch } from "@/lib/sample";
 import { patchName } from "@/lib/patch-name";
 import WeaponOfDestiny from "@/components/WeaponOfDestiny";
+import { bracketData } from "@/lib/brackets";
 import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
 import Pentakill from "@/components/Pentakill";
 import { pentakill } from "@/lib/pentakill";
@@ -105,6 +106,7 @@ export default function TierListPage() {
               matches={matchesByPatch()}
               scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
               reliance={Object.fromEntries([...championAugmentReliance()].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
+              brackets={bracketData()}
             />
           }
           duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} quests={teamQuests()} /> : undefined}
