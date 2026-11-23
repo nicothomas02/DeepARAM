@@ -605,8 +605,10 @@ export function whyBest(id: number, champ: string, name: string, taken: number[]
   // Same cut as the site's lib/mechanisms.ts: |z| >= 3 and big enough to matter.
   const p = profiles?.items?.[String(b)];
   if (p) {
+    // Only a gain is a reason it's best: more damage, healing, mitigation or cc, fewer deaths (2026-11-23).
+    const gain = (k: string) => (k === "deaths" ? p[k].change < 0 : p[k].change > 0);
     const m = Object.keys(METRIC_WORD)
-      .filter((k) => p[k] && Math.abs(p[k].z) >= 3 && Math.abs(p[k].change) >= (k === "deaths" ? 0.3 : 8))
+      .filter((k) => p[k] && gain(k) && Math.abs(p[k].z) >= 3 && Math.abs(p[k].change) >= (k === "deaths" ? 0.3 : 8))
       .sort((x, y) => Math.abs(p[y].z) - Math.abs(p[x].z))[0];
     if (m) {
       const c = p[m].change;

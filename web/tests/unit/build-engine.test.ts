@@ -183,6 +183,10 @@ describe("build engine", () => {
     const profiles = { items: { "3094": { damage: { change: 12, z: 4 }, healing: { change: 30, z: 1 } } } };
     expect(whyBest(3094, "Ashe", "Ashe", [], why, profiles)).toEqual({ text: "What it does: +12% damage to champions (estimated).", kind: "does", estimated: true });
     expect(whyBest(3046, "Ashe", "Ashe", [], why, profiles)).toBeNull();
+    // A loss is no reason (Stormsurge -14% damage blocked); fewer deaths is a gain.
+    const losses = { items: { "4646": { mitigated: { change: -14, z: -5 } }, "3026": { deaths: { change: -0.5, z: -4 } } } };
+    expect(whyBest(4646, "Ashe", "Ashe", [], why, losses)).toBeNull();
+    expect(whyBest(3026, "Ashe", "Ashe", [], why, losses)?.kind).toBe("does");
     const p = plan({ champ, kinds, picks, fit, game: game([]), taken: [], why });
     expect(p.reasons).toHaveLength(p.path.length);
     expect(p.reasons[1]?.kind).toBe("follow");

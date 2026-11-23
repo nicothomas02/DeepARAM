@@ -709,7 +709,8 @@ var DeepEngine = (() => {
     }
     const p = profiles?.items?.[String(b)];
     if (p) {
-      const m = Object.keys(METRIC_WORD).filter((k) => p[k] && Math.abs(p[k].z) >= 3 && Math.abs(p[k].change) >= (k === "deaths" ? 0.3 : 8)).sort((x, y) => Math.abs(p[y].z) - Math.abs(p[x].z))[0];
+      const gain = (k) => k === "deaths" ? p[k].change < 0 : p[k].change > 0;
+      const m = Object.keys(METRIC_WORD).filter((k) => p[k] && gain(k) && Math.abs(p[k].z) >= 3 && Math.abs(p[k].change) >= (k === "deaths" ? 0.3 : 8)).sort((x, y) => Math.abs(p[y].z) - Math.abs(p[x].z))[0];
       if (m) {
         const c = p[m].change;
         const n = m === "deaths" ? Math.abs(c).toFixed(1) : `${Math.round(Math.abs(c))}%`;
