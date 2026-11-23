@@ -49,7 +49,7 @@ export type QuickBuild = {
   augments: Record<Rarity, (Named & { deepScore?: number })[]>;
   /** With two or more build styles (crit and AP Ashe): each style's own card, best DeepScore first; the fields above
    *  are the first one's. Augments per style are estimated (build tags). Same switch as the champion page. */
-  builds: (Pick<QuickBuild, "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number })[];
+  builds: (Pick<QuickBuild, "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number; nearBest: boolean })[];
 };
 
 /** No raw win or pick rates: the quick build feeds the public app's overlay (tests/unit/overlay-data.test.ts). */
@@ -118,10 +118,17 @@ export function quickBuilds(): QuickBuild[] {
       ]),
     ) as QuickBuild["augments"];
     };
+    // Feeling lucky (lib/engine luckyBuild): a style counts as a near-tie with the best when their win rates' 95%
+    // ranges overlap. Only the yes/no ships, never the win rates.
+    const lead = p.builds[0];
+    const se = (b: { winRate: number; games: number }) => (b.winRate * (1 - b.winRate)) / Math.max(1, b.games);
+    const near = (b: { winRate: number; games: number }) =>
+      !!lead && b !== lead && lead.games > 0 && b.games > 0 && Math.abs(lead.winRate - b.winRate) <= 1.96 * Math.sqrt(se(lead) + se(b));
     const builds = p.builds.map((b) => ({
       style: b.style,
       share: Math.round(b.share * 1000) / 1000,
       deepScore: b.deepScore,
+      nearBest: near(b),
       ...pieces(b.core, b.start, b.situational, b.rush, b.augmentSwaps),
       augments: augsOf(b.augments),
     }));
