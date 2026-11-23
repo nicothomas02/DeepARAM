@@ -40,7 +40,7 @@ const SLOT_LABEL = ["1st augment", "2nd augment", "3rd augment", "4th augment"];
 const DRAG = "application/x-deeparam-augment";
 
 export default function AugmentTable({
-  rows: allRows,
+  rows: givenRows,
   champion,
   synergy = [],
 }: {
@@ -53,6 +53,8 @@ export default function AugmentTable({
     desc?: string;
     href?: string;
     deepScore?: number;
+    /** DeepScore on the live patch's games alone; deepScore pools earlier patches where nothing changed. */
+    patchScore?: number;
     winRate?: number;
     lift?: number;
     /** Share of the augment's picks at each of the four augment picks. */
@@ -90,6 +92,11 @@ export default function AugmentTable({
     "sort",
   );
   const [query, setQuery] = useState("");
+  // Small samples (Nico 2026-11-23): DeepScore pools earlier patches by default; "This patch only" ranks on the live
+  // patch's games alone. The switch shows only when the two differ.
+  const [thisPatch, setThisPatch] = useKept(false, box, "thisPatch");
+  const pooledDiffers = givenRows.some((r) => r.patchScore !== r.deepScore);
+  const allRows = thisPatch && pooledDiffers ? givenRows.map((r) => ({ ...r, deepScore: r.patchScore })) : givenRows;
   const [took, setTook] = useKept<number[]>([], box, "took");
   const byId = new Map(allRows.map((r) => [r.id, r]));
   const taken = took.filter((id) => byId.has(id));
@@ -301,6 +308,23 @@ export default function AugmentTable({
                 {p === "any" ? t("All picks") : t(PICK_LABEL[p])}
               </button>
             ))}
+          </div>
+        )}
+        {pooledDiffers && (
+          <div
+            className="cp-seg"
+            role="group"
+            aria-label={t("Games counted")}
+            data-tip={t(
+              "Recent patches adds each augment's games from up to two earlier patches, counting older ones less, unless its results changed since. Small samples get steadier scores.",
+            )}
+          >
+            <button type="button" aria-pressed={!thisPatch} onClick={() => (setThisPatch(false), setPage(0))}>
+              {t("Recent patches")}
+            </button>
+            <button type="button" aria-pressed={thisPatch} onClick={() => (setThisPatch(true), setPage(0))}>
+              {t("This patch only")}
+            </button>
           </div>
         )}
         {est && Array.from(combos.values()).some((c) => c.points > 0) && (

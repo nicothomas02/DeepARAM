@@ -61,3 +61,64 @@ def live_patch():
     with open(path, encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
     return rows[-1]["patch"] if rows else None
+
+
+# Pooling earlier patches (Nico 2026-11-23: small samples hide strong builds; include earlier patches when nothing
+# changed). Each row's lead over the champion's average that patch is combined with up to POOL_DEPTH earlier patches,
+# weighted by their precision x POOL_DECAY per patch back. An earlier patch whose lead differs from this patch's by
+# more than POOL_GATE standard errors counts as changed (balance patch, rework, new item), and it and anything older are
+# dropped; a patch where the row is missing breaks the chain too. Backtest (analysis/pooling/backtest.py, 16.19-16.23):
+# next-patch error on augments with under 2,000 games fell 34-37% vs this patch alone (60-70% with the live patch
+# thinned to 10% of its games, like a patch's first day), top-5 picks led by the same or slightly more (+0.0 to
+# +0.1 pts). A gate of 4 standard errors beat 3 (fewer false "changed" calls across thousands of rows): Zeri's
+# Stormrazor at +7 pts on 1,017 first-day 16.23 games vs +1.5 on 13,042 16.22 games is 3.3 apart, so it pools.
+POOL_DEPTH = 2
+POOL_DECAY = 0.5
+POOL_GATE = 4.0
+
+
+def leads(rows):
+    """{key: (lead, variance, games)} from {key: [games, wins]}: win rate minus the games-weighted average of all rows."""
+    rows = {k: v for k, v in rows.items() if v[0] > 0}
+    total = sum(g for g, _ in rows.values())
+    if not total:
+        return {}
+    mean = sum(w for _, w in rows.values()) / total
+    return {k: (w / g - mean, max(w / g * (1 - w / g), 0.05) / g, g) for k, (g, w) in rows.items()}
+
+
+def pool(history, depth=POOL_DEPTH, decay=POOL_DECAY, gate=POOL_GATE):
+    """history: [{key: [games, wins]}, ...] newest (this patch) first. Returns {key: (win_rate, effective_games,
+    patches_used)} for this patch's rows: this patch's average plus the pooled lead, and the games that lead's
+    precision is worth (so DeepScore's shrinkage sees the pooled sample)."""
+    now_rows = history[0]
+    total = sum(g for g, _ in now_rows.values() if g > 0)
+    if not total:
+        return {}
+    mean = sum(w for g, w in now_rows.values() if g > 0) / total
+    tables = [leads(h) for h in history[: depth + 1]]
+    out = {}
+    for k, (x0, v0, n0) in tables[0].items():
+        ws, xs, vs = [1 / v0], [x0], [v0]
+        for age, t in enumerate(tables[1:], 1):
+            if k not in t:
+                break
+            x, v, _ = t[k]
+            if abs(x - x0) > gate * (v + v0) ** 0.5:
+                break
+            ws.append(decay ** age / v)
+            xs.append(x)
+            vs.append(v)
+        W = sum(ws)
+        lead = sum(w * x for w, x in zip(ws, xs)) / W
+        var = sum(w * w * v for w, v in zip(ws, vs)) / W / W
+        wr = min(max(mean + lead, 0.01), 0.99)
+        out[k] = (round(wr, 4), max(n0, int(round(max(wr * (1 - wr), 0.05) / var))), len(xs))
+    return out
+
+
+def earlier(patch, n=POOL_DEPTH):
+    """The n AramHex patches before `patch`, newest first."""
+    ps = patches()
+    i = ps.index(patch) if patch in ps else len(ps)
+    return list(reversed(ps[max(0, i - n): i]))
