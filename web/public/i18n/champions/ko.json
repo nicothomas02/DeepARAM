@@ -292,5 +292,7 @@
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "추가 공격력을 주문력으로 바꾸므로 주문력 아이템과 함께 쌓입니다.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "주문력을 추가 공격력으로 바꾸므로 공격력 아이템과 함께 쌓입니다.",
  "Its empowered attack scales with bonus armor.": "강화된 공격이 추가 방어력에 비례해 강해집니다.",
- "It turns bonus armor and magic resist into heal and shield power.": "추가 방어력과 마법 저항력을 체력 회복 및 보호막 효과로 바꿉니다."
+ "It turns bonus armor and magic resist into heal and shield power.": "추가 방어력과 마법 저항력을 체력 회복 및 보호막 효과로 바꿉니다.",
+ "Few players": "소수 플레이어",
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "점수는 높지만 만드는 플레이어가 적어(가장 많이 만드는 아이템의 4분의 1 미만) 빌드는 실제로 많이 쓰이는 아이템으로 구성합니다. 표본이 적으면 특히 패치 초반에 수치가 크게 흔들립니다."
 }

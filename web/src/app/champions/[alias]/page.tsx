@@ -9,6 +9,7 @@ import WinRateChart from "@/components/WinRateChart";
 import WinRate, { Sampled } from "@/components/WinRate";
 import DeepScore from "@/components/DeepScore";
 import { BUILD_DEEPSCORE_HELP, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
+import FewPlayers from "@/components/champion/FewPlayers";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
 import { championAliases, championSummary, champList, type RadarAxis } from "@/lib/champions";
@@ -1072,6 +1073,13 @@ export default async function ChampionPage({
                 }
               >
                 {ITEM_TIERS.map((tier) => {
+                  // Legendaries that score above the card's weakest full-build pick but that few players build
+                  // (under a quarter of the most built one): say why they aren't in the build (Nico 2026-11-23).
+                  const legend = p.items.filter((r) => (r.tier ?? "legendary") === "legendary");
+                  const topPick = Math.max(0, ...legend.map((r) => r.pickRate));
+                  const fullFloor = Math.min(...(p.core[0]?.full ?? []).map((r) => r.deepScore ?? 0));
+                  const fewPlayers = (r: ItemRow) =>
+                    tier === "legendary" && r.pickRate < 0.25 * topPick && (r.deepScore ?? 0) > fullFloor;
                   const list = p.items.filter(
                     (r) => (r.tier ?? "legendary") === tier,
                   );
@@ -1095,6 +1103,9 @@ export default async function ChampionPage({
                           >
                             <ItemIcon id={r.items[0]} info={info} />
                             <ItemName id={r.items[0]} info={info} />
+                            {fewPlayers(r) && (
+                              <FewPlayers />
+                            )}
                             {r.deepScore !== undefined && (
                               <DeepScore
                                 value={r.deepScore}

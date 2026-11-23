@@ -2061,3 +2061,31 @@ html:not([data-raw]) .cp-row.aug-item {
 .cp-game .cp-later-slots .cp-later-nums > span {
   white-space: nowrap;
 }
+
+/* "Few players" on a high-scoring legendary that the build leaves out; tap or hover for why. */
+button.cp-few-tag {
+  position: relative;
+  border: 0;
+  cursor: help;
+  font-family: inherit;
+}
+button.cp-few-tag:hover::after,
+button.cp-few-tag:focus::after {
+  content: attr(data-tip);
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 6;
+  width: max-content;
+  max-width: min(18rem, 80vw);
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--raised);
+  color: var(--fg);
+  box-shadow: 0 10px 24px -14px rgb(0 0 0 / 0.6);
+  font: 400 0.875rem/1.45 var(--font-sans), system-ui, sans-serif;
+  text-align: left;
+  white-space: normal;
+  pointer-events: none;
+}

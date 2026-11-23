@@ -292,5 +292,7 @@
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Il convertit vos dégâts d'attaque bonus en puissance, donc les objets de puissance se cumulent avec lui.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Il convertit votre puissance en dégâts d'attaque bonus, donc les objets de dégâts d'attaque se cumulent avec lui.",
  "Its empowered attack scales with bonus armor.": "Son attaque renforcée évolue avec l'armure bonus.",
- "It turns bonus armor and magic resist into heal and shield power.": "Il convertit l'armure et la résistance magique bonus en puissance de soins et de boucliers."
+ "It turns bonus armor and magic resist into heal and shield power.": "Il convertit l'armure et la résistance magique bonus en puissance de soins et de boucliers.",
+ "Few players": "Peu de joueurs",
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Bon score, mais peu de joueurs le construisent (moins d'un quart de l'objet le plus construit), donc le build garde les objets vraiment suivis. Les petits échantillons varient, surtout en début de patch."
 }

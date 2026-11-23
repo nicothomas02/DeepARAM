@@ -292,5 +292,7 @@
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Ek saldırı gücünü yetenek gücüne çevirir, bu yüzden yetenek gücü eşyaları onunla birikir.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Yetenek gücünü ek saldırı gücüne çevirir, bu yüzden saldırı gücü eşyaları onunla birikir.",
  "Its empowered attack scales with bonus armor.": "Güçlendirilmiş saldırısı ek zırhla ölçeklenir.",
- "It turns bonus armor and magic resist into heal and shield power.": "Ek zırh ve büyü direncini iyileştirme ve kalkan gücüne çevirir."
+ "It turns bonus armor and magic resist into heal and shield power.": "Ek zırh ve büyü direncini iyileştirme ve kalkan gücüne çevirir.",
+ "Few players": "Az oyuncu",
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Puanı iyi ama az oyuncu yapıyor (en çok yapılan eşyanın dörtte birinden az), bu yüzden build gerçekten tercih edilen eşyalarda kalıyor. Küçük örnekler dalgalanır, özellikle yamanın başında."
 }

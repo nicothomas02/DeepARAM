@@ -292,5 +292,7 @@
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Превращает дополнительную силу атаки в силу умений, поэтому предметы на силу умений складываются с ним.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Превращает силу умений в дополнительную силу атаки, поэтому предметы на силу атаки складываются с ним.",
  "Its empowered attack scales with bonus armor.": "Его усиленная атака растёт от дополнительной брони.",
- "It turns bonus armor and magic resist into heal and shield power.": "Превращает дополнительную броню и сопротивление магии в силу лечения и щитов."
+ "It turns bonus armor and magic resist into heal and shield power.": "Превращает дополнительную броню и сопротивление магии в силу лечения и щитов.",
+ "Few players": "Мало игроков",
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Хорошая оценка, но его собирают мало игроков (меньше четверти от самого популярного предмета), поэтому сборка держится предметов, которые реально берут. Малые выборки колеблются, особенно в начале патча."
 }

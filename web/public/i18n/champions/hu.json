@@ -292,5 +292,7 @@
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "A bónusz támadósebzésedet képességerővé alakítja, így a képességerő-tárgyak összeadódnak vele.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "A képességerődet bónusz támadósebzéssé alakítja, így a támadósebzés-tárgyak összeadódnak vele.",
  "Its empowered attack scales with bonus armor.": "A felerősített támadása a bónusz páncéllal skálázódik.",
- "It turns bonus armor and magic resist into heal and shield power.": "A bónusz páncélt és mágiaellenállást gyógyító- és pajzserővé alakítja."
+ "It turns bonus armor and magic resist into heal and shield power.": "A bónusz páncélt és mágiaellenállást gyógyító- és pajzserővé alakítja.",
+ "Few players": "Kevés játékos",
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Jó a pontszáma, de kevés játékos építi (a legtöbbet épített tárgy negyedénél ritkábban), ezért a build a valóban használt tárgyaknál marad. A kis minták ingadoznak, főleg a patch elején."
 }
