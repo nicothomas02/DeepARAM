@@ -38,7 +38,8 @@ const AUGS = augmentNames as Record<string, string>;
 /** A pair only counts as a teammate once it shows up in at least this share of games. */
 export const MIN_PAIR_PICK = 0.008;
 
-type Raw = { items: number[]; pick_rate: number; win_rate?: number };
+/** games: real games behind the row when the source has them (AramHex rows, data/aramhex/merge.py). */
+type Raw = { items: number[]; pick_rate: number; win_rate?: number; games?: number };
 type Builds = {
   items?: Partial<
     Record<"starting" | "boots" | "core" | "other" | "full_builds", Raw[]>
@@ -51,7 +52,7 @@ type Builds = {
   }[];
   augments?: Record<
     string,
-    { id: number; pick_rate: number; grade?: string }[]
+    { id: number; pick_rate: number; grade?: string; win_rate?: number; games?: number }[]
   >;
   /** Blocks that stopped updating (data/cn/builds.py), and ones rebuilt from the six-item builds. */
   stale?: string[];
@@ -113,6 +114,10 @@ export type AugmentRow = {
   pickRate: number;
   /** The feed's letter grade for this augment on this champion (S, A, B, C), when it has one. */
   grade?: string;
+  /** Real win rate and games with the augment on this champion, when the data has them (AramHex). Never shown
+   *  raw on the site (augment win rates stay hidden, PR #551); they feed DeepScore. */
+  winRate?: number;
+  games?: number;
   /** The game's own build tags, as style names (lib/build-tags.ts). */
   tags: string[];
 };
@@ -240,7 +245,7 @@ export function championPage(alias: string): ChampionPage | null {
   const rows = (list: Raw[] | undefined) =>
     (list ?? [])
       .filter((r) => r.items.every((i) => all.has(i) && !rewards.has(i)))
-      .map((r) => ({ items: r.items, ...rated(r.win_rate, r.pick_rate) }));
+      .map((r) => ({ items: r.items, ...rated(r.win_rate, r.pick_rate), ...(r.games ? { games: r.games } : {}) }));
 
   const skills = (b?.skills ?? []).map((s) => ({
     max: s.max_order,
@@ -260,6 +265,7 @@ export function championPage(alias: string): ChampionPage | null {
       rarity: rarity.get(a.id) ?? "silver",
       pickRate: a.pick_rate,
       grade: a.grade,
+      ...(a.games && a.win_rate !== undefined ? { winRate: a.win_rate, games: a.games } : {}),
     }));
 
   // Win rate boost: the Duos list's numbers (lib/duos.ts), the synergy adjusted for how often a pair is played,

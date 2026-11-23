@@ -12,12 +12,31 @@ import { championEstimates } from "./estimates";
 // can't top the list. The estimate leans on each augment's effect over all champions, so on its own it would put a
 // generally strong augment over one this champion is graded S with. Ties fall back to pick rate. The timeframe
 // card ranks past patches the same way (lib/timeframe.ts).
+//
+// With real games and wins per champion and augment (AramHex, Nico 2026-11-21), DeepScore comes straight from them:
+// each augment's win rate shrunk toward the champion's list by its own sampling noise (lib/card-score.ts), and the
+// letter grade no longer goes first. Backtest (AramHex 16.20-16.23, 173 champions, augments in at least 1% of the
+// champion's games): the top 5 by real DeepScore led the champion by +3.9 / +4.5 / +4.8 pts on the next patch, vs
+// +1.1 / +1.9 / +2.0 for grade-then-popularity and +3.8 / +4.4 / +4.7 for grade-then-real-DeepScore. Holding an
+// augment and winning are correlated, not proof it causes the win (correlation rule).
 
 const IDS = championIds as Record<string, number>;
 
+/** A score map built from real games (grade no longer leads, byScore). */
+export type Scores = Map<number, number> & { real?: boolean };
+
 /** Augment id -> DeepScore on this champion; empty when there's no estimate. */
-export function augmentScores(alias: string): Map<number, number> {
+export function augmentScores(alias: string): Scores {
   const p = championPage(alias);
+  if (p && p.augments.length && p.augments.every((a) => a.games && a.winRate !== undefined)) {
+    const m: Scores = new Map(
+      scoreRows(p.augments.map((a) => ({ id: a.id, winRate: a.winRate!, pickRate: a.pickRate, games: a.games! }))).map(
+        (r) => [r.id, r.deepScore as number],
+      ),
+    );
+    m.real = true;
+    return m;
+  }
   const est = championEstimates(IDS[alias] ?? -1);
   if (!p || !est) return new Map();
   return new Map(
@@ -33,9 +52,9 @@ export function augmentScores(alias: string): Map<number, number> {
 const GRADE: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
 type Row = { id: number; pickRate: number; grade?: string };
 
-/** Compare two augment rows: better grade first, then higher DeepScore, then higher pick rate. */
-export const byScore = (scores: Map<number, number>) => (x: Row, y: Row) =>
-  (GRADE[y.grade ?? ""] ?? 0) - (GRADE[x.grade ?? ""] ?? 0) ||
+/** Compare two augment rows: better grade first (estimates only), then higher DeepScore, then higher pick rate. */
+export const byScore = (scores: Scores) => (x: Row, y: Row) =>
+  (scores.real ? 0 : (GRADE[y.grade ?? ""] ?? 0) - (GRADE[x.grade ?? ""] ?? 0)) ||
   (scores.get(y.id) ?? -1) - (scores.get(x.id) ?? -1) ||
   y.pickRate - x.pickRate;
 
