@@ -139,7 +139,7 @@ export default function PatchesPage() {
             <T ns="patches">
               Each patch, we take every champion&apos;s top 5 augments and top 3 items by DeepScore and check them on the next patch&apos;s games: how
               often they still beat the champion&apos;s average, and by how many points. The most picked ones are the baseline. Holding up is not
-              proof an augment causes the wins: augments taken late, by teams already ahead, also look good.
+              proof an augment causes the wins.
             </T>
           </p>
           <div className="recap-index">

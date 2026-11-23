@@ -53,9 +53,9 @@
  "Within noise": "Nel rumore",
  "Moved": "Si è mosso",
  "How our picks held up": "Come hanno retto le nostre scelte",
- "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins: augments taken late, by teams already ahead, also look good.": "A ogni patch prendiamo i 5 migliori potenziamenti e i 3 migliori oggetti di ogni campione secondo il DeepScore e li verifichiamo sulle partite della patch successiva: quante volte battono ancora la media del campione e di quanti punti. I più scelti sono il riferimento. Reggere non prova che un potenziamento causi le vittorie: quelli presi tardi, da squadre già in vantaggio, sembrano buoni anche loro.",
  "So far": "Per ora",
  "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "Potenziamenti: {hit} ancora avanti ({lead} pt), più scelti {phit} ({plead})",
  "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "Oggetti: {hit} ancora avanti ({lead} pt), più comprati {phit} ({plead})",
- "Top {n} champions: {kept} still above 50%": "Top {n} campioni: {kept} ancora sopra il 50%"
+ "Top {n} champions: {kept} still above 50%": "Top {n} campioni: {kept} ancora sopra il 50%",
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "A ogni patch prendiamo i 5 migliori potenziamenti e i 3 migliori oggetti di ogni campione secondo il DeepScore e li verifichiamo sulle partite della patch successiva: quante volte battono ancora la media del campione e di quanti punti. I più scelti sono il riferimento. Reggere non prova che un potenziamento causi le vittorie."
 }

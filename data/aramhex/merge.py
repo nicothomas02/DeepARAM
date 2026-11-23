@@ -263,15 +263,15 @@ def merge_builds(check, live):
         bt = boots.get(cid)
         if bt and bt["items"]:
             den = bt["all"][0]
-            pb = pooled_table(live, "boots", cid, "items")
-            it["boots"] = sorted((row([int(i)], g, w, den, pb) for i, (g, w) in bt["items"].items() if g >= MIN_ITEM_GAMES),
+            # Boots and items aren't pooled yet: they exist only for 16.22-16.23, so pooling can't be backtested on
+            # them until a third patch lands (Nico 2026-11-23: nothing ships on an assumption).
+            it["boots"] = sorted((row([int(i)], g, w, den) for i, (g, w) in bt["items"].items() if g >= MIN_ITEM_GAMES),
                                  key=lambda r: -r["games"])
             src["items.boots"] = "aramhex"
         ti = items.get(cid)
         if ti and ti["items"]:
             den = ti["all"][0]
-            po = pooled_table(live, "items", cid, "items")
-            it["other"] = sorted((row([int(i)], g, w, den, po) for i, (g, w) in ti["items"].items()
+            it["other"] = sorted((row([int(i)], g, w, den) for i, (g, w) in ti["items"].items()
                                   if g >= MIN_ITEM_GAMES and int(i) not in boot_ids), key=lambda r: -r["games"])
             src["items.other"] = "aramhex"
         tc = cores.get(cid)

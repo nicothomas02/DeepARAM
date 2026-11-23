@@ -53,9 +53,9 @@
  "Within noise": "Gürültü içinde",
  "Moved": "Kıpırdadı",
  "How our picks held up": "Seçimlerimiz ne kadar tuttu",
- "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins: augments taken late, by teams already ahead, also look good.": "Her yamada her şampiyonun DeepScore'a göre ilk 5 güçlendirmesini ve ilk 3 eşyasını alıp bir sonraki yamanın maçlarında kontrol ediyoruz: şampiyon ortalamasını ne sıklıkla ve kaç puanla geçmeye devam ettiklerini. En çok seçilenler karşılaştırma ölçütü. Tutması, güçlendirmenin galibiyete yol açtığını kanıtlamaz: zaten önde olan takımların geç aldığı güçlendirmeler de iyi görünür.",
  "So far": "Şimdilik",
  "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "Güçlendirmeler: {hit} hâlâ önde ({lead} puan), en çok seçilen {phit} ({plead})",
  "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "Eşyalar: {hit} hâlâ önde ({lead} puan), en çok alınan {phit} ({plead})",
- "Top {n} champions: {kept} still above 50%": "İlk {n} şampiyon: {kept} hâlâ %50 üstünde"
+ "Top {n} champions: {kept} still above 50%": "İlk {n} şampiyon: {kept} hâlâ %50 üstünde",
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "Her yamada her şampiyonun DeepScore'a göre ilk 5 güçlendirmesini ve ilk 3 eşyasını alıp bir sonraki yamanın maçlarında kontrol ediyoruz: şampiyon ortalamasını ne sıklıkla ve kaç puanla geçmeye devam ettiklerini. En çok seçilenler karşılaştırma ölçütü. Tutması, güçlendirmenin galibiyete yol açtığını kanıtlamaz."
 }

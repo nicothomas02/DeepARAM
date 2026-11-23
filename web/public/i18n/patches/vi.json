@@ -53,9 +53,9 @@
  "Within noise": "Trong mức nhiễu",
  "Moved": "Có dịch chuyển",
  "How our picks held up": "Lựa chọn của chúng tôi đúng đến đâu",
- "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins: augments taken late, by teams already ahead, also look good.": "Mỗi bản cập nhật, chúng tôi lấy 5 lõi nâng cấp và 3 trang bị hàng đầu của mỗi tướng theo DeepScore rồi kiểm tra trên các trận của bản sau: chúng vẫn vượt mức trung bình của tướng thường xuyên đến đâu và hơn bao nhiêu điểm. Những lựa chọn phổ biến nhất là mốc so sánh. Giữ vững không chứng minh lõi nâng cấp gây ra chiến thắng: lõi được chọn muộn bởi đội đã dẫn trước cũng trông tốt.",
  "So far": "Đến hiện tại",
  "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "Lõi nâng cấp: {hit} vẫn dẫn ({lead} điểm), phổ biến nhất {phit} ({plead})",
  "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "Trang bị: {hit} vẫn dẫn ({lead} điểm), mua nhiều nhất {phit} ({plead})",
- "Top {n} champions: {kept} still above 50%": "Top {n} tướng: {kept} vẫn trên 50%"
+ "Top {n} champions: {kept} still above 50%": "Top {n} tướng: {kept} vẫn trên 50%",
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "Mỗi bản cập nhật, chúng tôi lấy 5 lõi nâng cấp và 3 trang bị hàng đầu của mỗi tướng theo DeepScore rồi kiểm tra trên các trận của bản sau: chúng vẫn vượt mức trung bình của tướng thường xuyên đến đâu và hơn bao nhiêu điểm. Những lựa chọn phổ biến nhất là mốc so sánh. Giữ vững không chứng minh lõi nâng cấp gây ra chiến thắng."
 }

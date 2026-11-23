@@ -53,9 +53,9 @@
  "Within noise": "ノイズの範囲内",
  "Moved": "動いた",
  "How our picks held up": "私たちの選択はどれだけ当たったか",
- "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins: augments taken late, by teams already ahead, also look good.": "各パッチで、各チャンピオンのDeepScore上位5オーグメントと上位3アイテムを選び、次のパッチの試合で確認します。チャンピオンの平均をどれだけの頻度で上回り続けたか、何ポイント差か。最も選ばれたものが比較基準です。持続しても、オーグメントが勝利の原因とは限りません。既に有利なチームが後半に取るオーグメントも良く見えます。",
  "So far": "現時点",
  "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "オーグメント：{hit}が引き続き上回る（{lead}pt）、最多選択は{phit}（{plead}）",
  "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "アイテム：{hit}が引き続き上回る（{lead}pt）、最多購入は{phit}（{plead}）",
- "Top {n} champions: {kept} still above 50%": "上位{n}チャンピオン：{kept}が引き続き50%超"
+ "Top {n} champions: {kept} still above 50%": "上位{n}チャンピオン：{kept}が引き続き50%超",
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "各パッチで、各チャンピオンのDeepScore上位5オーグメントと上位3アイテムを選び、次のパッチの試合で確認します。チャンピオンの平均をどれだけの頻度で上回り続けたか、何ポイント差か。最も選ばれたものが比較基準です。持続しても、オーグメントが勝利の原因とは限りません。"
 }
