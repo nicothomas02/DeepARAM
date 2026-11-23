@@ -3,7 +3,8 @@ import championIds from "@/data/champion-ids.json";
 import itemFit from "@/data/item-fit.json";
 import { aramhexLatest } from "./aramhex-real";
 import { readRepoJson } from "./repo-data";
-import type { WhyData } from "./engine/build-engine";
+import { whyBest, type WhyData } from "./engine/build-engine";
+import { mechanismProfiles, whatItDoes, type Effect } from "./mechanisms";
 
 // The data behind the build engine's one-line "why it's best" (lib/engine whyBest; research/why-best section 5,
 // Nico approved 2026-11-23). Served at /data/why-best.json for the apps. Facts only, no win rates:
@@ -45,4 +46,35 @@ export function whyBestData(): WhyData {
     traits[alias] = { physical: c.cn.phys_share > phys, tank: c.cn.damage_taken_share > tank, melee: !c.ranged };
   }
   return { follow, kit: itemFit.items as WhyData["kit"], traits };
+}
+
+export type BuildWhy = {
+  /** Build items most of the champion's players end the game with. */
+  follow: number[];
+  /** One reason for each other item that has one: its kit trait, or what it does (estimated). */
+  lines: { id: number; kit?: "physical" | "carry" | "tank" | "melee"; effects?: Effect[] }[];
+};
+
+let cached: WhyData | undefined;
+/**
+ * The champion card's "Why these items" (Nico approved one-line reasons, 2026-11-23): the build engine's whyBest for
+ * each item of the card's build, so site and apps give the same reason. The site picks no augments, so no augment
+ * reasons here; texts are rebuilt from the reason kind so they translate. Items with no reason are left out.
+ */
+export function buildWhy(alias: string, ids: number[]): BuildWhy {
+  cached ??= whyBestData();
+  const profiles = mechanismProfiles() as Parameters<typeof whyBest>[5];
+  const out: BuildWhy = { follow: [], lines: [] };
+  for (const id of ids) {
+    const r = whyBest(id, alias, alias, [], cached, profiles);
+    if (!r) continue;
+    if (r.kind === "follow") out.follow.push(id);
+    else if (r.kind === "kit") out.lines.push({ id, kit: cached.kit[String(base(id))] as BuildWhy["lines"][number]["kit"] });
+    else if (r.kind === "does") {
+      // Only a gain is a reason to buy it: "-8% healing" (Hubris) explains nothing (2026-11-23, told the engine thread).
+      const effects = whatItDoes("items", base(id), { max: 5 }).filter((e) => e.n.startsWith(e.metric === "deaths" ? "-" : "+")).slice(0, 1);
+      if (effects.length) out.lines.push({ id, effects });
+    }
+  }
+  return out;
 }

@@ -10,6 +10,8 @@ import WinRate, { Sampled } from "@/components/WinRate";
 import DeepScore from "@/components/DeepScore";
 import { BUILD_DEEPSCORE_HELP, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
 import FewPlayers from "@/components/champion/FewPlayers";
+import BuildWhy from "@/components/champion/BuildWhy";
+import { buildWhy } from "@/lib/why-best";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
 import { championAliases, championSummary, champList, type RadarAxis } from "@/lib/champions";
@@ -397,6 +399,12 @@ export default async function ChampionPage({
             </li>
           ))}
         </ol>
+        <BuildWhy
+          why={buildWhy(c.alias, [...buildOrder(core), ...(core.full ?? []).map((r) => r.items[0])].filter((i) => i !== core.boots))}
+          champion={c.name}
+          championId={(championIds as Record<string, number>)[alias] ?? -1}
+          items={info}
+        />
         {!core.later?.length && (core.rest ?? []).length > 0 && (
           <p className="cp-rest">
             <small>

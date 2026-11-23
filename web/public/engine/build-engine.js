@@ -33,6 +33,7 @@ var DeepEngine = (() => {
     LUCKY_ODDS: () => LUCKY_ODDS,
     LUCKY_TILT: () => LUCKY_TILT,
     MEASURED_SWITCHES: () => MEASURED_SWITCHES,
+    MIN_HOLDERS: () => MIN_HOLDERS,
     PROVEN: () => PROVEN,
     REROLL_GAIN: () => REROLL_GAIN,
     RULES: () => RULES,
@@ -65,7 +66,7 @@ var DeepEngine = (() => {
 
   // src/data/augment-items.json
   var augment_items_default = {
-    note: "Augment -> item follow patterns confirmed in the owner's archived Mayhem lobbies (all ten players, 2026-11-23; research/why-best section 2): holders build the item far more often than the same champions without the augment, and mostly after picking it. rate = share of holders who built it, base = same champions without the augment. payoff = a measured output change, only where |z| >= 3; null = not measurable, so never claim a gain. Nico approved 2026-11-23: these are the only augment -> item tips.",
+    note: "Augment -> item follow patterns confirmed in the owner's archived Mayhem lobbies (all ten players, 2026-11-23; research/why-best section 2): holders build the item far more often than the same champions without the augment, and mostly after picking it. rate = share of holders who built it, base = same champions without the augment. payoff = a measured output change, only where |z| >= 3; null = not measurable, so never claim a gain. Nico approved 2026-11-23: these are the only augment -> item tips. holders = players who took the augment (archive); pairs under 50 holders are dropped by the build engine (MIN_HOLDERS, 2026-11-23).",
     pairs: [
       {
         augment: 1152,
@@ -74,7 +75,8 @@ var DeepEngine = (() => {
         itemName: "Heartsteel",
         rate: 0.991,
         base: 0.566,
-        payoff: null
+        payoff: null,
+        holders: 450
       },
       {
         augment: 1029,
@@ -83,7 +85,8 @@ var DeepEngine = (() => {
         itemName: "Nashor's Tooth",
         rate: 0.244,
         base: 0.081,
-        payoff: null
+        payoff: null,
+        holders: 636
       },
       {
         augment: 1118,
@@ -92,7 +95,8 @@ var DeepEngine = (() => {
         itemName: "Rite Of Ruin",
         rate: 0.207,
         base: 0.019,
-        payoff: null
+        payoff: null,
+        holders: 179
       },
       {
         augment: 1029,
@@ -101,7 +105,8 @@ var DeepEngine = (() => {
         itemName: "Lich Bane",
         rate: 0.189,
         base: 0.053,
-        payoff: null
+        payoff: null,
+        holders: 636
       },
       {
         augment: 1205,
@@ -110,7 +115,8 @@ var DeepEngine = (() => {
         itemName: "Hextech Gunblade",
         rate: 0.137,
         base: 0.02,
-        payoff: null
+        payoff: null,
+        holders: 351
       },
       {
         augment: 1311,
@@ -119,7 +125,8 @@ var DeepEngine = (() => {
         itemName: "Seraph's Embrace",
         rate: 0.401,
         base: 0.156,
-        payoff: null
+        payoff: null,
+        holders: 317
       },
       {
         augment: 1044,
@@ -128,7 +135,8 @@ var DeepEngine = (() => {
         itemName: "Rylai's Crystal Scepter",
         rate: 0.567,
         base: 0.262,
-        payoff: null
+        payoff: null,
+        holders: 353
       },
       {
         augment: 1134,
@@ -137,7 +145,8 @@ var DeepEngine = (() => {
         itemName: "Death's Dance",
         rate: 0.195,
         base: 0.024,
-        payoff: null
+        payoff: null,
+        holders: 185
       },
       {
         augment: 1048,
@@ -146,7 +155,8 @@ var DeepEngine = (() => {
         itemName: "Infinity Edge",
         rate: 0.403,
         base: 0.238,
-        payoff: null
+        payoff: null,
+        holders: 638
       },
       {
         augment: 1353,
@@ -155,7 +165,8 @@ var DeepEngine = (() => {
         itemName: "Warmog's Armor",
         rate: 0.449,
         base: 0.225,
-        payoff: null
+        payoff: null,
+        holders: 579
       },
       {
         augment: 2018,
@@ -164,7 +175,8 @@ var DeepEngine = (() => {
         itemName: "Nashor's Tooth",
         rate: 0.173,
         base: 0.031,
-        payoff: null
+        payoff: null,
+        holders: 208
       },
       {
         augment: 1206,
@@ -173,7 +185,8 @@ var DeepEngine = (() => {
         itemName: "Hextech Gunblade",
         rate: 0.124,
         base: 0.021,
-        payoff: null
+        payoff: null,
+        holders: 266
       },
       {
         augment: 1029,
@@ -182,7 +195,8 @@ var DeepEngine = (() => {
         itemName: "Blade of The Ruined King",
         rate: 0.209,
         base: 0.095,
-        payoff: null
+        payoff: null,
+        holders: 636
       },
       {
         augment: 1029,
@@ -191,7 +205,8 @@ var DeepEngine = (() => {
         itemName: "Dusk and Dawn",
         rate: 0.208,
         base: 0.105,
-        payoff: null
+        payoff: null,
+        holders: 636
       },
       {
         augment: 1030,
@@ -200,7 +215,8 @@ var DeepEngine = (() => {
         itemName: "Rabadon's Deathcap",
         rate: 0.659,
         base: 0.464,
-        payoff: null
+        payoff: null,
+        holders: 622
       },
       {
         augment: 1324,
@@ -209,7 +225,8 @@ var DeepEngine = (() => {
         itemName: "Locket of the Iron Solari",
         rate: 0.238,
         base: 0.034,
-        payoff: null
+        payoff: null,
+        holders: 84
       },
       {
         augment: 1311,
@@ -218,7 +235,8 @@ var DeepEngine = (() => {
         itemName: "Actualizer",
         rate: 0.12,
         base: 0.032,
-        payoff: null
+        payoff: null,
+        holders: 317
       },
       {
         augment: 1152,
@@ -229,7 +247,8 @@ var DeepEngine = (() => {
         base: 0.103,
         payoff: {
           dmg: 0.23
-        }
+        },
+        holders: 450
       },
       {
         augment: 1002,
@@ -240,7 +259,8 @@ var DeepEngine = (() => {
         base: 0.134,
         payoff: {
           heal: 0.417
-        }
+        },
+        holders: 195
       },
       {
         augment: 1390,
@@ -249,7 +269,8 @@ var DeepEngine = (() => {
         itemName: "Rabadon's Deathcap",
         rate: 0.56,
         base: 0.401,
-        payoff: null
+        payoff: null,
+        holders: 673
       },
       {
         augment: 1129,
@@ -258,7 +279,8 @@ var DeepEngine = (() => {
         itemName: "Nashor's Tooth",
         rate: 0.275,
         base: 0.154,
-        payoff: null
+        payoff: null,
+        holders: 382
       },
       {
         augment: 1356,
@@ -267,7 +289,8 @@ var DeepEngine = (() => {
         itemName: "Infinity Edge",
         rate: 0.812,
         base: 0.636,
-        payoff: null
+        payoff: null,
+        holders: 404
       },
       {
         augment: 1225,
@@ -276,7 +299,8 @@ var DeepEngine = (() => {
         itemName: "Blade of The Ruined King",
         rate: 0.54,
         base: 0.351,
-        payoff: null
+        payoff: null,
+        holders: 389
       },
       {
         augment: 1056,
@@ -285,7 +309,8 @@ var DeepEngine = (() => {
         itemName: "Fimbulwinter",
         rate: 0.175,
         base: 0.064,
-        payoff: null
+        payoff: null,
+        holders: 269
       },
       {
         augment: 2010,
@@ -294,7 +319,8 @@ var DeepEngine = (() => {
         itemName: "Blade of The Ruined King",
         rate: 0.517,
         base: 0.33,
-        payoff: null
+        payoff: null,
+        holders: 323
       },
       {
         augment: 1225,
@@ -303,13 +329,14 @@ var DeepEngine = (() => {
         itemName: "Kraken Slayer",
         rate: 0.278,
         base: 0.148,
-        payoff: null
+        payoff: null,
+        holders: 389
       }
     ]
   };
 
   // src/lib/engine/build-engine.ts
-  var ENGINE_VERSION = "1.2.0";
+  var ENGINE_VERSION = "1.2.1";
   var RULES = {
     // Backed by data or the game's own rules: on.
     itemLimits: { source: "game data", on: true, why: "The game's own-only-one groups; never broken in 1,730 public full builds or 1,245 archived games (Immolate and Hydras excepted)." },
@@ -532,7 +559,8 @@ var DeepEngine = (() => {
   var R_PASSIVE = /* @__PURE__ */ new Set(["ambessa", "annie", "belveth", "blitzcrank", "fiora", "galio", "gnar", "jax", "kayn", "khazix", "lux", "masteryi", "mel", "nidalee", "olaf", "pantheon", "reksai", "rengar", "ryze", "shyvana", "sona", "syndra", "teemo", "xinzhao", "zaahen"]);
   var BUILD_CHANGERS = { 1029: ["onhit"], 2018: ["ap"], 2123: ["ap"], 1388: ["ap"], 1205: ["ap"], 1206: ["lethality", "fighter"], 3049: ["tank"], 1324: ["tank"], 1353: ["tank"] };
   var MEASURED_SWITCHES = { 1029: "onhit" };
-  var AUGMENT_ITEMS = augment_items_default.pairs;
+  var MIN_HOLDERS = 50;
+  var AUGMENT_ITEMS = augment_items_default.pairs.filter((p) => p.holders >= MIN_HOLDERS);
   var PAYOFF_WORD = { dmg: "damage", heal: "healing", mitig: "damage mitigated" };
   function augmentItemWhy(p) {
     const pct = (x) => `${Math.round(x * 100)}%`;

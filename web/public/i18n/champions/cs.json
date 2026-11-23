@@ -303,5 +303,11 @@
  "Unverified": "Neověřeno",
  "The augment upgrades this item.": "Augment tento předmět vylepší.",
  "Players who take this augment build this item far more often.": "Hráči s tímto augmentem staví tento předmět mnohem častěji.",
- "Replaces": "Nahrazuje"
+ "Replaces": "Nahrazuje",
+ "Why these items": "Proč tyto předměty",
+ "Built by most {champion} players.": "Staví ho většina hráčů za {champion}.",
+ "Fits {champion}'s physical damage.": "Hodí se k fyzickému poškození {champion}.",
+ "Fits a carry, not a tank.": "Pro carry, ne pro tanka.",
+ "Fits a champion who takes the hits.": "Pro šampiona, který schytává rány.",
+ "Stronger on melee champions.": "Silnější na šampionech na blízko."
 }

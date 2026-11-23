@@ -303,5 +303,11 @@
  "Unverified": "Unverified",
  "The augment upgrades this item.": "The augment upgrades this item.",
  "Players who take this augment build this item far more often.": "Players who take this augment build this item far more often.",
- "Replaces": "Replaces"
+ "Replaces": "Replaces",
+ "Why these items": "Why these items",
+ "Built by most {champion} players.": "Built by most {champion} players.",
+ "Fits {champion}'s physical damage.": "Fits {champion}'s physical damage.",
+ "Fits a carry, not a tank.": "Fits a carry, not a tank.",
+ "Fits a champion who takes the hits.": "Fits a champion who takes the hits.",
+ "Stronger on melee champions.": "Stronger on melee champions."
 }

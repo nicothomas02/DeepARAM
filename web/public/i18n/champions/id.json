@@ -303,5 +303,11 @@
  "Unverified": "Belum terverifikasi",
  "The augment upgrades this item.": "Augment ini meningkatkan item ini.",
  "Players who take this augment build this item far more often.": "Pemain yang mengambil augment ini jauh lebih sering membangun item ini.",
- "Replaces": "Menggantikan"
+ "Replaces": "Menggantikan",
+ "Why these items": "Kenapa item ini",
+ "Built by most {champion} players.": "Dibuat oleh sebagian besar pemain {champion}.",
+ "Fits {champion}'s physical damage.": "Cocok dengan physical damage {champion}.",
+ "Fits a carry, not a tank.": "Untuk carry, bukan tank.",
+ "Fits a champion who takes the hits.": "Untuk champion yang menahan serangan.",
+ "Stronger on melee champions.": "Lebih kuat di champion melee."
 }

@@ -303,5 +303,11 @@
  "Unverified": "未驗證",
  "The augment upgrades this item.": "該強化會升級這件裝備。",
  "Players who take this augment build this item far more often.": "選這個強化的玩家出這件裝備的頻率高得多。",
- "Replaces": "取代"
+ "Replaces": "取代",
+ "Why these items": "為什麼選這些裝備",
+ "Built by most {champion} players.": "大多數{champion}玩家都會出。",
+ "Fits {champion}'s physical damage.": "契合{champion}的物理傷害。",
+ "Fits a carry, not a tank.": "適合核心輸出，不適合坦克。",
+ "Fits a champion who takes the hits.": "適合承受傷害的英雄。",
+ "Stronger on melee champions.": "近戰英雄更強。"
 }

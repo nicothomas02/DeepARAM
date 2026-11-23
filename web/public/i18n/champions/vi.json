@@ -303,5 +303,11 @@
  "Unverified": "Chưa xác minh",
  "The augment upgrades this item.": "Lõi nâng cấp trang bị này.",
  "Players who take this augment build this item far more often.": "Người chọn lõi này lên trang bị này thường xuyên hơn nhiều.",
- "Replaces": "Thay cho"
+ "Replaces": "Thay cho",
+ "Why these items": "Vì sao chọn các trang bị này",
+ "Built by most {champion} players.": "Phần lớn người chơi {champion} lên món này.",
+ "Fits {champion}'s physical damage.": "Hợp với sát thương vật lý của {champion}.",
+ "Fits a carry, not a tank.": "Dành cho carry, không phải đỡ đòn.",
+ "Fits a champion who takes the hits.": "Dành cho tướng chịu đòn.",
+ "Stronger on melee champions.": "Mạnh hơn trên tướng cận chiến."
 }

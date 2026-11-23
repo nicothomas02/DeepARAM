@@ -303,5 +303,11 @@
  "Unverified": "未確認",
  "The augment upgrades this item.": "このオーグメントがこのアイテムを強化します。",
  "Players who take this augment build this item far more often.": "このオーグメントを選んだプレイヤーは、このアイテムをはるかに多く作ります。",
- "Replaces": "置き換え:"
+ "Replaces": "置き換え:",
+ "Why these items": "これらのアイテムの理由",
+ "Built by most {champion} players.": "{champion}プレイヤーの多くが購入。",
+ "Fits {champion}'s physical damage.": "{champion}の物理ダメージに合う。",
+ "Fits a carry, not a tank.": "タンクではなくキャリー向け。",
+ "Fits a champion who takes the hits.": "攻撃を受け止めるチャンピオン向け。",
+ "Stronger on melee champions.": "近接チャンピオンでより強力。"
 }

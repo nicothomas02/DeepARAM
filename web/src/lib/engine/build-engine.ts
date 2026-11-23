@@ -21,7 +21,7 @@
 
 import augmentItemsData from "../../data/augment-items.json";
 
-export const ENGINE_VERSION = "1.2.0";
+export const ENGINE_VERSION = "1.2.1";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -432,8 +432,11 @@ export const BUILD_CHANGERS: Record<number, string[]> = { 1029: ["onhit"], 2018:
 // Measured augment -> build switches (website thread, 2026-11-23): the only ones on.
 export const MEASURED_SWITCHES: Record<number, string> = { 1029: "onhit" };
 // Confirmed augment -> item follow patterns (data/augment-items.json, shared with the site's lib/build-plan.ts).
-export type AugmentItem = { augment: number; augmentName: string; item: number; itemName: string; rate: number; base: number; payoff: Record<string, number> | null };
-export const AUGMENT_ITEMS: AugmentItem[] = augmentItemsData.pairs as AugmentItem[];
+export type AugmentItem = { augment: number; augmentName: string; item: number; itemName: string; rate: number; base: number; payoff: Record<string, number> | null; holders: number };
+/** A with-vs-without comparison needs enough augment games: pairs with fewer holders are dropped (2026-11-23, owner-games
+ *  reliance review; hides none of today's 26, the fewest is Protein Shake at 84). */
+export const MIN_HOLDERS = 50;
+export const AUGMENT_ITEMS: AugmentItem[] = (augmentItemsData.pairs as AugmentItem[]).filter((p) => p.holders >= MIN_HOLDERS);
 const PAYOFF_WORD: Record<string, string> = { dmg: "damage", heal: "healing", mitig: "damage mitigated" };
 /** "With Draw Your Sword, 19% of players build Death's Dance (2% without it)." Payoff words only where measured. */
 export function augmentItemWhy(p: Pick<AugmentItem, "augmentName" | "itemName" | "rate" | "base" | "payoff">): string {
