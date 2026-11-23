@@ -1,4 +1,7 @@
 {
+ "augments_with_items": [
+  "3081"
+ ],
  "datasets": {
   "patches/16.19/first-prismatic": {
    "bands": false,
