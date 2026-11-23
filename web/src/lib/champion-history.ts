@@ -4,6 +4,7 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { itemClasses, itemParts, itemSituation, itemTier, items, ranked, rewardItems } from "./items";
 import { readRepoJson, repoHas, repoPath } from "./repo-data";
+import type { SlotCounts } from "./card-score";
 import type { HistFile, HistPatch, ItemMeta, Rarity } from "./timeframe";
 
 // Each champion's saved build numbers per patch (data/cn/builds_history.py), for the top card's timeframe picker.
@@ -79,6 +80,12 @@ export function championHistory(alias: string): HistFile | null {
       skills: c.skills.map((k) => ({ max: k.max_order, pick: k.pick_rate, win: k.win_rate })),
       items: lists,
     };
+  }
+  // The slot players buy each of these items in (data/estimates/item_slots.json), for the 4th to 6th item columns.
+  const slotData = readRepoJson<{ all: SlotCounts; champions: Record<string, SlotCounts> }>("data/estimates/item_slots.json");
+  if (slotData) {
+    const pick = (m: SlotCounts | undefined) => Object.fromEntries(Object.entries(m ?? {}).filter(([i]) => out.items[i]));
+    out.itemSlots = { champ: pick(slotData.champions[String(id)]), all: pick(slotData.all) };
   }
   return out;
 }

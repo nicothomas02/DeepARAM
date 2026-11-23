@@ -26,6 +26,11 @@ export type QuickBuild = {
   items: Named[];
   /** The rest of the usual six-item build after the core, most built first. */
   rest: Named[];
+  /** The items to buy after the core, one by one with their own numbers, as on the champion page's card
+   *  (lib/card-score.ts laterItems). */
+  later: LaterItem[];
+  /** The same items split by the slot players buy them in (4th, 5th, 6th item), when the buying order is known. */
+  laterSlots: { slot: number; items: LaterItem[] }[];
   /** Items to swap in after the core, each with when to buy it ("Vs healing"), as on the champion page's card. */
   situational: (Named & { when: string })[];
   /** Components to rush for the first core item. */
@@ -36,8 +41,11 @@ export type QuickBuild = {
   augments: Record<Rarity, (Named & { deepScore?: number })[]>;
   /** With two or more build styles (crit and AP Ashe): each style's own card, best DeepScore first; the fields above
    *  are the first one's. Augments per style are estimated (build tags). Same switch as the champion page. */
-  builds: (Pick<QuickBuild, "start" | "items" | "rest" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number })[];
+  builds: (Pick<QuickBuild, "start" | "items" | "rest" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number })[];
 };
+
+/** No raw win or pick rates: the quick build feeds the public app's overlay (tests/unit/overlay-data.test.ts). */
+type LaterItem = Named & { deepScore: number | null };
 
 export function quickBuilds(): QuickBuild[] {
   const tiers = new Map(liveTiers().map((t) => [t.id, t]));
@@ -49,10 +57,16 @@ export function quickBuilds(): QuickBuild[] {
     // best item for each situation.
     const named = (i: number | undefined) =>
       i !== undefined && p.itemInfo[i] ? { name: p.itemInfo[i].name, icon: p.itemInfo[i].icon ?? null } : null;
+    const laterOf = (r: ItemRow) => {
+      const n = named(r.items[0]);
+      return n ? [{ ...n, deepScore: r.deepScore ?? null }] : [];
+    };
     const pieces = (core: ItemRow | undefined, st: ItemRow | null, situ: SituationRow[], rushIds: number[]) => ({
       items: (core ? buildOrder(core) : []).flatMap((i) => named(i) ?? []),
       start: (st?.items ?? []).flatMap((i) => named(i) ?? []),
       rest: (core?.rest ?? []).flatMap((i) => named(i) ?? []),
+      later: (core?.later ?? []).flatMap(laterOf),
+      laterSlots: (core?.slots ?? []).map((sl) => ({ slot: sl.slot, items: sl.items.flatMap(laterOf) })),
       situational: situ.flatMap((s) => {
         const n = named(s.options[0]?.items[0]);
         return n ? [{ ...n, when: SITUATIONS[s.situation] }] : [];
@@ -91,7 +105,7 @@ export function quickBuilds(): QuickBuild[] {
       augments: augsOf(b.augments),
     }));
     const first = builds[0] ?? { ...pieces(p.core[0], p.cardStart, p.situational, p.rush), augments: augsOf() };
-    const { start, items, rest, situational, rush, augments } = first;
+    const { start, items, rest, later, laterSlots, situational, rush, augments } = first;
     return [
       {
         id,
@@ -104,6 +118,8 @@ export function quickBuilds(): QuickBuild[] {
         start,
         items,
         rest,
+        later,
+        laterSlots,
         situational,
         rush,
         swaps,

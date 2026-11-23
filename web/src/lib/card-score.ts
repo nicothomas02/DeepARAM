@@ -16,6 +16,10 @@ export type ItemRow = Rated & {
   bootsAt?: number;
   /** Core builds: the rest of the usual six-item build, most built first (lib/build-plan.ts restOfBuild). */
   rest?: number[];
+  /** Core builds: the single items to buy after the core, one by one with their own numbers (laterItems). */
+  later?: ItemRow[];
+  /** The same items split by the slot they're bought in (4th, 5th, 6th legendary), when purchase order is known. */
+  slots?: { slot: number; items: ItemRow[] }[];
 };
 
 /** A row's items in the order they're bought: the boots go in at bootsAt (after the core when it isn't known). */
@@ -160,4 +164,72 @@ export function bestRow<T extends Rated>(rows: T[], min = 0.02): T | null {
   return common.length
     ? common.reduce((a, r) => (r.winRate > a.winRate ? r : a))
     : null;
+}
+
+/** How many single items the card lists after the core. */
+export const LATER_ITEMS = 5;
+
+/**
+ * The items to buy after the core, listed one by one with their own numbers (Nico, 2026-11-23: core, then the rest
+ * of the items singly above the situational ones). From a pool already ranked for this core (bought with it first,
+ * then DeepScore): the same shop style as the core, not a core item or its boots, those with a real following first.
+ */
+export function laterItems<T extends ItemRow>(pool: T[], core: ItemRow, classesOf: (id: number) => string[], n = LATER_ITEMS): T[] {
+  const skip = new Set([...core.items, ...(core.boots !== undefined ? [core.boots] : [])]);
+  return followed(sameStyle(pool.filter((r) => !skip.has(r.items[0])), core.items, classesOf)).slice(0, n);
+}
+
+/** Per item id: how many players first bought it as their 1st to 6th legendary (data/estimates/item_slots.json). */
+export type SlotCounts = Record<string, number[]>;
+/** Champion counts lean on the item's all-champion slot split until they have about this many buys after the core. */
+const SLOT_PRIOR = 10;
+/** An item is listed in a slot once at least this share of its buys after the core land there. */
+const SLOT_SHARE = 0.34;
+/** Items per slot. */
+export const PER_SLOT = 3;
+
+/**
+ * The items after the core split into the 4th, 5th and 6th item slots (Nico, 2026-11-23). Which items and their
+ * order (best DeepScore first among followed items) are laterItems' pool; only the slot comes from purchase order.
+ * An item is listed in every slot that holds at least SLOT_SHARE of its later buys (the champion's own counts,
+ * shrunk to the item's split over all champions). Slots left short fill with the closest remaining items.
+ * Null when no item has purchase-order data.
+ */
+export function slotItems<T extends ItemRow>(
+  pool: T[],
+  core: ItemRow,
+  classesOf: (id: number) => string[],
+  champ: SlotCounts | undefined,
+  all: SlotCounts | undefined,
+  per = PER_SLOT,
+): { slot: number; items: T[] }[] | null {
+  const first = core.items.length + 1;
+  const slots = Array.from({ length: Math.max(0, 7 - first) }, (_, k) => first + k);
+  if (!slots.length || !all) return null;
+  const cands = laterItems(pool, core, classesOf, 12);
+  const shares = new Map<number, number[]>();
+  for (const r of cands) {
+    // Counts are keyed by the base item id; the card may hold the mode's copy (223031 for 3031).
+    const id = String(r.items[0] >= 100000 ? r.items[0] % 10000 : r.items[0]);
+    const a = slots.map((s) => all[id]?.[s - 1] ?? 0);
+    const aTot = a.reduce((t, x) => t + x, 0);
+    if (!aTot) continue;
+    const c = slots.map((s) => champ?.[id]?.[s - 1] ?? 0);
+    const cTot = c.reduce((t, x) => t + x, 0);
+    shares.set(r.items[0], c.map((x, k) => (x + (SLOT_PRIOR * a[k]) / aTot) / (cTot + SLOT_PRIOR)));
+  }
+  if (!shares.size) return null;
+  const out = slots.map((slot, k) => ({
+    slot,
+    items: cands.filter((r) => (shares.get(r.items[0])?.[k] ?? 0) >= SLOT_SHARE).slice(0, per),
+  }));
+  out.forEach((o, k) => {
+    if (o.items.length >= per) return;
+    const listed = new Set(o.items.map((r) => r.items[0]));
+    const rest = cands
+      .filter((r) => shares.has(r.items[0]) && !listed.has(r.items[0]))
+      .sort((x, y) => shares.get(y.items[0])![k] - shares.get(x.items[0])![k]);
+    o.items = [...o.items, ...rest.slice(0, per - o.items.length)].sort((x, y) => cands.indexOf(x) - cands.indexOf(y));
+  });
+  return out;
 }
