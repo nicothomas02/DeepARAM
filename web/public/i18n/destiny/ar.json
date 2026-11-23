@@ -41,5 +41,13 @@
  "Predicted": "متوقع",
  "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.": "متوقع: لا تكشف الإحصائيات أي المباريات كان فيها سلاح المصير، لذا تُرتَّب العناصر حسب قيمة إحصائياتها عند الترقية، لا حسب نسبة فوزها.",
  "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.": "أفضل عنصر لكل بطل ليكون سلاح المصير: تتم ترقية كل عنصر مرشح في معارك محاكاة ببناء البطل الأكثر شيوعًا، ويفوز العنصر الذي يجعله الأقوى.",
- "Simulated. Champions near the top gain the most from the augment in fights.": "محاكاة. الأبطال في الأعلى يستفيدون أكثر من هذا التعزيز في المعارك."
+ "Simulated. Champions near the top gain the most from the augment in fights.": "محاكاة. الأبطال في الأعلى يستفيدون أكثر من هذا التعزيز في المعارك.",
+ "DeepScore rates each item from 0 to 100 against the others, where 50 is average: its win rate in games where it was the Weapon of Destiny, above what its champions usually win with the augment, trusted more the more games it has. Tiers: S 70+, A 59+, B 44+, C 32+, D below.": "يقيّم DeepScore كل عنصر من 0 إلى 100 مقارنةً بالعناصر الأخرى، والمتوسط 50: نسبة فوزه في المباريات التي كان فيها سلاح القدر، فوق ما يفوز به أبطاله عادةً مع هذا التعزيز، وتزداد الثقة به كلما زادت مبارياته. المستويات: S 70+، A 59+، B 44+، C 32+، D أقل.",
+ "Games with Weapon of Destiny where this was the first Legendary item, so the Weapon.": "مباريات سلاح القدر التي كان فيها هذا أول عنصر أسطوري، أي السلاح.",
+ "Games": "المباريات",
+ "The champion who makes it their Weapon of Destiny most often.": "البطل الذي يجعله سلاح القدر أكثر من غيره.",
+ "From real games with Weapon of Destiny. A high score means the item did well as the Weapon, which can also come from the games and players who pick it: correlated, not proof it causes the wins.": "من مباريات حقيقية مع سلاح القدر. الدرجة العالية تعني أن العنصر أدّى جيدًا كسلاح، وقد يعود ذلك أيضًا إلى المباريات واللاعبين الذين يختارونه: ارتباط، لا دليل على أنه سبب الفوز.",
+ "How the best item does on this champion, 0 to 100 against every champion's best item: its win rate as the Weapon above the champion's usual win rate with the augment, trusted more the more games it has.": "أداء أفضل عنصر على هذا البطل، من 0 إلى 100 مقارنةً بأفضل عنصر لكل بطل: نسبة فوزه كسلاح فوق نسبة البطل المعتادة مع التعزيز، وتزداد الثقة كلما زادت المباريات.",
+ "The second-best item to make the Weapon for this champion.": "ثاني أفضل عنصر لجعله السلاح مع هذا البطل.",
+ "Each champion's best item to make its Weapon of Destiny, from real games with the augment: among the items it often makes its Weapon, the one that wins most above its usual.": "أفضل عنصر لكل بطل ليكون سلاح القدر، من مباريات حقيقية مع التعزيز: من بين العناصر التي يجعلها سلاحًا كثيرًا، الذي يفوز أكثر فوق المعتاد."
 }

@@ -1,5 +1,6 @@
 // Pentakill tab: every row is a champion with a page, the start pick is a basic ability, the level 18 pick is
-// another ability (the ultimate allowed) and both come with the champion's own ability name and icon.
+// another ability (the ultimate allowed), both come with the champion's own ability name and icon, and the picks
+// come from real games (AramHex).
 import { describe, expect, it } from "vitest";
 import championIds from "@/data/champion-ids.json";
 import { championUpgrades } from "@/lib/champion-upgrades";
@@ -24,13 +25,18 @@ describe("Pentakill picks", () => {
     }
   });
 
-  it("keeps the boost in line with the simulated gains", () => {
+  it("scores from real games, and a close call is another basic ability", () => {
+    // Since AramHex (2026-11-23): DeepScores in range, real games behind every row.
     for (const r of rows) {
-      // The start pick is the best of the three, so it never loses to doing nothing by much.
-      expect(r.startGain, r.champion).toBeGreaterThan(-0.02);
-      expect(Math.abs(r.boost), r.champion).toBeLessThan(0.05);
-      expect(Math.sign(r.boost) || 1, r.champion).toBe(Math.sign(r.startGain + 0.35 * r.level18Gain) || 1);
-      expect(r.margin, r.champion).toBeGreaterThanOrEqual(0);
+      for (const v of [r.startScore, r.level18Score]) {
+        expect(v, r.champion).toBeGreaterThanOrEqual(0);
+        expect(v, r.champion).toBeLessThanOrEqual(100);
+      }
+      expect(r.games, r.champion).toBeGreaterThanOrEqual(200);
+      if (r.closeCall) {
+        expect(["Q", "W", "E"], r.champion).toContain(r.closeCall);
+        expect(r.closeCall, r.champion).not.toBe(r.start);
+      }
     }
   });
 });

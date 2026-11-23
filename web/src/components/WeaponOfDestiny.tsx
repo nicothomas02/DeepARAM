@@ -6,10 +6,9 @@ import type { DestinyChampionRow } from "@/lib/weapon-of-destiny";
 import { getParam, setParams } from "@/lib/url-state";
 import { useNames, useT } from "./I18n";
 
-// The Tier List's Weapon of Destiny tab (?tab=weapon-of-destiny): every Legendary item ranked by stat value, labelled
-// Predicted, since the stats can't tell which games had the augment (lib/weapon-of-destiny.ts, Nico 2026-10-27).
-// "By champion" (?wview=champions) shows each champion's own best item instead, from simulated upgrades. Rows are
-// built here so the item names and stats show in the page's language.
+// The Tier List's Weapon of Destiny tab (?tab=weapon-of-destiny): Legendary items ranked by how they do as the Weapon
+// in real games with the augment (AramHex, lib/weapon-of-destiny.ts). "By champion" (?wview=champions) shows each
+// champion's own best item instead. Rows are built here so the item names and stats show in the page's language.
 
 type Item = {
   id: number;
@@ -18,6 +17,7 @@ type Item = {
   icon: string;
   perTakedown: Record<string, number>;
   share: number;
+  games: number;
   score: number;
   tier: string;
   rank: number;
@@ -77,48 +77,29 @@ export default function WeaponOfDestiny({
       )
       .join(", ");
 
-  const valueHelp = t(
-    "Stat value rates each item from 0 to 100 against the others, where 50 is average. Each of its stats counts by how much it's worth to upgrade, most for stats that multiply all your damage such as Critical Strike Damage or Armor Penetration, and by how few Legendary items give it. Tiers: S 70+, A 59+, B 44+, C 32+, D below.",
+  const scoreHelp = t(
+    "DeepScore rates each item from 0 to 100 against the others, where 50 is average: its win rate in games where it was the Weapon of Destiny, above what its champions usually win with the augment, trusted more the more games it has. Tiers: S 70+, A 59+, B 44+, C 32+, D below.",
   );
+  const gamesHelp = t("Games with Weapon of Destiny where this was the first Legendary item, so the Weapon.");
   const columns: Column[] = [
-    {
-      key: "tier",
-      label: t("Tier"),
-      format: "tier",
-      sortKey: "rank",
-      hint: valueHelp,
-    },
-    {
-      key: "name",
-      label: t("Item"),
-      format: "item",
-      iconKey: "icon",
-      hrefKey: "href",
-    },
-    {
-      key: "score",
-      label: t("Stat value"),
-      format: "deepscore",
-      sortKey: "rank",
-      hint: valueHelp,
-    },
+    { key: "tier", label: t("Tier"), format: "tier", sortKey: "rank", hint: scoreHelp },
+    { key: "name", label: t("Item"), format: "item", iconKey: "icon", hrefKey: "href" },
+    { key: "score", label: "DeepScore", format: "deepscore", sortKey: "rank", hint: scoreHelp },
+    { key: "games", label: t("Games"), format: "int", hint: gamesHelp },
     {
       key: "stats",
       label: t("Each takedown"),
       format: "text",
       sortable: false,
       phone: "hide",
-      hint: t(
-        "What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.",
-        { gold },
-      ),
+      hint: t("What one takedown adds to the item: {gold} gold worth of its own stats, shared equally.", { gold }),
     },
     {
       key: "best",
       label: t("Best with"),
       format: "champion-icon",
       sortable: false,
-      hint: t("The champion who would upgrade it most often."),
+      hint: t("The champion who makes it their Weapon of Destiny most often."),
     },
   ];
   const rows: Row[] = items.map((i) => ({
@@ -129,32 +110,27 @@ export default function WeaponOfDestiny({
     tier: i.tier,
     score: i.score,
     rank: i.rank,
+    games: i.games,
     stats: perTakedown(i.perTakedown),
     best: i.best,
   }));
 
   const why = t(
-    "Predicted: the stats can't tell which games had Weapon of Destiny, so items are ranked by how valuable their stats are to upgrade, not by how they win.",
+    "From real games with Weapon of Destiny. A high score means the item did well as the Weapon, which can also come from the games and players who pick it: correlated, not proof it causes the wins.",
   );
 
   const championColumns: Column[] = [
     { key: "champion", label: t("Champion"), format: "champion" },
+    { key: "item", label: t("Best item"), format: "item", iconKey: "icon", hrefKey: "href", sortable: false },
     {
-      key: "item",
-      label: t("Best item"),
-      format: "item",
-      iconKey: "icon",
-      hrefKey: "href",
-      sortable: false,
-    },
-    {
-      key: "power",
-      label: t("Fight power"),
-      format: "pct",
+      key: "score",
+      label: "DeepScore",
+      format: "deepscore",
       hint: t(
-        "Simulated. How much stronger the upgraded item makes the champion in fights, with half its usual takedowns per game.",
+        "How the best item does on this champion, 0 to 100 against every champion's best item: its win rate as the Weapon above the champion's usual win rate with the augment, trusted more the more games it has.",
       ),
     },
+    { key: "games", label: t("Games"), format: "int", phone: "hide", hint: gamesHelp },
     {
       key: "next",
       label: t("Next best"),
@@ -162,7 +138,7 @@ export default function WeaponOfDestiny({
       hrefKey: "nextHref",
       sortable: false,
       phone: "hide",
-      hint: t("The second-best item to upgrade for this champion."),
+      hint: t("The second-best item to make the Weapon for this champion."),
     },
   ];
   const championRows: Row[] = champions.map((c) => ({
@@ -170,7 +146,8 @@ export default function WeaponOfDestiny({
     item: names("items", c.item.id, c.item.name),
     icon: c.item.icon,
     href: `/items/${c.item.slug}`,
-    power: c.power,
+    score: c.score,
+    games: c.games,
     next: c.next ? names("items", c.next.id, c.next.name) : null,
     nextHref: c.next ? `/items/${c.next.slug}` : null,
   }));
@@ -183,9 +160,6 @@ export default function WeaponOfDestiny({
         role="group"
         aria-label={t("View")}
       >
-        <span className="tag tag-mixed" title={why}>
-          {t("Predicted")}
-        </span>
         {champions.length > 0 && (
           <>
             <button
@@ -206,37 +180,25 @@ export default function WeaponOfDestiny({
             </button>
           </>
         )}
-        {view === "champions" && (
-          <span
-            className="tag tag-mixed"
-            title={t(
-              "Simulated: picked from simulated fights with each champion's most popular build.",
-            )}
-          >
-            {t("Simulated")}
-          </span>
-        )}
       </div>
       {view === "champions" ? (
         <>
           <p className="patch-note subtab-note">
             {t(
-              "Each champion's best item to make its Weapon of Destiny: every candidate is upgraded in simulated fights with the champion's most popular build, and the one that makes it strongest wins.",
+              "Each champion's best item to make its Weapon of Destiny, from real games with the augment: among the items it often makes its Weapon, the one that wins most above its usual.",
             )}
           </p>
           <DataTable
             key="champions"
             columns={championColumns}
             rows={championRows}
-            initialSort={{ key: "power", desc: true }}
+            initialSort={{ key: "score", desc: true }}
             searchKey="champion"
             searchLabel={t("Find a champion")}
             urlTab="weapon-of-destiny"
           />
           <p className="patch-note">
-            {t(
-              "Simulated. Champions near the top gain the most from the augment in fights.",
-            )}
+            {why}
           </p>
         </>
       ) : (

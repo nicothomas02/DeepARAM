@@ -5,11 +5,8 @@ import type { PentakillRow } from "@/lib/pentakill";
 import { useNames, useT } from "./I18n";
 
 // The Tier List's Pentakill tab (?tab=pentakill): the ability each champion should Empower at the start of a
-// Pentakill game and the one to add at level 18, judged by what it adds to a team fight for the champion's role
-// (healing and shielding for enchanters, damage for carries), sorted by the estimated win rate boost (lib/pentakill.ts).
-
-// A pick within this much of the next best start pick is a close call: either one works.
-const CLOSE = 0.01;
+// Pentakill game and the one to add at level 18, from real games with each Empower (AramHex, lib/pentakill.ts),
+// sorted by the start pick's DeepScore.
 
 export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
   const t = useT("pentakill");
@@ -25,7 +22,7 @@ export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
       format: "ability",
       iconKey: "startIcon",
       sortable: false,
-      hint: t("The basic ability to Empower at the start of the game: the one that helps the team most at levels 8, 13 and 18."),
+      hint: t("The basic ability to Empower at the start of the game: the one that wins most above the champion's usual, among those players often pick."),
     },
     {
       key: "level18",
@@ -36,24 +33,24 @@ export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
       hint: t("The second ability to Empower at level 18, the ultimate included, on top of the first one."),
     },
     {
-      key: "boost",
-      label: t("Win rate boost"),
-      format: "pts",
-      hint: t("Estimated. How much both Empowers together raise the champion's win rate: the start pick counts for the whole game, the level 18 pick for the part played at level 18."),
+      key: "startScore",
+      label: "DeepScore",
+      format: "deepscore",
+      hint: t("How the start pick does on this champion, 0 to 100 against every champion's start pick: its win rate above the champion's usual in Pentakill games, trusted more the more games it has."),
     },
     {
-      key: "startGain",
-      label: t("Start power"),
-      format: "pct",
+      key: "level18Score",
+      label: t("Level 18 DeepScore"),
+      format: "deepscore",
       phone: "hide",
-      hint: t("Simulated. How much more the start pick adds to team fights (damage, healing and shielding, crowd control), averaged over levels 8, 13 and 18."),
+      hint: t("The same for the level 18 pick. The ultimate's Empower is only taken at level 18, in long games, so it's judged against how it does on every champion."),
     },
     {
-      key: "level18Gain",
-      label: t("Level 18 power"),
-      format: "pct",
+      key: "games",
+      label: t("Games"),
+      format: "int",
       phone: "hide",
-      hint: t("Simulated. How much more the level 18 pick adds to team fights, on top of the start pick."),
+      hint: t("Pentakill games on this champion."),
     },
     {
       key: "next",
@@ -61,7 +58,7 @@ export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
       format: "text",
       sortable: false,
       phone: "hide",
-      hint: t("The next best start pick when it's almost as strong. Either one works."),
+      hint: t("The next best start pick when it's within the noise of the first. Either one works."),
     },
   ];
   const data: Row[] = rows.map((r) => ({
@@ -70,19 +67,14 @@ export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
     level18: ability(r.champion, r.level18, r.level18Name),
     startIcon: r.startIcon,
     level18Icon: r.level18Icon,
-    boost: r.boost,
-    startGain: r.startGain,
-    level18Gain: r.level18Gain,
-    next: r.margin < CLOSE && r.runnerUp ? r.runnerUp : null,
+    startScore: r.startScore,
+    level18Score: r.level18Score,
+    games: r.games,
+    next: r.closeCall,
   }));
 
   return (
     <>
-      <p className="subtab-note">
-        <span className="tag tag-mixed" title={t("Simulated: picked from simulated fights with each champion's most popular build.")}>
-          {t("Simulated")}
-        </span>
-      </p>
       <p className="patch-note subtab-note">
         {t(
           "In a Pentakill game you Empower one basic ability at the start and a second one at level 18, where the ultimate counts too: {heavy} for Q, {power} for W, {thrash} for E and {doom} for R. Each gives the ability 20 Ability Haste and 10% more damage, healing and shielding.",
@@ -94,10 +86,10 @@ export default function Pentakill({ rows }: { rows: PentakillRow[] }) {
           },
         )}
       </p>
-      <DataTable columns={columns} rows={data} initialSort={{ key: "boost", desc: true }} searchKey="champion" searchLabel={t("Find a champion")} urlTab="pentakill" />
+      <DataTable columns={columns} rows={data} initialSort={{ key: "startScore", desc: true }} searchKey="champion" searchLabel={t("Find a champion")} urlTab="pentakill" />
       <p className="patch-note">
         {t(
-          "Simulated. Each pick is the ability that adds the most to a team fight with the champion's most popular build, judged by its role: damage for carries; healing, shielding and crowd control for supports and tanks. Win rate boost turns that into estimated win rate points, so champions near the top gain the most from a Pentakill game.",
+          "From real Pentakill games. Each pick is the Empower that wins most above the champion's usual, among the ones players often pick. A high score can also come from the games and players who pick it: correlated, not proof it causes the wins.",
         )}
       </p>
     </>
