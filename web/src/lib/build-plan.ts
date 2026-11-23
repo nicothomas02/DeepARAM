@@ -1,3 +1,4 @@
+import { AUGMENT_ITEMS, augmentItemWhy } from "./engine/build-engine";
 import { withoutClashes } from "./item-limits";
 // The champion card's build plan, beyond the core and situational items (Nico, 2026-11-20, layout pass):
 // - the components to rush for the first core item,
@@ -185,17 +186,18 @@ export const MEASURED_CHANGERS = new Set<number>([
   1029, 29,
 ]);
 
-/** Augments that pull in one specific item, measured as co-occurrence (Nico 2026-11-23, Zeri's Death's Dance): on
- *  ranged champions, players with Draw Your Sword built Death's Dance in 19.6% of games vs 0.3% without, and two
- *  thirds of ranged Death's Dance buyers had it (owner's archived lobbies, all ten players); across champions its pick
- *  share tracks Death's Dance's (r 0.78, AramHex 16.22). The item needs no following: the augment is the reason. */
-export const ITEM_CHANGERS: { ids: number[]; item: number; why: string }[] = [
-  { ids: [1134, 134], item: 6333, why: "It makes you melee, and players who take it build Death's Dance far more often." },
-  // Same archive, same champions with vs without (2026-11-23): Thornmail 66% vs 27% (+35 pts weighted, 46 holders);
-  // Locket 24% vs 2% (+20 pts, 20 holders). What players do with the augment, not a measured win effect.
-  { ids: [3049], item: 3075, why: "Players who take this augment build this item far more often." },
-  { ids: [1324], item: 3190, why: "Players who take this augment build this item far more often." },
-];
+/** Augments that pull in one specific item: the 26 follow patterns confirmed in the owner's archived lobbies (all ten
+ *  players; data/augment-items.json, research/why-best section 2). Holders build the item far more often than the
+ *  same champions without the augment, mostly after taking it. Nico 2026-11-23: these are the only augment -> item
+ *  tips; payoff words only where a gain was measured (Steel Your Heart -> Bloodmail, Apex Inventor -> Unending
+ *  Despair). What players do with the augment, not a win effect. Shared with the build engine (lib/engine). */
+export const ITEM_CHANGERS: { ids: number[]; item: number; rate: number; why: string }[] = AUGMENT_ITEMS.map((p) => ({
+  // Some augments also carry a short id (Draw Your Sword 1134 and 134).
+  ids: p.augment >= 1000 && p.augment < 2000 ? [p.augment, p.augment - 1000] : [p.augment],
+  item: p.item,
+  rate: p.rate,
+  why: augmentItemWhy(p),
+}));
 
 /**
  * Augment-triggered swaps for one core: "Upgrade X" augments the champion takes point to item X, and build-changing
@@ -230,10 +232,14 @@ export function augmentSwaps(
       .sort((a, b) => (b.deepScore ?? 0) - (a.deepScore ?? 0))[0];
     if (pick && !out.some((o) => o.item === pick.items[0])) out.push({ augments: ids, item: pick.items[0], kind: "style", why: c.why });
   }
-  for (const c of ITEM_CHANGERS) {
+  // One item per augment: its most followed one the build doesn't already hold.
+  const tipped = new Set<number>();
+  for (const c of [...ITEM_CHANGERS].sort((x, y) => y.rate - x.rate)) {
     const ids = c.ids.filter((i) => own.has(i));
-    if (ids.length && !has.has(c.item) && nameOf(c.item) && !out.some((o) => o.item === c.item))
+    if (ids.length && !tipped.has(ids[0]) && !has.has(c.item) && nameOf(c.item) && !out.some((o) => o.item === c.item)) {
       out.push({ augments: ids, item: c.item, kind: "style", why: c.why });
+      tipped.add(ids[0]);
+    }
   }
   return out;
 }

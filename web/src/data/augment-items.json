@@ -1,0 +1,243 @@
+{
+ "note": "Augment -> item follow patterns confirmed in the owner's archived Mayhem lobbies (all ten players, 2026-11-23; research/why-best section 2): holders build the item far more often than the same champions without the augment, and mostly after picking it. rate = share of holders who built it, base = same champions without the augment. payoff = a measured output change, only where |z| >= 3; null = not measurable, so never claim a gain. Nico approved 2026-11-23: these are the only augment -> item tips.",
+ "pairs": [
+  {
+   "augment": 1152,
+   "augmentName": "Steel Your Heart",
+   "item": 3084,
+   "itemName": "Heartsteel",
+   "rate": 0.991,
+   "base": 0.566,
+   "payoff": null
+  },
+  {
+   "augment": 1029,
+   "augmentName": "Ethereal Weapon",
+   "item": 3115,
+   "itemName": "Nashor's Tooth",
+   "rate": 0.244,
+   "base": 0.081,
+   "payoff": null
+  },
+  {
+   "augment": 1118,
+   "augmentName": "Critical Healing",
+   "item": 3430,
+   "itemName": "Rite Of Ruin",
+   "rate": 0.207,
+   "base": 0.019,
+   "payoff": null
+  },
+  {
+   "augment": 1029,
+   "augmentName": "Ethereal Weapon",
+   "item": 3100,
+   "itemName": "Lich Bane",
+   "rate": 0.189,
+   "base": 0.053,
+   "payoff": null
+  },
+  {
+   "augment": 1205,
+   "augmentName": "ADAPt",
+   "item": 3146,
+   "itemName": "Hextech Gunblade",
+   "rate": 0.137,
+   "base": 0.02,
+   "payoff": null
+  },
+  {
+   "augment": 1311,
+   "augmentName": "Overflow",
+   "item": 3040,
+   "itemName": "Seraph's Embrace",
+   "rate": 0.401,
+   "base": 0.156,
+   "payoff": null
+  },
+  {
+   "augment": 1044,
+   "augmentName": "Ice Cold",
+   "item": 3116,
+   "itemName": "Rylai's Crystal Scepter",
+   "rate": 0.567,
+   "base": 0.262,
+   "payoff": null
+  },
+  {
+   "augment": 1134,
+   "augmentName": "Draw Your Sword",
+   "item": 6333,
+   "itemName": "Death's Dance",
+   "rate": 0.195,
+   "base": 0.024,
+   "payoff": null
+  },
+  {
+   "augment": 1048,
+   "augmentName": "Jeweled Gauntlet",
+   "item": 3031,
+   "itemName": "Infinity Edge",
+   "rate": 0.403,
+   "base": 0.238,
+   "payoff": null
+  },
+  {
+   "augment": 1353,
+   "augmentName": "Tank Engine",
+   "item": 3083,
+   "itemName": "Warmog's Armor",
+   "rate": 0.449,
+   "base": 0.225,
+   "payoff": null
+  },
+  {
+   "augment": 2018,
+   "augmentName": "Purist - Caster",
+   "item": 3115,
+   "itemName": "Nashor's Tooth",
+   "rate": 0.173,
+   "base": 0.031,
+   "payoff": null
+  },
+  {
+   "augment": 1206,
+   "augmentName": "escAPADe",
+   "item": 3146,
+   "itemName": "Hextech Gunblade",
+   "rate": 0.124,
+   "base": 0.021,
+   "payoff": null
+  },
+  {
+   "augment": 1029,
+   "augmentName": "Ethereal Weapon",
+   "item": 3153,
+   "itemName": "Blade of The Ruined King",
+   "rate": 0.209,
+   "base": 0.095,
+   "payoff": null
+  },
+  {
+   "augment": 1029,
+   "augmentName": "Ethereal Weapon",
+   "item": 2510,
+   "itemName": "Dusk and Dawn",
+   "rate": 0.208,
+   "base": 0.105,
+   "payoff": null
+  },
+  {
+   "augment": 1030,
+   "augmentName": "Eureka",
+   "item": 3089,
+   "itemName": "Rabadon's Deathcap",
+   "rate": 0.659,
+   "base": 0.464,
+   "payoff": null
+  },
+  {
+   "augment": 1324,
+   "augmentName": "Protein Shake",
+   "item": 3190,
+   "itemName": "Locket of the Iron Solari",
+   "rate": 0.238,
+   "base": 0.034,
+   "payoff": null
+  },
+  {
+   "augment": 1311,
+   "augmentName": "Overflow",
+   "item": 2522,
+   "itemName": "Actualizer",
+   "rate": 0.12,
+   "base": 0.032,
+   "payoff": null
+  },
+  {
+   "augment": 1152,
+   "augmentName": "Steel Your Heart",
+   "item": 2501,
+   "itemName": "Overlord's Bloodmail",
+   "rate": 0.207,
+   "base": 0.103,
+   "payoff": {
+    "dmg": 0.23
+   }
+  },
+  {
+   "augment": 1002,
+   "augmentName": "Apex Inventor",
+   "item": 2502,
+   "itemName": "Unending Despair",
+   "rate": 0.333,
+   "base": 0.134,
+   "payoff": {
+    "heal": 0.417
+   }
+  },
+  {
+   "augment": 1390,
+   "augmentName": "Phenomenal Evil",
+   "item": 3089,
+   "itemName": "Rabadon's Deathcap",
+   "rate": 0.56,
+   "base": 0.401,
+   "payoff": null
+  },
+  {
+   "augment": 1129,
+   "augmentName": "Marksmage",
+   "item": 3115,
+   "itemName": "Nashor's Tooth",
+   "rate": 0.275,
+   "base": 0.154,
+   "payoff": null
+  },
+  {
+   "augment": 1356,
+   "augmentName": "Critical Missile",
+   "item": 3031,
+   "itemName": "Infinity Edge",
+   "rate": 0.812,
+   "base": 0.636,
+   "payoff": null
+  },
+  {
+   "augment": 1225,
+   "augmentName": "Dual Wield",
+   "item": 3153,
+   "itemName": "Blade of The Ruined King",
+   "rate": 0.54,
+   "base": 0.351,
+   "payoff": null
+  },
+  {
+   "augment": 1056,
+   "augmentName": "Mind to Matter",
+   "item": 3121,
+   "itemName": "Fimbulwinter",
+   "rate": 0.175,
+   "base": 0.064,
+   "payoff": null
+  },
+  {
+   "augment": 2010,
+   "augmentName": "Double Tap",
+   "item": 3153,
+   "itemName": "Blade of The Ruined King",
+   "rate": 0.517,
+   "base": 0.33,
+   "payoff": null
+  },
+  {
+   "augment": 1225,
+   "augmentName": "Dual Wield",
+   "item": 6672,
+   "itemName": "Kraken Slayer",
+   "rate": 0.278,
+   "base": 0.148,
+   "payoff": null
+  }
+ ]
+}

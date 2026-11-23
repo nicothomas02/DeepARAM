@@ -1,0 +1,15 @@
+{
+ "note": "Items whose fit to a champion its kit explains (held-out R2 > 0.2 across champions, AramHex 16.22+16.23; research/why-best/item_fit.json), with the trait that explains it most among the three the study confirmed: physical damage, carry vs tank, melee. Only these items get a kit reason (Nico approved 2026-11-23).",
+ "items": {
+  "2526": "physical",
+  "6695": "physical",
+  "6333": "carry",
+  "3036": "physical",
+  "3084": "tank",
+  "3095": "physical",
+  "3119": "carry",
+  "3075": "tank",
+  "6676": "physical",
+  "3031": "physical"
+ }
+}

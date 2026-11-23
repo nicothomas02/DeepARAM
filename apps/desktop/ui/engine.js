@@ -31,6 +31,7 @@ var DeepEngine = (() => {
     HEALERS: () => HEALERS,
     LUCKY_CAP: () => LUCKY_CAP,
     LUCKY_ODDS: () => LUCKY_ODDS,
+    LUCKY_TILT: () => LUCKY_TILT,
     MEASURED_SWITCHES: () => MEASURED_SWITCHES,
     PROVEN: () => PROVEN,
     REROLL_GAIN: () => REROLL_GAIN,
@@ -42,6 +43,7 @@ var DeepEngine = (() => {
     SUSTAIN_ITEMS: () => SUSTAIN_ITEMS,
     UPGRADES: () => UPGRADES,
     WEAPON_OF_DESTINY: () => WEAPON_OF_DESTINY,
+    augmentItemWhy: () => augmentItemWhy,
     buyNow: () => buyNow,
     classBuild: () => classBuild,
     enemyMagic: () => enemyMagic,
@@ -49,15 +51,265 @@ var DeepEngine = (() => {
     itemRules: () => itemRules,
     keyIn: () => keyIn,
     laterPicks: () => laterPicks,
+    luckyBuild: () => luckyBuild,
+    luckyOrder: () => luckyOrder,
     pickBuild: () => pickBuild,
     plan: () => plan,
     rankAugments: () => rankAugments,
     rerollAdvice: () => rerollAdvice,
     situational: () => situational,
     skillUp: () => skillUp,
-    triggers: () => triggers
+    triggers: () => triggers,
+    whyBest: () => whyBest
   });
-  var ENGINE_VERSION = "1.1.0";
+
+  // src/data/augment-items.json
+  var augment_items_default = {
+    note: "Augment -> item follow patterns confirmed in the owner's archived Mayhem lobbies (all ten players, 2026-11-23; research/why-best section 2): holders build the item far more often than the same champions without the augment, and mostly after picking it. rate = share of holders who built it, base = same champions without the augment. payoff = a measured output change, only where |z| >= 3; null = not measurable, so never claim a gain. Nico approved 2026-11-23: these are the only augment -> item tips.",
+    pairs: [
+      {
+        augment: 1152,
+        augmentName: "Steel Your Heart",
+        item: 3084,
+        itemName: "Heartsteel",
+        rate: 0.991,
+        base: 0.566,
+        payoff: null
+      },
+      {
+        augment: 1029,
+        augmentName: "Ethereal Weapon",
+        item: 3115,
+        itemName: "Nashor's Tooth",
+        rate: 0.244,
+        base: 0.081,
+        payoff: null
+      },
+      {
+        augment: 1118,
+        augmentName: "Critical Healing",
+        item: 3430,
+        itemName: "Rite Of Ruin",
+        rate: 0.207,
+        base: 0.019,
+        payoff: null
+      },
+      {
+        augment: 1029,
+        augmentName: "Ethereal Weapon",
+        item: 3100,
+        itemName: "Lich Bane",
+        rate: 0.189,
+        base: 0.053,
+        payoff: null
+      },
+      {
+        augment: 1205,
+        augmentName: "ADAPt",
+        item: 3146,
+        itemName: "Hextech Gunblade",
+        rate: 0.137,
+        base: 0.02,
+        payoff: null
+      },
+      {
+        augment: 1311,
+        augmentName: "Overflow",
+        item: 3040,
+        itemName: "Seraph's Embrace",
+        rate: 0.401,
+        base: 0.156,
+        payoff: null
+      },
+      {
+        augment: 1044,
+        augmentName: "Ice Cold",
+        item: 3116,
+        itemName: "Rylai's Crystal Scepter",
+        rate: 0.567,
+        base: 0.262,
+        payoff: null
+      },
+      {
+        augment: 1134,
+        augmentName: "Draw Your Sword",
+        item: 6333,
+        itemName: "Death's Dance",
+        rate: 0.195,
+        base: 0.024,
+        payoff: null
+      },
+      {
+        augment: 1048,
+        augmentName: "Jeweled Gauntlet",
+        item: 3031,
+        itemName: "Infinity Edge",
+        rate: 0.403,
+        base: 0.238,
+        payoff: null
+      },
+      {
+        augment: 1353,
+        augmentName: "Tank Engine",
+        item: 3083,
+        itemName: "Warmog's Armor",
+        rate: 0.449,
+        base: 0.225,
+        payoff: null
+      },
+      {
+        augment: 2018,
+        augmentName: "Purist - Caster",
+        item: 3115,
+        itemName: "Nashor's Tooth",
+        rate: 0.173,
+        base: 0.031,
+        payoff: null
+      },
+      {
+        augment: 1206,
+        augmentName: "escAPADe",
+        item: 3146,
+        itemName: "Hextech Gunblade",
+        rate: 0.124,
+        base: 0.021,
+        payoff: null
+      },
+      {
+        augment: 1029,
+        augmentName: "Ethereal Weapon",
+        item: 3153,
+        itemName: "Blade of The Ruined King",
+        rate: 0.209,
+        base: 0.095,
+        payoff: null
+      },
+      {
+        augment: 1029,
+        augmentName: "Ethereal Weapon",
+        item: 2510,
+        itemName: "Dusk and Dawn",
+        rate: 0.208,
+        base: 0.105,
+        payoff: null
+      },
+      {
+        augment: 1030,
+        augmentName: "Eureka",
+        item: 3089,
+        itemName: "Rabadon's Deathcap",
+        rate: 0.659,
+        base: 0.464,
+        payoff: null
+      },
+      {
+        augment: 1324,
+        augmentName: "Protein Shake",
+        item: 3190,
+        itemName: "Locket of the Iron Solari",
+        rate: 0.238,
+        base: 0.034,
+        payoff: null
+      },
+      {
+        augment: 1311,
+        augmentName: "Overflow",
+        item: 2522,
+        itemName: "Actualizer",
+        rate: 0.12,
+        base: 0.032,
+        payoff: null
+      },
+      {
+        augment: 1152,
+        augmentName: "Steel Your Heart",
+        item: 2501,
+        itemName: "Overlord's Bloodmail",
+        rate: 0.207,
+        base: 0.103,
+        payoff: {
+          dmg: 0.23
+        }
+      },
+      {
+        augment: 1002,
+        augmentName: "Apex Inventor",
+        item: 2502,
+        itemName: "Unending Despair",
+        rate: 0.333,
+        base: 0.134,
+        payoff: {
+          heal: 0.417
+        }
+      },
+      {
+        augment: 1390,
+        augmentName: "Phenomenal Evil",
+        item: 3089,
+        itemName: "Rabadon's Deathcap",
+        rate: 0.56,
+        base: 0.401,
+        payoff: null
+      },
+      {
+        augment: 1129,
+        augmentName: "Marksmage",
+        item: 3115,
+        itemName: "Nashor's Tooth",
+        rate: 0.275,
+        base: 0.154,
+        payoff: null
+      },
+      {
+        augment: 1356,
+        augmentName: "Critical Missile",
+        item: 3031,
+        itemName: "Infinity Edge",
+        rate: 0.812,
+        base: 0.636,
+        payoff: null
+      },
+      {
+        augment: 1225,
+        augmentName: "Dual Wield",
+        item: 3153,
+        itemName: "Blade of The Ruined King",
+        rate: 0.54,
+        base: 0.351,
+        payoff: null
+      },
+      {
+        augment: 1056,
+        augmentName: "Mind to Matter",
+        item: 3121,
+        itemName: "Fimbulwinter",
+        rate: 0.175,
+        base: 0.064,
+        payoff: null
+      },
+      {
+        augment: 2010,
+        augmentName: "Double Tap",
+        item: 3153,
+        itemName: "Blade of The Ruined King",
+        rate: 0.517,
+        base: 0.33,
+        payoff: null
+      },
+      {
+        augment: 1225,
+        augmentName: "Dual Wield",
+        item: 6672,
+        itemName: "Kraken Slayer",
+        rate: 0.278,
+        base: 0.148,
+        payoff: null
+      }
+    ]
+  };
+
+  // src/lib/engine/build-engine.ts
+  var ENGINE_VERSION = "1.2.0";
   var RULES = {
     // Backed by data or the game's own rules: on.
     itemLimits: { source: "game data", on: true, why: "The game's own-only-one groups; never broken in 1,730 public full builds or 1,245 archived games (Immolate and Hydras excepted)." },
@@ -65,22 +317,24 @@ var DeepEngine = (() => {
     seenAugments: { source: "game data", on: true, why: "Wiki: an augment shown once is never offered again that game." },
     rerollOnce: { source: "game data", on: true, why: "Wiki: each card can be rerolled once." },
     provenCounters: { source: "data", on: true, why: "Mechanism tests: MR items, Kaenic, Spirit Visage, Mercury's vs magic-heavy teams (the effect is clearly larger from 60-65% magic up, so 65% holds); armor vs 2+ marksmen." },
-    augmentItems: { source: "data", on: true, why: "Augment -> item patterns measured by build share: Draw Your Sword -> Death's Dance, Armored Impact -> Thornmail (+35 pts), Protein Shake -> Locket (+20 pts)." },
+    augmentItems: { source: "data", on: true, why: "The 26 augment -> item follow patterns confirmed in the archive (data/augment-items.json); payoff words only for the two with a measured gain. Nico approved 2026-11-23." },
+    whyBest: { source: "data", on: true, why: "One line per item, only from tested reasons: augment trigger, most players build it, kit match (10 items with held-out R2 > 0.2), what it does (estimated). Otherwise none. Nico approved 2026-11-23." },
+    luckyTilt: { source: "assumption", on: true, why: "Feeling lucky: among options whose 95% ranges overlap the leader's, rarer picks get up to +0.3 points; never past a clearly better one. Nico approved 2026-11-23." },
     measuredReplan: { source: "data", on: true, why: "Ethereal Weapon switches to the champion's own on-hit build (+25.9 pts on-hit build share). Only measured switches." },
     destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
     upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
     hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
     ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
     // Design choices Nico hasn't picked yet: kept as they were.
-    rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Picked, not measured: Nico decides." },
-    swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule: Nico decides." },
-    shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots; buy-now names the priciest affordable part. Convenience rules: Nico decides." },
+    rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
+    swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
+    shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
     // No evidence either way: off until a test passes (Nico 2026-11-23, apply defaults).
     upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off until tested." },
     augmentReplan: { source: "assumption", on: false, why: "Other augments switch the build style (style tags, the other 3-vote build changers, the class-wide fallback build). Off until measured like Draw Your Sword -> Death's Dance." },
     countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
     stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
-    attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7)." },
+    attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
     selfHealWeight: { source: "assumption", on: false, why: "Count self-healers more for Vs healing. Off until tested." },
     wikiModifiers: { source: "assumption", on: false, why: "Weight enemies by the wiki's Mayhem healing/shielding modifiers. Off until tested." },
     itemDamageMix: { source: "assumption", on: false, why: "Enemy damage lean pulled toward their AP/AD items. Off until tested: the lean is the champions' own." },
@@ -109,6 +363,28 @@ var DeepEngine = (() => {
   var LUCKY_ODDS = 0.35;
   var LUCKY_CAP = 1;
   var REROLL_GAIN = 0.25;
+  var LUCKY_TILT = 0.3;
+  function luckyOrder(list, se, pick) {
+    const picks = list.map(pick).filter((x) => x !== null && x >= 0).sort((a, b) => a - b);
+    const median = picks.length ? picks[Math.floor(picks.length / 2)] : 0;
+    const rows = list.map((x) => {
+      const p = pick(x), e = se(x);
+      const tilt = RULES.luckyTilt.on && e !== null && e >= 0 && p !== null && p >= 0 && median > 0 && p < median ? LUCKY_TILT * (1 - p / median) : 0;
+      return { ...x, tilt };
+    });
+    const band = (a, b) => {
+      const ea = se(a), eb = se(b);
+      return ea === null || eb === null || ea < 0 || eb < 0 ? 0 : 1.96 * Math.sqrt(ea * ea + eb * eb);
+    };
+    const before = (a, b) => Math.abs(a.score - b.score) > band(a, b) ? a.score > b.score : a.score + a.tilt > b.score + b.tilt;
+    const out = [];
+    for (const r of [...rows].sort((a, b) => b.score - a.score)) {
+      let i = out.length;
+      while (i > 0 && before(r, out[i - 1]) && Math.abs(r.score - out[i - 1].score) <= band(r, out[i - 1])) i--;
+      out.splice(i, 0, r);
+    }
+    return out;
+  }
   function rankAugments(picks, champ, taken, opts = {}) {
     const ck = keyIn(picks.champions, champ);
     const own = ck ? picks.champions[ck] : [];
@@ -116,7 +392,8 @@ var DeepEngine = (() => {
     const gone = new Set(RULES.seenAugments.on ? opts.seen ?? [] : []);
     const left = Math.max(0, 3 - taken.length);
     const odds = opts.lucky ? Math.min(LUCKY_CAP, LUCKY_ODDS * left) : Math.min(COMBO_CAP, COMBO_ODDS * left);
-    return own.filter(([id]) => !taken.includes(id)).map(([id, score, deep = -1, est = 1]) => {
+    const info = new Map(own.map(([id, , , , se = -1, pick = -1]) => [id, { se, pick }]));
+    const ranked = own.filter(([id]) => !taken.includes(id)).map(([id, score, deep = -1, est = 1]) => {
       let bonus = 0, mate = null, best = 0, potential = 0, combo = null;
       for (const [a, b, p] of pairs) {
         const other = a === id ? b : b === id ? a : null;
@@ -135,6 +412,8 @@ var DeepEngine = (() => {
       const baseScore = score * 100 + bonus;
       return { id, score: baseScore + potential, boost: est ? baseScore : null, potential, combo, mate, deep };
     }).sort((x, y) => y.score - x.score);
+    if (!opts.lucky) return ranked;
+    return luckyOrder(ranked, (a) => info.get(a.id)?.se ?? null, (a) => info.get(a.id)?.pick ?? null);
   }
   function rerollAdvice(picks, ranked, offered, taken, opts = {}) {
     if (!offered.length) return null;
@@ -221,12 +500,7 @@ var DeepEngine = (() => {
   function situational(champ, k, fit, enemies, taken, skip) {
     const own = champ?.situational ?? [];
     const prefix = ([...champ?.items ?? [], ...own].find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
-    const extra = RULES.augmentItems.on ? AUGMENT_ITEMS.filter((x) => taken.includes(x.augment) && k.recipes[x.item] && !own.some((it) => itemId(it.icon) === x.item)).map((x) => ({
-      name: k.recipes[x.item][0],
-      icon: `${prefix}${22e4 + x.item}.png`,
-      when: "Fits your augment",
-      augments: [x.augment]
-    })) : [];
+    const extra = RULES.augmentItems.on ? [...AUGMENT_ITEMS].sort((x, y) => y.rate - x.rate).filter((x, n, all) => taken.includes(x.augment) && k.recipes[x.item] && !own.some((it) => itemId(it.icon) === x.item) && !skip.has(x.item) && all.findIndex((y) => y.augment === x.augment && taken.includes(y.augment) && k.recipes[y.item] && !own.some((it) => itemId(it.icon) === y.item) && !skip.has(y.item)) === n).map((x) => ({ name: k.recipes[x.item][0], icon: `${prefix}${22e4 + x.item}.png`, when: `With ${x.augmentName}`, why: augmentItemWhy(x), augments: [x.augment] })) : [];
     const list = [...own, ...extra].filter((it) => !skip.has(itemId(it.icon)));
     if (!list.length) return [];
     const t = triggers(k, fit, enemies);
@@ -258,11 +532,13 @@ var DeepEngine = (() => {
   var R_PASSIVE = /* @__PURE__ */ new Set(["ambessa", "annie", "belveth", "blitzcrank", "fiora", "galio", "gnar", "jax", "kayn", "khazix", "lux", "masteryi", "mel", "nidalee", "olaf", "pantheon", "reksai", "rengar", "ryze", "shyvana", "sona", "syndra", "teemo", "xinzhao", "zaahen"]);
   var BUILD_CHANGERS = { 1029: ["onhit"], 2018: ["ap"], 2123: ["ap"], 1388: ["ap"], 1205: ["ap"], 1206: ["lethality", "fighter"], 3049: ["tank"], 1324: ["tank"], 1353: ["tank"] };
   var MEASURED_SWITCHES = { 1029: "onhit" };
-  var AUGMENT_ITEMS = [
-    { augment: 1134, item: 6333 },
-    { augment: 3049, item: 3075 },
-    { augment: 1324, item: 3190 }
-  ];
+  var AUGMENT_ITEMS = augment_items_default.pairs;
+  var PAYOFF_WORD = { dmg: "damage", heal: "healing", mitig: "damage mitigated" };
+  function augmentItemWhy(p) {
+    const pct = (x) => `${Math.round(x * 100)}%`;
+    const gain = Object.entries(p.payoff ?? {}).map(([k, v]) => `${v > 0 ? "+" : "-"}${pct(Math.abs(v))} ${PAYOFF_WORD[k] ?? k}`).join(", ");
+    return `With ${p.augmentName}, ${pct(p.rate)} of players build ${p.itemName} (${pct(p.base)} without it)${gain ? `; about ${gain} (estimated)` : ""}.`;
+  }
   var UPGRADES = {
     1318: [3157],
     1319: [3068, 6664, 2502],
@@ -331,10 +607,12 @@ var DeepEngine = (() => {
     if (!plan2) return { list: base0, style: null, core: null };
     const prefix = (base0[0]?.icon ?? "").replace(/\d+\.png$/, "");
     const mk = (id) => {
-      const b = base(id), fin = id >= 22e4 || (k.recipes[b]?.[1] ?? 0) >= 2e3;
-      return { name: k.recipes[b]?.[0] ?? `#${id}`, icon: `${prefix}${id >= 1e5 && id < 22e4 && !fin ? b : fin ? 22e4 + b : b}.png` };
+      const b = ICON_ID[id] ?? base(id);
+      if (!k.recipes[b]) return null;
+      const fin = id >= 22e4 || (k.recipes[b]?.[1] ?? 0) >= 2e3;
+      return { name: k.recipes[b][0], icon: `${prefix}${ICON_ID[id] ? id : fin ? 22e4 + b : b}.png` };
     };
-    const fresh = [...plan2[0].slice(0, 1), ...plan2[1], ...plan2[2]].map(mk);
+    const fresh = [...plan2[0].slice(0, 1), ...plan2[1], ...plan2[2]].flatMap((id) => mk(id) ?? []);
     const kept = base0.filter((it) => owned.has(itemId(it.icon)));
     const keptIds = kept.map((it) => itemId(it.icon));
     const list = [...kept];
@@ -385,11 +663,47 @@ var DeepEngine = (() => {
     const first = level <= 3 && order.find((key) => pts[idx[key]] === 0);
     return first || order.find((key) => pts[idx[key]] < cap) || "";
   }
+  var METRIC_WORD = { damage: "damage to champions", healing: "healing", mitigated: "damage mitigated", cc: "crowd control", deaths: "deaths per 10 min" };
+  function whyBest(id, champ, name, taken, why, profiles) {
+    if (!RULES.whyBest.on) return null;
+    const b = base(id);
+    const aug = [...AUGMENT_ITEMS].sort((x, y) => y.rate - x.rate).find((p2) => p2.item === b && taken.includes(p2.augment));
+    if (aug && RULES.augmentItems.on) return { text: augmentItemWhy(aug), kind: "augment" };
+    const alias = keyIn(why?.follow, champ);
+    if (alias && (why.follow[alias][String(b)] ?? 0) >= 0.5) return { text: `Built by most ${name} players.`, kind: "follow" };
+    const trait = why?.kit[String(b)];
+    const side = why?.traits[keyIn(why?.traits, champ) ?? ""];
+    if (trait && side) {
+      if (trait === "physical" && side.physical) return { text: `Fits ${name}'s physical damage.`, kind: "kit" };
+      if (trait === "carry" && !side.tank) return { text: "Fits a carry, not a tank.", kind: "kit" };
+      if (trait === "tank" && side.tank) return { text: "Fits a champion who takes the hits.", kind: "kit" };
+      if (trait === "melee" && side.melee) return { text: "Stronger on melee champions.", kind: "kit" };
+    }
+    const p = profiles?.items?.[String(b)];
+    if (p) {
+      const m = Object.keys(METRIC_WORD).filter((k) => p[k] && Math.abs(p[k].z) >= 3 && Math.abs(p[k].change) >= (k === "deaths" ? 0.3 : 8)).sort((x, y) => Math.abs(p[y].z) - Math.abs(p[x].z))[0];
+      if (m) {
+        const c = p[m].change;
+        const n = m === "deaths" ? Math.abs(c).toFixed(1) : `${Math.round(Math.abs(c))}%`;
+        return { text: `What it does: ${c > 0 ? "+" : "-"}${n} ${METRIC_WORD[m]} (estimated).`, kind: "does", estimated: true };
+      }
+    }
+    return null;
+  }
+  function luckyBuild(champ) {
+    const list = champ?.builds ?? [];
+    if (!RULES.luckyTilt.on || list.length < 2) return null;
+    const near = list.slice(1).filter((b) => b.nearBest && b.share < list[0].share && b.items?.length);
+    return near.sort((a, b) => a.share - b.share)[0] ?? null;
+  }
   var ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
-  function plan({ champ, kinds: k, picks, fit, game, taken }) {
+  function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, why: whyData, profiles }) {
     const rules = itemRules(k);
     const used = /* @__PURE__ */ new Set();
     const applied = (r) => used.add(r);
+    const alt = lucky && !game.items.some((i) => (k?.recipes[base(i)]?.[1] ?? 0) >= 2e3) ? luckyBuild(champ0) : null;
+    if (alt) applied("luckyTilt");
+    const champ = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
     const owned = new Set(game.items.map(base));
     const bootIds = new Set(k?.boots ?? []);
     let slotRows = laterPicks(champ, owned, rules);
@@ -407,8 +721,8 @@ var DeepEngine = (() => {
       }
       for (const r of slotRows)
         if (!owned.has(itemId(r.it.icon)) && [...owned].some((o) => rules.clash(o, itemId(r.it.icon)))) {
-          const alt = r.alts.find((x) => ![...owned].some((o) => rules.clash(o, itemId(x.icon))));
-          if (alt) r.it = alt;
+          const alt2 = r.alts.find((x) => ![...owned].some((o) => rules.clash(o, itemId(x.icon))));
+          if (alt2) r.it = alt2;
         }
       slotRows = slotRows.filter((r) => owned.has(itemId(r.it.icon)) || ![...owned].some((o) => rules.clash(o, itemId(r.it.icon))));
     }
@@ -541,6 +855,11 @@ var DeepEngine = (() => {
       }
     }
     tips.sort((x, y) => x.rank - y.rank);
+    const reasons = path.map((it) => {
+      const r = whyBest(itemId(it.icon), game.champ, champ?.name ?? game.champ, taken, whyData, profiles);
+      if (r) applied("whyBest");
+      return r;
+    });
     const baseNext = baseList.find((it) => !isOwned(it)) ?? null;
     return {
       path,
@@ -553,7 +872,9 @@ var DeepEngine = (() => {
       switched: picked.style ? { style: picked.style, because: picked.because ?? "", classWide: !!picked.classWide, instead: baseNext && next[0] && itemId(baseNext.icon) !== itemId(next[0].icon) ? baseNext : null } : null,
       timing,
       tips,
-      rules: [...used]
+      rules: [...used],
+      reasons,
+      luckyStyle: alt?.style ?? null
     };
   }
   return __toCommonJS(build_engine_exports);

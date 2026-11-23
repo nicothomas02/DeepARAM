@@ -8,6 +8,10 @@ import { GET as picksGET } from "@/app/data/augment-picks.json/route";
 import {
   itemId,
   itemRules,
+  LUCKY_TILT,
+  luckyBuild,
+  luckyOrder,
+  whyBest,
   plan,
   rankAugments,
   rerollAdvice,
@@ -70,7 +74,7 @@ describe("build engine", () => {
   it("keeps assumption rules off (Nico 2026-11-23: apply defaults, then test)", () => {
     for (const r of ["upgradeNext", "augmentReplan", "countTriggers", "stackingFirst", "attackSpeedNudge", "selfHealWeight", "wikiModifiers", "resistAugmentSwaps"])
       expect(RULES[r].on, r).toBe(false);
-    for (const [name, r] of Object.entries(RULES)) if (r.on && r.source === "assumption") expect(r.why, name).toMatch(/Nico decides/);
+    for (const [name, r] of Object.entries(RULES)) if (r.on && r.source === "assumption") expect(r.why, name).toMatch(/Nico (decides|approved)/);
     // only the triggers that passed a test
     expect(Object.keys(triggers(kinds, fit, game(["Lux", "Brand", "Annie"]).enemies))).toEqual(["Vs magic damage", "Vs auto attacks"]);
   });
@@ -105,9 +109,12 @@ describe("build engine", () => {
     expect(p.swaps.map((s) => [itemId(s.item.icon), s.kind, itemId(s.replaces?.icon)])).toEqual([[3087, "augment", 3046]]);
   });
 
-  it("adds measured augment items: Armored Impact -> Thornmail", () => {
-    const p = plan({ champ, kinds, picks, fit, game: game([]), taken: [3049] });
-    expect(p.swaps.map((s) => itemId(s.item.icon))).toContain(3075);
+  it("adds only confirmed augment items: Draw Your Sword -> Death's Dance, not Armored Impact -> Thornmail", () => {
+    const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3036)] }, { slot: 5, items: [item(3094)] }] };
+    const p = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [1134] });
+    const dd = p.swaps.find((s) => itemId(s.item.icon) === 6333);
+    expect(dd?.why).toMatch(/With Draw Your Sword, \d+% of players build Death's Dance/);
+    expect(plan({ champ, kinds, picks, fit, game: game([]), taken: [3049] }).swaps.map((s) => itemId(s.item.icon))).not.toContain(3075);
   });
 
   it("switches build only for measured augments (Ethereal Weapon -> on-hit)", () => {
@@ -144,6 +151,43 @@ describe("build engine", () => {
     for (const t of p.tips) expect(t.text).not.toMatch(/adds less/);
   });
 
+  it("Feeling lucky lets a rarer pick pass only options it roughly ties", () => {
+    const rows = [
+      { id: 1, score: 3.0, se: 0.3, pick: 0.3 },
+      { id: 2, score: 2.9, se: 0.3, pick: 0.02 }, // near-tie and rare: passes 1
+      { id: 3, score: 1.0, se: 0.3, pick: 0.01 }, // rare but clearly worse: stays last
+      { id: 4, score: 2.0, se: 0.3, pick: 0.2 },
+    ];
+    const out = luckyOrder(rows, (r) => r.se, (r) => r.pick);
+    expect(out.map((r) => r.id)).toEqual([2, 1, 4, 3]);
+    expect(out.find((r) => r.id === 2)!.tilt).toBeLessThanOrEqual(LUCKY_TILT);
+    // no uncertainty, no tilt
+    expect(luckyOrder(rows, () => null, (r) => r.pick).map((r) => r.id)).toEqual([1, 2, 4, 3]);
+  });
+
+  it("Feeling lucky takes the less played build style when it wins about as often", () => {
+    const off = { style: "ap", share: 0.2, nearBest: true, items: [item(3006), item(3003)] };
+    const c = { ...champ, builds: [{ style: "crit", share: 0.8, items: champ.items }, off] };
+    expect(luckyBuild(c)?.style).toBe("ap");
+    expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [], lucky: true }).luckyStyle).toBe("ap");
+    expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] }).luckyStyle).toBeNull();
+    expect(luckyBuild({ ...c, builds: [c.builds[0], { ...off, nearBest: false }] })).toBeNull();
+  });
+
+  it("says why an item is there only from tested reasons", () => {
+    const why = { follow: { Ashe: { "3031": 0.6 } }, kit: { "3036": "physical" as const, "3075": "tank" as const }, traits: { Ashe: { physical: true, tank: false, melee: false } } };
+    expect(whyBest(3031, "Ashe", "Ashe", [], why)?.text).toBe("Built by most Ashe players.");
+    expect(whyBest(3036, "Ashe", "Ashe", [], why)?.text).toBe("Fits Ashe's physical damage.");
+    expect(whyBest(3075, "Ashe", "Ashe", [], why)).toBeNull(); // Ashe isn't a tank
+    expect(whyBest(6333, "Ashe", "Ashe", [1134], why)?.kind).toBe("augment");
+    const profiles = { items: { "3094": { damage: { change: 12, z: 4 }, healing: { change: 30, z: 1 } } } };
+    expect(whyBest(3094, "Ashe", "Ashe", [], why, profiles)).toEqual({ text: "What it does: +12% damage to champions (estimated).", kind: "does", estimated: true });
+    expect(whyBest(3046, "Ashe", "Ashe", [], why, profiles)).toBeNull();
+    const p = plan({ champ, kinds, picks, fit, game: game([]), taken: [], why });
+    expect(p.reasons).toHaveLength(p.path.length);
+    expect(p.reasons[1]?.kind).toBe("follow");
+  });
+
   it("gives no % penetration tip and leaves stacking items where they are", () => {
     const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3003)] }] };
     const p = plan({ champ: c, kinds, picks, fit, game: game(["Garen", "Jinx"], { dead: true, gold: 5000 }), taken: [] });
@@ -169,7 +213,7 @@ describe("build engine", () => {
     const rules = itemRules(k);
     const bad: string[] = [];
     for (const c of champs)
-      for (const taken of [[], [3081], [1029], [3049]]) {
+      for (const taken of [[], [3081], [1029], [1152]]) {
         const p = plan({ champ: c, kinds: k, picks: pk, fit: null, game: { champ: c.id, items: [] }, taken });
         const path = ids(p.path);
         if (path.length > 6) bad.push(`${c.id} [${taken}]: ${path.length} items`);

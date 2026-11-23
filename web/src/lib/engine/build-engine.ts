@@ -19,7 +19,9 @@
 // rules with no evidence are off and come back only when a test passes; design choices (reroll threshold, which slot a
 // swap replaces, shop convenience tips) stay as they are until he picks.
 
-export const ENGINE_VERSION = "1.1.0";
+import augmentItemsData from "../../data/augment-items.json";
+
+export const ENGINE_VERSION = "1.2.0";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -33,22 +35,24 @@ export const RULES: Record<string, Rule> = {
   seenAugments: { source: "game data", on: true, why: "Wiki: an augment shown once is never offered again that game." },
   rerollOnce: { source: "game data", on: true, why: "Wiki: each card can be rerolled once." },
   provenCounters: { source: "data", on: true, why: "Mechanism tests: MR items, Kaenic, Spirit Visage, Mercury's vs magic-heavy teams (the effect is clearly larger from 60-65% magic up, so 65% holds); armor vs 2+ marksmen." },
-  augmentItems: { source: "data", on: true, why: "Augment -> item patterns measured by build share: Draw Your Sword -> Death's Dance, Armored Impact -> Thornmail (+35 pts), Protein Shake -> Locket (+20 pts)." },
+  augmentItems: { source: "data", on: true, why: "The 26 augment -> item follow patterns confirmed in the archive (data/augment-items.json); payoff words only for the two with a measured gain. Nico approved 2026-11-23." },
+  whyBest: { source: "data", on: true, why: "One line per item, only from tested reasons: augment trigger, most players build it, kit match (10 items with held-out R2 > 0.2), what it does (estimated). Otherwise none. Nico approved 2026-11-23." },
+  luckyTilt: { source: "assumption", on: true, why: "Feeling lucky: among options whose 95% ranges overlap the leader's, rarer picks get up to +0.3 points; never past a clearly better one. Nico approved 2026-11-23." },
   measuredReplan: { source: "data", on: true, why: "Ethereal Weapon switches to the champion's own on-hit build (+25.9 pts on-hit build share). Only measured switches." },
   destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
   // Design choices Nico hasn't picked yet: kept as they were.
-  rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Picked, not measured: Nico decides." },
-  swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule: Nico decides." },
-  shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots; buy-now names the priciest affordable part. Convenience rules: Nico decides." },
+  rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
+  swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
+  shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
   // No evidence either way: off until a test passes (Nico 2026-11-23, apply defaults).
   upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off until tested." },
   augmentReplan: { source: "assumption", on: false, why: "Other augments switch the build style (style tags, the other 3-vote build changers, the class-wide fallback build). Off until measured like Draw Your Sword -> Death's Dance." },
   countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
   stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
-  attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7)." },
+  attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
   selfHealWeight: { source: "assumption", on: false, why: "Count self-healers more for Vs healing. Off until tested." },
   wikiModifiers: { source: "assumption", on: false, why: "Weight enemies by the wiki's Mayhem healing/shielding modifiers. Off until tested." },
   itemDamageMix: { source: "assumption", on: false, why: "Enemy damage lean pulled toward their AP/AD items. Off until tested: the lean is the champions' own." },
@@ -73,11 +77,26 @@ export type OverlayChamp = {
   situational?: Situational[];
   swaps?: { augment: Named; item: Named }[];
   destiny?: Named | null;
+  /** Build styles, best DeepScore first; nearBest: its win rate's 95% range overlaps the best's (Feeling lucky). */
+  builds?: (Partial<OverlayChamp> & { style: string; share: number; deepScore?: number; nearBest?: boolean })[];
 };
+/** why-best.json (lib/why-best.ts) */
+export type WhyData = {
+  /** alias -> item id -> share of the champion's games ending with it (only items at 50% or more) */
+  follow: Record<string, Record<string, number>>;
+  /** item id -> the kit trait that explains its fit */
+  kit: Record<string, "physical" | "carry" | "tank" | "melee">;
+  /** alias -> which side of each trait the champion is on */
+  traits: Record<string, { physical: boolean; tank: boolean; melee: boolean }>;
+};
+/** mechanism-profiles.json: per item, the change per metric and its z score (estimated). */
+export type Profiles = { items: Record<string, Record<string, { change: number; z: number }>> };
 /** augment-picks.json */
 export type Picks = {
   augments: Record<string, [string, string]>;
-  champions: Record<string, [number, number, number?, number?][]>;
+  /** alias -> [id, ranking score, DeepScore, estimated?, standard error of the score in win-rate points (-1 when
+   *  unknown), pick rate on the champion] */
+  champions: Record<string, [number, number, number?, number?, number?, number?][]>;
   pairs: Record<string, [number, number, number][]>;
   styles: Record<string, string[]>;
   builds?: Record<string, [string, number, number[], number[], number[]][]>;
@@ -149,7 +168,51 @@ export const LUCKY_ODDS = 0.35;
 export const LUCKY_CAP = 1;
 export const REROLL_GAIN = 0.25;
 
-export type RankedAugment = { id: number; score: number; boost: number | null; potential: number; combo: number | null; mate: number | null; deep: number };
+export type RankedAugment = {
+  id: number;
+  score: number;
+  boost: number | null;
+  potential: number;
+  combo: number | null;
+  mate: number | null;
+  deep: number;
+  /** Feeling lucky: points added for being a rarer pick among near-ties (0 when none). */
+  tilt?: number;
+};
+
+/** Feeling lucky's tilt toward rarer options: at most this many points (win-rate points). */
+export const LUCKY_TILT = 0.3;
+
+/**
+ * Feeling lucky (Nico 2026-11-23: "a slight bias toward unique/off-meta builds if roughly same win rate"): an option
+ * picked less than the median gets up to LUCKY_TILT points, scaled by how rare it is. "Roughly the same" is the
+ * options' own uncertainty: the tilt can only reorder two options whose 95% ranges overlap (gap within
+ * 1.96 x the combined standard error); an option never passes one that is clearly better. Options with no
+ * uncertainty (estimates) get no tilt.
+ */
+export function luckyOrder<T extends { score: number }>(list: T[], se: (x: T) => number | null, pick: (x: T) => number | null): (T & { tilt: number })[] {
+  const picks = list.map(pick).filter((x): x is number => x !== null && x >= 0).sort((a, b) => a - b);
+  const median = picks.length ? picks[Math.floor(picks.length / 2)] : 0;
+  const rows = list.map((x) => {
+    const p = pick(x), e = se(x);
+    const tilt = RULES.luckyTilt.on && e !== null && e >= 0 && p !== null && p >= 0 && median > 0 && p < median ? LUCKY_TILT * (1 - p / median) : 0;
+    return { ...x, tilt };
+  });
+  const band = (a: T, b: T) => {
+    const ea = se(a), eb = se(b);
+    return ea === null || eb === null || ea < 0 || eb < 0 ? 0 : 1.96 * Math.sqrt(ea * ea + eb * eb);
+  };
+  const before = (a: T & { tilt: number }, b: T & { tilt: number }) =>
+    Math.abs(a.score - b.score) > band(a, b) ? a.score > b.score : a.score + a.tilt > b.score + b.tilt;
+  // insertion sort: the comparison only holds pairwise, so keep it simple and stable
+  const out: (T & { tilt: number })[] = [];
+  for (const r of [...rows].sort((a, b) => b.score - a.score)) {
+    let i = out.length;
+    while (i > 0 && before(r, out[i - 1]) && Math.abs(r.score - out[i - 1].score) <= band(r, out[i - 1])) i--;
+    out.splice(i, 0, r);
+  }
+  return out;
+}
 
 /**
  * This champion's augments best first: real per-champion score, plus synergy with what you took, plus a share of the
@@ -168,7 +231,8 @@ export function rankAugments(
   const gone = new Set(RULES.seenAugments.on ? (opts.seen ?? []) : []);
   const left = Math.max(0, 3 - taken.length);
   const odds = opts.lucky ? Math.min(LUCKY_CAP, LUCKY_ODDS * left) : Math.min(COMBO_CAP, COMBO_ODDS * left);
-  return own
+  const info = new Map(own.map(([id, , , , se = -1, pick = -1]) => [id, { se, pick }]));
+  const ranked = own
     .filter(([id]) => !taken.includes(id))
     .map(([id, score, deep = -1, est = 1]) => {
       let bonus = 0, mate: number | null = null, best = 0, potential = 0, combo: number | null = null;
@@ -184,9 +248,11 @@ export function rankAugments(
         }
       }
       const baseScore = score * 100 + bonus;
-      return { id, score: baseScore + potential, boost: est ? baseScore : null, potential, combo, mate, deep };
+      return { id, score: baseScore + potential, boost: est ? baseScore : null, potential, combo, mate, deep } as RankedAugment;
     })
     .sort((x, y) => y.score - x.score);
+  if (!opts.lucky) return ranked;
+  return luckyOrder(ranked, (a) => info.get(a.id)?.se ?? null, (a) => info.get(a.id)?.pick ?? null);
 }
 
 export type RerollAdvice = {
@@ -322,12 +388,11 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
   // Measured augment -> item patterns the champion's list doesn't already have.
   const prefix = ([...(champ?.items ?? []), ...own].find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
   const extra: Situational[] = RULES.augmentItems.on
-    ? AUGMENT_ITEMS.filter((x) => taken.includes(x.augment) && k.recipes[x.item] && !own.some((it) => itemId(it.icon) === x.item)).map((x) => ({
-        name: k.recipes[x.item][0],
-        icon: `${prefix}${220000 + x.item}.png`,
-        when: "Fits your augment",
-        augments: [x.augment],
-      }))
+    ? [...AUGMENT_ITEMS]
+        .sort((x, y) => y.rate - x.rate)
+        .filter((x, n, all) => taken.includes(x.augment) && k.recipes[x.item] && !own.some((it) => itemId(it.icon) === x.item) && !skip.has(x.item)
+          && all.findIndex((y) => y.augment === x.augment && taken.includes(y.augment) && k.recipes[y.item] && !own.some((it) => itemId(it.icon) === y.item) && !skip.has(y.item)) === n)
+        .map((x) => ({ name: k.recipes[x.item][0], icon: `${prefix}${220000 + x.item}.png`, when: `With ${x.augmentName}`, why: augmentItemWhy(x), augments: [x.augment] }))
     : [];
   const list = [...own, ...extra].filter((it) => !skip.has(itemId(it.icon)));
   if (!list.length) return [];
@@ -366,12 +431,16 @@ export const R_PASSIVE = new Set(["ambessa", "annie", "belveth", "blitzcrank", "
 export const BUILD_CHANGERS: Record<number, string[]> = { 1029: ["onhit"], 2018: ["ap"], 2123: ["ap"], 1388: ["ap"], 1205: ["ap"], 1206: ["lethality", "fighter"], 3049: ["tank"], 1324: ["tank"], 1353: ["tank"] };
 // Measured augment -> build switches (website thread, 2026-11-23): the only ones on.
 export const MEASURED_SWITCHES: Record<number, string> = { 1029: "onhit" };
-// Measured augment -> item patterns: build share with the augment vs without, same champions.
-export const AUGMENT_ITEMS: { augment: number; item: number }[] = [
-  { augment: 1134, item: 6333 },
-  { augment: 3049, item: 3075 },
-  { augment: 1324, item: 3190 },
-];
+// Confirmed augment -> item follow patterns (data/augment-items.json, shared with the site's lib/build-plan.ts).
+export type AugmentItem = { augment: number; augmentName: string; item: number; itemName: string; rate: number; base: number; payoff: Record<string, number> | null };
+export const AUGMENT_ITEMS: AugmentItem[] = augmentItemsData.pairs as AugmentItem[];
+const PAYOFF_WORD: Record<string, string> = { dmg: "damage", heal: "healing", mitig: "damage mitigated" };
+/** "With Draw Your Sword, 19% of players build Death's Dance (2% without it)." Payoff words only where measured. */
+export function augmentItemWhy(p: Pick<AugmentItem, "augmentName" | "itemName" | "rate" | "base" | "payoff">): string {
+  const pct = (x: number) => `${Math.round(x * 100)}%`;
+  const gain = Object.entries(p.payoff ?? {}).map(([k, v]) => `${v > 0 ? "+" : "-"}${pct(Math.abs(v))} ${PAYOFF_WORD[k] ?? k}`).join(", ");
+  return `With ${p.augmentName}, ${pct(p.rate)} of players build ${p.itemName} (${pct(p.base)} without it)${gain ? `; about ${gain} (estimated)` : ""}.`;
+}
 // "Upgrade X" augments and the items they upgrade (the augment's own name; Immolate and Sheen name item families).
 export const UPGRADES: Record<number, number[]> = {
   1318: [3157], 1319: [3068, 6664, 2502], 1320: [6676], 1336: [3031], 1379: [4011], 1996: [3078, 3100, 6662, 3508, 2510],
@@ -435,11 +504,14 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
   if (!plan) return { list: base0, style: null, core: null };
   const prefix = (base0[0]?.icon ?? "").replace(/\d+\.png$/, "");
   // build lists mix plain ids and Mayhem ids; the art for finished items sits under the Mayhem id (22 + id)
-  const mk = (id: number): Named => {
-    const b = base(id), fin = id >= 220000 || (k.recipes[b]?.[1] ?? 0) >= 2000;
-    return { name: k.recipes[b]?.[0] ?? `#${id}`, icon: `${prefix}${id >= 100000 && id < 220000 && !fin ? b : fin ? 220000 + b : b}.png` };
+  const mk = (id: number): Named | null => {
+    // ids as the game reports them (The Collector's 667666 is 6676); an item the data doesn't know is left out
+    const b = ICON_ID[id] ?? base(id);
+    if (!k.recipes[b]) return null;
+    const fin = id >= 220000 || (k.recipes[b]?.[1] ?? 0) >= 2000;
+    return { name: k.recipes[b][0], icon: `${prefix}${ICON_ID[id] ? id : fin ? 220000 + b : b}.png` };
   };
-  const fresh = [...plan[0].slice(0, 1), ...plan[1], ...plan[2]].map(mk);
+  const fresh = [...plan[0].slice(0, 1), ...plan[1], ...plan[2]].flatMap((id) => mk(id) ?? []);
   const kept = base0.filter((it) => owned.has(itemId(it.icon)));
   const keptIds = kept.map((it) => itemId(it.icon));
   const list: Named[] = [...kept];
@@ -502,6 +574,55 @@ export function skillUp(order: string[] | undefined, pts: number[], level: numbe
 }
 
 // ---------------------------------------------------------------------------------------------------------------
+// Why an item is there, and Feeling lucky's build
+
+const METRIC_WORD: Record<string, string> = { damage: "damage to champions", healing: "healing", mitigated: "damage mitigated", cc: "crowd control", deaths: "deaths per 10 min" };
+
+/**
+ * One line on why an item is best for this champion, from tested reasons only, else null (research/why-best section 5,
+ * Nico approved 2026-11-23): a confirmed augment pattern for an augment you took; most of the champion's players
+ * build it; the kit explains it (10 items only, and only on the right side of the trait); what it does (archive,
+ * estimated). Never a win rate.
+ */
+export function whyBest(id: number, champ: string, name: string, taken: number[], why: WhyData | null | undefined, profiles?: Profiles | null): { text: string; kind: "augment" | "follow" | "kit" | "does"; estimated?: boolean } | null {
+  if (!RULES.whyBest.on) return null;
+  const b = base(id);
+  const aug = [...AUGMENT_ITEMS].sort((x, y) => y.rate - x.rate).find((p) => p.item === b && taken.includes(p.augment));
+  if (aug && RULES.augmentItems.on) return { text: augmentItemWhy(aug), kind: "augment" };
+  const alias = keyIn(why?.follow, champ);
+  if (alias && (why!.follow[alias][String(b)] ?? 0) >= 0.5) return { text: `Built by most ${name} players.`, kind: "follow" };
+  const trait = why?.kit[String(b)];
+  const side = why?.traits[keyIn(why?.traits, champ) ?? ""];
+  if (trait && side) {
+    if (trait === "physical" && side.physical) return { text: `Fits ${name}'s physical damage.`, kind: "kit" };
+    if (trait === "carry" && !side.tank) return { text: "Fits a carry, not a tank.", kind: "kit" };
+    if (trait === "tank" && side.tank) return { text: "Fits a champion who takes the hits.", kind: "kit" };
+    if (trait === "melee" && side.melee) return { text: "Stronger on melee champions.", kind: "kit" };
+  }
+  // Same cut as the site's lib/mechanisms.ts: |z| >= 3 and big enough to matter.
+  const p = profiles?.items?.[String(b)];
+  if (p) {
+    const m = Object.keys(METRIC_WORD)
+      .filter((k) => p[k] && Math.abs(p[k].z) >= 3 && Math.abs(p[k].change) >= (k === "deaths" ? 0.3 : 8))
+      .sort((x, y) => Math.abs(p[y].z) - Math.abs(p[x].z))[0];
+    if (m) {
+      const c = p[m].change;
+      const n = m === "deaths" ? Math.abs(c).toFixed(1) : `${Math.round(Math.abs(c))}%`;
+      return { text: `What it does: ${c > 0 ? "+" : "-"}${n} ${METRIC_WORD[m]} (estimated).`, kind: "does", estimated: true };
+    }
+  }
+  return null;
+}
+
+/** Feeling lucky: the least played build style whose win rate is roughly the best's (95% ranges overlap), else null. */
+export function luckyBuild(champ: OverlayChamp | undefined): NonNullable<OverlayChamp["builds"]>[number] | null {
+  const list = champ?.builds ?? [];
+  if (!RULES.luckyTilt.on || list.length < 2) return null;
+  const near = list.slice(1).filter((b) => b.nearBest && b.share < list[0].share && b.items?.length);
+  return near.sort((a, b) => a.share - b.share)[0] ?? null;
+}
+
+// ---------------------------------------------------------------------------------------------------------------
 // The plan
 
 export type Swap = { item: Named; replaces: Named | null; at: number; why: string; kind: "augment" | "proven" };
@@ -528,6 +649,10 @@ export type Plan = {
   tips: Tip[];
   /** The rules this plan used, with their sources (RULES). */
   rules: string[];
+  /** One tested reason per path item, or null (whyBest). */
+  reasons: ({ text: string; kind: string; estimated?: boolean } | null)[];
+  /** Feeling lucky picked a less played build style that wins about as often. */
+  luckyStyle: string | null;
 };
 
 export type PlanInput = {
@@ -537,14 +662,22 @@ export type PlanInput = {
   fit: Fit | null;
   game: GameState;
   taken: number[];
+  /** Feeling lucky: lean toward rarer near-tie options. */
+  lucky?: boolean;
+  /** why-best.json and mechanism-profiles.json, for the "why it's best" lines. */
+  why?: WhyData | null;
+  profiles?: Profiles | null;
 };
 
 const ord = (n: number) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
 
-export function plan({ champ, kinds: k, picks, fit, game, taken }: PlanInput): Plan {
+export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, why: whyData, profiles }: PlanInput): Plan {
   const rules = itemRules(k);
   const used = new Set<string>();
   const applied = (r: string) => used.add(r);
+  const alt = lucky && !game.items.some((i) => (k?.recipes[base(i)]?.[1] ?? 0) >= 2000) ? luckyBuild(champ0) : null;
+  if (alt) applied("luckyTilt");
+  const champ: OverlayChamp | undefined = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
   const owned = new Set(game.items.map(base));
   const bootIds = new Set(k?.boots ?? []);
   let slotRows = laterPicks(champ, owned, rules);
@@ -696,6 +829,11 @@ export function plan({ champ, kinds: k, picks, fit, game, taken }: PlanInput): P
   }
   tips.sort((x, y) => x.rank - y.rank);
 
+  const reasons = path.map((it) => {
+    const r = whyBest(itemId(it.icon), game.champ, champ?.name ?? game.champ, taken, whyData, profiles);
+    if (r) applied("whyBest");
+    return r;
+  });
   const baseNext = baseList.find((it) => !isOwned(it)) ?? null;
   return {
     path,
@@ -711,5 +849,7 @@ export function plan({ champ, kinds: k, picks, fit, game, taken }: PlanInput): P
     timing,
     tips,
     rules: [...used],
+    reasons,
+    luckyStyle: alt?.style ?? null,
   };
 }
