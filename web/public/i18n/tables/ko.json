@@ -159,5 +159,11 @@
  "Next patch": "다음 패치",
  "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "챔피언이 변경되지 않을 경우 다음 패치의 예상 승률로, 지난 패치들 사이의 승률 변화를 바탕으로 추정합니다. 자세히 보기에서는 5번 중 4번 들어가는 범위도 보여줍니다.",
  "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "다음 패치 예상 승률의 하한으로, 일반적인 오차 하나만큼 아래입니다. DeepScore는 이 값으로 순위를 매깁니다.",
- "Estimated games on the live patch.": "현재 패치의 추정 게임 수."
+ "Estimated games on the live patch.": "현재 패치의 추정 게임 수.",
+ "What it does (estimated): {effects}": "효과(추정): {effects}",
+ "{n} damage to champions": "챔피언 피해량 {n}",
+ "{n} healing": "회복량 {n}",
+ "{n} damage blocked": "막은 피해량 {n}",
+ "{n} crowd control": "군중 제어 {n}",
+ "{n} deaths per 10 minutes": "10분당 데스 {n}"
 }

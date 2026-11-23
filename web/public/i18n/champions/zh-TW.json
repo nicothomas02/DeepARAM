@@ -294,5 +294,7 @@
  "Its empowered attack scales with bonus armor.": "它的強化攻擊隨額外物理防禦提升。",
  "It turns bonus armor and magic resist into heal and shield power.": "它把額外物理防禦和魔法防禦轉化為治療和護盾強度。",
  "Few players": "少數玩家",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "評分很高，但很少玩家出（不到最常出裝備的四分之一），所以出裝只採用真正有人跟的裝備。小樣本波動大，版本初期尤其如此。"
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "評分很高，但很少玩家出（不到最常出裝備的四分之一），所以出裝只採用真正有人跟的裝備。小樣本波動大，版本初期尤其如此。",
+ "Mostly built with {augment}.": "多與{augment}一起出。",
+ "It makes you melee, and players who take it build Death's Dance far more often.": "它讓你變成近戰，選它的玩家出死亡之舞的頻率高得多。"
 }

@@ -164,7 +164,8 @@ export function restOfBuild(core: number[], boots: number | undefined, full: { i
  *  augments). Rule-based tips, not measured effects. */
 export type AugmentSwap = { augments: number[]; item: number; kind: "upgrade" | "style"; why: string };
 
-/** Augments that change what a champion should build, and the item roles they favour (the same list as
+/** Augments that may change what a champion should build, and the item roles they would favour (unmeasured: shown
+ *  only once listed in MEASURED_CHANGERS) (the same list as
  *  data/estimates/augment_builds.py BUILD_CHANGERS). Roles are simulator/data/items.json item roles. */
 export const BUILD_CHANGERS: { ids: number[]; roles: string[]; why: string }[] = [
   { ids: [1029, 29], roles: ["onhit", "ap_onhit"], why: "Your abilities apply on-hit effects, so on-hit items pay off more." },
@@ -172,6 +173,17 @@ export const BUILD_CHANGERS: { ids: number[]; roles: string[]; why: string }[] =
   { ids: [1206, 206], roles: ["ad", "bruiser", "ability_ad", "crit", "lethality"], why: "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it." },
   { ids: [3049], roles: ["tank", "ap_tank"], why: "Its empowered attack scales with bonus armor." },
   { ids: [1324], roles: ["tank", "ap_tank", "support"], why: "It turns bonus armor and magic resist into heal and shield power." },
+];
+
+/** BUILD_CHANGERS augments whose tip the data confirmed (item share with vs without the augment). */
+export const MEASURED_CHANGERS = new Set<number>();
+
+/** Augments that pull in one specific item, measured as co-occurrence (Nico 2026-11-23, Zeri's Death's Dance): on
+ *  ranged champions, players with Draw Your Sword built Death's Dance in 19.6% of games vs 0.3% without, and two
+ *  thirds of ranged Death's Dance buyers had it (owner's archived lobbies, all ten players); across champions its pick
+ *  share tracks Death's Dance's (r 0.78, AramHex 16.22). The item needs no following: the augment is the reason. */
+export const ITEM_CHANGERS: { ids: number[]; item: number; why: string }[] = [
+  { ids: [1134, 134], item: 6333, why: "It makes you melee, and players who take it build Death's Dance far more often." },
 ];
 
 /**
@@ -195,7 +207,9 @@ export function augmentSwaps(
   const candidates = upgradeIds.flatMap((i) => (nameOf(i) ? [{ id: i, name: nameOf(i)! }] : []));
   for (const u of upgradeSwaps(byPick, candidates, 3)) out.push({ augments: [u.augment], item: u.item, kind: "upgrade", why: "The augment upgrades this item, so buy it first." });
   const own = new Set(augments.map((a) => a.id));
-  for (const c of BUILD_CHANGERS) {
+  // Role-based changers stay off until each is measured on real games (Nico 2026-11-23: no tips from assumptions
+  // without data or his approval). MEASURED lists the ones the data backs; none yet.
+  for (const c of BUILD_CHANGERS.filter((x) => x.ids.some((i) => MEASURED_CHANGERS.has(i)))) {
     const ids = c.ids.filter((i) => own.has(i));
     if (!ids.length || build.filter((i) => rolesOf(i).some((x) => c.roles.includes(x))).length >= 2) continue;
     const fit = pool.filter((r) => rolesOf(r.items[0]).some((x) => c.roles.includes(x)));
@@ -204,6 +218,11 @@ export function augmentSwaps(
       .filter((r) => r.pickRate >= 0.25 * top && !has.has(r.items[0]))
       .sort((a, b) => (b.deepScore ?? 0) - (a.deepScore ?? 0))[0];
     if (pick && !out.some((o) => o.item === pick.items[0])) out.push({ augments: ids, item: pick.items[0], kind: "style", why: c.why });
+  }
+  for (const c of ITEM_CHANGERS) {
+    const ids = c.ids.filter((i) => own.has(i));
+    if (ids.length && !has.has(c.item) && nameOf(c.item) && !out.some((o) => o.item === c.item))
+      out.push({ augments: ids, item: c.item, kind: "style", why: c.why });
   }
   return out;
 }

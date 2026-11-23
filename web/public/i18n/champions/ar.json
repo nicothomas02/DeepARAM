@@ -294,5 +294,7 @@
  "Its empowered attack scales with bonus armor.": "هجومه المعزّز يتدرّج مع الدرع الإضافي.",
  "It turns bonus armor and magic resist into heal and shield power.": "يحوّل الدرع ومقاومة السحر الإضافيين إلى قوة شفاء ودروع.",
  "Few players": "قلة من اللاعبين",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "نتيجته جيدة، لكن قلة من اللاعبين يبنونه (أقل من ربع أكثر عنصر يُبنى)، لذا يبقى البناء على العناصر المتّبعة فعلاً. العينات الصغيرة تتقلب، خاصة في بداية التحديث."
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "نتيجته جيدة، لكن قلة من اللاعبين يبنونه (أقل من ربع أكثر عنصر يُبنى)، لذا يبقى البناء على العناصر المتّبعة فعلاً. العينات الصغيرة تتقلب، خاصة في بداية التحديث.",
+ "Mostly built with {augment}.": "يُبنى غالباً مع {augment}.",
+ "It makes you melee, and players who take it build Death's Dance far more often.": "يجعلك قتالاً قريباً، واللاعبون الذين يختارونه يبنون Death's Dance أكثر بكثير."
 }

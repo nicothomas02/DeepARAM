@@ -159,5 +159,11 @@
  "Next patch": "Bản cập nhật sau",
  "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Tỉ lệ thắng dự kiến ở bản cập nhật sau nếu tướng không bị thay đổi, ước tính từ cách tỉ lệ thắng biến động giữa các bản trước. Chế độ xem chi tiết thêm khoảng giá trị rơi vào 4 trên 5 lần.",
  "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "Mức thấp của tỉ lệ thắng dự kiến ở bản cập nhật sau, thấp hơn một sai số thông thường. DeepScore xếp hạng theo giá trị này.",
- "Estimated games on the live patch.": "Số trận ước tính ở bản cập nhật hiện tại."
+ "Estimated games on the live patch.": "Số trận ước tính ở bản cập nhật hiện tại.",
+ "What it does (estimated): {effects}": "Tác dụng (ước tính): {effects}",
+ "{n} damage to champions": "{n} sát thương lên tướng",
+ "{n} healing": "{n} hồi máu",
+ "{n} damage blocked": "{n} sát thương chặn được",
+ "{n} crowd control": "{n} khống chế",
+ "{n} deaths per 10 minutes": "{n} lần chết mỗi 10 phút"
 }

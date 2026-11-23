@@ -159,5 +159,11 @@
  "Next patch": "Příští patch",
  "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Očekávaný procent výher v příštím patchi, pokud se šampion nezmění, odhadnutý podle toho, jak se procenta výher měnila mezi minulými patchi. Podrobné zobrazení přidá rozsah, do kterého padne 4krát z 5.",
  "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "Spodní hranice očekávaného procenta výher v příštím patchi, jednu typickou odchylku pod ním. DeepScore podle ní řadí.",
- "Estimated games on the live patch.": "Odhadovaný počet her v aktuálním patchi."
+ "Estimated games on the live patch.": "Odhadovaný počet her v aktuálním patchi.",
+ "What it does (estimated): {effects}": "Co dělá (odhad): {effects}",
+ "{n} damage to champions": "{n} poškození šampionům",
+ "{n} healing": "{n} léčení",
+ "{n} damage blocked": "{n} zablokované poškození",
+ "{n} crowd control": "{n} omezení pohybu",
+ "{n} deaths per 10 minutes": "{n} úmrtí za 10 minut"
 }

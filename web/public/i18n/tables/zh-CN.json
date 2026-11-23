@@ -159,5 +159,11 @@
  "Next patch": "下个版本",
  "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "若英雄不被调整，下个版本的预期胜率，依据过去各版本之间胜率的变化拟合。详细视图会加上 5 次中有 4 次落入的区间。",
  "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "下个版本预期胜率的下限，比预期低一个典型误差。DeepScore 以此排名。",
- "Estimated games on the live patch.": "当前版本的估计对局数。"
+ "Estimated games on the live patch.": "当前版本的估计对局数。",
+ "What it does (estimated): {effects}": "效果（估算）：{effects}",
+ "{n} damage to champions": "对英雄伤害 {n}",
+ "{n} healing": "治疗 {n}",
+ "{n} damage blocked": "格挡伤害 {n}",
+ "{n} crowd control": "控制 {n}",
+ "{n} deaths per 10 minutes": "每10分钟死亡 {n}"
 }

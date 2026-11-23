@@ -159,5 +159,11 @@
  "Next patch": "Nächster Patch",
  "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Erwartete Siegrate im nächsten Patch, falls der Champion nicht geändert wird, geschätzt daraus, wie sich Siegraten zwischen früheren Patches bewegt haben. Die detaillierte Ansicht zeigt den Bereich, in dem sie 4 von 5 Mal landet.",
  "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "Das untere Ende der erwarteten Siegrate im nächsten Patch, eine typische Abweichung darunter. Danach sortiert DeepScore.",
- "Estimated games on the live patch.": "Geschätzte Spiele im aktuellen Patch."
+ "Estimated games on the live patch.": "Geschätzte Spiele im aktuellen Patch.",
+ "What it does (estimated): {effects}": "Was es bewirkt (geschätzt): {effects}",
+ "{n} damage to champions": "{n} Schaden an Champions",
+ "{n} healing": "{n} Heilung",
+ "{n} damage blocked": "{n} geblockter Schaden",
+ "{n} crowd control": "{n} Massenkontrolle",
+ "{n} deaths per 10 minutes": "{n} Tode pro 10 Minuten"
 }

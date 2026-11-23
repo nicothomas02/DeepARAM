@@ -159,5 +159,11 @@
  "Next patch": "Sonraki yama",
  "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Şampiyon değişmezse sonraki yamada beklenen kazanma oranı; geçmiş yamalar arasında kazanma oranlarının nasıl değiştiğine göre hesaplanır. Ayrıntılı görünüm, 5 seferin 4'ünde düştüğü aralığı da ekler.",
  "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "Sonraki yamada beklenen kazanma oranının alt ucu, bir tipik sapma aşağısı. DeepScore buna göre sıralar.",
- "Estimated games on the live patch.": "Güncel yamadaki tahmini maç sayısı."
+ "Estimated games on the live patch.": "Güncel yamadaki tahmini maç sayısı.",
+ "What it does (estimated): {effects}": "Ne yapar (tahmini): {effects}",
+ "{n} damage to champions": "{n} şampiyonlara hasar",
+ "{n} healing": "{n} iyileştirme",
+ "{n} damage blocked": "{n} engellenen hasar",
+ "{n} crowd control": "{n} kitle kontrolü",
+ "{n} deaths per 10 minutes": "10 dakikada {n} ölüm"
 }

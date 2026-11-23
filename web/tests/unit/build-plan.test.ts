@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { augmentSwaps, buildStyle, buyingOrder, restOfBuild, rushParts, startFirst, starterFits, styleCores, tiedWith, upgradeSwaps } from "@/lib/build-plan";
+import { augmentSwaps, MEASURED_CHANGERS, buildStyle, buyingOrder, restOfBuild, rushParts, startFirst, starterFits, styleCores, tiedWith, upgradeSwaps } from "@/lib/build-plan";
 
 const classes: Record<number, string[]> = { 1: ["tank"], 2: ["tank"], 3: ["tank", "fighter"], 4: ["mage"], 5: ["mage"], 6: ["mage"] };
 const of = (i: number) => classes[i] ?? [];
@@ -86,13 +86,28 @@ describe("augmentSwaps", () => {
     { items: [21], pickRate: 0.08, deepScore: 70 },
     { items: [22], pickRate: 0.01, deepScore: 95 },
   ];
-  it("points an on-hit augment at the best followed on-hit item, with its reason", () => {
-    const out = augmentSwaps([{ id: 1029, name: "Ethereal Weapon", pickRate: 0.02 }], [10, 11], pool, rolesOf, nameOf, [10, 11]);
-    expect(out).toEqual([expect.objectContaining({ augments: [1029], item: 21, kind: "style" })]);
-    expect(out[0].why).toMatch(/on-hit/);
+  it("shows no role-based tip until it's measured", () => {
+    expect(augmentSwaps([{ id: 1029, name: "Ethereal Weapon", pickRate: 0.02 }], [10, 11], pool, rolesOf, nameOf, [10, 11])).toEqual([]);
+  });
+  it("points a measured on-hit augment at the best followed on-hit item, with its reason", () => {
+    MEASURED_CHANGERS.add(1029);
+    try {
+      const out = augmentSwaps([{ id: 1029, name: "Ethereal Weapon", pickRate: 0.02 }], [10, 11], pool, rolesOf, nameOf, [10, 11]);
+      expect(out).toEqual([expect.objectContaining({ augments: [1029], item: 21, kind: "style" })]);
+      expect(out[0].why).toMatch(/on-hit/);
+    } finally {
+      MEASURED_CHANGERS.delete(1029);
+    }
   });
   it("skips an augment whose style the build already has", () => {
+    MEASURED_CHANGERS.add(1205);
     expect(augmentSwaps([{ id: 1205, name: "ADAPt", pickRate: 0.02 }], [10, 11], [{ items: [10], pickRate: 0.2, deepScore: 70 }], rolesOf, nameOf, [10, 11])).toEqual([]);
+    MEASURED_CHANGERS.delete(1205);
+  });
+  it("points Draw Your Sword at Death's Dance even without a following", () => {
+    const named = (i: number) => (i === 6333 ? "Death's Dance" : nameOf(i));
+    const out = augmentSwaps([{ id: 1134, name: "Draw Your Sword", pickRate: 0.06 }], [30], pool, rolesOf, named, []);
+    expect(out).toEqual([expect.objectContaining({ augments: [1134], item: 6333 })]);
   });
   it("ignores augments the champion doesn't take", () => {
     expect(augmentSwaps([], [10, 11], pool, rolesOf, nameOf, [10, 11])).toEqual([]);

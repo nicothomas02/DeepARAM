@@ -159,5 +159,11 @@
  "Next patch": "Patch-ul următor",
  "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Rata de victorii așteptată în patch-ul următor dacă campionul nu se schimbă, estimată din cum s-au mișcat ratele de victorii între patch-urile anterioare. Vizualizarea detaliată adaugă intervalul în care ajunge de 4 ori din 5.",
  "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "Capătul de jos al ratei de victorii așteptate în patch-ul următor, cu o abatere obișnuită mai jos. DeepScore ordonează după aceasta.",
- "Estimated games on the live patch.": "Meciuri estimate în patch-ul actual."
+ "Estimated games on the live patch.": "Meciuri estimate în patch-ul actual.",
+ "What it does (estimated): {effects}": "Ce face (estimat): {effects}",
+ "{n} damage to champions": "{n} daune campionilor",
+ "{n} healing": "{n} vindecare",
+ "{n} damage blocked": "{n} daune blocate",
+ "{n} crowd control": "{n} control",
+ "{n} deaths per 10 minutes": "{n} morți la 10 minute"
 }

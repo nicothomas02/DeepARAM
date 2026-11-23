@@ -69,7 +69,7 @@ import { championAugmentStages, championEstimates } from "@/lib/estimates";
 import { augmentScores, byScore, rankedAugments } from "@/lib/champion-augments";
 import { SITUATIONS } from "@/lib/situations";
 import StyleTabs from "@/components/champion/StyleTabs";
-import { tiedWith } from "@/lib/build-plan";
+import { ITEM_CHANGERS, tiedWith } from "@/lib/build-plan";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import descriptions from "@/data/descriptions.json";
@@ -1104,7 +1104,11 @@ export default async function ChampionPage({
                             <ItemIcon id={r.items[0]} info={info} />
                             <ItemName id={r.items[0]} info={info} />
                             {fewPlayers(r) && (
-                              <FewPlayers />
+                              <FewPlayers augment={(() => {
+                                const c = ITEM_CHANGERS.find((x) => x.item === r.items[0] && p.augments.some((a) => x.ids.includes(a.id)));
+                                const id = c && p.augments.find((a) => c.ids.includes(a.id))?.id;
+                                return id ? AUG_NAMES[id] : undefined;
+                              })()} />
                             )}
                             {r.deepScore !== undefined && (
                               <DeepScore

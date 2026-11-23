@@ -202,3 +202,14 @@ archetype: `share`, `games`, `win_rate`, `lift`, `starters`, `core`, `boots`, `l
 Augments are champion-wide in the feed, so an archetype's are the most picked whose official build tags fit its style
 (or have none), marked `augments_estimated`. The champion page's archetype switch and the overlay both read this file.
 Refreshed by fill.yml.
+
+## mechanism_profiles.json
+
+What each augment and item directly changes for the player holding it: the gap to the same champion in games of a
+similar length (5-minute bins) in damage to champions, healing done, damage self-mitigated and crowd control on
+others (% change per minute) and deaths (change per 10 minutes), each with a z score. Made by
+`profiles.py` (research/mechanism-profiles, run on a DeepARAM-PC checkout) from the owner's archived lobbies, all ten
+players, items folded to base ids; only picks with 60+ holders, and only change and z are kept (no sample sizes).
+Correlational like win rates, but one step from the mechanism, so it explains a pick and never ranks or filters one.
+Shields on allies aren't measured. Read by `web/src/lib/mechanisms.ts`: augment DeepScore hover and item pages show
+up to two effects with |z| >= 3 and at least 8% (0.3 deaths per 10 minutes), labelled estimated; served to both apps at `/data/mechanism-profiles.json`.

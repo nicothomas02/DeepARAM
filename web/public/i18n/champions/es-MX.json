@@ -294,5 +294,7 @@
  "Its empowered attack scales with bonus armor.": "Su ataque potenciado escala con la armadura adicional.",
  "It turns bonus armor and magic resist into heal and shield power.": "Convierte la armadura y la resistencia mágica adicionales en poder de curación y escudos.",
  "Few players": "Pocos jugadores",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Puntúa bien, pero pocos jugadores lo construyen (menos de una cuarta parte que el objeto más construido), así que la build se queda con objetos que la gente usa de verdad. Las muestras pequeñas varían, sobre todo al inicio de un parche."
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Puntúa bien, pero pocos jugadores lo construyen (menos de una cuarta parte que el objeto más construido), así que la build se queda con objetos que la gente usa de verdad. Las muestras pequeñas varían, sobre todo al inicio de un parche.",
+ "Mostly built with {augment}.": "Se construye sobre todo con {augment}.",
+ "It makes you melee, and players who take it build Death's Dance far more often.": "Te vuelve cuerpo a cuerpo, y quienes lo eligen construyen Death's Dance mucho más seguido."
 }
