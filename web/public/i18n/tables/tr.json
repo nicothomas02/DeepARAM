@@ -155,5 +155,9 @@
  "Order within role": "Rol içi sıra",
  "Real ÷ predicted": "Gerçek ÷ tahmin",
  "Find an item": "Eşya bul",
- "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Tahmini. Onu dizen şampiyonların kazanma oranını ne kadar artırdığı: DeepScore'u buradan başlar."
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Tahmini. Onu dizen şampiyonların kazanma oranını ne kadar artırdığı: DeepScore'u buradan başlar.",
+ "Next patch": "Sonraki yama",
+ "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Şampiyon değişmezse sonraki yamada beklenen kazanma oranı; geçmiş yamalar arasında kazanma oranlarının nasıl değiştiğine göre hesaplanır. Ayrıntılı görünüm, 5 seferin 4'ünde düştüğü aralığı da ekler.",
+ "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "Sonraki yamada beklenen kazanma oranının alt ucu, bir tipik sapma aşağısı. DeepScore buna göre sıralar.",
+ "Estimated games on the live patch.": "Güncel yamadaki tahmini maç sayısı."
 }

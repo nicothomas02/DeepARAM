@@ -155,5 +155,9 @@
  "Order within role": "ロール内の順位",
  "Real ÷ predicted": "実際 ÷ 予測",
  "Find an item": "アイテムを検索",
- "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "推定。このアイテムを積むチャンピオンの勝率をどれだけ上げるか。DeepScoreはここから算出します。"
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "推定。このアイテムを積むチャンピオンの勝率をどれだけ上げるか。DeepScoreはここから算出します。",
+ "Next patch": "次のパッチ",
+ "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "チャンピオンに変更がない場合の次のパッチの予想勝率。過去のパッチ間での勝率の動きから推定。詳細表示では5回中4回収まる範囲も表示します。",
+ "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "次のパッチの予想勝率の下限（典型的な誤差1つ分下）。DeepScoreはこの値で順位付けします。",
+ "Estimated games on the live patch.": "現在のパッチでの推定試合数。"
 }
