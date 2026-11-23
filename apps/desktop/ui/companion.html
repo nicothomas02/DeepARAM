@@ -268,6 +268,8 @@
   // "What it does (estimated)": the same rule as the site's lib/mechanisms.ts whatItDoes (|z| >= 3, at least 8% a
   // minute or 0.3 deaths per 10 minutes, largest |z| first, at most 2, no healing line on picks that shield). Hover only.
   let mech = null, mechData = null;
+  let whyB = null;
+  const loadWhy = () => whyB ?? (whyB = fetch(`${SITE}/data/why-best.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
   const loadMech = () => mech ?? (mech = fetch(`${SITE}/data/mechanism-profiles.json`).then((r) => r.json()).then((j) => (mechData = j)).catch(() => null));
   const MECH_LABEL = { damage: "damage to champions", healing: "healing", mitigated: "damage blocked", cc: "crowd control", deaths: "deaths per 10 minutes" };
   const whatItDoes = (kind, id) => {
@@ -394,6 +396,7 @@
       query = ""; rarity = ""; const s = document.getElementById("search"); if (s) s.value = "";
       document.querySelectorAll(".chip.f").forEach((x) => x.classList.toggle("on", x.dataset.r === ""));
       renderAugments();
+      renderItems();
     }));
   }
 
@@ -421,11 +424,11 @@
   async function renderItems() {
     const box = document.getElementById("items");
     if (!box || !game) return;
-    const [d, k, picks, fitData] = await Promise.all([loadBuilds(), loadKinds(), loadPicks(), loadFit(), loadMech()]);
+    const [d, k, picks, fitData, , whyData] = await Promise.all([loadBuilds(), loadKinds(), loadPicks(), loadFit(), loadMech(), loadWhy()]);
     const champ = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase());
     if (champ?.items?.[0]?.icon) iconPrefix = champ.items[0].icon.replace(/\d+\.png$/, "");
     renderFoes(k);
-    const p = E.plan({ champ, kinds: k, picks, fit: fitData, game, taken: getTaken(game) });
+    const p = E.plan({ champ, kinds: k, picks, fit: fitData, game, taken: getTaken(game), lucky, why: whyData, profiles: mechData });
     const tipLines = p.tips.filter((t) => t.kind !== "shop");
     const shop = p.tips.find((t) => t.kind === "shop")?.text ?? "";
     const tipHtml = (t) => t.kind === "skill" ? `Skill point <span class="key inl">${esc(t.text)}</span>`
@@ -442,7 +445,10 @@
     const nextId = p.next[0] ? itemId(p.next[0].icon) : -1;
     const shown = p.path.map((it, i) => {
       const sw = p.swaps.find((x) => x.replaces && itemId(x.replaces.icon) === itemId(it.icon));
-      return sw ? { it: { ...sw.item, icon: sw.item.icon ?? it.icon }, why: `${sw.why} Replaces ${it.name}.`, sw: true } : { it, why: p.why[i] ?? "", sw: false };
+      // The hover: the engine's tested "why it's best" line (Nico approved 2026-11-23) when there is one, else the slot reason.
+      const r = p.reasons?.[i];
+      return sw ? { it: { ...sw.item, icon: sw.item.icon ?? it.icon }, why: `${sw.why} Replaces ${it.name}.`, sw: true, does: false }
+        : { it, why: r?.text ?? p.why[i] ?? "", sw: false, does: r?.kind === "does" };
     });
     const state = (it) => {
       const id = itemId(it.icon);
@@ -450,10 +456,10 @@
     };
     const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
     let n = 0;
-    const tiles = shown.map(({ it, why, sw }, i) => {
+    const tiles = shown.map(({ it, why, sw, does }, i) => {
       const boot = bootIds.has(itemId(it.icon));
       const lbl = boot ? "Boots" : ord(++n);
-      return `${i === p.coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${sw ? " sw" : ""}" title="${esc([`${it.name} · ${why}`, whatItDoes("items", itemId(it.icon ?? ""))].filter(Boolean).join("\n"))}"><img src="${src(it.icon ?? "")}" alt="" data-drop><span>${lbl}</span></div>`;
+      return `${i === p.coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${sw ? " sw" : ""}" title="${esc([`${it.name} · ${why}`, does ? "" : whatItDoes("items", itemId(it.icon ?? ""))].filter(Boolean).join("\n"))}"><img src="${src(it.icon ?? "")}" alt="" data-drop><span>${lbl}</span></div>`;
     }).join("");
     const img = (it) => (it?.icon ? `<img class="ii" src="${src(it.icon)}" alt="" data-drop>` : "");
     const lower = (t) => esc(String(t ?? "").replace(/\.$/, "").replace(/^./, (c) => c.toLowerCase()));
@@ -485,7 +491,7 @@
         <h2>Items</h2><div id="items"></div></section>
         <section><h2 id="augHead">Augments</h2>
         <div class="filters">${["", "prismatic", "gold", "silver"].map((r) => `<button class="chip f${r === rarity ? " on" : ""}" data-r="${r}">${r ? r[0].toUpperCase() + r.slice(1) : "All"}</button>`).join("")}
-          <button class="chip lucky${lucky ? " on" : ""}" title="Ranks augments that can complete a combo much higher, for chasing rare synergies over win rate">I'm feeling lucky</button></div>
+          <button class="chip lucky${lucky ? " on" : ""}" title="Ranks augments that can complete a combo much higher, and leans toward less-played augments and builds when they are about as strong">I'm feeling lucky</button></div>
         <input id="search" type="search" placeholder="Type your augment, then Enter" autocomplete="off">
         <div id="augs"></div></section>
         </div>`);
@@ -557,6 +563,7 @@
       l.classList.toggle("on", lucky);
       try { localStorage.setItem("lucky", lucky ? "1" : "0"); } catch {}
       renderAugments();
+      renderItems();
     }
   });
   // The page rules also drop style="" attributes (Tauri's nonce turns off 'unsafe-inline'), which left the bars
