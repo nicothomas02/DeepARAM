@@ -21,5 +21,7 @@
  "Page not found": "Page not found",
  "{name} {mode} Build & Augments": "{name} {mode} Build & Augments",
  "{name} {mode} Augment": "{name} {mode} Augment",
- "{name} in {mode}": "{name} in {mode}"
+ "{name} in {mode}": "{name} in {mode}",
+ "Infinite Ashe": "Infinite Ashe",
+ "{mode} Calculators": "{mode} Calculators"
 }

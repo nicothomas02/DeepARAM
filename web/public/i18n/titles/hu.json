@@ -21,5 +21,7 @@
  "Page not found": "Az oldal nem található",
  "{name} {mode} Build & Augments": "{name}: build és bővítések – {mode}",
  "{name} {mode} Augment": "{name}: bővítés – {mode}",
- "{name} in {mode}": "{name} – {mode}"
+ "{name} in {mode}": "{name} – {mode}",
+ "Infinite Ashe": "Végtelen Ashe",
+ "{mode} Calculators": "{mode}: kalkulátorok"
 }

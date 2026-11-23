@@ -21,5 +21,7 @@
  "Page not found": "페이지를 찾을 수 없음",
  "{name} {mode} Build & Augments": "{name}: {mode} 빌드와 증강",
  "{name} {mode} Augment": "{name}: {mode} 증강",
- "{name} in {mode}": "{mode}의 {name}"
+ "{name} in {mode}": "{mode}의 {name}",
+ "Infinite Ashe": "무한 애쉬",
+ "{mode} Calculators": "{mode} 계산기"
 }

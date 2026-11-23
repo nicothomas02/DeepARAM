@@ -21,5 +21,7 @@
  "Page not found": "Stránka nenalezena",
  "{name} {mode} Build & Augments": "{name}: build a vylepšení pro {mode}",
  "{name} {mode} Augment": "{name}: vylepšení v {mode}",
- "{name} in {mode}": "{name} v {mode}"
+ "{name} in {mode}": "{name} v {mode}",
+ "Infinite Ashe": "Nekonečná Ashe",
+ "{mode} Calculators": "{mode}: kalkulačky"
 }

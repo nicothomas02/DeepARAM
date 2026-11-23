@@ -21,5 +21,7 @@
  "Page not found": "Không tìm thấy trang",
  "{name} {mode} Build & Augments": "{name}: Lối lên đồ và Lõi nâng cấp {mode}",
  "{name} {mode} Augment": "{name}: Lõi nâng cấp {mode}",
- "{name} in {mode}": "{name} trong {mode}"
+ "{name} in {mode}": "{name} trong {mode}",
+ "Infinite Ashe": "Ashe vô hạn",
+ "{mode} Calculators": "Máy tính {mode}"
 }

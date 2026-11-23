@@ -21,5 +21,7 @@
  "Page not found": "Η σελίδα δεν βρέθηκε",
  "{name} {mode} Build & Augments": "{name}: build και βελτιώσεις για το {mode}",
  "{name} {mode} Augment": "{name}: βελτίωση του {mode}",
- "{name} in {mode}": "{name} στο {mode}"
+ "{name} in {mode}": "{name} στο {mode}",
+ "Infinite Ashe": "Η ατελείωτη Άσε",
+ "{mode} Calculators": "{mode}: Υπολογιστές"
 }

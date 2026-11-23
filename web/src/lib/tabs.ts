@@ -71,7 +71,7 @@ const pick = (href: string): NavItem[] => {
 };
 
 /** The header's tabs, grouped by what a player is trying to do:
- *  Tier List (champions, augments, items, duos, augments by icon, draft practice) · Simulator · The Kitchen ·
+ *  Tier List (champions, augments, items, duos, augments by icon, draft practice) · Simulator · The Kitchen · Calculators ·
  *  More (PBE, Patches, About, newer tool folders), the same order as the phone tab bar.
  *  Builds for a champion are on its page.
  *  My Stats sits behind the account button; champion, augment and item pages open from the tier lists and search. */
@@ -82,6 +82,7 @@ export function navItems(): NavItem[] {
     ...pick("/tier-list"),
     ...pick("/simulator"),
     ...pick("/kitchen"),
+    ...pick("/calculators"),
     ...menu("#more", "More", [...pick("/pbe"), ...pick("/patches"), ...pick("/info"), ...tools.flatMap((t) => pick(t.href))]),
   ];
 }
