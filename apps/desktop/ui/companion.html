@@ -518,7 +518,7 @@
     const l = g.live;
     ff.innerHTML = l ? `<div class="live-mini"><span>Chance to win <b data-style="color:${color(l.win)}">${pct(l.win)}</b></span>
         <div class="bar"><span data-style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
-      ` : "";
+      ${l.surrender ? `<div class="box yes">Surrender: yes. A new game is worth more than this one now.</div>` : ""}` : "";
     const head = document.getElementById("augHead");
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
@@ -599,12 +599,17 @@
     const turnRows = turns.map((t) => `
       <div class="box"><span class="${t.after >= t.before ? "up" : "down"}">${t.after >= t.before ? "▲" : "▼"}</span> ${clock(t.from)}–${clock(t.to)}: ${pct(t.before)} → <b data-style="color:${color(t.after)}">${pct(t.after)}</b>
         <div class="why">${t.kills >= 0 ? "+" : "−"}${Math.abs(t.kills)} kills${t.towers ? `, ${t.towers > 0 ? "+" : "−"}${Math.abs(t.towers)} towers` : ""} for your team</div></div>`).join("");
-    // The surrender call (chance under the line for a full minute) is off until tested (2026-11-23).
+    // The surrender call: the chance stayed under the line for a full minute (Nico approved the full-minute hold,
+    // 2026-11-23).
+    const ff = ffFrom != null
+      ? `<div class="box yes">From ${clock(ffFrom)} a surrender would have saved time: the chance stayed under the line for a full minute.</div>`
+      : `<div class="box">A surrender never paid off this game.</div>`;
     setView(`
       ${hero(lastChamp, `<span class="${result === "Win" ? "ink" : ""}">${verdict}</span>`, "Game review")}
       <h2>Chance to win over the game</h2>
-      ${chart(points, null)}
+      ${chart(points, ffFrom)}
       ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
+      <h2>Surrender</h2>${ff}
       <p class="note">Predicted, not measured: an estimate from kills, towers, levels and team strength.</p>
       <div id="recap"></div><div id="invite"></div>`);
     renderRecap();
