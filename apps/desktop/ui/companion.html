@@ -54,6 +54,7 @@
   .items.lst { gap: 6px; }
   .items.lst .item img { width: 28px; height: 28px; }
   .item.lit .why { color: var(--gold); }
+  .offer .reroll { margin: 8px 2px 2px; }
   .why.lbl b { text-transform: none; letter-spacing: 0; }
   .items.lst .why.lbl { margin: 4px 0 -2px; }
   .tip { margin-top: 8px; }
@@ -299,6 +300,32 @@
     }).sort((x, y) => y.score - x.score);
   }
 
+  // Reroll or keep: compares the offer with what a reroll would likely bring, drawn from this champion's own Mayhem
+  // pool (the augments it's seen taking) at the offer's rarity, minus the cards on screen and the ones you took.
+  // Rerolling a card keeps the other two, so a reroll is worth it when, on average over that pool, the best card
+  // you'd end up with beats the best card now. Assumes each augment in the pool is equally likely to come up.
+  function rerollAdvice(d, all, offered, taken) {
+    const r = d.augments[offered[0].id]?.[1];
+    const pool = all.filter((a) => d.augments[a.id]?.[1] === r && !offered.some((o) => o.id === a.id) && !taken.includes(a.id)).map((a) => a.score);
+    if (pool.length < 5) return "";
+    // A card with no stats on this champion (rarely or never taken on it) counts as the pool's weakest.
+    const low = Math.min(...pool);
+    const v = offered.map((a) => a.score ?? low);
+    const best = Math.max(...v);
+    let pick = -1, gain = 0;
+    v.forEach((_, j) => {
+      const keep = Math.max(...v.filter((__, k) => k !== j), -Infinity);
+      const g = pool.reduce((t, x) => t + Math.max(keep, x), 0) / pool.length - best;
+      if (g > gain) { gain = g; pick = j; }
+    });
+    const beats = pool.filter((x) => x > best).length / pool.length;
+    const nm = (a) => esc(d.augments[a.id]?.[0] ?? `#${a.id}`);
+    const bestCard = offered[v.indexOf(best)];
+    if (pick >= 0 && gain >= 0.25)
+      return `<div class="why tip reroll">Reroll <b>${nm(offered[pick])}</b>: ${pct(beats)} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat <b>${nm(bestCard)}</b>, worth about +${gain.toFixed(1)} on average.</div>`;
+    return `<div class="why tip reroll">Keep: ${beats ? `only ${pct(beats)}` : "none"} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat <b>${nm(bestCard)}</b>, so a reroll is unlikely to help.</div>`;
+  }
+
   async function renderAugments() {
     const box = document.getElementById("augs");
     if (!box || !game) return;
@@ -314,6 +341,7 @@
     const asking = !offer.length && asked.length > 0 && !asked.some((id) => taken.includes(id));
     const onOffer = (asking ? asked : offer).filter((id) => !taken.includes(id));
     const offered = onOffer.length ? [...ranked.filter((a) => onOffer.includes(a.id)), ...onOffer.filter((id) => !ranked.some((a) => a.id === id)).map((id) => ({ id, boost: null, deep: -1, mate: null, combo: null, potential: 0 }))] : [];
+    const reroll = offered.length >= 2 && !asking ? rerollAdvice(d, rankAugments(d, ck, taken), offered, taken) : "";
     const shown = q ? ranked.filter((a) => name(a.id).toLowerCase().includes(q)) : ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
     const row = (a, best) => `
       <button class="row aug${best ? " best" : ""}" data-id="${a.id}" data-r="${d.augments[a.id]?.[1] ?? ""}">
@@ -322,7 +350,7 @@
         <div class="num" title="Estimated boost on this champion (win-rate points, with synergy), then DeepScore">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `<br><small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </button>`;
     box.innerHTML = `
-      ${offered.length ? `<div class="offer${asking ? " ask" : ""}"><div class="why src">${asking ? "Which one did you take? One tap and the rest re-rank around it." : "On offer now, best first for you. Tap the one you take."}</div>${offered.map((a, i) => row(a, i === 0)).join("")}</div><h2>Other augments</h2>` : ""}
+      ${offered.length ? `<div class="offer${asking ? " ask" : ""}"><div class="why src">${asking ? "Which one did you take? One tap and the rest re-rank around it." : "On offer now, best first for you. Tap the one you take."}</div>${offered.map((a, i) => row(a, i === 0)).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
       ${taken.length ? `<div class="taken">${taken.map((id) => `<button class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}" data-id="${id}" title="Tap to undo">${augIcon(id)}${esc(name(id))}</button>`).join("")}</div>` : ""}
       ${shown.map((a, i) => row(a, i === 0 && !q && !offered.length)).join("") || `<p class="note">No augment matches "${esc(query)}".</p>`}
       <p class="note">Best first for ${esc(label(game.champ))}, by estimated boost here (points, including synergy with what you took) plus combo potential with partners that can still come, with DeepScore below. Tap the one you take and the rest re-rank around it. If yours isn't listed, search for it.</p>`;
