@@ -8,7 +8,7 @@ import SplashAccent from "@/components/SplashAccent";
 import WinRateChart from "@/components/WinRateChart";
 import WinRate, { Sampled } from "@/components/WinRate";
 import DeepScore from "@/components/DeepScore";
-import { BUILD_DEEPSCORE_HELP, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
+import { BUILD_DEEPSCORE_HELP, FIT, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
 import FewPlayers from "@/components/champion/FewPlayers";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
@@ -536,7 +536,7 @@ export default async function ChampionPage({
   // their most-picked-first order.
   // Real spell pairs (AramHex) lead only with a real following, the same 1/4 rule as builds, so a pair a few percent
   // of players take can't top the card on win rate alone (Ghost + Barrier over Flash on Ahri).
-  const spells = spellsEstimated ? rawSpells : followed(scoreRows(rawSpells));
+  const spells = spellsEstimated ? rawSpells : followed(scoreRows(rawSpells, FIT.items, { bound: true }));
   const bestSpells = spells[0];
   const games = fillGames()?.[c.alias];
   const gamesEstimated = fillEstimated();

@@ -1,6 +1,7 @@
 import "server-only";
 import championIds from "@/data/champion-ids.json";
 import { scoreRows } from "./card-score";
+import { FIT } from "./deepscore";
 import { championPage } from "./champion-page";
 import { championEstimates } from "./estimates";
 
@@ -33,7 +34,7 @@ export function augmentScores(alias: string, thisPatch = false): Scores {
   if (p && p.augments.length && p.augments.every((a) => a.games && a.winRate !== undefined)) {
     const use = (a: (typeof p.augments)[number]) => (!thisPatch && a.pooled ? a.pooled : { winRate: a.winRate!, games: a.games! });
     const m: Scores = new Map(
-      scoreRows(p.augments.map((a) => ({ id: a.id, pickRate: a.pickRate, ...use(a) }))).map(
+      scoreRows(p.augments.map((a) => ({ id: a.id, pickRate: a.pickRate, ...use(a) })), FIT.augments, { bound: true }).map(
         (r) => [r.id, r.deepScore as number],
       ),
     );
