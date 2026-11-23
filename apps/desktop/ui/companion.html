@@ -143,6 +143,7 @@
 </head>
 <body class="idle">
 <main id="view"><div class="brand"><img src="icon.png" alt=""><b>DeepARAM</b></div><p class="note">Opens by itself in Mayhem champion select, follows the game on your second monitor, and shows a review after it.</p></main>
+<script src="engine.js"></script>
 <script>
   // The app calls showPick({allies, mine, bench}) in champion select (champion ids), showGame({t, champ, level, dead,
   // items, enemies, offer}) during a game (offer: the augments on offer, read off the screen), showOffer(ids) the
@@ -283,8 +284,15 @@
     ids = ids ?? [];
     if (JSON.stringify(ids) === JSON.stringify(offer)) return false;
     const taken = game ? getTaken(game) : [];
-    if (ids.length) asked = [];
-    else if (offer.length && !offer.some((id) => taken.includes(id))) asked = offer;
+    if (ids.length) {
+      // A card that changed while the other two stayed was rerolled: neither it nor its replacement can be again.
+      const kept = ids.filter((id) => offer.includes(id));
+      if (offer.length === 3 && ids.length === 3 && kept.length === 2) {
+        for (const id of [...offer, ...ids]) if (!kept.includes(id)) rerolled.add(id);
+      }
+      ids.forEach((id) => seen.add(id));
+      asked = [];
+    } else if (offer.length && !offer.some((id) => taken.includes(id))) asked = offer;
     offer = ids;
     return true;
   }
@@ -306,64 +314,25 @@
   const deepTier = (ds) => (ds >= 70 ? "S" : ds >= 59 ? "A" : ds >= 44 ? "B" : ds >= 32 ? "C" : "D");
   const deepLabel = (ds) => (ds >= 0 ? `${deepTier(ds)} ${ds}` : "");
 
-  // Re-measured 2026-11-22 on 11,702 real player-games (every player in the owner's archive, picks in order): the
-  // partner of a half-taken combo arrived only ~4% of the time per pick left, and taking the half cost 4-7 win-rate
-  // points against the champion's strong solo augment at the same pick (most at pick 1). The fitted share is 0.04
-  // per pick left, at most 12% (was 0.25 and 60%). Real games only, no Simulator.
-  const COMBO_ODDS = 0.04;
-  const COMBO_CAP = 0.12;
-  // "I'm feeling lucky" (Nico 2026-11-22): for chasing rare combos over win rate. Combos then count at 35% of their
-  // points per pick left, up to their full points. Off by default; remembered on this PC.
-  const LUCKY_ODDS = 0.35;
-  const LUCKY_CAP = 1;
+  // Ranking, reroll advice, the item path, swaps and tips come from the shared build engine (engine.js, built from
+  // web/src/lib/engine/build-engine.ts), the same one Nico's PC app and the site use, so they can't drift. This page
+  // only reads the game and draws.
+  const E = window.DeepEngine;
+  // "I'm feeling lucky" (Nico 2026-11-22): combos weigh much more, for chasing rare synergies. Off by default;
+  // remembered on this PC.
   let lucky = (() => { try { return localStorage.getItem("lucky") === "1"; } catch { return false; } })();
-
-  function rankAugments(d, champ, taken) {
-    const own = d.champions[champ] ?? [];
-    const pairs = d.pairs[champ] ?? [];
-    // Picks still to come after this one (four in a game). A partner you haven't taken can still be offered, so a
-    // combo counts at a share of its points: COMBO_ODDS per pick left, at most COMBO_CAP. A small lift for
-    // augments like Ethereal Weapon that are modest alone but strong with a partner (Nico 2026-11-20).
-    const left = Math.max(0, 3 - taken.length);
-    const odds = lucky ? Math.min(LUCKY_CAP, LUCKY_ODDS * left) : Math.min(COMBO_CAP, COMBO_ODDS * left);
-    // The ranking score is the estimated boost (a fraction) and synergy pairs are in win-rate points: both in points.
-    return own.filter(([id]) => !taken.includes(id)).map(([id, score, deep = -1, est = 1]) => {
-      let bonus = 0, mate = null, best = 0, potential = 0, combo = null;
-      for (const [a, b, p] of pairs) {
-        const other = a === id ? b : b === id ? a : null;
-        if (other === null) continue;
-        if (taken.includes(other)) { bonus += p; if (p > best) { best = p; mate = other; } }
-        else if (p > 0 && p * odds > potential) { potential = p * odds; combo = other; }
-      }
-      const base = score * 100 + bonus;
-      return { id, score: base + potential, boost: est ? base : null, potential, combo, mate, deep };
-    }).sort((x, y) => y.score - x.score);
-  }
-
-  // Reroll or keep: compares the offer with what a reroll would likely bring, drawn from this champion's own Mayhem
-  // pool (the augments it's seen taking) at the offer's rarity, minus the cards on screen and the ones you took.
-  // Rerolling a card keeps the other two, so a reroll is worth it when, on average over that pool, the best card
-  // you'd end up with beats the best card now. Assumes each augment in the pool is equally likely to come up.
+  // Per game: every augment shown on a card (it can't come back) and the cards already rerolled (once each).
+  let seen = new Set(), rerolled = new Set();
+  const resetTrack = () => { seen = new Set(); rerolled = new Set(); };
+  const rankAugments = (d, ck, taken) => E.rankAugments(d, ck, taken, { lucky, seen: [...seen] });
   function rerollAdvice(d, all, offered, taken) {
-    const r = d.augments[offered[0].id]?.[1];
-    const pool = all.filter((a) => d.augments[a.id]?.[1] === r && !offered.some((o) => o.id === a.id) && !taken.includes(a.id)).map((a) => a.score);
-    if (pool.length < 5) return "";
-    // A card with no stats on this champion (rarely or never taken on it) counts as the pool's weakest.
-    const low = Math.min(...pool);
-    const v = offered.map((a) => a.score ?? low);
-    const best = Math.max(...v);
-    let pick = -1, gain = 0;
-    v.forEach((_, j) => {
-      const keep = Math.max(...v.filter((__, k) => k !== j), -Infinity);
-      const g = pool.reduce((t, x) => t + Math.max(keep, x), 0) / pool.length - best;
-      if (g > gain) { gain = g; pick = j; }
-    });
-    const beats = pool.filter((x) => x > best).length / pool.length;
-    const nm = (a) => esc(d.augments[a.id]?.[0] ?? `#${a.id}`);
-    const bestCard = offered[v.indexOf(best)];
-    if (pick >= 0 && gain >= 0.25)
-      return `<div class="why tip reroll">Reroll ${augIco(offered[pick].id)}<b>${nm(offered[pick])}</b>: ${pct(beats)} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat ${augIco(bestCard.id)}<b>${nm(bestCard)}</b>, worth about +${gain.toFixed(1)} on average.</div>`;
-    return `<div class="why tip reroll">Keep: ${beats ? `only ${pct(beats)}` : "none"} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat ${augIco(bestCard.id)}<b>${nm(bestCard)}</b>, so a reroll is unlikely to help.</div>`;
+    const a = E.rerollAdvice(d, all, offered, taken, { seen: [...seen], rerolled: [...rerolled] });
+    if (!a) return "";
+    const nm = (id) => esc(d.augments[id]?.[0] ?? `#${id}`);
+    const who = `${esc(label(game.champ))}'s ${esc(a.rarity ?? "")} augments`;
+    return a.action === "reroll"
+      ? `<div class="why tip reroll">Reroll ${augIco(a.card)}<b>${nm(a.card)}</b>: ${pct(a.beats)} of ${who} beat ${augIco(a.best)}<b>${nm(a.best)}</b>, worth about +${a.gain.toFixed(1)} on average.</div>`
+      : `<div class="why tip reroll">Keep: ${a.beats ? `only ${pct(a.beats)}` : "none"} of ${who} beat ${augIco(a.best)}<b>${nm(a.best)}</b>, so a reroll is unlikely to help.</div>`;
   }
 
   async function renderAugments() {
@@ -406,23 +375,7 @@
     }));
   }
 
-  // The enemy team's damage, 0 (all physical) to 1 (all magic): each champion's usual mix (public data). Pulling it
-  // toward their items (each pure AP/AD item against a double-weighted usual mix) is off until tested (2026-11-23).
-  const ITEM_MIX = false;
-  function enemyMagic(k, enemies) {
-    const lower = new Map(Object.entries(k.champions).map(([a, m]) => [a.toLowerCase(), m]));
-    const mixes = enemies.filter((e) => e.champ).map((e) => {
-      let ap = 0, ad = 0;
-      for (const id of e.items) {
-        const g = k.items[String(id % 10000)] ?? [];
-        if (g.includes("ap") && !g.includes("ad")) ap += 1;
-        if (g.includes("ad") && !g.includes("ap")) ad += 1;
-      }
-      return ITEM_MIX ? (2 * (lower.get(e.champ.toLowerCase()) ?? 0.5) + ap) / (2 + ap + ad) : lower.get(e.champ.toLowerCase()) ?? 0.5;
-    });
-    return mixes.length ? mixes.reduce((a, b) => a + b, 0) / mixes.length : null;
-  }
-  // In game (live) only when it leans hard one way, since that's when it should steer defense; in the review always.
+  const enemyMagic = (k, enemies) => E.enemyMagic(k, enemies);
   function damageLine(k, g, live = false) {
     const magic = enemyMagic(k, g.enemies ?? []);
     if (magic === null) return "";
@@ -432,129 +385,6 @@
     if (!lean) return `The enemy team's damage ${v} mixed: about ${pct(magic)} magic.`;
     const kind = magic >= 0.65 ? "magic" : "physical";
     return `Enemy damage ${v} mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.`;
-  }
-
-  // The champion's situational items (the site's "when to buy" list) checked against this game's enemy team: the ones
-  // whose condition holds light up with the reason. A pointer, like the site's list: the build itself doesn't change.
-  const TANKY = new Set(["Vanguard", "Warden", "Juggernaut"]);
-  const BURSTY = new Set(["Burst", "Assassin"]);
-  const CATCH = new Set(["Catcher", "Vanguard"]);
-  // Champions whose kits heal a lot (from their ability descriptions), for "Vs healing".
-  const HEALERS = new Set(["aatrox", "akshan", "alistar", "belveth", "briar", "drmundo", "fiddlesticks", "illaoi", "ivern", "kayn", "kled", "maokai", "milio", "nami", "nidalee", "olaf", "renataglasc", "senna", "sona", "soraka", "swain", "sylas", "taric", "trundle", "vladimir", "warwick", "yuumi", "zac", "seraphine", "darius", "fiora", "irelia", "masteryi", "udyr", "volibear", "yone"]);
-  function situational(champ, k, fit, g, skip, augName = (id) => `#${id}`) {
-    const list = (champ?.situational ?? []).filter((it) => !skip.has(itemId(it.icon)));
-    if (!list.length) return [];
-    const enemies = (g.enemies ?? []).filter((e) => e.champ);
-    const arch = (e) => fit?.champions?.[keyIn(fit.champions, e.champ)]?.[1] ?? [];
-    const count = (set) => enemies.filter((e) => arch(e).some((a) => set.has(a))).length;
-    const tags = (e) => e.items.flatMap((i) => k.items[String(i % 10000)] ?? []);
-    const magic = enemyMagic(k, enemies);
-    const marksmen = enemies.filter((e) => arch(e).includes("Marksman")).length;
-    const itemTags = (it) => k.items[String(itemId(it.icon))] ?? [];
-    // Only triggers that passed a test light up (2026-11-23, Nico chose "apply defaults, then test"): MR items cut the
-    // share of magic damage taken vs magic-heavy teams, armor cut physical damage taken vs 2+ marksmen. The rest (tanks,
-    // burst, healing, mixed, crit, shields, crowd control) stay off until they pass.
-    const check = (it) => {
-      if (it.when === "Vs magic damage" && itemTags(it).includes("mr") && magic !== null && magic >= 0.65)
-        return `Enemy damage is about ${pct(magic)} magic.`;
-      if ((it.when === "Vs physical damage" || it.when === "Vs crit carries") && itemTags(it).includes("armor") && marksmen >= 2)
-        return `${marksmen} enemy marksmen.`;
-      return "";
-    };
-    // Entries tied to augments (the site's "augments" list) light up once you've taken one of them.
-    const taken = getTaken(g);
-    return list.map((it) => {
-      if (Array.isArray(it.augments)) {
-        const got = it.augments.find((id) => taken.includes(id));
-        return { ...it, why: got !== undefined ? it.why || `You took ${augName(got)}.` : "" };
-      }
-      return { ...it, why: check(it) };
-    });
-  }
-
-  const STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
-  // Items that grow with time or takedowns: worth buying first when they're in your build.
-  const STACKING = new Set([6697, 3084, 3070, 3004, 3003, 3119]);
-  const BACK_TO_BASICS = new Set([1004, 4]);
-  // Champions whose R has a passive that works once R has a point (from Riot's R descriptions), so Back to Basics
-  // still levels R; for the rest it takes R's only use away (Nico 2026-11-20).
-  const R_PASSIVE = new Set(["ambessa", "annie", "belveth", "blitzcrank", "fiora", "galio", "gnar", "jax", "kayn", "khazix", "lux", "masteryi", "mel", "nidalee", "olaf", "pantheon", "reksai", "rengar", "ryze", "shyvana", "sona", "syndra", "teemo", "xinzhao", "zaahen"]);
-
-  // The build to follow: the champion's usual one, or, once the augments you took point to another of its build
-  // styles (on-hit, crit, AP...), that style's build from the same public stats.
-  function pickBuild(base, picks, k, taken) {
-    const ck = keyIn(picks?.builds, game.champ);
-    const styles = ck ? picks.builds[ck] : [];
-    if (!styles.length || !taken.length || !k) return { list: base, style: null, core: null };
-    const votes = {};
-    for (const id of taken) for (const st of picks.styles[id] ?? []) votes[st] = (votes[st] ?? 0) + 1;
-    const top = Object.entries(votes).sort((x, y) => y[1] - x[1])[0]?.[0];
-    const found = styles.find(([st]) => st === top);
-    if (!found || found === styles[0]) return { list: base, style: null, core: null };
-    const prefix = (base[0]?.icon ?? "").replace(/\d+\.png$/, "");
-    const list = [...found[2].slice(0, 1), ...found[3], ...found[4]].map((id) => ({
-      name: k.recipes[id % 10000]?.[0] ?? `#${id}`, icon: `${prefix}${id}.png`,
-    }));
-    return { list, style: STYLE_NAMES[top] ?? top, core: 1 + found[3].length };
-  }
-
-  // What your gold buys right now toward the next item: the item itself, else its priciest missing part you can afford.
-  function buyNow(k, nextId, owned, gold) {
-    const r = k.recipes[nextId];
-    if (!r) return null;
-    const have = r[2].filter((c) => owned.has(c)).reduce((sum, c) => sum + (k.recipes[c]?.[1] ?? 0), 0);
-    if (gold >= r[1] - have) return { name: r[0], id: nextId, whole: true };
-    const parts = r[2].filter((c) => !owned.has(c) && (k.recipes[c]?.[1] ?? 1e9) <= gold)
-      .sort((x, y) => k.recipes[y][1] - k.recipes[x][1]);
-    return parts.length ? { name: k.recipes[parts[0]][0], id: parts[0], whole: false, cost: k.recipes[parts[0]][1] } : null;
-  }
-
-  // On level-up: where the point goes, from the champion's skill order. R at 6, 11 and 16; with Back to Basics
-  // only when the champion's R has a passive (Back to Basics takes the active away, not the passive).
-  function skillUp(order, pts, level, taken, champName) {
-    const spent = pts.reduce((a, b) => a + b, 0);
-    if (!order?.length || !pts.length || spent >= level) return "";
-    const rPassive = R_PASSIVE.has(String(champName ?? "").toLowerCase().replace(/[^a-z]/g, ""));
-    const noR = !rPassive && taken.some((id) => BACK_TO_BASICS.has(id));
-    const rDue = [6, 11, 16].filter((l) => l <= level).length;
-    if (!noR && pts[3] < rDue) return "R";
-    const idx = { Q: 0, W: 1, E: 2 };
-    const cap = Math.min(5, Math.ceil(level / 2));
-    const first = level <= 3 && order.find((key) => pts[idx[key]] === 0);
-    return first || order.find((key) => pts[idx[key]] < cap) || "";
-  }
-
-  // Penetration: %pen when two or more enemies stack your damage's resist, flat pen when they build almost none.
-  function penTip(k, g, owned) {
-    const lower = (c) => (c ?? "").toLowerCase();
-    const mine = Object.entries(k.champions).find(([a]) => lower(a) === lower(g.champ))?.[1] ?? 0.5;
-    const ap = mine > 0.5;
-    const resist = ap ? "mr" : "armor";
-    const ownsPen = [...owned].some((i) => (k.items[i] ?? []).includes(ap ? "magicpen" : "armorpen"));
-    if (ownsPen) return "";
-    const stacking = (g.enemies ?? []).filter((e) => e.items.some((i) => (k.items[String(i % 10000)] ?? []).includes(resist))).length;
-    if (stacking >= 2) return `${stacking} enemies build ${ap ? "magic resist" : "armor"}: <b>${ap ? "Void Staff or Cryptbloom" : "Lord Dominik's or Serylda's"}</b> cuts through it.`;
-    const built = (g.enemies ?? []).filter((e) => e.items.filter((i) => (k.recipes[i % 10000]?.[1] ?? 0) >= 2000).length >= 2).length;
-    if (stacking === 0 && built >= 3 && g.t >= 600) return `Enemies build no ${ap ? "magic resist" : "armor"}: flat pen (${ap ? "Sorcerer's Shoes, Shadowflame" : "lethality"}) hits harder than %pen.`;
-    return "";
-  }
-
-  // One pick per 4th/5th/6th item slot from the site's slot lists (most bought there first): an item you already
-  // own from a slot's list fills that slot, else its first item not already in the core or an earlier slot. The
-  // slot's other items show small, as alternatives. Null when the site has no slot data for the champion.
-  function laterPicks(champ, owned) {
-    const slots = champ?.laterSlots;
-    if (!slots?.length) return null;
-    const used = new Set((champ.items ?? []).map((it) => itemId(it.icon)));
-    const out = [];
-    for (const s of [...slots].sort((a, b) => a.slot - b.slot)) {
-      const free = (s.items ?? []).filter((it) => !used.has(itemId(it.icon)));
-      const it = free.find((x) => owned.has(itemId(x.icon))) ?? free[0];
-      if (!it) continue;
-      used.add(itemId(it.icon));
-      out.push({ slot: s.slot, it });
-    }
-    return out.length ? out : null;
   }
 
   // The banner's enemy strip: their portraits and their physical/magic split, updated as they buy items.
@@ -572,133 +402,51 @@
     const [d, k, picks, fitData] = await Promise.all([loadBuilds(), loadKinds(), loadPicks(), loadFit()]);
     const champ = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase());
     if (champ?.items?.[0]?.icon) iconPrefix = champ.items[0].icon.replace(/\d+\.png$/, "");
-    const taken = getTaken(game);
-    const owned = new Set(game.items.map((i) => i % 10000));
-    // Any boots fill the build's boots slot: someone on other boots shouldn't be told to buy the build's pair.
-    const bootIds = new Set(k?.boots ?? []);
-    // The core (boots and first three) and then the rest of the usual six: without the rest, the panel ran out of
-    // items once the core was bought. Where the site splits the rest into 4th, 5th and 6th item slots (by when
-    // players buy them), each slot's pick comes from there.
-    let slotRows = laterPicks(champ, owned);
-    // The core, then the site's own picks for the later slots ("full": best DeepScore per slot) when it has them,
-    // else each later slot's first item.
-    const later = champ?.full?.length ? champ.full : slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? [];
-    const base = [...(champ?.items ?? []), ...later];
-    const { list: build, style, core } = pickBuild(base, picks, k, taken);
-    if (style) slotRows = null;
-    const coreLen = core ?? (champ?.items ?? []).length;
-    const hasBoots = [...owned].some((i) => bootIds.has(i));
-    // One full six-item path (Nico, 2026-11-23): the core plus one pick per later slot, so the items fit together and
-    // there's nothing to choose. A slot changes only when this game calls for it: a situational item whose condition
-    // holds, takes the last later slot you haven't filled yet; a finished item you bought off the path fills the first.
-    const allSits = k ? situational(champ, k, fitData, game, owned, (id) => picks?.augments?.[id]?.[0] ?? `#${id}`) : [];
-    const path = build.slice(0, coreLen + 3).map((it) => ({ ...it }));
-    const pathIds = () => new Set(path.map((it) => itemId(it.icon)));
-    const swaps = [];
-    const swapIn = (it, why) => {
-      const order = Array.from({ length: Math.max(0, path.length - coreLen) }, (_, j) => coreLen + j);
-      for (const i of why ? order.reverse() : order) {
-        const id = itemId(path[i].icon);
-        if (owned.has(id) || path[i].filled) continue;
-        swaps.push({ it, out: path[i], why });
-        path[i] = { ...it, filled: true, swapFor: why ? path[i] : null };
-        return;
-      }
-    };
-    const offPath = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i) && !pathIds().has(i));
-    for (const i of offPath) {
-      const sit = allSits.find((x) => itemId(x.icon) === i);
-      swapIn(sit ?? { name: k.recipes[i][0], icon: (iconPrefix || "") + (220000 + i) + ".png" }, null);
-    }
-    // Lit situational items stay pointers next to the path, not swaps: a matched test found no counter item that moved
-    // the game's leading indicators, so the path doesn't change on an untested rule.
-    const pointers = allSits.filter((x) => x.why && !pathIds().has(itemId(x.icon))).slice(0, 2);
-    let next = path.filter((it) => !owned.has(itemId(it.icon)) && !(hasBoots && bootIds.has(itemId(it.icon))));
-    // A stacking item (Hubris, Heartsteel, tear items) in the build goes first while you have no finished item yet.
-    const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000).length;
-    // Stacking-first is off until tested (2026-11-23).
-    const stack = false && !finished && next.findIndex((it) => STACKING.has(itemId(it.icon)));
-    if (stack > 0) next = [next[stack], ...next.filter((_, i) => i !== stack)];
-    // Stat-cap guard, Mayhem's rules: attack speed caps at 5.0, so near it items that add attack speed drop to the
-    // back. Crit past 100% turns into attack damage in Mayhem, so crit is never wasted and isn't guarded.
-    const [, aspd, haste] = game.stats ?? [0, 0, 0];
-    const has = (it, kind) => (k?.items[String(itemId(it.icon))] ?? []).includes(kind);
-    // Off (2026-11-23): 451 game frames show attack speed above 5.0, so the cap this guarded is unconfirmed.
-    const nearCap = false;
-    const hit = (it) => has(it, "as");
-    if (nearCap) next = [...next.filter((it) => !hit(it)), ...next.filter(hit)];
-    let capNote = nearCap ? `Attack speed is near Mayhem's 5.0 cap: attack-speed items moved back.` : "";
-    // Haste keeps paying off but each point cuts cooldowns a little less (100 haste = 50% shorter, 200 = 67%).
-    if (!capNote && haste >= 100 && next[0] && has(next[0], "haste"))
-      capNote = `You have ${Math.round(haste)} haste: cooldowns ${Math.round((haste / (100 + haste)) * 100)}% shorter.`;
-    next = next.slice(0, 2);
-    // Tips, most useful first; only the top two show, so the panel stays small.
-    const tips = [];
-    const add = (rank, html) => tips.push([rank, html]);
-    const point = skillUp(champ?.skills, game.skills ?? [], game.level, taken, game.champ);
-    if (point) add(1, `Skill point <span class="key inl">${point}</span>`);
-    const shop = game.dead ? "You're dead: a good time to shop." : game.t < 60 ? "In base: a good time to shop." : "";
-    if (shop && k && next.length) {
-      const buy = buyNow(k, itemId(next[0].icon), owned, game.gold ?? 0);
-      if (buy) add(2, buy.whole ? `Your gold buys ${itemImg(buy.id)}<b>${esc(buy.name)}</b> now.` : `Buy ${itemImg(buy.id)}<b>${esc(buy.name)}</b> now (${buy.cost} gold) toward it.`);
-    }
-    if (capNote) add(3, capNote);
-    if (style) add(4, `Build switched to <b>${esc(style)}</b> to fit your augments.`);
-    if (stack > 0) add(4, `${itemImg(itemId(next[0].icon))}<b>${esc(next[0].name)}</b> stacks over time, so it goes first.`);
-    // The penetration tip is off (2026-11-23): %pen holders gained less damage against teams stacking resists, and
-    // flat pen is untested.
-    // Six items and gold for the next one: sell an item that isn't in the build.
-    const slots = game.items.filter((i) => (k?.recipes[i % 10000]?.[1] ?? 0) > 0 && !bootIds.has(i % 10000)).length + (hasBoots ? 1 : 0);
-    if (k && slots >= 6 && next.length) {
-      const inBuild = pathIds();
-      const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !inBuild.has(i) && !bootIds.has(i));
-      const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
-      if (sell && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
-        add(3, `Full build: sell ${itemImg(sell)}<b>${esc(k.recipes[sell][0])}</b> for ${itemImg(itemId(next[0].icon))}<b>${esc(next[0].name)}</b>.`);
-    }
     renderFoes(k);
-    const lines = tips.sort((x, y) => x[0] - y[0]).slice(0, 2).map((x) => x[1]);
-    const tip = lines.map((l) => `<div class="why tip">${l}</div>`).join("");
-    if (!build.length) { box.innerHTML = `<p class="note">No build for this champion yet.</p>` + tip; return; }
-    // As on the site: the core in a row, then the rest of the usual six one by one, then situational items with when
-    // to buy them (lit when this game's enemy team calls for one). Owned items fade; the next one is ringed.
+    const p = E.plan({ champ, kinds: k, picks, fit: fitData, game, taken: getTaken(game) });
+    const tipLines = p.tips.filter((t) => t.kind !== "shop");
+    const shop = p.tips.find((t) => t.kind === "shop")?.text ?? "";
+    const tipHtml = (t) => t.kind === "skill" ? `Skill point <span class="key inl">${esc(t.text)}</span>`
+      : t.item != null ? `${itemImg(t.item)}${esc(t.text)}` : esc(t.text);
+    const tip = tipLines.slice(0, 2).map((t) => `<div class="why tip">${tipHtml(t)}</div>`).join("");
+    if (!p.path.length) { box.innerHTML = `<p class="note">No build for this champion yet.</p>` + tip; return; }
+    // One full six-item path (Nico, 2026-11-23): the core, then the 4th/5th/6th picks, as icons labelled with their
+    // slot. A real swap (an augment's item, or a counter that passed its test) takes the slot it replaces, with a
+    // dashed gold ring; other lit situational items are options under the path. Owned items fade; next is ringed.
     const src = (u) => (u.startsWith("http") ? u : SITE + u);
-    const nextId = next[0] ? itemId(next[0].icon) : -1;
+    const owned = new Set(game.items.map((i) => i % 10000));
+    const bootIds = new Set(k?.boots ?? []);
+    const hasBoots = [...owned].some((i) => bootIds.has(i));
+    const nextId = p.next[0] ? itemId(p.next[0].icon) : -1;
+    const shown = p.path.map((it, i) => {
+      const sw = p.swaps.find((x) => x.replaces && itemId(x.replaces.icon) === itemId(it.icon));
+      return sw ? { it: { ...sw.item, icon: sw.item.icon ?? it.icon }, why: `${sw.why} Replaces ${it.name}.`, sw: true } : { it, why: p.why[i] ?? "", sw: false };
+    });
     const state = (it) => {
       const id = itemId(it.icon);
       return owned.has(id) || (hasBoots && bootIds.has(id)) ? " own" : id === nextId ? " nx" : "";
     };
-    // The core is boots plus three items; what follows is numbered on from the core's items (boots not counted), so
-    // usually the 4th and 5th item, and a 6th where the build sells boots for one.
     const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
-    // Hover: why this item, in one line (its place in the build, DeepScore, or the reason it swapped in).
-    const isCore = (it) => build.slice(0, coreLen).some((x) => itemId(x.icon) === itemId(it.icon));
-    const slotWhy = (it, lbl, boot) => {
-      const r = allSits.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
-      const parts = [it.name];
-      if (it.filled) parts.push("You bought it, so it takes this slot.");
-      else parts.push(boot ? "The boots most builds take with this core." : isCore(it) ? `Core item, bought ${lbl}.` : `Most bought as the ${lbl} item with this core.`);
-      if (it.deepScore != null) parts.push(`DeepScore ${deepLabel(it.deepScore)}.`);
-      return parts.join(" · ");
-    };
-    // Each icon labelled with its slot: boots, then 1st to 6th item; a gap after the core.
     let n = 0;
-    const tiles = path.map((it, i) => {
+    const tiles = shown.map(({ it, why, sw }, i) => {
       const boot = bootIds.has(itemId(it.icon));
       const lbl = boot ? "Boots" : ord(++n);
-      return `${i === coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${it.swapFor ? " sw" : ""}" title="${esc(slotWhy(it, lbl, boot))}"><img src="${src(it.icon)}" alt="" data-drop><span>${lbl}</span></div>`;
+      return `${i === p.coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${sw ? " sw" : ""}" title="${esc(`${it.name} · ${why}`)}"><img src="${src(it.icon ?? "")}" alt="" data-drop><span>${lbl}</span></div>`;
     }).join("");
-    // Why a slot changed, and a path item this game's enemies call for: one short line each, with the icons.
-    const img = (it) => `<img class="ii" src="${src(it.icon)}" alt="" data-drop>`;
-    const swapLines = pointers.map((x) => `<div class="why tip lit">${img(x)}<b>${esc(x.name)}</b> is an option: ${esc(x.when)}, ${esc(x.why.replace(/\.$/, "").replace(/^./, (c) => c.toLowerCase()))}.</div>`).join("");
-    const fits = path.filter((it) => !it.swapFor).map((it) => [it, allSits.find((x) => itemId(x.icon) === itemId(it.icon) && x.why)]).filter(([, r]) => r)
-      .map(([it, r]) => `<div class="why tip lit">${img(it)}<b>${esc(it.name)}</b> fits this game: ${esc(r.when)}, ${esc(r.why.replace(/\.$/, "").replace(/^./, (c) => c.toLowerCase()))}.</div>`).join("");
+    const img = (it) => (it?.icon ? `<img class="ii" src="${src(it.icon)}" alt="" data-drop>` : "");
+    const lower = (t) => esc(String(t ?? "").replace(/\.$/, "").replace(/^./, (c) => c.toLowerCase()));
+    const lines = [
+      p.switched ? `<div class="why tip lit">Build switched to <b>${esc(p.switched.style)}</b>${p.switched.because ? ` for ${esc(p.switched.because)}` : ""}.</div>` : "",
+      ...p.swaps.map((x) => `<div class="why tip lit">${img(x.item)}<b>${esc(x.item.name)}</b>${x.replaces ? ` instead of ${img(x.replaces)}${esc(x.replaces.name)}` : ""}: ${lower(x.why)}.</div>`),
+      ...p.lit.map((x) => `<div class="why tip lit">${img(x.item)}<b>${esc(x.item.name)}</b> fits this game: ${lower(x.why)}.</div>`),
+      ...p.pointers.map((x) => `<div class="why tip lit">${img(x.item)}<b>${esc(x.item.name)}</b> is an option: ${lower(x.why)}.</div>`),
+    ].join("");
     box.innerHTML = `<div class="box${shop ? " now" : ""}">
-      ${shop ? `<div class="why">${shop}</div>` : ""}
-      <div class="why lbl">Build${next[0] ? ` · next: <b>${esc(next[0].name)}</b>` : ""}</div>
+      ${shop ? `<div class="why">${esc(shop)}</div>` : ""}
+      <div class="why lbl">Build${p.next[0] ? ` · next: <b>${esc(p.next[0].name)}</b>` : ""}</div>
       <div class="path">${tiles}</div>
-      ${swapLines}${fits}
-      ${next.length ? "" : `<p class="note">You have the whole build.</p>`}
+      ${lines}
+      ${p.next.length ? "" : `<p class="note">You have the whole build.</p>`}
       ${tip}</div>`;
   }
 
@@ -735,7 +483,7 @@
       renderAugments();
     }
     // "Augment pick" lights up for 90 seconds after each augment level, and stays lit only while one is untaken.
-    if (!prev || prev.champ !== g.champ) reached = {};
+    if (!prev || prev.champ !== g.champ) { reached = {}; if (!offer.length) resetTrack(); }
     for (const l of AUGMENT_LEVELS) if (l <= g.level && reached[l] === undefined) reached[l] = prev ? g.t : 0;
     const recent = AUGMENT_LEVELS.some((l) => reached[l] !== undefined && g.t - reached[l] < 90);
     const pickNow = recent && AUGMENT_LEVELS.filter((l) => l <= g.level).length > getTaken(g).length;
@@ -808,6 +556,7 @@
 
   window.showOver = () => {
     game = null;
+    resetTrack();
     offer = [];
     asked = [];
     setView(`${hero(lastChamp, "Game over", "The review shows after games of 5 minutes or more")}`);
