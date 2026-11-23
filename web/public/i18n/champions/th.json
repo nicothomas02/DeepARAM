@@ -283,5 +283,16 @@
  "Fighter": "ไฟท์เตอร์",
  "Enchanter": "เอนแชนเตอร์",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "สเปลล์ซัมมอนเนอร์และลำดับสกิลเหมือนกันทุกบิลด์ เพราะสถิติไม่ได้แยกตามบิลด์",
- "No ranked augment on this champion matches that name.": "ไม่มีออกเมนต์ที่จัดอันดับของแชมเปียนนี้ที่ตรงกับชื่อนั้น"
+ "No ranked augment on this champion matches that name.": "ไม่มีออกเมนต์ที่จัดอันดับของแชมเปียนนี้ที่ตรงกับชื่อนั้น",
+ "Full build": "บิลด์เต็ม",
+ "Other options": "ตัวเลือกอื่น",
+ "With {augment}": "เมื่อมี {augment}",
+ "The augment upgrades this item, so buy it first.": "ออกเมนต์นี้อัปเกรดไอเทมนี้ จึงควรซื้อก่อน",
+ "Your abilities apply on-hit effects, so on-hit items pay off more.": "สกิลของคุณใช้เอฟเฟกต์ on-hit ไอเทม on-hit จึงคุ้มค่ากว่า",
+ "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "เปลี่ยน Attack Damage เพิ่มเติมเป็น Ability Power ไอเทม Ability Power จึงเสริมกันได้",
+ "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "เปลี่ยน Ability Power เป็น Attack Damage เพิ่มเติม ไอเทม Attack Damage จึงเสริมกันได้",
+ "Its empowered attack scales with bonus armor.": "การโจมตีเสริมพลังของมันสเกลตามเกราะเพิ่มเติม",
+ "It turns bonus armor and magic resist into heal and shield power.": "เปลี่ยนเกราะและค่าต้านเวทเพิ่มเติมเป็นพลังการฮีลและโล่",
+ "Few players": "ผู้เล่นน้อย",
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "คะแนนดี แต่มีผู้เล่นออกน้อย (ไม่ถึงหนึ่งในสี่ของไอเทมที่ออกบ่อยที่สุด) บิลด์จึงใช้ไอเทมที่คนออกจริง ตัวอย่างน้อยจะแกว่งได้มาก โดยเฉพาะช่วงต้นแพตช์"
 }

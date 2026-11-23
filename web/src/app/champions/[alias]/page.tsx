@@ -9,6 +9,7 @@ import WinRateChart from "@/components/WinRateChart";
 import WinRate, { Sampled } from "@/components/WinRate";
 import DeepScore from "@/components/DeepScore";
 import { BUILD_DEEPSCORE_HELP, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
+import FewPlayers from "@/components/champion/FewPlayers";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
 import { championAliases, championSummary, champList, type RadarAxis } from "@/lib/champions";
@@ -361,11 +362,11 @@ export default async function ChampionPage({
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
   // The card's build plan for one core: the core in buying order, the rest of the usual build, the parts to rush,
   // augment swaps, then situational items (Nico, 2026-11-20). One per style tab when the champion has two real styles.
-  const buildPlan = (core: ItemRow, situ: typeof p.situational, rush: number[], swaps: typeof p.swaps) => (
+  const buildPlan = (core: ItemRow, situ: typeof p.situational, rush: number[], swaps: typeof p.augmentSwaps) => (
     <>
       <div className="cp-best cp-best-wide">
         <h4>
-          <T ns={NS}>Best core build</T>
+          <T ns={NS}>{(core.full ?? []).length ? "Full build" : "Best core build"}</T>
           {p.coreFromEarlier && (
             <>
               {" "}
@@ -379,6 +380,12 @@ export default async function ChampionPage({
           {buildOrder(core).map((id) => (
             <li key={id}>
               <ItemIcon id={id} info={info} named />
+            </li>
+          ))}
+          {/* The full build (Nico, 2026-11-23): the core, then the best pick for each slot after it. */}
+          {(core.full ?? []).map((r) => (
+            <li key={r.items[0]} className="cp-full-pick">
+              <ItemIcon id={r.items[0]} info={info} named />
             </li>
           ))}
         </ol>
@@ -413,31 +420,43 @@ export default async function ChampionPage({
         <div className="cp-mini">
           <RatedCells r={core} />
         </div>
-        {swaps.length > 0 && (
-          <ul className="cp-swaps">
-            {swaps.map((sw) => (
-              <li key={sw.augment}>
-                <img className="cp-icon round" src={`/icons/augments/${sw.augment}.webp`} alt="" width={24} height={24} />
-                <T ns={NS} v={{ augment: AUG_NAMES[sw.augment] ?? "", item: info[sw.item]?.name ?? "" }}>
-                  {"With {augment}: buy {item} first"}
-                </T>
-              </li>
-            ))}
-          </ul>
-        )}
         {p.buildsEstimated && (
           <small className="cp-stale">
             <T ns={NS}>{"Few games so far: estimated from earlier games and this patch's changes."}</T>
           </small>
         )}
       </div>
-      {(core.later ?? []).length > 0 && <LaterItems rows={core.later!} slots={core.slots} info={info} />}
-      {situ.length > 0 && (
+      {(core.later ?? []).length > 0 && (
+        <LaterItems
+          rows={core.later!}
+          slots={core.slots?.map((sl, k) => ({ ...sl, items: sl.items.filter((r) => !core.full?.some((f) => f.items[0] === r.items[0])) }))}
+          info={info}
+          title={(core.full ?? []).length ? "Other options" : undefined}
+        />
+      )}
+      {(situ.length > 0 || swaps.length > 0) && (
         <div className="cp-best cp-best-wide cp-best-sit">
           <h4>
             <T ns={NS}>Situational items</T>
           </h4>
           <ul className="cp-sit-mini">
+            {/* Augment-triggered swaps (lib/build-plan.ts augmentSwaps): rule-based tips from what each augment does. */}
+            {swaps.map((sw) => (
+              <li key={`a${sw.item}`} title={sw.why}>
+                <small className="cp-sit-aug">
+                  <img className="cp-icon round" src={`/icons/augments/${sw.augments[0]}.webp`} alt="" width={20} height={20} />
+                  <T ns={NS} v={{ augment: AUG_NAMES[sw.augments[0]] ?? "" }}>
+                    {"With {augment}"}
+                  </T>
+                </small>
+                <span className="cp-icons">
+                  <ItemIcon id={sw.item} info={info} named />
+                </span>
+                <small className="cp-sit-why">
+                  <T ns={NS}>{sw.why}</T>
+                </small>
+              </li>
+            ))}
             {situ.map((st) => (
               <li key={st.situation}>
                 <small>
@@ -804,13 +823,13 @@ export default async function ChampionPage({
                 panel: cardTiles(
                   b.start,
                   styleAugs(b.augments),
-                  buildPlan(b.core, b.situational, b.rush, b.main ? p.swaps : []),
+                  buildPlan(b.core, b.situational, b.rush, b.augmentSwaps),
                   true,
                 ),
               }))}
             />
           ) : (
-            cardTiles(bestStart, augRows, bestCore && buildPlan(bestCore, p.situational, p.rush, p.swaps), false)
+            cardTiles(bestStart, augRows, bestCore && buildPlan(bestCore, p.situational, p.rush, p.augmentSwaps), false)
           )}
       </section>
       </TfCard>
@@ -1054,6 +1073,13 @@ export default async function ChampionPage({
                 }
               >
                 {ITEM_TIERS.map((tier) => {
+                  // Legendaries that score above the card's weakest full-build pick but that few players build
+                  // (under a quarter of the most built one): say why they aren't in the build (Nico 2026-11-23).
+                  const legend = p.items.filter((r) => (r.tier ?? "legendary") === "legendary");
+                  const topPick = Math.max(0, ...legend.map((r) => r.pickRate));
+                  const fullFloor = Math.min(...(p.core[0]?.full ?? []).map((r) => r.deepScore ?? 0));
+                  const fewPlayers = (r: ItemRow) =>
+                    tier === "legendary" && r.pickRate < 0.25 * topPick && (r.deepScore ?? 0) > fullFloor;
                   const list = p.items.filter(
                     (r) => (r.tier ?? "legendary") === tier,
                   );
@@ -1077,6 +1103,9 @@ export default async function ChampionPage({
                           >
                             <ItemIcon id={r.items[0]} info={info} />
                             <ItemName id={r.items[0]} info={info} />
+                            {fewPlayers(r) && (
+                              <FewPlayers />
+                            )}
                             {r.deepScore !== undefined && (
                               <DeepScore
                                 value={r.deepScore}

@@ -248,16 +248,19 @@ export function LaterItems({
   rows,
   slots,
   info,
+  title = "After the core",
 }: {
   rows: LaterRow[];
   slots?: { slot: number; items: LaterRow[] }[];
   info: Record<number, { name: string; icon?: string }>;
+  /** "Other options" when the card already shows a full build with each slot's pick. */
+  title?: string;
 }) {
   const bySlot = (slots ?? []).filter((s) => s.items.length > 0 && SLOT_NAMES[s.slot]);
   return (
     <div className="cp-best cp-best-wide cp-best-later">
       <h4>
-        <T ns={NS}>After the core</T>
+        <T ns={NS}>{title}</T>
       </h4>
       {bySlot.length > 0 ? (
         <div className="cp-later-slots">

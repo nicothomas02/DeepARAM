@@ -283,5 +283,16 @@
  "Fighter": "Fighter",
  "Enchanter": "Enchanter",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Summoner spells and skill order are the same for every build: the stats don't split them by build.",
- "No ranked augment on this champion matches that name.": "No ranked augment on this champion matches that name."
+ "No ranked augment on this champion matches that name.": "No ranked augment on this champion matches that name.",
+ "Full build": "Full build",
+ "Other options": "Other options",
+ "With {augment}": "With {augment}",
+ "The augment upgrades this item, so buy it first.": "The augment upgrades this item, so buy it first.",
+ "Your abilities apply on-hit effects, so on-hit items pay off more.": "Your abilities apply on-hit effects, so on-hit items pay off more.",
+ "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.",
+ "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.",
+ "Its empowered attack scales with bonus armor.": "Its empowered attack scales with bonus armor.",
+ "It turns bonus armor and magic resist into heal and shield power.": "It turns bonus armor and magic resist into heal and shield power.",
+ "Few players": "Few players",
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch."
 }

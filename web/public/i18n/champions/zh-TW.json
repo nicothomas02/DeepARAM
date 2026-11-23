@@ -283,5 +283,16 @@
  "Fighter": "鬥士",
  "Enchanter": "附魔者",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "召喚師技能和技能加點在每種出裝下都相同：數據沒有按出裝區分。",
- "No ranked augment on this champion matches that name.": "此英雄的已排名強化中沒有符合此名稱的。"
+ "No ranked augment on this champion matches that name.": "此英雄的已排名強化中沒有符合此名稱的。",
+ "Full build": "完整出裝",
+ "Other options": "其他選擇",
+ "With {augment}": "擁有{augment}時",
+ "The augment upgrades this item, so buy it first.": "該強化會升級這件裝備，所以先買它。",
+ "Your abilities apply on-hit effects, so on-hit items pay off more.": "你的技能會觸發攻擊特效，所以攻擊特效裝備收益更高。",
+ "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "它把你的額外攻擊力轉化為魔法攻擊，所以魔攻裝備能與它疊加。",
+ "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "它把你的魔法攻擊轉化為額外攻擊力，所以攻擊力裝備能與它疊加。",
+ "Its empowered attack scales with bonus armor.": "它的強化攻擊隨額外物理防禦提升。",
+ "It turns bonus armor and magic resist into heal and shield power.": "它把額外物理防禦和魔法防禦轉化為治療和護盾強度。",
+ "Few players": "少數玩家",
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "評分很高，但很少玩家出（不到最常出裝備的四分之一），所以出裝只採用真正有人跟的裝備。小樣本波動大，版本初期尤其如此。"
 }
