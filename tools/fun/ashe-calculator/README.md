@@ -17,7 +17,7 @@ R first whenever it is up, then Hawkshot, then Volley if that setting is on, 0.2
 | `calc.js` | The fight math, with no DOM, usable from Node (`require("./calc.js")`). |
 | `app.js`, `index.html`, `ashe.css` | The page (shared styles in `../style.css`). |
 
-## Assumptions (open mechanics questions to Nico, 2026-11-21)
+## Assumptions (the first five confirmed by Nico, 2026-11-23)
 
 - Archmage's refund can land on any of the other three abilities, Q included (Ashe's Q has no cooldown, so that refund
   is wasted), as in data/cook-builds/MECHANICS.md. A setting switches to "only abilities on cooldown".
@@ -26,7 +26,7 @@ R first whenever it is up, then Hawkshot, then Volley if that setting is on, 0.2
 - Ultimate Awakening refills both Hawkshot charges and resets Volley; its 300 haste speeds up W and E only.
 - Ultimate Revolution resets R right after the cast, once per 75 s.
 - Mystic Punch takes 1.25 s off R, W and Hawkshot's recharge per basic attack, keeping at least 0.5 s of what's left
-  (the Simulator's reading of `MinCDR`). Attacks only land between casts.
+  (the Simulator's reading of `MinCDR`), Hawkshot's recharge included. Attacks only land between casts.
 - Purist - Caster: only its 10% shorter cooldowns are added; its attack speed to haste is already in the panel haste.
 - Ultimate Recursion's 50 Ultimate Haste and Purist's 10% are missing from the game files and come from the wiki.
 
