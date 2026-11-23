@@ -118,7 +118,16 @@ type Props = {
   matches?: Record<string, number>;
   scaling?: Record<string, number>;
   reliance?: Record<string, number>;
+  /** Win and pick rates by skill bracket for the patches that have them (lib/brackets.ts). */
+  brackets?: Record<string, Partial<Record<string, { matches: number; champs: Record<string, [number, number]> }>>>;
 };
+
+const BRACKET_LABELS: [string, string][] = [
+  ["all", "All players"],
+  ["casual", "Casual"],
+  ["mid", "Mid"],
+  ["high", "Top 5%"],
+];
 
 export default function ChampionTiers({
   rows: initial,
@@ -129,6 +138,7 @@ export default function ChampionTiers({
   matches,
   scaling = {},
   reliance = {},
+  brackets = {},
 }: Props) {
   const t = useT("tier-list");
   const tt = useT("tags");
@@ -166,6 +176,24 @@ export default function ChampionTiers({
   // Win rate change since the patch before, when one patch is picked.
   const one = picked.size === 1 ? [...picked][0] : null;
   const before = one ? patches[patches.indexOf(one) - 1] : undefined;
+  // Skill bracket (?bracket=high): one patch with bracket numbers swaps in that bracket's win and pick rates, and its
+  // games for the ranges; the change column compares with the same bracket on the patch before when it has one.
+  const [bracket, setBracket] = useState("all");
+  useEffect(() => {
+    const b = getParam("bracket");
+    if (b && BRACKET_LABELS.some(([k]) => k === b)) setBracket(b);
+  }, []);
+  const bracketsHere = one ? brackets[one] : undefined;
+  const activeBracket = bracket !== "all" && bracketsHere?.[bracket] ? bracket : "all";
+  const inBracket = (list: PatchRow[], patch: string | undefined) => {
+    const b = patch ? brackets[patch]?.[activeBracket] : undefined;
+    if (!b) return null;
+    return list.flatMap((r) => {
+      if (r.patch !== patch) return [r];
+      const c = b.champs[r.name];
+      return c ? [{ ...r, win_rate: c[0], pick_rate: c[1] }] : [];
+    });
+  };
   const curveLabel = (v: number | undefined) =>
     v === undefined
       ? ""
@@ -176,18 +204,21 @@ export default function ChampionTiers({
           : t("Even");
   const stats = useMemo(() => {
     if (missing) return [];
+    const bRows = activeBracket !== "all" ? inBracket(rows, one ?? undefined) : null;
+    const prevRows = activeBracket !== "all" ? inBracket(rows, before) : rows;
     const prev =
-      before && have.has(before)
-        ? new Map(champStats(rows, new Set([before])).map((c) => [c.name, c]))
+      before && have.has(before) && prevRows
+        ? new Map(champStats(prevRows, new Set([before])).map((c) => [c.name, c]))
         : null;
-    return champStats(rows, picked, matches).map((c) => {
+    const bMatches = bRows && one ? { ...matches, [one]: bracketsHere![activeBracket]!.matches } : matches;
+    return champStats(bRows ?? rows, picked, bMatches).map((c) => {
       const was = prev?.get(c.name);
       // tier_was lets the table slide a changed tier in from the previous patch's (DataTable).
       return {
         ...c,
         change: was === undefined ? null : c.win_rate - was.win_rate,
         tier_was: was?.tier ?? null,
-        games: one === live ? (games?.[c.name] ?? null) : null,
+        games: one === live && activeBracket === "all" ? (games?.[c.name] ?? null) : null,
         archetype: (tags[c.name] ?? [])
           .filter((t) => tagInfo[t]?.kind !== "play")
           .join(","),
@@ -212,6 +243,9 @@ export default function ChampionTiers({
     scaling,
     reliance,
     t,
+    activeBracket,
+    brackets,
+    bracketsHere,
   ]);
 
   // Archetype filter (?tag=Mage,Poke): a champion shows when it has every picked tag. Tiers and
@@ -413,6 +447,27 @@ export default function ChampionTiers({
             </div>
           </div>
         </details>
+        {bracketsHere && (
+          <label
+            className="patch-bracket"
+            data-tip={t("Skill brackets come from a rating built from game results, not official ranks.")}
+          >
+            <span className="sr-only">{t("Skill bracket")}</span>
+            <select
+              value={activeBracket}
+              onChange={(e) => {
+                setBracket(e.target.value);
+                setParams({ bracket: e.target.value === "all" ? null : e.target.value });
+              }}
+            >
+              {BRACKET_LABELS.filter(([k]) => k === "all" || bracketsHere[k]).map(([k, label]) => (
+                <option key={k} value={k}>
+                  {t(label)}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
       </div>
       {Object.keys(tagInfo).length > 0 && (
         <details

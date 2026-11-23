@@ -16,6 +16,7 @@ Writes data/aramhex/patches/<patch>/ with [games, wins] pairs:
   cores.json         {champion: [[items...], g, w]}          ordered, first three legendary items
   destiny.json       {champion: {"all": [g, w], "items": {item: [g, w]}}}  Weapon of Destiny's first legendary
   augment_info.json  {augment: rarity}
+  bands/<b>/heroes.json  champion [g, w] per skill bracket (casual, mid, high = top 5%), when published
   meta.json          patch, seq, snapshot, matches, window, which tables were carried from an earlier patch
 Only the "normal" rules are kept (event modes like first-prismatic are skipped). Standard library only.
 
@@ -118,12 +119,23 @@ def convert(src, ds, prev_hashes):
         sha = files["hero_augment_items.json"].get("sha256")
         if sha and sha in prev_hashes.get("hero_augment_items.json", set()):
             carried.append("destiny")
+    # Skill brackets (AramHex's own rating, not official ranks): casual, mid and top 5% ("high"; "top" is a copy).
+    bands = []
+    for band in ("casual", "mid", "high"):
+        hb = load(f"bands/{band}/heroes.json")
+        if not hb:
+            continue
+        os.makedirs(os.path.join(out, "bands", band), exist_ok=True)
+        dump(os.path.join(out, "bands", band, "heroes.json"), {h: gw(r) for h, r in hb.items()})
+        bands.append(band)
+    if bands:
+        written.append("bands:" + "/".join(bands))
     dump(os.path.join(out, "meta.json"), {
         "source": "AramHex (github.com/czgreat/aramhex-data), CC BY-NC 4.0",
         "patch": patch, "seq": ds.get("seq"), "snapshot_at": ds.get("snapshot_at") or meta.get("snapshot_at"),
         "matches": ds.get("matches"), "window": (ds.get("window") or meta.get("window") or {}),
         "tables": written, "carried_from_earlier_patch": carried,
-        "bands": bool(ds.get("bands")),
+        "bands": bands,
     })
     return written, carried
 

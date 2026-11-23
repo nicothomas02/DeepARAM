@@ -33,6 +33,7 @@ import { readRepoCsv } from "@/lib/repo-data";
 import { allChampionTags, championTagData } from "@/lib/champion-tags";
 import { fillGames } from "@/lib/fill";
 import { matchesByPatch } from "@/lib/sample";
+import { bracketData } from "@/lib/brackets";
 import { patchName } from "@/lib/patch-name";
 import WeaponOfDestiny from "@/components/WeaponOfDestiny";
 import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
@@ -104,6 +105,7 @@ export default function TierListPage() {
               tagInfo={championTagData().info}
               games={fillGames()}
               matches={matchesByPatch()}
+              brackets={bracketData()}
               scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
               reliance={Object.fromEntries([...championAugmentReliance()].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
             />
