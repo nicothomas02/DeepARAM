@@ -83,7 +83,12 @@ describe("estimated games behind the stats", () => {
     const p = championPage(live[0].name)!;
     const rows = [...p.core, ...p.items];
     expect(rows.length).toBeGreaterThan(0);
-    for (const r of rows) expect(r.games).toBeCloseTo(live[0].sample! * r.pickRate, 3);
+    // Real games where the data has them (AramHex: item shares use the games without item augments, so at most the
+    // champion's games x pick rate), else the champion's games x pick rate.
+    for (const r of rows) {
+      expect(r.games!).toBeGreaterThan(0);
+      expect(r.games!).toBeLessThanOrEqual(live[0].sample! * r.pickRate * 1.05);
+    }
     const pairs = duoRows();
     expect(pairs.every((d) => typeof d.games === "number" && d.games > 0)).toBe(true);
   });

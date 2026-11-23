@@ -15,6 +15,7 @@ import { championAliases, championSummary, champList, type RadarAxis } from "@/l
 import { TfCard, TfPerf, TfStrip, TfTier, TimeframePicker } from "@/components/champion/Timeframe";
 import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
+import { followed } from "@/lib/card-score";
 import {
   bestRow,
   buildOrder,
@@ -38,6 +39,7 @@ import {
   Head,
   ItemIcon,
   ItemName,
+  LaterItems,
   Keys,
   Panel,
   pct,
@@ -380,7 +382,7 @@ export default async function ChampionPage({
             </li>
           ))}
         </ol>
-        {(core.rest ?? []).length > 0 && (
+        {!core.later?.length && (core.rest ?? []).length > 0 && (
           <p className="cp-rest">
             <small>
               <T ns={NS}>Then</T>
@@ -429,6 +431,7 @@ export default async function ChampionPage({
           </small>
         )}
       </div>
+      {(core.later ?? []).length > 0 && <LaterItems rows={core.later!} slots={core.slots} info={info} />}
       {situ.length > 0 && (
         <div className="cp-best cp-best-wide cp-best-sit">
           <h4>
@@ -481,7 +484,9 @@ export default async function ChampionPage({
   const spellsEstimated = rawSpells.some((r) => r.estimated);
   // Spell pairs rank by DeepScore like the build lists. Estimated spells have no win rate, so they keep
   // their most-picked-first order.
-  const spells = spellsEstimated ? rawSpells : scoreRows(rawSpells);
+  // Real spell pairs (AramHex) lead only with a real following, the same 1/4 rule as builds, so a pair a few percent
+  // of players take can't top the card on win rate alone (Ghost + Barrier over Flash on Ahri).
+  const spells = spellsEstimated ? rawSpells : followed(scoreRows(rawSpells));
   const bestSpells = spells[0];
   const games = fillGames()?.[c.alias];
   const gamesEstimated = fillEstimated();

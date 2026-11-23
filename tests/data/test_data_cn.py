@@ -459,6 +459,8 @@ def test_build_blocks_are_fresh_or_flagged(builds):
         day = dt.date.fromisoformat(b["date"])
         for key, f in b["fresh"].items():
             old = (day - dt.date.fromisoformat(f["since"])).days >= mod.STALE_DAYS
+            if (b.get("sources") or {}).get(key) == "aramhex":
+                continue  # replaced by AramHex's own numbers for the live patch (data/aramhex/merge.py)
             assert old == (key in b["stale"] or key in b["derived"]), (cid, key)
 
 

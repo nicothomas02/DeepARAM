@@ -1,0 +1,240 @@
+{
+ "datasets": {
+  "patches/16.19/first-prismatic": {
+   "bands": false,
+   "files": [
+    "augments.json",
+    "hero_augments.json",
+    "heroes.json",
+    "meta.json"
+   ],
+   "mode": "first-prismatic",
+   "patch": "16.19",
+   "seq": null
+  },
+  "patches/16.19/normal": {
+   "bands": false,
+   "files": [
+    "augments.json",
+    "hero_augments.json",
+    "heroes.json",
+    "meta.json"
+   ],
+   "mode": "normal",
+   "patch": "16.19",
+   "seq": null
+  },
+  "patches/16.20/normal": {
+   "bands": true,
+   "files": [
+    "augments.json",
+    "bands/casual/hero_augments.json",
+    "bands/casual/heroes.json",
+    "bands/high/hero_augments.json",
+    "bands/high/heroes.json",
+    "bands/mid/hero_augments.json",
+    "bands/mid/heroes.json",
+    "bands/top/hero_augments.json",
+    "bands/top/heroes.json",
+    "hero_augments.json",
+    "heroes.json",
+    "meta.json"
+   ],
+   "mode": "normal",
+   "patch": "16.20",
+   "seq": null
+  },
+  "patches/16.21-pbe/normal": {
+   "bands": true,
+   "files": [
+    "augments.json",
+    "bands/casual/hero_augments.json",
+    "bands/casual/heroes.json",
+    "bands/high/hero_augments.json",
+    "bands/high/heroes.json",
+    "bands/mid/hero_augments.json",
+    "bands/mid/heroes.json",
+    "bands/top/hero_augments.json",
+    "bands/top/heroes.json",
+    "hero_augments.json",
+    "heroes.json",
+    "meta.json"
+   ],
+   "mode": "normal",
+   "patch": "16.20",
+   "seq": null
+  },
+  "patches/16.21-prehotfix/normal": {
+   "bands": false,
+   "files": [
+    "augments.json",
+    "hero_augments.json",
+    "hero_spells.json",
+    "heroes.json",
+    "meta.json"
+   ],
+   "mode": "normal",
+   "patch": "16.21",
+   "seq": null
+  },
+  "patches/16.21/normal": {
+   "bands": true,
+   "files": [
+    "augments.json",
+    "bands/casual/augments.json",
+    "bands/casual/hero_augments.json",
+    "bands/casual/hero_spells.json",
+    "bands/casual/heroes.json",
+    "bands/high/augments.json",
+    "bands/high/hero_augments.json",
+    "bands/high/hero_spells.json",
+    "bands/high/heroes.json",
+    "bands/mid/augments.json",
+    "bands/mid/hero_augments.json",
+    "bands/mid/hero_spells.json",
+    "bands/mid/heroes.json",
+    "bands/top/augments.json",
+    "bands/top/hero_augments.json",
+    "bands/top/hero_spells.json",
+    "bands/top/heroes.json",
+    "hero_augments.json",
+    "hero_spells.json",
+    "heroes.json",
+    "meta.json"
+   ],
+   "mode": "normal",
+   "patch": "16.21",
+   "seq": 12
+  },
+  "patches/16.22/normal": {
+   "bands": true,
+   "files": [
+    "augments.json",
+    "bands/casual/hero_augments.json",
+    "bands/casual/hero_spells.json",
+    "bands/casual/heroes.json",
+    "bands/high/core_builds.json",
+    "bands/high/equipment_heroes.json",
+    "bands/high/equipment_recommendation_heroes.json",
+    "bands/high/hero_augment_items.json",
+    "bands/high/hero_augments.json",
+    "bands/high/hero_item_holdings.json",
+    "bands/high/hero_item_recommendations.json",
+    "bands/high/hero_items.json",
+    "bands/high/hero_items_raw.json",
+    "bands/high/hero_spells.json",
+    "bands/high/heroes.json",
+    "bands/mid/hero_augments.json",
+    "bands/mid/hero_spells.json",
+    "bands/mid/heroes.json",
+    "bands/top/core_builds.json",
+    "bands/top/equipment_heroes.json",
+    "bands/top/equipment_recommendation_heroes.json",
+    "bands/top/hero_augment_items.json",
+    "bands/top/hero_augments.json",
+    "bands/top/hero_item_holdings.json",
+    "bands/top/hero_item_recommendations.json",
+    "bands/top/hero_items.json",
+    "bands/top/hero_items_raw.json",
+    "bands/top/hero_spells.json",
+    "bands/top/heroes.json",
+    "core_builds.json",
+    "equipment_heroes.json",
+    "equipment_recommendation_heroes.json",
+    "hero_augment_items.json",
+    "hero_augments.json",
+    "hero_item_holdings.json",
+    "hero_item_recommendations.json",
+    "hero_items.json",
+    "hero_items_raw.json",
+    "hero_spells.json",
+    "heroes.json",
+    "item_metadata.json",
+    "meta.json"
+   ],
+   "mode": "normal",
+   "patch": "16.22",
+   "seq": null
+  },
+  "patches/16.23/first-prismatic": {
+   "bands": false,
+   "files": [
+    "augments.json",
+    "core_builds.json",
+    "equipment_heroes.json",
+    "equipment_recommendation_heroes.json",
+    "hero_augment_items.json",
+    "hero_augments.json",
+    "hero_item_holdings.json",
+    "hero_item_recommendations.json",
+    "hero_items.json",
+    "hero_items_raw.json",
+    "hero_spells.json",
+    "heroes.json",
+    "item_metadata.json",
+    "meta.json"
+   ],
+   "mode": "first-prismatic",
+   "patch": "16.23",
+   "seq": 21
+  },
+  "patches/16.23/normal": {
+   "bands": false,
+   "files": [
+    "augments.json",
+    "core_builds.json",
+    "equipment_heroes.json",
+    "equipment_recommendation_heroes.json",
+    "hero_augment_items.json",
+    "hero_augments.json",
+    "hero_item_holdings.json",
+    "hero_item_recommendations.json",
+    "hero_items.json",
+    "hero_items_raw.json",
+    "hero_spells.json",
+    "heroes.json",
+    "item_metadata.json",
+    "meta.json"
+   ],
+   "mode": "normal",
+   "patch": "16.23",
+   "seq": null
+  }
+ },
+ "fields": {
+  "core_builds.json": [
+   "games",
+   "items",
+   "ordered",
+   "pick",
+   "win",
+   "wins"
+  ],
+  "hero_augments.json": [
+   "games",
+   "low_sample",
+   "win_rate",
+   "wins"
+  ],
+  "hero_spells.json": [
+   "games",
+   "low_sample",
+   "win_rate",
+   "wins"
+  ],
+  "heroes.json": [
+   "games",
+   "low_sample",
+   "name",
+   "pick_rate",
+   "rank",
+   "title",
+   "win_rate",
+   "wins"
+  ]
+ },
+ "latest_seq": 20,
+ "latest_snapshot": "2026-11-21T08:00:00+08:00",
+ "license_sha256": "41003d4a74749c0220e33dd415042164b5a1093ed401f36277234f772d22d3d0",
+ "schema_version": 1
+}
