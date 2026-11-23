@@ -229,7 +229,8 @@
       const front = all.some((a) => (d.champions[a]?.[1] ?? []).some((x) => FRONT.has(x)));
       const lower = new Map(Object.entries(k?.champions ?? {}).map(([a, m]) => [a.toLowerCase(), m]));
       const magic = all.reduce((t, a) => t + (lower.get(a.toLowerCase()) ?? 0.5), 0) / all.length;
-      gap = !front ? "No frontline on your team: tanky items go further this game."
+      // The team gap line is off until tested (2026-11-23).
+      gap = true ? "" : !front ? "No frontline on your team: tanky items go further this game."
         : magic < 0.25 ? "Your team deals little magic damage: an AP or hybrid item helps if your champion can use one."
         : magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
     }
@@ -405,9 +406,9 @@
     }));
   }
 
-  // The enemy team's damage, 0 (all physical) to 1 (all magic): each champion's usual mix, pulled toward what their
-  // finished items say as they buy them. League doesn't show this. Shown only when it leans hard one way, as a fact,
-  // without an item prescription: no defense tip has been shown to pay off yet.
+  // The enemy team's damage, 0 (all physical) to 1 (all magic): each champion's usual mix (public data). Pulling it
+  // toward their items (each pure AP/AD item against a double-weighted usual mix) is off until tested (2026-11-23).
+  const ITEM_MIX = false;
   function enemyMagic(k, enemies) {
     const lower = new Map(Object.entries(k.champions).map(([a, m]) => [a.toLowerCase(), m]));
     const mixes = enemies.filter((e) => e.champ).map((e) => {
@@ -417,7 +418,7 @@
         if (g.includes("ap") && !g.includes("ad")) ap += 1;
         if (g.includes("ad") && !g.includes("ap")) ad += 1;
       }
-      return (2 * (lower.get(e.champ.toLowerCase()) ?? 0.5) + ap) / (2 + ap + ad);
+      return ITEM_MIX ? (2 * (lower.get(e.champ.toLowerCase()) ?? 0.5) + ap) / (2 + ap + ad) : lower.get(e.champ.toLowerCase()) ?? 0.5;
     });
     return mixes.length ? mixes.reduce((a, b) => a + b, 0) / mixes.length : null;
   }
@@ -447,22 +448,18 @@
     const arch = (e) => fit?.champions?.[keyIn(fit.champions, e.champ)]?.[1] ?? [];
     const count = (set) => enemies.filter((e) => arch(e).some((a) => set.has(a))).length;
     const tags = (e) => e.items.flatMap((i) => k.items[String(i % 10000)] ?? []);
-    const tanky = enemies.filter((e) => arch(e).some((a) => TANKY.has(a)) || tags(e).filter((t) => t === "armor" || t === "mr").length >= 2).length;
-    const crit = enemies.filter((e) => tags(e).filter((t) => t === "crit").length >= 2).length;
-    const healers = enemies.filter((e) => HEALERS.has(e.champ.toLowerCase().replace(/[^a-z]/g, ""))).length;
-    const shielders = enemies.filter((e) => arch(e).includes("Enchanter")).length;
     const magic = enemyMagic(k, enemies);
-    const n = (x, what) => `${x} ${x === 1 ? "enemy" : "enemies"} ${what}.`;
-    const checks = {
-      "Vs tanks": tanky >= 2 && n(tanky, tanky === 1 ? "is tanky" : "are tanky"),
-      "Vs burst": count(BURSTY) >= 2 && n(count(BURSTY), "deal burst damage"),
-      "Vs healing": healers >= 2 && n(healers, "heal a lot"),
-      "Vs magic damage": magic !== null && magic >= 0.65 && `Enemy damage is about ${pct(magic)} magic.`,
-      "Vs physical damage": magic !== null && magic <= 0.35 && `Enemy damage is about ${pct(1 - magic)} physical.`,
-      "Vs mixed damage": magic !== null && magic > 0.4 && magic < 0.6 && `Enemy damage is mixed.`,
-      "Vs crit carries": crit >= 1 && n(crit, "build crit"),
-      "Vs shields": shielders >= 2 && n(shielders, "shield allies"),
-      // "Vs heavy crowd control" is off (2026-11-23): tenacity/QSS showed no effect either way against heavy CC.
+    const marksmen = enemies.filter((e) => arch(e).includes("Marksman")).length;
+    const itemTags = (it) => k.items[String(itemId(it.icon))] ?? [];
+    // Only triggers that passed a test light up (2026-11-23, Nico chose "apply defaults, then test"): MR items cut the
+    // share of magic damage taken vs magic-heavy teams, armor cut physical damage taken vs 2+ marksmen. The rest (tanks,
+    // burst, healing, mixed, crit, shields, crowd control) stay off until they pass.
+    const check = (it) => {
+      if (it.when === "Vs magic damage" && itemTags(it).includes("mr") && magic !== null && magic >= 0.65)
+        return `Enemy damage is about ${pct(magic)} magic.`;
+      if ((it.when === "Vs physical damage" || it.when === "Vs crit carries") && itemTags(it).includes("armor") && marksmen >= 2)
+        return `${marksmen} enemy marksmen.`;
+      return "";
     };
     // Entries tied to augments (the site's "augments" list) light up once you've taken one of them.
     const taken = getTaken(g);
@@ -471,7 +468,7 @@
         const got = it.augments.find((id) => taken.includes(id));
         return { ...it, why: got !== undefined ? it.why || `You took ${augName(got)}.` : "" };
       }
-      return { ...it, why: checks[it.when] || "" };
+      return { ...it, why: check(it) };
     });
   }
 
@@ -619,7 +616,8 @@
     let next = path.filter((it) => !owned.has(itemId(it.icon)) && !(hasBoots && bootIds.has(itemId(it.icon))));
     // A stacking item (Hubris, Heartsteel, tear items) in the build goes first while you have no finished item yet.
     const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000).length;
-    const stack = !finished && next.findIndex((it) => STACKING.has(itemId(it.icon)));
+    // Stacking-first is off until tested (2026-11-23).
+    const stack = false && !finished && next.findIndex((it) => STACKING.has(itemId(it.icon)));
     if (stack > 0) next = [next[stack], ...next.filter((_, i) => i !== stack)];
     // Stat-cap guard, Mayhem's rules: attack speed caps at 5.0, so near it items that add attack speed drop to the
     // back. Crit past 100% turns into attack damage in Mayhem, so crit is never wasted and isn't guarded.
@@ -632,7 +630,7 @@
     let capNote = nearCap ? `Attack speed is near Mayhem's 5.0 cap: attack-speed items moved back.` : "";
     // Haste keeps paying off but each point cuts cooldowns a little less (100 haste = 50% shorter, 200 = 67%).
     if (!capNote && haste >= 100 && next[0] && has(next[0], "haste"))
-      capNote = `You have ${Math.round(haste)} haste (cooldowns ${Math.round((haste / (100 + haste)) * 100)}% shorter): more adds less each point.`;
+      capNote = `You have ${Math.round(haste)} haste: cooldowns ${Math.round((haste / (100 + haste)) * 100)}% shorter.`;
     next = next.slice(0, 2);
     // Tips, most useful first; only the top two show, so the panel stays small.
     const tips = [];
@@ -750,7 +748,7 @@
     const l = g.live;
     ff.innerHTML = l ? `<div class="live-mini"><span>Chance to win <b data-style="color:${color(l.win)}">${pct(l.win)}</b></span>
         <div class="bar"><span data-style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
-      ${l.surrender ? `<div class="box yes">Surrender: yes. A new game is worth more than this one now.</div>` : ""}` : "";
+      ` : "";
     const head = document.getElementById("augHead");
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
@@ -830,15 +828,12 @@
     const turnRows = turns.map((t) => `
       <div class="box"><span class="${t.after >= t.before ? "up" : "down"}">${t.after >= t.before ? "▲" : "▼"}</span> ${clock(t.from)}–${clock(t.to)}: ${pct(t.before)} → <b data-style="color:${color(t.after)}">${pct(t.after)}</b>
         <div class="why">${t.kills >= 0 ? "+" : "−"}${Math.abs(t.kills)} kills${t.towers ? `, ${t.towers > 0 ? "+" : "−"}${Math.abs(t.towers)} towers` : ""} for your team</div></div>`).join("");
-    const ff = ffFrom != null
-      ? `<div class="box yes">From ${clock(ffFrom)} a surrender would have saved time: the chance stayed under the line for a full minute.</div>`
-      : `<div class="box">A surrender never paid off this game.</div>`;
+    // The surrender call (chance under the line for a full minute) is off until tested (2026-11-23).
     setView(`
       ${hero(lastChamp, `<span class="${result === "Win" ? "ink" : ""}">${verdict}</span>`, "Game review")}
       <h2>Chance to win over the game</h2>
-      ${chart(points, ffFrom)}
+      ${chart(points, null)}
       ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
-      <h2>Surrender</h2>${ff}
       <p class="note">Predicted, not measured: an estimate from kills, towers, levels and team strength.</p>
       <div id="recap"></div><div id="invite"></div>`);
     renderRecap();
