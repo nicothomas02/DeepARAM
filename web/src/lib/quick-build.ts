@@ -33,7 +33,8 @@ export type QuickBuild = {
   later: LaterItem[];
   /** The same items split by the slot players buy them in (4th, 5th, 6th item), when the buying order is known. */
   laterSlots: { slot: number; items: LaterItem[] }[];
-  /** The card's top six-item path: the core plus the best 4th, 5th and 6th picks (lib/card-score.ts fullPicks). */
+  /** The card's top six-item path after the core: the rest of the best real six-item build with a following that holds
+   *  the core (lib/card-score.ts realFullPicks), else the best 4th, 5th and 6th picks (fullPicks). */
   full: LaterItem[];
   /** Items to swap in after the core, each with when to buy it ("Vs healing", "With Ethereal Weapon"), as on the
    *  champion page's card. Augment-triggered entries also carry the augment ids and a one-line reason. */

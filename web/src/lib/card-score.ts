@@ -268,3 +268,37 @@ export function fullPicks<T extends ItemRow>(core: ItemRow, slots: { slot: numbe
   }
   return out;
 }
+
+/**
+ * The card's full build from a real six-item build (assumptions audit, 2026-11-23): the best DeepScore build with a
+ * following (MIN_FOLLOWING of the most common one) that holds the core; its other non-boots items, in buying-slot
+ * order, as rows from `single`. Null when no such build exists, and the card falls back to fullPicks. Tested on all
+ * 173 champions: the per-slot path was a real build for only 66 (and won 2.0 pts less than the best followed real
+ * build where it was); this one is a real build (boots aside) for 148, and a followed build holds the core for 165.
+ */
+export function realFullPicks<T extends ItemRow>(
+  core: ItemRow,
+  builds: ItemRow[],
+  single: T[],
+  slots: { slot: number; items: ItemRow[] }[] | undefined,
+  isBoots: (id: number) => boolean,
+  size = 6,
+): T[] | null {
+  const n = (i: number) => (i >= 100000 ? i % 10000 : i);
+  const holds = (r: ItemRow, ids: number[]) => ids.every((i) => r.items.some((j) => n(j) === n(i)));
+  const top = Math.max(0, ...builds.map((r) => r.pickRate));
+  const fol = builds.filter((r) => r.items.length >= size && r.pickRate >= MIN_FOLLOWING * top);
+  const byScore = (a: ItemRow, b: ItemRow) => (b.deepScore ?? 0) - (a.deepScore ?? 0);
+  const pick = fol.filter((r) => holds(r, core.items)).sort(byScore)[0];
+  if (!pick) return null;
+  const room = Math.max(0, size - core.items.length - (core.boots !== undefined ? 1 : 0));
+  const slotOf = (i: number) => {
+    const k = slots?.findIndex((s) => s.items.some((r) => n(r.items[0]) === n(i))) ?? -1;
+    return k < 0 ? 99 : k;
+  };
+  return pick.items
+    .filter((i) => !core.items.some((c) => n(c) === n(i)) && !isBoots(i))
+    .sort((a, b) => slotOf(a) - slotOf(b))
+    .slice(0, room)
+    .map((i) => single.find((r) => r.items.length === 1 && n(r.items[0]) === n(i)) ?? ({ items: [i], winRate: NaN, pickRate: 0, lift: 0 } as unknown as T));
+}
