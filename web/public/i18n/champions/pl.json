@@ -283,5 +283,9 @@
  "Fighter": "Wojownik",
  "Enchanter": "Zaklinacz",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Czary przywoływacza i kolejność umiejętności są takie same dla każdego buildu: statystyki nie dzielą ich według buildu.",
- "No ranked augment on this champion matches that name.": "Żadne oceniane wzmocnienie tego bohatera nie pasuje do tej nazwy."
+ "No ranked augment on this champion matches that name.": "Żadne oceniane wzmocnienie tego bohatera nie pasuje do tej nazwy.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Tylko {patch}",
+ "Includes similar recent patches, weighted toward this one": "Obejmuje podobne ostatnie patche, z największą wagą tego",
+ "Games counted": "Liczone gry"
 }

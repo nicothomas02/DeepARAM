@@ -283,5 +283,9 @@
  "Fighter": "Воин",
  "Enchanter": "Чародей",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Заклинания призывателя и порядок умений одинаковы для всех сборок: статистика не делит их по сборкам.",
- "No ranked augment on this champion matches that name.": "Ни один усилитель в рейтинге этого чемпиона не подходит под это название."
+ "No ranked augment on this champion matches that name.": "Ни один усилитель в рейтинге этого чемпиона не подходит под это название.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Только {patch}",
+ "Includes similar recent patches, weighted toward this one": "Включает похожие недавние патчи, с наибольшим весом этого",
+ "Games counted": "Учтённые игры"
 }

@@ -283,5 +283,9 @@
  "Fighter": "ファイター",
  "Enchanter": "エンチャンター",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "サモナースペルとスキル順はどのビルドでも同じです。統計がビルドごとに分けていないためです。",
- "No ranked augment on this champion matches that name.": "このチャンピオンのランク付けされたオーグメントに、その名前に一致するものはありません。"
+ "No ranked augment on this champion matches that name.": "このチャンピオンのランク付けされたオーグメントに、その名前に一致するものはありません。",
+ "{patch}+": "{patch}+",
+ "{patch} only": "{patch}のみ",
+ "Includes similar recent patches, weighted toward this one": "似た最近のパッチも含み、このパッチを最も重視",
+ "Games counted": "集計する試合"
 }

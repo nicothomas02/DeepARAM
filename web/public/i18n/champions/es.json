@@ -283,5 +283,9 @@
  "Fighter": "Luchador",
  "Enchanter": "Encantador",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Los hechizos de invocador y el orden de habilidades son iguales en cada build: las estadísticas no los separan por build.",
- "No ranked augment on this champion matches that name.": "Ningún aumento clasificado de este campeón coincide con ese nombre."
+ "No ranked augment on this champion matches that name.": "Ningún aumento clasificado de este campeón coincide con ese nombre.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Solo {patch}",
+ "Includes similar recent patches, weighted toward this one": "Incluye parches recientes similares, con más peso en este",
+ "Games counted": "Partidas contadas"
 }

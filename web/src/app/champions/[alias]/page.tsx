@@ -845,7 +845,7 @@ export default async function ChampionPage({
                 ) : undefined
               }
             >
-              <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} />
+              <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} patch={patchName(c.patch)} />
             </Panel>
           )}
           {/* Augment synergies (Nico, 2026-11-20): pairs worth more than the sum of their parts, from confirmed

@@ -283,5 +283,9 @@
  "Fighter": "مقاتل",
  "Enchanter": "مُعزِّز",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "تعويذات الاستدعاء وترتيب المهارات نفسها لكل بناء: الإحصاءات لا تفصلها حسب البناء.",
- "No ranked augment on this champion matches that name.": "لا يوجد معزز مصنّف لهذا البطل يطابق هذا الاسم."
+ "No ranked augment on this champion matches that name.": "لا يوجد معزز مصنّف لهذا البطل يطابق هذا الاسم.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "{patch} فقط",
+ "Includes similar recent patches, weighted toward this one": "يشمل التحديثات الأخيرة المشابهة، مع وزن أكبر لهذا التحديث",
+ "Games counted": "الألعاب المحسوبة"
 }

@@ -283,5 +283,9 @@
  "Fighter": "Dövüşçü",
  "Enchanter": "Efsuncu",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Sihirdar büyüleri ve yetenek sırası her dizilimde aynı: istatistikler bunları dizilime göre ayırmıyor.",
- "No ranked augment on this champion matches that name.": "Bu şampiyonun sıralanan güçlendirmelerinden hiçbiri bu adla eşleşmiyor."
+ "No ranked augment on this champion matches that name.": "Bu şampiyonun sıralanan güçlendirmelerinden hiçbiri bu adla eşleşmiyor.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Yalnızca {patch}",
+ "Includes similar recent patches, weighted toward this one": "Benzer son yamaları da içerir, en çok bu yamaya ağırlık verir",
+ "Games counted": "Sayılan maçlar"
 }

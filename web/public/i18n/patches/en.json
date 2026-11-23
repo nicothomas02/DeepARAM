@@ -49,5 +49,11 @@
  "Worked": "Worked",
  "Backfired": "Backfired",
  "Within noise": "Within noise",
- "Moved": "Moved"
+ "Moved": "Moved",
+ "How our picks held up": "How our picks held up",
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins: augments taken late, by teams already ahead, also look good.": "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins: augments taken late, by teams already ahead, also look good.",
+ "So far": "So far",
+ "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})",
+ "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})",
+ "Top {n} champions: {kept} still above 50%": "Top {n} champions: {kept} still above 50%"
 }

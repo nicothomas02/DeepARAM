@@ -43,7 +43,10 @@ export default function AugmentTable({
   rows: givenRows,
   champion,
   synergy = [],
+  patch,
 }: {
+  /** The live patch's name ("16.23"), for the "16.23+" / "16.23 only" switch. */
+  patch?: string;
   /** The champion's id ("Kayle"), for the "why" lines. */
   champion?: string;
   /** Augment pairs that feed each other on this champion (estimated), for re-ranking after a selection. */
@@ -315,15 +318,17 @@ export default function AugmentTable({
             className="cp-seg"
             role="group"
             aria-label={t("Games counted")}
-            data-tip={t(
-              "Recent patches adds each augment's games from up to two earlier patches, counting older ones less, unless its results changed since. Small samples get steadier scores.",
-            )}
           >
-            <button type="button" aria-pressed={!thisPatch} onClick={() => (setThisPatch(false), setPage(0))}>
-              {t("Recent patches")}
+            <button
+              type="button"
+              aria-pressed={!thisPatch}
+              data-tip={t("Includes similar recent patches, weighted toward this one")}
+              onClick={() => (setThisPatch(false), setPage(0))}
+            >
+              {patch ? t("{patch}+", { patch }) : t("Recent patches")}
             </button>
             <button type="button" aria-pressed={thisPatch} onClick={() => (setThisPatch(true), setPage(0))}>
-              {t("This patch only")}
+              {patch ? t("{patch} only", { patch }) : t("This patch only")}
             </button>
           </div>
         )}

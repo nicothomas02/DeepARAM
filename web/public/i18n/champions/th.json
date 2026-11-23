@@ -283,5 +283,9 @@
  "Fighter": "ไฟท์เตอร์",
  "Enchanter": "เอนแชนเตอร์",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "สเปลล์ซัมมอนเนอร์และลำดับสกิลเหมือนกันทุกบิลด์ เพราะสถิติไม่ได้แยกตามบิลด์",
- "No ranked augment on this champion matches that name.": "ไม่มีออกเมนต์ที่จัดอันดับของแชมเปียนนี้ที่ตรงกับชื่อนั้น"
+ "No ranked augment on this champion matches that name.": "ไม่มีออกเมนต์ที่จัดอันดับของแชมเปียนนี้ที่ตรงกับชื่อนั้น",
+ "{patch}+": "{patch}+",
+ "{patch} only": "เฉพาะ {patch}",
+ "Includes similar recent patches, weighted toward this one": "รวมแพตช์ล่าสุดที่คล้ายกัน โดยให้น้ำหนักกับแพตช์นี้มากที่สุด",
+ "Games counted": "เกมที่นับ"
 }

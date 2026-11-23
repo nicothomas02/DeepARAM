@@ -283,5 +283,9 @@
  "Fighter": "Đấu Sĩ",
  "Enchanter": "Phù Phép",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Phép bổ trợ và thứ tự kỹ năng giống nhau ở mọi lối lên đồ: số liệu không tách theo lối lên đồ.",
- "No ranked augment on this champion matches that name.": "Không có lõi nâng cấp được xếp hạng nào của tướng này khớp với tên đó."
+ "No ranked augment on this champion matches that name.": "Không có lõi nâng cấp được xếp hạng nào của tướng này khớp với tên đó.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Chỉ {patch}",
+ "Includes similar recent patches, weighted toward this one": "Gồm các bản cập nhật gần đây tương tự, ưu tiên bản này",
+ "Games counted": "Số trận được tính"
 }

@@ -51,5 +51,11 @@
  "Worked": "Funcionó",
  "Backfired": "Salió al revés",
  "Within noise": "Dentro del ruido",
- "Moved": "Se movió"
+ "Moved": "Se movió",
+ "How our picks held up": "Cómo aguantaron nuestras elecciones",
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins: augments taken late, by teams already ahead, also look good.": "En cada parche tomamos los 5 mejores aumentos y los 3 mejores objetos de cada campeón según DeepScore y los comprobamos en las partidas del parche siguiente: cuántas veces siguen superando la media del campeón y por cuántos puntos. Los más elegidos son la referencia. Aguantar no prueba que un aumento cause las victorias: los aumentos elegidos tarde, por equipos que ya van ganando, también parecen buenos.",
+ "So far": "Por ahora",
+ "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "Aumentos: {hit} siguen por delante ({lead} pts), más elegidos {phit} ({plead})",
+ "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "Objetos: {hit} siguen por delante ({lead} pts), más comprados {phit} ({plead})",
+ "Top {n} champions: {kept} still above 50%": "Top {n} campeones: {kept} siguen por encima del 50 %"
 }

@@ -283,5 +283,9 @@
  "Fighter": "Luptător",
  "Enchanter": "Fermecător",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Vrăjile de invocator și ordinea abilităților sunt aceleași pentru fiecare build: statisticile nu le separă pe build.",
- "No ranked augment on this champion matches that name.": "Niciun augment clasat al acestui campion nu se potrivește cu acest nume."
+ "No ranked augment on this champion matches that name.": "Niciun augment clasat al acestui campion nu se potrivește cu acest nume.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Doar {patch}",
+ "Includes similar recent patches, weighted toward this one": "Include patch-uri recente similare, cu cea mai mare pondere pe acesta",
+ "Games counted": "Meciuri numărate"
 }

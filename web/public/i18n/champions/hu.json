@@ -283,5 +283,9 @@
  "Fighter": "Harcos",
  "Enchanter": "Bűvölő",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Az idézővarázslatok és a képességsorrend minden buildnél ugyanaz: a statisztikák nem bontják buildenként.",
- "No ranked augment on this champion matches that name.": "Ennek a hősnek egyik rangsorolt fejlesztése sem egyezik ezzel a névvel."
+ "No ranked augment on this champion matches that name.": "Ennek a hősnek egyik rangsorolt fejlesztése sem egyezik ezzel a névvel.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Csak {patch}",
+ "Includes similar recent patches, weighted toward this one": "Hasonló friss patcheket is tartalmaz, a legnagyobb súllyal ezt",
+ "Games counted": "Beszámított meccsek"
 }

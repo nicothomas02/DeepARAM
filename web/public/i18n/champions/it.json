@@ -283,5 +283,9 @@
  "Fighter": "Combattente",
  "Enchanter": "Incantatore",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Incantesimi dell'evocatore e ordine delle abilità sono uguali per ogni build: le statistiche non li dividono per build.",
- "No ranked augment on this champion matches that name.": "Nessun potenziamento in classifica di questo campione corrisponde a quel nome."
+ "No ranked augment on this champion matches that name.": "Nessun potenziamento in classifica di questo campione corrisponde a quel nome.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Solo {patch}",
+ "Includes similar recent patches, weighted toward this one": "Include le patch recenti simili, con più peso su questa",
+ "Games counted": "Partite contate"
 }

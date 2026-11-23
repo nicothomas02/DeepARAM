@@ -283,5 +283,9 @@
  "Fighter": "战士",
  "Enchanter": "附魔者",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "召唤师技能和技能加点在每种出装下都相同：数据没有按出装区分。",
- "No ranked augment on this champion matches that name.": "该英雄的已排名强化符文中没有与此名称匹配的。"
+ "No ranked augment on this champion matches that name.": "该英雄的已排名强化符文中没有与此名称匹配的。",
+ "{patch}+": "{patch}+",
+ "{patch} only": "仅 {patch}",
+ "Includes similar recent patches, weighted toward this one": "包含相似的近期版本，以本版本为主",
+ "Games counted": "计入的对局"
 }
