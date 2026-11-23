@@ -70,6 +70,7 @@ import { augmentScores, byScore, rankedAugments } from "@/lib/champion-augments"
 import { SITUATIONS } from "@/lib/situations";
 import StyleTabs from "@/components/champion/StyleTabs";
 import { ITEM_CHANGERS, tiedWith } from "@/lib/build-plan";
+import { clashWith } from "@/lib/item-limits";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import descriptions from "@/data/descriptions.json";
@@ -362,7 +363,14 @@ export default async function ChampionPage({
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
   // The card's build plan for one core: the core in buying order, the rest of the usual build, the parts to rush,
   // augment swaps, then situational items (Nico, 2026-11-20). One per style tab when the champion has two real styles.
-  const buildPlan = (core: ItemRow, situ: typeof p.situational, rush: number[], swaps: typeof p.augmentSwaps) => (
+  const buildPlan = (
+    core: ItemRow,
+    situ: typeof p.situational,
+    rush: number[],
+    swaps: typeof p.augmentSwaps,
+    // The card's whole build, for the "Replaces" note on situational items that share an item limit with one of it.
+    owned = [...buildOrder(core), ...(core.full ?? []).map((r) => r.items[0])],
+  ) => (
     <>
       <div className="cp-best cp-best-wide">
         <h4>
@@ -441,7 +449,9 @@ export default async function ChampionPage({
           </h4>
           <ul className="cp-sit-mini">
             {/* Augment-triggered swaps (lib/build-plan.ts augmentSwaps): rule-based tips from what each augment does. */}
-            {swaps.map((sw) => (
+            {swaps.map((sw) => {
+              const clash = clashWith(sw.item, owned);
+              return (
               <li key={`a${sw.item}`} title={sw.why}>
                 <small className="cp-sit-aug">
                   <img className="cp-icon round" src={`/icons/augments/${sw.augments[0]}.webp`} alt="" width={20} height={20} />
@@ -454,21 +464,37 @@ export default async function ChampionPage({
                 </span>
                 <small className="cp-sit-why">
                   <T ns={NS}>{sw.why}</T>
+                  {clash !== undefined && (
+                    <>
+                      {" "}
+                      <T ns={NS}>Replaces</T> <ItemName id={clash} info={info} />
+                    </>
+                  )}
                 </small>
               </li>
-            ))}
-            {situ.map((st) => (
-              <li key={st.situation}>
-                <small>
-                  <T ns={NS}>{SITUATIONS[st.situation]}</T>
-                </small>
-                <span className="cp-icons">
-                  {st.options.slice(0, 3).map((r, i) => (
-                    <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named={i === 0} />
-                  ))}
-                </span>
-              </li>
-            ))}
+              );
+            })}
+            {situ.map((st) => {
+              // The game won't let you own both (lib/item-limits.ts): say which build item this one replaces.
+              const clash = st.options[0] ? clashWith(st.options[0].items[0], owned) : undefined;
+              return (
+                <li key={st.situation}>
+                  <small>
+                    <T ns={NS}>{SITUATIONS[st.situation]}</T>
+                  </small>
+                  <span className="cp-icons">
+                    {st.options.slice(0, 3).map((r, i) => (
+                      <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named={i === 0} />
+                    ))}
+                  </span>
+                  {clash !== undefined && (
+                    <small className="cp-sit-why">
+                      <T ns={NS}>Replaces</T> <ItemName id={clash} info={info} />
+                    </small>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

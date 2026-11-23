@@ -88,7 +88,7 @@ export function quickBuilds(): QuickBuild[] {
         // An item the game won't let you own with one of the build's items swaps that one out (Mortal Reminder for
         // Lord Dominik's): name it, so the card and the apps replace it instead of adding a seventh item.
         const id = Number(/(\d+)\.png$/.exec(s.icon ?? "")?.[1] ?? NaN);
-        const clash = Number.isNaN(id) ? undefined : clashWith(id, [...(core?.items ?? []), ...(core?.rest ?? [])]);
+        const clash = Number.isNaN(id) ? undefined : clashWith(id, [...(core?.items ?? []), ...(core?.rest ?? []), ...(core?.full ?? []).map((r) => r.items[0])]);
         const replaces = named(clash);
         return replaces ? { ...s, replaces } : s;
       }),
