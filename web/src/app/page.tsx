@@ -420,7 +420,8 @@ export default function Home() {
           </section>
         )}
         {game && (
-          // A slim strip: three numbers don't need a card of their own.
+          // A slim strip: one number doesn't need a card of its own. No blue/red side split: it came from one player's
+          // lobbies only (about 1,000 games, ±3 pts), which reads as a fact about Mayhem (2026-11-23).
           <section className="card span-all home-typical" data-accent="gold">
             <h2>
               <T>A typical game</T>
@@ -435,18 +436,6 @@ export default function Home() {
                 </b>
                 <span>
                   <T>game length</T>
-                </span>
-              </div>
-              <div>
-                <b>{pct(game.blue)}</b>
-                <span>
-                  <T>blue side wins</T>
-                </span>
-              </div>
-              <div>
-                <b>{pct(game.red)}</b>
-                <span>
-                  <T>red side wins</T>
                 </span>
               </div>
             </div>

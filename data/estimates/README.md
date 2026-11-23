@@ -213,3 +213,11 @@ players, items folded to base ids; only picks with 60+ holders, and only change 
 Correlational like win rates, but one step from the mechanism, so it explains a pick and never ranks or filters one.
 Shields on allies aren't measured. Read by `web/src/lib/mechanisms.ts`: augment DeepScore hover and item pages show
 up to two effects with |z| >= 3 and at least 8% (0.3 deaths per 10 minutes), labelled estimated; served to both apps at `/data/mechanism-profiles.json`.
+
+## boots_slot.json
+
+How many legendary items players buy before their finished boots (0-3), per champion, with the number of boots
+buyers: the most common count in the owner's archived lobbies (all ten players). Habit only: with about 50 buyers per
+champion, "another slot wins more" moves were mostly chance, so none are made (2026-11-23). Under 20 buyers: null, and
+the card uses the overall most common slot. Made by `boots_slot.py <games dir> <timelines dir>` on a DeepARAM-PC
+checkout (archive/games, archive/timelines). Read by `web/src/lib/champion-page.ts`.
