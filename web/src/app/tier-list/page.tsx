@@ -36,7 +36,7 @@ import { matchesByPatch } from "@/lib/sample";
 import { bracketData } from "@/lib/brackets";
 import { patchName } from "@/lib/patch-name";
 import WeaponOfDestiny from "@/components/WeaponOfDestiny";
-import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
+import { realDestiny } from "@/lib/weapon-of-destiny";
 import Pentakill from "@/components/Pentakill";
 import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
 import { pentakill } from "@/lib/pentakill";
@@ -272,15 +272,15 @@ export default function TierListPage() {
     });
   }
 
-  // Which Legendary item to make the Weapon of Destiny (gold augment): how often it's upgraded and how rare its stats are.
-  // This tab and Pentakill's are Simulator-made, so they stay off while it is a fun tool only (lib/sim-policy.ts).
-  const destiny = SIMULATOR_IN_STATS ? weaponOfDestiny() : null;
-  if (destiny?.rows.length) {
+  // Which Legendary item to make the Weapon of Destiny (gold augment), from real games: which items players upgrade
+  // and how the same champions win with each (lib/weapon-of-destiny.ts realDestiny).
+  const destiny = realDestiny();
+  if (destiny?.items.length) {
     tabs.push({
       id: "weapon-of-destiny",
       label: "Weapon of Destiny",
       lazy: true,
-      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} champions={destinyByChampion()} />,
+      content: <WeaponOfDestiny items={destiny.items} gold={destiny.gold} champions={destiny.champions} />,
     });
   }
 

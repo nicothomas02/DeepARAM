@@ -3,7 +3,7 @@
 import { describe, expect, it } from "vitest";
 import championIds from "@/data/champion-ids.json";
 import { itemPages } from "@/lib/item-pages";
-import { destinyByChampion, weaponOfDestiny } from "@/lib/weapon-of-destiny";
+import { destinyByChampion, realDestiny, weaponOfDestiny } from "@/lib/weapon-of-destiny";
 
 describe("Weapon of Destiny ranking", () => {
   const data = weaponOfDestiny()!;
@@ -69,5 +69,38 @@ describe("Weapon of Destiny by champion", () => {
       if (r.next) expect(r.next.id, r.champion).not.toBe(r.item.id);
       expect(r.power, r.champion).toBeGreaterThan(0);
     }
+  });
+});
+
+// The tab now ranks from real games (data/aramhex destiny.json, Nico 2026-11-21: base all data on AramHex).
+describe("Weapon of Destiny from real games", () => {
+  const data = realDestiny()!;
+  const pages = new Map(itemPages().map((i) => [i.id, i]));
+
+  it("lists the items players upgrade, with shares of all Weapon of Destiny games", () => {
+    expect(data.items.length).toBeGreaterThan(15);
+    const total = data.items.reduce((s, r) => s + r.share, 0);
+    expect(total).toBeGreaterThan(0.5);
+    expect(total).toBeLessThanOrEqual(1);
+    for (const r of data.items) {
+      expect(r.share).toBeGreaterThanOrEqual(0.002);
+      expect(r.score).toBeGreaterThanOrEqual(0);
+      expect(r.score).toBeLessThanOrEqual(100);
+      if (r.slug) expect(pages.get(r.id)?.tier, r.name).toBe("legendary");
+      if (r.best) expect(championIds).toHaveProperty(r.best);
+    }
+  });
+
+  it("gives most champions their usual Weapon, and a different higher-DeepScore pick only when there is one", () => {
+    expect(data.champions.length).toBeGreaterThan(150);
+    for (const c of data.champions) {
+      expect(championIds).toHaveProperty(c.champion);
+      expect(c.usual.share).toBeGreaterThan(0);
+      expect(c.usual.share).toBeLessThanOrEqual(1);
+      if (c.best) expect(c.best.id, c.champion).not.toBe(c.usual.id);
+    }
+    // Jhin's usual Weapon is a lethality item, as in his builds.
+    const jhin = data.champions.find((c) => c.champion === "Jhin")!;
+    expect(["The Collector", "Lord Dominik's Regards", "Serpent's Fang"]).toContain(jhin.usual.name);
   });
 });
