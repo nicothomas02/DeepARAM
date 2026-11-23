@@ -1,10 +1,10 @@
 {
  "patch": "16.23",
- "built": "2026-11-21",
+ "built": "2026-11-22",
  "checks": {
   "loops": 3,
-  "gap": 44,
-  "sim": 11,
+  "gap": 42,
+  "sim": 13,
   "wasted": 0,
   "kitchen": 41
  },
@@ -38,7 +38,7 @@
    "theory": "The Simulator puts Berserker's Greaves in Corki's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Corki's builds with Berserker's Greaves win 4.4 points less often than their builds without it.",
    "gap": -0.0438,
-   "share": 0.0362,
+   "share": 0.0334,
    "status": "trap"
   },
   {
@@ -54,8 +54,8 @@
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Draven's builds with Berserker's Greaves win 4.4 points less often than their builds without it.",
-   "gap": -0.0436,
-   "share": 0.051,
+   "gap": -0.044,
+   "share": 0.0494,
    "status": "trap"
   },
   {
@@ -70,26 +70,60 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.4 points less often than their builds without it.",
-   "gap": -0.064,
-   "share": 0.0335,
+   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.3 points less often than their builds without it.",
+   "gap": -0.0626,
+   "share": 0.0315,
    "status": "trap"
   },
   {
-   "id": "sim-Kayle-botrk",
+   "id": "sim-Riven-black_cleaver",
    "kind": "sim",
-   "title": "Blade of The Ruined King on Kayle",
+   "title": "Black Cleaver on Riven",
    "champions": [
-    "Kayle"
+    "Riven"
+   ],
+   "augments": [],
+   "items": [
+    3071
+   ],
+   "theory": "The Simulator puts Black Cleaver in Riven's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Riven's builds with Black Cleaver win 3.4 points less often than their builds without it.",
+   "gap": -0.0337,
+   "share": 0.0331,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Caitlyn-botrk",
+   "kind": "sim",
+   "title": "Blade of The Ruined King on Caitlyn",
+   "champions": [
+    "Caitlyn"
    ],
    "augments": [],
    "items": [
     3153
    ],
-   "theory": "The Simulator puts Blade of The Ruined King in Kayle's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Kayle's builds with Blade of The Ruined King win 3.3 points less often than their builds without it.",
-   "gap": -0.0327,
-   "share": 0.0515,
+   "theory": "The Simulator puts Blade of The Ruined King in Caitlyn's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Caitlyn's builds with Blade of The Ruined King win 3.2 points less often than their builds without it.",
+   "gap": -0.0322,
+   "share": 0.0613,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Sivir-botrk",
+   "kind": "sim",
+   "title": "Blade of The Ruined King on Sivir",
+   "champions": [
+    "Sivir"
+   ],
+   "augments": [],
+   "items": [
+    3153
+   ],
+   "theory": "The Simulator puts Blade of The Ruined King in Sivir's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Sivir's builds with Blade of The Ruined King win 3.1 points less often than their builds without it.",
+   "gap": -0.0313,
+   "share": 0.1112,
    "status": "trap"
   },
   {
@@ -104,9 +138,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Xin Zhao's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Xin Zhao's builds with Blade of The Ruined King win 3.5 points less often than their builds without it.",
-   "gap": -0.0347,
-   "share": 0.0321,
+   "practice": "In real games, Xin Zhao's builds with Blade of The Ruined King win 3.7 points less often than their builds without it.",
+   "gap": -0.0372,
+   "share": 0.0317,
    "status": "trap"
   },
   {
@@ -122,8 +156,8 @@
    ],
    "theory": "The Simulator puts Rabadon's Deathcap in Karma's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Karma's builds with Rabadon's Deathcap win 9.7 points less often than their builds without it.",
-   "gap": -0.0968,
-   "share": 0.1026,
+   "gap": -0.0973,
+   "share": 0.0987,
    "status": "trap"
   },
   {
@@ -138,9 +172,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 8.6 points less often than their builds without it.",
-   "gap": -0.0859,
-   "share": 0.0434,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 7.8 points less often than their builds without it.",
+   "gap": -0.0781,
+   "share": 0.035,
    "status": "trap"
   },
   {
@@ -155,9 +189,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Talon's builds with Serylda's Grudge win 3.9 points less often than their builds without it.",
-   "gap": -0.0391,
-   "share": 0.058,
+   "practice": "In real games, Talon's builds with Serylda's Grudge win 3.8 points less often than their builds without it.",
+   "gap": -0.0381,
+   "share": 0.0568,
    "status": "trap"
   },
   {
@@ -173,8 +207,8 @@
    ],
    "theory": "The Simulator puts Serylda's Grudge in Zed's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Zed's builds with Serylda's Grudge win 4.6 points less often than their builds without it.",
-   "gap": -0.0456,
-   "share": 0.0747,
+   "gap": -0.0463,
+   "share": 0.072,
    "status": "trap"
   },
   {
@@ -189,9 +223,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 7.4 points less often than their builds without it.",
-   "gap": -0.0737,
-   "share": 0.0579,
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 8.0 points less often than their builds without it.",
+   "gap": -0.0797,
+   "share": 0.0566,
    "status": "trap"
   },
   {
@@ -206,9 +240,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Xerath's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Xerath's builds with Sorcerer's Shoes win 3.9 points less often than their builds without it.",
-   "gap": -0.0393,
-   "share": 0.2193,
+   "practice": "In real games, Xerath's builds with Sorcerer's Shoes win 3.2 points less often than their builds without it.",
+   "gap": -0.0322,
+   "share": 0.2036,
    "status": "trap"
   }
  ],
@@ -536,21 +570,6 @@
    "items": [],
    "theory": "At least 91% of champions get Upgrade Sheen, but Graves has never been seen taking it, even though Graves is picked often.",
    "test": "Play Graves and watch your augment choices. If it never shows up, Riot has left it out for Graves. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
-   "id": "gap-Gwen",
-   "kind": "gap",
-   "title": "Gwen never gets Bread And Jam",
-   "champions": [
-    "Gwen"
-   ],
-   "augments": [
-    1150
-   ],
-   "items": [],
-   "theory": "At least 93% of champions get Bread And Jam, but Gwen has never been seen taking it, even though Gwen is picked often.",
-   "test": "Play Gwen and watch your augment choices. If it never shows up, Riot has left it out for Gwen. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -964,23 +983,6 @@
    "items": [],
    "theory": "At least 93% of champions get Back To Basics, Twin Fire, Erosion, With Haste and Bread And Jam, but Vayne has never been seen taking them, even though Vayne is picked often.",
    "test": "Play Vayne and watch your augment choices. If they never show up, Riot has left them out for Vayne. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
-   "id": "gap-Viego",
-   "kind": "gap",
-   "title": "Viego never gets Weapon of Destiny and 2 more",
-   "champions": [
-    "Viego"
-   ],
-   "augments": [
-    3081,
-    1386,
-    1098
-   ],
-   "items": [],
-   "theory": "At least 93% of champions get Weapon of Destiny, Spin Me Right Round and With Haste, but Viego has never been seen taking them, even though Viego is picked often.",
-   "test": "Play Viego and watch your augment choices. If they never show up, Riot has left them out for Viego. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {

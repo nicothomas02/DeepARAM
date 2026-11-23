@@ -66,4 +66,12 @@ describe("build plan", () => {
     expect(restOfBuild([30, 31, 32], 1001, full, (i) => i === 1001)).toEqual([41, 42]);
     expect(restOfBuild([30, 31, 32], undefined, full, (i) => i === 1001)).toEqual([41, 42, 43]);
   });
+  it("fills slots the whole-core builds leave empty from builds sharing most of the core", () => {
+    const full = [
+      { items: [30, 31, 32, 1001, 41], pickRate: 0.05 },
+      { items: [30, 31, 1001, 41, 48, 49], pickRate: 0.04 },
+      { items: [60, 61, 62, 63, 64, 65], pickRate: 0.5 },
+    ];
+    expect(restOfBuild([30, 31, 32], 1001, full, (i) => i === 1001)).toEqual([41, 48]);
+  });
 });
