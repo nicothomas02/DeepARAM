@@ -54,6 +54,8 @@
   .items.lst { gap: 6px; }
   .items.lst .item img { width: 28px; height: 28px; }
   .item.lit .why { color: var(--gold); }
+  .alts img { width: 18px !important; height: 18px !important; border-radius: 4px; vertical-align: middle; margin-left: 3px; opacity: .8; }
+  .offer .reroll { margin: 8px 2px 2px; }
   .why.lbl b { text-transform: none; letter-spacing: 0; }
   .items.lst .why.lbl { margin: 4px 0 -2px; }
   .tip { margin-top: 8px; }
@@ -299,6 +301,32 @@
     }).sort((x, y) => y.score - x.score);
   }
 
+  // Reroll or keep: compares the offer with what a reroll would likely bring, drawn from this champion's own Mayhem
+  // pool (the augments it's seen taking) at the offer's rarity, minus the cards on screen and the ones you took.
+  // Rerolling a card keeps the other two, so a reroll is worth it when, on average over that pool, the best card
+  // you'd end up with beats the best card now. Assumes each augment in the pool is equally likely to come up.
+  function rerollAdvice(d, all, offered, taken) {
+    const r = d.augments[offered[0].id]?.[1];
+    const pool = all.filter((a) => d.augments[a.id]?.[1] === r && !offered.some((o) => o.id === a.id) && !taken.includes(a.id)).map((a) => a.score);
+    if (pool.length < 5) return "";
+    // A card with no stats on this champion (rarely or never taken on it) counts as the pool's weakest.
+    const low = Math.min(...pool);
+    const v = offered.map((a) => a.score ?? low);
+    const best = Math.max(...v);
+    let pick = -1, gain = 0;
+    v.forEach((_, j) => {
+      const keep = Math.max(...v.filter((__, k) => k !== j), -Infinity);
+      const g = pool.reduce((t, x) => t + Math.max(keep, x), 0) / pool.length - best;
+      if (g > gain) { gain = g; pick = j; }
+    });
+    const beats = pool.filter((x) => x > best).length / pool.length;
+    const nm = (a) => esc(d.augments[a.id]?.[0] ?? `#${a.id}`);
+    const bestCard = offered[v.indexOf(best)];
+    if (pick >= 0 && gain >= 0.25)
+      return `<div class="why tip reroll">Reroll <b>${nm(offered[pick])}</b>: ${pct(beats)} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat <b>${nm(bestCard)}</b>, worth about +${gain.toFixed(1)} on average.</div>`;
+    return `<div class="why tip reroll">Keep: ${beats ? `only ${pct(beats)}` : "none"} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat <b>${nm(bestCard)}</b>, so a reroll is unlikely to help.</div>`;
+  }
+
   async function renderAugments() {
     const box = document.getElementById("augs");
     if (!box || !game) return;
@@ -314,6 +342,7 @@
     const asking = !offer.length && asked.length > 0 && !asked.some((id) => taken.includes(id));
     const onOffer = (asking ? asked : offer).filter((id) => !taken.includes(id));
     const offered = onOffer.length ? [...ranked.filter((a) => onOffer.includes(a.id)), ...onOffer.filter((id) => !ranked.some((a) => a.id === id)).map((id) => ({ id, boost: null, deep: -1, mate: null, combo: null, potential: 0 }))] : [];
+    const reroll = offered.length >= 2 && !asking ? rerollAdvice(d, rankAugments(d, ck, taken), offered, taken) : "";
     const shown = q ? ranked.filter((a) => name(a.id).toLowerCase().includes(q)) : ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
     const row = (a, best) => `
       <button class="row aug${best ? " best" : ""}" data-id="${a.id}" data-r="${d.augments[a.id]?.[1] ?? ""}">
@@ -322,7 +351,7 @@
         <div class="num" title="Estimated boost on this champion (win-rate points, with synergy), then DeepScore">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `<br><small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </button>`;
     box.innerHTML = `
-      ${offered.length ? `<div class="offer${asking ? " ask" : ""}"><div class="why src">${asking ? "Which one did you take? One tap and the rest re-rank around it." : "On offer now, best first for you. Tap the one you take."}</div>${offered.map((a, i) => row(a, i === 0)).join("")}</div><h2>Other augments</h2>` : ""}
+      ${offered.length ? `<div class="offer${asking ? " ask" : ""}"><div class="why src">${asking ? "Which one did you take? One tap and the rest re-rank around it." : "On offer now, best first for you. Tap the one you take."}</div>${offered.map((a, i) => row(a, i === 0)).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
       ${taken.length ? `<div class="taken">${taken.map((id) => `<button class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}" data-id="${id}" title="Tap to undo">${augIcon(id)}${esc(name(id))}</button>`).join("")}</div>` : ""}
       ${shown.map((a, i) => row(a, i === 0 && !q && !offered.length)).join("") || `<p class="note">No augment matches "${esc(query)}".</p>`}
       <p class="note">Best first for ${esc(label(game.champ))}, by estimated boost here (points, including synergy with what you took) plus combo potential with partners that can still come, with DeepScore below. Tap the one you take and the rest re-rank around it. If yours isn't listed, search for it.</p>`;
@@ -466,19 +495,40 @@
     return "";
   }
 
+  // One pick per 4th/5th/6th item slot from the site's slot lists (most bought there first): an item you already
+  // own from a slot's list fills that slot, else its first item not already in the core or an earlier slot. The
+  // slot's other items show small, as alternatives. Null when the site has no slot data for the champion.
+  function laterPicks(champ, owned) {
+    const slots = champ?.laterSlots;
+    if (!slots?.length) return null;
+    const used = new Set((champ.items ?? []).map((it) => itemId(it.icon)));
+    const out = [];
+    for (const s of [...slots].sort((a, b) => a.slot - b.slot)) {
+      const free = (s.items ?? []).filter((it) => !used.has(itemId(it.icon)));
+      const it = free.find((x) => owned.has(itemId(x.icon))) ?? free[0];
+      if (!it) continue;
+      used.add(itemId(it.icon));
+      out.push({ slot: s.slot, it, alts: free.filter((x) => x !== it).slice(0, 2) });
+    }
+    return out.length ? out : null;
+  }
+
   async function renderItems() {
     const box = document.getElementById("items");
     if (!box || !game) return;
     const [d, k, picks, fitData] = await Promise.all([loadBuilds(), loadKinds(), loadPicks(), loadFit()]);
     const champ = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase());
     const taken = getTaken(game);
-    // The core (boots and first three) and then the rest of the usual six: without the rest, the panel ran out of
-    // items once the core was bought.
-    const { list: build, style, core } = pickBuild([...(champ?.items ?? []), ...(champ?.rest ?? [])], picks, k, taken);
-    const coreLen = core ?? (champ?.items ?? []).length;
     const owned = new Set(game.items.map((i) => i % 10000));
     // Any boots fill the build's boots slot: someone on other boots shouldn't be told to buy the build's pair.
     const bootIds = new Set(k?.boots ?? []);
+    // The core (boots and first three) and then the rest of the usual six: without the rest, the panel ran out of
+    // items once the core was bought. Where the site splits the rest into 4th, 5th and 6th item slots (by when
+    // players buy them), each slot's pick comes from there.
+    let slotRows = laterPicks(champ, owned);
+    const { list: build, style, core } = pickBuild([...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? [])], picks, k, taken);
+    if (style) slotRows = null;
+    const coreLen = core ?? (champ?.items ?? []).length;
     const hasBoots = [...owned].some((i) => bootIds.has(i));
     let next = build.filter((it) => !owned.has(itemId(it.icon)) && !(hasBoots && bootIds.has(itemId(it.icon))));
     // A stacking item (Hubris, Heartsteel, tear items) in the build goes first while you have no finished item yet.
@@ -537,7 +587,7 @@
     // The core is boots plus three items; what follows is numbered on from the core's items (boots not counted), so
     // usually the 4th and 5th item, and a 6th where the build sells boots for one.
     const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
-    const coreItems = build.slice(0, coreLen), rest = build.slice(coreLen, coreLen + 3);
+    const coreItems = build.slice(0, coreLen), rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, coreLen + 3);
     const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
     const inBuild = new Set(build.map((it) => itemId(it.icon)));
     const allSits = k ? situational(champ, k, fitData, game, owned) : [];
@@ -549,7 +599,11 @@
       ${shop ? `<div class="why">${shop}</div>` : ""}
       <div class="why lbl">Core${next[0] && coreItems.includes(next[0]) ? ` · next: <b>${esc(next[0].name)}</b>` : ""}</div>
       <div class="core">${coreItems.map((it) => `<img class="${state(it).trim()}" src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</div>
-      ${rest.length ? `<div class="items lst">${rest.map((it, i) => { const r = reason(it); return `<div class="why lbl">${ord(first + i)} item</div>` + row(it, [it === next[0] ? "Next" : "", r ? `${esc(r.when)}: ${esc(r.why)}` : ""].filter(Boolean).join(" · "), r ? " lit" : ""); }).join("")}</div>` : ""}
+      ${rest.length ? `<div class="items lst">${rest.map((it, i) => {
+        const r = reason(it), alts = slotRows?.[i]?.alts ?? [];
+        const or = alts.length ? `<span class="alts">or ${alts.map((a) => `<img src="${src(a.icon)}" alt="" title="${esc(a.name)}">`).join("")}</span>` : "";
+        return `<div class="why lbl">${ord(slotRows?.[i]?.slot ?? first + i)} item</div>` + row(it, [it === next[0] ? "Next" : "", r ? `${esc(r.when)}: ${esc(r.why)}` : "", or].filter(Boolean).join(" · "), r ? " lit" : "");
+      }).join("")}</div>` : ""}
       ${sits.length ? `<div class="why lbl">Situational</div><div class="items lst">${sits.map((it) => row(it, it.why ? `${esc(it.when)}: ${esc(it.why)}` : esc(it.when), it.why ? " lit" : "")).join("")}</div>` : ""}
       ${next.length ? "" : `<p class="note">You have the whole build.</p>`}
       ${tip}</div>`;
