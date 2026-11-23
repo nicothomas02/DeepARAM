@@ -40,7 +40,11 @@ const PRIOR = 0.25; // the average's weight, in median items' worth of games
 
 /** DeepScore for each row against the rest of the champion's list (items, builds, spell pairs; lib/deepscore.ts), best first.
  *  `fit`: fitted next-patch settings (single items); without it, the old hand-set prior (builds, spell pairs). */
-export function scoreRows<T extends { winRate: number; pickRate: number }>(given: T[], fit: Fit | null = null): (T & { deepScore?: number })[] {
+export function scoreRows<T extends { winRate: number; pickRate: number }>(
+  given: T[],
+  fit: Fit | null = null,
+  opts: { bound?: boolean } = {},
+): (T & { deepScore?: number })[] {
   if (!given.length) return given;
   // Rows with earlier patches pooled in score on those (Nico 2026-11-23: small samples); the rows returned are the
   // given ones, with their live-patch numbers.
@@ -63,6 +67,11 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(given
     const vs = list.map((r, i) => (r.winRate * (1 - r.winRate)) / games[i]);
     const tau2 = trueSpread(list.map((r) => r.winRate), vs);
     const bounds = list.map((r, i) => {
+      // bound (Nico 2026-11-23, analysis/scoring/RESULTS.md): rank on the estimate minus one typical miss, as the Tier
+      // List does. Rarely picked rows really do win less next patch (augments under 1% of the top row's games: -4 pts),
+      // and shrinking toward the list's average flattered them. From random 3-option offers it picked better on
+      // first-day data (augments +0.08 pts, spell pairs +0.2 to +0.4) and the same on full data.
+      if (fit && opts.bound) return fittedBound(r.winRate, 1, mean, fit, { v: vs[i], tau2 });
       if (fit) return nextPatch(r.winRate, 1, mean, fit, { v: vs[i], tau2 }).est;
       const w = tau2 / (tau2 + vs[i]);
       return mean + w * (r.winRate - mean);
@@ -91,12 +100,18 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(given
 /** Each row's lead over its list's pick-weighted average, as a fraction, shrunk by its own sampling noise exactly as
  *  scoreRows does with real games (so ordering by it is DeepScore's order). Empty when any row lacks games. Used by
  *  the desktop apps' augment panel, which adds synergy points on the same win-rate scale (lib/augment-picks.ts). */
-export function shrunkLeads<T extends { id: number; winRate: number; pickRate: number; games?: number }>(list: T[]): Map<number, number> {
+export function shrunkLeads<T extends { id: number; winRate: number; pickRate: number; games?: number }>(
+  list: T[],
+  fit: Fit | null = null,
+): Map<number, number> {
   if (!list.length || !list.every((r) => (r.games ?? 0) > 0)) return new Map();
   const total = list.reduce((s, r) => s + r.pickRate, 0) || 1;
   const mean = list.reduce((s, r) => s + r.winRate * r.pickRate, 0) / total;
   const vs = list.map((r) => (r.winRate * (1 - r.winRate)) / r.games!);
   const tau2 = trueSpread(list.map((r) => r.winRate), vs);
+  // With fit: scoreRows' bound rule, as a lead (fittedBound minus the mean, plus the miss every row shares), so the
+  // order matches the page's DeepScore and the scale stays win-rate points.
+  if (fit) return new Map(list.map((r, i) => [r.id, fittedBound(r.winRate, 1, mean, fit, { v: vs[i], tau2 }) - mean + fit.s0]));
   return new Map(list.map((r, i) => [r.id, (tau2 / (tau2 + vs[i])) * (r.winRate - mean)]));
 }
 

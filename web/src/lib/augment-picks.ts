@@ -8,6 +8,7 @@ import { champList } from "./champions";
 import { championEstimates } from "./estimates";
 import { augmentScores } from "./champion-augments";
 import { shrunkLeads } from "./card-score";
+import { FIT } from "./deepscore";
 
 // Every champion's augments in the champion page's order, for the desktop app's augment panel (apps/desktop
 // companion.html): ranked like the champion page (real games: DeepScore order), else by the estimated boost, else by its
@@ -71,6 +72,7 @@ export function augmentPicks(): AugmentPicks {
       ? shrunkLeads(
           // Earlier patches pooled in where nothing changed, as the page's default DeepScore (AugmentRow.pooled).
           p.augments.map((a) => ({ id: a.id, pickRate: a.pickRate, ...(a.pooled ?? { winRate: a.winRate ?? 0, games: a.games }) })),
+          FIT.augments,
         )
       : new Map<number, number>();
     const rows = p.augments.map((a) => {

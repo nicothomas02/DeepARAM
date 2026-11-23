@@ -542,7 +542,7 @@ function tiered(list: ItemRow[]): ItemRow[] {
   return ITEM_TIERS.flatMap((tier) => {
     const inTier = one.filter((r) => itemTier(r.items[0]) === tier);
     const unscored = inTier.filter((r) => !ranked(r.items[0])).sort((x, y) => y.pickRate - x.pickRate);
-    return [...scoreItems(inTier.filter((r) => ranked(r.items[0]))), ...unscored].map((r) => ({ ...r, tier }));
+    return [...scoreSingles(inTier.filter((r) => ranked(r.items[0]))), ...unscored].map((r) => ({ ...r, tier }));
   });
 }
 
@@ -594,7 +594,7 @@ function afterCore(core: ItemRow, single: ItemRow[], full: ItemRow[], keepClashe
   // Never an item the game won't let you own with a core item (Lord Dominik's after Mortal Reminder, Nico
   // 2026-11-23); situational lists keep them, as a swap for the item they clash with.
   return alongCore(
-    scoreItems(single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !core.items.includes(r.items[0]) && (keepClashes || clashWith(r.items[0], core.items) === undefined))),
+    scoreSingles(single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !core.items.includes(r.items[0]) && (keepClashes || clashWith(r.items[0], core.items) === undefined))),
     core.items,
     full,
   );
@@ -612,5 +612,7 @@ function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: It
 // Starting items and boots use the fitted settings, which were backtested on them; builds and single items keep
 // the old prior until their history can be backtested (data/analysis/predictive.py).
 const scoreItems = (list: ItemRow[], fit: Fit | null = null): ItemRow[] => scoreRows(list, fit);
+/** Single items: the Tier List's bound rule (Nico 2026-11-23, lib/card-score.ts scoreRows). */
+const scoreSingles = (list: ItemRow[]): ItemRow[] => scoreRows(list, FIT.items, { bound: true });
 
 

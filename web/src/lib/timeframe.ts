@@ -138,6 +138,8 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
         const id = r.items[0];
         return file.items[id]?.tier === "legendary" && file.items[id].ranked && !taken.has(id) && all.findIndex((x) => x.items[0] === id) === i;
       }),
+      FIT.items,
+      { bound: true },
     ),
     core?.items ?? [],
     full,
