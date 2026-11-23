@@ -79,6 +79,9 @@ jobs:
         run: python3 data/aramhex/fetch.py || echo "::warning::AramHex not refreshed"
       - name: Lay AramHex's real numbers over the 101 files (101 keeps skill orders, starters, six-item builds, teammates)
         run: python3 data/aramhex/merge.py
+      - name: Score how each patch's picks held up on the next (Patches page scorecard)
+        continue-on-error: true
+        run: python3 data/aramhex/scorecard.py
       - name: Refresh the Simulator's augment pools again with AramHex's augment lists
         continue-on-error: true
         run: |

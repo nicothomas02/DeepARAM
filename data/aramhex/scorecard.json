@@ -1,0 +1,109 @@
+{
+ "note": "Each patch's DeepScore picks, scored on the next patch's games.",
+ "pairs": [
+  {
+   "from": "16.19",
+   "to": "16.20",
+   "to_matches": 50570166,
+   "to_partial": false,
+   "augments": {
+    "deepscore": {
+     "n": 852,
+     "hit": 0.999,
+     "lead": 0.0506
+    },
+    "popular": {
+     "n": 865,
+     "hit": 0.76,
+     "lead": 0.0146
+    }
+   },
+   "champions": {
+    "n": 20,
+    "still_above_50": 1.0,
+    "avg_next": 0.5496
+   }
+  },
+  {
+   "from": "16.20",
+   "to": "16.21",
+   "to_matches": 42169050,
+   "to_partial": false,
+   "augments": {
+    "deepscore": {
+     "n": 690,
+     "hit": 1.0,
+     "lead": 0.0448
+    },
+    "popular": {
+     "n": 745,
+     "hit": 0.634,
+     "lead": 0.0089
+    }
+   },
+   "champions": {
+    "n": 20,
+    "still_above_50": 1.0,
+    "avg_next": 0.5443
+   }
+  },
+  {
+   "from": "16.21",
+   "to": "16.22",
+   "to_matches": 57823093,
+   "to_partial": false,
+   "augments": {
+    "deepscore": {
+     "n": 846,
+     "hit": 1.0,
+     "lead": 0.0496
+    },
+    "popular": {
+     "n": 846,
+     "hit": 0.76,
+     "lead": 0.0161
+    }
+   },
+   "champions": {
+    "n": 20,
+    "still_above_50": 1.0,
+    "avg_next": 0.5497
+   }
+  },
+  {
+   "from": "16.22",
+   "to": "16.23",
+   "to_matches": 4991976,
+   "to_partial": true,
+   "augments": {
+    "deepscore": {
+     "n": 865,
+     "hit": 0.994,
+     "lead": 0.0531
+    },
+    "popular": {
+     "n": 865,
+     "hit": 0.74,
+     "lead": 0.0167
+    }
+   },
+   "items": {
+    "deepscore": {
+     "n": 519,
+     "hit": 0.954,
+     "lead": 0.0381
+    },
+    "popular": {
+     "n": 519,
+     "hit": 0.676,
+     "lead": 0.0044
+    }
+   },
+   "champions": {
+    "n": 20,
+    "still_above_50": 0.95,
+    "avg_next": 0.5433
+   }
+  }
+ ]
+}
