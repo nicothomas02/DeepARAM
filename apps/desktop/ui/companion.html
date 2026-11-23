@@ -54,7 +54,16 @@
   .items.lst { gap: 6px; }
   .items.lst .item img { width: 28px; height: 28px; }
   .item.lit .why { color: var(--gold); }
-  .alts img { width: 18px !important; height: 18px !important; border-radius: 4px; vertical-align: middle; margin-left: 3px; opacity: .8; }
+  .path { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; }
+  .path .gap { width: 8px; }
+  .slot { display: grid; justify-items: center; gap: 3px; font-size: 10px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .03em; }
+  .slot img { width: 40px; height: 40px; border-radius: 8px; }
+  .slot.own { opacity: .35; }
+  .slot.nx img { box-shadow: 0 0 0 2px var(--gold); }
+  .slot.nx span { color: var(--gold); }
+  .slot.sw img { outline: 2px dashed var(--gold); outline-offset: 1px; }
+  .tip.lit { color: var(--gold); }
+  @media (min-width: 1000px) { .slot img { width: 52px; height: 52px; } .slot { font-size: 11px; } }
   .offer .reroll { margin: 8px 2px 2px; }
   .why.lbl b { text-transform: none; letter-spacing: 0; }
   .items.lst .why.lbl { margin: 4px 0 -2px; }
@@ -97,6 +106,24 @@
   .hero .sub.now { color: var(--accent); }
   .live-mini { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 12px; color: var(--muted); }
   .live-mini .bar { flex: 1; height: 6px; margin: 0; }
+  /* At-a-glance visuals: physical/magic split bar, enemy strip in the banner, strength bars, icon tiles. */
+  .split { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--raised); margin: 6px 0 4px; }
+  .split .ad { background: #e8845a; } .split .ap { background: #7f8cff; }
+  .split-key { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+  .split-key b { color: var(--fg); }
+  .foes { margin-left: auto; min-width: 170px; max-width: 220px; align-self: flex-end; }
+  .foes .mates img { width: 26px; height: 26px; border-radius: 7px; }
+  .foes .why.lbl { margin: 0 0 4px; }
+  .sbar { height: 4px; border-radius: 2px; background: var(--raised); margin-top: 5px; overflow: hidden; max-width: 160px; }
+  .sbar span { display: block; height: 100%; }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(78px, 1fr)); gap: 10px; margin-top: 6px; }
+  .tile { display: grid; justify-items: center; gap: 4px; text-align: center; font-size: 11px; line-height: 1.2; }
+  .tile img { width: 40px; height: 40px; border-radius: 8px; }
+  .tile.aug img { border-radius: 50%; }
+  .ii { width: 18px; height: 18px; border-radius: 4px; vertical-align: -4px; margin-right: 3px; }
+  .ii.round { border-radius: 50%; }
+  .key.inl { display: inline-grid; place-items: center; min-width: 20px; height: 20px; border-radius: 6px; background: var(--raised); color: var(--accent); font-weight: 700; font-size: 12px; margin-left: 2px; }
+  .up { color: var(--good); } .down { color: var(--bad); }
   .hero .fs { position: absolute; top: 10px; right: 10px; z-index: 2; font: inherit; font-size: 11px; font-weight: 600; color: var(--text, #fff);
     background: rgb(9 11 15 / .6); border: 1px solid var(--line); border-radius: 8px; padding: 4px 9px; cursor: pointer; }
   .ink { background: var(--prismatic); -webkit-background-clip: text; background-clip: text; color: transparent; }
@@ -184,7 +211,7 @@
     const rows = ranked.map((p, i) => `
       <div class="row${i === 0 && p.id !== byId[mine] ? " best" : ""}">
         ${icon(p.id)}
-        <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${p.strength >= 0.01 ? "Strong this patch" : ""}</div></div>
+        <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${p.strength >= 0.01 ? "Strong this patch" : ""}</div><div class="sbar"><span data-style="width:${Math.max(4, Math.min(100, 50 + p.strength * 1000))}%;background:${p.strength >= 0.01 ? "var(--good)" : p.strength <= -0.01 ? "var(--bad)" : "var(--gold)"}"></span></div></div>
         <div class="num">Strength ${pts(p.strength)}</div>
       </div>`).join("");
     const [builds, k] = await Promise.all([loadBuilds(), loadKinds()]);
@@ -202,9 +229,10 @@
       const front = all.some((a) => (d.champions[a]?.[1] ?? []).some((x) => FRONT.has(x)));
       const lower = new Map(Object.entries(k?.champions ?? {}).map(([a, m]) => [a.toLowerCase(), m]));
       const magic = all.reduce((t, a) => t + (lower.get(a.toLowerCase()) ?? 0.5), 0) / all.length;
-      gap = !front ? "No frontline on your team: tanky items go further this game."
-        : magic < 0.25 ? "Your team deals little magic damage: an AP or hybrid item helps if your champion can use one."
-        : magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
+      // Only the tested half of the team gap line (2026-11-23): teams over 75% magic won 9.7 ± 7.2 points below
+      // expected (178 teams). "No frontline" failed its test and "under 25% magic" had too few teams, so both stay off.
+      void front;
+      gap = magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
     }
     setView(`
       ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion")}
@@ -236,8 +264,19 @@
   const loadPicks = () => picks ?? (picks = fetch(`${SITE}/data/augment-picks.json`).then((r) => r.json()).catch(() => null));
   const loadBuilds = () => builds ?? (builds = fetch(`${SITE}/data/overlay.json`).then((r) => r.json()).catch(() => null));
   const augIcon = (id) => `<img src="${SITE}/icons/augments/${id}.webp" alt="">`;
+  const augIco = (id) => `<img class="ii round" src="${SITE}/icons/augments/${id}.webp" alt="" data-drop>`;
   const itemId = (icon) => Number((icon.match(/(\d+)\.png$/) ?? [])[1]) % 10000;
   let game = null, query = "", rarity = "", reached = {}, offer = [], asked = [];
+  // Item art lives at the champion build's icon path; mode copies use 22xxxx ids (base ids 404), and an icon that
+  // still fails to load just disappears.
+  let iconPrefix = "";
+  const itemImg = (id, cls = "ii") => iconPrefix ? `<img class="${cls}" src="${(iconPrefix.startsWith("http") ? "" : SITE) + iconPrefix + (id < 10000 ? 220000 + id : id)}.png" alt="" data-drop>` : "";
+  // The enemy team's physical/magic split as a bar, with their portraits: reads at a glance, no text to parse.
+  function splitBar(magic) {
+    const m = Math.round(magic * 100);
+    return `<div class="split" title="Enemy damage: about ${100 - m}% physical, ${m}% magic"><span class="ad" data-style="width:${100 - m}%"></span><span class="ap" data-style="width:${m}%"></span></div>
+      <div class="split-key"><span>Physical <b>${100 - m}%</b></span><span>Magic <b>${m}%</b></span></div>`;
+  }
   // A new reading of the offer. When an offer goes away without a tap (picked in the game), its augments stay up as
   // "Which one did you take?" so marking it is one tap, until the next offer or that tap.
   function setOffer(ids) {
@@ -323,8 +362,8 @@
     const nm = (a) => esc(d.augments[a.id]?.[0] ?? `#${a.id}`);
     const bestCard = offered[v.indexOf(best)];
     if (pick >= 0 && gain >= 0.25)
-      return `<div class="why tip reroll">Reroll <b>${nm(offered[pick])}</b>: ${pct(beats)} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat <b>${nm(bestCard)}</b>, worth about +${gain.toFixed(1)} on average.</div>`;
-    return `<div class="why tip reroll">Keep: ${beats ? `only ${pct(beats)}` : "none"} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat <b>${nm(bestCard)}</b>, so a reroll is unlikely to help.</div>`;
+      return `<div class="why tip reroll">Reroll ${augIco(offered[pick].id)}<b>${nm(offered[pick])}</b>: ${pct(beats)} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat ${augIco(bestCard.id)}<b>${nm(bestCard)}</b>, worth about +${gain.toFixed(1)} on average.</div>`;
+    return `<div class="why tip reroll">Keep: ${beats ? `only ${pct(beats)}` : "none"} of ${esc(label(game.champ))}'s ${esc(r ?? "")} augments beat ${augIco(bestCard.id)}<b>${nm(bestCard)}</b>, so a reroll is unlikely to help.</div>`;
   }
 
   async function renderAugments() {
@@ -367,9 +406,9 @@
     }));
   }
 
-  // The enemy team's damage, 0 (all physical) to 1 (all magic): each champion's usual mix, pulled toward what their
-  // finished items say as they buy them. League doesn't show this. Shown only when it leans hard one way, as a fact,
-  // without an item prescription: no defense tip has been shown to pay off yet.
+  // The enemy team's damage, 0 (all physical) to 1 (all magic): each champion's usual mix (public data). Pulling it
+  // toward their items (each pure AP/AD item against a double-weighted usual mix) is off until tested (2026-11-23).
+  const ITEM_MIX = false;
   function enemyMagic(k, enemies) {
     const lower = new Map(Object.entries(k.champions).map(([a, m]) => [a.toLowerCase(), m]));
     const mixes = enemies.filter((e) => e.champ).map((e) => {
@@ -379,7 +418,7 @@
         if (g.includes("ap") && !g.includes("ad")) ap += 1;
         if (g.includes("ad") && !g.includes("ap")) ad += 1;
       }
-      return (2 * (lower.get(e.champ.toLowerCase()) ?? 0.5) + ap) / (2 + ap + ad);
+      return ITEM_MIX ? (2 * (lower.get(e.champ.toLowerCase()) ?? 0.5) + ap) / (2 + ap + ad) : lower.get(e.champ.toLowerCase()) ?? 0.5;
     });
     return mixes.length ? mixes.reduce((a, b) => a + b, 0) / mixes.length : null;
   }
@@ -402,30 +441,35 @@
   const CATCH = new Set(["Catcher", "Vanguard"]);
   // Champions whose kits heal a lot (from their ability descriptions), for "Vs healing".
   const HEALERS = new Set(["aatrox", "akshan", "alistar", "belveth", "briar", "drmundo", "fiddlesticks", "illaoi", "ivern", "kayn", "kled", "maokai", "milio", "nami", "nidalee", "olaf", "renataglasc", "senna", "sona", "soraka", "swain", "sylas", "taric", "trundle", "vladimir", "warwick", "yuumi", "zac", "seraphine", "darius", "fiora", "irelia", "masteryi", "udyr", "volibear", "yone"]);
-  function situational(champ, k, fit, g, skip) {
+  function situational(champ, k, fit, g, skip, augName = (id) => `#${id}`) {
     const list = (champ?.situational ?? []).filter((it) => !skip.has(itemId(it.icon)));
     if (!list.length) return [];
     const enemies = (g.enemies ?? []).filter((e) => e.champ);
     const arch = (e) => fit?.champions?.[keyIn(fit.champions, e.champ)]?.[1] ?? [];
     const count = (set) => enemies.filter((e) => arch(e).some((a) => set.has(a))).length;
     const tags = (e) => e.items.flatMap((i) => k.items[String(i % 10000)] ?? []);
-    const tanky = enemies.filter((e) => arch(e).some((a) => TANKY.has(a)) || tags(e).filter((t) => t === "armor" || t === "mr").length >= 2).length;
-    const crit = enemies.filter((e) => tags(e).filter((t) => t === "crit").length >= 2).length;
-    const healers = enemies.filter((e) => HEALERS.has(e.champ.toLowerCase().replace(/[^a-z]/g, ""))).length;
     const magic = enemyMagic(k, enemies);
-    const n = (x, what) => `${x} ${x === 1 ? "enemy" : "enemies"} ${what}.`;
-    const checks = {
-      "Vs tanks": tanky >= 2 && n(tanky, tanky === 1 ? "is tanky" : "are tanky"),
-      "Vs burst": count(BURSTY) >= 2 && n(count(BURSTY), "deal burst damage"),
-      "Vs healing": healers >= 2 && n(healers, "heal a lot"),
-      "Vs magic damage": magic !== null && magic >= 0.65 && `Enemy damage is about ${pct(magic)} magic.`,
-      "Vs physical damage": magic !== null && magic <= 0.35 && `Enemy damage is about ${pct(1 - magic)} physical.`,
-      "Vs mixed damage": magic !== null && magic > 0.4 && magic < 0.6 && `Enemy damage is mixed.`,
-      "Vs crit carries": crit >= 1 && n(crit, "build crit"),
-      "Vs shields": count(new Set(["Enchanter"])) >= 2 && n(count(new Set(["Enchanter"])), "shield allies"),
-      "Vs heavy crowd control": count(CATCH) >= 3 && n(count(CATCH), "lock you down"),
+    const marksmen = enemies.filter((e) => arch(e).includes("Marksman")).length;
+    const itemTags = (it) => k.items[String(itemId(it.icon))] ?? [];
+    // Only triggers that passed a test light up (2026-11-23, Nico chose "apply defaults, then test"): MR items cut the
+    // share of magic damage taken vs magic-heavy teams, armor cut physical damage taken vs 2+ marksmen. The rest (tanks,
+    // burst, healing, mixed, crit, shields, crowd control) stay off until they pass.
+    const check = (it) => {
+      if (it.when === "Vs magic damage" && itemTags(it).includes("mr") && magic !== null && magic >= 0.65)
+        return `Enemy damage is about ${pct(magic)} magic.`;
+      if ((it.when === "Vs physical damage" || it.when === "Vs crit carries") && itemTags(it).includes("armor") && marksmen >= 2)
+        return `${marksmen} enemy marksmen.`;
+      return "";
     };
-    return list.map((it) => ({ ...it, why: checks[it.when] || "" }));
+    // Entries tied to augments (the site's "augments" list) light up once you've taken one of them.
+    const taken = getTaken(g);
+    return list.map((it) => {
+      if (Array.isArray(it.augments)) {
+        const got = it.augments.find((id) => taken.includes(id));
+        return { ...it, why: got !== undefined ? it.why || `You took ${augName(got)}.` : "" };
+      }
+      return { ...it, why: check(it) };
+    });
   }
 
   const STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
@@ -459,10 +503,10 @@
     const r = k.recipes[nextId];
     if (!r) return null;
     const have = r[2].filter((c) => owned.has(c)).reduce((sum, c) => sum + (k.recipes[c]?.[1] ?? 0), 0);
-    if (gold >= r[1] - have) return { name: r[0], whole: true };
+    if (gold >= r[1] - have) return { name: r[0], id: nextId, whole: true };
     const parts = r[2].filter((c) => !owned.has(c) && (k.recipes[c]?.[1] ?? 1e9) <= gold)
       .sort((x, y) => k.recipes[y][1] - k.recipes[x][1]);
-    return parts.length ? { name: k.recipes[parts[0]][0], whole: false, cost: k.recipes[parts[0]][1] } : null;
+    return parts.length ? { name: k.recipes[parts[0]][0], id: parts[0], whole: false, cost: k.recipes[parts[0]][1] } : null;
   }
 
   // On level-up: where the point goes, from the champion's skill order. R at 6, 11 and 16; with Back to Basics
@@ -508,9 +552,18 @@
       const it = free.find((x) => owned.has(itemId(x.icon))) ?? free[0];
       if (!it) continue;
       used.add(itemId(it.icon));
-      out.push({ slot: s.slot, it, alts: free.filter((x) => x !== it).slice(0, 2) });
+      out.push({ slot: s.slot, it });
     }
     return out.length ? out : null;
+  }
+
+  // The banner's enemy strip: their portraits and their physical/magic split, updated as they buy items.
+  function renderFoes(k) {
+    const box = document.getElementById("foes");
+    if (!box || !game || !k) return;
+    const magic = enemyMagic(k, game.enemies ?? []);
+    const foes = (game.enemies ?? []).filter((e) => e.champ);
+    box.innerHTML = magic === null ? "" : `<div class="why lbl">Enemy team</div><div class="mates">${foes.map((e) => icon(e.champ)).join("")}</div>${splitBar(magic)}`;
   }
 
   async function renderItems() {
@@ -518,6 +571,7 @@
     if (!box || !game) return;
     const [d, k, picks, fitData] = await Promise.all([loadBuilds(), loadKinds(), loadPicks(), loadFit()]);
     const champ = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase());
+    if (champ?.items?.[0]?.icon) iconPrefix = champ.items[0].icon.replace(/\d+\.png$/, "");
     const taken = getTaken(game);
     const owned = new Set(game.items.map((i) => i % 10000));
     // Any boots fill the build's boots slot: someone on other boots shouldn't be told to buy the build's pair.
@@ -526,53 +580,83 @@
     // items once the core was bought. Where the site splits the rest into 4th, 5th and 6th item slots (by when
     // players buy them), each slot's pick comes from there.
     let slotRows = laterPicks(champ, owned);
-    const { list: build, style, core } = pickBuild([...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? [])], picks, k, taken);
+    // The core, then the site's own picks for the later slots ("full": best DeepScore per slot) when it has them,
+    // else each later slot's first item.
+    const later = champ?.full?.length ? champ.full : slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? [];
+    const base = [...(champ?.items ?? []), ...later];
+    const { list: build, style, core } = pickBuild(base, picks, k, taken);
     if (style) slotRows = null;
     const coreLen = core ?? (champ?.items ?? []).length;
     const hasBoots = [...owned].some((i) => bootIds.has(i));
-    let next = build.filter((it) => !owned.has(itemId(it.icon)) && !(hasBoots && bootIds.has(itemId(it.icon))));
+    // One full six-item path (Nico, 2026-11-23): the core plus one pick per later slot, so the items fit together and
+    // there's nothing to choose. A slot changes only when this game calls for it: a situational item whose condition
+    // holds, takes the last later slot you haven't filled yet; a finished item you bought off the path fills the first.
+    const allSits = k ? situational(champ, k, fitData, game, owned, (id) => picks?.augments?.[id]?.[0] ?? `#${id}`) : [];
+    const path = build.slice(0, coreLen + 3).map((it) => ({ ...it }));
+    const pathIds = () => new Set(path.map((it) => itemId(it.icon)));
+    const swaps = [];
+    const swapIn = (it, why) => {
+      const order = Array.from({ length: Math.max(0, path.length - coreLen) }, (_, j) => coreLen + j);
+      for (const i of why ? order.reverse() : order) {
+        const id = itemId(path[i].icon);
+        if (owned.has(id) || path[i].filled) continue;
+        swaps.push({ it, out: path[i], why });
+        path[i] = { ...it, filled: true, swapFor: why ? path[i] : null };
+        return;
+      }
+    };
+    const offPath = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i) && !pathIds().has(i));
+    for (const i of offPath) {
+      const sit = allSits.find((x) => itemId(x.icon) === i);
+      swapIn(sit ?? { name: k.recipes[i][0], icon: (iconPrefix || "") + (220000 + i) + ".png" }, null);
+    }
+    // Lit situational items stay pointers next to the path, not swaps: a matched test found no counter item that moved
+    // the game's leading indicators, so the path doesn't change on an untested rule.
+    const pointers = allSits.filter((x) => x.why && !pathIds().has(itemId(x.icon))).slice(0, 2);
+    let next = path.filter((it) => !owned.has(itemId(it.icon)) && !(hasBoots && bootIds.has(itemId(it.icon))));
     // A stacking item (Hubris, Heartsteel, tear items) in the build goes first while you have no finished item yet.
     const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000).length;
-    const stack = !finished && next.findIndex((it) => STACKING.has(itemId(it.icon)));
+    // Stacking-first is off until tested (2026-11-23).
+    const stack = false && !finished && next.findIndex((it) => STACKING.has(itemId(it.icon)));
     if (stack > 0) next = [next[stack], ...next.filter((_, i) => i !== stack)];
     // Stat-cap guard, Mayhem's rules: attack speed caps at 5.0, so near it items that add attack speed drop to the
     // back. Crit past 100% turns into attack damage in Mayhem, so crit is never wasted and isn't guarded.
     const [, aspd, haste] = game.stats ?? [0, 0, 0];
     const has = (it, kind) => (k?.items[String(itemId(it.icon))] ?? []).includes(kind);
-    const nearCap = aspd >= 4.5;
+    // Off (2026-11-23): 451 game frames show attack speed above 5.0, so the cap this guarded is unconfirmed.
+    const nearCap = false;
     const hit = (it) => has(it, "as");
     if (nearCap) next = [...next.filter((it) => !hit(it)), ...next.filter(hit)];
     let capNote = nearCap ? `Attack speed is near Mayhem's 5.0 cap: attack-speed items moved back.` : "";
     // Haste keeps paying off but each point cuts cooldowns a little less (100 haste = 50% shorter, 200 = 67%).
     if (!capNote && haste >= 100 && next[0] && has(next[0], "haste"))
-      capNote = `You have ${Math.round(haste)} haste (cooldowns ${Math.round((haste / (100 + haste)) * 100)}% shorter): more adds less each point.`;
+      capNote = `You have ${Math.round(haste)} haste: cooldowns ${Math.round((haste / (100 + haste)) * 100)}% shorter.`;
     next = next.slice(0, 2);
     // Tips, most useful first; only the top two show, so the panel stays small.
     const tips = [];
     const add = (rank, html) => tips.push([rank, html]);
     const point = skillUp(champ?.skills, game.skills ?? [], game.level, taken, game.champ);
-    if (point) add(1, `Skill point: <b>${point}</b>`);
+    if (point) add(1, `Skill point <span class="key inl">${point}</span>`);
     const shop = game.dead ? "You're dead: a good time to shop." : game.t < 60 ? "In base: a good time to shop." : "";
     if (shop && k && next.length) {
       const buy = buyNow(k, itemId(next[0].icon), owned, game.gold ?? 0);
-      if (buy) add(2, buy.whole ? `Your gold buys <b>${esc(buy.name)}</b> now.` : `Buy <b>${esc(buy.name)}</b> now (${buy.cost} gold) toward it.`);
+      if (buy) add(2, buy.whole ? `Your gold buys ${itemImg(buy.id)}<b>${esc(buy.name)}</b> now.` : `Buy ${itemImg(buy.id)}<b>${esc(buy.name)}</b> now (${buy.cost} gold) toward it.`);
     }
     if (capNote) add(3, capNote);
     if (style) add(4, `Build switched to <b>${esc(style)}</b> to fit your augments.`);
-    if (stack > 0) add(4, `<b>${esc(next[0].name)}</b> stacks over time, so it goes first.`);
-    const pen = shop && k ? penTip(k, game, owned) : "";
-    if (pen) add(5, pen);
+    if (stack > 0) add(4, `${itemImg(itemId(next[0].icon))}<b>${esc(next[0].name)}</b> stacks over time, so it goes first.`);
+    // The penetration tip is off (2026-11-23): %pen holders gained less damage against teams stacking resists, and
+    // flat pen is untested.
     // Six items and gold for the next one: sell an item that isn't in the build.
     const slots = game.items.filter((i) => (k?.recipes[i % 10000]?.[1] ?? 0) > 0 && !bootIds.has(i % 10000)).length + (hasBoots ? 1 : 0);
     if (k && slots >= 6 && next.length) {
-      const inBuild = new Set(build.map((it) => itemId(it.icon)));
+      const inBuild = pathIds();
       const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !inBuild.has(i) && !bootIds.has(i));
       const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
       if (sell && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
-        add(3, `Full build: sell <b>${esc(k.recipes[sell][0])}</b> for <b>${esc(next[0].name)}</b>.`);
+        add(3, `Full build: sell ${itemImg(sell)}<b>${esc(k.recipes[sell][0])}</b> for ${itemImg(itemId(next[0].icon))}<b>${esc(next[0].name)}</b>.`);
     }
-    const dmg = k ? damageLine(k, game, true) : "";
-    if (dmg) add(6, dmg);
+    renderFoes(k);
     const lines = tips.sort((x, y) => x[0] - y[0]).slice(0, 2).map((x) => x[1]);
     const tip = lines.map((l) => `<div class="why tip">${l}</div>`).join("");
     if (!build.length) { box.innerHTML = `<p class="note">No build for this champion yet.</p>` + tip; return; }
@@ -587,24 +671,33 @@
     // The core is boots plus three items; what follows is numbered on from the core's items (boots not counted), so
     // usually the 4th and 5th item, and a 6th where the build sells boots for one.
     const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
-    const coreItems = build.slice(0, coreLen), rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, coreLen + 3);
-    const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
-    const inBuild = new Set(build.map((it) => itemId(it.icon)));
-    const allSits = k ? situational(champ, k, fitData, game, owned) : [];
-    const sits = allSits.filter((it) => !inBuild.has(itemId(it.icon)));
-    // A build item that's also situational shows its reason when this game calls for it.
-    const reason = (it) => allSits.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
-    const row = (it, sub = "", cls = "") => `<div class="item${state(it)}${cls}"><img src="${src(it.icon)}" alt=""><div><div class="name">${esc(it.name)}</div>${sub ? `<div class="why">${sub}</div>` : ""}</div></div>`;
+    // Hover: why this item, in one line (its place in the build, DeepScore, or the reason it swapped in).
+    const isCore = (it) => build.slice(0, coreLen).some((x) => itemId(x.icon) === itemId(it.icon));
+    const slotWhy = (it, lbl, boot) => {
+      const r = allSits.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
+      const parts = [it.name];
+      if (it.filled) parts.push("You bought it, so it takes this slot.");
+      else parts.push(boot ? "The boots most builds take with this core." : isCore(it) ? `Core item, bought ${lbl}.` : `Most bought as the ${lbl} item with this core.`);
+      if (it.deepScore != null) parts.push(`DeepScore ${deepLabel(it.deepScore)}.`);
+      return parts.join(" · ");
+    };
+    // Each icon labelled with its slot: boots, then 1st to 6th item; a gap after the core.
+    let n = 0;
+    const tiles = path.map((it, i) => {
+      const boot = bootIds.has(itemId(it.icon));
+      const lbl = boot ? "Boots" : ord(++n);
+      return `${i === coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${it.swapFor ? " sw" : ""}" title="${esc(slotWhy(it, lbl, boot))}"><img src="${src(it.icon)}" alt="" data-drop><span>${lbl}</span></div>`;
+    }).join("");
+    // Why a slot changed, and a path item this game's enemies call for: one short line each, with the icons.
+    const img = (it) => `<img class="ii" src="${src(it.icon)}" alt="" data-drop>`;
+    const swapLines = pointers.map((x) => `<div class="why tip lit">${img(x)}<b>${esc(x.name)}</b> is an option: ${esc(x.when)}, ${esc(x.why.replace(/\.$/, "").replace(/^./, (c) => c.toLowerCase()))}.</div>`).join("");
+    const fits = path.filter((it) => !it.swapFor).map((it) => [it, allSits.find((x) => itemId(x.icon) === itemId(it.icon) && x.why)]).filter(([, r]) => r)
+      .map(([it, r]) => `<div class="why tip lit">${img(it)}<b>${esc(it.name)}</b> fits this game: ${esc(r.when)}, ${esc(r.why.replace(/\.$/, "").replace(/^./, (c) => c.toLowerCase()))}.</div>`).join("");
     box.innerHTML = `<div class="box${shop ? " now" : ""}">
       ${shop ? `<div class="why">${shop}</div>` : ""}
-      <div class="why lbl">Core${next[0] && coreItems.includes(next[0]) ? ` · next: <b>${esc(next[0].name)}</b>` : ""}</div>
-      <div class="core">${coreItems.map((it) => `<img class="${state(it).trim()}" src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</div>
-      ${rest.length ? `<div class="items lst">${rest.map((it, i) => {
-        const r = reason(it), alts = slotRows?.[i]?.alts ?? [];
-        const or = alts.length ? `<span class="alts">or ${alts.map((a) => `<img src="${src(a.icon)}" alt="" title="${esc(a.name)}">`).join("")}</span>` : "";
-        return `<div class="why lbl">${ord(slotRows?.[i]?.slot ?? first + i)} item</div>` + row(it, [it === next[0] ? "Next" : "", r ? `${esc(r.when)}: ${esc(r.why)}` : "", or].filter(Boolean).join(" · "), r ? " lit" : "");
-      }).join("")}</div>` : ""}
-      ${sits.length ? `<div class="why lbl">Situational</div><div class="items lst">${sits.map((it) => row(it, it.why ? `${esc(it.when)}: ${esc(it.why)}` : esc(it.when), it.why ? " lit" : "")).join("")}</div>` : ""}
+      <div class="why lbl">Build${next[0] ? ` · next: <b>${esc(next[0].name)}</b>` : ""}</div>
+      <div class="path">${tiles}</div>
+      ${swapLines}${fits}
       ${next.length ? "" : `<p class="note">You have the whole build.</p>`}
       ${tip}</div>`;
   }
@@ -616,7 +709,7 @@
     lastChamp = g.champ;
     if (!document.getElementById("augs") || prev?.champ !== g.champ) {
       setView(`
-        ${hero(g.champ, esc(label(g.champ)), "", "head")}
+        ${hero(g.champ, esc(label(g.champ)), "", "head").replace(/<\/div>$/, `<div class="foes" id="foes"></div></div>`)}
         <div class="cols">
         <section><h2>Quick build</h2><div id="quick"></div>
         <h2>Items</h2><div id="items"></div></section>
@@ -653,9 +746,9 @@
     let ff = document.getElementById("ff");
     if (!ff) { ff = document.createElement("div"); ff.id = "ff"; document.querySelector(".cols section")?.append(ff); }
     const l = g.live;
-    ff.innerHTML = l ? `<div class="live-mini"><span>Chance to win <b style="color:${color(l.win)}">${pct(l.win)}</b></span>
-        <div class="bar"><span style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
-      ${l.surrender ? `<div class="box yes">Surrender: yes. A new game is worth more than this one now.</div>` : ""}` : "";
+    ff.innerHTML = l ? `<div class="live-mini"><span>Chance to win <b data-style="color:${color(l.win)}">${pct(l.win)}</b></span>
+        <div class="bar"><span data-style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
+      ` : "";
     const head = document.getElementById("augHead");
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
@@ -696,6 +789,14 @@
       renderAugments();
     }
   });
+  // The page rules also drop style="" attributes (Tauri's nonce turns off 'unsafe-inline'), which left the bars
+  // empty: widths and colors ride in data-style and are set from script, which the rules allow.
+  const restyle = (el) => { el.style.cssText = el.dataset.style; el.removeAttribute("data-style"); };
+  new MutationObserver((list) => { for (const m of list) for (const n of m.addedNodes) if (n.nodeType === 1) {
+    if (n.dataset.style !== undefined) restyle(n);
+    n.querySelectorAll("[data-style]").forEach(restyle);
+  } })
+    .observe(document.body, { childList: true, subtree: true });
   document.addEventListener("error", (e) => { if (e.target.matches?.("img[data-drop]")) e.target.remove(); }, true);
   // Esc leaves full screen, F11 flips it.
   addEventListener("keydown", (e) => {
@@ -717,27 +818,49 @@
     const t = document.querySelector(".hero .title");
     if (!t || game || !/^(Game over)$/.test(t.textContent)) return;
     t.innerHTML = result === "Win" ? `<span class="ink">Victory</span>` : result === "Lose" ? "Defeat" : t.innerHTML;
+    // The result often lands after the review is up: the invitation waits for it.
+    if (result === "Win" && document.getElementById("invite")) inviteToShare();
   };
 
   window.showReview = ({ points, turns, ffFrom, result }) => {
     game = null;
     const verdict = result === "Win" ? "Victory" : result === "Lose" ? "Defeat" : "Game over";
     const turnRows = turns.map((t) => `
-      <div class="box">${clock(t.from)}–${clock(t.to)}: ${pct(t.before)} → <b style="color:${color(t.after)}">${pct(t.after)}</b>
+      <div class="box"><span class="${t.after >= t.before ? "up" : "down"}">${t.after >= t.before ? "▲" : "▼"}</span> ${clock(t.from)}–${clock(t.to)}: ${pct(t.before)} → <b data-style="color:${color(t.after)}">${pct(t.after)}</b>
         <div class="why">${t.kills >= 0 ? "+" : "−"}${Math.abs(t.kills)} kills${t.towers ? `, ${t.towers > 0 ? "+" : "−"}${Math.abs(t.towers)} towers` : ""} for your team</div></div>`).join("");
-    const ff = ffFrom != null
-      ? `<div class="box yes">From ${clock(ffFrom)} a surrender would have saved time: the chance stayed under the line for a full minute.</div>`
-      : `<div class="box">A surrender never paid off this game.</div>`;
+    // The surrender call (chance under the line for a full minute) is off until tested (2026-11-23).
     setView(`
       ${hero(lastChamp, `<span class="${result === "Win" ? "ink" : ""}">${verdict}</span>`, "Game review")}
       <h2>Chance to win over the game</h2>
-      ${chart(points, ffFrom)}
+      ${chart(points, null)}
       ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
-      <h2>Surrender</h2>${ff}
       <p class="note">Predicted, not measured: an estimate from kills, towers, levels and team strength.</p>
-      <div id="recap"></div>`);
+      <div id="recap"></div><div id="invite"></div>`);
     renderRecap();
+    if (result === "Win") inviteToShare();
   };
+
+  // After a won game, now and then: a dismissible invitation to share match data (game data only, never names or
+  // accounts). Never in game; at most once every two weeks, three times in all, and never again after "Don't ask".
+  async function inviteToShare() {
+    const box = document.getElementById("invite");
+    if (!box || !window.__TAURI_INTERNALS__) return;
+    const invoke = (cmd, args) => window.__TAURI_INTERNALS__.invoke(cmd, args);
+    let st = { n: 0, at: 0, never: false };
+    try { st = { ...st, ...JSON.parse(localStorage.getItem("shareInvite") ?? "{}") }; } catch {}
+    if (st.never || st.n >= 3 || Date.now() - st.at < 14 * 864e5) return;
+    if (await invoke("share_status").catch(() => true)) return;
+    const save = (x) => { try { localStorage.setItem("shareInvite", JSON.stringify({ ...st, ...x })); } catch {} };
+    save({ n: st.n + 1, at: Date.now() });
+    box.innerHTML = `<div class="box invite"><b>Nice win.</b> Want to help DeepARAM's builds get sharper? Share your Mayhem games: champions, items, augments and the result only, never your name or account. You can turn it off any time from the tray, which removes what was sent.
+      <div class="filters" data-style="margin:10px 0 0"><button class="chip on" data-share="yes">Share my games</button><button class="chip" data-share="later">Not now</button><button class="chip" data-share="never">Don't ask again</button></div></div>`;
+    box.querySelectorAll("[data-share]").forEach((b) => b.addEventListener("click", () => {
+      const v = b.dataset.share;
+      if (v === "yes") invoke("share_choice", { enabled: true }).catch(() => {});
+      if (v === "never") save({ never: true });
+      box.innerHTML = v === "yes" ? `<div class="box">Thanks! Sharing is on. The tray's "Share match data" turns it off.</div>` : "";
+    }));
+  }
 
   // What you built and took this game, and what the enemy hit you with: kept off the in-game screen, shown here.
   async function renderRecap() {
@@ -750,12 +873,13 @@
     const src = (u) => (u.startsWith("http") ? u : SITE + u);
     const items = g.items.filter((i) => (k?.recipes[i % 10000]?.[1] ?? 0) >= 1000);
     const itemRow = prefix && items.length
-      ? `<div class="items">${items.map((i) => `<div class="item"><img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" alt="" data-drop><div><div class="name">${esc(k?.recipes[i % 10000]?.[0] ?? `#${i}`)}</div></div></div>`).join("")}</div>`
+      ? `<div class="tiles">${items.map((i) => `<div class="tile"><img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" alt="" data-drop>${esc(k?.recipes[i % 10000]?.[0] ?? `#${i}`)}</div>`).join("")}</div>`
       : "";
     const augs = g.taken.length
-      ? `<div class="items">${g.taken.map((id) => `<div class="item">${augIcon(id)}<div><div class="name">${esc(p?.augments?.[id]?.[0] ?? `#${id}`)}</div></div></div>`).join("")}</div>`
+      ? `<div class="tiles">${g.taken.map((id) => `<div class="tile aug" data-r="${p?.augments?.[id]?.[1] ?? ""}">${augIcon(id)}${esc(p?.augments?.[id]?.[0] ?? `#${id}`)}</div>`).join("")}</div>`
       : "";
-    const dmg = k ? damageLine(k, g) : "";
+    const magic = k ? enemyMagic(k, g.enemies ?? []) : null;
+    const dmg = magic === null ? "" : `<div class="why">${esc(damageLine(k, g))}</div><div class="mates" data-style="margin-top:6px">${(g.enemies ?? []).filter((e) => e.champ).map((e) => icon(e.champ)).join("")}</div>${splitBar(magic)}`;
     if (!itemRow && !augs && !dmg) return;
     box.innerHTML = `<h2>Your build</h2>
       ${augs ? `<div class="box"><div class="why">Augments you took</div>${augs}</div>` : ""}

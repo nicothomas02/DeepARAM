@@ -102,6 +102,12 @@ pub fn set(app: &AppHandle, on: bool) {
     }
 }
 
+/// Whether sharing is on, for the companion's occasional invitation after a won game.
+#[tauri::command]
+pub fn share_status(app: AppHandle) -> bool {
+    app.state::<Sharing>().enabled()
+}
+
 /// Called from ui/share.html with the player's answer.
 #[tauri::command]
 pub fn share_choice(app: AppHandle, enabled: bool) {

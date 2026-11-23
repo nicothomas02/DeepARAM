@@ -4,6 +4,7 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
+import { clashWith, withoutClashes } from "./item-limits";
 import { alongCore, bestRow, buildOrder, followed, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, realFullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
@@ -247,7 +248,14 @@ export function championPage(alias: string): ChampionPage | null {
 
   const raw = readRepoJson<Builds>(`data/cn/builds/${id}.json`);
   const early = earlyBuilds(id);
-  const b: Builds | null = raw && early ? { ...raw, items: { ...raw.items, ...early } } : raw;
+  // The early-window blend (101's builds right after its window restarts) only stands in for 101 lists: where AramHex
+  // supplies a list (sources["items.core"] / ["items.other"]), its real patch counts stay (2026-11-23: the blend was
+  // replacing Rek'Sai's AramHex single items).
+  const src = (raw as { sources?: Record<string, string> } | null)?.sources ?? {};
+  const keep = early
+    ? Object.fromEntries(Object.entries(early).filter(([k]) => src[`items.${k}`] !== "aramhex"))
+    : null;
+  const b: Builds | null = raw && keep ? { ...raw, items: { ...raw.items, ...keep } } : raw;
   const rewards = rewardItems();
   const all = items();
   const rows = (list: Raw[] | undefined) =>
@@ -355,7 +363,10 @@ export function championPage(alias: string): ChampionPage | null {
     derivedCore && (tearShare >= TEAR_CORE_SHARE || (!!earlierTop && supported(earlierTop.items)));
   const scoredCore = followed(
     // Ranked by their own numbers from those games: today's six-item builds can't say which items came first.
-    scoreItems(coreFromEarlier ? earlierCores().filter((r) => tearShare >= TEAR_CORE_SHARE || supported(r.items)) : rows(b?.items?.core)),
+    // Never a core the game won't let you own (Archangel's with Manamune: one Tear item, lib/item-limits.ts).
+    scoreItems((coreFromEarlier ? earlierCores().filter((r) => tearShare >= TEAR_CORE_SHARE || supported(r.items)) : rows(b?.items?.core)).filter(
+      (r) => withoutClashes(r.items).length === r.items.length,
+    )),
   );
   const withBootsCore = noBoots ? scoredCore : withBoots(scoredCore, full, boots, timing, playedSlot ?? undefined);
   // Items in the order players buy them (Nico, 2026-11-20): the feed's cores listed in buying order (lib/build-plan.ts
@@ -385,7 +396,10 @@ export function championPage(alias: string): ChampionPage | null {
     const pool = afterCore(row, single, full);
     const bySlot = slotItems(pool, row, itemClasses, itemSlots?.champions[String(id)], itemSlots?.all);
     const later = laterItems(pool, row, itemClasses);
-    return { ...row, later, ...(bySlot ? { slots: bySlot } : {}), full: realFullPicks(row, full, single, bySlot ?? undefined, isBoots) ?? fullPicks(row, bySlot ?? undefined, later) };
+    const picks = realFullPicks(row, full, single, bySlot ?? undefined, isBoots) ?? fullPicks(row, bySlot ?? undefined, later);
+    // Never two items of one game limit group (lib/item-limits.ts), against the core or an earlier pick.
+    const kept = withoutClashes(picks.map((r) => r.items[0]), buildOrder(row));
+    return { ...row, later, ...(bySlot ? { slots: bySlot } : {}), full: picks.filter((r) => kept.includes(r.items[0])) };
   };
   // Augment-triggered swaps for a core (lib/build-plan.ts augmentSwaps): rule-based tips, labelled as such.
   const legendaryPool = single.filter((r) => r.tier === "legendary");
@@ -448,7 +462,7 @@ export function championPage(alias: string): ChampionPage | null {
           const row: ItemRow = { items: coreIds, ...rated(a.win_rate, a.share), boots: bootsId, bootsAt: bootsId !== undefined ? (playedSlot ?? undefined) : undefined };
           const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find(fits(row)) ?? null;
           const ordered = buyingOrder(st ? startFirst(coreIds, st.items, itemParts, standalone) : coreIds, orderRows).items;
-          const c0: ItemRow = { ...row, items: ordered, rest: (a.later ?? []).map(known).filter((i) => !ordered.includes(i)).slice(0, 3) };
+          const c0: ItemRow = { ...row, items: ordered, rest: withoutClashes((a.later ?? []).map(known).filter((i) => !ordered.includes(i)), ordered).slice(0, 3) };
           const c: ItemRow = withLater(c0);
           const start = st ?? (a.starters?.length ? { items: a.starters.map(known), winRate: NaN, pickRate: 0, lift: 0 } : null);
           return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false,
@@ -575,9 +589,11 @@ function withBoots(
 
 /** The legendary items to pick from after this core: scored against each other (the core items would otherwise
  *  crowd every option to the bottom of the scale), items bought with this core first (lib/card-score.ts alongCore). */
-function afterCore(core: ItemRow, single: ItemRow[], full: ItemRow[]): ItemRow[] {
+function afterCore(core: ItemRow, single: ItemRow[], full: ItemRow[], keepClashes = false): ItemRow[] {
+  // Never an item the game won't let you own with a core item (Lord Dominik's after Mortal Reminder, Nico
+  // 2026-11-23); situational lists keep them, as a swap for the item they clash with.
   return alongCore(
-    scoreItems(single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !core.items.includes(r.items[0]))),
+    scoreItems(single.filter((r) => r.tier === "legendary" && ranked(r.items[0]) && !core.items.includes(r.items[0]) && (keepClashes || clashWith(r.items[0], core.items) === undefined))),
     core.items,
     full,
   );
@@ -587,7 +603,7 @@ function afterCore(core: ItemRow, single: ItemRow[], full: ItemRow[]): ItemRow[]
  *  players make most often first (by the best option's pick rate). */
 function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[]): SituationRow[] {
   if (!core) return [];
-  return situational(sameStyle(afterCore(core, single, full), core.items, itemClasses), itemSituation).sort(
+  return situational(sameStyle(afterCore(core, single, full, true), core.items, itemClasses), itemSituation).sort(
     (x, y) => y.options[0].pickRate - x.options[0].pickRate,
   );
 }

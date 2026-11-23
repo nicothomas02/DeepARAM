@@ -1,5 +1,6 @@
 // Re-ranking a champion's augments once a visitor marks the ones they took (components/champion/AugmentTable.tsx):
 // each other augment gains its estimated synergy with those (lib/augment-synergy.ts reads the pairs on the server).
+import { COMBO_CAP, COMBO_ODDS } from "./engine/build-engine";
 
 export type SynergyPair = {
   a: number;
@@ -38,14 +39,16 @@ export function synergyWith(pairs: SynergyPair[], taken: number[]): Map<number, 
   return out;
 }
 
-/** Share of a confirmed pair's points an augment gets per pick still to come after it, and the most it gets. */
-export const COMBO_SHARE_PER_PICK = 0.25;
-export const COMBO_SHARE_MAX = 0.6;
+/** Share of a confirmed pair's points an augment gets per pick still to come after it, and the most it gets: the
+ *  build engine's numbers (measured on 11,702 player-games, PR #631: a half-taken combo's partner arrived about 4% of
+ *  the time per pick left), so the site and the apps rank the same way. */
+export const COMBO_SHARE_PER_PICK = COMBO_ODDS;
+export const COMBO_SHARE_MAX = COMBO_CAP;
 
 /**
  * Combo potential (Nico 2026-11-21): each augment not yet taken whose confirmed partner (a rule pair, never the
- * Simulator alone) is still in the pool and not taken gets a share of the pair's points: 25% per pick left after it,
- * at most 60%, from its best partner. Points as in the pairs (win-rate points). Matches the desktop companion.
+ * Simulator alone) is still in the pool and not taken gets a share of the pair's points: 4% per pick left after it,
+ * at most 12%, from its best partner. Points as in the pairs (win-rate points). Matches the desktop companion.
  */
 export function comboPotential(
   pairs: SynergyPair[],

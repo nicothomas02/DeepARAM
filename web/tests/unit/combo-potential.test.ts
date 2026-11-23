@@ -10,17 +10,17 @@ describe("combo potential", () => {
   ];
   const pool = new Set([1, 2, 3, 4, 5]);
 
-  it("gives 60% of a confirmed pair with nothing taken, and ignores Simulator-only pairs", () => {
+  it("gives 12% of a confirmed pair (the build engine's measured weight) with nothing taken, and ignores Simulator-only pairs", () => {
     const m = comboPotential(pairs, [], pool, 4);
-    expect(m.get(1)).toEqual({ with: 2, points: 1.2 });
-    expect(m.get(2)).toEqual({ with: 1, points: 1.2 });
+    expect(m.get(1)).toEqual({ with: 2, points: 0.24 });
+    expect(m.get(2)).toEqual({ with: 1, points: 0.24 });
     expect(m.has(3)).toBe(false);
-    expect(m.get(4)?.points).toBeCloseTo(1.8);
+    expect(m.get(4)?.points).toBeCloseTo(0.36);
     expect(m.has(5)).toBe(false);
   });
 
   it("shrinks as picks run out, and drops pairs whose partner is taken or out of the pool", () => {
-    expect(comboPotential(pairs, [9, 8], pool, 4).get(1)?.points).toBeCloseTo(0.5);
+    expect(comboPotential(pairs, [9, 8], pool, 4).get(1)?.points).toBeCloseTo(0.08);
     expect(comboPotential(pairs, [9, 8, 7], pool, 4).size).toBe(0);
     expect(comboPotential(pairs, [2], pool, 4).has(1)).toBe(false);
     expect(comboPotential(pairs, [], new Set([1, 3]), 4).has(1)).toBe(false);
