@@ -1,5 +1,5 @@
 import { FIT } from "./deepscore";
-import { alongCore, bestRow, followed, scoreRows, sameStyle, situational, skipsBoots, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, followed, laterItems, scoreRows, sameStyle, situational, skipsBoots, slotItems, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 import { buyingOrder, restOfBuild, startFirst, starterFits } from "./build-plan";
 import type { ItemTier } from "./items";
 import type { Situation } from "./situations";
@@ -24,6 +24,8 @@ export type HistFile = {
   order?: [number[], number][];
   /** Core items players buy before the boots (data/estimates/boots_slot.json), when known. */
   bootsAt?: number;
+  /** The slot players buy each item in, this champion and all champions (data/estimates/item_slots.json). */
+  itemSlots?: { champ: SlotCounts; all: SlotCounts };
 };
 
 const GRADE: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
@@ -141,11 +143,17 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
     full,
   );
 
+  const classesOf = (i: number) => file.items[i]?.classes ?? [];
   return {
     starting,
     augments,
     skill: bestRow(skills, 0.1),
-    core: coreRow,
+    core: coreRow
+      ? (() => {
+          const bySlot = slotItems(pool, coreRow, classesOf, file.itemSlots?.champ, file.itemSlots?.all);
+          return { ...coreRow, later: laterItems(pool, coreRow, classesOf), ...(bySlot ? { slots: bySlot } : {}) };
+        })()
+      : null,
     situational: core ? situational(sameStyle(pool, core.items, (i) => file.items[i]?.classes ?? []), (i) => file.items[i]?.situation) : [],
   };
 }
