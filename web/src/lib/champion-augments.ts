@@ -25,12 +25,15 @@ const IDS = championIds as Record<string, number>;
 /** A score map built from real games (grade no longer leads, byScore). */
 export type Scores = Map<number, number> & { real?: boolean };
 
-/** Augment id -> DeepScore on this champion; empty when there's no estimate. */
-export function augmentScores(alias: string): Scores {
+/** Augment id -> DeepScore on this champion; empty when there's no estimate. By default each augment's games pool in
+ *  earlier patches where its result didn't change (Nico 2026-11-23; AugmentRow.pooled); thisPatch scores on the
+ *  live patch's games alone (the augment table's "This patch only" switch). */
+export function augmentScores(alias: string, thisPatch = false): Scores {
   const p = championPage(alias);
   if (p && p.augments.length && p.augments.every((a) => a.games && a.winRate !== undefined)) {
+    const use = (a: (typeof p.augments)[number]) => (!thisPatch && a.pooled ? a.pooled : { winRate: a.winRate!, games: a.games! });
     const m: Scores = new Map(
-      scoreRows(p.augments.map((a) => ({ id: a.id, winRate: a.winRate!, pickRate: a.pickRate, games: a.games! }))).map(
+      scoreRows(p.augments.map((a) => ({ id: a.id, pickRate: a.pickRate, ...use(a) }))).map(
         (r) => [r.id, r.deepScore as number],
       ),
     );

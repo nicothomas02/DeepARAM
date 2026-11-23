@@ -294,5 +294,9 @@
  "Its empowered attack scales with bonus armor.": "它的强化攻击随额外护甲提升。",
  "It turns bonus armor and magic resist into heal and shield power.": "它把额外护甲和魔抗转化为治疗和护盾强度。",
  "Few players": "少数玩家",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "评分很高，但很少有玩家出（不到最常出装备的四分之一），所以出装只采用真正有人跟的装备。小样本波动大，版本初期尤其如此。"
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "评分很高，但很少有玩家出（不到最常出装备的四分之一），所以出装只采用真正有人跟的装备。小样本波动大，版本初期尤其如此。",
+ "{patch}+": "{patch}+",
+ "{patch} only": "仅 {patch}",
+ "Includes similar recent patches, weighted toward this one": "包含相似的近期版本，以本版本为主",
+ "Games counted": "计入的对局"
 }

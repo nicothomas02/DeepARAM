@@ -40,7 +40,7 @@ const AUGS = augmentNames as Record<string, string>;
 export const MIN_PAIR_PICK = 0.008;
 
 /** games: real games behind the row when the source has them (AramHex rows, data/aramhex/merge.py). */
-type Raw = { items: number[]; pick_rate: number; win_rate?: number; games?: number };
+type Raw = { items: number[]; pick_rate: number; win_rate?: number; games?: number; pooled?: { win_rate: number; games: number; patches: number } };
 type Builds = {
   items?: Partial<
     Record<"starting" | "boots" | "core" | "other" | "full_builds", Raw[]>
@@ -53,7 +53,7 @@ type Builds = {
   }[];
   augments?: Record<
     string,
-    { id: number; pick_rate: number; grade?: string; win_rate?: number; games?: number }[]
+    { id: number; pick_rate: number; grade?: string; win_rate?: number; games?: number; pooled?: { win_rate: number; games: number; patches: number } }[]
   >;
   /** Blocks that stopped updating (data/cn/builds.py), and ones rebuilt from the six-item builds. */
   stale?: string[];
@@ -121,6 +121,9 @@ export type AugmentRow = {
    *  raw on the site (augment win rates stay hidden, PR #551); they feed DeepScore. */
   winRate?: number;
   games?: number;
+  /** The same with earlier patches pooled in where nothing changed (data/aramhex/common.py pool): win rate, the
+   *  games its precision is worth, and how many patches it spans. DeepScore ranks on this by default. */
+  pooled?: { winRate: number; games: number; patches: number };
   /** The game's own build tags, as style names (lib/build-tags.ts). */
   tags: string[];
 };
@@ -250,7 +253,12 @@ export function championPage(alias: string): ChampionPage | null {
   const rows = (list: Raw[] | undefined) =>
     (list ?? [])
       .filter((r) => r.items.every((i) => all.has(i) && !rewards.has(i)))
-      .map((r) => ({ items: r.items, ...rated(r.win_rate, r.pick_rate), ...(r.games ? { games: r.games } : {}) }));
+      .map((r) => ({
+        items: r.items,
+        ...rated(r.win_rate, r.pick_rate),
+        ...(r.games ? { games: r.games } : {}),
+        ...(r.pooled ? { pooled: { winRate: r.pooled.win_rate, games: r.pooled.games, patches: r.pooled.patches } } : {}),
+      }));
 
   const skills = (b?.skills ?? []).map((s) => ({
     max: s.max_order,
@@ -271,6 +279,7 @@ export function championPage(alias: string): ChampionPage | null {
       pickRate: a.pick_rate,
       grade: a.grade,
       ...(a.games && a.win_rate !== undefined ? { winRate: a.win_rate, games: a.games } : {}),
+      ...(a.pooled ? { pooled: { winRate: a.pooled.win_rate, games: a.pooled.games, patches: a.pooled.patches } } : {}),
     }));
 
   // Win rate boost: the Duos list's numbers (lib/duos.ts), the synergy adjusted for how often a pair is played,

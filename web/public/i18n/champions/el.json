@@ -294,5 +294,9 @@
  "Its empowered attack scales with bonus armor.": "Η ενισχυμένη επίθεσή του κλιμακώνεται με την επιπλέον θωράκιση.",
  "It turns bonus armor and magic resist into heal and shield power.": "Μετατρέπει την επιπλέον θωράκιση και αντίσταση μαγείας σε δύναμη θεραπείας και ασπίδων.",
  "Few players": "Λίγοι παίκτες",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Έχει καλό σκορ, αλλά λίγοι παίκτες το φτιάχνουν (κάτω από το ένα τέταρτο του πιο συχνού αντικειμένου), οπότε το build μένει σε αντικείμενα με πραγματική χρήση. Τα μικρά δείγματα κυμαίνονται, κυρίως νωρίς στο patch."
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Έχει καλό σκορ, αλλά λίγοι παίκτες το φτιάχνουν (κάτω από το ένα τέταρτο του πιο συχνού αντικειμένου), οπότε το build μένει σε αντικείμενα με πραγματική χρήση. Τα μικρά δείγματα κυμαίνονται, κυρίως νωρίς στο patch.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Μόνο {patch}",
+ "Includes similar recent patches, weighted toward this one": "Περιλαμβάνει παρόμοια πρόσφατα patch, με μεγαλύτερο βάρος σε αυτό",
+ "Games counted": "Παιχνίδια που μετρούν"
 }

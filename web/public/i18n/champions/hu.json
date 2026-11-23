@@ -294,5 +294,9 @@
  "Its empowered attack scales with bonus armor.": "A felerősített támadása a bónusz páncéllal skálázódik.",
  "It turns bonus armor and magic resist into heal and shield power.": "A bónusz páncélt és mágiaellenállást gyógyító- és pajzserővé alakítja.",
  "Few players": "Kevés játékos",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Jó a pontszáma, de kevés játékos építi (a legtöbbet épített tárgy negyedénél ritkábban), ezért a build a valóban használt tárgyaknál marad. A kis minták ingadoznak, főleg a patch elején."
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Jó a pontszáma, de kevés játékos építi (a legtöbbet épített tárgy negyedénél ritkábban), ezért a build a valóban használt tárgyaknál marad. A kis minták ingadoznak, főleg a patch elején.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Csak {patch}",
+ "Includes similar recent patches, weighted toward this one": "Hasonló friss patcheket is tartalmaz, a legnagyobb súllyal ezt",
+ "Games counted": "Beszámított meccsek"
 }

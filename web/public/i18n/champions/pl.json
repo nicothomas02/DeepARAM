@@ -294,5 +294,9 @@
  "Its empowered attack scales with bonus armor.": "Jego wzmocniony atak skaluje się z dodatkowym pancerzem.",
  "It turns bonus armor and magic resist into heal and shield power.": "Zamienia dodatkowy pancerz i odporność na magię na siłę leczenia i tarcz.",
  "Few players": "Niewielu graczy",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Ma dobry wynik, ale buduje go niewielu graczy (mniej niż ćwierć tego, co najczęściej budowany przedmiot), więc build trzyma się przedmiotów, które gracze naprawdę budują. Małe próby się wahają, zwłaszcza na początku patcha."
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Ma dobry wynik, ale buduje go niewielu graczy (mniej niż ćwierć tego, co najczęściej budowany przedmiot), więc build trzyma się przedmiotów, które gracze naprawdę budują. Małe próby się wahają, zwłaszcza na początku patcha.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Tylko {patch}",
+ "Includes similar recent patches, weighted toward this one": "Obejmuje podobne ostatnie patche, z największą wagą tego",
+ "Games counted": "Liczone gry"
 }

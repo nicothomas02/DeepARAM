@@ -294,5 +294,9 @@
  "Its empowered attack scales with bonus armor.": "Đòn đánh cường hóa của nó tăng theo giáp cộng thêm.",
  "It turns bonus armor and magic resist into heal and shield power.": "Chuyển giáp và kháng phép cộng thêm thành sức mạnh hồi máu và lá chắn.",
  "Few players": "Ít người chơi",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Điểm tốt nhưng ít người chơi lên (chưa bằng một phần tư trang bị được lên nhiều nhất), nên lối lên đồ giữ các trang bị được dùng thật sự. Mẫu nhỏ dao động mạnh, nhất là đầu phiên bản."
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Điểm tốt nhưng ít người chơi lên (chưa bằng một phần tư trang bị được lên nhiều nhất), nên lối lên đồ giữ các trang bị được dùng thật sự. Mẫu nhỏ dao động mạnh, nhất là đầu phiên bản.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Chỉ {patch}",
+ "Includes similar recent patches, weighted toward this one": "Gồm các bản cập nhật gần đây tương tự, ưu tiên bản này",
+ "Games counted": "Số trận được tính"
 }

@@ -51,5 +51,11 @@
  "Worked": "Zabralo",
  "Backfired": "Opačný účinek",
  "Within noise": "V mezích šumu",
- "Moved": "Posunul se"
+ "Moved": "Posunul se",
+ "How our picks held up": "Jak obstály naše volby",
+ "So far": "Zatím",
+ "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "Augmenty: {hit} stále vpředu ({lead} b.), nejčastěji volené {phit} ({plead})",
+ "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "Předměty: {hit} stále vpředu ({lead} b.), nejčastěji kupované {phit} ({plead})",
+ "Top {n} champions: {kept} still above 50%": "Top {n} šampionů: {kept} stále nad 50 %",
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "Každý patch vezmeme u každého šampiona 5 nejlepších augmentů a 3 nejlepší předměty podle DeepScore a ověříme je na hrách dalšího patche: jak často stále překonávají průměr šampiona a o kolik bodů. Nejčastěji volené slouží jako srovnání. Udržení nedokazuje, že augment způsobuje výhry."
 }

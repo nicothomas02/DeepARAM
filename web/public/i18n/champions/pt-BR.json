@@ -294,5 +294,9 @@
  "Its empowered attack scales with bonus armor.": "Seu ataque fortalecido escala com a armadura adicional.",
  "It turns bonus armor and magic resist into heal and shield power.": "Converte armadura e resistência mágica adicionais em poder de cura e escudos.",
  "Few players": "Poucos jogadores",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Pontua bem, mas poucos jogadores o constroem (menos de um quarto do item mais construído), então a build fica com itens que o pessoal realmente usa. Amostras pequenas oscilam, principalmente no início do patch."
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Pontua bem, mas poucos jogadores o constroem (menos de um quarto do item mais construído), então a build fica com itens que o pessoal realmente usa. Amostras pequenas oscilam, principalmente no início do patch.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Só {patch}",
+ "Includes similar recent patches, weighted toward this one": "Inclui patches recentes parecidos, com mais peso neste",
+ "Games counted": "Partidas contadas"
 }

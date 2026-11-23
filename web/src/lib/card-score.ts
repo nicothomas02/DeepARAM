@@ -5,7 +5,10 @@ import type { ItemTier } from "./items";
 // which re-ranks builds in the browser for the patches picked (components/champion/Timeframe.tsx).
 
 /** games: estimated live-patch games behind winRate (the champion's games × pickRate), for its 95% range. */
-export type Rated = { winRate: number; pickRate: number; lift: number; games?: number };
+/** pooled: the same row with earlier patches pooled in where nothing changed (data/aramhex/common.py pool); DeepScore
+ *  ranks on it (scoreRows), the shown win rate stays the live patch's. */
+export type Pooled = { winRate: number; games: number; patches: number };
+export type Rated = { winRate: number; pickRate: number; lift: number; games?: number; pooled?: Pooled };
 export type ItemRow = Rated & {
   items: number[];
   deepScore?: number;
@@ -36,8 +39,14 @@ const PRIOR = 0.25; // the average's weight, in median items' worth of games
 
 /** DeepScore for each row against the rest of the champion's list (items, builds, spell pairs; lib/deepscore.ts), best first.
  *  `fit`: fitted next-patch settings (single items); without it, the old hand-set prior (builds, spell pairs). */
-export function scoreRows<T extends { winRate: number; pickRate: number }>(list: T[], fit: Fit | null = null): (T & { deepScore?: number })[] {
-  if (!list.length) return list;
+export function scoreRows<T extends { winRate: number; pickRate: number }>(given: T[], fit: Fit | null = null): (T & { deepScore?: number })[] {
+  if (!given.length) return given;
+  // Rows with earlier patches pooled in score on those (Nico 2026-11-23: small samples); the rows returned are the
+  // given ones, with their live-patch numbers.
+  const list = given.map((r) => {
+    const p = (r as { pooled?: Pooled }).pooled;
+    return p ? { ...r, winRate: p.winRate, games: p.games } : r;
+  });
   const picks = list.map((r) => r.pickRate).sort((x, y) => x - y);
   const median = picks[Math.floor(picks.length / 2)] || 1;
   const total = list.reduce((s, r) => s + r.pickRate, 0) || 1;
@@ -58,7 +67,7 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(list:
       return mean + w * (r.winRate - mean);
     });
     const grades = grade(bounds);
-    return list
+    return given
       .map((r, i) => ({ ...r, deepScore: grades[i].deepScore }))
       .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
   }
@@ -73,7 +82,7 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(list:
         ),
   );
   const grades = grade(bounds);
-  return list
+  return given
     .map((r, i) => ({ ...r, deepScore: grades[i].deepScore }))
     .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
 }

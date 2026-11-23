@@ -67,7 +67,10 @@ export function augmentPicks(): AugmentPicks {
     // the same order as its DeepScore on the champion page (2026-11-23: the old estimated boost, built from overall
     // augment strength, disagreed with the page's #1 in 63% of champion x rarity lists). Shown as DeepScore only.
     const real = deep.real
-      ? shrunkLeads(p.augments.map((a) => ({ id: a.id, winRate: a.winRate ?? 0, pickRate: a.pickRate, games: a.games })))
+      ? shrunkLeads(
+          // Earlier patches pooled in where nothing changed, as the page's default DeepScore (AugmentRow.pooled).
+          p.augments.map((a) => ({ id: a.id, pickRate: a.pickRate, ...(a.pooled ?? { winRate: a.winRate ?? 0, games: a.games }) })),
+        )
       : new Map<number, number>();
     const rows = p.augments.map((a) => {
       out.augments[a.id] = [a.name, a.rarity];

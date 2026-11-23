@@ -40,10 +40,13 @@ const SLOT_LABEL = ["1st augment", "2nd augment", "3rd augment", "4th augment"];
 const DRAG = "application/x-deeparam-augment";
 
 export default function AugmentTable({
-  rows: allRows,
+  rows: givenRows,
   champion,
   synergy = [],
+  patch,
 }: {
+  /** The live patch's name ("16.23"), for the "16.23+" / "16.23 only" switch. */
+  patch?: string;
   /** The champion's id ("Kayle"), for the "why" lines. */
   champion?: string;
   /** Augment pairs that feed each other on this champion (estimated), for re-ranking after a selection. */
@@ -53,6 +56,8 @@ export default function AugmentTable({
     desc?: string;
     href?: string;
     deepScore?: number;
+    /** DeepScore on the live patch's games alone; deepScore pools earlier patches where nothing changed. */
+    patchScore?: number;
     winRate?: number;
     lift?: number;
     /** Share of the augment's picks at each of the four augment picks. */
@@ -90,6 +95,11 @@ export default function AugmentTable({
     "sort",
   );
   const [query, setQuery] = useState("");
+  // Small samples (Nico 2026-11-23): DeepScore pools earlier patches by default; "This patch only" ranks on the live
+  // patch's games alone. The switch shows only when the two differ.
+  const [thisPatch, setThisPatch] = useKept(false, box, "thisPatch");
+  const pooledDiffers = givenRows.some((r) => r.patchScore !== r.deepScore);
+  const allRows = thisPatch && pooledDiffers ? givenRows.map((r) => ({ ...r, deepScore: r.patchScore })) : givenRows;
   const [took, setTook] = useKept<number[]>([], box, "took");
   const byId = new Map(allRows.map((r) => [r.id, r]));
   const taken = took.filter((id) => byId.has(id));
@@ -301,6 +311,25 @@ export default function AugmentTable({
                 {p === "any" ? t("All picks") : t(PICK_LABEL[p])}
               </button>
             ))}
+          </div>
+        )}
+        {pooledDiffers && (
+          <div
+            className="cp-seg"
+            role="group"
+            aria-label={t("Games counted")}
+          >
+            <button
+              type="button"
+              aria-pressed={!thisPatch}
+              data-tip={t("Includes similar recent patches, weighted toward this one")}
+              onClick={() => (setThisPatch(false), setPage(0))}
+            >
+              {patch ? t("{patch}+", { patch }) : t("Recent patches")}
+            </button>
+            <button type="button" aria-pressed={thisPatch} onClick={() => (setThisPatch(true), setPage(0))}>
+              {patch ? t("{patch} only", { patch }) : t("This patch only")}
+            </button>
           </div>
         )}
         {est && Array.from(combos.values()).some((c) => c.points > 0) && (

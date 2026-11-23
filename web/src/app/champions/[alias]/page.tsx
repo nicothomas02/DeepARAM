@@ -476,6 +476,8 @@ export default async function ChampionPage({
   );
   // Augments rank by their DeepScore on this champion, the same ranking the rest of the site uses (lib/champion-augments.ts).
   const scores = augmentScores(c.alias);
+  // The same on the live patch's games alone, for the table's "This patch only" switch.
+  const patchScores = augmentScores(c.alias, true);
   // Each augment's share of this champion's picks at the 1st to 4th augment pick (estimated).
   const pickStages = championAugmentStages(p.augments);
   const augRows = p.augments
@@ -484,8 +486,11 @@ export default async function ChampionPage({
       ...est?.augments.get(a.id),
       // Augment win rates stay off the page while Riot's policy rules them out (lib/augment-policy.ts).
       ...(SHOW_AUGMENT_WIN_RATES ? {} : { winRate: undefined }),
+      // Pooled numbers feed the two scores below and stay off the page.
+      pooled: undefined,
       stages: pickStages.get(a.id),
       deepScore: scores.get(a.id),
+      patchScore: patchScores.get(a.id),
       href: augmentHref(a.id) ?? undefined,
       desc: AUG_DESC[String(a.id)],
       changesBuild: changers.has(a.id),
@@ -859,7 +864,7 @@ export default async function ChampionPage({
                 ) : undefined
               }
             >
-              <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} />
+              <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} patch={patchName(c.patch)} />
             </Panel>
           )}
           {/* Augment synergies (Nico, 2026-11-20): pairs worth more than the sum of their parts, from confirmed

@@ -294,5 +294,9 @@
  "Its empowered attack scales with bonus armor.": "Jeho posílený útok roste s bonusovým brněním.",
  "It turns bonus armor and magic resist into heal and shield power.": "Mění bonusové brnění a magickou odolnost na sílu léčení a štítů.",
  "Few players": "Málo hráčů",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Má dobré skóre, ale staví ho málo hráčů (méně než čtvrtina oproti nejstavěnějšímu předmětu), takže build drží předměty, které hráči opravdu staví. Malé vzorky kolísají, nejvíc na začátku patche."
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Má dobré skóre, ale staví ho málo hráčů (méně než čtvrtina oproti nejstavěnějšímu předmětu), takže build drží předměty, které hráči opravdu staví. Malé vzorky kolísají, nejvíc na začátku patche.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Jen {patch}",
+ "Includes similar recent patches, weighted toward this one": "Zahrnuje podobné nedávné patche, s největší váhou tohoto",
+ "Games counted": "Započítané hry"
 }

@@ -197,8 +197,23 @@ def merge_live_augments(check, live):
     write_json(path, d, check)
 
 
-def row(ids, g, w, denom):
-    return {"items": ids, "pick_rate": round(g / denom, 4), "win_rate": rate(g, w), "games": g}
+def row(ids, g, w, denom, pooled=None):
+    r = {"items": ids, "pick_rate": round(g / denom, 4), "win_rate": rate(g, w), "games": g}
+    p = (pooled or {}).get(str(ids[0]) if len(ids) == 1 else None)
+    if p and p[2] > 1:
+        r["pooled"] = {"win_rate": p[0], "games": p[1], "patches": p[2]}
+    return r
+
+
+def pooled_table(live, name, cid, key=None):
+    """common.pool for one champion's rows in one table, with the earlier patches that have the table."""
+    hist = []
+    for p in [live] + ah.earlier(live):
+        t = (ah.load(p, name) or {}).get(cid)
+        if t is None:
+            break
+        hist.append(t["items"] if key == "items" else t)
+    return ah.pool(hist) if hist else {}
 
 
 def merge_builds(check, live):
@@ -209,6 +224,8 @@ def merge_builds(check, live):
     boots = ah.load(live, "boots") or {}
     cores = ah.load(live, "cores") or {}
     own_cores = "cores" not in ah.carried(live)
+    # Augments pooled with earlier patches where nothing changed (common.pool); the site ranks on these by default.
+    aug_hist = [ah.load(p, "augments") or {} for p in ah.earlier(live)]
     boot_ids = {int(i) for v in boots.values() for i in v["items"]}
     n = 0
     for name in sorted(os.listdir(BUILDS)):
@@ -225,11 +242,15 @@ def merge_builds(check, live):
         # gave one (the site ranks by DeepScore once rows carry games).
         grades = {r["id"]: r.get("grade") for r in (b.get("augments") or {}).get("all", [])}
         rows = []
+        pooled = ah.pool([A.get(cid) or {}] + [h.get(cid) or {} for h in aug_hist])
         for a, (g, w) in (A.get(cid) or {}).items():
             if g < MIN_AUG_GAMES:
                 continue
             r = {"id": int(a), "pick_rate": round(g / g_all, 4), "win_rate": rate(g, w), "games": g}
             r["grade"] = grades.get(int(a)) or ""
+            pw, pg, pn = pooled.get(a, (None, 0, 1))
+            if pn > 1:
+                r["pooled"] = {"win_rate": pw, "games": pg, "patches": pn}
             rows.append((info.get(a), r))
         if rows:
             rows.sort(key=lambda x: -x[1]["games"])
@@ -242,6 +263,8 @@ def merge_builds(check, live):
         bt = boots.get(cid)
         if bt and bt["items"]:
             den = bt["all"][0]
+            # Boots and items aren't pooled yet: they exist only for 16.22-16.23, so pooling can't be backtested on
+            # them until a third patch lands (Nico 2026-11-23: nothing ships on an assumption).
             it["boots"] = sorted((row([int(i)], g, w, den) for i, (g, w) in bt["items"].items() if g >= MIN_ITEM_GAMES),
                                  key=lambda r: -r["games"])
             src["items.boots"] = "aramhex"
@@ -278,8 +301,16 @@ def merge_spells(check, live):
         g_all = heroes.get(cid, [0])[0]
         if not g_all:
             continue
-        rows = [{"ids": sorted(int(x) for x in k.split("+")), "games": g, "pick_rate": round(g / g_all, 4), "win_rate": rate(g, w)}
-                for k, (g, w) in pairs.items() if g >= MIN_SPELL_GAMES]
+        ps = pooled_table(live, "spells", cid)
+        rows = []
+        for k, (g, w) in pairs.items():
+            if g < MIN_SPELL_GAMES:
+                continue
+            r = {"ids": sorted(int(x) for x in k.split("+")), "games": g, "pick_rate": round(g / g_all, 4), "win_rate": rate(g, w)}
+            pw, pg, pn = ps.get(k, (None, 0, 1))
+            if pn > 1:
+                r["pooled"] = {"win_rate": pw, "games": pg, "patches": pn}
+            rows.append(r)
         rows.sort(key=lambda r: -r["games"])
         if rows:
             out["champions"][cid] = {"games": g_all, "spells": rows}

@@ -9,6 +9,7 @@ import { bySet } from "@/lib/sets";
 import { livePatch } from "@/lib/highlights";
 import { readRepoJson } from "@/lib/repo-data";
 import { awaitingData, type PatchSchedule } from "@/lib/patch-schedule";
+import { scorecard } from "@/lib/scorecard";
 
 export const metadata: Metadata = pageMeta(
   "/patches",
@@ -27,6 +28,8 @@ export default function PatchesPage() {
   const schedule = readRepoJson<PatchSchedule>("data/patch-schedule.json");
   const waiting = schedule ? awaitingData(schedule, livePatch()) : null;
   const pending = waiting ? patchVersion(waiting.patch) : null;
+  const card = scorecard();
+  const share = (v: number) => `${Math.round(v * 100)}%`;
   return (
     <>
       <Intro eyebrow={<T ns="patches">Patches</T>} title={<T ns="patches">What every patch changed.</T>}>
@@ -127,6 +130,57 @@ export default function PatchesPage() {
           </section>
         );
       })}
+      {card.length > 0 && (
+        <section className="recap-set" aria-label="How our picks held up">
+          <h2 className="recap-set-head">
+            <T ns="patches">How our picks held up</T>
+          </h2>
+          <p className="patch-note">
+            <T ns="patches">
+              Each patch, we take every champion&apos;s top 5 augments and top 3 items by DeepScore and check them on the next patch&apos;s games: how
+              often they still beat the champion&apos;s average, and by how many points. The most picked ones are the baseline. Holding up is not
+              proof an augment causes the wins.
+            </T>
+          </p>
+          <div className="recap-index">
+            {card.map((r) => (
+              <div key={r.from} className="card recap-row">
+                <b className="recap-patch">
+                  {patchName(r.from)} → {patchName(r.to)}
+                  {r.to_partial && (
+                    <span className="chip">
+                      <T ns="patches">So far</T>
+                    </span>
+                  )}
+                </b>
+                <span className="recap-meta">
+                  {[
+                    ["Augments", r.augments],
+                    ["Items", r.items],
+                  ].map(([label, s]) =>
+                    s && typeof s === "object" ? (
+                      <span key={label as string}>
+                        <T ns="patches" v={{ hit: share(s.deepscore.hit), lead: pts(s.deepscore.lead), phit: share(s.popular.hit), plead: pts(s.popular.lead) }}>
+                          {label === "Augments"
+                            ? "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})"
+                            : "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})"}
+                        </T>{" "}
+                      </span>
+                    ) : null,
+                  )}
+                  {r.champions && (
+                    <span>
+                      <T ns="patches" v={{ n: r.champions.n, kept: share(r.champions.still_above_50) }}>
+                        {"Top {n} champions: {kept} still above 50%"}
+                      </T>
+                    </span>
+                  )}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </>
   );
 }

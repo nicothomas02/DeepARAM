@@ -294,5 +294,9 @@
  "Its empowered attack scales with bonus armor.": "Güçlendirilmiş saldırısı ek zırhla ölçeklenir.",
  "It turns bonus armor and magic resist into heal and shield power.": "Ek zırh ve büyü direncini iyileştirme ve kalkan gücüne çevirir.",
  "Few players": "Az oyuncu",
- "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Puanı iyi ama az oyuncu yapıyor (en çok yapılan eşyanın dörtte birinden az), bu yüzden build gerçekten tercih edilen eşyalarda kalıyor. Küçük örnekler dalgalanır, özellikle yamanın başında."
+ "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.": "Puanı iyi ama az oyuncu yapıyor (en çok yapılan eşyanın dörtte birinden az), bu yüzden build gerçekten tercih edilen eşyalarda kalıyor. Küçük örnekler dalgalanır, özellikle yamanın başında.",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Yalnızca {patch}",
+ "Includes similar recent patches, weighted toward this one": "Benzer son yamaları da içerir, en çok bu yamaya ağırlık verir",
+ "Games counted": "Sayılan maçlar"
 }

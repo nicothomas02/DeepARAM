@@ -14,7 +14,7 @@ type FillFile = {
   estimated?: boolean;
   champions: Record<
     string,
-    { games: number; spells: { ids: number[]; games: number; pick_rate: number; win_rate: number | null }[] }
+    { games: number; spells: { ids: number[]; games: number; pick_rate: number; win_rate: number | null; pooled?: { win_rate: number; games: number; patches: number } }[] }
   >;
 };
 type ClientSpell = { id: number; name: string; iconPath: string };
@@ -87,6 +87,7 @@ export function fillSpells(alias: string, base: number): SpellRow[] {
         pickRate: s.pick_rate,
         lift: est ? 0 : s.win_rate! - base,
         estimated: est,
+        ...(s.pooled ? { pooled: { winRate: s.pooled.win_rate, games: s.pooled.games, patches: s.pooled.patches } } : {}),
       },
     ];
   });
