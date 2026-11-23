@@ -153,7 +153,7 @@ export function rarityOdds(rarity: string) {
 /** Typical game length in minutes and each side's win rate. */
 export function typicalGame() {
   const d = data();
-  return d?.game_length && d.side ? { minutes: d.game_length.minutes.mean, blue: d.side.blue, red: d.side.red } : null;
+  return d?.game_length ? { minutes: d.game_length.minutes.mean } : null;
 }
 
 /** Short champion top 10s, keyed by what they rank. */

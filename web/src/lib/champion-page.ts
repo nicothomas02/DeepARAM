@@ -323,8 +323,9 @@ export function championPage(alias: string): ChampionPage | null {
   const timing =
     (SIMULATOR_IN_STATS ? readRepoJson<BootsTiming>("data/estimates/boots_timing.json")?.champions[String(id)] : undefined) ?? {};
   // When players buy boots (Nico, 2026-11-20: boots in their real slot), from the purchase timelines of the owner's
-  // archived games, all ten players (data/estimates/boots_slot.json): the champion's usual slot, moved only when
-  // another slot clearly wins more (Nico: judge by outcomes, not habits). Too few buyers: the slot most players use.
+  // archived games, all ten players (data/estimates/boots_slot.json): the slot most of the champion's players use. No
+  // "another slot wins more" moves (2026-11-23): ~50 buyers per champion make those mostly chance. Too few buyers
+  // (under 20): the slot most players use overall.
   const slots = readRepoJson<BootsSlots>("data/estimates/boots_slot.json");
   const playedSlot = slots ? (slots.champions[String(id)]?.[0] ?? slots.all) : undefined;
   const bootsRows = rows(b?.items?.boots);

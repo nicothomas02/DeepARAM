@@ -26,7 +26,8 @@ describe("estimates", () => {
   it("has a typical game and top 10 lists", () => {
     const g = typicalGame();
     expect(g!.minutes).toBeGreaterThan(10);
-    expect(g!.blue + g!.red).toBeCloseTo(1, 2);
+    // No blue/red side split on the site: it came from one player's lobbies only.
+    expect(g).not.toHaveProperty("blue");
     for (const ids of Object.values(funLists())) expect(ids.length).toBeLessThanOrEqual(10);
   });
 
