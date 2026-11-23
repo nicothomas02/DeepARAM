@@ -21,5 +21,7 @@
  "Page not found": "Страница не найдена",
  "{name} {mode} Build & Augments": "{name}: сборка и аугментации для режима {mode}",
  "{name} {mode} Augment": "{name}: аугментация режима {mode}",
- "{name} in {mode}": "{name} в режиме {mode}"
+ "{name} in {mode}": "{name} в режиме {mode}",
+ "Infinite Ashe": "Бесконечная Эш",
+ "{mode} Calculators": "{mode}: калькуляторы"
 }

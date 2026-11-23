@@ -21,5 +21,7 @@
  "Page not found": "Pagina nu a fost găsită",
  "{name} {mode} Build & Augments": "{name}: build și augmentări pentru {mode}",
  "{name} {mode} Augment": "{name}: augmentare în {mode}",
- "{name} in {mode}": "{name} în {mode}"
+ "{name} in {mode}": "{name} în {mode}",
+ "Infinite Ashe": "Ashe infinită",
+ "{mode} Calculators": "Calculatoare {mode}"
 }

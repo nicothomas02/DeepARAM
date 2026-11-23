@@ -21,5 +21,7 @@
  "Page not found": "Page introuvable",
  "{name} {mode} Build & Augments": "{name} : build et augments pour {mode}",
  "{name} {mode} Augment": "{name} : augment de {mode}",
- "{name} in {mode}": "{name} dans {mode}"
+ "{name} in {mode}": "{name} dans {mode}",
+ "Infinite Ashe": "Ashe infinie",
+ "{mode} Calculators": "Calculateurs {mode}"
 }

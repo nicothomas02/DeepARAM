@@ -21,5 +21,7 @@
  "Page not found": "Sayfa bulunamadı",
  "{name} {mode} Build & Augments": "{name}: {mode} Buildi ve Güçlendirmeleri",
  "{name} {mode} Augment": "{name}: {mode} Güçlendirmesi",
- "{name} in {mode}": "{mode} modunda {name}"
+ "{name} in {mode}": "{mode} modunda {name}",
+ "Infinite Ashe": "Sonsuz Ashe",
+ "{mode} Calculators": "{mode} Hesaplayıcıları"
 }

@@ -6,7 +6,7 @@ import { DEFAULT_LANG, fill, LANG_EVENT } from "@/lib/i18n";
 import { useLang, useNames, useT } from "./I18n";
 
 // The browser-tab title, in the visitor's language and for the open tab (?tab=) of the Tier List, Simulator and
-// Kitchen (Nico, 2026-11-20). Pages are built in English, so their titles are too; this rewrites document.title in
+// Calculators (Nico, 2026-11-20). Pages are built in English, so their titles are too; this rewrites document.title in
 // the browser from public/i18n/titles/<code>.json, whose keys are the English titles with {mode} for the mode's
 // name, {patch}, and {name} for a champion, augment or item. Search engines keep reading the English title.
 
@@ -16,7 +16,7 @@ const SUFFIX = " · DeepARAM";
 // English titles for tabs that are not the page's first one; {patch} is taken from the page's own title.
 const TAB_TITLES: Record<string, Record<string, string>> = {
   "/tier-list": { augments: "{mode} Augment Tier List, Patch {patch}", items: "{mode} Item Tier List, Patch {patch}" },
-  "/kitchen": { "infinite-ryze": "Infinite Ryze" },
+  "/calculators": { "infinite-ashe": "Infinite Ashe" },
 };
 
 // Every title with a translation; the order matters only where two could match.
@@ -28,6 +28,8 @@ const TEMPLATES = [
   "{mode} Teamfight Simulator",
   "The Kitchen: Off-Meta {mode} Builds",
   "Infinite Ryze",
+  "Infinite Ashe",
+  "{mode} Calculators",
   "{mode} PBE Changes",
   "{mode} Patches",
   "How {mode} Works: Rules, Quests & Augments",

@@ -14,6 +14,7 @@ TOOLS = {
     "cook-builds": "COOK_DATA",
     "region-teams": "REGION_DATA",
     "ryze-calculator": "RYZE_DATA",
+    "ashe-calculator": "ASHE_DATA",
 }
 GAME_TOOLS = sorted(t for t in TOOLS if t != "cook-builds")
 
@@ -143,3 +144,40 @@ def test_chefs_special_carries_every_language():
 def test_every_cook_build_has_a_share_image():
     share = os.path.join(REPO, "tools", "fun", "cook-builds", "share")
     assert sorted(os.listdir(share)) == sorted(b["id"] + ".png" for b in data("cook-builds")["builds"])
+
+
+# Infinite Ashe: the fight math in tools/fun/ashe-calculator/calc.js, run through Node.
+def _ashe(builds):
+    import shutil, subprocess
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("node not installed")
+    script = (
+        "global.window = global; require('./tools/fun/ashe-calculator/data.js');"
+        "const C = require('./tools/fun/ashe-calculator/calc.js');"
+        "const out = JSON.parse(process.argv[1]).map((b) => C.compute(window.ASHE_DATA, b, { runs: 40 }));"
+        "console.log(JSON.stringify(out));"
+    )
+    res = subprocess.run([node, "-e", script, json.dumps(builds)], cwd=REPO, capture_output=True, text=True, check=True)
+    return json.loads(res.stdout)
+
+
+ASHE = {"rRank": 3, "eRank": 5, "wRank": 5, "haste": 100, "ultHaste": 0, "attackSpeed": 1.5, "castW": True, "onlyOnCooldown": False}
+
+
+def test_ashe_calculator_math():
+    plain, archmage, more_haste, preset = _ashe([
+        {**ASHE, "augments": []},
+        {**ASHE, "augments": ["ARAM_Archmage"]},
+        {**ASHE, "haste": 300, "augments": ["ARAM_Archmage"]},
+        {**ASHE, "haste": 150, "augments": ["ARAM_Archmage", "UltimateAwakening", "UltimateRecursion", "ARAM_MysticPunch"]},
+    ])
+    # No augments: R only comes back on its own cooldown (60 s at rank 3, 30 s at 100 haste).
+    assert plain["cooldowns"]["R"] == pytest.approx(30)
+    assert plain["perMinute"] == pytest.approx(2)
+    # Archmage refunds 30% of the base cooldown: 15 s from a rank 5 Hawkshot, 18 s from a rank 3 R.
+    assert archmage["refunds"]["fromE"] == pytest.approx(15, abs=0.01)
+    assert archmage["refunds"]["fromR"] == pytest.approx(18, abs=0.01)
+    assert plain["perMinute"] < archmage["perMinute"] < more_haste["perMinute"]
+    # The page's preset closes the loop: an R for (nearly) every Hawkshot.
+    assert preset["loop"] >= 0.95 and preset["maxPerMinute"] == pytest.approx(12)

@@ -51,11 +51,12 @@ jobs:
           # and refresh the Guide's English keys (new labels still need translating before tests pass)
           python3 web/scripts/fetch_assets.py
           python3 guide/i18n_keys.py
-      - name: Refresh The Kitchen's Infinite Ryze and Region Teams for the new patch
+      - name: Refresh the Infinite Ryze and Infinite Ashe calculators and Region Teams for the new patch
         if: steps.check.outputs.status == 'ready'
         run: |
           # Kept only when the Kitchen tests still pass (new text could need translating first)
           (cd tools/fun/ryze-calculator && python3 build_data.py) \
+            && (cd tools/fun/ashe-calculator && python3 build_data.py) \
             && (cd tools/fun/region-teams && python3 build_data.py) \
             && python3 tools/fun/i18n/build_keys.py \
             && python -m pytest tests/data/test_data_lab_tools.py -q \

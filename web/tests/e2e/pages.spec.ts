@@ -14,6 +14,8 @@ const PAGES = [
   "/pbe",
   "/info",
   "/kitchen",
+  "/calculators",
+  "/calculators?tab=infinite-ashe",
   "/info/region-teams",
   "/champions/Ahri",
   "/champions/Yunara",
@@ -88,8 +90,10 @@ test("old addresses redirect to the current tabs", async ({ page }) => {
     ["/lab", "/kitchen"],
     ["/stats", "/account"],
     ["/status", "/"],
-    ["/simulator/infinite-ryze", "/kitchen?tab=infinite-ryze"],
-    ["/simulator?tab=infinite-ryze", "/kitchen?tab=infinite-ryze"],
+    ["/simulator/infinite-ryze", "/calculators?tab=infinite-ryze"],
+    ["/simulator?tab=infinite-ryze", "/calculators?tab=infinite-ryze"],
+    ["/kitchen?tab=infinite-ryze", "/calculators?tab=infinite-ryze"],
+    ["/calculators/infinite-ashe", "/calculators?tab=infinite-ashe"],
   ]) {
     await page.goto(from);
     expect(new URL(page.url()).pathname + new URL(page.url()).search, from).toBe(to);

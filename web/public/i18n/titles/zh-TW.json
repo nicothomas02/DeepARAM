@@ -21,5 +21,7 @@
  "Page not found": "找不到頁面",
  "{name} {mode} Build & Augments": "{name}：{mode}出裝與強化",
  "{name} {mode} Augment": "{name}：{mode}強化",
- "{name} in {mode}": "{mode}中的{name}"
+ "{name} in {mode}": "{mode}中的{name}",
+ "Infinite Ashe": "無限艾希",
+ "{mode} Calculators": "{mode} 計算器"
 }

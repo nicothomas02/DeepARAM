@@ -22,6 +22,12 @@ export const sections = [
     pr: 4,
   },
   {
+    href: "/calculators",
+    label: text("tab./calculators.label", "Calculators"),
+    body: text("tab./calculators.body", "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP and Infinite Ashe's endless R."),
+    pr: 0,
+  },
+  {
     href: "/patches",
     label: text("tab./patches.label", "Patches"),
     body: text("tab./patches.body", "What every patch changed, grouped by set: augment tuning and the champions that moved most."),
