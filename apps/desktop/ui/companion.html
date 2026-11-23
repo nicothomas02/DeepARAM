@@ -45,6 +45,17 @@
   .item { display: flex; gap: 10px; align-items: center; }
   .item img { width: 32px; height: 32px; border-radius: 6px; }
   .box.now { border-color: var(--gold); }
+  .why.lbl { margin: 10px 0 6px; text-transform: uppercase; letter-spacing: .04em; font-size: 11px; font-weight: 600; }
+  .why.lbl:first-child, .box > .why:first-child + .why.lbl { margin-top: 0; }
+  .core { display: flex; gap: 6px; flex-wrap: wrap; }
+  .core img { width: 40px; height: 40px; border-radius: 8px; }
+  .core img.own, .item.own { opacity: .35; }
+  .core img.nx, .item.nx img { box-shadow: 0 0 0 2px var(--gold); }
+  .items.lst { gap: 6px; }
+  .items.lst .item img { width: 28px; height: 28px; }
+  .item.lit .why { color: var(--gold); }
+  .why.lbl b { text-transform: none; letter-spacing: 0; }
+  .items.lst .why.lbl { margin: 4px 0 -2px; }
   .tip { margin-top: 8px; }
   .plan { display: flex; justify-content: space-between; align-items: center; }
   .plan .keys b { color: var(--accent); }
@@ -355,16 +366,16 @@
     return `Enemy damage ${v} mostly ${kind}: about ${pct(magic >= 0.65 ? magic : 1 - magic)}.`;
   }
 
-  // The champion's situational items (the site's "when to buy" list) checked against this game's enemy team: the
-  // first whose condition holds shows as a tip. A pointer, like the site's list: the build itself doesn't change.
+  // The champion's situational items (the site's "when to buy" list) checked against this game's enemy team: the ones
+  // whose condition holds light up with the reason. A pointer, like the site's list: the build itself doesn't change.
   const TANKY = new Set(["Vanguard", "Warden", "Juggernaut"]);
   const BURSTY = new Set(["Burst", "Assassin"]);
   const CATCH = new Set(["Catcher", "Vanguard"]);
   // Champions whose kits heal a lot (from their ability descriptions), for "Vs healing".
   const HEALERS = new Set(["aatrox", "akshan", "alistar", "belveth", "briar", "drmundo", "fiddlesticks", "illaoi", "ivern", "kayn", "kled", "maokai", "milio", "nami", "nidalee", "olaf", "renataglasc", "senna", "sona", "soraka", "swain", "sylas", "taric", "trundle", "vladimir", "warwick", "yuumi", "zac", "seraphine", "darius", "fiora", "irelia", "masteryi", "udyr", "volibear", "yone"]);
-  function situational(champ, k, fit, g, owned) {
-    const list = (champ?.situational ?? []).filter((it) => !owned.has(itemId(it.icon)));
-    if (!list.length) return null;
+  function situational(champ, k, fit, g, skip) {
+    const list = (champ?.situational ?? []).filter((it) => !skip.has(itemId(it.icon)));
+    if (!list.length) return [];
     const enemies = (g.enemies ?? []).filter((e) => e.champ);
     const arch = (e) => fit?.champions?.[keyIn(fit.champions, e.champ)]?.[1] ?? [];
     const count = (set) => enemies.filter((e) => arch(e).some((a) => set.has(a))).length;
@@ -385,8 +396,7 @@
       "Vs shields": count(new Set(["Enchanter"])) >= 2 && n(count(new Set(["Enchanter"])), "shield allies"),
       "Vs heavy crowd control": count(CATCH) >= 3 && n(count(CATCH), "lock you down"),
     };
-    for (const it of list) if (checks[it.when]) return { name: it.name, why: checks[it.when] };
-    return null;
+    return list.map((it) => ({ ...it, why: checks[it.when] || "" }));
   }
 
   const STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
@@ -402,17 +412,17 @@
   function pickBuild(base, picks, k, taken) {
     const ck = keyIn(picks?.builds, game.champ);
     const styles = ck ? picks.builds[ck] : [];
-    if (!styles.length || !taken.length || !k) return { list: base, style: null };
+    if (!styles.length || !taken.length || !k) return { list: base, style: null, core: null };
     const votes = {};
     for (const id of taken) for (const st of picks.styles[id] ?? []) votes[st] = (votes[st] ?? 0) + 1;
     const top = Object.entries(votes).sort((x, y) => y[1] - x[1])[0]?.[0];
     const found = styles.find(([st]) => st === top);
-    if (!found || found === styles[0]) return { list: base, style: null };
+    if (!found || found === styles[0]) return { list: base, style: null, core: null };
     const prefix = (base[0]?.icon ?? "").replace(/\d+\.png$/, "");
     const list = [...found[2].slice(0, 1), ...found[3], ...found[4]].map((id) => ({
       name: k.recipes[id % 10000]?.[0] ?? `#${id}`, icon: `${prefix}${id}.png`,
     }));
-    return { list, style: STYLE_NAMES[top] ?? top };
+    return { list, style: STYLE_NAMES[top] ?? top, core: 1 + found[3].length };
   }
 
   // What your gold buys right now toward the next item: the item itself, else its priciest missing part you can afford.
@@ -464,7 +474,8 @@
     const taken = getTaken(game);
     // The core (boots and first three) and then the rest of the usual six: without the rest, the panel ran out of
     // items once the core was bought.
-    const { list: build, style } = pickBuild([...(champ?.items ?? []), ...(champ?.rest ?? [])], picks, k, taken);
+    const { list: build, style, core } = pickBuild([...(champ?.items ?? []), ...(champ?.rest ?? [])], picks, k, taken);
+    const coreLen = core ?? (champ?.items ?? []).length;
     const owned = new Set(game.items.map((i) => i % 10000));
     // Any boots fill the build's boots slot: someone on other boots shouldn't be told to buy the build's pair.
     const bootIds = new Set(k?.boots ?? []);
@@ -498,8 +509,6 @@
     }
     if (capNote) add(3, capNote);
     if (style) add(4, `Build switched to <b>${esc(style)}</b> to fit your augments.`);
-    const sit = k ? situational(champ, k, fitData, game, owned) : null;
-    if (sit) add(4, `Situational: <b>${esc(sit.name)}</b>. ${esc(sit.why)}`);
     if (stack > 0) add(4, `<b>${esc(next[0].name)}</b> stacks over time, so it goes first.`);
     const pen = shop && k ? penTip(k, game, owned) : "";
     if (pen) add(5, pen);
@@ -516,10 +525,33 @@
     if (dmg) add(6, dmg);
     const lines = tips.sort((x, y) => x[0] - y[0]).slice(0, 2).map((x) => x[1]);
     const tip = lines.map((l) => `<div class="why tip">${l}</div>`).join("");
-    if (!next.length) { box.innerHTML = (build.length ? `<p class="note">You have the whole build.</p>` : `<p class="note">No build for this champion yet.</p>`) + tip; return; }
+    if (!build.length) { box.innerHTML = `<p class="note">No build for this champion yet.</p>` + tip; return; }
+    // As on the site: the core in a row, then the rest of the usual six one by one, then situational items with when
+    // to buy them (lit when this game's enemy team calls for one). Owned items fade; the next one is ringed.
+    const src = (u) => (u.startsWith("http") ? u : SITE + u);
+    const nextId = next[0] ? itemId(next[0].icon) : -1;
+    const state = (it) => {
+      const id = itemId(it.icon);
+      return owned.has(id) || (hasBoots && bootIds.has(id)) ? " own" : id === nextId ? " nx" : "";
+    };
+    // The core is boots plus three items; what follows is numbered on from the core's items (boots not counted), so
+    // usually the 4th and 5th item, and a 6th where the build sells boots for one.
+    const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
+    const coreItems = build.slice(0, coreLen), rest = build.slice(coreLen, coreLen + 3);
+    const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
+    const inBuild = new Set(build.map((it) => itemId(it.icon)));
+    const allSits = k ? situational(champ, k, fitData, game, owned) : [];
+    const sits = allSits.filter((it) => !inBuild.has(itemId(it.icon)));
+    // A build item that's also situational shows its reason when this game calls for it.
+    const reason = (it) => allSits.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
+    const row = (it, sub = "", cls = "") => `<div class="item${state(it)}${cls}"><img src="${src(it.icon)}" alt=""><div><div class="name">${esc(it.name)}</div>${sub ? `<div class="why">${sub}</div>` : ""}</div></div>`;
     box.innerHTML = `<div class="box${shop ? " now" : ""}">
       ${shop ? `<div class="why">${shop}</div>` : ""}
-      <div class="items">${next.map((it, i) => `<div class="item"><img src="${it.icon.startsWith("http") ? "" : SITE}${it.icon}" alt=""><div><div class="name">${esc(it.name)}</div><div class="why">${i ? "After that" : "Next"}</div></div></div>`).join("")}</div>
+      <div class="why lbl">Core${next[0] && coreItems.includes(next[0]) ? ` · next: <b>${esc(next[0].name)}</b>` : ""}</div>
+      <div class="core">${coreItems.map((it) => `<img class="${state(it).trim()}" src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</div>
+      ${rest.length ? `<div class="items lst">${rest.map((it, i) => { const r = reason(it); return `<div class="why lbl">${ord(first + i)} item</div>` + row(it, [it === next[0] ? "Next" : "", r ? `${esc(r.when)}: ${esc(r.why)}` : ""].filter(Boolean).join(" · "), r ? " lit" : ""); }).join("")}</div>` : ""}
+      ${sits.length ? `<div class="why lbl">Situational</div><div class="items lst">${sits.map((it) => row(it, it.why ? `${esc(it.when)}: ${esc(it.why)}` : esc(it.when), it.why ? " lit" : "")).join("")}</div>` : ""}
+      ${next.length ? "" : `<p class="note">You have the whole build.</p>`}
       ${tip}</div>`;
   }
 
