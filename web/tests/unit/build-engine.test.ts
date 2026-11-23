@@ -126,6 +126,24 @@ describe("build engine", () => {
     expect(up.why[1]).toMatch(/upgrades it/);
   });
 
+  it("puts a finished item you own off the path into the first open later slot", () => {
+    const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3031, 3075] }), taken: [] });
+    expect(ids(p.path)).toEqual([3006, 3031, 3046, 3075, 3094, 6333]);
+    expect(ids(p.next)[0]).toBe(3046);
+  });
+
+  it("caps the path at six items with boots, like the site's card", () => {
+    const c = { ...champ, items: [item(3006), item(3031), item(3046), item(3065)] };
+    expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] }).path).toHaveLength(6);
+  });
+
+  it("reads the enemy damage lean from the champions, not their items; haste is math only", () => {
+    const apItems = { champ: "Garen", items: [3003, 3003, 3003, 3003] };
+    expect(triggers(kinds, fit, [apItems, apItems, apItems])["Vs magic damage"]).toBe("");
+    const p = plan({ champ, kinds, picks, fit, game: game([], { stats: [0, 1, 150] }), taken: [] });
+    for (const t of p.tips) expect(t.text).not.toMatch(/adds less/);
+  });
+
   it("gives no % penetration tip and leaves stacking items where they are", () => {
     const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3003)] }] };
     const p = plan({ champ: c, kinds, picks, fit, game: game(["Garen", "Jinx"], { dead: true, gold: 5000 }), taken: [] });
@@ -154,6 +172,9 @@ describe("build engine", () => {
       for (const taken of [[], [3081], [1029], [3049]]) {
         const p = plan({ champ: c, kinds: k, picks: pk, fit: null, game: { champ: c.id, items: [] }, taken });
         const path = ids(p.path);
+        if (path.length > 6) bad.push(`${c.id} [${taken}]: ${path.length} items`);
+        // with no augments, the app shows the site card's path
+        if (!taken.length && c.full?.length && path.slice(p.coreLen).join() !== ids(c.full).join()) bad.push(`${c.id}: path differs from the site card`);
         path.forEach((a, i) => path.slice(i + 1).forEach((b) => rules.clash(a, b) && bad.push(`${c.id} [${taken}]: ${a} + ${b}`)));
       }
     expect(bad).toEqual([]);

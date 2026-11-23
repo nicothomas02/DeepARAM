@@ -57,7 +57,7 @@ var DeepEngine = (() => {
     skillUp: () => skillUp,
     triggers: () => triggers
   });
-  var ENGINE_VERSION = "1.0.0";
+  var ENGINE_VERSION = "1.1.0";
   var RULES = {
     // Backed by data or the game's own rules: on.
     itemLimits: { source: "game data", on: true, why: "The game's own-only-one groups; never broken in 1,730 public full builds or 1,245 archived games (Immolate and Hydras excepted)." },
@@ -70,6 +70,7 @@ var DeepEngine = (() => {
     destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
     upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
     hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
+    ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
     // Design choices Nico hasn't picked yet: kept as they were.
     rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Picked, not measured: Nico decides." },
     swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule: Nico decides." },
@@ -82,6 +83,7 @@ var DeepEngine = (() => {
     attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7)." },
     selfHealWeight: { source: "assumption", on: false, why: "Count self-healers more for Vs healing. Off until tested." },
     wikiModifiers: { source: "assumption", on: false, why: "Weight enemies by the wiki's Mayhem healing/shielding modifiers. Off until tested." },
+    itemDamageMix: { source: "assumption", on: false, why: "Enemy damage lean pulled toward their AP/AD items. Off until tested: the lean is the champions' own." },
     resistAugmentSwaps: { source: "assumption", on: false, why: "Fortified/Mystic Guard/Steadfaster push resist swaps first. Off: no data yet." }
     // Removed: % penetration when 2+ enemies stack the resist failed its test (the gain is smaller when they stack).
   };
@@ -164,11 +166,12 @@ var DeepEngine = (() => {
     const lower = new Map(Object.entries(k.champions).map(([a, m]) => [a.toLowerCase(), m]));
     const mixes = enemies.filter((e) => e.champ).map((e) => {
       let ap = 0, ad = 0;
-      for (const id of e.items) {
-        const g = k.items[String(base(id))] ?? [];
-        if (g.includes("ap") && !g.includes("ad")) ap += 1;
-        if (g.includes("ad") && !g.includes("ap")) ad += 1;
-      }
+      if (RULES.itemDamageMix.on)
+        for (const id of e.items) {
+          const g = k.items[String(base(id))] ?? [];
+          if (g.includes("ap") && !g.includes("ad")) ap += 1;
+          if (g.includes("ad") && !g.includes("ap")) ad += 1;
+        }
       return (2 * (lower.get(e.champ.toLowerCase()) ?? 0.5) + ap) / (2 + ap + ad);
     });
     return mixes.length ? mixes.reduce((a, b) => a + b, 0) / mixes.length : null;
@@ -341,7 +344,7 @@ var DeepEngine = (() => {
       list.push(it);
     }
     const why = because[st] ? picks.augments[because[st]]?.[0] ?? "" : "";
-    const sized = list.slice(0, Math.max(base0.length, 7));
+    const sized = list.slice(0, 6);
     return { list: sized, style: STYLE_NAMES[st] ?? st, core: Math.min(sized.length, (plan2[0].length ? 1 : 0) + 3), because: why, classWide: !found };
   }
   function laterPicks(champ, owned, rules) {
@@ -350,8 +353,9 @@ var DeepEngine = (() => {
     const used = (champ?.items ?? []).map((it) => itemId(it.icon));
     const ok = (id) => !used.includes(id) && !used.some((u) => rules.clash(u, id));
     const fullRest = (champ?.full ?? []).filter((it) => it?.icon && !used.includes(itemId(it.icon)));
+    const room = Math.max(0, 6 - (champ?.items ?? []).length);
     const out = [];
-    [...slots].sort((a, b) => a.slot - b.slot).forEach((s, n) => {
+    [...slots].sort((a, b) => a.slot - b.slot).slice(0, room).forEach((s, n) => {
       const pick = fullRest[n] && ok(itemId(fullRest[n].icon)) ? [fullRest[n]] : [];
       const items = [...pick, ...(s.items ?? []).filter((x) => !pick.length || itemId(x.icon) !== itemId(pick[0].icon))];
       const free = items.filter((it2) => ok(itemId(it2.icon)));
@@ -390,6 +394,24 @@ var DeepEngine = (() => {
     const bootIds = new Set(k?.boots ?? []);
     let slotRows = laterPicks(champ, owned, rules);
     if (slotRows && RULES.itemLimits.on) applied("itemLimits");
+    if (slotRows && k && RULES.ownedOffPath.on) {
+      const listed = new Set([...champ?.items ?? [], ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
+      const prefix = ((champ?.items ?? []).find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+      const extra = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !(k.boots ?? []).includes(i) && !listed.has(i));
+      for (const i of extra) {
+        const row = slotRows.find((r) => !owned.has(itemId(r.it.icon)));
+        if (!row) break;
+        row.alts = [row.it, ...row.alts].slice(0, 2);
+        row.it = { name: k.recipes[i][0], icon: `${prefix}${22e4 + i}.png` };
+        applied("ownedOffPath");
+      }
+      for (const r of slotRows)
+        if (!owned.has(itemId(r.it.icon)) && [...owned].some((o) => rules.clash(o, itemId(r.it.icon)))) {
+          const alt = r.alts.find((x) => ![...owned].some((o) => rules.clash(o, itemId(x.icon))));
+          if (alt) r.it = alt;
+        }
+      slotRows = slotRows.filter((r) => owned.has(itemId(r.it.icon)) || ![...owned].some((o) => rules.clash(o, itemId(r.it.icon))));
+    }
     const baseList = [...champ?.items ?? [], ...slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? []];
     const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules);
     if (picked.style) {
@@ -445,7 +467,7 @@ var DeepEngine = (() => {
     }
     next = next.slice(0, 2);
     const coreItems = build.slice(0, coreLen);
-    const rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, coreLen + 3);
+    const rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6);
     const path = [...coreItems, ...rest];
     const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
     const slotName = (i) => ord(slotRows?.[i]?.slot ?? first + i);
@@ -505,7 +527,7 @@ var DeepEngine = (() => {
     }
     if (nearCap) tips.push({ rank: 3, kind: "cap", text: "Attack speed is near Mayhem's 5.0 cap: attack-speed items moved back." });
     else if (RULES.hasteMath.on && haste >= 100 && next[0] && has(next[0], "haste"))
-      tips.push({ rank: 3, kind: "haste", text: `You have ${Math.round(haste)} haste (cooldowns ${Math.round(haste / (100 + haste) * 100)}% shorter): more adds less each point.` });
+      tips.push({ rank: 3, kind: "haste", text: `You have ${Math.round(haste)} ability haste: cooldowns are ${Math.round(haste / (100 + haste) * 100)}% shorter.` });
     if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
     for (const t of timing.slice(0, 1)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
     if (RULES.shopTips.on && k && next.length) {
