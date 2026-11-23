@@ -155,5 +155,9 @@
  "Order within role": "الترتيب داخل الدور",
  "Real ÷ predicted": "الحقيقي ÷ المتوقع",
  "Find an item": "ابحث عن عنصر",
- "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "تقديري. مقدار ما يرفعه من نسبة فوز الأبطال الذين يبنونه: ومنه يبدأ حساب DeepScore."
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "تقديري. مقدار ما يرفعه من نسبة فوز الأبطال الذين يبنونه: ومنه يبدأ حساب DeepScore.",
+ "Next patch": "التحديث القادم",
+ "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "نسبة الفوز المتوقعة في التحديث القادم إن لم يتغير البطل، محسوبة من تغيّر نسب الفوز بين التحديثات السابقة. يضيف العرض المفصّل النطاق الذي تقع فيه 4 مرات من 5.",
+ "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "الحد الأدنى لنسبة الفوز المتوقعة في التحديث القادم، أقل منها بخطأ معتاد واحد. يعتمد DeepScore عليه في الترتيب.",
+ "Estimated games on the live patch.": "عدد المباريات التقديري في التحديث الحالي."
 }

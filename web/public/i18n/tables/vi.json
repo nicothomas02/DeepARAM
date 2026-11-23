@@ -155,5 +155,9 @@
  "Order within role": "Thứ tự trong vai trò",
  "Real ÷ predicted": "Thật ÷ dự đoán",
  "Find an item": "Tìm trang bị",
- "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Ước tính. Mức nó tăng tỉ lệ thắng của các tướng lên đồ này: DeepScore bắt đầu từ đây."
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Ước tính. Mức nó tăng tỉ lệ thắng của các tướng lên đồ này: DeepScore bắt đầu từ đây.",
+ "Next patch": "Bản cập nhật sau",
+ "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Tỉ lệ thắng dự kiến ở bản cập nhật sau nếu tướng không bị thay đổi, ước tính từ cách tỉ lệ thắng biến động giữa các bản trước. Chế độ xem chi tiết thêm khoảng giá trị rơi vào 4 trên 5 lần.",
+ "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "Mức thấp của tỉ lệ thắng dự kiến ở bản cập nhật sau, thấp hơn một sai số thông thường. DeepScore xếp hạng theo giá trị này.",
+ "Estimated games on the live patch.": "Số trận ước tính ở bản cập nhật hiện tại."
 }

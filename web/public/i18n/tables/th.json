@@ -155,5 +155,9 @@
  "Order within role": "ลำดับในบทบาท",
  "Real ÷ predicted": "จริง ÷ ทำนาย",
  "Find an item": "ค้นหาไอเทม",
- "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "ค่าประมาณ ไอเท็มนี้เพิ่มอัตราชนะของแชมเปี้ยนที่ออกมันมากแค่ไหน ซึ่งเป็นจุดเริ่มต้นของ DeepScore"
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "ค่าประมาณ ไอเท็มนี้เพิ่มอัตราชนะของแชมเปี้ยนที่ออกมันมากแค่ไหน ซึ่งเป็นจุดเริ่มต้นของ DeepScore",
+ "Next patch": "แพตช์ถัดไป",
+ "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "อัตราชนะที่คาดในแพตช์ถัดไปหากแชมเปียนไม่ถูกปรับ ประเมินจากการเปลี่ยนแปลงอัตราชนะระหว่างแพตช์ก่อน ๆ มุมมองแบบละเอียดจะแสดงช่วงที่ค่าตกอยู่ 4 ใน 5 ครั้ง",
+ "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "ขอบล่างของอัตราชนะที่คาดในแพตช์ถัดไป ต่ำกว่าหนึ่งค่าคลาดเคลื่อนปกติ DeepScore ใช้ค่านี้จัดอันดับ",
+ "Estimated games on the live patch.": "จำนวนเกมโดยประมาณในแพตช์ปัจจุบัน"
 }

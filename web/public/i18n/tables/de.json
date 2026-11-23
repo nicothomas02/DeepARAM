@@ -155,5 +155,9 @@
  "Order within role": "Reihenfolge in der Rolle",
  "Real ÷ predicted": "Echt ÷ vorhergesagt",
  "Find an item": "Gegenstand suchen",
- "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Geschätzt. Wie stark es die Siegquote der Champions erhöht, die es bauen: Davon geht sein DeepScore aus."
+ "Estimated. How much it raises the win rate of the champions who build it: what its DeepScore starts from.": "Geschätzt. Wie stark es die Siegquote der Champions erhöht, die es bauen: Davon geht sein DeepScore aus.",
+ "Next patch": "Nächster Patch",
+ "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Erwartete Siegrate im nächsten Patch, falls der Champion nicht geändert wird, geschätzt daraus, wie sich Siegraten zwischen früheren Patches bewegt haben. Die detaillierte Ansicht zeigt den Bereich, in dem sie 4 von 5 Mal landet.",
+ "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "Das untere Ende der erwarteten Siegrate im nächsten Patch, eine typische Abweichung darunter. Danach sortiert DeepScore.",
+ "Estimated games on the live patch.": "Geschätzte Spiele im aktuellen Patch."
 }
