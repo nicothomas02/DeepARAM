@@ -283,5 +283,14 @@
  "Fighter": "Bojovník",
  "Enchanter": "Zaklínač",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Vyvolávací kouzla a pořadí schopností jsou pro každý build stejné: statistiky je podle buildu nerozdělují.",
- "No ranked augment on this champion matches that name.": "Žádné hodnocené vylepšení tohoto šampiona neodpovídá tomuto názvu."
+ "No ranked augment on this champion matches that name.": "Žádné hodnocené vylepšení tohoto šampiona neodpovídá tomuto názvu.",
+ "Full build": "Celý build",
+ "Other options": "Další možnosti",
+ "With {augment}": "S {augment}",
+ "The augment upgrades this item, so buy it first.": "Augment tento předmět vylepší, takže ho kup jako první.",
+ "Your abilities apply on-hit effects, so on-hit items pay off more.": "Tvé schopnosti aplikují efekty při zásahu, takže se předměty s efekty při zásahu vyplatí víc.",
+ "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Mění tvé bonusové poškození útokem na sílu schopností, takže se s ním předměty se sílou schopností sčítají.",
+ "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Mění tvou sílu schopností na bonusové poškození útokem, takže se s ním předměty s poškozením útokem sčítají.",
+ "Its empowered attack scales with bonus armor.": "Jeho posílený útok roste s bonusovým brněním.",
+ "It turns bonus armor and magic resist into heal and shield power.": "Mění bonusové brnění a magickou odolnost na sílu léčení a štítů."
 }

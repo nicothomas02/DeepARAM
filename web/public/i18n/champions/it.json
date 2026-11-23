@@ -283,5 +283,14 @@
  "Fighter": "Combattente",
  "Enchanter": "Incantatore",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Incantesimi dell'evocatore e ordine delle abilità sono uguali per ogni build: le statistiche non li dividono per build.",
- "No ranked augment on this champion matches that name.": "Nessun potenziamento in classifica di questo campione corrisponde a quel nome."
+ "No ranked augment on this champion matches that name.": "Nessun potenziamento in classifica di questo campione corrisponde a quel nome.",
+ "Full build": "Build completa",
+ "Other options": "Altre opzioni",
+ "With {augment}": "Con {augment}",
+ "The augment upgrades this item, so buy it first.": "L'aumento potenzia questo oggetto, quindi compralo per primo.",
+ "Your abilities apply on-hit effects, so on-hit items pay off more.": "Le tue abilità applicano gli effetti sul colpo, quindi gli oggetti con effetti sul colpo rendono di più.",
+ "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Converte il tuo attacco fisico bonus in potere magico, quindi gli oggetti con potere magico si sommano.",
+ "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Converte il tuo potere magico in attacco fisico bonus, quindi gli oggetti con attacco fisico si sommano.",
+ "Its empowered attack scales with bonus armor.": "Il suo attacco potenziato scala con l'armatura bonus.",
+ "It turns bonus armor and magic resist into heal and shield power.": "Converte armatura e resistenza magica bonus in potere di cure e scudi."
 }

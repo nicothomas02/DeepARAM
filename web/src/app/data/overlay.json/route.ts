@@ -9,7 +9,7 @@ import { quickBuilds } from "@/lib/quick-build";
 export const dynamic = "force-static";
 
 export function GET() {
-  const champions = quickBuilds().map(({ id, name, skills, spells, start, items, rest, later, laterSlots, situational, rush, swaps, augments, builds }) => ({
+  const champions = quickBuilds().map(({ id, name, skills, spells, start, items, rest, full, later, laterSlots, situational, rush, swaps, augments, builds }) => ({
     id,
     name,
     icon: `/icons/champions/${id}.webp`,
@@ -18,6 +18,8 @@ export function GET() {
     start,
     items,
     rest,
+    // The card's top six-item path after the core: best 4th, 5th and 6th by DeepScore (site parity).
+    full,
     // The usual single items after the core, best first, with their DeepScore (site parity).
     later,
     laterSlots,

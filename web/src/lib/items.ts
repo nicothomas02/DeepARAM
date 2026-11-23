@@ -143,3 +143,15 @@ function recipeTier(id: number): ItemTier {
   if (!r.from?.length && r.priceTotal < 1000) return "starter";
   return "legendary";
 }
+
+/** An item's roles from the simulator's item data (simulator/data/items.json: onhit, ap, tank ...), by its base id
+ *  (the mode's copies share them). Item metadata only; no simulated numbers. */
+let roles: Map<number, string[]> | null = null;
+export function itemRoles(id: number): string[] {
+  roles ??= new Map(
+    Object.values(readRepoJson<{ items: Record<string, { id?: number; roles?: string[] }> }>("simulator/data/items.json")?.items ?? {}).flatMap((v) =>
+      v.id ? [[v.id, v.roles ?? []] as [number, string[]]] : [],
+    ),
+  );
+  return roles.get(id >= 100000 ? id % 10000 : id) ?? [];
+}

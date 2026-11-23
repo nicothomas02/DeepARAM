@@ -283,5 +283,14 @@
  "Fighter": "战士",
  "Enchanter": "附魔者",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "召唤师技能和技能加点在每种出装下都相同：数据没有按出装区分。",
- "No ranked augment on this champion matches that name.": "该英雄的已排名强化符文中没有与此名称匹配的。"
+ "No ranked augment on this champion matches that name.": "该英雄的已排名强化符文中没有与此名称匹配的。",
+ "Full build": "完整出装",
+ "Other options": "其他选择",
+ "With {augment}": "拥有{augment}时",
+ "The augment upgrades this item, so buy it first.": "该海克斯强化会升级这件装备，所以先买它。",
+ "Your abilities apply on-hit effects, so on-hit items pay off more.": "你的技能会触发攻击特效，所以攻击特效装备收益更高。",
+ "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "它把你的额外攻击力转化为法术强度，所以法强装备能与它叠加。",
+ "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "它把你的法术强度转化为额外攻击力，所以攻击力装备能与它叠加。",
+ "Its empowered attack scales with bonus armor.": "它的强化攻击随额外护甲提升。",
+ "It turns bonus armor and magic resist into heal and shield power.": "它把额外护甲和魔抗转化为治疗和护盾强度。"
 }

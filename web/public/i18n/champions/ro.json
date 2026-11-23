@@ -283,5 +283,14 @@
  "Fighter": "Luptător",
  "Enchanter": "Fermecător",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Vrăjile de invocator și ordinea abilităților sunt aceleași pentru fiecare build: statisticile nu le separă pe build.",
- "No ranked augment on this champion matches that name.": "Niciun augment clasat al acestui campion nu se potrivește cu acest nume."
+ "No ranked augment on this champion matches that name.": "Niciun augment clasat al acestui campion nu se potrivește cu acest nume.",
+ "Full build": "Build complet",
+ "Other options": "Alte opțiuni",
+ "With {augment}": "Cu {augment}",
+ "The augment upgrades this item, so buy it first.": "Augmentul îmbunătățește acest obiect, așa că cumpără-l primul.",
+ "Your abilities apply on-hit effects, so on-hit items pay off more.": "Abilitățile tale aplică efecte la lovire, așa că obiectele cu efecte la lovire rentează mai mult.",
+ "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Transformă daunele de atac bonus în putere a abilităților, așa că obiectele cu putere a abilităților se cumulează cu el.",
+ "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Transformă puterea abilităților în daune de atac bonus, așa că obiectele cu daune de atac se cumulează cu el.",
+ "Its empowered attack scales with bonus armor.": "Atacul său amplificat crește cu armura bonus.",
+ "It turns bonus armor and magic resist into heal and shield power.": "Transformă armura și rezistența la magie bonus în putere de vindecare și scuturi."
 }

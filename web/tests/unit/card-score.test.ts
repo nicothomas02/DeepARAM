@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { alongCore, followed, laterItems, skipsBoots, slotItems, type ItemRow } from "@/lib/card-score";
+import { alongCore, followed, fullPicks, laterItems, skipsBoots, slotItems, type ItemRow } from "@/lib/card-score";
 
 describe("followed", () => {
   it("keeps a rare build from leading the list", () => {
@@ -70,5 +70,21 @@ describe("items after the core", () => {
   it("gives nothing without buying-order data", () => {
     expect(slotItems(pool, core, none, undefined, undefined)).toBeNull();
     expect(slotItems(pool, core, none, undefined, {})).toBeNull();
+  });
+});
+
+describe("fullPicks", () => {
+  const r = (id: number, deepScore: number): ItemRow => ({ items: [id], pickRate: 0.1, winRate: 0.5, lift: 0, deepScore });
+  it("fills the build to six with each slot's best DeepScore item, never twice", () => {
+    const core: ItemRow = { items: [1, 2, 3], pickRate: 0.1, winRate: 0.5, lift: 0, boots: 9 };
+    const slots = [
+      { slot: 4, items: [r(4, 60), r(5, 70)] },
+      { slot: 5, items: [r(5, 80), r(6, 50)] },
+    ];
+    expect(fullPicks(core, slots, [r(7, 40)]).map((x) => x.items[0])).toEqual([5, 6]);
+  });
+  it("falls back to the later list when a slot is missing", () => {
+    const core: ItemRow = { items: [1, 2, 3], pickRate: 0.1, winRate: 0.5, lift: 0 };
+    expect(fullPicks(core, undefined, [r(7, 40), r(8, 65), r(9, 50)]).map((x) => x.items[0])).toEqual([8, 9, 7]);
   });
 });

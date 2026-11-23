@@ -283,5 +283,14 @@
  "Fighter": "Fighter",
  "Enchanter": "Enchanter",
  "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Summoner spell dan urutan skill sama untuk setiap build: statistiknya tidak memisahkannya per build.",
- "No ranked augment on this champion matches that name.": "Tidak ada augment berperingkat untuk champion ini yang cocok dengan nama itu."
+ "No ranked augment on this champion matches that name.": "Tidak ada augment berperingkat untuk champion ini yang cocok dengan nama itu.",
+ "Full build": "Build lengkap",
+ "Other options": "Opsi lain",
+ "With {augment}": "Dengan {augment}",
+ "The augment upgrades this item, so buy it first.": "Augment ini meningkatkan item ini, jadi beli lebih dulu.",
+ "Your abilities apply on-hit effects, so on-hit items pay off more.": "Skill-mu menerapkan efek on-hit, jadi item on-hit lebih menguntungkan.",
+ "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Mengubah bonus Attack Damage-mu menjadi Ability Power, jadi item Ability Power menumpuk dengannya.",
+ "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Mengubah Ability Power-mu menjadi bonus Attack Damage, jadi item Attack Damage menumpuk dengannya.",
+ "Its empowered attack scales with bonus armor.": "Serangan yang diperkuatnya berskala dengan bonus armor.",
+ "It turns bonus armor and magic resist into heal and shield power.": "Mengubah bonus armor dan magic resist menjadi kekuatan heal dan shield."
 }

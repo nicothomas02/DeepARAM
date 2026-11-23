@@ -2,6 +2,7 @@
 // spells, boots, core and situational items, and the top augments as ranked on the page. Feeds /data/watch.json (Apple Watch)
 // and /data/overlay.json (the desktop app's in-game overlay).
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
+import type { AugmentSwap } from "@/lib/build-plan";
 import { bestRow, buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
 import { followed } from "@/lib/card-score";
 import { champList } from "@/lib/champions";
@@ -32,8 +33,11 @@ export type QuickBuild = {
   later: LaterItem[];
   /** The same items split by the slot players buy them in (4th, 5th, 6th item), when the buying order is known. */
   laterSlots: { slot: number; items: LaterItem[] }[];
-  /** Items to swap in after the core, each with when to buy it ("Vs healing"), as on the champion page's card. */
-  situational: (Named & { when: string })[];
+  /** The card's top six-item path: the core plus the best 4th, 5th and 6th picks (lib/card-score.ts fullPicks). */
+  full: LaterItem[];
+  /** Items to swap in after the core, each with when to buy it ("Vs healing", "With Ethereal Weapon"), as on the
+   *  champion page's card. Augment-triggered entries also carry the augment ids and a one-line reason. */
+  situational: (Named & { when: string; why?: string; augments?: number[] })[];
   /** Components to rush for the first core item. */
   rush: Named[];
   /** "With this augment, buy this item first", as on the champion page's card. */
@@ -42,7 +46,7 @@ export type QuickBuild = {
   augments: Record<Rarity, (Named & { deepScore?: number })[]>;
   /** With two or more build styles (crit and AP Ashe): each style's own card, best DeepScore first; the fields above
    *  are the first one's. Augments per style are estimated (build tags). Same switch as the champion page. */
-  builds: (Pick<QuickBuild, "start" | "items" | "rest" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number })[];
+  builds: (Pick<QuickBuild, "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number })[];
 };
 
 /** No raw win or pick rates: the quick build feeds the public app's overlay (tests/unit/overlay-data.test.ts). */
@@ -62,16 +66,21 @@ export function quickBuilds(): QuickBuild[] {
       const n = named(r.items[0]);
       return n ? [{ ...n, deepScore: r.deepScore ?? null }] : [];
     };
-    const pieces = (core: ItemRow | undefined, st: ItemRow | null, situ: SituationRow[], rushIds: number[]) => ({
+    const pieces = (core: ItemRow | undefined, st: ItemRow | null, situ: SituationRow[], rushIds: number[], augSwaps: AugmentSwap[]) => ({
       items: (core ? buildOrder(core) : []).flatMap((i) => named(i) ?? []),
       start: (st?.items ?? []).flatMap((i) => named(i) ?? []),
       rest: (core?.rest ?? []).flatMap((i) => named(i) ?? []),
+      full: (core?.full ?? []).flatMap(laterOf),
       later: (core?.later ?? []).flatMap(laterOf),
       laterSlots: (core?.slots ?? []).map((sl) => ({ slot: sl.slot, items: sl.items.flatMap(laterOf) })),
-      situational: situ.flatMap((s) => {
+      situational: situ.flatMap((s): QuickBuild["situational"] => {
         const n = named(s.options[0]?.items[0]);
         return n ? [{ ...n, when: SITUATIONS[s.situation] }] : [];
-      }),
+      }).concat(augSwaps.flatMap((sw) => {
+        const n = named(sw.item);
+        const a = p.augments.find((x) => sw.augments.includes(x.id));
+        return n && a ? [{ ...n, when: `With ${a.name}`, why: sw.why, augments: sw.augments }] : [];
+      })),
       rush: rushIds.flatMap((i) => named(i) ?? []),
     });
     const rawSpells = fillSpells(id, t?.winRate ?? p.winRate ?? 0.5);
@@ -102,11 +111,11 @@ export function quickBuilds(): QuickBuild[] {
       style: b.style,
       share: Math.round(b.share * 1000) / 1000,
       deepScore: b.deepScore,
-      ...pieces(b.core, b.start, b.situational, b.rush),
+      ...pieces(b.core, b.start, b.situational, b.rush, b.augmentSwaps),
       augments: augsOf(b.augments),
     }));
-    const first = builds[0] ?? { ...pieces(p.core[0], p.cardStart, p.situational, p.rush), augments: augsOf() };
-    const { start, items, rest, later, laterSlots, situational, rush, augments } = first;
+    const first = builds[0] ?? { ...pieces(p.core[0], p.cardStart, p.situational, p.rush, p.augmentSwaps), augments: augsOf() };
+    const { start, items, rest, full, later, laterSlots, situational, rush, augments } = first;
     return [
       {
         id,
@@ -119,6 +128,7 @@ export function quickBuilds(): QuickBuild[] {
         start,
         items,
         rest,
+        full,
         later,
         laterSlots,
         situational,
