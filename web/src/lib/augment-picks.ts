@@ -7,9 +7,10 @@ import { championPage } from "./champion-page";
 import { champList } from "./champions";
 import { championEstimates } from "./estimates";
 import { augmentScores } from "./champion-augments";
+import { shrunkLeads } from "./card-score";
 
 // Every champion's augments in the champion page's order, for the desktop app's augment panel (apps/desktop
-// companion.html): ranked by the champion's estimated boost from each augment (the page's "Boost"), else by its
+// companion.html): ranked like the champion page (real games: DeepScore order), else by the estimated boost, else by its
 // DeepScore, with the confirmed synergy pairs so the panel can re-rank once the player marks what they took.
 // The panel shows the ranking and each augment's DeepScore on this champion (Nico 2026-11-20), never raw win
 // rates. Public data only.
@@ -62,11 +63,18 @@ export function augmentPicks(): AugmentPicks {
     if (!p?.augments.length) continue;
     const est = championEstimates(ids[alias] ?? -1);
     const deep = augmentScores(alias);
+    // Real games and wins on this champion (AramHex): rank by each augment's shrunk lead over the champion's list,
+    // the same order as its DeepScore on the champion page (2026-11-23: the old estimated boost, built from overall
+    // augment strength, disagreed with the page's #1 in 63% of champion x rarity lists). Shown as DeepScore only.
+    const real = deep.real
+      ? shrunkLeads(p.augments.map((a) => ({ id: a.id, winRate: a.winRate ?? 0, pickRate: a.pickRate, games: a.games })))
+      : new Map<number, number>();
     const rows = p.augments.map((a) => {
       out.augments[a.id] = [a.name, a.rarity];
-      const lift = est?.augments.get(a.id)?.lift;
+      const lead = real.get(a.id);
+      const lift = lead === undefined ? est?.augments.get(a.id)?.lift : undefined;
       // No estimate: fall back to DeepScore around its middle (50), scaled to about the same size as a boost.
-      const score = lift ?? ((scores.get(a.id) ?? 50) - 50) / 1000;
+      const score = lead ?? lift ?? ((scores.get(a.id) ?? 50) - 50) / 1000;
       return [a.id, r4(score), deep.get(a.id) ?? -1, lift === undefined ? 0 : 1] as [number, number, number, number];
     });
     out.champions[alias] = rows.sort((x, y) => y[1] - x[1]);

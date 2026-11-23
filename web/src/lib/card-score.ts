@@ -76,6 +76,18 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(list:
     .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
 }
 
+/** Each row's lead over its list's pick-weighted average, as a fraction, shrunk by its own sampling noise exactly as
+ *  scoreRows does with real games (so ordering by it is DeepScore's order). Empty when any row lacks games. Used by
+ *  the desktop apps' augment panel, which adds synergy points on the same win-rate scale (lib/augment-picks.ts). */
+export function shrunkLeads<T extends { id: number; winRate: number; pickRate: number; games?: number }>(list: T[]): Map<number, number> {
+  if (!list.length || !list.every((r) => (r.games ?? 0) > 0)) return new Map();
+  const total = list.reduce((s, r) => s + r.pickRate, 0) || 1;
+  const mean = list.reduce((s, r) => s + r.winRate * r.pickRate, 0) / total;
+  const vs = list.map((r) => (r.winRate * (1 - r.winRate)) / r.games!);
+  const tau2 = trueSpread(list.map((r) => r.winRate), vs);
+  return new Map(list.map((r, i) => [r.id, (tau2 / (tau2 + vs[i])) * (r.winRate - mean)]));
+}
+
 /** Share of the most common row's pick rate a row needs to lead a list (FOLLOWED). */
 export const MIN_FOLLOWING = 0.25;
 
