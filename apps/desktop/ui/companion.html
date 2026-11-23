@@ -54,6 +54,7 @@
   .items.lst { gap: 6px; }
   .items.lst .item img { width: 28px; height: 28px; }
   .item.lit .why { color: var(--gold); }
+  .alts img { width: 18px !important; height: 18px !important; border-radius: 4px; vertical-align: middle; margin-left: 3px; opacity: .8; }
   .offer .reroll { margin: 8px 2px 2px; }
   .why.lbl b { text-transform: none; letter-spacing: 0; }
   .items.lst .why.lbl { margin: 4px 0 -2px; }
@@ -494,19 +495,40 @@
     return "";
   }
 
+  // One pick per 4th/5th/6th item slot from the site's slot lists (most bought there first): an item you already
+  // own from a slot's list fills that slot, else its first item not already in the core or an earlier slot. The
+  // slot's other items show small, as alternatives. Null when the site has no slot data for the champion.
+  function laterPicks(champ, owned) {
+    const slots = champ?.laterSlots;
+    if (!slots?.length) return null;
+    const used = new Set((champ.items ?? []).map((it) => itemId(it.icon)));
+    const out = [];
+    for (const s of [...slots].sort((a, b) => a.slot - b.slot)) {
+      const free = (s.items ?? []).filter((it) => !used.has(itemId(it.icon)));
+      const it = free.find((x) => owned.has(itemId(x.icon))) ?? free[0];
+      if (!it) continue;
+      used.add(itemId(it.icon));
+      out.push({ slot: s.slot, it, alts: free.filter((x) => x !== it).slice(0, 2) });
+    }
+    return out.length ? out : null;
+  }
+
   async function renderItems() {
     const box = document.getElementById("items");
     if (!box || !game) return;
     const [d, k, picks, fitData] = await Promise.all([loadBuilds(), loadKinds(), loadPicks(), loadFit()]);
     const champ = d?.champions?.find((c) => c.id.toLowerCase() === game.champ.toLowerCase());
     const taken = getTaken(game);
-    // The core (boots and first three) and then the rest of the usual six: without the rest, the panel ran out of
-    // items once the core was bought.
-    const { list: build, style, core } = pickBuild([...(champ?.items ?? []), ...(champ?.rest ?? [])], picks, k, taken);
-    const coreLen = core ?? (champ?.items ?? []).length;
     const owned = new Set(game.items.map((i) => i % 10000));
     // Any boots fill the build's boots slot: someone on other boots shouldn't be told to buy the build's pair.
     const bootIds = new Set(k?.boots ?? []);
+    // The core (boots and first three) and then the rest of the usual six: without the rest, the panel ran out of
+    // items once the core was bought. Where the site splits the rest into 4th, 5th and 6th item slots (by when
+    // players buy them), each slot's pick comes from there.
+    let slotRows = laterPicks(champ, owned);
+    const { list: build, style, core } = pickBuild([...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? [])], picks, k, taken);
+    if (style) slotRows = null;
+    const coreLen = core ?? (champ?.items ?? []).length;
     const hasBoots = [...owned].some((i) => bootIds.has(i));
     let next = build.filter((it) => !owned.has(itemId(it.icon)) && !(hasBoots && bootIds.has(itemId(it.icon))));
     // A stacking item (Hubris, Heartsteel, tear items) in the build goes first while you have no finished item yet.
@@ -565,7 +587,7 @@
     // The core is boots plus three items; what follows is numbered on from the core's items (boots not counted), so
     // usually the 4th and 5th item, and a 6th where the build sells boots for one.
     const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
-    const coreItems = build.slice(0, coreLen), rest = build.slice(coreLen, coreLen + 3);
+    const coreItems = build.slice(0, coreLen), rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, coreLen + 3);
     const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
     const inBuild = new Set(build.map((it) => itemId(it.icon)));
     const allSits = k ? situational(champ, k, fitData, game, owned) : [];
@@ -577,7 +599,11 @@
       ${shop ? `<div class="why">${shop}</div>` : ""}
       <div class="why lbl">Core${next[0] && coreItems.includes(next[0]) ? ` · next: <b>${esc(next[0].name)}</b>` : ""}</div>
       <div class="core">${coreItems.map((it) => `<img class="${state(it).trim()}" src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</div>
-      ${rest.length ? `<div class="items lst">${rest.map((it, i) => { const r = reason(it); return `<div class="why lbl">${ord(first + i)} item</div>` + row(it, [it === next[0] ? "Next" : "", r ? `${esc(r.when)}: ${esc(r.why)}` : ""].filter(Boolean).join(" · "), r ? " lit" : ""); }).join("")}</div>` : ""}
+      ${rest.length ? `<div class="items lst">${rest.map((it, i) => {
+        const r = reason(it), alts = slotRows?.[i]?.alts ?? [];
+        const or = alts.length ? `<span class="alts">or ${alts.map((a) => `<img src="${src(a.icon)}" alt="" title="${esc(a.name)}">`).join("")}</span>` : "";
+        return `<div class="why lbl">${ord(slotRows?.[i]?.slot ?? first + i)} item</div>` + row(it, [it === next[0] ? "Next" : "", r ? `${esc(r.when)}: ${esc(r.why)}` : "", or].filter(Boolean).join(" · "), r ? " lit" : "");
+      }).join("")}</div>` : ""}
       ${sits.length ? `<div class="why lbl">Situational</div><div class="items lst">${sits.map((it) => row(it, it.why ? `${esc(it.when)}: ${esc(it.why)}` : esc(it.when), it.why ? " lit" : "")).join("")}</div>` : ""}
       ${next.length ? "" : `<p class="note">You have the whole build.</p>`}
       ${tip}</div>`;
