@@ -476,7 +476,7 @@
     return list.map((it) => {
       if (Array.isArray(it.augments)) {
         const got = it.augments.find((id) => taken.includes(id));
-        return { ...it, why: got !== undefined ? `You took ${augName(got)}.` : "" };
+        return { ...it, why: got !== undefined ? it.why || `You took ${augName(got)}.` : "" };
       }
       return { ...it, why: checks[it.when] || "" };
     });
@@ -590,8 +590,10 @@
     // items once the core was bought. Where the site splits the rest into 4th, 5th and 6th item slots (by when
     // players buy them), each slot's pick comes from there.
     let slotRows = laterPicks(champ, owned);
-    // The site's own six-item path ("full") when it has one; else the core plus each later slot's pick.
-    const base = champ?.full?.length ? champ.full : [...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? [])];
+    // The core, then the site's own picks for the later slots ("full": best DeepScore per slot) when it has them,
+    // else each later slot's first item.
+    const later = champ?.full?.length ? champ.full : slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? [];
+    const base = [...(champ?.items ?? []), ...later];
     const { list: build, style, core } = pickBuild(base, picks, k, taken);
     if (style) slotRows = null;
     const coreLen = core ?? (champ?.items ?? []).length;
