@@ -462,7 +462,7 @@
       "Vs mixed damage": magic !== null && magic > 0.4 && magic < 0.6 && `Enemy damage is mixed.`,
       "Vs crit carries": crit >= 1 && n(crit, "build crit"),
       "Vs shields": shielders >= 2 && n(shielders, "shield allies"),
-      "Vs heavy crowd control": count(CATCH) >= 3 && n(count(CATCH), "lock you down"),
+      // "Vs heavy crowd control" is off (2026-11-23): tenacity/QSS showed no effect either way against heavy CC.
     };
     // Entries tied to augments (the site's "augments" list) light up once you've taken one of them.
     const taken = getTaken(g);
@@ -625,7 +625,8 @@
     // back. Crit past 100% turns into attack damage in Mayhem, so crit is never wasted and isn't guarded.
     const [, aspd, haste] = game.stats ?? [0, 0, 0];
     const has = (it, kind) => (k?.items[String(itemId(it.icon))] ?? []).includes(kind);
-    const nearCap = aspd >= 4.5;
+    // Off (2026-11-23): 451 game frames show attack speed above 5.0, so the cap this guarded is unconfirmed.
+    const nearCap = false;
     const hit = (it) => has(it, "as");
     if (nearCap) next = [...next.filter((it) => !hit(it)), ...next.filter(hit)];
     let capNote = nearCap ? `Attack speed is near Mayhem's 5.0 cap: attack-speed items moved back.` : "";
@@ -646,8 +647,8 @@
     if (capNote) add(3, capNote);
     if (style) add(4, `Build switched to <b>${esc(style)}</b> to fit your augments.`);
     if (stack > 0) add(4, `${itemImg(itemId(next[0].icon))}<b>${esc(next[0].name)}</b> stacks over time, so it goes first.`);
-    const pen = shop && k ? penTip(k, game, owned) : "";
-    if (pen) add(5, pen);
+    // The penetration tip is off (2026-11-23): %pen holders gained less damage against teams stacking resists, and
+    // flat pen is untested.
     // Six items and gold for the next one: sell an item that isn't in the build.
     const slots = game.items.filter((i) => (k?.recipes[i % 10000]?.[1] ?? 0) > 0 && !bootIds.has(i % 10000)).length + (hasBoots ? 1 : 0);
     if (k && slots >= 6 && next.length) {
