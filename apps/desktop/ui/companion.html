@@ -71,7 +71,7 @@
   .plan { display: flex; justify-content: space-between; align-items: center; }
   .plan .keys b { color: var(--accent); }
   .filters { display: flex; gap: 6px; margin-bottom: 8px; }
-  .chip.f { padding: 3px 10px; }
+  .chip.f, .chip.br { padding: 3px 10px; }
   .chip.on { color: var(--fg); border-color: var(--accent); }
   .aug { padding: 6px 10px; margin-bottom: 4px; }
   .aug img { width: 30px; height: 30px; }
@@ -188,6 +188,12 @@
     }
     return n ? sum / n : 0;
   }
+  // Champion strength by skill bracket, like the site's Tier List picker (Nico 2026-11-23): All players by default,
+  // Casual / Mid / Top 5% on a toggle, remembered on this computer.
+  const BRACKETS = [["all", "All players"], ["casual", "Casual"], ["mid", "Mid"], ["high", "Top 5%"]];
+  let bracket = (() => { try { return localStorage.getItem("bracket") || "all"; } catch { return "all"; } })();
+  const strengthOf = (d, id) => (bracket !== "all" ? d.brackets?.[bracket]?.[id] : undefined) ?? d.champions[id][0];
+  let lastPick = null;
   function rank(d, allies, options) {
     const team = allies.filter((a) => d.champions[a]);
     const others = Object.keys(d.champions).filter((id) => !team.includes(id));
@@ -195,7 +201,7 @@
     return options.filter((id) => d.champions[id]).map((id) => {
       const parts = team.map((ally) => ({ ally, boost: pairBoost(d, id, ally) - avg.get(ally) }));
       const fitSum = parts.reduce((s, p) => s + p.boost, 0);
-      const strength = d.champions[id][0] - 0.5;
+      const strength = strengthOf(d, id) - 0.5;
       return { id, strength, fit: fitSum, score: strength, parts };
     }).sort((a, b) => b.score - a.score);
   }
@@ -203,7 +209,9 @@
 
   window.showPick = async ({ allies, mine, bench }) => {
     lastGame = null;
+    lastPick = { allies, mine, bench };
     const d = await loadFit();
+    if (!d?.brackets?.[bracket]) bracket = "all";
     if (!d) { setView(`${hero(null, "Champion select", "Couldn't load the picks")}<p class="note">Check your connection.</p>`); return; }
     const byId = Object.fromEntries(Object.entries(d.ids ?? {}).map(([a, id]) => [id, a]));
     const team = allies.map((id) => byId[id]).filter(Boolean);
@@ -240,9 +248,10 @@
       ${team.length ? `<h2>Your team</h2><div class="mates">${team.map(icon).join("")}</div>` : ""}
       ${gap ? `<div class="box">${esc(gap)}</div>` : ""}
       <h2>Your choices, best first</h2>
+      ${Object.keys(d.brackets ?? {}).length ? `<div class="filters" title="Skill brackets come from a rating built from game results, not official ranks.${d.bracketPatch && d.bracketPatch !== d.patch ? ` This patch's brackets aren't out yet, so they use patch ${esc(d.bracketPatch)}.` : ""}">${BRACKETS.filter(([b]) => b === "all" || d.brackets[b]).map(([b, l]) => `<button class="chip br${b === bracket ? " on" : ""}" data-b="${b}">${l}</button>`).join("")}</div>` : ""}
       ${rows || `<p class="note">Waiting for your champion and bench…</p>`}
       ${planHtml}
-      <p class="note">Strength this patch, in win-rate points. A guide, not a promise. You make the pick.</p>`);
+      <p class="note">Strength this patch${bracket !== "all" ? ` for ${esc(BRACKETS.find(([b]) => b === bracket)[1])} players` : ""}, in win-rate points. A guide, not a promise. You make the pick.</p>`);
   };
 
   function chart(points, from) {
@@ -557,6 +566,12 @@
   // The app's page rules block inline handlers (onclick=, onerror=), so these listen on the document instead.
   document.addEventListener("click", (e) => {
     if (e.target.closest?.(".hero .fs")) fullScreen();
+    const br = e.target.closest?.(".chip.br");
+    if (br) {
+      bracket = br.dataset.b;
+      try { localStorage.setItem("bracket", bracket); } catch {}
+      if (lastPick) window.showPick(lastPick);
+    }
     const l = e.target.closest?.(".chip.lucky");
     if (l) {
       lucky = !lucky;

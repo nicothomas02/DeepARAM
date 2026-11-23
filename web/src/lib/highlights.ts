@@ -131,7 +131,7 @@ export function searchItems(): SearchItem[] {
 export type HomeChamp = { id: string; name: string; tier: string; winRate: number; pickRate: number; deepScore: number; next: number };
 
 /** Live-patch tiers for every champion (same DeepScore tiers as the Tier List's default view); pass a patch for an earlier one. */
-export function liveTiers(patch: string | null = livePatch()): HomeChamp[] {
+export function liveTiers(patch: string | null = livePatch(), bracket?: { matches: number; champs: Record<string, [number, number]> }): HomeChamp[] {
   const num = (v?: string) => (v === undefined || v === "" ? null : Number(v));
   const rows: PatchRow[] = (readRepoCsv("data/cn/history/by_patch.csv") ?? [])
     .filter((r) => r.patch === patch)
@@ -148,6 +148,12 @@ export function liveTiers(patch: string | null = livePatch()): HomeChamp[] {
       augs: r.augment_ids ?? "",
     }));
   if (!patch || !rows.length) return [];
+  // A skill bracket (lib/brackets.ts): the same swap as the Tier List's bracket picker, that bracket's win and pick
+  // rates and its games for the ranges. Champions the bracket has no games for drop out.
+  if (bracket) {
+    const inB = rows.flatMap((r) => (bracket.champs[r.name] ? [{ ...r, win_rate: bracket.champs[r.name][0], pick_rate: bracket.champs[r.name][1] }] : []));
+    return champStats(inB, new Set([patch]), { [patch]: bracket.matches }).map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate, pickRate: c.pick_rate, deepScore: c.deepScore, next: c.next ?? c.win_rate }));
+  }
   return champStats(rows, new Set([patch])).map((c) => ({ id: c.name, name: champName(c.name), tier: c.tier, winRate: c.win_rate, pickRate: c.pick_rate, deepScore: c.deepScore, next: c.next ?? c.win_rate }));
 }
 

@@ -17,6 +17,11 @@ export type TeamFitData = {
   archetypes: Record<string, number>;
   /** alias -> numeric champion id, for the desktop app's champion select (which reports ids) */
   ids?: Record<string, number>;
+  /** Skill brackets on the live patch, when it has them: bracket -> alias -> expected win rate (same scoring as
+   *  `champions`, on that bracket's games). The public app's strength toggle; All players stays `champions`. */
+  brackets?: Partial<Record<"casual" | "mid" | "high", Record<string, number>>>;
+  /** The patch the brackets come from (the live one, or the one before until the live one has them). */
+  bracketPatch?: string | null;
 };
 
 export type PairPart = { ally: string; boost: number; exact: boolean };
