@@ -164,7 +164,15 @@ def watch(src, index):
                 elif isinstance(first, dict) and name != "heroes.json":
                     first = next(iter(first.values()), {}) if first else {}
                 fields[name] = sorted(first) if isinstance(first, dict) else []
+    # Augments with item data (hero_augment_items): only Weapon of Destiny (3081) so far; more would allow real
+    # "with this augment, buy this item first" tips (Nico 2026-11-23).
+    aug_items = []
+    latest = next((d for d in reversed(index["datasets"]) if d.get("mode") == "normal" and "hero_augment_items.json" in d["files"]), None)
+    if latest:
+        d = json.loads(get(src, latest["path"].rstrip("/") + "/hero_augment_items.json"))
+        aug_items = sorted({a for v in d.values() for a in v})
     now = {
+        "augments_with_items": aug_items,
         "schema_version": index.get("schema_version"),
         "license_sha256": hashlib.sha256(lic).hexdigest(),
         "datasets": {d["path"]: {"patch": d["patch"], "mode": d.get("mode"), "seq": d.get("seq"), "bands": bool(d.get("bands")),
@@ -189,6 +197,9 @@ def watch(src, index):
                 notes.append(f"New tables in {path}: {', '.join(added)}")
             if d["bands"] and not o["bands"]:
                 notes.append(f"MMR bands now available for {d['patch']} {d['mode']}")
+        more = sorted(set(now["augments_with_items"]) - set(old.get("augments_with_items", ["3081"])))
+        if more:
+            notes.append(f"Items-per-augment data now covers more augments ({', '.join(more)}): real augment item tips possible")
         for name, f in now["fields"].items():
             new_f = sorted(set(f) - set(old.get("fields", {}).get(name, [])))
             if new_f and name in old.get("fields", {}):
