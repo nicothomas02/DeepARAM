@@ -1,12 +1,12 @@
 {
  "patch": "16.23",
- "built": "2026-11-22",
+ "built": "2026-11-23",
  "checks": {
   "loops": 3,
-  "gap": 42,
+  "gap": 48,
   "sim": 13,
   "wasted": 0,
-  "kitchen": 41
+  "kitchen": 43
  },
  "traps": [
   {
@@ -257,7 +257,6 @@
     "Gangplank",
     "Jax",
     "Kaisa",
-    "Kalista",
     "Katarina",
     "KogMaw",
     "MissFortune",
@@ -346,7 +345,6 @@
     "Nocturne",
     "Olaf",
     "Orianna",
-    "RekSai",
     "Renata",
     "Samira",
     "Senna",
@@ -377,6 +375,21 @@
    "items": [],
    "theory": "With Haste turns Ability Haste into Move Speed, Tap Dancer turns Move Speed into Attack Speed, and Purist - Caster turns Attack Speed into Ability Haste. On paper each one keeps raising the other, so Ability Haste grows without end.",
    "test": "Take Purist - Caster and Tap Dancer and With Haste, then open your stats after each item. If Ability Haste keeps climbing on its own, it's a bug worth reporting. If it settles after one step, it's a trap.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Aatrox",
+   "kind": "gap",
+   "title": "Aatrox never gets POWER",
+   "champions": [
+    "Aatrox"
+   ],
+   "augments": [
+    3171
+   ],
+   "items": [],
+   "theory": "At least 95% of champions get POWER, but Aatrox has never been seen taking it, even though Aatrox is picked often.",
+   "test": "Play Aatrox and watch your augment choices. If it never shows up, Riot has left it out for Aatrox. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -419,11 +432,11 @@
    "augments": [
     3078,
     1103,
-    3079,
-    1098
+    1098,
+    3079
    ],
    "items": [],
-   "theory": "At least 93% of champions get The Boom and the Bass, Bread And Butter, Totentanz and With Haste, but Aurelion Sol has never been seen taking them, even though Aurelion Sol is picked often.",
+   "theory": "At least 90% of champions get The Boom and the Bass, Bread And Butter, With Haste and Totentanz, but Aurelion Sol has never been seen taking them, even though Aurelion Sol is picked often.",
    "test": "Play Aurelion Sol and watch your augment choices. If they never show up, Riot has left them out for Aurelion Sol. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -535,7 +548,7 @@
     2005
    ],
    "items": [],
-   "theory": "At least 93% of champions get Triggered Inferno, but Fiora has never been seen taking it, even though Fiora is picked often.",
+   "theory": "At least 92% of champions get Triggered Inferno, but Fiora has never been seen taking it, even though Fiora is picked often.",
    "test": "Play Fiora and watch your augment choices. If it never shows up, Riot has left it out for Fiora. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -573,6 +586,21 @@
    "status": "to_test"
   },
   {
+   "id": "gap-Gwen",
+   "kind": "gap",
+   "title": "Gwen never gets Bread And Jam",
+   "champions": [
+    "Gwen"
+   ],
+   "augments": [
+    1150
+   ],
+   "items": [],
+   "theory": "At least 92% of champions get Bread And Jam, but Gwen has never been seen taking it, even though Gwen is picked often.",
+   "test": "Play Gwen and watch your augment choices. If it never shows up, Riot has left it out for Gwen. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
    "id": "gap-Jayce",
    "kind": "gap",
    "title": "Jayce never gets Ultimate Awakening and 6 more",
@@ -581,15 +609,15 @@
    ],
    "augments": [
     1349,
-    1004,
     1028,
+    1004,
     1211,
     1058,
     3116,
     3118
    ],
    "items": [],
-   "theory": "At least 90% of champions get Ultimate Awakening, Back To Basics, Erosion, It's Killing Time, Mystic Punch, Take'em Down Down Down and Arcane Axiom, but Jayce has never been seen taking them, even though Jayce is picked often.",
+   "theory": "At least 90% of champions get Ultimate Awakening, Erosion, Back To Basics, It's Killing Time, Mystic Punch, Take'em Down Down Down and Arcane Axiom, but Jayce has never been seen taking them, even though Jayce is picked often.",
    "test": "Play Jayce and watch your augment choices. If they never show up, Riot has left them out for Jayce. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -658,6 +686,21 @@
    "status": "to_test"
   },
   {
+   "id": "gap-Kayn",
+   "kind": "gap",
+   "title": "Kayn never gets THRASH",
+   "champions": [
+    "Kayn"
+   ],
+   "augments": [
+    3172
+   ],
+   "items": [],
+   "theory": "At least 95% of champions get THRASH, but Kayn has never been seen taking it, even though Kayn is picked often.",
+   "test": "Play Kayn and watch your augment choices. If it never shows up, Riot has left it out for Kayn. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
    "id": "gap-Lux",
    "kind": "gap",
    "title": "Lux never gets Erosion and 5 more",
@@ -666,14 +709,14 @@
    ],
    "augments": [
     1028,
-    3079,
     1058,
-    2107,
     2099,
-    3116
+    3116,
+    2107,
+    3079
    ],
    "items": [],
-   "theory": "At least 91% of champions get Erosion, Totentanz, Mystic Punch, Hellbent, Rite of Ascension and Take'em Down Down Down, but Lux has never been seen taking them, even though Lux is picked often.",
+   "theory": "At least 90% of champions get Erosion, Mystic Punch, Rite of Ascension, Take'em Down Down Down, Hellbent and Totentanz, but Lux has never been seen taking them, even though Lux is picked often.",
    "test": "Play Lux and watch your augment choices. If they never show up, Riot has left them out for Lux. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -688,7 +731,7 @@
     2005
    ],
    "items": [],
-   "theory": "At least 93% of champions get Triggered Inferno, but Malzahar has never been seen taking it, even though Malzahar is picked often.",
+   "theory": "At least 92% of champions get Triggered Inferno, but Malzahar has never been seen taking it, even though Malzahar is picked often.",
    "test": "Play Malzahar and watch your augment choices. If it never shows up, Riot has left it out for Malzahar. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -704,23 +747,23 @@
     2005
    ],
    "items": [],
-   "theory": "At least 93% of champions get Jeweled Gauntlet and Triggered Inferno, but Master Yi has never been seen taking them, even though Master Yi is picked often.",
+   "theory": "At least 92% of champions get Jeweled Gauntlet and Triggered Inferno, but Master Yi has never been seen taking them, even though Master Yi is picked often.",
    "test": "Play Master Yi and watch your augment choices. If they never show up, Riot has left them out for Master Yi. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
    "id": "gap-Morgana",
    "kind": "gap",
-   "title": "Morgana never gets Hellbent and 1 more",
+   "title": "Morgana never gets Rite of Ascension and 1 more",
    "champions": [
     "Morgana"
    ],
    "augments": [
-    2107,
-    2099
+    2099,
+    2107
    ],
    "items": [],
-   "theory": "At least 91% of champions get Hellbent and Rite of Ascension, but Morgana has never been seen taking them, even though Morgana is picked often.",
+   "theory": "At least 90% of champions get Rite of Ascension and Hellbent, but Morgana has never been seen taking them, even though Morgana is picked often.",
    "test": "Play Morgana and watch your augment choices. If they never show up, Riot has left them out for Morgana. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -778,16 +821,17 @@
   {
    "id": "gap-Rengar",
    "kind": "gap",
-   "title": "Rengar never gets Get Jinxed",
+   "title": "Rengar never gets THRASH and 1 more",
    "champions": [
     "Rengar"
    ],
    "augments": [
+    3172,
     3004
    ],
    "items": [],
-   "theory": "At least 93% of champions get Get Jinxed, but Rengar has never been seen taking it, even though Rengar is picked often.",
-   "test": "Play Rengar and watch your augment choices. If it never shows up, Riot has left it out for Rengar. If that doesn't look like it's on purpose, it's worth reporting.",
+   "theory": "At least 93% of champions get THRASH and Get Jinxed, but Rengar has never been seen taking them, even though Rengar is picked often.",
+   "test": "Play Rengar and watch your augment choices. If they never show up, Riot has left them out for Rengar. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -809,18 +853,33 @@
    "status": "to_test"
   },
   {
+   "id": "gap-Senna",
+   "kind": "gap",
+   "title": "Senna never gets THRASH",
+   "champions": [
+    "Senna"
+   ],
+   "augments": [
+    3172
+   ],
+   "items": [],
+   "theory": "At least 95% of champions get THRASH, but Senna has never been seen taking it, even though Senna is picked often.",
+   "test": "Play Senna and watch your augment choices. If it never shows up, Riot has left it out for Senna. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
    "id": "gap-Seraphine",
    "kind": "gap",
-   "title": "Seraphine never gets Hellbent and 1 more",
+   "title": "Seraphine never gets Rite of Ascension and 1 more",
    "champions": [
     "Seraphine"
    ],
    "augments": [
-    2107,
-    2099
+    2099,
+    2107
    ],
    "items": [],
-   "theory": "At least 91% of champions get Hellbent and Rite of Ascension, but Seraphine has never been seen taking them, even though Seraphine is picked often.",
+   "theory": "At least 90% of champions get Rite of Ascension and Hellbent, but Seraphine has never been seen taking them, even though Seraphine is picked often.",
    "test": "Play Seraphine and watch your augment choices. If they never show up, Riot has left them out for Seraphine. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -870,6 +929,25 @@
    "status": "to_test"
   },
   {
+   "id": "gap-Talon",
+   "kind": "gap",
+   "title": "Talon never gets Bread and Cheese and 4 more",
+   "champions": [
+    "Talon"
+   ],
+   "augments": [
+    1151,
+    3172,
+    1028,
+    1058,
+    3116
+   ],
+   "items": [],
+   "theory": "At least 91% of champions get Bread and Cheese, THRASH, Erosion, Mystic Punch and Take'em Down Down Down, but Talon has never been seen taking them, even though Talon is picked often.",
+   "test": "Play Talon and watch your augment choices. If they never show up, Riot has left them out for Talon. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
    "id": "gap-Teemo",
    "kind": "gap",
    "title": "Teemo never gets Bread and Cheese and 1 more",
@@ -881,7 +959,7 @@
     3079
    ],
    "items": [],
-   "theory": "At least 93% of champions get Bread and Cheese and Totentanz, but Teemo has never been seen taking them, even though Teemo is picked often.",
+   "theory": "At least 90% of champions get Bread and Cheese and Totentanz, but Teemo has never been seen taking them, even though Teemo is picked often.",
    "test": "Play Teemo and watch your augment choices. If they never show up, Riot has left them out for Teemo. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -962,27 +1040,43 @@
     2005
    ],
    "items": [],
-   "theory": "At least 93% of champions get Triggered Inferno, but Twitch has never been seen taking it, even though Twitch is picked often.",
+   "theory": "At least 92% of champions get Triggered Inferno, but Twitch has never been seen taking it, even though Twitch is picked often.",
    "test": "Play Twitch and watch your augment choices. If it never shows up, Riot has left it out for Twitch. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
    "id": "gap-Vayne",
    "kind": "gap",
-   "title": "Vayne never gets Back To Basics and 4 more",
+   "title": "Vayne never gets Twin Fire and 4 more",
    "champions": [
     "Vayne"
    ],
    "augments": [
-    1004,
     1415,
     1028,
+    1004,
     1098,
     1150
    ],
    "items": [],
-   "theory": "At least 93% of champions get Back To Basics, Twin Fire, Erosion, With Haste and Bread And Jam, but Vayne has never been seen taking them, even though Vayne is picked often.",
+   "theory": "At least 92% of champions get Twin Fire, Erosion, Back To Basics, With Haste and Bread And Jam, but Vayne has never been seen taking them, even though Vayne is picked often.",
    "test": "Play Vayne and watch your augment choices. If they never show up, Riot has left them out for Vayne. If that doesn't look like it's on purpose, it's worth reporting.",
+   "status": "to_test"
+  },
+  {
+   "id": "gap-Viego",
+   "kind": "gap",
+   "title": "Viego never gets Weapon of Destiny and 1 more",
+   "champions": [
+    "Viego"
+   ],
+   "augments": [
+    3081,
+    1098
+   ],
+   "items": [],
+   "theory": "At least 93% of champions get Weapon of Destiny and With Haste, but Viego has never been seen taking them, even though Viego is picked often.",
+   "test": "Play Viego and watch your augment choices. If they never show up, Riot has left them out for Viego. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -1053,7 +1147,7 @@
     1150
    ],
    "items": [],
-   "theory": "At least 93% of champions get Twin Fire, Bread And Butter, With Haste and Bread And Jam, but Yone has never been seen taking them, even though Yone is picked often.",
+   "theory": "At least 92% of champions get Twin Fire, Bread And Butter, With Haste and Bread And Jam, but Yone has never been seen taking them, even though Yone is picked often.",
    "test": "Play Yone and watch your augment choices. If they never show up, Riot has left them out for Yone. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -1067,8 +1161,8 @@
    "augments": [
     1068,
     1349,
-    1004,
     1415,
+    1004,
     1103,
     1098,
     2087,
@@ -1076,7 +1170,7 @@
     1996
    ],
    "items": [],
-   "theory": "At least 91% of champions get Recursion, Ultimate Awakening, Back To Basics, Twin Fire, Bread And Butter, With Haste, Archmage, Triggered Inferno and Upgrade Sheen, but Yunara has never been seen taking them, even though Yunara is picked often.",
+   "theory": "At least 91% of champions get Recursion, Ultimate Awakening, Twin Fire, Back To Basics, Bread And Butter, With Haste, Archmage, Triggered Inferno and Upgrade Sheen, but Yunara has never been seen taking them, even though Yunara is picked often.",
    "test": "Play Yunara and watch your augment choices. If they never show up, Riot has left them out for Yunara. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   }
@@ -1319,6 +1413,40 @@
    "build": "olaf-health-is-mana",
    "augment": "Skilled Sniper",
    "why": "range"
+  },
+  {
+   "id": "pool-nilah-whip-blade-nurse-spirit_bomb",
+   "kind": "pool",
+   "title": "Joy Unending (Unhinged): Spirit Bomb on Nilah",
+   "champions": [
+    "Nilah"
+   ],
+   "augments": [
+    2104
+   ],
+   "items": [],
+   "theory": "The build leans on Spirit Bomb.",
+   "test": "Nilah has never been seen taking Spirit Bomb, so it may not be in their augment pool. Check whether it's ever offered on Nilah.",
+   "build": "nilah-whip-blade-nurse",
+   "augment": "Spirit Bomb",
+   "why": "unseen"
+  },
+  {
+   "id": "pool-nilah-whip-blade-nurse-empowered_by_the_faithful",
+   "kind": "pool",
+   "title": "Joy Unending (Unhinged): Empowered By The Faithful on Nilah",
+   "champions": [
+    "Nilah"
+   ],
+   "augments": [
+    2004
+   ],
+   "items": [],
+   "theory": "The build leans on Empowered By The Faithful.",
+   "test": "Nilah has never been seen taking Empowered By The Faithful, so it may not be in their augment pool. Check whether it's ever offered on Nilah.",
+   "build": "nilah-whip-blade-nurse",
+   "augment": "Empowered By The Faithful",
+   "why": "unseen"
   },
   {
    "id": "pool-nilah-whip-blade-nurse-group_hug",
