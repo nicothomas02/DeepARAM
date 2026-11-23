@@ -2051,3 +2051,13 @@ html:not([data-raw]) .cp-row.aug-item {
 .cp-game .cp-later-slots .cp-later {
   grid-template-columns: 1fr;
 }
+/* Narrow slot columns: the numbers wrap as whole pairs instead of running into each other. */
+.cp-game .cp-later-slots .cp-later-nums {
+  flex-wrap: wrap;
+  gap: 0.1rem 0.6rem;
+  white-space: normal;
+  flex-shrink: 1;
+}
+.cp-game .cp-later-slots .cp-later-nums > span {
+  white-space: nowrap;
+}
