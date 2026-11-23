@@ -247,7 +247,14 @@ export function championPage(alias: string): ChampionPage | null {
 
   const raw = readRepoJson<Builds>(`data/cn/builds/${id}.json`);
   const early = earlyBuilds(id);
-  const b: Builds | null = raw && early ? { ...raw, items: { ...raw.items, ...early } } : raw;
+  // The early-window blend (101's builds right after its window restarts) only stands in for 101 lists: where AramHex
+  // supplies a list (sources["items.core"] / ["items.other"]), its real patch counts stay (2026-11-23: the blend was
+  // replacing Rek'Sai's AramHex single items).
+  const src = (raw as { sources?: Record<string, string> } | null)?.sources ?? {};
+  const keep = early
+    ? Object.fromEntries(Object.entries(early).filter(([k]) => src[`items.${k}`] !== "aramhex"))
+    : null;
+  const b: Builds | null = raw && keep ? { ...raw, items: { ...raw.items, ...keep } } : raw;
   const rewards = rewardItems();
   const all = items();
   const rows = (list: Raw[] | undefined) =>
