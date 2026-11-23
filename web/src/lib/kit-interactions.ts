@@ -4,7 +4,8 @@ import data from "@/data/kit-interactions.json";
 // written and checked by hand. A champion page shows one only while that champion's players take the
 // augment, so every row stays practical on the live patch.
 
-export type KitInteraction = { champion: string; augment: number; keys: string[]; text: string };
+/** confirmed: covered by data/cook-builds/MECHANICS.md; the rest are shown as unverified. */
+export type KitInteraction = { champion: string; augment: number; keys: string[]; text: string; confirmed?: boolean };
 
 const ALL = (data as { interactions: KitInteraction[] }).interactions;
 

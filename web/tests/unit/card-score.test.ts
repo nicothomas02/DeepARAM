@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { alongCore, followed, fullPicks, laterItems, skipsBoots, slotItems, type ItemRow } from "@/lib/card-score";
+import { alongCore, followed, fullPicks, realFullPicks, laterItems, skipsBoots, slotItems, type ItemRow } from "@/lib/card-score";
 
 describe("followed", () => {
   it("keeps a rare build from leading the list", () => {
@@ -86,5 +86,20 @@ describe("fullPicks", () => {
   it("falls back to the later list when a slot is missing", () => {
     const core: ItemRow = { items: [1, 2, 3], pickRate: 0.1, winRate: 0.5, lift: 0 };
     expect(fullPicks(core, undefined, [r(7, 40), r(8, 65), r(9, 50)]).map((x) => x.items[0])).toEqual([8, 9, 7]);
+  });
+});
+
+describe("realFullPicks", () => {
+  const row = (items: number[], pickRate: number, deepScore: number): ItemRow => ({ items, pickRate, winRate: 0.5, lift: 0, deepScore });
+  const single = [4, 5, 6, 7, 8].map((i) => row([i], 0.1, 50));
+  const core: ItemRow = { items: [1, 2, 3], pickRate: 0.1, winRate: 0.5, lift: 0, boots: 9 };
+  const isBoots = (i: number) => i === 9;
+  it("takes the best scoring real build with a following that holds the core, in slot order", () => {
+    const builds = [row([1, 2, 3, 9, 4, 5], 0.04, 60), row([1, 2, 3, 9, 6, 7], 0.02, 80), row([1, 2, 3, 9, 7, 8], 0.005, 99), row([1, 2, 8, 9, 4, 5], 0.05, 90)];
+    const slots = [{ slot: 4, items: [row([7], 0.1, 50)] }, { slot: 5, items: [row([6], 0.1, 50)] }];
+    expect(realFullPicks(core, builds, single, slots, isBoots)?.map((r) => r.items[0])).toEqual([7, 6]);
+  });
+  it("returns null when no followed build holds the core", () => {
+    expect(realFullPicks(core, [row([1, 2, 8, 9, 4, 5], 0.05, 90)], single, undefined, isBoots)).toBeNull();
   });
 });

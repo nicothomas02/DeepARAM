@@ -37,5 +37,6 @@
  "Points of win rate this augment adds on each champion, estimated.": "该强化符文为每个英雄增加的胜率点数(估计)。",
  "Estimated across the champions that often take both: no games record the pair together.": "根据常同时选择两者的英雄估计:没有对局同时记录这一组合。",
  "Share of the champions who take this augment that build each item.": "选择该强化符文的英雄中,出每件装备的占比。",
- "this build": "这套出装"
+ "this build": "这套出装",
+ "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "常选这个强化的英雄通常出的装备，无论是否选了它。并不说明哪些装备与该强化搭配。"
 }

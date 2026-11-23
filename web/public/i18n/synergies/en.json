@@ -37,5 +37,6 @@
  "Points of win rate this augment adds on each champion, estimated.": "Points of win rate this augment adds on each champion, estimated.",
  "Estimated across the champions that often take both: no games record the pair together.": "Estimated across the champions that often take both: no games record the pair together.",
  "Share of the champions who take this augment that build each item.": "Share of the champions who take this augment that build each item.",
- "this build": "this build"
+ "this build": "this build",
+ "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment."
 }

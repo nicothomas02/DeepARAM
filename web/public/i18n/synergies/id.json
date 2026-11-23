@@ -37,5 +37,6 @@
  "Points of win rate this augment adds on each champion, estimated.": "Poin win rate yang ditambahkan augment ini pada tiap champion, perkiraan.",
  "Estimated across the champions that often take both: no games record the pair together.": "Diperkirakan dari champion yang sering mengambil keduanya: tidak ada game yang mencatat pasangan ini bersama.",
  "Share of the champions who take this augment that build each item.": "Persentase champion pengambil augment ini yang membuat tiap item.",
- "this build": "build ini"
+ "this build": "build ini",
+ "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "Apa yang biasanya dibangun champion yang sering mengambil augment ini, dengan atau tanpanya. Ini tidak menunjukkan item mana yang cocok dengan augment."
 }

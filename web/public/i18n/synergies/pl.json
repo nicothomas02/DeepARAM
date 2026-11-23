@@ -37,5 +37,6 @@
  "Points of win rate this augment adds on each champion, estimated.": "Punkty odsetka zwycięstw, które to wzmocnienie dodaje każdemu bohaterowi, szacunek.",
  "Estimated across the champions that often take both: no games record the pair together.": "Szacunek wśród bohaterów, którzy często biorą oba: żadna gra nie zapisuje tej pary razem.",
  "Share of the champions who take this augment that build each item.": "Udział bohaterów biorących to wzmocnienie, którzy budują dany przedmiot.",
- "this build": "ta kompilacja"
+ "this build": "ta kompilacja",
+ "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "Co zwykle budują bohaterowie, którzy często biorą ten augment, z nim lub bez. Nie pokazuje, które przedmioty pasują do augmentu."
 }

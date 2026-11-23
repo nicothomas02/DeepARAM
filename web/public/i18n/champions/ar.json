@@ -287,7 +287,6 @@
  "Full build": "البناء الكامل",
  "Other options": "خيارات أخرى",
  "With {augment}": "مع {augment}",
- "The augment upgrades this item, so buy it first.": "التعزيز يطوّر هذا العنصر، لذا اشترِه أولاً.",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "قدراتك تطبّق تأثيرات الضربات، لذا تصبح عناصر الضربات أكثر فائدة.",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "يحوّل ضرر الهجوم الإضافي إلى قوة قدرات، لذا تتراكم عناصر قوة القدرات معه.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "يحوّل قوة القدرات إلى ضرر هجوم إضافي، لذا تتراكم عناصر ضرر الهجوم معه.",
@@ -298,5 +297,10 @@
  "{patch}+": "{patch}+",
  "{patch} only": "{patch} فقط",
  "Includes similar recent patches, weighted toward this one": "يشمل التحديثات الأخيرة المشابهة، مع وزن أكبر لهذا التحديث",
- "Games counted": "الألعاب المحسوبة"
+ "Games counted": "الألعاب المحسوبة",
+ "Mostly built with {augment}.": "يُبنى غالباً مع {augment}.",
+ "It makes you melee, and players who take it build Death's Dance far more often.": "يجعلك قتالاً قريباً، واللاعبون الذين يختارونه يبنون Death's Dance أكثر بكثير.",
+ "Unverified": "غير مؤكد",
+ "The augment upgrades this item.": "التعزيز يطوّر هذا العنصر.",
+ "Players who take this augment build this item far more often.": "اللاعبون الذين يختارون هذا التعزيز يبنون هذا العنصر أكثر بكثير."
 }

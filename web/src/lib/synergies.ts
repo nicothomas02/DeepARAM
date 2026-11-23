@@ -203,7 +203,7 @@ export function augmentSynergies(id: number): SynTab[] {
       rows: combos,
       note: "Estimated across the champions that often take both: no games record the pair together.",
     },
-    { id: "items", label: "Items", what: "Item", rows: items, note: "Share of the champions who take this augment that build each item.", share: true },
+    { id: "items", label: "Items", what: "Item", rows: items, note: "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.", share: true },
   ];
   // "Augment combos" added two augments' own scores, which lists pairs that are just two strong augments; pairs that
   // feed each other are on the champion page's Augment synergies panel instead (Nico, 2026-11-20).

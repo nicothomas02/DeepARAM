@@ -23,6 +23,8 @@ import { signedPts } from "@/components/champion/Ranked";
 export const dynamicParams = false;
 export const generateStaticParams = () => itemPages().map((i) => ({ slug: i.slug }));
 
+import WhatItDoes from "@/components/WhatItDoes";
+import { whatItDoes } from "@/lib/mechanisms";
 const DESC = descriptions as { augments: Record<string, string>; items: Record<string, string> };
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 const signed = (v: number, unit = "") => `${v >= 0 ? "+" : "−"}${Math.abs(v).toFixed(unit ? 1 : 0)}${unit}`;
@@ -161,6 +163,10 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
             );
           })}
         </div>
+        {/* Finished items only: holding a component at game end mostly says the build wasn't finished. */}
+        {(i.tier === "legendary" || i.tier === "boots") && (
+          <WhatItDoes effects={whatItDoes("items", i.id, { shield: /shield/i.test(DESC.items[String(i.id)] ?? "") })} />
+        )}
       </section>
       {(i.from.length > 0 || i.into.length > 0) && (
         <section className="card" data-accent="gold">

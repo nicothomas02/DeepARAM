@@ -5,7 +5,7 @@ import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
 import { clashWith, withoutClashes } from "./item-limits";
-import { alongCore, bestRow, buildOrder, followed, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, realFullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
@@ -396,7 +396,10 @@ export function championPage(alias: string): ChampionPage | null {
     const pool = afterCore(row, single, full);
     const bySlot = slotItems(pool, row, itemClasses, itemSlots?.champions[String(id)], itemSlots?.all);
     const later = laterItems(pool, row, itemClasses);
-    return { ...row, later, ...(bySlot ? { slots: bySlot } : {}), full: fullPicks(row, bySlot ?? undefined, later) };
+    const picks = realFullPicks(row, full, single, bySlot ?? undefined, isBoots) ?? fullPicks(row, bySlot ?? undefined, later);
+    // Never two items of one game limit group (lib/item-limits.ts), against the core or an earlier pick.
+    const kept = withoutClashes(picks.map((r) => r.items[0]), buildOrder(row));
+    return { ...row, later, ...(bySlot ? { slots: bySlot } : {}), full: picks.filter((r) => kept.includes(r.items[0])) };
   };
   // Augment-triggered swaps for a core (lib/build-plan.ts augmentSwaps): rule-based tips, labelled as such.
   const legendaryPool = single.filter((r) => r.tier === "legendary");

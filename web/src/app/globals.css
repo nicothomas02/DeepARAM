@@ -5115,11 +5115,13 @@ button.deepscore:focus::after {
   box-shadow: 0 10px 24px -14px rgb(0 0 0 / 0.6);
   font: 400 0.875rem/1.45 var(--font-sans), system-ui, sans-serif;
   text-align: left;
-  white-space: normal;
+  white-space: pre-line;
   pointer-events: none;
 }
 td > button.deepscore:hover::after,
-td > button.deepscore:focus::after {
+td > button.deepscore:focus::after,
+.aug-hero button.deepscore:hover::after,
+.aug-hero button.deepscore:focus::after {
   right: auto;
   left: 0;
 }

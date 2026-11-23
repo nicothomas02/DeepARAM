@@ -287,7 +287,6 @@
  "Full build": "Tam build",
  "Other options": "Diğer seçenekler",
  "With {augment}": "{augment} ile",
- "The augment upgrades this item, so buy it first.": "Güçlendirme bu eşyayı yükseltir, bu yüzden önce onu al.",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "Yeteneklerin isabet etkilerini uygular, bu yüzden isabet eşyaları daha çok işe yarar.",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "Ek saldırı gücünü yetenek gücüne çevirir, bu yüzden yetenek gücü eşyaları onunla birikir.",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "Yetenek gücünü ek saldırı gücüne çevirir, bu yüzden saldırı gücü eşyaları onunla birikir.",
@@ -298,5 +297,10 @@
  "{patch}+": "{patch}+",
  "{patch} only": "Yalnızca {patch}",
  "Includes similar recent patches, weighted toward this one": "Benzer son yamaları da içerir, en çok bu yamaya ağırlık verir",
- "Games counted": "Sayılan maçlar"
+ "Games counted": "Sayılan maçlar",
+ "Mostly built with {augment}.": "Çoğunlukla {augment} ile yapılır.",
+ "It makes you melee, and players who take it build Death's Dance far more often.": "Seni yakın dövüşçü yapar ve bunu alan oyuncular Death's Dance'i çok daha sık yapar.",
+ "Unverified": "Doğrulanmadı",
+ "The augment upgrades this item.": "Güçlendirme bu eşyayı yükseltir.",
+ "Players who take this augment build this item far more often.": "Bu güçlendirmeyi alan oyuncular bu eşyayı çok daha sık yapar."
 }

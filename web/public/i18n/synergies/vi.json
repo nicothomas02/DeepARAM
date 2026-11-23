@@ -37,5 +37,6 @@
  "Points of win rate this augment adds on each champion, estimated.": "Điểm tỉ lệ thắng mà Lõi Nâng Cấp này cộng thêm cho mỗi tướng, ước tính.",
  "Estimated across the champions that often take both: no games record the pair together.": "Ước tính trên các tướng thường chọn cả hai: không có trận nào ghi nhận cặp này cùng nhau.",
  "Share of the champions who take this augment that build each item.": "Tỉ lệ các tướng chọn Lõi Nâng Cấp này và lên từng trang bị.",
- "this build": "bản build này"
+ "this build": "bản build này",
+ "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "Những gì các tướng hay chọn lõi này thường lên, dù có hay không có nó. Không cho biết trang bị nào hợp với lõi."
 }

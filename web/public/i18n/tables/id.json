@@ -159,5 +159,11 @@
  "Next patch": "Patch berikutnya",
  "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Win rate yang diperkirakan di patch berikutnya jika champion tidak diubah, dihitung dari pergerakan win rate antar patch sebelumnya. Tampilan detail menambahkan rentang tempat nilainya jatuh 4 dari 5 kali.",
  "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "Batas bawah win rate yang diperkirakan di patch berikutnya, satu selisih umum di bawahnya. DeepScore mengurutkan berdasarkan ini.",
- "Estimated games on the live patch.": "Perkiraan jumlah game di patch saat ini."
+ "Estimated games on the live patch.": "Perkiraan jumlah game di patch saat ini.",
+ "What it does (estimated): {effects}": "Fungsinya (perkiraan): {effects}",
+ "{n} damage to champions": "{n} damage ke champion",
+ "{n} healing": "{n} heal",
+ "{n} damage blocked": "{n} damage diblok",
+ "{n} crowd control": "{n} crowd control",
+ "{n} deaths per 10 minutes": "{n} kematian per 10 menit"
 }

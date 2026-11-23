@@ -287,7 +287,6 @@
  "Full build": "บิลด์เต็ม",
  "Other options": "ตัวเลือกอื่น",
  "With {augment}": "เมื่อมี {augment}",
- "The augment upgrades this item, so buy it first.": "ออกเมนต์นี้อัปเกรดไอเทมนี้ จึงควรซื้อก่อน",
  "Your abilities apply on-hit effects, so on-hit items pay off more.": "สกิลของคุณใช้เอฟเฟกต์ on-hit ไอเทม on-hit จึงคุ้มค่ากว่า",
  "It turns your bonus Attack Damage into Ability Power, so Ability Power items stack with it.": "เปลี่ยน Attack Damage เพิ่มเติมเป็น Ability Power ไอเทม Ability Power จึงเสริมกันได้",
  "It turns your Ability Power into bonus Attack Damage, so Attack Damage items stack with it.": "เปลี่ยน Ability Power เป็น Attack Damage เพิ่มเติม ไอเทม Attack Damage จึงเสริมกันได้",
@@ -298,5 +297,10 @@
  "{patch}+": "{patch}+",
  "{patch} only": "เฉพาะ {patch}",
  "Includes similar recent patches, weighted toward this one": "รวมแพตช์ล่าสุดที่คล้ายกัน โดยให้น้ำหนักกับแพตช์นี้มากที่สุด",
- "Games counted": "เกมที่นับ"
+ "Games counted": "เกมที่นับ",
+ "Mostly built with {augment}.": "ส่วนใหญ่ออกคู่กับ {augment}",
+ "It makes you melee, and players who take it build Death's Dance far more often.": "ทำให้คุณเป็นสายประชิด และผู้เล่นที่เลือกจะออก Death's Dance บ่อยกว่ามาก",
+ "Unverified": "ยังไม่ยืนยัน",
+ "The augment upgrades this item.": "ออกเมนต์นี้อัปเกรดไอเทมนี้",
+ "Players who take this augment build this item far more often.": "ผู้เล่นที่เลือกออกเมนต์นี้ออกไอเทมนี้บ่อยกว่ามาก"
 }

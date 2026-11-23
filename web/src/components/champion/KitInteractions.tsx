@@ -55,6 +55,14 @@ export default function KitInteractions({ rows }: { rows: (KitInteraction & { pi
               </div>
               <p className="cp-kit-why">
                 <T ns="kit-interactions">{r.text}</T>
+                {!r.confirmed && (
+                  <>
+                    {" "}
+                    <small className="cp-stale-tag">
+                      <T ns={NS}>Unverified</T>
+                    </small>
+                  </>
+                )}
               </p>
               <Cell value={pct(r.pickRate)} label="Pick rate" />
             </div>

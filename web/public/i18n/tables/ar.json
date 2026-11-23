@@ -159,5 +159,11 @@
  "Next patch": "التحديث القادم",
  "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "نسبة الفوز المتوقعة في التحديث القادم إن لم يتغير البطل، محسوبة من تغيّر نسب الفوز بين التحديثات السابقة. يضيف العرض المفصّل النطاق الذي تقع فيه 4 مرات من 5.",
  "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "الحد الأدنى لنسبة الفوز المتوقعة في التحديث القادم، أقل منها بخطأ معتاد واحد. يعتمد DeepScore عليه في الترتيب.",
- "Estimated games on the live patch.": "عدد المباريات التقديري في التحديث الحالي."
+ "Estimated games on the live patch.": "عدد المباريات التقديري في التحديث الحالي.",
+ "What it does (estimated): {effects}": "ما يفعله (تقديري): {effects}",
+ "{n} damage to champions": "{n} ضرر على الأبطال",
+ "{n} healing": "{n} شفاء",
+ "{n} damage blocked": "{n} ضرر محجوب",
+ "{n} crowd control": "{n} تحكم بالحشود",
+ "{n} deaths per 10 minutes": "{n} وفيات كل 10 دقائق"
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { useT } from "./I18n";
+import type { Effect } from "@/lib/mechanisms";
+import { whatItDoesText } from "@/lib/mechanism-text";
 
 // A DeepScore badge: the 0-100 rating in a ring that fills and shifts colour with the score (red at the
 // bottom, through green at average, to violet at the top). Hovering, focusing or tapping it shows how
@@ -21,13 +23,26 @@ function ringRgb(value: number): string {
   return lin.map((c) => Math.round(255 * Math.min(1, Math.max(0, c <= 0.0031308 ? 12.92 * c : 1.055 * c ** (1 / 2.4) - 0.055)))).join(" ");
 }
 
-export default function DeepScore({ value, help, static: still }: { value: number; help?: string; static?: boolean }) {
+export default function DeepScore({
+  value,
+  help,
+  static: still,
+  effects,
+}: {
+  value: number;
+  help?: string;
+  static?: boolean;
+  /** What the pick directly changes (lib/mechanisms.ts), added under the help text. Explains, never re-ranks. */
+  effects?: Effect[];
+}) {
   const t = useT("tables");
   const style = {
     "--ds": value,
     "--ds-c-rgb": ringRgb(value),
   } as React.CSSProperties;
   const label = t("DeepScore {n}", { n: value });
+  const what = effects?.length ? whatItDoesText(t, effects) : "";
+  const tip = help ? (what ? `${t(help)}\n\n${what}` : t(help)) : "";
   if (still || !help) {
     return (
       <span className="deepscore" style={style} aria-label={label}>
@@ -36,7 +51,7 @@ export default function DeepScore({ value, help, static: still }: { value: numbe
     );
   }
   return (
-    <button type="button" className="deepscore" style={style} data-tip={t(help)} aria-label={label} aria-description={t(help)}>
+    <button type="button" className="deepscore" style={style} data-tip={tip} aria-label={label} aria-description={tip}>
       {value}
     </button>
   );

@@ -157,5 +157,11 @@
  "Next patch": "Next patch",
  "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.": "Expected win rate next patch if the champion isn't changed, fitted on how win rates moved between past patches. Detailed view adds the range it lands in 4 times out of 5.",
  "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.": "The low end of the expected win rate next patch, one typical miss below it. DeepScore ranks on this.",
- "Estimated games on the live patch.": "Estimated games on the live patch."
+ "Estimated games on the live patch.": "Estimated games on the live patch.",
+ "What it does (estimated): {effects}": "What it does (estimated): {effects}",
+ "{n} damage to champions": "{n} damage to champions",
+ "{n} healing": "{n} healing",
+ "{n} damage blocked": "{n} damage blocked",
+ "{n} crowd control": "{n} crowd control",
+ "{n} deaths per 10 minutes": "{n} deaths per 10 minutes"
 }

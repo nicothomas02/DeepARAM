@@ -7,10 +7,12 @@ import { useT } from "@/components/I18n";
 export const FEW_PLAYERS_WHY =
   "Scores well, but few players build it (under a quarter as often as the most built item), so the build keeps to items with a real following. Small samples swing, most of all early in a patch.";
 
-export default function FewPlayers() {
+/** `augment`: the augment most of its buyers take (lib/build-plan.ts ITEM_CHANGERS), named in the reason. */
+export default function FewPlayers({ augment }: { augment?: string }) {
   const t = useT("champions");
+  const why = augment ? `${t(FEW_PLAYERS_WHY)} ${t("Mostly built with {augment}.", { augment })}` : t(FEW_PLAYERS_WHY);
   return (
-    <button type="button" className="aug-item-tag cp-few-tag" data-tip={t(FEW_PLAYERS_WHY)} aria-description={t(FEW_PLAYERS_WHY)}>
+    <button type="button" className="aug-item-tag cp-few-tag" data-tip={why} aria-description={why}>
       {t("Few players")}
     </button>
   );

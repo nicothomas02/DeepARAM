@@ -18,6 +18,7 @@ import { patchName } from "@/lib/patch-name";
 import { augmentRanges } from "@/lib/stat-ranges";
 import { RangePicker, RangeView } from "@/components/StatRange";
 import DeepScore from "@/components/DeepScore";
+import { whatItDoes } from "@/lib/mechanisms";
 import { augmentTiers } from "@/lib/augment-tiers";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
@@ -138,7 +139,7 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                     score && (
                       <div>
                         <b>
-                          <DeepScore value={score.deepScore} help={AUGMENT_DEEPSCORE_HELP} />
+                          <DeepScore value={score.deepScore} help={AUGMENT_DEEPSCORE_HELP} effects={whatItDoes("augments", a.id, { shield: /shield/i.test(DESC.augments[String(a.id)] ?? "") })} />
                         </b>
                         <span>
                           <T ns="augments">DeepScore</T>

@@ -37,5 +37,6 @@
  "Points of win rate this augment adds on each champion, estimated.": "Pontos de taxa de vitórias que este aprimoramento soma a cada campeão, estimado.",
  "Estimated across the champions that often take both: no games record the pair together.": "Estimado entre os campeões que costumam levar os dois: nenhuma partida registra o par junto.",
  "Share of the champions who take this augment that build each item.": "Parcela dos campeões que levam este aprimoramento e montam cada item.",
- "this build": "esta build"
+ "this build": "esta build",
+ "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "O que os campeões que costumam escolher este aprimoramento geralmente constroem, com ou sem ele. Não mostra quais itens combinam com o aprimoramento."
 }
