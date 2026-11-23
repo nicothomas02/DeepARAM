@@ -1,3 +1,4 @@
+import { withoutClashes } from "./item-limits";
 // The champion card's build plan, beyond the core and situational items (Nico, 2026-11-20, layout pass):
 // - the components to rush for the first core item,
 // - augment-aware swaps: when an augment the champion takes upgrades an item, buy that item first,
@@ -148,7 +149,8 @@ export function restOfBuild(core: number[], boots: number | undefined, full: { i
   const ranked = (rows: { items: number[]; pickRate: number }[], skip: number[]) => {
     const share = new Map<number, number>();
     for (const f of rows) for (const i of new Set(f.items)) if (!core.includes(i) && !skip.includes(i) && !isBoots(i)) share.set(i, (share.get(i) ?? 0) + f.pickRate);
-    return [...share].sort((x, y) => y[1] - x[1] || x[0] - y[0]).map(([i]) => i);
+    // Best first, then never two items the game won't let you own together (or one that clashes with the core).
+    return withoutClashes([...share].sort((x, y) => y[1] - x[1] || x[0] - y[0]).map(([i]) => i), [...core, ...skip]);
   };
   // Builds holding the whole core first; when they don't name enough later items (few full builds hold all of it),
   // fill the remaining slots from builds holding most of the core, so the build reaches six without leaving its style.

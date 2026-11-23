@@ -1,6 +1,7 @@
 // The champion page's quick build for every champion, with names and icons resolved: skill order, summoner
 // spells, boots, core and situational items, and the top augments as ranked on the page. Feeds /data/watch.json (Apple Watch)
 // and /data/overlay.json (the desktop app's in-game overlay).
+import { clashWith } from "./item-limits";
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
 import { bestRow, buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
 import { followed } from "@/lib/card-score";
@@ -32,8 +33,9 @@ export type QuickBuild = {
   later: LaterItem[];
   /** The same items split by the slot players buy them in (4th, 5th, 6th item), when the buying order is known. */
   laterSlots: { slot: number; items: LaterItem[] }[];
-  /** Items to swap in after the core, each with when to buy it ("Vs healing"), as on the champion page's card. */
-  situational: (Named & { when: string })[];
+  /** Items to swap in after the core, each with when to buy it ("Vs healing"), as on the champion page's card, and
+   *  the build item it replaces when the game won't let you own both (lib/item-limits.ts). */
+  situational: (Named & { when: string; replaces?: Named })[];
   /** Components to rush for the first core item. */
   rush: Named[];
   /** "With this augment, buy this item first", as on the champion page's card. */
@@ -69,8 +71,13 @@ export function quickBuilds(): QuickBuild[] {
       later: (core?.later ?? []).flatMap(laterOf),
       laterSlots: (core?.slots ?? []).map((sl) => ({ slot: sl.slot, items: sl.items.flatMap(laterOf) })),
       situational: situ.flatMap((s) => {
-        const n = named(s.options[0]?.items[0]);
-        return n ? [{ ...n, when: SITUATIONS[s.situation] }] : [];
+        const id = s.options[0]?.items[0];
+        const n = named(id);
+        // An item the game won't let you own with one of the build's items swaps that one out (Mortal Reminder for
+        // Lord Dominik's): name it, so the card and the apps replace it instead of adding a seventh item.
+        const clash = id === undefined ? undefined : clashWith(id, [...(core?.items ?? []), ...(core?.rest ?? [])]);
+        const replaces = named(clash);
+        return n ? [{ ...n, when: SITUATIONS[s.situation], ...(replaces ? { replaces } : {}) }] : [];
       }),
       rush: rushIds.flatMap((i) => named(i) ?? []),
     });
