@@ -4,7 +4,7 @@ import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
-import { alongCore, bestRow, buildOrder, followed, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, type ItemRow, type Rated } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
@@ -364,10 +364,19 @@ export function championPage(alias: string): ChampionPage | null {
     starterFits(r.items, withBootsOf(c, [...c.items, ...(c.rest ?? restOfBuild(c.items, c.boots, full, isBoots))]), itemParts, standalone);
   const fitsFirst = (c: ItemRow) => (r: ItemRow) => starterFits(r.items, withBootsOf(c, c.items.slice(0, 1)), itemParts, standalone);
   const isBoots = (i: number) => itemTier(i) === "boots";
+  // The items after the core, one by one, and split by the slot players buy them in (data/estimates/item_slots.json,
+  // purchase order from the owner's archived games, all ten players: the feeds list six-item builds as sets).
+  const itemSlots = readRepoJson<{ all: SlotCounts; champions: Record<string, SlotCounts> }>("data/estimates/item_slots.json");
+  const withLater = (row: ItemRow): ItemRow => {
+    const pool = afterCore(row, single, full);
+    const bySlot = slotItems(pool, row, itemClasses, itemSlots?.champions[String(id)], itemSlots?.all);
+    return { ...row, later: laterItems(pool, row, itemClasses), ...(bySlot ? { slots: bySlot } : {}) };
+  };
   const core = withBootsCore.map((c) => {
     const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find(fits(c));
     const { items } = buyingOrder(st ? startFirst(c.items, st.items, itemParts, standalone) : c.items, orderRows);
-    return { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
+    const row: ItemRow = { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
+    return withLater(row);
   });
   const startingRows = core[0]
     ? [startFollowed, () => true]
@@ -411,7 +420,8 @@ export function championPage(alias: string): ChampionPage | null {
           const row: ItemRow = { items: coreIds, ...rated(a.win_rate, a.share), boots: bootsId, bootsAt: bootsId !== undefined ? (playedSlot ?? undefined) : undefined };
           const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find(fits(row)) ?? null;
           const ordered = buyingOrder(st ? startFirst(coreIds, st.items, itemParts, standalone) : coreIds, orderRows).items;
-          const c: ItemRow = { ...row, items: ordered, rest: (a.later ?? []).map(known).filter((i) => !ordered.includes(i)).slice(0, 3) };
+          const c0: ItemRow = { ...row, items: ordered, rest: (a.later ?? []).map(known).filter((i) => !ordered.includes(i)).slice(0, 3) };
+          const c: ItemRow = withLater(c0);
           const start = st ?? (a.starters?.length ? { items: a.starters.map(known), winRate: NaN, pickRate: 0, lift: 0 } : null);
           return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false,
             core: c, start, situational: situationalItems(c, single, full), rush: rushParts(c.items[0], itemRecipe), augments: augs };

@@ -39,6 +39,7 @@ import {
   Head,
   ItemIcon,
   ItemName,
+  LaterItems,
   Keys,
   Panel,
   pct,
@@ -381,7 +382,7 @@ export default async function ChampionPage({
             </li>
           ))}
         </ol>
-        {(core.rest ?? []).length > 0 && (
+        {!core.later?.length && (core.rest ?? []).length > 0 && (
           <p className="cp-rest">
             <small>
               <T ns={NS}>Then</T>
@@ -430,6 +431,7 @@ export default async function ChampionPage({
           </small>
         )}
       </div>
+      {(core.later ?? []).length > 0 && <LaterItems rows={core.later!} slots={core.slots} info={info} />}
       {situ.length > 0 && (
         <div className="cp-best cp-best-wide cp-best-sit">
           <h4>
