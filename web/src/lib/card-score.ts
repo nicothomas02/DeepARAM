@@ -26,6 +26,8 @@ export type ItemRow = Rated & {
   slots?: { slot: number; items: ItemRow[] }[];
   /** The card's full build after the core: one pick per slot, so core, boots and picks make six items. */
   full?: ItemRow[];
+  /** Starting items: the augment whose first-screen picks explain most of the start's games (it never leads the card). */
+  augment?: number;
 };
 
 /** A row's items in the order they're bought: the boots go in at bootsAt (after the core when it isn't known). */

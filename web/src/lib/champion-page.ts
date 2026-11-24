@@ -43,7 +43,9 @@ const AUGS = augmentNames as Record<string, string>;
 export const MIN_PAIR_PICK = 0.008;
 
 /** games: real games behind the row when the source has them (AramHex rows, data/aramhex/merge.py). */
-type Raw = { items: number[]; pick_rate: number; win_rate?: number; games?: number; pooled?: { win_rate: number; games: number; patches: number } };
+/** augment: on a starting row, the augment whose first-screen picks explain most of its games (augment_share, at least
+ *  half; data/aramhex/merge.py mark_augment_starts); such a start never leads the card. */
+type Raw = { items: number[]; pick_rate: number; win_rate?: number; games?: number; pooled?: { win_rate: number; games: number; patches: number }; augment?: number; augment_share?: number };
 type Builds = {
   items?: Partial<
     Record<"starting" | "boots" | "core" | "other" | "full_builds", Raw[]>
@@ -272,6 +274,7 @@ export function championPage(alias: string): ChampionPage | null {
         ...rated(r.win_rate, r.pick_rate),
         ...(r.games ? { games: r.games } : {}),
         ...(r.pooled ? { pooled: { winRate: r.pooled.win_rate, games: r.pooled.games, patches: r.pooled.patches } } : {}),
+        ...(r.augment ? { augment: r.augment } : {}),
       }));
 
   // Skill orders from real level-ups, best DeepScore first (lib/skill-orders.ts; Nico 2026-11-24). The feed's list is
@@ -390,8 +393,14 @@ export function championPage(alias: string): ChampionPage | null {
   // (START_MIN_GAMES), so a start bought in a handful of games can't lead on luck.
   const startPool = affordable.length ? affordable : startRows;
   const startTop = Math.max(0, ...startPool.map((r) => r.pickRate));
-  const startFollowed = (r: ItemRow) => r.pickRate >= MIN_FOLLOWING * startTop || (r.games ?? 0) >= START_MIN_GAMES;
-  const scoredStart = [...startPool.filter(startFollowed), ...startPool.filter((r) => !startFollowed(r))];
+  // A start an Upgrade augment on the first screen could account for (Ahri's Hextech Alternator with Upgrade
+  // Stormsurge) never leads, and comes last: the default start mustn't come from an augment rush (Nico 2026-11-24).
+  const startFollowed = (r: ItemRow) => !r.augment && (r.pickRate >= MIN_FOLLOWING * startTop || (r.games ?? 0) >= START_MIN_GAMES);
+  const scoredStart = [
+    ...startPool.filter(startFollowed),
+    ...startPool.filter((r) => !startFollowed(r) && !r.augment),
+    ...startPool.filter((r) => r.augment),
+  ];
   const standalone = (i: number) => ["starter", "consumable"].includes(itemTier(i));
   const withBootsOf = (c: ItemRow, its: number[]) => [...its, ...(c.boots !== undefined ? [c.boots] : [])];
   // A start fits when its parts go into the core, its boots or the rest of the usual build (Long Sword + Guardian's
@@ -441,7 +450,7 @@ export function championPage(alias: string): ChampionPage | null {
         ).sort((x, y) => (swapScore.get(y.item) ?? -Infinity) - (swapScore.get(x.item) ?? -Infinity))
       : [];
   const core = withBootsCore.map((c) => {
-    const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find(fits(c));
+    const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find((r) => !r.augment && fits(c)(r));
     const { items } = buyingOrder(st ? startFirst(c.items, st.items, itemParts, standalone) : c.items, orderRows);
     const row: ItemRow = { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
     return withLater(row);
@@ -452,7 +461,8 @@ export function championPage(alias: string): ChampionPage | null {
         .reduce<ItemRow[]>((out, ok) => [...out, ...scoredStart.filter((r) => ok(r) && !out.includes(r))], [])
     : scoredStart;
   const starting = startingRows;
-  const page0Start = (core[0] ? starting.find(fits(core[0])) : starting[0]) ?? null;
+  const cardStarts = starting.filter((r) => !r.augment);
+  const page0Start = (core[0] ? cardStarts.find(fits(core[0])) : cardStarts[0]) ?? null;
   // Builds by style (Nico, 2026-11-21: crit vs AP Ashe, everything on the card follows the build). The card's own
   // best core stands for the style it belongs to; the other styles take their summary from build_archetypes.json.
   const base10k = (i: number) => i % 10000;
@@ -486,7 +496,7 @@ export function championPage(alias: string): ChampionPage | null {
           const coreHasBoots = coreIds.some((i) => itemTier(i) === "boots");
           const bootsId = noBoots || coreHasBoots ? undefined : a.boots?.[0] !== undefined ? known(a.boots[0]) : undefined;
           const row: ItemRow = { items: coreIds, ...rated(a.win_rate, a.share), boots: bootsId, bootsAt: bootsId !== undefined ? (playedSlot ?? undefined) : undefined };
-          const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find(fits(row)) ?? null;
+          const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find((r) => !r.augment && fits(row)(r)) ?? null;
           const ordered = buyingOrder(st ? startFirst(coreIds, st.items, itemParts, standalone) : coreIds, orderRows).items;
           const c0: ItemRow = { ...row, items: ordered, rest: withoutClashes((a.later ?? []).map(known).filter((i) => !ordered.includes(i)), ordered).slice(0, 3) };
           const c: ItemRow = withLater(c0);
