@@ -19,6 +19,14 @@
   .row { display: grid; grid-template-columns: 36px 1fr auto; gap: 10px; align-items: center; padding: 8px 10px;
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 6px; }
   .row.best { border-color: var(--accent); }
+  .pickn { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; } .pickn small { color: var(--muted); font-size: 11px; }
+  .pickn .tm b { font-size: 18px; } .pickn .up { color: var(--good); } .pickn .down { color: var(--bad); } .pickn .flat { color: var(--muted); }
+  .row .dice { width: 36px; height: 36px; border-radius: 8px; background: var(--raised); display: grid; place-items: center; font-size: 22px; }
+  .row.roll { border-style: dashed; } .row.roll.up { border-color: var(--gold); } .row.roll .tm b.up { color: var(--gold); }
+  .bestteam { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+  .bestteam img { width: 36px; height: 36px; border-radius: 8px; } .bestteam .in img { box-shadow: 0 0 0 3px var(--good); } .bestteam .out img { opacity: .5; filter: grayscale(1); }
+  .bestteam .swap { display: flex; align-items: center; gap: 4px; font-size: 20px; font-weight: 800; color: var(--good); }
+  .bestteam .gain { font-size: 22px; font-weight: 800; color: var(--good); } .bestteam .keep { color: var(--good); font-weight: 700; }
   .row img, .mates img { width: 36px; height: 36px; border-radius: 8px; background: var(--raised); }
   .name { font-weight: 600; }
   .why { color: var(--muted); font-size: 12px; }
@@ -191,6 +199,23 @@
   // Same scoring as the site's Best pick (web/src/lib/team-fit-score.ts): ranked on strength; fit is context only.
   let fit = null;
   const loadFit = () => fit ?? (fit = fetch(`${SITE}/data/team-fit.json`).then((r) => r.json()).catch(() => null));
+  // The site's Duos list (same pairs as team-fit.json): each pair's "why it works" (kit-based, estimated) and how many
+  // earlier patches it held on. Hover text only; scores come from team-fit.json, where pairs that didn't hold on
+  // earlier patches are already dropped (they score as their archetype average).
+  let duos = null;
+  const loadDuos = () => duos ?? (duos = fetch(`${SITE}/data/duos.json`).then((r) => r.json())
+    .then((rows) => new Map(rows.map((r) => [[r.a, r.b].sort().join(" "), r]))).catch(() => { setTimeout(() => (duos = null), 60000); return null; }));
+  let duoNow = null;
+  const pairNote = (a, b, boost) => {
+    const r = duoNow?.get([a, b].sort().join(" "));
+    const held = r?.held ? `, held ${r.held} earlier patch${r.held > 1 ? "es" : ""}` : r || !duoNow ? "" : ", archetype average";
+    return `${label(b)} ${pts(boost)}${held}${r?.why ? ` · ${r.why} (estimated)` : ""}`;
+  };
+  const fitTitle = (p) => p.parts.length ? "\n" + [...p.parts].sort((x, y) => Math.abs(y.boost) - Math.abs(x.boost)).map((q) => pairNote(p.id, q.ally, q.boost)).join("\n") : "";
+  // Only champions you can take (Nico 2026-11-24): the bench and trades need a champion you own or one in the free
+  // rotation, so by default the choices and the best team leave the others out. On a switch, remembered here.
+  let ownedOnly = (() => { try { return localStorage.getItem("ownedOnly") !== "0"; } catch { return true; } })();
+  const tone = (v) => (v >= 0.005 ? "up" : v <= -0.005 ? "down" : "flat");
   function pairBoost(d, a, b) {
     const exact = d.pairs[[a, b].sort().join(" ")];
     if (exact !== undefined) return exact;
@@ -245,23 +270,85 @@
     return `<h2>For this game</h2><div class="filters"><button class="chip lucky${lucky ? " on" : ""}" title="Ranks augments that can complete a combo much higher, and leans toward less-played augments and builds when they are about as strong">I'm feeling lucky</button>${patch}</div>`;
   }
 
-  window.showPick = async ({ allies, mine, bench }) => {
+  window.showPick = async ({ allies, mine, bench, rerolls = 0, playable = [] }) => {
     lastGame = null;
-    lastPick = { allies, mine, bench };
-    const d = await loadFit();
+    lastPick = { allies, mine, bench, rerolls, playable };
+    const [d, du] = await Promise.all([loadFit(), loadDuos()]);
+    duoNow = du;
     if (!d?.brackets?.[bracket]) bracket = "all";
     if (!d) { setView(`${hero(null, "Champion select", "Couldn't load the picks")}<p class="note">Check your connection.</p>`); return; }
     const byId = Object.fromEntries(Object.entries(d.ids ?? {}).map(([a, id]) => [id, a]));
     const team = allies.map((id) => byId[id]).filter(Boolean);
-    const options = [mine, ...bench].map((id) => byId[id]).filter(Boolean);
+    // Champions you can take: owned or free this week (from the client). Unknown list or the switch off: all of them.
+    const can = new Set(playable ?? []);
+    const filterOn = ownedOnly && can.size > 0;
+    const takeable = (id) => !filterOn || can.has(id) || id === mine;
+    const options = [mine, ...bench.filter(takeable)].map((id) => byId[id]).filter(Boolean);
+    const hidden = bench.filter((id) => !takeable(id)).length + (filterOn ? allies.filter((id) => !can.has(id)).length : 0);
     await loadRecord();
     const ranked = rank(d, team, [...new Set(options)]);
+    // Every champion in the select (Nico 2026-11-24): your teammates' champions too, which you can get by trading.
+    // Each one's Team score is its strength plus its fit with the other four (your champion included). ⇄ marks a trade.
+    const mineA = byId[mine];
+    for (const id of allies) {
+      const a = byId[id];
+      if (!a || !d.champions[a] || !takeable(id) || ranked.some((p) => p.id === a)) continue;
+      const rest = [...team.filter((x) => x !== a), ...(mineA ? [mineA] : [])];
+      const r = rank(d, rest, [a])[0];
+      if (r) ranked.push({ ...r, trade: true });
+    }
+    ranked.sort((x, y) => y.score - x.score);
     const rows = ranked.map((p, i) => `
-      <div class="row${i === 0 && p.id !== byId[mine] ? " best" : ""}">
+      <div class="row${i === 0 && p.id !== mineA ? " best" : ""}">
         ${icon(p.id)}
-        <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${[p.base >= 0.01 ? "Strong this patch" : "", p.rec ? `Your record ${p.rec.w}-${p.rec.n - p.rec.w} (${pts(p.rec.nudge)})` : ""].filter(Boolean).join(" · ")}</div><div class="sbar"><span data-style="width:${Math.max(4, Math.min(100, 50 + p.strength * 1000))}%;background:${p.strength >= 0.01 ? "var(--good)" : p.strength <= -0.01 ? "var(--bad)" : "var(--gold)"}"></span></div></div>
-        <div class="num">Strength ${pts(p.strength)}</div>
+        <div><div class="name">${esc(label(p.id))}${p.id === mineA ? " <span class=\"why\">(yours)</span>" : p.trade ? " <span class=\"why\" title=\"A teammate's champion: yours by trading\">⇄</span>" : ""}</div><div class="why">${[p.base >= 0.01 ? "Strong this patch" : "", p.rec ? `Your record ${p.rec.w}-${p.rec.n - p.rec.w} (${pts(p.rec.nudge)})` : ""].filter(Boolean).join(" · ")}</div><div class="sbar"><span data-style="width:${Math.max(4, Math.min(100, 50 + p.strength * 1000))}%;background:${p.strength >= 0.01 ? "var(--good)" : p.strength <= -0.01 ? "var(--bad)" : "var(--gold)"}"></span></div></div>
+        <div class="num pickn"><span class="tm" title="For your team (projected): strength ${pts(p.strength)} + fit with ${p.trade ? "the other four" : "your teammates"} ${pts(p.fit)} (pair synergy against an average pick). Ranked on strength.${esc(fitTitle(p))}"><small>Team</small> <b class="${tone(p.strength + p.fit)}">${pts(p.strength + p.fit)}</b></span>
+          <span title="Strength this patch, in win-rate points"><small>Strength</small> ${pts(p.strength)}</span></div>
       </div>`).join("");
+    // Champion reroll: a random champion you can play that isn't in this select, so its value for your team is the
+    // average over those. Needs the client's champion list; shown with a reroll in hand only.
+    let rollHtml = "";
+    const inSelect = new Set([mine, ...allies, ...bench]);
+    const poolIds = [...can].filter((id) => !inSelect.has(id)).map((id) => byId[id]).filter((a) => a && d.champions[a]);
+    if (rerolls >= 1 && poolIds.length) {
+      const r = rank(d, team, poolIds);
+      const avgT = r.reduce((t, p) => t + p.strength + p.fit, 0) / r.length;
+      const avgS = r.reduce((t, p) => t + p.strength, 0) / r.length;
+      const cur = ranked.find((p) => p.id === mineA);
+      const better = cur && avgT > cur.strength + cur.fit;
+      const beat = cur ? r.filter((p) => p.strength + p.fit > cur.strength + cur.fit).length / r.length : null;
+      rollHtml = `<div class="row roll${better ? " up" : ""}" title="Reroll: a random champion you can play that isn't in this select (${r.length} possible). Average for your team${beat != null ? `; ${Math.round(beat * 100)}% of them beat your current pick` : ""}. Your current champion goes to the bench.">
+        <span class="dice">🎲</span><div><div class="name">Reroll <span class="why">×${rerolls}</span></div></div>
+        <div class="num pickn"><span class="tm"><small>Team</small> <b class="${better ? "up" : "flat"}">${pts(avgT)}</b></span><span><small>Strength</small> ${pts(avgS)}</span></div></div>`;
+    }
+    // Best team from this select: every five of the champions in it (your team's, and the bench you can take), scored
+    // as the site's Full teams: each champion's strength plus the ten pair synergies. Projected (no data records whole
+    // teams), so it shows the team, the swaps and the gain, never a win rate.
+    const pool = [...new Set([...team, ...options])].filter((a) => d.champions[a]);
+    const str = (a) => strengthOf(d, a) - 0.5;
+    const pb = new Map();
+    const pr = (a, b) => { const k = a < b ? a + " " + b : b + " " + a; if (!pb.has(k)) pb.set(k, pairBoost(d, a, b)); return pb.get(k); };
+    const teamScore = (t) => t.reduce((v, a, i) => v + str(a) + t.slice(i + 1).reduce((u, b) => u + pr(a, b), 0), 0);
+    let bestTeam = null;
+    if (pool.length >= 5 && pool.length <= 20) {
+      const pick = (from, acc) => {
+        if (acc.length === 5) { const v = teamScore(acc); if (!bestTeam || v > bestTeam.v) bestTeam = { t: [...acc], v }; return; }
+        for (let i = from; i <= pool.length - (5 - acc.length); i++) { acc.push(pool[i]); pick(i + 1, acc); acc.pop(); }
+      };
+      pick(0, []);
+    }
+    const nowTeam = [...team, ...(mineA ? [mineA] : [])];
+    let bestHtml = "";
+    if (bestTeam && nowTeam.length >= 5) {
+      const ins = bestTeam.t.filter((a) => !nowTeam.includes(a));
+      const outs = nowTeam.filter((a) => !bestTeam.t.includes(a));
+      const gain = nowTeam.every((a) => d.champions[a]) ? bestTeam.v - teamScore(nowTeam) : null;
+      const memberTitle = (a) => `${label(a)}${ins.includes(a) ? ": swap in" : ""}\nStrength ${pts(str(a))}\n` +
+        bestTeam.t.filter((b) => b !== a).map((b) => ({ b, v: pr(a, b) })).sort((x, y) => Math.abs(y.v) - Math.abs(x.v)).map((m) => pairNote(a, m.b, m.v)).join("\n");
+      bestHtml = `<h2 title="Every five champions in this select (your team and the bench), scored as the site's Full teams: strength plus the ten pair synergies (lift over what the two champions' own win rates predict, only pairs that held on earlier patches). Projected, not measured.">Best team here (projected)</h2>
+        <div class="box bestteam"><span class="mates">${bestTeam.t.map((a) => `<span class="${ins.includes(a) ? "in" : ""}" title="${esc(memberTitle(a))}">${icon(a)}</span>`).join("")}</span>
+        ${ins.length ? `<span class="swap" title="Swaps to get there">${outs.map((a) => `<span class="out">${icon(a)}</span>`).join("")} ⇄ ${ins.map(icon).join("")}</span>${gain != null ? `<span class="gain" title="Projected team score over your team now (strength + pair synergy, win-rate points)">${pts(gain)}</span>` : ""}` : `<span class="keep">✓ Already</span>`}</div>`;
+    }
     const [builds, k, ap] = await Promise.all([loadBuilds(), loadKinds(), loadPicks()]);
     // Game plan for the champion you're on: skill order and first three items, one glance before loading in.
     const me = byId[mine];
@@ -288,7 +375,10 @@
       ${gap ? `<div class="box">${esc(gap)}</div>` : ""}
       <h2>Your choices, best first</h2>
       ${Object.keys(d.brackets ?? {}).length ? `<div class="filters" title="Skill brackets come from a rating built from game results, not official ranks.${d.bracketPatch && d.bracketPatch !== d.patch ? ` This patch's brackets aren't out yet, so they use patch ${esc(d.bracketPatch)}.` : ""}">${BRACKETS.filter(([b]) => b === "all" || d.brackets[b]).map(([b, l]) => `<button class="chip br${b === bracket ? " on" : ""}" data-b="${b}">${l}</button>`).join("")}</div>` : ""}
+      ${can.size ? `<div class="filters"><button class="chip own${ownedOnly ? " on" : ""}" title="Only champions you own or that are free this week: the bench and trades need one of those">Only champions I can play</button>${filterOn && hidden ? `<span class="why" title="Champions in this select you can't take">${hidden} hidden</span>` : ""}</div>` : ""}
       ${rows || `<p class="note">Waiting for your champion and bench…</p>`}
+      ${rollHtml}
+      ${bestHtml}
       ${planHtml}
       ${gameSettings(ap, me)}
       <p class="note">Strength this patch${bracket !== "all" ? ` for ${esc(BRACKETS.find(([b]) => b === bracket)[1])} players` : ""}, in win-rate points. A guide, not a promise. You make the pick.</p>`);
@@ -650,6 +740,13 @@
       document.querySelectorAll(".chip.pt").forEach((x) => x.classList.toggle("on", (x.dataset.o === "1") === onlyPatch));
       renderAugments();
       renderItems();
+      return;
+    }
+    const own = e.target.closest?.(".chip.own");
+    if (own) {
+      ownedOnly = !ownedOnly;
+      try { localStorage.setItem("ownedOnly", ownedOnly ? "1" : "0"); } catch {}
+      if (lastPick) window.showPick(lastPick);
       return;
     }
     const br = e.target.closest?.(".chip.br");
