@@ -29,10 +29,16 @@ Picked items and augments live in the URL, so **Copy link** shares a build.
 - AP % bonuses (Rabadon's, Wooglet's, Goliath, Hand of Baron, Mad Scientist, ADAPt, Blackfire Torch) add together, then multiply all AP, including Seraph's and Riftmaker's.
 - Stacking effects (Rod of Ages, Mejai's, Phenomenal Evil, Master of Duality, Slap Around, Blackfire targets, Double Time's +25 max Mana per proc) use the numbers set on the page.
 - Lich Brain's numbers are missing from the game files, so the page uses the wiki's 30 AP + 4% bonus Health.
-- Mind to Matter's Health is capped at 99,999 in the game files. The page ignores the cap, so a build past 100% loop strength
-  really levels off (around 25,000 AP) rather than going on forever.
+- Mind to Matter's Health stops at 99,999 (game files: ConvertCap). Past that the loop runs on Seraph's and
+  Fimbulwinter only, so a build past 100% loop strength levels off (about 25,600 AP with 153 Double Time procs)
+  unless those alone pass 100%. (Changed 2026-11-24: the page used to ignore the cap and show infinite AP.)
 - Cooldowns use rank 5 and all Ability Haste from items, Mad Scientist's tiny form and Eureka (30% of the final AP).
-  W and E reset Q, so Ryze casts nonstop once E is back within two casts (E-Q-E-Q), or W and E within four (E-Q-W-Q).
+  The game counts at most 500 total haste (wiki: Haste), so E is 0.42 s at best. Cooldowns start when the 0.25 s cast
+  ends (wiki: most abilities do; Ashe's numbers on AramHex only match this way). W and E reset Q, so E-Q-E-Q never
+  waits once E is back within Q's cast (0.25 s), and E-Q-W-Q once W and E are back within three casts. Neither is
+  reachable under the cap: at 500 haste E-Q-E-Q waits 0.17 s for E each time. (Changed 2026-11-24: the page used to
+  count uncapped haste and cooldowns from the key press, so 400 and 800 haste looked nonstop.)
+- Celestial Body's 10% less damage is applied to the ability damage.
 - Items that the game limits to one (for example Seraph's and Archangel's, or Rabadon's and Wooglet's) can't be picked together; the limits come from the game's item groups.
 - Wooglet's Witchcap comes from the Mayhem quest augment, so it needs that augment.
 - Ability damage is rank 5, before resists; Mayhem's per-champion damage modifiers are not applied.
@@ -41,5 +47,5 @@ The "highest-AP build" preset came from trying every combination of 6 of the loo
 items and 4 of the augments in Ryze's Mayhem pool at level 18 with default stacks: Seraph's Embrace,
 Rabadon's Deathcap, Rod of Ages, Blackfire Torch, Riftmaker, Fimbulwinter with Goliath, Mad Scientist,
 Mind to Matter and Lich Brain, for about 7,170 AP (74% loop strength) on patch 16.23. Swapping Goliath for
-Double Time makes the loop infinite at about 153 stacks; swapping it for Eureka gives about 1,100 Ability
-Haste, enough for the full E-Q-W-Q rotation without waiting.
+Double Time passes 100% loop strength at about 153 stacks but levels off at about 25,600 AP at Mind to Matter's
+cap; swapping it for Eureka gives about 1,100 Ability Haste, of which the game counts 500 (E every 0.42 s).

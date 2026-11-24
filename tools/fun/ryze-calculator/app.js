@@ -152,6 +152,8 @@ LabI18n.ready(function () {
     const need = r.manaForInfinite - r.currentManaPool;
     $("gain-note").textContent = r.infinite
       ? T("Infinite: every loop gives back more AP than it started with.")
+      : r.capped
+        ? T("Mind to Matter's Health stops at 99,999, so the loop slows there and AP settles at {ap}.", { ap: fmt(r.finalAP) })
       : r.loopGain === 0
         ? T("No loop yet. Seraph's Embrace, or Riftmaker or Lich Brain with Mind to Matter or Fimbulwinter, turns Mana back into AP.")
         : T("Each loop gives back {pct} of the AP that went in. About {mana} more base Mana would make it infinite.", { pct: pct(r.loopGain, 1), mana: fmt(need) });
@@ -162,9 +164,10 @@ LabI18n.ready(function () {
       ["Max Mana", fmt(r.maxMana)], ["Bonus Mana", fmt(r.bonusMana)], ["Max Health", fmt(r.maxHP)],
       ["Passive Mana bonus", pct(r.passivePct)], ["AP multiplier", `×${fmt(1 + r.amp, 2)}`],
       ["AP before the loop", fmt(r.start)],
-      ["Ability Haste", fmt(r.haste)],
+      ["Ability Haste", r.hasteCapped ? T("{n} (the game counts 500 at most)", { n: fmt(r.haste) }) : fmt(r.haste)],
       ["Cooldowns Q / W / E", T("{q} / {w} / {e} s", { q: fmt(r.cooldowns.Q, 2), w: fmt(r.cooldowns.W, 2), e: fmt(r.cooldowns.E, 2) })],
-      ["Nonstop casting", r.castLoop === "full" ? T("Yes: E-Q-W-Q never waits") : r.castLoop === "eq" ? T("Yes: E-Q-E-Q never waits") : T("No")],
+      ["Nonstop casting", r.castLoop === "full" ? T("Yes: E-Q-W-Q never waits") : r.castLoop === "eq" ? T("Yes: E-Q-E-Q never waits")
+        : T("No: E-Q-E-Q waits {s} s for E each time", { s: fmt(r.eqWait, 2) })],
     ];
     if (r.overflow) stats.push(["Overflow bonus", pct(r.overflow)]);
     if (r.actualizer) stats.push(["Actualizer bonus", pct(r.actualizer)]);

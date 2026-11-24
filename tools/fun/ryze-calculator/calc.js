@@ -16,6 +16,8 @@
   // Breakdown labels in the page's language when the translations are loaded (i18n.js), else English.
   const tr = (s, v) => (root.LabI18n ? root.LabI18n.t(s, v) : s.replace(/\{(\w+)\}/g, (m, k) => v[k]));
 
+  const HASTE_CAP = 500;
+
   function lerpLevel(calc, level) {
     return calc.lvl1 + (calc.lvl18 - calc.lvl1) * (level - 1) / 17;
   }
@@ -36,7 +38,7 @@
     // Flat sources. sources[] feeds the breakdown table.
     const sources = [];
     let flatAP = 0, flatMana = 0, flatHP = 0, amp = 0, hpAmp = 0;
-    let awe = 0, riftRatio = 0, hpPerBonusMana = 0, hpPerMana = 0, haste = 0, apToHaste = 0;
+    let awe = 0, riftRatio = 0, hpPerBonusMana = 0, hpPerMana = 0, haste = 0, apToHaste = 0, mtmCap = Infinity;
     const addAP = (label, v) => { if (v) { flatAP += v; sources.push({ label, kind: "ap", value: v }); } };
     const addAmp = (label, v) => { if (v) { amp += v; sources.push({ label, kind: "amp", value: v }); } };
 
@@ -94,7 +96,7 @@
         case "ARAM_SlapAround": addAP(a.name, Math.max(0, opts.slapStacks ?? 10) * v.AdaptiveForce); break;
         case "MightyShield": if (opts.shielded !== false) addAP(tr("{name} (shielded)", { name: a.name }), lerpLevel(c.AdaptiveAmp, L)); break;
         case "ARAM_ImTheJuggernaut": if (opts.juggernaut !== false) addAP(tr("{name} (max stacks)", { name: a.name }), lerpLevel(c.Calc_AF, L)); break;
-        case "ARAM_MindtoMatter": hpPerMana += c.ManaToHealthCalc.manaRatio; break;
+        case "ARAM_MindtoMatter": hpPerMana += c.ManaToHealthCalc.manaRatio; mtmCap = v.ConvertCap ?? 99999; break;
       }
     }
 
@@ -116,18 +118,31 @@
     const apPerMana = awe + riftRatio * hpMult * (hpPerMana + hpPerBonusMana);
     const loopGain = mult * apPerMana * M * p;
 
-    // AP when the loop contributes nothing beyond AP = 0's mana (the starting point).
-    function apFrom(ap) {
+    // Mind to Matter's Health stops at its cap (99,999 in the game files), so past it the loop runs on the other routes
+    // only. `capped` evaluates the build with that Health fixed at the cap.
+    function apFrom(ap, capped = false) {
       const maxMana = M * (1 + p * ap);
       const bonusMana = maxMana - baseMana;
-      const maxHP = (baseHP + flatHP + hpPerMana * maxMana + hpPerBonusMana * bonusMana) * hpMult;
+      const mtm = capped ? mtmCap : Math.min(mtmCap, hpPerMana * maxMana);
+      const maxHP = (baseHP + flatHP + mtm + hpPerBonusMana * bonusMana) * hpMult;
       const bonusHP = maxHP - baseHP;
       return { ap: (flatAP + awe * bonusMana + riftRatio * bonusHP) * mult, maxMana, bonusMana, maxHP, bonusHP };
     }
 
     const start = apFrom(0).ap; // = intercept of the line
-    const infinite = loopGain >= 1;
-    const finalAP = infinite ? Infinity : start / (1 - loopGain);
+    // Past the cap: same loop without Mind to Matter's Mana-to-Health route.
+    const cappedGain = mult * (awe + riftRatio * hpMult * hpPerBonusMana) * M * p;
+    // AP where Mind to Matter reaches its cap.
+    const capAP = hpPerMana > 0 && isFinite(mtmCap) ? Math.max(0, (mtmCap / (hpPerMana * M) - 1) / p) : Infinity;
+    let infinite = false, finalAP, capped = false;
+    if (loopGain < 1 && start / (1 - loopGain) <= capAP) finalAP = start / (1 - loopGain);
+    else if (cappedGain >= 1) infinite = true;
+    else {
+      // Settles past the cap: AP = apFrom(AP, capped), a line with slope cappedGain.
+      capped = true;
+      finalAP = apFrom(0, true).ap / (1 - cappedGain);
+    }
+    if (infinite) finalAP = Infinity;
 
     // Loop rounds for the chart: AP after each pass of AP -> Mana -> AP.
     const rounds = [0];
@@ -145,7 +160,9 @@
     const overflow = has("ARAM_Overflow") ? effectiveness(data.augments.find((a) => a.key === "ARAM_Overflow").calcs.ManaCalc, at) : 0;
     const actualizerItem = items.find((i) => i.id === 2522);
     const actualizer = actualizerItem && opts.actualizerOn ? effectiveness(actualizerItem.calcs.ManaCalc, at) : 0;
-    const dmgMult = (1 + overflow) * (1 + actualizer);
+    // Celestial Body: 10% less damage dealt.
+    const celestial = augs.find((a) => a.key === "ARAM_CelestialBody");
+    const dmgMult = (1 + overflow) * (1 + actualizer) * (celestial ? 1 - (celestial.values.DamageReduction ?? 0.1) : 1);
 
     const spells = {};
     for (const [k, s] of Object.entries(champ.spells)) {
@@ -153,16 +170,20 @@
       spells[k] = (s.base[4] + s.apRatio * ap5 + s.bonusManaRatio * at.bonusMana) * dmgMult;
     }
 
-    // Cooldown loop: W and E reset Q, so casting never stops once E is back by its next turn in E-Q-E-Q
-    // (two casts later), and the full E-Q-W-Q rotation never stops once W and E are back four casts later.
+    // Cooldown loop: W and E reset Q. Cooldowns start when the 0.25 s cast ends (the wiki: most abilities do), so
+    // E-Q-E-Q never waits once E is back within Q's cast, and the full E-Q-W-Q rotation once W and E are back within
+    // three casts. The game caps total Ability Haste at 500 (wiki: Haste), so E stays at 2.5 s / 6 at best.
     const totalHaste = haste + apToHaste * (infinite ? Infinity : finalAP);
+    const usedHaste = Math.min(HASTE_CAP, totalHaste);
     const cooldowns = {};
     for (const [k, s] of Object.entries(champ.spells)) {
-      if (s.cooldown) cooldowns[k] = s.cooldown[4] * 100 / (100 + totalHaste);
+      if (s.cooldown) cooldowns[k] = s.cooldown[4] * 100 / (100 + usedHaste);
     }
     const cast = (champ.spells.Q && champ.spells.Q.castTime) || 0.25;
     const castLoop = cooldowns.E === undefined ? "none"
-      : cooldowns.W <= 4 * cast && cooldowns.E <= 4 * cast ? "full" : cooldowns.E <= 2 * cast ? "eq" : "none";
+      : cooldowns.W <= 3 * cast && cooldowns.E <= 3 * cast ? "full" : cooldowns.E <= cast ? "eq" : "none";
+    // Seconds E-Q-E-Q waits for E each time round.
+    const eqWait = cooldowns.E === undefined ? Infinity : Math.max(0, cooldowns.E - cast);
 
     return {
       level: L, baseMana, baseHP, flatAP, flatMana, flatHP, amp, hpAmp, awe, riftRatio, hpPerMana, hpPerBonusMana,
@@ -170,7 +191,8 @@
       maxMana: at.maxMana, bonusMana: at.bonusMana, maxHP: at.maxHP, bonusHP: at.bonusHP,
       passivePct: infinite ? Infinity : p * finalAP,
       aweAP: awe * at.bonusMana * mult, riftAP: riftRatio * at.bonusHP * mult,
-      overflow, actualizer, spells, sources, haste: totalHaste, cooldowns, castLoop,
+      overflow, actualizer, spells, sources, haste: totalHaste, hasteCapped: totalHaste > HASTE_CAP, cooldowns, castLoop, eqWait,
+      capped, capAP, cappedGain,
     };
   }
 

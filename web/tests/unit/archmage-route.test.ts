@@ -20,28 +20,32 @@ describe("AP Ashe's Archmage route", () => {
     }
   });
 
+  // Targets from the calculator checked against AramHex's Ashe page (2026-11-24): haste shortens Hawkshot's 5 s
+  // gap, so a full loop is much faster and needs more haste than the old 12-per-minute reading.
   it("says when items alone can't reach Archmage alone's target", () => {
     const r = by([]);
     expect(r.reach).toBe(false);
-    expect(r.need).toBe(160);
+    expect(r.need).toBe(200);
     expect(r.eRank).toBe(4);
-    expect(r.haste).toBeLessThan(160);
+    expect(r.haste).toBeLessThan(200);
   });
 
-  it("reaches Ultimate Awakening's target with the fewest items, Malignance first", () => {
+  it("says when items alone can't reach Ultimate Awakening's target", () => {
     const r = by([1349]);
-    expect(r.reach).toBe(true);
-    expect(r.need).toBe(40);
-    expect(r.eRank).toBe(1);
-    expect(r.routeLen).toBe(2);
-    expect(r.items.slice(0, 3)).toEqual([IONIAN, 3118, 4005]);
-    expect(r.haste).toBeGreaterThanOrEqual(40);
+    expect(r.reach).toBe(false);
+    expect(r.need).toBe(125);
+    expect(r.eRank).toBe(2);
+    expect(r.haste).toBeLessThan(125);
   });
 
-  it("needs no haste items with Ultimate Awakening and Recursion", () => {
+  it("reaches Ultimate Awakening and Recursion's target with the fewest items, most haste first", () => {
     const r = by([1349, 3055]);
     expect(r.reach).toBe(true);
-    expect(r.routeLen).toBe(0);
+    expect(r.need).toBe(70);
+    expect(r.eRank).toBe(3);
+    expect(r.routeLen).toBe(3);
+    expect(r.items[0]).toBe(IONIAN);
+    expect(r.haste).toBeGreaterThanOrEqual(70);
   });
 
   it("returns nothing without the targets file", () => {
