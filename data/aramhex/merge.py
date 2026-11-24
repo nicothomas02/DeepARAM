@@ -407,9 +407,13 @@ def merge_builds(check, live):
         bt = boots.get(cid)
         if bt and bt["items"]:
             den = bt["all"][0]
-            # Boots and items aren't pooled yet: they exist only for 16.22-16.23, so pooling can't be backtested on
-            # them until a third patch lands (Nico 2026-11-23: nothing ships on an assumption).
-            it["boots"] = sorted((row([int(i)], g, w, den) for i, (g, w) in bt["items"].items() if g >= MIN_ITEM_GAMES),
+            # Boots pooled with earlier patches where nothing changed, like augments (Nico 2026-11-24: "Can we do this
+            # with historical patches?"). Backtest on the saved per-patch 101 snapshots 16.20-16.23
+            # (analysis/scoring/items_pool.py): same picks on a full patch (+0.004 pts per 3-row offer), better on a
+            # patch's first days (10% of games: +0.10 pts per offer, rank correlation +0.08). Single items are NOT
+            # pooled: there pooling picked worse (-0.008 full, -0.036 at 10%).
+            bp = pooled_table(live, "boots", cid, key="items")
+            it["boots"] = sorted((row([int(i)], g, w, den, bp) for i, (g, w) in bt["items"].items() if g >= MIN_ITEM_GAMES),
                                  key=lambda r: -r["games"])
             src["items.boots"] = "aramhex"
         ti = items.get(cid)
