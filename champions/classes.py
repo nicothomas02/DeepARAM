@@ -61,6 +61,8 @@ SUBCLASS = {
     "Xerath": "Artillery", "XinZhao": "Diver", "Yasuo": "Skirmisher", "Yone": "Skirmisher", "Yorick": "Juggernaut",
     "Yuumi": "Enchanter", "Zac": "Vanguard", "Zed": "Assassin", "Zeri": "Marksman", "Ziggs": "Artillery",
     "Zilean": "Specialist", "Zoe": "Burst", "Zyra": "Catcher",
+    # Newer champions, from the League wiki's champion data (Module:ChampionData, 2026-11-24)
+    "Locke": "Assassin", "Mel": "Artillery", "Yunara": "Marksman", "Zaahen": "Skirmisher",
 }
 
 CLASS_OF = {sub: cls for cls, subs in CLASSES.items() for sub in subs}

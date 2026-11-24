@@ -2173,8 +2173,12 @@
     "Assassin",
     "Mage"
    ],
-   "classes": [],
-   "subclasses": [],
+   "classes": [
+    "Slayer"
+   ],
+   "subclasses": [
+    "Assassin"
+   ],
    "playstyles": [
     "Burst",
     "Mobile"
@@ -2399,8 +2403,12 @@
     "Mage",
     "Support"
    ],
-   "classes": [],
-   "subclasses": [],
+   "classes": [
+    "Mage"
+   ],
+   "subclasses": [
+    "Artillery"
+   ],
    "playstyles": [
     "Long Range",
     "AoE"
@@ -4671,8 +4679,12 @@
    "roles": [
     "Marksman"
    ],
-   "classes": [],
-   "subclasses": [],
+   "classes": [
+    "Marksman"
+   ],
+   "subclasses": [
+    "Marksman"
+   ],
    "playstyles": [
     "Auto-attack",
     "Sustained Damage"
@@ -4716,8 +4728,12 @@
    "roles": [
     "Fighter"
    ],
-   "classes": [],
-   "subclasses": [],
+   "classes": [
+    "Slayer"
+   ],
+   "subclasses": [
+    "Skirmisher"
+   ],
    "playstyles": [],
    "ratings": {
     "damage": 2,
