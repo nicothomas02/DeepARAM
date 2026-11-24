@@ -116,6 +116,9 @@ struct Saved {
     scan_off: bool,
     /// The companion window doesn't go full screen on a second monitor during games.
     second_screen_off: bool,
+    /// The companion window draws with the graphics card. Off by default: it draws on the processor, so the
+    /// graphics card stays the game's (Nico 2026-11-24 saw lower frame rates with the app open).
+    companion_gpu: bool,
     scan_hint_shown: bool,
 }
 
@@ -311,10 +314,10 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let quit = MenuItem::with_id(app, "quit", "Quit DeepARAM", true, None::<&str>)?;
     let sep = || PredefinedMenuItem::separator(app);
     // Everything for a Mayhem game shows in the companion window, never over the game.
-    let (companion_on, scan_on, second_on) = {
+    let (companion_on, scan_on, second_on, gpu_on) = {
         let store = app.state::<Store>();
         let saved = store.saved.lock().unwrap();
-        (!saved.companion_off, !saved.scan_off, !saved.second_screen_off)
+        (!saved.companion_off, !saved.scan_off, !saved.second_screen_off, saved.companion_gpu)
     };
     let comp = CheckMenuItem::with_id(
         app,
@@ -334,7 +337,15 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     )?;
     let second =
         CheckMenuItem::with_id(app, "second", "Full screen on a second monitor", true, second_on, None::<&str>)?;
-    let companion_menu = Submenu::with_items(app, "Mayhem companion", true, &[&comp, &scan, &second])?;
+    let gpu = CheckMenuItem::with_id(
+        app,
+        "gpu",
+        "Use the graphics card (from the next time it opens)",
+        cfg!(windows),
+        gpu_on,
+        None::<&str>,
+    )?;
+    let companion_menu = Submenu::with_items(app, "Mayhem companion", true, &[&comp, &scan, &second, &gpu])?;
     let share = sharing::menu_item(app)?;
     let menu = Menu::with_items(
         app,
@@ -365,6 +376,10 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
             "scan" => {
                 let on = scan.is_checked().unwrap_or(true);
                 app.state::<Store>().update(|s| s.scan_off = !on);
+            }
+            "gpu" => {
+                let on = gpu.is_checked().unwrap_or(false);
+                app.state::<Store>().update(|s| s.companion_gpu = on);
             }
             "second" => {
                 let on = second.is_checked().unwrap_or(true);

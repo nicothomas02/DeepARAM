@@ -229,11 +229,24 @@ fn send(app: &AppHandle, script: String) {
         return;
     }
     let loaded = app.clone();
-    let built = WebviewWindowBuilder::new(app, LABEL, WebviewUrl::App("companion.html".into()))
+    let builder = WebviewWindowBuilder::new(app, LABEL, WebviewUrl::App("companion.html".into()))
         .title("DeepARAM")
         .inner_size(420.0, 680.0)
         .min_inner_size(320.0, 420.0)
-        .focused(false)
+        .focused(false);
+    // Drawn on the processor unless the player turns the graphics card on: a few lines of text don't need it, and
+    // the game keeps the whole card. WebView2 only takes other options in a profile of its own, so this window gets
+    // its own folder (its saved choices, like Feeling lucky, live there).
+    #[cfg(windows)]
+    let builder = match app.path().app_local_data_dir() {
+        Ok(dir) if !app.state::<Store>().saved.lock().unwrap().companion_gpu => builder
+            .data_directory(dir.join("companion-cpu"))
+            .additional_browser_args(
+                "--disable-features=msWebOOUI,msPdfOOUI,msSmartScreenProtection --disable-gpu --disable-gpu-compositing",
+            ),
+        _ => builder,
+    };
+    let built = builder
         .on_page_load(move |win, payload| {
             if payload.event() == PageLoadEvent::Finished {
                 if let Some(script) = loaded.state::<Shared>().lock().unwrap().script.clone() {

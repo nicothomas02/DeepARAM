@@ -226,7 +226,8 @@ mod win {
             Foundation::{POINT, RECT},
             Graphics::Gdi::{
                 BitBlt, ClientToScreen, CreateCompatibleBitmap, CreateCompatibleDC, DeleteDC, DeleteObject, GetDC,
-                GetDIBits, ReleaseDC, SelectObject, BITMAPINFO, BITMAPINFOHEADER, BI_RGB, DIB_RGB_COLORS, SRCCOPY,
+                GetDIBits, ReleaseDC, SelectObject, SetBrushOrgEx, SetStretchBltMode, StretchBlt, BITMAPINFO,
+                BITMAPINFOHEADER, BI_RGB, DIB_RGB_COLORS, HALFTONE, SRCCOPY,
             },
             System::WinRT::{RoInitialize, RO_INIT_MULTITHREADED},
             UI::{
@@ -271,8 +272,9 @@ mod win {
         }
     }
 
-    /// Copies a part of the screen as top-down BGRA pixels, as a screenshot does.
-    fn capture(x: i32, y: i32, w: i32, h: i32) -> Option<Vec<u8>> {
+    /// Copies a part of the screen as top-down BGRA pixels, as a screenshot does, scaled to `w` x `h` during the
+    /// copy (Windows' own smooth scaling, so no pass over the pixels afterwards).
+    fn capture(x: i32, y: i32, sw: i32, sh: i32, w: i32, h: i32) -> Option<Vec<u8>> {
         unsafe {
             let screen = GetDC(None);
             if screen.is_invalid() {
@@ -281,7 +283,13 @@ mod win {
             let mem = CreateCompatibleDC(Some(screen));
             let bmp = CreateCompatibleBitmap(screen, w, h);
             let old = SelectObject(mem, bmp.into());
-            let copied = BitBlt(mem, 0, 0, w, h, Some(screen), x, y, SRCCOPY).is_ok();
+            let copied = if (sw, sh) == (w, h) {
+                BitBlt(mem, 0, 0, w, h, Some(screen), x, y, SRCCOPY).is_ok()
+            } else {
+                SetStretchBltMode(mem, HALFTONE);
+                let _ = SetBrushOrgEx(mem, 0, 0, None);
+                StretchBlt(mem, 0, 0, w, h, Some(screen), x, y, sw, sh, SRCCOPY).as_bool()
+            };
             let mut info = BITMAPINFO {
                 bmiHeader: BITMAPINFOHEADER {
                     biSize: std::mem::size_of::<BITMAPINFOHEADER>() as u32,
@@ -331,11 +339,18 @@ mod win {
         if w < 64 || h < 64 {
             return None;
         }
-        let mut px = capture(x, y, w, h)?;
+        // Wide screens are halved as they're copied (cheap); halving after the copy is the fallback.
+        let (mut pw, mut ph) = (w, h);
+        while pw as usize > MAX_WIDTH {
+            (pw, ph) = (pw / 2, ph / 2);
+        }
+        let (mut px, mut pw, mut ph) = match capture(x, y, w, h, pw, ph) {
+            Some(px) => (px, pw as usize, ph as usize),
+            None => (capture(x, y, w, h, w, h)?, w as usize, h as usize),
+        };
         if is_blank(&px) {
             return Some(Vec::new());
         }
-        let (mut pw, mut ph) = (w as usize, h as usize);
         while pw > MAX_WIDTH {
             (px, pw, ph) = halve(&px, pw, ph);
         }

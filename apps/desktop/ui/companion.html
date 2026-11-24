@@ -27,7 +27,7 @@
   .mates img { width: 28px; height: 28px; }
   .big { font-size: 44px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
   .bar { height: 14px; border-radius: 7px; background: var(--raised); overflow: hidden; margin: 12px 0; }
-  .bar span { display: block; height: 100%; transition: width .6s; }
+  .bar span { display: block; height: 100%; }
   .box { padding: 10px 12px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); margin-top: 10px; }
   .box.yes { border-color: var(--bad); color: var(--bad); font-weight: 600; }
   .note { color: var(--muted); font-size: 12px; margin-top: 14px; }
@@ -539,13 +539,17 @@
     let ff = document.getElementById("ff");
     if (!ff) { ff = document.createElement("div"); ff.id = "ff"; document.querySelector(".cols section")?.append(ff); }
     const l = g.live;
-    ff.innerHTML = l ? `<div class="live-mini"><span>Chance to win <b data-style="color:${color(l.win)}">${pct(l.win)}</b></span>
+    const ffHtml = l ? `<div class="live-mini"><span>Chance to win <b data-style="color:${color(l.win)}">${pct(l.win)}</b></span>
         <div class="bar"><span data-style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
       ${l.surrender ? `<div class="box yes">Surrender: yes. A new game is worth more than this one now.</div>` : ""}` : "";
+    // Redrawn only when it changes, to keep the window's work small during a game.
+    if (ff.lastHtml !== ffHtml) { ff.lastHtml = ffHtml; ff.innerHTML = ffHtml; }
     const head = document.getElementById("augHead");
     head.textContent = pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
-    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.t >= 600, x.enemies, x.skills, x.level, x.stats?.map((v) => Math.round(v * 10)), x.dead && Math.round((x.gold ?? 0) / 100)]);
+    // Only what the item advice reads: attack speed near its cap and ability haste from 100 (in steps of 10), so a
+    // buff that ticks attack speed up and down doesn't redraw the items every two seconds.
+    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.t >= 600, x.enemies, x.skills, x.level, x.stats && [x.stats[1] >= 4.5, x.stats[2] >= 100 ? Math.floor(x.stats[2] / 10) : 0], x.dead && Math.round((x.gold ?? 0) / 100)]);
     if (setOffer(g.offer)) renderAugments();
     if (!prev || key(prev) !== key(g)) renderItems();
     // Before the first buy, extra gold (the Debonair headliner pays gold per augment pick) can change the start.
