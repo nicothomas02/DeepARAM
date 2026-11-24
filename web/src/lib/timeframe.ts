@@ -115,7 +115,7 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
   // (lib/champion-page.ts).
   const partsOf = (i: number) => file.items[i]?.parts ?? [];
   const standalone = (i: number) => ["starter", "consumable"].includes(file.items[i]?.tier ?? "");
-  const starts = scoreRows(lists("starting"), FIT.items).filter((r) => !r.items.some((i) => file.items[i]?.tier === "legendary"));
+  const starts = scoreRows(lists("starting"), FIT.items, { bound: true }).filter((r) => !r.items.some((i) => file.items[i]?.tier === "legendary"));
   const fitsAll = (c: ItemRow, its: number[]) => (r: ItemRow) => starterFits(r.items, [...its, ...(c.boots !== undefined ? [c.boots] : [])], partsOf, standalone);
   let starting: ItemRow | null = starts[0] ?? null;
   if (coreRow) {

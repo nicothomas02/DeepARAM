@@ -216,6 +216,52 @@ def pooled_table(live, name, cid, key=None):
     return ah.pool(hist) if hist else {}
 
 
+def start_history(live):
+    """Each earlier patch's starting items per champion from the saved 101 snapshots (data/cn/history/builds), as
+    {cid: {key: [games, wins]}} with games = the champion's AramHex games that patch x the start's pick rate."""
+    out = []
+    for p in ah.earlier(live):
+        path = os.path.join(HIST, "builds", p + ".json")
+        heroes = ah.load(p, "heroes") or {}
+        if not os.path.exists(path) or not heroes:
+            break
+        t = {}
+        for cid, c in read_json(path).get("champions", {}).items():
+            g_all = (heroes.get(cid) or [0])[0]
+            rows = {}
+            for ids, pick, wr in (c.get("items") or {}).get("starting") or []:
+                g = int(round(g_all * pick))
+                if g > 0 and wr is not None:
+                    rows[start_key(ids)] = [g, int(round(g * wr))]
+            t[cid] = rows
+        out.append(t)
+    return out
+
+
+def start_key(ids):
+    return "+".join(map(str, sorted(ids)))
+
+
+def pool_starts(rows, g_all, cid, hist):
+    """Starting items with real games (g_all x pick rate) and, where earlier patches agree, pooled like the other
+    lists (common.pool), so a rarely bought start with a steady lead keeps it under the bound rule (Nico 2026-11-24:
+    unify the rule while keeping rare starters; analysis/scoring/starters_pool.py)."""
+    live = {}
+    for r in rows:
+        g = int(round(g_all * r["pick_rate"]))
+        if g > 0 and r.get("win_rate") is not None:
+            r["games"] = g
+            live[start_key(r["items"])] = [g, int(round(g * r["win_rate"]))]
+        r.pop("pooled", None)
+    if not live:
+        return
+    pooled = ah.pool([live] + [h.get(cid) or {} for h in hist])
+    for r in rows:
+        p = pooled.get(start_key(r["items"]))
+        if p and p[2] > 1:
+            r["pooled"] = {"win_rate": p[0], "games": p[1], "patches": p[2]}
+
+
 def merge_builds(check, live):
     heroes = ah.load(live, "heroes") or {}
     A = ah.load(live, "augments") or {}
@@ -226,6 +272,7 @@ def merge_builds(check, live):
     own_cores = "cores" not in ah.carried(live)
     # Augments pooled with earlier patches where nothing changed (common.pool); the site ranks on these by default.
     aug_hist = [ah.load(p, "augments") or {} for p in ah.earlier(live)]
+    starts_hist = start_history(live)
     boot_ids = {int(i) for v in boots.values() for i in v["items"]}
     n = 0
     for name in sorted(os.listdir(BUILDS)):
@@ -260,6 +307,8 @@ def merge_builds(check, live):
             b["augments"] = augs
             src["augments"] = "aramhex"
         it = b.setdefault("items", {})
+        if it.get("starting"):
+            pool_starts(it["starting"], g_all, cid, starts_hist)
         bt = boots.get(cid)
         if bt and bt["items"]:
             den = bt["all"][0]

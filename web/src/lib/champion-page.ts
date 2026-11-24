@@ -382,10 +382,9 @@ export function championPage(alias: string): ChampionPage | null {
   // buyingOrder), on top of the starting items: a core opens with the item its starter builds into (Cloak + Tome:
   // Rite of Ruin), and a starter's parts build into the first item or the boots, or are standalone starters (Tear,
   // Guardian's Blade). A finished item can't be afforded at the start, so a row holding one is noise.
-  // Starters keep the fitted estimate without the bound's small-sample penalty: on starters the bound dropped 16 of
-  // 62 rarely bought starters that lead today (Guardian's Orb starts, Zeri's Guardian's Blade), and Nico wants slept-on
-  // picks kept (2026-11-24). No starter history to backtest either rule on.
-  const startRows: ItemRow[] = scoreRows<ItemRow>(rows(b?.items?.starting), FIT.items);
+  // Starters on the same bound rule, scored on their pooled numbers where earlier patches agree (data/aramhex/merge.py
+  // pool_starts), as augments and spell pairs are: a rarely bought start with a steady lead keeps it (Nico 2026-11-24).
+  const startRows = scoreItems(rows(b?.items?.starting));
   const affordable = startRows.filter((r) => !r.items.some((i) => itemTier(i) === "legendary"));
   // A starter needs a real following to lead (same 1/4 rule as builds, Nico 2026-11-21) or enough games of its own
   // (START_MIN_GAMES), so a start bought in a handful of games can't lead on luck.
@@ -658,7 +657,7 @@ function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: It
 
 // One DeepScore rule for every list (Nico chose "Same rule everywhere", 2026-11-24): the Tier List's bound rule with
 // the items fit (lib/card-score.ts scoreRows) for boots, cores, six-item builds, build styles and single items, as for
-// augments and spell pairs. Starters are the exception (see startRows). Next-patch backtest (analysis/scoring/consistency.py) against the old
+// augments and spell pairs; starters too, on their pooled numbers (see startRows). Next-patch backtest (analysis/scoring/consistency.py) against the old
 // shrunk-only rule: boots top pick -0.10 ± 0.06 pts, cores 0.00, ranking equal or better (boots rho 0.861 -> 0.862,
 // thin data 0.817 -> 0.825); rarely picked rows that lead (flat 1,000-game minimum) kept 260 of 261.
 const scoreItems = (list: ItemRow[]): ItemRow[] => scoreRows(list, FIT.items, { bound: true });

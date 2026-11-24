@@ -122,3 +122,18 @@ penalty (Z = 0.5) everywhere kept 4 more rarely picked leaders on the cards but 
 (rho 0.764 -> 0.759 -> 0.701 at Z = 0). Nico chose the bound rule everywhere. Starters stay on the estimate
 without the penalty: the bound dropped 16 of the 62 rarely bought starters that lead (Guardian's Orb starts,
 Zeri's Guardian's Blade), against Nico's ask to keep slept-on picks, and there is no starter history to test it.
+
+## Starters on the one rule, pooled (2026-11-24)
+
+`starters_pool.py`: starters from the saved 101 snapshots (16.20-16.23), games = the champion's AramHex games x
+pick rate, scored on patch T and judged on T+1 (329 champion-patches; under the card's 25% / 2,000-game lead rule).
+Top pick vs today's estimate without penalty, pts, and rare picks (under 25% of the top start's pick rate):
+
+| Data | bound, live patch only | bound, pooled with earlier patches |
+|---|---|---|
+| Full patches | 0.00, rare 230 of 230 | 0.00 ± 0.01, rare 229 |
+| Thinned to 10% | -0.06 ± 0.02, rare 169 of 185 | -0.02 ± 0.02, rare 181 |
+| Thinned to 3% | -0.06 ± 0.02, rare 73 of 90 | +0.01 ± 0.02, rare 85 |
+
+On a young patch the bound alone loses rare starters and picks worse; pooled, it matches today's rule and keeps them.
+On the live cards: 65 rare starters lead (62 before), 22 champions change starter.
