@@ -1,6 +1,6 @@
 {
  "patch": "16.23",
- "built": "2026-11-23",
+ "built": "2026-11-24",
  "checks": {
   "loops": 3,
   "gap": 48,
@@ -36,9 +36,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Corki's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Corki's builds with Berserker's Greaves win 4.4 points less often than their builds without it.",
-   "gap": -0.0438,
-   "share": 0.0334,
+   "practice": "In real games, Corki's builds with Berserker's Greaves win 4.5 points less often than their builds without it.",
+   "gap": -0.0448,
+   "share": 0.0325,
    "status": "trap"
   },
   {
@@ -53,9 +53,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.4 points less often than their builds without it.",
-   "gap": -0.044,
-   "share": 0.0494,
+   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.3 points less often than their builds without it.",
+   "gap": -0.0432,
+   "share": 0.0489,
    "status": "trap"
   },
   {
@@ -70,9 +70,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.3 points less often than their builds without it.",
-   "gap": -0.0626,
-   "share": 0.0315,
+   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.2 points less often than their builds without it.",
+   "gap": -0.0624,
+   "share": 0.0308,
    "status": "trap"
   },
   {
@@ -87,9 +87,9 @@
     3071
    ],
    "theory": "The Simulator puts Black Cleaver in Riven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Riven's builds with Black Cleaver win 3.4 points less often than their builds without it.",
-   "gap": -0.0337,
-   "share": 0.0331,
+   "practice": "In real games, Riven's builds with Black Cleaver win 3.2 points less often than their builds without it.",
+   "gap": -0.0325,
+   "share": 0.033,
    "status": "trap"
   },
   {
@@ -105,8 +105,8 @@
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Caitlyn's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Caitlyn's builds with Blade of The Ruined King win 3.2 points less often than their builds without it.",
-   "gap": -0.0322,
-   "share": 0.0613,
+   "gap": -0.0318,
+   "share": 0.0601,
    "status": "trap"
   },
   {
@@ -121,9 +121,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Sivir's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Sivir's builds with Blade of The Ruined King win 3.1 points less often than their builds without it.",
-   "gap": -0.0313,
-   "share": 0.1112,
+   "practice": "In real games, Sivir's builds with Blade of The Ruined King win 3.0 points less often than their builds without it.",
+   "gap": -0.0304,
+   "share": 0.1101,
    "status": "trap"
   },
   {
@@ -139,8 +139,8 @@
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Xin Zhao's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Xin Zhao's builds with Blade of The Ruined King win 3.7 points less often than their builds without it.",
-   "gap": -0.0372,
-   "share": 0.0317,
+   "gap": -0.0367,
+   "share": 0.0316,
    "status": "trap"
   },
   {
@@ -155,9 +155,9 @@
     3089
    ],
    "theory": "The Simulator puts Rabadon's Deathcap in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 9.7 points less often than their builds without it.",
-   "gap": -0.0973,
-   "share": 0.0987,
+   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 9.8 points less often than their builds without it.",
+   "gap": -0.0984,
+   "share": 0.0978,
    "status": "trap"
   },
   {
@@ -172,9 +172,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 7.8 points less often than their builds without it.",
-   "gap": -0.0781,
-   "share": 0.035,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 8.0 points less often than their builds without it.",
+   "gap": -0.0797,
+   "share": 0.0344,
    "status": "trap"
   },
   {
@@ -190,8 +190,8 @@
    ],
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Talon's builds with Serylda's Grudge win 3.8 points less often than their builds without it.",
-   "gap": -0.0381,
-   "share": 0.0568,
+   "gap": -0.0384,
+   "share": 0.0564,
    "status": "trap"
   },
   {
@@ -206,9 +206,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Zed's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Zed's builds with Serylda's Grudge win 4.6 points less often than their builds without it.",
-   "gap": -0.0463,
-   "share": 0.072,
+   "practice": "In real games, Zed's builds with Serylda's Grudge win 4.9 points less often than their builds without it.",
+   "gap": -0.0487,
+   "share": 0.0718,
    "status": "trap"
   },
   {
@@ -224,8 +224,8 @@
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 8.0 points less often than their builds without it.",
-   "gap": -0.0797,
-   "share": 0.0566,
+   "gap": -0.0798,
+   "share": 0.0563,
    "status": "trap"
   },
   {
@@ -240,9 +240,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Xerath's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Xerath's builds with Sorcerer's Shoes win 3.2 points less often than their builds without it.",
-   "gap": -0.0322,
-   "share": 0.2036,
+   "practice": "In real games, Xerath's builds with Sorcerer's Shoes win 3.3 points less often than their builds without it.",
+   "gap": -0.0327,
+   "share": 0.2016,
    "status": "trap"
   }
  ],
