@@ -329,6 +329,9 @@
   const itemId = (icon) => Number((icon.match(/(\d+)\.png$/) ?? [])[1]) % 10000;
   // No taps in game (Nico 2026-11-24: "Mayhem is fast-paced and can't afford it"): nothing here waits on a click.
   let game = null, reached = {}, offer = [], closedAt = null;
+  // Augment screens owed: levels 7/11/15 reached while watching whose screen hasn't come yet. A screen only opens with
+  // the shop open (dead, or on the spawn platform), so one reached while alive waits for the next death (wiki).
+  let owed = 0, sawOffer = false;
   // Item art lives at the champion build's icon path; mode copies use 22xxxx ids (base ids 404), and an icon that
   // still fails to load just disappears.
   let iconPrefix = "";
@@ -347,11 +350,13 @@
     if (ids.length) {
       // A card that changed while the other two stayed was rerolled: neither it nor its replacement can be again.
       const kept = ids.filter((id) => offer.includes(id));
-      if (offer.length === 3 && ids.length === 3 && kept.length === 2) {
+      // (3 cards, or 4 under Maestro)
+      if (offer.length >= 3 && ids.length === offer.length && kept.length === ids.length - 1) {
         for (const id of [...offer, ...ids]) if (!kept.includes(id)) rerolled.add(id);
       }
       ids.forEach((id) => seen.add(id));
-    } else if (offer.length && game) closedAt = game.t;
+      sawOffer = true;
+    } else if (offer.length && game) { closedAt = game.t; owed = Math.max(0, owed - 1); }
     offer = ids;
     return true;
   }
@@ -528,12 +533,13 @@
       renderAugments();
     }
     // "Augment pick" lights up for 90 seconds after each augment level, and stays lit only while one is untaken.
-    if (!prev || prev.champ !== g.champ) { reached = {}; if (!offer.length) resetTrack(); }
-    for (const l of AUGMENT_LEVELS) if (l <= g.level && reached[l] === undefined) reached[l] = prev ? g.t : 0;
-    const recent = AUGMENT_LEVELS.some((l) => reached[l] !== undefined && g.t - reached[l] < 90);
-    // Lit while an offer is on screen, or for 90 s after an augment level until the offer that came closes.
-    const lastLevel = Math.max(-1, ...AUGMENT_LEVELS.filter((l) => reached[l] !== undefined).map((l) => reached[l]));
-    const pickNow = offer.length > 0 || (recent && !(closedAt !== null && closedAt >= lastLevel));
+    if (!prev || prev.champ !== g.champ) { reached = {}; owed = 0; if (!offer.length) resetTrack(); }
+    for (const l of AUGMENT_LEVELS) if (l <= g.level && reached[l] === undefined) { reached[l] = prev ? g.t : 0; if (prev && l > 1) owed++; }
+    // Back from the dead: the shop was open, so any owed screen came, even if the reading missed it.
+    if (prev?.dead && !g.dead) { if (!sawOffer && !offer.length) owed = 0; sawOffer = false; }
+    // Lit while an offer is on screen or a screen is owed; "waiting" while alive (it comes at the next death).
+    const waiting = owed > 0 && !offer.length && !g.dead;
+    const pickNow = offer.length > 0 || owed > 0;
     const head0 = document.getElementById("head");
     head0.textContent = `In game · ${clock(g.t)} · Level ${g.level}${g.dead ? " · Dead: shop now" : ""}`;
     head0.classList.toggle("now", !!g.dead);
@@ -547,7 +553,7 @@
     // Redrawn only when it changes, to keep the window's work small during a game.
     if (ff.lastHtml !== ffHtml) { ff.lastHtml = ffHtml; ff.innerHTML = ffHtml; }
     const head = document.getElementById("augHead");
-    head.textContent = pickNow ? "Augment pick: best first" : "Augments";
+    head.textContent = waiting ? "Augment waiting: it comes at your next death" : pickNow ? "Augment pick: best first" : "Augments";
     head.classList.toggle("now", pickNow);
     // Only what the item advice reads: attack speed near its cap and ability haste from 100 (in steps of 10), so a
     // buff that ticks attack speed up and down doesn't redraw the items every two seconds.
@@ -650,6 +656,7 @@
     resetTrack();
     offer = [];
     closedAt = null;
+    owed = 0;
     setView(`${hero(lastChamp, "Game over", "The review shows after games of 5 minutes or more")}`);
   };
 
