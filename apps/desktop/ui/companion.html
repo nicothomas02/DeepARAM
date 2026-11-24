@@ -23,6 +23,8 @@
   .name { font-weight: 600; }
   .why { color: var(--muted); font-size: 12px; }
   .num { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; }
+  /* DeepScore badge: the number, coloured by its tier (same colours as the site's tier chips). */
+  .ds-S { color: #e0604a; } .ds-A { color: #f0913a; } .ds-B { color: #e6c24a; } .ds-C { color: #7fb6e8; } .ds-D { color: var(--muted); }
   .mates { display: flex; gap: 6px; }
   .mates img { width: 28px; height: 28px; }
   .big { font-size: 44px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
@@ -454,7 +456,7 @@
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${typeof a.draw === "number" && Math.abs(a.draw) >= 0.1 ? `<div class="cue sm ${a.draw > 0 ? "green" : "red"}">🎲 ${a.draw > 0 ? "+" : ""}${a.draw.toFixed(1)}</div>` : ""}</div>
-        <div class="num" title="${esc([a.deep >= 0 ? `DeepScore ${a.deep} on this champion` : "", a.boost !== null ? `Ranking ${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)} (adds synergy with what you took)` : ""].filter(Boolean).join("\n"))}">${a.deep >= 0 ? `<b>${deepTier(a.deep)}</b>` : a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
+        <div class="num" title="${esc([a.deep >= 0 ? `DeepScore ${a.deep} on this champion (tier ${deepTier(a.deep)})` : "", a.boost !== null ? `Ranking ${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)} (adds synergy with what you took)` : ""].filter(Boolean).join("\n"))}">${a.deep >= 0 ? `<b class="ds-${deepTier(a.deep)}">${a.deep}</b>` : a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </div>`;
     };
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
