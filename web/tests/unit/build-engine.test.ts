@@ -22,7 +22,7 @@ import {
   type Kinds,
   type OverlayChamp,
   type Picks,
-  MEASURED_FIRST,
+  shiftOf,
 } from "@/lib/engine/build-engine";
 import { bundleEngine, ENGINE_OUT } from "../../scripts/build-engine.mjs";
 
@@ -111,12 +111,15 @@ describe("build engine", () => {
     expect(p.swaps.map((s) => [itemId(s.item.icon), s.kind, itemId(s.replaces?.icon)])).toEqual([[3087, "augment", 3046]]);
   });
 
-  it("adds only confirmed augment items: Draw Your Sword -> Death's Dance, not Armored Impact -> Thornmail", () => {
+  it("confirmed augment items keep their measured line; other augments' items come as estimated swaps", () => {
     const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3036)] }, { slot: 5, items: [item(3094)] }] };
     const p = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [1134] });
     const dd = p.swaps.find((s) => itemId(s.item.icon) === 6333);
     expect(dd?.why).toMatch(/With Draw Your Sword, \d+% of players build Death's Dance/);
-    expect(plan({ champ, kinds, picks, fit, game: game([]), taken: [3049] }).swaps.map((s) => itemId(s.item.icon))).not.toContain(3075);
+    // Armored Impact isn't a confirmed pair: Thornmail may come (Nico 2026-11-24: all augments change the build), but
+    // only labeled estimated, never with the confirmed "x% of players build" line
+    const ai = plan({ champ, kinds, picks, fit, game: game([]), taken: [3049] }).swaps.find((s) => itemId(s.item.icon) === 3075);
+    if (ai) expect(ai.why).toMatch(/\(estimated\)$/);
   });
 
   it("switches build only for measured augments (Ethereal Weapon -> on-hit)", () => {
@@ -130,13 +133,13 @@ describe("build engine", () => {
   it("Weapon of Destiny moves the champion's best Weapon item first; measured augments move their item up", () => {
     const wod = plan({ champ, kinds, picks, fit, game: game([]), taken: [3081] });
     expect(itemId(wod.next[0].icon)).toBe(3036);
-    // Upgrade Infinity Edge: IE is a 1st/2nd legendary for 83% of holders vs 52% without (measuredFirst)
+    // Upgrade Infinity Edge: IE is a 1st/2nd legendary for 83% of holders vs 52% without (augmentShift)
     const up = plan({ champ, kinds, picks, fit, game: game([]), taken: [1336] });
     expect(ids(up.next)).toEqual([3031, 3006]);
-    expect(up.timing[0].because).toMatch(/buy it early/);
+    expect(up.timing[0].because).toMatch(/buy this earlier/);
     expect(up.why[ids(up.path).indexOf(3031)]).toMatch(/upgrades it/);
-    // an augment with no measured timing (Ethereal Weapon -> Nashor's 63% vs 60%) leaves the order alone
-    expect(MEASURED_FIRST[1029]).toBeUndefined();
+    // a pull too small to matter (Ethereal Weapon -> Nashor's, shrunk) moves nothing on its own
+    expect(Math.abs(shiftOf([1029], 3115).early)).toBeLessThan(0.05);
   });
 
   it("puts a finished item you own off the path into the first open later slot", () => {
