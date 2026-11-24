@@ -163,6 +163,11 @@ export default async function ItemPage({ params }: { params: Promise<{ slug: str
             );
           })}
         </div>
+        {i.stats.some((x) => /Critical Strike Chance/i.test(x)) && (
+          <p className="cp-mini">
+            <T ns="items">In Mayhem, crit chance over 100% turns into 0.75 adaptive force per 1%.</T>
+          </p>
+        )}
         {/* Finished items only: holding a component at game end mostly says the build wasn't finished. */}
         {(i.tier === "legendary" || i.tier === "boots") && (
           <WhatItDoes effects={whatItDoes("items", i.id, { shield: /shield/i.test(DESC.items[String(i.id)] ?? "") })} />

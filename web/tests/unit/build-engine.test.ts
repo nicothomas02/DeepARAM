@@ -133,10 +133,13 @@ describe("build engine", () => {
     const p = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [1134] });
     const dd = p.swaps.find((s) => itemId(s.item.icon) === 6333);
     expect(dd?.why).toMatch(/With Draw Your Sword, \d+% of players build Death's Dance/);
-    // Armored Impact isn't a confirmed pair: Thornmail may come (Nico 2026-11-24: all augments change the build), but
-    // only labeled estimated, never with the confirmed "x% of players build" line
+    // Armored Impact -> Thornmail became a confirmed pair 2026-11-24 (a tested outside synergy lead): the measured line
     const ai = plan({ champ, kinds, picks, fit, game: game([]), taken: [3049] }).swaps.find((s) => itemId(s.item.icon) === 3075);
-    if (ai) expect(ai.why).toMatch(/\(estimated\)$/);
+    if (ai) expect(ai.why).toMatch(/With Armored Impact, \d+% of players build Thornmail/);
+    // Overloaded -> Rod of Ages failed the checks: it may come (Nico 2026-11-24: all augments change the build), but only
+    // labeled estimated, never with the confirmed "x% of players build" line
+    const ol = plan({ champ, kinds, picks, fit, game: game([]), taken: [2123] }).swaps.find((s) => itemId(s.item.icon) === 6657);
+    if (ol) expect(ol.why).toMatch(/\(estimated\)$/);
   });
 
   it("switches build only for measured augments (Ethereal Weapon -> on-hit)", () => {
@@ -273,6 +276,18 @@ describe("build engine", () => {
       pts["QWER".indexOf(k)]++;
     }
     expect(seq.join("")).toBe("QEWQQREEEERQQ");
+  });
+
+  it("follows a W split: Ashe W to 3, then max Q", () => {
+    const split = { first: "W", points: 3, weak: true };
+    const seq: string[] = [];
+    const pts = [0, 0, 0, 0];
+    for (let lv = 1; lv <= 13; lv++) {
+      const k = skillUp(["Q", "W", "E"], pts, lv, [], "Ashe", 5, split);
+      seq.push(k);
+      pts["QWER".indexOf(k)]++;
+    }
+    expect(seq.join("")).toBe("WQEWWRQQQQRWW");
   });
 
   it("switches the skill order once an augment that changes it is taken (Gwen E>Q>W with Ethereal Weapon)", async () => {
@@ -486,5 +501,56 @@ describe("HEARTSTEEL stickers (estimated)", () => {
     const p = { augments: {}, champions: { Mage: [[10, 0.01, 50, 1], [11, 0.005, 50, 1]] }, pairs: {}, styles: {} } as unknown as Picks;
     expect(rankAugments(p, "Mage", [])[0].id).toBe(10);
     expect(rankAugments(p, "Mage", [], { stickers: { 11: 1 } })[0].id).toBe(11);
+  });
+});
+
+describe("split skill orders", () => {
+  it("never split into the ability the champion maxes first", async () => {
+    const { CHAMPION_SPLITS, CHAMPION_SKILLS } = await import("@/lib/augment-skills");
+    for (const [champ, split] of Object.entries(CHAMPION_SPLITS)) {
+      const order = CHAMPION_SKILLS[champ];
+      if (order) expect(order[0], champ).not.toBe(split.first);
+    }
+  });
+});
+
+describe("crit cap (critCap)", () => {
+  it("swaps a near-tied crit pick for a non-crit one at 100% crit, never for Yasuo", async () => {
+    const { plan, CRIT_CONVERTERS } = await import("@/lib/engine/build-engine");
+    const icon = (id: number) => `/assets/dd/16.23.1/img/item/${220000 + id}.png`;
+    const champ0 = {
+      id: "Tristana",
+      skills: ["Q", "E", "W"],
+      items: [{ name: "Berserker's Greaves", icon: icon(3006) }, { name: "Yun Tal Wildarrows", icon: icon(3032) }],
+      laterSlots: [{ slot: 2, items: [{ name: "Infinity Edge", icon: icon(3031), deepScore: 70, tie: true }, { name: "Lord Dominik's Regards", icon: icon(3036), deepScore: 68, tie: true }] }],
+    };
+    const kinds = {
+      champions: { Tristana: 0.1, Yasuo: 0.1 },
+      items: { "3031": ["ad", "crit"], "3036": ["ad"], "3032": ["ad", "crit", "as"], "3006": ["as"] },
+      boots: [3006],
+      recipes: { "3031": ["Infinity Edge", 3500, []], "3036": ["Lord Dominik's Regards", 3100, []], "3032": ["Yun Tal Wildarrows", 3000, []], "3006": ["Berserker's Greaves", 1100, []] },
+    } as never;
+    const g = (champ: string, crit: number) => ({ champ, items: [3006, 3032], stats: [crit, 1.5, 0], level: 11 });
+    const at = (champ: string, crit: number) => plan({ champ: { ...champ0, id: champ }, kinds, picks: null, fit: null, game: g(champ, crit), taken: [] } as never);
+    expect(at("Tristana", 0.6).path.map((x) => x.name)).toContain("Infinity Edge");
+    const capped = at("Tristana", 1);
+    expect(capped.path.map((x) => x.name)).toContain("Lord Dominik's Regards");
+    expect(capped.rules).toContain("critCap");
+    expect(CRIT_CONVERTERS.has("yasuo")).toBe(true);
+    expect(at("Yasuo", 1).path.map((x) => x.name)).toContain("Infinity Edge");
+  });
+});
+
+describe("augments tip a weaker split (splitAugments)", () => {
+  it("maxes the favored ability and keeps the split otherwise", async () => {
+    const { splitFor } = await import("@/lib/engine/build-engine");
+    const weak = { first: "Q", points: 3, weak: true };
+    expect(splitFor(["W", "Q", "E"], weak, []).split).toEqual(weak);
+    expect(splitFor(["W", "Q", "E"], weak, [1103])).toMatchObject({ order: ["Q", "W", "E"], split: undefined, tipped: true });
+    expect(splitFor(["W", "Q", "E"], weak, [3171])).toMatchObject({ order: ["W", "Q", "E"], split: undefined, tipped: true });
+    expect(splitFor(["W", "Q", "E"], weak, [1103, 1150]).split).toEqual(weak);
+    expect(splitFor(["W", "Q", "E"], weak, [1151]).split).toEqual(weak);
+    // Katarina and Kayn's splits aren't weak: augments don't move them.
+    expect(splitFor(["E", "Q", "W"], { first: "Q", points: 3 }, [1103]).tipped).toBe(false);
   });
 });

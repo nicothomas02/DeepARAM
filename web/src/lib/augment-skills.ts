@@ -23,6 +23,18 @@ export const CHAMPION_SKILLS: Record<string, string[]> = {
   // Nico 2026-11-24 chose the split cue for these two (see CHAMPION_SPLITS): the order after the split.
   Katarina: ["E", "Q", "W"],
   Kayn: ["W", "Q", "E"],
+  // Nico 2026-11-24 added these two splits (weaker evidence): pinned so the split is always followed by a W max.
+  Azir: ["W", "Q", "E"],
+  Soraka: ["W", "Q", "E"],
+  // Nico 2026-11-24 (splits with a kit reason, weaker evidence): Dr. Mundo maxes E after Q to 3; Rumble Q after E to 3.
+  // Ashe isn't pinned: her crit and AP builds max different abilities, and the W split leads both.
+  DrMundo: ["E", "Q", "W"],
+  Rumble: ["Q", "E", "W"],
+  // Nico 2026-11-24 also chose these four (weaker evidence, kit reason). Vayne isn't pinned: her on-hit and crit
+  // builds max different abilities, and the W split leads both.
+  Khazix: ["W", "Q", "E"],
+  Sona: ["W", "Q", "E"],
+  Smolder: ["Q", "W", "E"],
 };
 
 /**
@@ -31,8 +43,25 @@ export const CHAMPION_SKILLS: Record<string, string[]> = {
  * splits that beat the champion's best standard order at levels 10 and 15 (Katarina 57% vs 50%, Kayn 56% vs 48%, 800+
  * games each). Not stored or shown as data: research/split-skill-orders-lolalytics-2026-11-24.md.
  */
-export type SkillSplit = { first: "Q" | "W" | "E"; points: number };
+export type SkillSplit = { first: "Q" | "W" | "E"; points: number; weak?: boolean };
 export const CHAMPION_SPLITS: Record<string, SkillSplit> = {
   Katarina: { first: "Q", points: 3 },
   Kayn: { first: "Q", points: 3 },
+  // Nico added these 2026-11-24 as weaker evidence: they lead their best standard order at levels 10 and 15 on the
+  // same cross-check (Azir 51% vs 48% and 55% vs 52%, Soraka 54% vs 53% and 58% vs 55%), but within what luck gives.
+  Azir: { first: "Q", points: 3, weak: true },
+  Soraka: { first: "Q", points: 3, weak: true },
+  // Nico added these 2026-11-24 because the split has a kit reason (early poke or waveclear from the 3-point ability),
+  // not for the win rates, which are about even with the best standard order (Dr. Mundo +1 and +2 points at levels 10
+  // and 15, Ashe +0 and +2, Rumble +2 at level 10).
+  DrMundo: { first: "Q", points: 3, weak: true },
+  Ashe: { first: "W", points: 3, weak: true },
+  Rumble: { first: "E", points: 3, weak: true },
+  // Nico chose these four too (2026-11-24): about even with the best standard order at level 10 (Kha'Zix +1, Sona +0,
+  // Vayne -1, Smolder -1 points), each with a kit reason (W poke and heal; Q poke then W heals; W true damage vs tanks;
+  // W waveclear and poke).
+  Khazix: { first: "Q", points: 3, weak: true },
+  Sona: { first: "Q", points: 3, weak: true },
+  Vayne: { first: "W", points: 3, weak: true },
+  Smolder: { first: "W", points: 3, weak: true },
 };

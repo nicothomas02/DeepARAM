@@ -715,6 +715,11 @@ export default async function ChampionPage({
         {skillSplit && (
           <div className="cp-aug-skill">
             <T ns={NS} v={{ key: skillSplit.first, points: skillSplit.points }}>{"First {key} to {points} points, then:"}</T>
+            {skillSplit.weak && (
+              <small className="cp-stale-tag">
+                <T ns={NS}>Weaker evidence</T>
+              </small>
+            )}
           </div>
         )}
         <Keys keys={pinnedSkill ?? skill!.max} />

@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.10";
+export const ENGINE_VERSION = "1.3.15";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -36,14 +36,16 @@ export const RULES: Record<string, Rule> = {
   seenAugments: { source: "game data", on: true, why: "Wiki: an augment shown once is never offered again that game." },
   rerollOnce: { source: "game data", on: true, why: "Wiki: each card can be rerolled once." },
   provenCounters: { source: "data", on: true, why: "Mechanism tests: MR items, Kaenic, Spirit Visage, Mercury's vs magic-heavy teams (the effect is clearly larger from 60-65% magic up, so 65% holds); armor vs 2+ marksmen." },
-  augmentItems: { source: "data", on: true, why: "The 26 augment -> item follow patterns confirmed in the archive (data/augment-items.json); payoff words only for the two with a measured gain. Nico approved 2026-11-23." },
+  augmentItems: { source: "data", on: true, why: "The 30 augment -> item follow patterns confirmed in the archive (data/augment-items.json; 4 added 2026-11-24 from tested outside synergy leads); payoff words only for the two with a measured gain. Nico approved 2026-11-23." },
   whyBest: { source: "data", on: true, why: "One line per item, only from tested reasons: augment trigger, most players build it, kit match (10 items with held-out R2 > 0.2), what it does (estimated). Otherwise none. Nico approved 2026-11-23." },
   luckyTilt: { source: "assumption", on: true, why: "Feeling lucky: among options whose 95% ranges overlap the leader's, rarer picks get up to +0.3 points; never past a clearly better one. Nico approved 2026-11-23." },
   measuredReplan: { source: "data", on: true, why: "Ethereal Weapon switches to the champion's own on-hit build (+25.9 pts on-hit build share). Only measured switches." },
   destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
-  skillSplits: { source: "assumption", on: true, why: "Katarina and Kayn put 3 points in Q before maxing E (Katarina) or W (Kayn). Nico approved 2026-11-24 (his pick) after a one-time regular ARAM cross-check: the only two intentional splits that beat the champion's best standard order at levels 10 and 15 (800+ games each). Shown as estimated; no stats of its own." },
+  critCap: { source: "game data", on: true, why: "At 100% crit or more (live crit chance), a later slot's crit item gives way to a near-tied option (inside its 95% win-rate band) with better synergy: an item a taken augment pulls in, then a kit match, then a non-crit item, whose stats and passive keep full value (Mayhem turns crit over 100% into 0.75 adaptive force per 1%, wiki). Not Yasuo or Yone: their passive also turns extra crit into AD. Archive: overcap is noise on win rate (-1.7 +- 3.7 pts). Nico approved 2026-11-24 as a tiebreak." },
+  skillSplits: { source: "assumption", on: true, why: "Katarina and Kayn put 3 points in Q before maxing E (Katarina) or W (Kayn). Nico approved 2026-11-24 (his pick) after a one-time regular ARAM cross-check: the only two intentional splits that beat the champion's best standard order at levels 10 and 15 (800+ games each). Azir and Soraka (Q to 3, then max W) added by Nico the same day as weaker evidence: they lead at both levels but within luck. Dr. Mundo (Q to 3, then E), Ashe (W to 3, then Q) and Rumble (E to 3, then Q) added by Nico for their kit logic; about even on win rate. Kha'Zix and Sona (Q to 3, then W), Vayne and Smolder (W to 3, then Q) chosen by Nico too: about even, with a kit reason. Shown as estimated; no stats of its own." },
+  splitAugments: { source: "assumption", on: true, why: "For the weaker-evidence splits (close to the standard order), an augment that favors one of the two abilities tips it: Bread and Butter/Jam/Cheese (+100 haste) or Pentakill HEAVY/POWER/THRASH (+20 haste, +10%) on the split's 3-point ability maxes that ability first; on the maxed ability, it's maxed from the start (no split). Kit logic, estimated: no data splits skill orders by augment. Nico approved 2026-11-24 (he asked for it)." },
   augmentSkills: { source: "assumption", on: true, why: "A few champions max another ability first once they take an augment (Gwen: E>Q>W with Ethereal Weapon). Nico approved 2026-11-24 (he asked for it); no source splits skill orders by augment, so it's estimated." },
   augmentStart: { source: "data", on: true, why: "The starting items follow the first augment when its first-screen pickers mostly start something else and it at least doubles that start for the champion (Upgrade Stormsurge: Hextech Alternator; Wooglet's Witchcap: Needlessly Large Rod). From the archive's other players against the same champions' players, estimated. Nico asked for it 2026-11-24." },
   richStart: { source: "data", on: true, why: "With more than the 1,400 starting gold before your first buy (the Debonair headliner pays gold for each augment pick; seen in 16 of 251 archive games since 16.21), the best start above 1,400 that you can afford, by DeepScore. Starts above 1,400 are never the default. Nico asked for it 2026-11-24." },
@@ -78,7 +80,13 @@ export const RULES: Record<string, Rule> = {
 // ---------------------------------------------------------------------------------------------------------------
 // Data shapes (the site's public files)
 
-export type Named = { name: string; icon: string | null; deepScore?: number | null };
+export type Named = {
+  name: string;
+  icon: string | null;
+  deepScore?: number | null;
+  /** Later-slot items: inside the 95% win-rate band of the slot's best item (a near-tie, site lib/quick-build.ts). */
+  tie?: boolean;
+};
 export type Situational = Named & { when?: string; why?: string; augments?: number[]; replaces?: Named };
 export type OverlayChamp = {
   id: string;
@@ -102,7 +110,7 @@ export type OverlayChamp = {
   /** Skill max orders once an augment is taken (site lib/augment-skills.ts). */
   augmentSkills?: { augment: number; skills: string[] }[];
   /** Points into one ability before following `skills` (site lib/augment-skills.ts CHAMPION_SPLITS, Nico's pick). */
-  skillSplit?: { first: string; points: number };
+  skillSplit?: { first: string; points: number; weak?: boolean };
   /** The start once an augment is taken first (site lib/quick-build.ts augmentStarts), estimated. */
   augmentStarts?: { augment: number; start: Named[]; toward?: number }[];
   /** Starts above the starting gold, best first, with their cost (site lib/quick-build.ts richStarts). */
@@ -156,7 +164,7 @@ export type GameState = {
   dead?: boolean;
   /** Seconds since the game started. */
   t?: number;
-  /** [ad, attack speed, ability haste], when the app reads them. */
+  /** [crit chance (0 to 1), attack speed, ability haste] as the live game reports them, when the app reads them. */
   stats?: number[];
 };
 
@@ -861,7 +869,9 @@ export function laterPicks(champ: OverlayChamp | undefined, owned: Set<number>, 
   const room = Math.max(0, 6 - (champ?.items ?? []).length);
   const out: { slot: number; it: Named; alts: Named[] }[] = [];
   [...slots].sort((a, b) => a.slot - b.slot).slice(0, room).forEach((s, n) => {
-    const pick = fullRest[n] && ok(itemId(fullRest[n].icon)) ? [fullRest[n]] : [];
+    // the full path's pick, with the slot's own row for it when it has one (that row carries the near-tie flag)
+    const fr = fullRest[n] && ok(itemId(fullRest[n].icon)) ? fullRest[n] : null;
+    const pick = fr ? [(s.items ?? []).find((x) => itemId(x.icon) === itemId(fr.icon)) ?? fr] : [];
     const items = [...pick, ...(s.items ?? []).filter((x) => !pick.length || itemId(x.icon) !== itemId(pick[0].icon))];
     const free = items.filter((it) => ok(itemId(it.icon)));
     const it = free.find((x) => owned.has(itemId(x.icon))) ?? free[0];
@@ -1078,6 +1088,25 @@ export const START_GOLD = 1400;
 
 const ord = (n: number) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
 
+/** Augments that favor one basic ability: Bread and Butter / Jam / Cheese (+100 haste on Q / W / E, short and long
+ *  ids) and Pentakill HEAVY / POWER / THRASH (+20 haste and +10% on Q / W / E). Game data (wiki augment list). */
+export const SLOT_AUGMENTS: Record<number, "Q" | "W" | "E"> = { 103: "Q", 1103: "Q", 150: "W", 1150: "W", 151: "E", 1151: "E", 3170: "Q", 3171: "W", 3172: "E" };
+
+/**
+ * A weaker-evidence split tipped by your augments (splitAugments): an augment on the split's 3-point ability maxes it
+ * first; one on the maxed ability maxes that from the start. Both or neither: the split stays.
+ */
+export function splitFor(order: string[] | undefined, split: OverlayChamp["skillSplit"], taken: number[]): { order: string[] | undefined; split: OverlayChamp["skillSplit"]; tipped: boolean } {
+  if (!split?.weak || !RULES.splitAugments.on || !order?.length) return { order, split, tipped: false };
+  const fav = new Set(taken.map((id) => SLOT_AUGMENTS[id]).filter(Boolean));
+  const onFirst = fav.has(split.first as "Q"), onMax = fav.has(order[0] as "Q");
+  if (onFirst === onMax) return { order, split, tipped: false };
+  return { order: onFirst ? [split.first, ...order.filter((x) => x !== split.first)] : order, split: undefined, tipped: true };
+}
+
+/** Champions whose own passive turns crit over 100% into AD (Yasuo, Yone: 0.5 bonus AD per 1%, wiki). */
+export const CRIT_CONVERTERS = new Set(["yasuo", "yone"]);
+
 export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, why: whyData, profiles }: PlanInput): Plan {
   const rules = itemRules(k);
   const used = new Set<string>();
@@ -1122,6 +1151,29 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
         if (alt) r.it = alt;
       }
     slotRows = slotRows.filter((r) => owned.has(itemId(r.it.icon)) || ![...owned].some((o) => rules.clash(o, itemId(r.it.icon))));
+  }
+  // Crit cap (critCap): at 100%+ live crit, a crit item in a later slot gives way to a near-tied option with better
+  // synergy (augment pull, then kit match, then a non-crit item whose stats and passive keep full value).
+  const critNow = (game.stats ?? [])[0] ?? 0;
+  if (slotRows && k && RULES.critCap.on && (critNow > 2 ? critNow / 100 : critNow) >= 0.995 && !CRIT_CONVERTERS.has(champKey(game.champ))) {
+    const isCrit = (it: Named) => (k.items[String(itemId(it.icon))] ?? []).includes("crit");
+    const synergy = (it: Named) => {
+      const w = RULES.whyBest.on ? whyBest(itemId(it.icon), game.champ, it.name, taken, whyData, profiles)?.kind : undefined;
+      return (w === "augment" ? 4 : w === "kit" ? 2 : 0) + (isCrit(it) ? 0 : 1);
+    };
+    const usedIds = new Set([...(champ?.items ?? []), ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
+    for (const r of slotRows) {
+      if (owned.has(itemId(r.it.icon)) || !isCrit(r.it) || !r.it.tie) continue;
+      const better = r.alts
+        .filter((x) => x.tie && !usedIds.has(itemId(x.icon)) && ![...owned].some((o) => rules.clash(o, itemId(x.icon))) && synergy(x) > synergy(r.it))
+        .sort((x, y) => synergy(y) - synergy(x))[0];
+      if (!better) continue;
+      usedIds.delete(itemId(r.it.icon));
+      usedIds.add(itemId(better.icon));
+      r.alts = [r.it, ...r.alts.filter((x) => x !== better)].slice(0, 2);
+      r.it = better;
+      applied("critCap");
+    }
   }
   const baseList = [...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : (champ?.rest ?? []))];
   const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules);
@@ -1253,8 +1305,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Tips, most useful first.
   const tips: Tip[] = [];
   // A split applies to the champion's own order only, not to an augment's or Archmage's.
-  const split = !augSkill && !route ? champ0?.skillSplit : undefined;
-  const point = skillUp(champ?.skills, game.skills ?? [], game.level ?? 0, taken, game.champ, route?.eRank ?? 5, split);
+  const sp = splitFor(champ?.skills, !augSkill && !route ? champ0?.skillSplit : undefined, taken);
+  if (sp.tipped) applied("splitAugments");
+  const point = skillUp(sp.order, game.skills ?? [], game.level ?? 0, taken, game.champ, route?.eRank ?? 5, sp.split);
   if (point) tips.push({ rank: 1, kind: "skill", text: point });
   const shop = game.dead ? "You're dead: a good time to shop." : (game.t ?? 999) < 60 ? "In base: a good time to shop." : "";
   if (shop) tips.push({ rank: 0, kind: "shop", text: shop });

@@ -1,5 +1,5 @@
 {
- "note": "Augment -> item follow patterns confirmed in the owner's archived Mayhem lobbies (all ten players, 2026-11-23; research/why-best section 2): holders build the item far more often than the same champions without the augment, and mostly after picking it. rate = share of holders who built it, base = same champions without the augment. payoff = a measured output change, only where |z| >= 3; null = not measurable, so never claim a gain. Nico approved 2026-11-23: these are the only augment -> item tips. holders = players who took the augment (archive); pairs under 50 holders are dropped by the build engine (MIN_HOLDERS, 2026-11-23).",
+ "note": "Augment -> item follow patterns confirmed in the owner's archived Mayhem lobbies (all ten players, 2026-11-23; research/why-best section 2): holders build the item far more often than the same champions without the augment, and mostly after picking it. rate = share of holders who built it, base = same champions without the augment. payoff = a measured output change, only where |z| >= 3; null = not measurable, so never claim a gain. Nico approved 2026-11-23: these are the only augment -> item tips. holders = players who took the augment (archive); pairs under 50 holders are dropped by the build engine (MIN_HOLDERS, 2026-11-23). 2026-11-24: 4 more pairs from an outside synergy list passed the same checks with a gate set for 202 prespecified leads (see each pair's check field); its numbers are not stored.",
  "pairs": [
   {
    "augment": 1152,
@@ -264,6 +264,50 @@
    "base": 0.148,
    "payoff": null,
    "holders": 389
+  },
+  {
+   "augment": 3049,
+   "augmentName": "Armored Impact",
+   "item": 3075,
+   "itemName": "Thornmail",
+   "rate": 0.64,
+   "base": 0.296,
+   "payoff": null,
+   "holders": 75,
+   "check": "Outside synergy lead, tested in the archive 2026-11-24: follow z >= 3.66 (Bonferroni over 202 prespecified leads), look-alike z >= 3.66, bought after the augment >= 70%, +3 pts in each patch half with data, 10%+ of holders"
+  },
+  {
+   "augment": 3049,
+   "augmentName": "Armored Impact",
+   "item": 3143,
+   "itemName": "Randuin's Omen",
+   "rate": 0.347,
+   "base": 0.107,
+   "payoff": null,
+   "holders": 75,
+   "check": "Outside synergy lead, tested in the archive 2026-11-24: follow z >= 3.66 (Bonferroni over 202 prespecified leads), look-alike z >= 3.66, bought after the augment >= 70%, +3 pts in each patch half with data, 10%+ of holders"
+  },
+  {
+   "augment": 2062,
+   "augmentName": "Echo Cast",
+   "item": 3089,
+   "itemName": "Rabadon's Deathcap",
+   "rate": 0.419,
+   "base": 0.244,
+   "payoff": null,
+   "holders": 62,
+   "check": "Outside synergy lead, tested in the archive 2026-11-24: follow z >= 3.66 (Bonferroni over 202 prespecified leads), look-alike z >= 3.66, bought after the augment >= 70%, +3 pts in each patch half with data, 10%+ of holders"
+  },
+  {
+   "augment": 2010,
+   "augmentName": "Double Tap",
+   "item": 3124,
+   "itemName": "Guinsoo's Rageblade",
+   "rate": 0.167,
+   "base": 0.11,
+   "payoff": null,
+   "holders": 323,
+   "check": "Outside synergy lead, tested in the archive 2026-11-24: follow z >= 3.66 (Bonferroni over 202 prespecified leads), look-alike z >= 3.66, bought after the augment >= 70%, +3 pts in each patch half with data, 10%+ of holders"
   }
  ]
 }
