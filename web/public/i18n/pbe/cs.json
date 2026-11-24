@@ -66,5 +66,6 @@
  "outside": "mimo",
  "Patch {patch}": "Patch {patch}",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} šampionů, odchylka {mae} b. oproti {base}, {in95} % v rozsahu",
- "All patches": "Všechny patche"
+ "All patches": "Všechny patche",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: předpověď pro 1 šampiona je uložená. Vyhodnocení přijde po týdnu her (den {day} z {of})."
 }

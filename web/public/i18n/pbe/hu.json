@@ -66,5 +66,6 @@
  "outside": "kívül",
  "Patch {patch}": "{patch} frissítés",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} bajnok, eltérés {mae} pont ({base} helyett), {in95}% a tartományban",
- "All patches": "Minden frissítés"
+ "All patches": "Minden frissítés",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "{patch} frissítés: 1 bajnok előrejelzése elmentve. Az eredmény egy hét játék után jön ({of} napból a {day}.)."
 }

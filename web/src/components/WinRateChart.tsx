@@ -173,7 +173,7 @@ export default function WinRateChart({
           ))}
           {metric === "winRate" && min < 0.5 && max > 0.5 && <line className="wr-even" x1={PAD.l} x2={w - PAD.r} y1={y(0.5)} y2={y(0.5)} />}
           {shown.map((p, i) =>
-            i % every === 0 || i === shown.length - 1 ? (
+            (shown.length - 1 - i) % every === 0 ? (
               <text
                 key={p}
                 className="wr-axis"

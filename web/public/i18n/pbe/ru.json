@@ -66,5 +66,6 @@
  "outside": "вне",
  "Patch {patch}": "Патч {patch}",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} чемпионов, ошибка {mae} п. против {base}, {in95}% в диапазоне",
- "All patches": "Все патчи"
+ "All patches": "Все патчи",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "Патч {patch}: прогноз для 1 чемпиона сохранён. Итог появится после недели игр (день {day} из {of})."
 }

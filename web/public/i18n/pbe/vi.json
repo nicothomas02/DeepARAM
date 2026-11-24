@@ -66,5 +66,6 @@
  "outside": "ngoài khoảng",
  "Patch {patch}": "Bản {patch}",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} tướng, sai lệch {mae} điểm so với {base}, {in95}% trong khoảng",
- "All patches": "Mọi bản cập nhật"
+ "All patches": "Mọi bản cập nhật",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "Bản {patch}: đã lưu dự báo cho 1 tướng. Kết quả có sau một tuần chơi (ngày {day}/{of})."
 }

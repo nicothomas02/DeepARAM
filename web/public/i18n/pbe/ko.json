@@ -66,5 +66,6 @@
  "outside": "범위 밖",
  "Patch {patch}": "{patch} 패치",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "챔피언 {n}명, 오차 {mae}점(비교 {base}), 범위 안 {in95}%",
- "All patches": "모든 패치"
+ "All patches": "모든 패치",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "{patch} 패치: 챔피언 1명의 예측을 저장했습니다. 결과는 일주일간의 게임 후에 나옵니다({of}일 중 {day}일째)."
 }

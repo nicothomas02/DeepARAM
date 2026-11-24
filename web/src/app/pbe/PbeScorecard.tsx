@@ -37,7 +37,9 @@ export default function PbeScorecard({ card }: { card: ReturnType<typeof forecas
       {waiting && (
         <p>
           <P v={{ patch: patchName(waiting.patch), n: waiting.champions, day: waiting.day, of: waiting.of }}>
-            {"Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of})."}
+            {waiting.champions === 1
+              ? "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of})."
+              : "Patch {patch}: the forecast for {n} champions is saved. The score comes after a week of games (day {day} of {of})."}
           </P>
         </p>
       )}

@@ -66,5 +66,6 @@
  "outside": "dışında",
  "Patch {patch}": "Yama {patch}",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} şampiyon, sapma {mae} puan ({base} karşısında), %{in95} aralıkta",
- "All patches": "Tüm yamalar"
+ "All patches": "Tüm yamalar",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "Yama {patch}: 1 şampiyonun tahmini kaydedildi. Sonuç bir haftalık oyunun ardından gelir ({of} günün {day}. günü)."
 }

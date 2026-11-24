@@ -66,5 +66,6 @@
  "outside": "di luar",
  "Patch {patch}": "Patch {patch}",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} champion, meleset {mae} poin dibanding {base}, {in95}% dalam rentang",
- "All patches": "Semua patch"
+ "All patches": "Semua patch",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: prakiraan untuk 1 champion sudah disimpan. Hasilnya muncul setelah seminggu permainan (hari {day} dari {of})."
 }
