@@ -11,7 +11,7 @@
 // rest: it highlights, the player picks (Riot: apps may highlight decisions, not make them; no win rates).
 use serde_json::Value;
 
-/// One line of text the recognizer found, with its box (in pixels of the copied picture).
+/// One line of text the recognizer found, with its box (in screen pixels).
 #[derive(Clone, Debug)]
 pub struct Line {
     pub text: String,
@@ -69,9 +69,15 @@ fn best_name(text: &str, names: &[(i64, String)]) -> Option<i64> {
         .map(|(id, _, _)| *id)
 }
 
-/// The augments on offer, left to right, from the lines read off the screen. A title can wrap onto two lines
-/// ("Courage of the / Colossus"), so two lines stacked on the same card are tried together first.
+/// The augments on offer, left to right, from the lines read off the screen.
+#[cfg_attr(not(test), allow(dead_code))]
 pub fn match_offer(lines: &[Line], names: &[(i64, String)]) -> Vec<i64> {
+    match_offer_at(lines, names).into_iter().map(|(id, _)| id).collect()
+}
+
+/// The augments on offer, left to right, each with its card's centre across (in the lines' pixels). A title can
+/// wrap onto two lines ("Courage of the / Colossus"), so two lines stacked on the same card are tried together first.
+pub fn match_offer_at(lines: &[Line], names: &[(i64, String)]) -> Vec<(i64, f64)> {
     let mut found: Vec<(f64, i64)> = Vec::new();
     let mut used = vec![false; lines.len()];
     for (i, a) in lines.iter().enumerate() {
@@ -98,14 +104,29 @@ pub fn match_offer(lines: &[Line], names: &[(i64, String)]) -> Vec<i64> {
         }
     }
     found.sort_by(|a, b| a.0.total_cmp(&b.0));
-    let mut ids: Vec<i64> = Vec::new();
-    for (_, id) in found {
-        if !ids.contains(&id) {
-            ids.push(id);
+    let mut cards: Vec<(i64, f64)> = Vec::new();
+    for (x, id) in found {
+        if !cards.iter().any(|(c, _)| *c == id) {
+            cards.push((id, x));
         }
     }
-    ids.truncate(4);
-    ids
+    cards.truncate(4);
+    cards
+}
+
+/// The card a click across at `x` landed on: the nearest card centre, if the click is within half the gap between
+/// cards of it (a click between or beside the cards, or on the reroll button's row below, is none of them).
+pub fn card_at(cards: &[(i64, f64)], x: f64) -> Option<i64> {
+    if cards.len() < 2 {
+        return None;
+    }
+    let gap = cards.windows(2).map(|p| (p[1].1 - p[0].1).abs()).fold(f64::MAX, f64::min);
+    cards
+        .iter()
+        .map(|(id, cx)| (*id, (x - cx).abs()))
+        .filter(|(_, d)| *d <= gap / 2.0)
+        .min_by(|a, b| a.1.total_cmp(&b.1))
+        .map(|(id, _)| id)
 }
 
 /// The part of the game's window the cards sit in: the middle 80% across, from 10% to 70% down.
@@ -169,6 +190,19 @@ fn fake_screen() -> Option<Vec<Line>> {
     Some(rows.into_iter().map(|(text, x)| Line { text, x, y: 200.0, w: 180.0, h: 24.0 }).collect())
 }
 
+/// Whether the left mouse button is down, and where the pointer is on screen: read-only input state, the way any
+/// app can ask Windows for it (nothing is hooked or sent to the game). Used while an offer is up, to see which card
+/// the player clicked, so the companion learns the pick without a tap (Nico 2026-11-24: no taps in game).
+#[cfg(windows)]
+pub fn mouse() -> Option<(bool, i32, i32)> {
+    win::mouse()
+}
+
+#[cfg(not(windows))]
+pub fn mouse() -> Option<(bool, i32, i32)> {
+    None
+}
+
 /// Screen reading works on Windows only (its built-in text recognition), or with a test game's fake screen.
 pub fn available() -> bool {
     #[cfg(debug_assertions)]
@@ -192,10 +226,14 @@ mod win {
             Foundation::{POINT, RECT},
             Graphics::Gdi::{
                 BitBlt, ClientToScreen, CreateCompatibleBitmap, CreateCompatibleDC, DeleteDC, DeleteObject, GetDC,
-                GetDIBits, ReleaseDC, SelectObject, BITMAPINFO, BITMAPINFOHEADER, BI_RGB, DIB_RGB_COLORS, SRCCOPY,
+                GetDIBits, ReleaseDC, SelectObject, SetBrushOrgEx, SetStretchBltMode, StretchBlt, BITMAPINFO,
+                BITMAPINFOHEADER, BI_RGB, DIB_RGB_COLORS, HALFTONE, SRCCOPY,
             },
             System::WinRT::{RoInitialize, RO_INIT_MULTITHREADED},
-            UI::WindowsAndMessaging::{FindWindowW, GetClientRect, IsIconic},
+            UI::{
+                Input::KeyboardAndMouse::{GetAsyncKeyState, VK_LBUTTON},
+                WindowsAndMessaging::{FindWindowW, GetClientRect, GetCursorPos, IsIconic},
+            },
         },
     };
 
@@ -224,8 +262,19 @@ mod win {
         }
     }
 
-    /// Copies a part of the screen as top-down BGRA pixels, as a screenshot does.
-    fn capture(x: i32, y: i32, w: i32, h: i32) -> Option<Vec<u8>> {
+    pub fn mouse() -> Option<(bool, i32, i32)> {
+        unsafe {
+            let mut at = POINT::default();
+            GetCursorPos(&mut at).ok()?;
+            // The high bit: the button is down right now.
+            let down = (GetAsyncKeyState(i32::from(VK_LBUTTON.0)) as u16 & 0x8000) != 0;
+            Some((down, at.x, at.y))
+        }
+    }
+
+    /// Copies a part of the screen as top-down BGRA pixels, as a screenshot does, scaled to `w` x `h` during the
+    /// copy (Windows' own smooth scaling, so no pass over the pixels afterwards).
+    fn capture(x: i32, y: i32, sw: i32, sh: i32, w: i32, h: i32) -> Option<Vec<u8>> {
         unsafe {
             let screen = GetDC(None);
             if screen.is_invalid() {
@@ -234,7 +283,13 @@ mod win {
             let mem = CreateCompatibleDC(Some(screen));
             let bmp = CreateCompatibleBitmap(screen, w, h);
             let old = SelectObject(mem, bmp.into());
-            let copied = BitBlt(mem, 0, 0, w, h, Some(screen), x, y, SRCCOPY).is_ok();
+            let copied = if (sw, sh) == (w, h) {
+                BitBlt(mem, 0, 0, w, h, Some(screen), x, y, SRCCOPY).is_ok()
+            } else {
+                SetStretchBltMode(mem, HALFTONE);
+                let _ = SetBrushOrgEx(mem, 0, 0, None);
+                StretchBlt(mem, 0, 0, w, h, Some(screen), x, y, sw, sh, SRCCOPY).as_bool()
+            };
             let mut info = BITMAPINFO {
                 bmiHeader: BITMAPINFOHEADER {
                     biSize: std::mem::size_of::<BITMAPINFOHEADER>() as u32,
@@ -284,14 +339,23 @@ mod win {
         if w < 64 || h < 64 {
             return None;
         }
-        let mut px = capture(x, y, w, h)?;
+        // Wide screens are halved as they're copied (cheap); halving after the copy is the fallback.
+        let (mut pw, mut ph) = (w, h);
+        while pw as usize > MAX_WIDTH {
+            (pw, ph) = (pw / 2, ph / 2);
+        }
+        let (mut px, mut pw, mut ph) = match capture(x, y, w, h, pw, ph) {
+            Some(px) => (px, pw as usize, ph as usize),
+            None => (capture(x, y, w, h, w, h)?, w as usize, h as usize),
+        };
         if is_blank(&px) {
             return Some(Vec::new());
         }
-        let (mut pw, mut ph) = (w as usize, h as usize);
         while pw > MAX_WIDTH {
             (px, pw, ph) = halve(&px, pw, ph);
         }
+        // The lines come back in the copied picture's pixels; screen pixels are what a click is measured in.
+        let scale = w as f64 / pw as f64;
         let engine = engine()?;
         let writer = DataWriter::new().ok()?;
         writer.WriteBytes(&px).ok()?;
@@ -311,7 +375,13 @@ mod win {
                 y1 = y1.max((r.Y + r.Height) as f64);
             }
             if x1 > x0 {
-                lines.push(Line { text, x: x0, y: y0, w: x1 - x0, h: y1 - y0 });
+                lines.push(Line {
+                    text,
+                    x: x as f64 + x0 * scale,
+                    y: y as f64 + y0 * scale,
+                    w: (x1 - x0) * scale,
+                    h: (y1 - y0) * scale,
+                });
             }
         }
         Some(lines)
@@ -366,6 +436,22 @@ mod tests {
     fn descriptions_do_not_match() {
         let lines = vec![line("Gain 20% attack speed and on-hit damage", 100.0, 200.0), line("Blunt", 400.0, 200.0)];
         assert!(match_offer(&lines, &names()).is_empty());
+    }
+
+    #[test]
+    fn keeps_each_cards_centre() {
+        let lines = vec![line("Deft", 500.0, 200.0), line("Mystic Punch", 900.0, 200.0)];
+        assert_eq!(match_offer_at(&lines, &names()), vec![(1022, 590.0), (1101, 990.0)]);
+    }
+
+    #[test]
+    fn a_click_lands_on_the_nearest_card() {
+        let cards = [(1, 400.0), (2, 800.0), (3, 1200.0)];
+        assert_eq!(card_at(&cards, 790.0), Some(2));
+        assert_eq!(card_at(&cards, 1390.0), Some(3));
+        assert_eq!(card_at(&cards, 1420.0), None); // past the last card
+        assert_eq!(card_at(&cards, 150.0), None);
+        assert_eq!(card_at(&[(1, 400.0)], 400.0), None); // one card read isn't an offer
     }
 
     #[test]
