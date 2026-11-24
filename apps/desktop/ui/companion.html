@@ -89,7 +89,10 @@
   .items.lst .why.lbl { margin: 4px 0 -2px; }
   .tip { margin-top: 8px; }
   .plan { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
-  .plan .keys { margin-right: auto; } .mates img.nx { box-shadow: 0 0 0 2px var(--gold); }
+  .plan .keys { font-size: 16px; } .plan .spells img { width: 36px; height: 36px; } .buildline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-left: auto; }
+  .corebox { position: relative; display: inline-flex; gap: 6px; padding: 14px 6px 5px; border: 1px dashed color-mix(in srgb, var(--muted) 45%, transparent); border-radius: 10px; background: color-mix(in srgb, var(--muted) 6%, transparent); align-items: flex-start; }
+  .corebox > .lbl { position: absolute; top: 2px; left: 8px; font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
   .aug .num.big { font-size: 17px; white-space: nowrap; }
   .plan .keys b { color: var(--accent); }
   .filters { display: flex; gap: 6px; margin-bottom: 8px; }
@@ -282,10 +285,17 @@
     // Game plan for the champion you're on: skill order and first three items, one glance before loading in.
     const me = byId[mine];
     const plan = me && builds?.champions?.find((c) => c.id.toLowerCase() === me.toLowerCase());
-    const planHtml = plan ? `<h2>Plan for ${esc(label(me))}</h2><div class="box plan">
+    // Most important first (Nico 2026-11-24): spells, then skills, then start › core (one grey dashed box: a suggestion,
+    // not a must, as on the site card) › the rest of the six-item path. No item twice (Mayhem and regular ids count as one).
+    const seen = new Set();
+    const once = (it) => { const k = (it.id ?? 0) % 10000; if (seen.has(k)) return false; seen.add(k); return true; };
+    const ic = (it, pre = "") => `<img src="${SITE}${it.icon}" alt="" title="${pre}${esc(it.name)}">`;
+    const coreItems = plan ? plan.items.filter(once) : [];
+    const restItems = plan ? (plan.full ?? []).filter(once).slice(0, Math.max(0, 6 - coreItems.length)) : [];
+    const planHtml = plan ? `<div class="box plan">
+        ${(plan.spells ?? []).length ? `<span class="mates spells">${plan.spells.map((sp) => ic(sp)).join("")}</span>` : ""}
         <span class="keys"${plan.skillSplit ? ` title="${plan.skillSplit.weak ? "Your pick, weaker evidence" : "Your pick, estimated"}"` : ""}>${plan.skillSplit ? `<b>${plan.skillSplit.first}</b> to ${plan.skillSplit.points}, then ` : ""}${(plan.skills ?? []).map((x) => `<b>${x}</b>`).join(" › ")}</span>
-        ${plan.start?.length ? `<span class="mates" title="Start">${plan.start.map((it) => `<img src="${SITE}${it.icon}" alt="" title="Start: ${esc(it.name)}">`).join("")}</span><span class="why">›</span>` : ""}
-        <span class="mates">${[...plan.items.map((it) => [it, true]), ...(plan.full ?? []).map((it) => [it, false])].slice(0, 6).map(([it, core]) => `<img${core ? ' class="nx"' : ""} src="${SITE}${it.icon}" alt="" title="${esc(it.name)}${core ? " (core)" : ""}">`).join("")}</span></div>` : "";
+        <span class="buildline">${plan.start?.length ? `<span class="mates">${plan.start.map((it) => ic(it, "Start: ")).join("")}</span><span class="why">›</span>` : ""}${coreItems.length ? `<span class="corebox"><span class="lbl">Core</span><span class="mates">${coreItems.map((it) => ic(it)).join("")}</span></span>` : ""}${restItems.length ? `<span class="why">›</span><span class="mates">${restItems.map((it) => ic(it)).join("")}</span>` : ""}</span></div>` : "";
     // Team gap: one line, only once the whole team is in and only when something is missing.
     let gap = "", gapShort = "";
     const all = [...team, ...(me ? [me] : [])];
@@ -302,12 +312,12 @@
     }
     setView(`
       ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion")}
+      ${planHtml}
       ${team.length ? `<h2>Your team</h2><div class="mates">${team.map(icon).join("")}</div>` : ""}
       ${gap ? `<div class="cue gold" title="${esc(gap)}">${esc(gapShort)}</div>` : ""}
       <h2>Your choices, best first</h2>
       ${Object.keys(d.brackets ?? {}).length ? `<div class="filters" title="Skill brackets come from a rating built from game results, not official ranks.${d.bracketPatch && d.bracketPatch !== d.patch ? ` This patch's brackets aren't out yet, so they use patch ${esc(d.bracketPatch)}.` : ""}">${BRACKETS.filter(([b]) => b === "all" || d.brackets[b]).map(([b, l]) => `<button class="chip br${b === bracket ? " on" : ""}" data-b="${b}">${l}</button>`).join("")}</div>` : ""}
       ${rows || `<p class="note">Waiting for your champion and bench…</p>`}
-      ${planHtml}
       ${gameSettings(ap, me)}`);
   };
 
@@ -561,24 +571,29 @@
     const bootIds = new Set(k?.boots ?? []);
     const hasBoots = [...owned].some((i) => bootIds.has(i));
     const nextId = p.next[0] ? itemId(p.next[0].icon) : -1;
+    const seenIds = new Set();
     const shown = p.path.map((it, i) => {
       const sw = p.swaps.find((x) => x.replaces && itemId(x.replaces.icon) === itemId(it.icon));
       // The hover: the engine's tested "why it's best" line (Nico approved 2026-11-23) when there is one, else the slot reason.
       const r = p.reasons?.[i];
       return sw ? { it: { ...sw.item, icon: sw.item.icon ?? it.icon }, why: `${sw.why} Replaces ${it.name}.`, sw: true, does: false }
         : { it, why: r?.text ?? p.why[i] ?? "", sw: false, does: r?.kind === "does" };
-    });
+    }).map((x, i) => ({ ...x, core: i < p.coreLen })).filter(({ it }) => { const k = itemId(it.icon ?? "") % 10000; if (seenIds.has(k)) return false; seenIds.add(k); return true; });
     const state = (it) => {
       const id = itemId(it.icon);
       return owned.has(id) || (hasBoots && bootIds.has(id)) ? " own" : id === nextId ? " nx" : "";
     };
     const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
     let n = 0;
-    const tiles = shown.map(({ it, why, sw, does }, i) => {
+    // The core sits in one grey dashed box (Nico 2026-11-24, as the site card); the item being built reads "Building".
+    const tile = ({ it, why, sw, does }) => {
       const boot = bootIds.has(itemId(it.icon));
       const lbl = boot ? "Boots" : ord(++n);
-      return `${i === p.coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${sw ? " sw" : ""}" title="${esc([`${it.name} · ${why}`, does ? "" : whatItDoes("items", itemId(it.icon ?? ""))].filter(Boolean).join("\n"))}"><img src="${src(it.icon ?? "")}" alt="" data-drop><span>${lbl}</span></div>`;
-    }).join("");
+      const st = state(it);
+      return `<div class="slot${st}${sw ? " sw" : ""}" title="${esc([`${it.name} · ${why}`, does ? "" : whatItDoes("items", itemId(it.icon ?? ""))].filter(Boolean).join("\n"))}"><img src="${src(it.icon ?? "")}" alt="" data-drop><span>${st === " nx" ? "▶ Building" : lbl}</span></div>`;
+    };
+    const coreT = shown.filter((x) => x.core).map(tile).join(""), restT = shown.filter((x) => !x.core).map(tile).join("");
+    const tiles = `${coreT ? `<div class="corebox"><span class="lbl">Core</span>${coreT}</div>` : ""}${restT}`;
     // Swaps already sit in the path (dashed ring, reason on hover). Other options: icons only, reason on hover.
     const tipImg = (it, why) => (it?.icon ? `<img class="ii" src="${src(it.icon)}" alt="" title="${esc(`${it.name}: ${String(why ?? "").replace(/\.$/, "")}`)}" data-drop>` : "");
     const opts = [...p.lit, ...p.pointers].map((x) => tipImg(x.item, x.why)).join("");
