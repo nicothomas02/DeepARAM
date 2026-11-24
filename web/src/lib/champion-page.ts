@@ -100,6 +100,10 @@ export type BuildOption = {
   deepScore: number;
   /** The card's own best build (the one the rest of the page shows) rather than the style's summary. */
   main: boolean;
+  /** A niche build (data/estimates/niche_builds.json, Nico 2026-11-24): rare, its items win clearly more; estimated.
+   *  Never the default. `triggers`: augments that unlock it (the apps switch to it when you take one). */
+  niche?: boolean;
+  triggers?: number[];
   core: ItemRow;
   start: ItemRow | null;
   situational: SituationRow[];
@@ -123,6 +127,10 @@ type Archetype = {
   boots?: number[];
   later?: number[];
   augments?: Record<string, number[]>;
+  /** data/estimates/niche_builds.json: few players build it but its items clearly win more (estimated). */
+  niche?: boolean;
+  /** Niche builds: augments after which players build this style clearly more (the apps switch on them). */
+  triggers?: number[];
 };
 
 type BootsTiming = { champions: Record<string, Record<string, Record<string, number>>> };
@@ -516,7 +524,10 @@ export function championPage(alias: string): ChampionPage | null {
   // Builds by style (Nico, 2026-11-21: crit vs AP Ashe, everything on the card follows the build). The card's own
   // best core stands for the style it belongs to; the other styles take their summary from build_archetypes.json.
   const base10k = (i: number) => i % 10000;
-  const archetypes = readRepoJson<{ champions: Record<string, Archetype[]> }>("data/estimates/build_archetypes.json")?.champions[String(id)] ?? [];
+  const archetypes0 = readRepoJson<{ champions: Record<string, Archetype[]> }>("data/estimates/build_archetypes.json")?.champions[String(id)] ?? [];
+  // Niche builds go after the usual ones, never the default (Nico 2026-11-24: enchanter Orianna).
+  const niches = readRepoJson<{ champions: Record<string, Archetype[]> }>("data/estimates/niche_builds.json")?.champions[String(id)] ?? [];
+  const archetypes = archetypes0.length ? [...archetypes0, ...niches.filter((n) => !archetypes0.some((a) => a.style === n.style))] : [];
   const known = (i: number) => (all.has(i) ? i : ([...all.keys()].find((k) => base10k(k) === base10k(i)) ?? i));
   // A build no listed start fits (the feeds list starts per champion, not per build: AP Amumu, crit Shaco) takes the
   // most common start of players whose first Legendary is the build's first item, when it fits (estimated;
@@ -547,14 +558,15 @@ export function championPage(alias: string): ChampionPage | null {
     const mainScore = scored.find((r) => r.style === "" && r.items === core[0]?.items)?.deepScore;
     return archetypes
       .map((a) => ({ style: a.style, deepScore: a === mainArch ? mainScore : scored.find((r) => r.style === a.style)?.deepScore }))
-      .sort((x, y) => (y.deepScore ?? 0) - (x.deepScore ?? 0));
+      .sort((x, y) => Number(!!archetypes.find((a) => a.style === x.style)?.niche) - Number(!!archetypes.find((a) => a.style === y.style)?.niche) || (y.deepScore ?? 0) - (x.deepScore ?? 0));
   })();
   const builds: BuildOption[] = !mainArch
     ? []
     : archScores
         .map((sc) => {
           const a = archetypes.find((x) => x.style === sc.style)!;
-          const augs = Object.values(a.augments ?? {}).flat();
+          const augs = a.niche ? [...(a.triggers ?? [])] : Object.values(a.augments ?? {}).flat();
+          const nicheOf = a.niche ? { niche: true, triggers: a.triggers ?? [] } : {};
           if (a === mainArch)
             return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: true,
               core: core[0], start: cardStart, situational: situationalItems(core[0], single, full), augmentSwaps: swapsFor(core[0]), rush: rushParts(core[0].items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
@@ -572,8 +584,9 @@ export function championPage(alias: string): ChampionPage | null {
           const own: ItemRow | null = a.starters?.length ? { items: a.starters.map(known), winRate: NaN, pickRate: 0, lift: 0 } : null;
           // The style's own starters only when no augment drives them (Armored Impact's Chain Vest on tank Volibear).
           const driven = (r: ItemRow) => starting.some((x) => x.augment && x.items.length === r.items.length && x.items.every((i) => r.items.includes(i)));
-          const start = st ?? (own && fits(row)(own) && !driven(own) ? own : null) ?? estimatedStart({ ...row, items: ordered });
-          return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false,
+          // A niche build with no start of its own begins like the champion's card (its players' starts aren't known apart).
+          const start = st ?? (own && fits(row)(own) && !driven(own) ? own : null) ?? estimatedStart({ ...row, items: ordered }) ?? (a.niche ? cardStart : null);
+          return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false, ...nicheOf,
             core: c, start, situational: situationalItems(c, single, full), augmentSwaps: swapsFor(c), rush: rushParts(c.items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
         });
   // AP Ashe follows AramHex's Archmage guide (Nico 2026-11-24): the haste route, from her AP build's own items.
