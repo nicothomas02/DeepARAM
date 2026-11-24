@@ -4,7 +4,7 @@
 import { clashWith } from "./item-limits";
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
 import type { AugmentSwap } from "@/lib/build-plan";
-import { bestRow, buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
+import { buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
 import { followed } from "@/lib/card-score";
 import { FIT } from "@/lib/deepscore";
 import { champList } from "@/lib/champions";
@@ -50,7 +50,7 @@ export type QuickBuild = {
   augments: Record<Rarity, (Named & { deepScore?: number })[]>;
   /** With two or more build styles (crit and AP Ashe): each style's own card, best DeepScore first; the fields above
    *  are the first one's. Augments per style are estimated (build tags). Same switch as the champion page. */
-  builds: (Pick<QuickBuild, "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number; nearBest: boolean })[];
+  builds: (Pick<QuickBuild, "skills" | "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number; nearBest: boolean })[];
 };
 
 /** No raw win or pick rates: the quick build feeds the public app's overlay (tests/unit/overlay-data.test.ts). */
@@ -130,6 +130,8 @@ export function quickBuilds(): QuickBuild[] {
       share: Math.round(b.share * 1000) / 1000,
       deepScore: b.deepScore,
       nearBest: near(b),
+      // Skill orders per build style where enough players took it (lib/skill-orders.ts), else the champion's.
+      skills: b.skills[0]?.max ?? p.skills[0]?.max ?? [],
       ...pieces(b.core, b.start, b.situational, b.rush, b.augmentSwaps),
       augments: augsOf(b.augments),
     }));
@@ -142,7 +144,7 @@ export function quickBuilds(): QuickBuild[] {
         tier: t?.tier ?? null,
         winRate: t?.winRate ?? null,
         deepScore: t?.deepScore ?? null,
-        skills: bestRow(p.skills, 0.1)?.max ?? [],
+        skills: builds[0]?.skills ?? p.skills[0]?.max ?? [],
         spells: spells?.spells.map((s) => ({ name: s.name, icon: s.icon ?? null })) ?? [],
         start,
         items,

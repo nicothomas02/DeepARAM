@@ -282,7 +282,7 @@
  "On-hit": "Találatkor",
  "Fighter": "Harcos",
  "Enchanter": "Bűvölő",
- "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "Az idézővarázslatok és a képességsorrend minden buildnél ugyanaz: a statisztikák nem bontják buildenként.",
+ "Summoner spells are the same for every build: the stats don't split them by build.": "Az idézővarázslatok minden buildnél ugyanazok: a statisztikák nem bontják buildenként.",
  "No ranked augment on this champion matches that name.": "Ennek a hősnek egyik rangsorolt fejlesztése sem egyezik ezzel a névvel.",
  "Full build": "Teljes build",
  "Other options": "További lehetőségek",

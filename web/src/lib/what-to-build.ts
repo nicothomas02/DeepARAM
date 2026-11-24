@@ -7,6 +7,7 @@ import { champList } from "./champions";
 import { augmentScores, byScore } from "./champion-augments";
 import { items, rewardItems } from "./items";
 import { readRepoJson } from "./repo-data";
+import { skillOrders } from "./skill-orders";
 
 // "What should I build?" (/what-to-build): for each champion, the build that wins most among builds
 // players actually use, the most popular one, boots, skill order and the augments taken most of each
@@ -20,7 +21,6 @@ const GAME_DATA = "plugins/rcp-be-lol-game-data/global/default";
 type Row = { items: number[]; pick_rate: number; win_rate?: number };
 type Builds = {
   items?: { boots?: Row[]; full_builds?: Row[] };
-  skills?: { max_order: string[] }[];
   augments?: Record<string, { id: number; pick_rate: number; grade?: string }[]>;
 };
 
@@ -73,7 +73,7 @@ export function whatToBuildData(): HelperData {
     const order = byScore(augmentScores(id));
     for (const r of ["silver", "gold", "prismatic"])
       augs[r] = (b?.augments?.[r] ?? []).filter((a) => NAMES[a.id]).map((a) => ({ id: a.id, pickRate: a.pick_rate, grade: a.grade })).sort(order).slice(0, 3).map((a) => a.id);
-    champions.push({ id, name, kind, best: pick(best), popular: best === popular ? null : pick(popular), boots, skills: b?.skills?.[0]?.max_order ?? [], augs });
+    champions.push({ id, name, kind, best: pick(best), popular: best === popular ? null : pick(popular), boots, skills: skillOrders(Number(IDS[id]))?.all[0]?.max ?? [], augs });
   }
   for (const list of Object.values(SWAPS)) for (const ids of Object.values(list)) ids.forEach((i) => used.add(i));
   const itemInfo: HelperData["items"] = {};

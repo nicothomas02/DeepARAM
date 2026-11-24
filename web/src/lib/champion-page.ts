@@ -27,6 +27,7 @@ import {
 import { repoHas, repoPath, readRepoJson } from "./repo-data";
 import { matesOf, type Mate } from "./duos";
 import { officialStyleLabels } from "./build-tags";
+import { skillOrders } from "./skill-orders";
 
 // The ranked tables on a champion page (/champions/<Alias>): skill orders, item paths, augments,
 // teammates, Mayhem's ability changes and base stats. Every row with a win rate also carries its
@@ -91,6 +92,8 @@ export type BuildOption = {
   rush: number[];
   /** Augments whose official build tags fit the style (or have none), most picked first: estimated. */
   augments: number[];
+  /** The style's own skill orders (lib/skill-orders.ts) when it has enough players, else the champion's. */
+  skills: SkillRow[];
 };
 type Archetype = {
   style: string;
@@ -188,7 +191,7 @@ export type ChampionPage = {
   changes: Change[];
   modifiers: Record<string, number>;
   stats: BaseStats | null;
-  /** The skill orders stopped updating: shown with a note. */
+  /** Always false since skill orders come from real level-ups (lib/skill-orders.ts); kept for the page's note. */
   skillsStale: boolean;
   /** The core rows come from the feed's last own cores (tear builds the six-item builds can't show). */
   coreFromEarlier: boolean;
@@ -268,11 +271,11 @@ export function championPage(alias: string): ChampionPage | null {
         ...(r.pooled ? { pooled: { winRate: r.pooled.win_rate, games: r.pooled.games, patches: r.pooled.patches } } : {}),
       }));
 
-  const skills = (b?.skills ?? []).map((s) => ({
-    max: s.max_order,
-    levels: s.orders?.[0]?.order ?? [],
-    ...rated(s.win_rate, s.pick_rate),
-  }));
+  // Skill orders from real level-ups, best DeepScore first (lib/skill-orders.ts; Nico 2026-11-24). The feed's list is
+  // the same generic one for every champion, so it isn't used.
+  const lobbySkills = skillOrders(id);
+  const skills: SkillRow[] = lobbySkills?.all ?? [];
+  const skillsFor = (style: string): SkillRow[] => lobbySkills?.styles[style] ?? skills;
 
   const rarity = new Map<number, AugmentRow["rarity"]>();
   for (const r of RARITIES)
@@ -455,7 +458,7 @@ export function championPage(alias: string): ChampionPage | null {
           const augs = Object.values(a.augments ?? {}).flat();
           if (a === mainArch)
             return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: true,
-              core: core[0], start: page0Start, situational: situationalItems(core[0], single, full), augmentSwaps: swapsFor(core[0]), rush: rushParts(core[0].items[0], itemRecipe), augments: augs };
+              core: core[0], start: page0Start, situational: situationalItems(core[0], single, full), augmentSwaps: swapsFor(core[0]), rush: rushParts(core[0].items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
           const coreIds = (a.core ?? []).map(known);
           // A style whose core already holds boots (Bel'Veth: Gluttonous Greaves) gets no second pair.
           const coreHasBoots = coreIds.some((i) => itemTier(i) === "boots");
@@ -470,7 +473,7 @@ export function championPage(alias: string): ChampionPage | null {
           const own: ItemRow | null = a.starters?.length ? { items: a.starters.map(known), winRate: NaN, pickRate: 0, lift: 0 } : null;
           const start = st ?? (own && fits(row)(own) ? own : null);
           return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false,
-            core: c, start, situational: situationalItems(c, single, full), augmentSwaps: swapsFor(c), rush: rushParts(c.items[0], itemRecipe), augments: augs };
+            core: c, start, situational: situationalItems(c, single, full), augmentSwaps: swapsFor(c), rush: rushParts(c.items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
         });
   const page = {
     builds,
@@ -500,7 +503,7 @@ export function championPage(alias: string): ChampionPage | null {
     changes,
     modifiers,
     stats: client?.stats ?? null,
-    skillsStale: !!b?.stale?.includes("skills"),
+    skillsStale: false,
     coreFromEarlier,
     coreDerived: !early && !!b?.derived?.includes("items.core"),
     buildsEstimated: !!early,

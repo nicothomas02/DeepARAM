@@ -4,7 +4,7 @@
 import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { T, useT } from "@/components/I18n";
 import WinRate from "@/components/WinRate";
-import { Cell, ItemIcon, Keys, LaterItems, RatedCells, pct } from "@/components/champion/Ranked";
+import { Cell, ItemIcon, LaterItems, RatedCells, pct } from "@/components/champion/Ranked";
 import { buildOrder } from "@/lib/card-score";
 import { radarFor } from "@/lib/radar";
 import { bySet } from "@/lib/sets";
@@ -294,8 +294,9 @@ export function TfPerf({ alias, patches, matches, children }: Common) {
 }
 
 
-/** The top card over the picked patches. `spells`: the spells tile, which doesn't change with the range. */
-export function TfCard({ alias, patches, matches, spells, children }: Common & { spells: ReactNode }) {
+/** The top card over the picked patches. `spells` and `skill`: the spells and skill order tiles, which don't change
+ *  with the range. */
+export function TfCard({ alias, patches, matches, spells, skill, children }: Common & { spells: ReactNode; skill: ReactNode }) {
   const s = useRangeStats(alias, patches, matches);
   const load = useMemo(() => () => loadHist(alias), [alias]);
   const hist = useLoaded<HistFile>(s.picked ? load : null);
@@ -347,17 +348,7 @@ export function TfCard({ alias, patches, matches, spells, children }: Common & {
               </span>
             </div>
           )}
-          {card.skill && (
-            <div className="cp-best cp-best-skill">
-              <h4>
-                <T ns="champions">Best skill order</T>
-              </h4>
-              <Keys keys={card.skill.max} />
-              <div className="cp-mini">
-                <RatedCells r={card.skill} />
-              </div>
-            </div>
-          )}
+          {skill}
           {card.core && (
             <div className="cp-best cp-best-wide">
               <h4>

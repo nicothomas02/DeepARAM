@@ -1,5 +1,5 @@
 import { FIT } from "./deepscore";
-import { alongCore, bestRow, followed, laterItems, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
+import { alongCore, followed, laterItems, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 import { buyingOrder, restOfBuild, startFirst, starterFits } from "./build-plan";
 import type { ItemTier } from "./items";
 import type { Situation } from "./situations";
@@ -47,7 +47,6 @@ export const covered = (file: HistFile, picked: string[]) => picked.filter((p) =
 export type Card = {
   starting: ItemRow | null;
   augments: { id: number; name: string; rarity: Rarity }[];
-  skill: (Rated & { max: string[] }) | null;
   core: ItemRow | null;
   situational: { situation: Situation; options: ItemRow[] }[];
 };
@@ -93,11 +92,8 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
     .slice(0, 6)
     .map((a) => ({ id: a.id, ...file.augments[a.id] }));
 
-  const sk = new Map<string, Sum>();
-  for (const p of list) for (const s of file.patches[p].skills) add(sk, s.max.join(","), w(p), s.pick, s.win);
-  const skills = [...sk]
-    .map(([k, s]) => ({ max: k.split(","), ...rated(s) }))
-    .sort((x, y) => y.pickRate - x.pickRate);
+  // Skill orders don't come from the saved patches: the feed's were one generic list for every champion
+  // (champion review, 2026-11-24). The card shows the page's own skill tile (real level-ups), passed to TfCard.
 
   const boots = scoreRows(lists("boots"), FIT.items);
   const full = lists("full_builds");
@@ -149,7 +145,6 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
   return {
     starting,
     augments,
-    skill: bestRow(skills, 0.1),
     core: coreRow
       ? (() => {
           const bySlot = slotItems(pool, coreRow, classesOf, file.itemSlots?.champ, file.itemSlots?.all);

@@ -22,7 +22,6 @@ import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
 import { followed } from "@/lib/card-score";
 import {
-  bestRow,
   buildOrder,
   championPage,
   scoreRows,
@@ -544,7 +543,8 @@ export default async function ChampionPage({
     .sort((x, y) => (y.order ? Math.max(...y.order) : y.points) - (x.order ? Math.max(...x.order) : x.points));
   const interactions = kitInteractions(c.alias, p.augments);
   const bestStart = p.cardStart;
-  const bestSkill = bestRow(p.skills, 0.1);
+  // Skill orders: real level-ups ranked by DeepScore (lib/skill-orders.ts), best first.
+  const bestSkill = p.skills[0] ?? null;
   const rawSpells = fillSpells(c.alias, c.winRate ?? 0.5);
   const spellsEstimated = rawSpells.some((r) => r.estimated);
   // Spell pairs rank by DeepScore like the build lists. Estimated spells have no win rate, so they keep
@@ -633,7 +633,28 @@ export default async function ChampionPage({
     const fit = augRows.filter((a) => keep.has(a.id));
     return fit.length >= 3 ? fit : augRows;
   };
-  const cardTiles = (start: ItemRow | null, augs: typeof augRows, plan: React.ReactNode, perBuild: boolean) => (
+  const skillTile = (skill: typeof bestSkill) =>
+    skill && (
+      <div className="cp-best cp-best-skill">
+        <h4>
+          <T ns={NS}>Best skill order</T>
+        </h4>
+        <Keys keys={skill.max} />
+        <div className="cp-mini">
+          <RatedCells r={skill} />
+        </div>
+        <small className="cp-stale-tag">
+          <T ns={NS}>Estimated</T>
+        </small>
+      </div>
+    );
+  const cardTiles = (
+    start: ItemRow | null,
+    augs: typeof augRows,
+    skill: typeof bestSkill,
+    plan: React.ReactNode,
+    perBuild: boolean,
+  ) => (
     <>
           {spellsTile}
           {start && (
@@ -679,32 +700,18 @@ export default async function ChampionPage({
               </span>
             </div>
           )}
-          {bestSkill && (
-            <div className="cp-best cp-best-skill">
-              <h4>
-                <T ns={NS}>Best skill order</T>
-              </h4>
-              <Keys keys={bestSkill.max} />
-              <div className="cp-mini">
-                <RatedCells r={bestSkill} />
-              </div>
-              {p.skillsStale && (
-                <small className="cp-stale-tag" title="From earlier games: skill orders are not updating right now.">
-                  <T ns={NS}>From earlier games</T>
-                </small>
-              )}
-            </div>
-          )}
+          {skillTile(skill)}
           {plan}
       {perBuild && (
         <p className="cp-same-note">
-          <T ns={NS}>{"Summoner spells and skill order are the same for every build: the stats don't split them by build."}</T>
+          <T ns={NS}>{"Summoner spells are the same for every build: the stats don't split them by build."}</T>
         </p>
       )}
     </>
   );
   // The glance row follows the card's default build (the first tab: best DeepScore).
   const glanceCore = p.builds[0]?.core ?? bestCore;
+  const glanceSkill = p.builds[0]?.skills[0] ?? bestSkill;
   const glanceAugs = p.builds.length > 1 ? styleAugs(p.builds[0].augments) : augRows;
   const matches = matchesByPatch();
 
@@ -833,7 +840,7 @@ export default async function ChampionPage({
           return br ? <BracketRates rates={br.rates} borrowed={br.patch !== c.patch ? br.patch : null} /> : null;
         })()}
         {/* One glance: the core, the best augments and the skill order; the card below has the detail. */}
-        {(glanceCore || augRows.length > 0 || bestSkill) && (
+        {(glanceCore || augRows.length > 0 || glanceSkill) && (
           <a className="cp-glance" href="#build" aria-label="Build at a glance">
             {glanceCore && (
               <span className="cp-glance-part">
@@ -849,9 +856,9 @@ export default async function ChampionPage({
                 ))}
               </span>
             )}
-            {bestSkill && (
+            {glanceSkill && (
               <span className="cp-glance-part">
-                <Keys keys={bestSkill.max} />
+                <Keys keys={glanceSkill.max} />
               </span>
             )}
           </a>
@@ -861,7 +868,7 @@ export default async function ChampionPage({
 
       {/* Game card: everything needed for a game on one screen, in the order it comes up from champion select to
           late game (Nico, 2026-11-20). The taken-augments row (drag to replace) is planned to sit at its end. */}
-      <TfCard alias={c.alias} patches={c.patches} matches={matches} spells={spellsTile}>
+      <TfCard alias={c.alias} patches={c.patches} matches={matches} spells={spellsTile} skill={skillTile(glanceSkill)}>
       <section className="cp-game" id="build" aria-label="Build for your game">
           {p.builds.length > 1 ? (
             <StyleTabs
@@ -873,13 +880,14 @@ export default async function ChampionPage({
                 panel: cardTiles(
                   b.start,
                   styleAugs(b.augments),
+                  b.skills[0] ?? bestSkill,
                   buildPlan(b.core, b.situational, b.rush, b.augmentSwaps),
                   true,
                 ),
               }))}
             />
           ) : (
-            cardTiles(bestStart, augRows, bestCore && buildPlan(bestCore, p.situational, p.rush, p.augmentSwaps), false)
+            cardTiles(bestStart, augRows, glanceSkill, bestCore && buildPlan(bestCore, p.situational, p.rush, p.augmentSwaps), false)
           )}
       </section>
       </TfCard>
@@ -1236,12 +1244,8 @@ export default async function ChampionPage({
                   <T ns={NS}>
                     Max order, then the most common level-by-level order.
                   </T>
-                  {p.skillsStale && (
-                    <>
-                      {" "}
-                      <T ns={NS}>From earlier games: skill orders are not updating right now.</T>
-                    </>
-                  )}
+                  {" "}
+                  <T ns={NS}>Estimated</T>
                 </>
               }
             >
@@ -1250,6 +1254,11 @@ export default async function ChampionPage({
                 {p.skills.map((s, i) => (
                   <Row key={i} rank={i + 1} cells={<RatedCells r={s} />}>
                     <Keys keys={s.max} />
+                    {i > 0 && tiedWith(p.skills[0], s) && (
+                      <small className="cp-tied" title="Within noise of the top pick: either is fine.">
+                        <T ns={NS}>Tied</T>
+                      </small>
+                    )}
                     {s.levels.length > 0 && (
                       <span
                         className="cp-levels"
