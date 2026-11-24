@@ -19,10 +19,10 @@ LabI18n.ready(function () {
     ARAM_BreadAndCheese: "Hawkshot gains 100 Ability Haste, so it recharges faster.",
     ARAM_Purist_Caster: "Cooldowns 10% shorter (its attack speed to haste is already in your panel).",
   };
-  // The fastest loop found by trying every augment set from her pool (README): Archmage, Ultimate Awakening,
-  // Ultimate Recursion and Mystic Punch at 150 haste and 1.5 attacks per second.
+  // Archmage, Ultimate Awakening, Ultimate Recursion and Mystic Punch at 150 haste and 1.5 attacks per second, with
+  // Hawkshot at rank 1: its longer recharge gives R the biggest refund (README).
   const PRESET = {
-    rRank: 3, eRank: 5, wRank: 5, haste: 150, ultHaste: 0, attackSpeed: 1.5, castW: false, onlyOnCooldown: true,
+    rRank: 3, eRank: 1, wRank: 5, haste: 150, ultHaste: 0, attackSpeed: 1.5, castW: false, onlyOnCooldown: true,
     augments: ["ARAM_Archmage", "UltimateAwakening", "UltimateRecursion", "ARAM_MysticPunch"],
   };
   const EMPTY = { rRank: 3, eRank: 5, wRank: 5, haste: 100, ultHaste: 0, attackSpeed: 1.5, castW: false, onlyOnCooldown: true, augments: ["ARAM_Archmage"] };
@@ -100,18 +100,18 @@ LabI18n.ready(function () {
   function renderResult() {
     const r = AsheCalc.compute(data, build);
     $("per-minute").textContent = fmt(r.perMinute, 1);
-    $("per-minute").classList.toggle("infinite", r.loop >= 0.95);
+    $("per-minute").classList.toggle("infinite", r.loop >= 0.9);
     $("loop").textContent = pct(r.loop);
     const bar = $("gain-bar");
     bar.style.width = `${r.loop * 100}%`;
-    bar.classList.toggle("full", r.loop >= 0.95);
+    bar.classList.toggle("full", r.loop >= 0.9);
 
     const curve = AsheCalc.curve(data, build, { step: 10, runs: 24 });
     const at500 = curve[curve.length - 1].perMinute;
     const need = AsheCalc.threshold(data, build, { runs: 24 });
     $("loop-note").textContent = !build.augments.includes("ARAM_Archmage")
       ? T("No loop without Archmage: R only comes back on its own cooldown.")
-      : r.loop >= 0.95
+      : r.loop >= 0.9
         ? T("Infinite: R is back for every Hawkshot, about every {s} seconds.", { s: fmt(r.every, 1) })
         : need !== null
           ? T("R is back for {pct} of the Hawkshots you could cast. The loop closes at about {h} Ability Haste.", { pct: pct(r.loop), h: fmt(need) })
@@ -159,7 +159,7 @@ LabI18n.ready(function () {
       // The current build shows the same number as the result above.
       const r = on ? current : AsheCalc.compute(data, { ...build, eRank: e, rRank: rr }, { runs: 30 });
       return el("td", {}, el("button", {
-        type: "button", class: [on ? "on" : "", r.loop >= 0.95 ? "full" : ""].join(" ").trim() || undefined,
+        type: "button", class: [on ? "on" : "", r.loop >= 0.9 ? "full" : ""].join(" ").trim() || undefined,
         "aria-label": T("E rank {e}, R rank {r}: {n} R per minute", { e, r: rr, n: fmt(r.perMinute, 1) }),
         on: () => { build.eRank = e; build.rRank = rr; update(); },
       }, fmt(r.perMinute, 1)));

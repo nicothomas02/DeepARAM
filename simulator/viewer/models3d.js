@@ -367,7 +367,7 @@ function loadProps() {
 
 // Scratch objects reused every frame instead of made anew.
 const TMP = { ndc: new THREE.Vector2(), ray: new THREE.Raycaster(), floor: new THREE.Plane(new THREE.Vector3(0, 1, 0), 0),
-  head: new THREE.Vector3(), seen: new Set(), o: new THREE.Vector3(), a: new THREE.Vector3(), b: new THREE.Vector3() };
+  head: new THREE.Vector3(), seen: new Set(), o: new THREE.Vector3(), a: new THREE.Vector3(), b: new THREE.Vector3(), dir: new THREE.Vector3() };
 
 const api = {
   ok: false,
@@ -516,10 +516,15 @@ const api = {
       const a = entry.actor;
       this.toWorld(f.x, f.y, W, H, a.group.position);
       // Facing: toward a screen direction when given (screen down is toward the camera), else left or right.
-      a.group.rotation.y = f.dir && (f.dir.x || f.dir.y) ? Math.atan2(f.dir.x, f.dir.y) : f.face > 0 ? Math.PI / 2 : -Math.PI / 2;
+      // The screen direction is taken onto the floor, so a direction across the lane is as long as on the map.
+      if (f.dir && (f.dir.x || f.dir.y)) {
+        const b = this.toWorld(f.x + f.dir.x, f.y + f.dir.y, W, H, TMP.dir);
+        a.group.rotation.y = Math.atan2(b.x - a.group.position.x, b.z - a.group.position.z);
+      } else a.group.rotation.y = f.face > 0 ? Math.PI / 2 : -Math.PI / 2;
       // World units per game unit: the camera spans 16 world units across W px.
       const g = (f.unit ? (f.unit * 16) / W : HEIGHT / 200) * (f.scale || 1);
       a.group.scale.setScalar(g);
+      if (f.up) a.group.position.y += f.up * g;  // game units off the floor (knock-ups)
       let { role, t, loop, n } = f;
       if (f.key === "me" && this.preview) {
         const pt = (performance.now() - this.preview.start) / 1000;

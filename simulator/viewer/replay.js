@@ -416,6 +416,12 @@
   const scratch = [0, 1, 2].map(() => ({ m: new Map() }));
   // The lane on screen: the view follows the fight.
   const LANE = 550;
+  // The camera looks down at 45 degrees, so a circle on the floor shows this much as tall as it is wide, and a game
+  // unit across the lane takes this much of a game unit along it on screen (the 3D map and models then keep their
+  // real proportions: one game unit is the same length on the floor in every direction).
+  const FLOOR_TILT = Math.SQRT1_2;
+  // Game units between two screen points on the floor (screen y is squeezed by the tilt).
+  const floorDist = (dx, dy) => Math.hypot(dx, dy / FLOOR_TILT);
   // Health relics on the 3D map, in game units along and across the lane (as worldAt's positions).
   const RELICS = [{ x: -250, y: -420 }, { x: 2650, y: 380 }, { x: -2900, y: 380 }, { x: 5400, y: -420 }];
   const cam = { x: null };
@@ -423,7 +429,7 @@
   function camera(W, H, world, focus, dt, rate) {
     // About as much of the lane as the game's own camera shows (2000 game units across), and
     // never less than the lane's whole width top to bottom.
-    const k = Math.max((H * 0.74) / (2 * LANE), W / 2000);
+    const k = Math.max((H * 0.74) / (2 * LANE * FLOOR_TILT), W / 2000);
     const f = focus >= 0 && world.m.get(focus);
     let want = f ? (world.me.x * 0.55 + f.x * 0.45) : world.me.x + 300;
     const half = W / 2 / k;
@@ -433,7 +439,7 @@
     if (cam.x === null || dt <= 0 || dt > 0.5) cam.x = want;
     else cam.x += (want - cam.x) * (1 - Math.exp(-dt * (rate || 1) * 3));
     cam.x = Math.min(Math.max(cam.x, lo), hi);  // a dash never carries you off screen while the view catches up
-    return { k, cx: cam.x, sx: (p) => W / 2 + (p.x - cam.x) * k, sy: (p) => H * 0.55 + p.y * k };
+    return { k, cx: cam.x, sx: (p) => W / 2 + (p.x - cam.x) * k, sy: (p) => H * 0.55 + p.y * k * FLOOR_TILT };
   }
 
   // ---------- state at time t ----------
@@ -713,8 +719,6 @@
     return { role: "attack", t: age * rate, loop: false, n: k, chase: true, free: age > 0.4 };
   }
 
-  // The camera looks down at 45 degrees, so a circle on the floor shows this much as tall as it is wide.
-  const FLOOR_TILT = Math.SQRT1_2;
   // A champion's in-game hitbox radius (game units): 65 for most, 55 to 80 for some.
   const hitboxOf = (id) => (byId.get(String(id).toLowerCase()) || {}).radius || 65;
   // A soft pool of light in the team's colour under a model, so it stands out from the floor.
@@ -856,9 +860,9 @@
       const col = SLOT_COLORS[slot] || "#fff";
       g.save();
       g.fillStyle = col; g.strokeStyle = col;
-      g.globalAlpha = 0.1 + 0.04 * Math.sin(time * 4); g.beginPath(); g.arc(at.x, at.y, rad, 0, Math.PI * 2); g.fill();
+      g.globalAlpha = 0.1 + 0.04 * Math.sin(time * 4); g.beginPath(); g.ellipse(at.x, at.y, rad, rad * FLOOR_TILT, 0, 0, Math.PI * 2); g.fill();
       g.globalAlpha = 0.55; g.lineWidth = 2.5 * u; g.setLineDash([10 * u, 8 * u]); g.lineDashOffset = -time * 30 * u;
-      g.beginPath(); g.arc(at.x, at.y, rad, 0, Math.PI * 2); g.stroke();
+      g.beginPath(); g.ellipse(at.x, at.y, rad, rad * FLOOR_TILT, 0, 0, Math.PI * 2); g.stroke();
       g.restore();
     }
 
@@ -1018,7 +1022,8 @@
           dir: run ? v : world && s.focus >= 0 ? look(q.p, posOf(s.focus)) : null,
           ...(run ? runPose(v) : { role: q.role, t: q.t, loop: q.role === "idle" }) });
       }
-      for (const f of fighters) if (f.lift) f.y -= f.lift * 55 * u;  // knocked up into the air
+      // Knocked up into the air: raised off the floor (the model's spot on the floor stays where it was hit).
+      for (const f of fighters) if (f.lift) f.up = f.lift * 100;
       if (FX) moreEffects(fx, FX, time, s, posOf, { x: meX, y: meY }, view.k, alive);
       heads = M.frame(fighters, W, H, lowQuality() ? 0.75 : 1, fx, unit);
       // Keep the bars and badges above heads clear of the HUD along the top.
@@ -1292,7 +1297,7 @@
     const geo = fight.geo[c.s] || {}, id = champ.id, s = c.s;
     const from = scr(c.from), target = c.u >= 0 ? posOf(c.u) : null;
     const aim = c.ax !== undefined ? scr({ x: c.ax, y: c.ay }) : target || from;
-    const dir = { x: aim.x - from.x, y: aim.y - from.y }, dl = Math.hypot(dir.x, dir.y) || 1;
+    const dir = { x: aim.x - from.x, y: aim.y - from.y }, dl = floorDist(dir.x, dir.y) || 1;
     const fl = c.fl || 0;
     if (roles.cast) out.push({ champ: id, slot: s, role: "cast", t: since, at: from, dir, dur: (c.a || 0) + (c.l || 0) + 0.3, h: 0 });
     // When the missile reaches the target: a line at its speed, otherwise the flight the trace gives.
@@ -1303,7 +1308,7 @@
         const range = (geo.range || dl / k) * k;
         to = { x: from.x + (dir.x / dl) * range, y: from.y + (dir.y / dl) * range };
         dur = range / k / geo.speed;
-        if (target) hitAt = c.land + Math.hypot(target.x - from.x, target.y - from.y) / k / geo.speed;
+        if (target) hitAt = c.land + floorDist(target.x - from.x, target.y - from.y) / k / geo.speed;
       }
       out.push({ champ: id, slot: s, role: "missile", t: time - c.land, from, to, dur, dir, h: 100 });
     }
@@ -1340,7 +1345,7 @@
     for (const en of alive) {
       if (!FX.has(en.champ, "Q") && !FX.has(en.champ, "R")) continue;
       const from = posOf(en.uid), dir = { x: me.x - from.x, y: me.y - from.y };
-      const dist = Math.hypot(dir.x, dir.y) / k;
+      const dist = floorDist(dir.x, dir.y) / k;
       for (const c of fight.enemyCasts.get(en.uid) || []) {
         if (c.t > time) break;
         if (time - c.t > 4 || (en.died !== null && c.t > en.died)) continue;
@@ -1389,12 +1394,13 @@
         // In flight: the landing spot outlined, the missile on its way.
         const p = since / Math.max(0.05, fl);
         g.globalAlpha = 0.5; g.lineWidth = 2 * u; g.setLineDash([6 * u, 6 * u]);
-        g.beginPath(); g.arc(aim.x, aim.y, rad, 0, Math.PI * 2); g.stroke(); g.setLineDash([]);
+        g.beginPath(); g.ellipse(aim.x, aim.y, rad, rad * FLOOR_TILT, 0, 0, Math.PI * 2); g.stroke(); g.setLineDash([]);
         g.globalAlpha = 1; g.beginPath(); g.arc(from.x + dx * p, from.y + dy * p, 9 * u, 0, Math.PI * 2); g.fill();
       } else if (hitAge < 0.5) {
         const p = ease(hitAge / 0.5);
-        g.globalAlpha = 0.28 * (1 - p); g.beginPath(); g.arc(aim.x, aim.y, rad, 0, Math.PI * 2); g.fill();
-        g.globalAlpha = 1 - p; g.lineWidth = 4 * u; g.beginPath(); g.arc(aim.x, aim.y, rad * (0.9 + 0.15 * p), 0, Math.PI * 2); g.stroke();
+        g.globalAlpha = 0.28 * (1 - p); g.beginPath(); g.ellipse(aim.x, aim.y, rad, rad * FLOOR_TILT, 0, 0, Math.PI * 2); g.fill();
+        const r2 = rad * (0.9 + 0.15 * p);
+        g.globalAlpha = 1 - p; g.lineWidth = 4 * u; g.beginPath(); g.ellipse(aim.x, aim.y, r2, r2 * FLOOR_TILT, 0, 0, Math.PI * 2); g.stroke();
       }
     } else if (c.x === "cone") {
       if (since < 0.45) {
@@ -1407,8 +1413,9 @@
     } else if (c.x === "self") {
       if (since < 0.5) {
         const p = ease(since / 0.5), rad = Math.max(20 * u, (geo.radius || 300) * k);
-        g.globalAlpha = 0.25 * (1 - p); g.beginPath(); g.arc(from.x, from.y, rad, 0, Math.PI * 2); g.fill();
-        g.globalAlpha = 1 - p; g.lineWidth = 4 * u; g.beginPath(); g.arc(from.x, from.y, rad * (0.7 + 0.3 * p), 0, Math.PI * 2); g.stroke();
+        g.globalAlpha = 0.25 * (1 - p); g.beginPath(); g.ellipse(from.x, from.y, rad, rad * FLOOR_TILT, 0, 0, Math.PI * 2); g.fill();
+        const r2 = rad * (0.7 + 0.3 * p);
+        g.globalAlpha = 1 - p; g.lineWidth = 4 * u; g.beginPath(); g.ellipse(from.x, from.y, r2, r2 * FLOOR_TILT, 0, 0, Math.PI * 2); g.stroke();
       }
     }
     g.restore();
