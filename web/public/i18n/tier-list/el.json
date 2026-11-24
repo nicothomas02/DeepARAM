@@ -86,5 +86,10 @@
  "Your choices (optional)": "Οι επιλογές σου (προαιρετικά)",
  "Your choices, best first": "Οι επιλογές σου, η καλύτερη πρώτη",
  "Best picks": "Καλύτερες επιλογές",
- "Strength {n}": "Δύναμη {n}"
+ "Strength {n}": "Δύναμη {n}",
+ "Full teams": "Πλήρεις ομάδες",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Προβλεπόμενο: κανένα παιχνίδι δεν καταγράφει ολόκληρες ομάδες, οπότε προκύπτουν από την απόδοση κάθε champion και κάθε ζευγαριού μαζί. Δείτε τα ως ιδέες για δοκιμή, όχι ως αρχεία.",
+ "{own}% champions · {syn}% synergy": "{own}% champions · {syn}% συνέργεια",
+ "Best pair: {a} + {b}": "Καλύτερο ζευγάρι: {a} + {b}",
+ "Projected": "Προβλεπόμενο"
 }

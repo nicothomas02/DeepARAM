@@ -86,5 +86,10 @@
  "Your choices (optional)": "A választásaid (nem kötelező)",
  "Your choices, best first": "A választásaid, a legjobb elöl",
  "Best picks": "Legjobb választások",
- "Strength {n}": "Erő {n}"
+ "Strength {n}": "Erő {n}",
+ "Full teams": "Teljes csapatok",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Becsült: egyetlen játék sem rögzít teljes csapatokat, ezért ezek az egyes hősök és a párosaik közös eredményeiből jönnek. Tekintsd őket kipróbálandó ötleteknek, nem eredményeknek.",
+ "{own}% champions · {syn}% synergy": "{own}% hősök · {syn}% szinergia",
+ "Best pair: {a} + {b}": "Legjobb páros: {a} + {b}",
+ "Projected": "Becsült"
 }

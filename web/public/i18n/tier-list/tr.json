@@ -86,5 +86,10 @@
  "Your choices (optional)": "Seçeneklerin (isteğe bağlı)",
  "Your choices, best first": "Seçeneklerin, en iyisi önce",
  "Best picks": "En iyi seçimler",
- "Strength {n}": "Güç {n}"
+ "Strength {n}": "Güç {n}",
+ "Full teams": "Tam takımlar",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Tahmini: hiçbir oyun tüm takımların sonuçlarını kaydetmez, bu yüzden bunlar her şampiyonun ve her ikilinin birlikte performansından gelir. Bunları kayıt değil, denenecek fikirler olarak görün.",
+ "{own}% champions · {syn}% synergy": "%{own} şampiyonlar · %{syn} sinerji",
+ "Best pair: {a} + {b}": "En iyi ikili: {a} + {b}",
+ "Projected": "Tahmini"
 }

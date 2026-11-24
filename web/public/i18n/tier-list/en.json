@@ -86,5 +86,10 @@
  "Your choices (optional)": "Your choices (optional)",
  "Your choices, best first": "Your choices, best first",
  "Best picks": "Best picks",
- "Strength {n}": "Strength {n}"
+ "Strength {n}": "Strength {n}",
+ "Full teams": "Full teams",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.",
+ "{own}% champions · {syn}% synergy": "{own}% champions · {syn}% synergy",
+ "Best pair: {a} + {b}": "Best pair: {a} + {b}",
+ "Projected": "Projected"
 }

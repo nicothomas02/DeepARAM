@@ -86,5 +86,10 @@
  "Your choices (optional)": "Opțiunile tale (opțional)",
  "Your choices, best first": "Opțiunile tale, cea mai bună prima",
  "Best picks": "Cele mai bune alegeri",
- "Strength {n}": "Putere {n}"
+ "Strength {n}": "Putere {n}",
+ "Full teams": "Echipe complete",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Estimat: niciun meci nu înregistrează echipe întregi, așa că acestea vin din rezultatele fiecărui campion și ale fiecărei perechi împreună. Privește-le ca idei de încercat, nu ca recorduri.",
+ "{own}% champions · {syn}% synergy": "{own}% campioni · {syn}% sinergie",
+ "Best pair: {a} + {b}": "Cea mai bună pereche: {a} + {b}",
+ "Projected": "Estimat"
 }

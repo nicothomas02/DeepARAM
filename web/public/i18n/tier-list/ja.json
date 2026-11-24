@@ -86,5 +86,10 @@
  "Your choices (optional)": "あなたの候補（任意）",
  "Your choices, best first": "あなたの候補（良い順）",
  "Best picks": "ベストピック",
- "Strength {n}": "強さ {n}"
+ "Strength {n}": "強さ {n}",
+ "Full teams": "5人編成",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "予測値：チーム全体を記録した試合データはないため、各チャンピオンの成績と各ペアの相性から算出しています。記録ではなく、試してみるアイデアとしてご覧ください。",
+ "{own}% champions · {syn}% synergy": "チャンピオン {own}% · シナジー {syn}%",
+ "Best pair: {a} + {b}": "ベストペア：{a} + {b}",
+ "Projected": "予測"
 }

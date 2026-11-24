@@ -86,5 +86,10 @@
  "Your choices (optional)": "ตัวเลือกของคุณ (ไม่บังคับ)",
  "Your choices, best first": "ตัวเลือกของคุณ ดีที่สุดก่อน",
  "Best picks": "ตัวเลือกที่ดีที่สุด",
- "Strength {n}": "ความแข็งแกร่ง {n}"
+ "Strength {n}": "ความแข็งแกร่ง {n}",
+ "Full teams": "ทีมครบ 5 คน",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "คาดการณ์: ไม่มีเกมใดบันทึกผลของทั้งทีม จึงคำนวณจากผลงานของแต่ละแชมเปี้ยนและของแต่ละคู่เมื่อเล่นด้วยกัน ให้มองเป็นไอเดียไว้ลองเล่น ไม่ใช่สถิติ",
+ "{own}% champions · {syn}% synergy": "แชมเปี้ยน {own}% · ซินเนอร์จี {syn}%",
+ "Best pair: {a} + {b}": "คู่ที่ดีที่สุด: {a} + {b}",
+ "Projected": "คาดการณ์"
 }

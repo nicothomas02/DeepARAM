@@ -86,5 +86,10 @@
  "Your choices (optional)": "اختياراتك (اختياري)",
  "Your choices, best first": "اختياراتك، الأفضل أولًا",
  "Best picks": "أفضل الاختيارات",
- "Strength {n}": "القوة {n}"
+ "Strength {n}": "القوة {n}",
+ "Full teams": "فرق كاملة",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "متوقَّع: لا تُسجَّل أي مباراة نتائج الفرق كاملة، لذا تأتي هذه من أداء كل بطل ومن أداء كل ثنائي منهم معًا. اعتبرها أفكارًا للتجربة لا سجلات.",
+ "{own}% champions · {syn}% synergy": "{own}% الأبطال · {syn}% التآزر",
+ "Best pair: {a} + {b}": "أفضل ثنائي: {a} + {b}",
+ "Projected": "متوقَّع"
 }

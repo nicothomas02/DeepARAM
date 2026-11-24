@@ -86,5 +86,10 @@
  "Your choices (optional)": "你的候选（可选）",
  "Your choices, best first": "你的候选，最佳在前",
  "Best picks": "最佳选择",
- "Strength {n}": "强度 {n}"
+ "Strength {n}": "强度 {n}",
+ "Full teams": "五人阵容",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "预测：没有对局记录完整阵容的结果，因此这些来自每位英雄的表现以及每对英雄的配合。请把它们当作可尝试的思路，而非记录。",
+ "{own}% champions · {syn}% synergy": "英雄 {own}% · 协同 {syn}%",
+ "Best pair: {a} + {b}": "最佳组合：{a} + {b}",
+ "Projected": "预测"
 }

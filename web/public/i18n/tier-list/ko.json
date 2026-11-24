@@ -86,5 +86,10 @@
  "Your choices (optional)": "내 선택지 (선택 사항)",
  "Your choices, best first": "내 선택지, 좋은 순",
  "Best picks": "최고의 픽",
- "Strength {n}": "강도 {n}"
+ "Strength {n}": "강도 {n}",
+ "Full teams": "5인 조합",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "예상치: 팀 전체 결과를 기록한 게임이 없어 각 챔피언의 성적과 각 2인 조합의 궁합으로 계산했습니다. 기록이 아니라 시도해 볼 아이디어로 봐 주세요.",
+ "{own}% champions · {syn}% synergy": "챔피언 {own}% · 시너지 {syn}%",
+ "Best pair: {a} + {b}": "최고의 2인 조합: {a} + {b}",
+ "Projected": "예상"
 }

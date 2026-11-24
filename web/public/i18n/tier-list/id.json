@@ -86,5 +86,10 @@
  "Your choices (optional)": "Pilihanmu (opsional)",
  "Your choices, best first": "Pilihanmu, terbaik dulu",
  "Best picks": "Pilihan terbaik",
- "Strength {n}": "Kekuatan {n}"
+ "Strength {n}": "Kekuatan {n}",
+ "Full teams": "Tim lengkap",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Proyeksi: tidak ada game yang mencatat tim lengkap, jadi ini berasal dari performa tiap champion dan tiap pasangan bersama. Anggap sebagai ide untuk dicoba, bukan catatan.",
+ "{own}% champions · {syn}% synergy": "{own}% champion · {syn}% sinergi",
+ "Best pair: {a} + {b}": "Pasangan terbaik: {a} + {b}",
+ "Projected": "Proyeksi"
 }

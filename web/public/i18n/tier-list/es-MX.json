@@ -86,5 +86,10 @@
  "Your choices (optional)": "Tus opciones (opcional)",
  "Your choices, best first": "Tus opciones, la mejor primero",
  "Best picks": "Mejores elecciones",
- "Strength {n}": "Fuerza {n}"
+ "Strength {n}": "Fuerza {n}",
+ "Full teams": "Equipos completos",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Proyectado: ninguna partida registra equipos completos, así que salen de cómo le va a cada campeón y a cada pareja juntos. Tómalos como ideas para probar, no como registros.",
+ "{own}% champions · {syn}% synergy": "{own}% campeones · {syn}% sinergia",
+ "Best pair: {a} + {b}": "Mejor pareja: {a} + {b}",
+ "Projected": "Proyectado"
 }
