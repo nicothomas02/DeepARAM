@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "Перезарядки на 10% короче (его перевод скорости атаки в ускорение уже учтен в вашей панели).",
  "Volley": "Залп",
  "Hawkshot": "Ястребиная разведка",
- "Enchanted Crystal Arrow": "Зачарованная ледяная стрела"
+ "Enchanted Crystal Arrow": "Зачарованная ледяная стрела",
+ "Unc Is Wallmaxxing": "Дядя ставит стенки на максималках",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "Ясуо перестаёт дэшиться и стоит на своём за Стеной ветра, выбивая кулаками её перезарядку, пока два-три барьера не стоят постоянно и ничто со снарядами не может поиграть.",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "Сначала качай Стену ветра на максимум: 5-й ранг даёт самую короткую перезарядку и почти вдвое большую ширину, чем 1-й. Поставь стену, бей ближайшую цель из-за неё (миньоны тоже считаются), жми W снова, как только она загорится, и никогда не лети вперёд.",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV: ты залочил дальнобойного чемпиона, а дядя поставил три стены раньше, чем долетел твой первый выстрел",
+ "Wind Wall": "Стена ветра",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "Блокирует все вражеские снаряды на 4 секунды, перезарядка 17 секунд на максимальном ранге. У Ясуо нет маны, так что единственная цена здесь перезарядка.",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "Мистический удар сокращает перезарядку Стены ветра на 1,25 секунды с каждой атакой, а Два по цене одного заставляет каждый крит применять это дважды. Два по цене одного и Критический ритм вместе дают 50% шанса крита, который его пассивка поднимает аж до 100%, а Критический ритм сверху добавляет 60% скорости атаки. Точнейший оптический прицел позволяет бить из-за собственной стены.",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "Летающий нож Навори срезает 15% от оставшейся перезарядки с каждой атакой. Рассвет и закат, Зуб Нашора, Тройственный Союз, Копье Седзина и Ионийские сапоги просветления дают 85 ускорения и столько скорости атаки, что двух атак хватает, чтобы вернуть стену.",
+ "Gain Attack Range.": "Увеличивает дальность атаки."
 }

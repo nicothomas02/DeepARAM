@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "คูลดาวน์สั้นลง 10% (การแปลงความเร็วโจมตีเป็น Haste ของมันรวมอยู่ในหน้าค่าสถานะของคุณแล้ว)",
  "Volley": "Volley",
  "Hawkshot": "Hawkshot",
- "Enchanted Crystal Arrow": "Enchanted Crystal Arrow"
+ "Enchanted Crystal Arrow": "Enchanted Crystal Arrow",
+ "Unc Is Wallmaxxing": "Unc Is Wallmaxxing",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "Yasuo เลิกแดชแล้วยืนหยัดอยู่หลัง Wind Wall ต่อยคูลดาวน์ของมันหายไปเรื่อย ๆ จนมีกำแพงขึ้นอยู่สองถึงสามแผ่นตลอดเวลา และอะไรที่ยิงกระสุนก็เล่นไม่ได้เลย",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "อัป Wind Wall ก่อนสุด: แรงก์ 5 คูลดาวน์สั้นที่สุดและกว้างเกือบสองเท่าของแรงก์ 1 วางกำแพง แล้วตีอะไรก็ได้ที่ใกล้สุดจากข้างหลังมัน (มินเนียนก็นับ) กด W ซ้ำทันทีที่ไอคอนสว่าง และอย่าแดชเข้าไปเด็ดขาด",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV: คุณล็อกแชมป์สายยิง แล้วลุงตั้งกำแพงสามแผ่นก่อนที่นัดแรกของคุณจะโดน",
+ "Wind Wall": "Wind Wall",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "บล็อกกระสุนศัตรูทุกชนิด 4 วินาที คูลดาวน์ 17 วินาทีที่แรงก์สูงสุด Yasuo ไม่มีมานา ดังนั้นคูลดาวน์คือราคาเดียวที่ต้องจ่าย",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "Mystic Punch ลดคูลดาวน์ Wind Wall ลง 1.25 วินาทีทุกครั้งที่โจมตี และ Double Tap ทำให้ทุกคริใช้ผลนั้นสองครั้ง Double Tap กับ Critical Rhythm รวมกันได้โอกาสคริ 50% ซึ่งพาสซีฟของเขาดันขึ้นไปถึง 100% และ Critical Rhythm ยังซ้อนความเร็วโจมตีอีก 60% Scopiest Weapons ทำให้เขาฟันจากหลังกำแพงของตัวเองได้",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "Navori Flickerblade ตัดคูลดาวน์ที่เหลืออีก 15% ทุกครั้งที่โจมตี Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin และ Ionian Boots เพิ่ม 85 haste และความเร็วโจมตีมากพอที่โจมตีสองครั้งก็เรียกกำแพงกลับมา",
+ "Gain Attack Range.": "ได้ระยะโจมตีเพิ่ม"
 }

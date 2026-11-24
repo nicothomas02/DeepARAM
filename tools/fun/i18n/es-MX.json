@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "Enfriamientos 10% más cortos (su conversión de velocidad de ataque a velocidad de habilidades ya está en tu panel).",
  "Volley": "Descarga",
  "Hawkshot": "Tiro de Halcón",
- "Enchanted Crystal Arrow": "Flecha de Cristal Encantada"
+ "Enchanted Crystal Arrow": "Flecha de Cristal Encantada",
+ "Unc Is Wallmaxxing": "El Tío Hace Wallmaxxing",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "Yasuo deja de hacer dash y se planta firme detrás de Muro de Viento, a puñetazos le quita el tiempo de reutilización hasta que siempre hay dos o tres muros arriba y nada con proyectil puede jugar.",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "Sube primero Muro de Viento: el rango 5 tiene la reutilización más corta y es casi el doble de ancho que el rango 1. Pon un muro, ataca a lo más cercano desde atrás (los súbditos cuentan), vuelve a presionar W en cuanto se ilumine y jamás entres con dash.",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV: elegiste un campeón a distancia y el tío puso tres muros antes de que aterrizara tu primer disparo",
+ "Wind Wall": "Muro de Viento",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "Bloquea todos los proyectiles enemigos durante 4 segundos, con 17 segundos de reutilización en el rango máximo. Yasuo no tiene maná, así que la reutilización es el único costo.",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "Golpe Místico le quita 1.25 segundos a Muro de Viento con cada ataque, y Toque Doble hace que cada crítico lo aplique dos veces. Toque Doble y Ritmo Crítico suman 50% de probabilidad de golpe crítico, que su pasiva sube hasta 100%, y Ritmo Crítico agrega encima 60% de velocidad de ataque. De Más Largo Alcance le permite atacar desde atrás de su propio muro.",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "Cuchilla Rauda de Navori recorta 15% de lo que quede de la reutilización con cada ataque. Ocaso y Alba, Diente de Nashor, Fuerza de la Trinidad, Lanza de Shojin y las Botas Jonias de la Lucidez suman 85 de velocidad y suficiente velocidad de ataque para que dos ataques traigan de vuelta el muro.",
+ "Gain Attack Range.": "Gana alcance de ataque."
 }

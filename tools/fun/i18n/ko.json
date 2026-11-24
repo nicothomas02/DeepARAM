@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "재사용 대기시간 10% 감소 (공격 속도를 가속으로 바꾸는 효과는 이미 능력치 창에 포함되어 있습니다).",
  "Volley": "일제 사격",
  "Hawkshot": "매 날리기",
- "Enchanted Crystal Arrow": "마법의 수정화살"
+ "Enchanted Crystal Arrow": "마법의 수정화살",
+ "Unc Is Wallmaxxing": "아재, 벽맥싱 중",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "야스오는 돌진을 멈추고 바람 장막 뒤에서 당당하게 버티며, 쿨타임이 다 닳을 때까지 주먹으로 두들긴다. 그러면 장막 두세 개가 항상 떠 있고, 투사체 가진 놈은 아무것도 못 한다.",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "바람 장막부터 마스터하자. 5레벨은 쿨타임이 가장 짧고 폭도 1레벨의 거의 두 배다. 장막을 깔고, 그 뒤에서 제일 가까운 대상(미니언도 OK)을 때리고, 불이 들어오면 바로 W를 다시 누르고, 절대 돌진해 들어가지 말 것.",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV: 원거리 챔피언 락인했는데 첫 공격이 맞기도 전에 아재가 장막을 세 개나 깔았다",
+ "Wind Wall": "바람 장막",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "적의 모든 투사체를 4초 동안 막는다. 최대 레벨에서 쿨타임은 17초. 야스오는 마나가 없으니 쿨타임이 유일한 대가다.",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "신비한 주먹은 공격할 때마다 바람 장막의 쿨타임을 1.25초 줄이고, 한 발에 두 놈은 치명타마다 그 효과를 두 번 적용한다. 한 발에 두 놈과 치명적 리듬을 합치면 치명타 확률 50%이고, 패시브가 이를 최대 100%까지 끌어올리며, 치명적 리듬이 공격 속도 60%까지 더해준다. 최상급 조준경 부착 덕분에 자기 장막 뒤에서 칼을 휘두를 수 있다.",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "나보리 명멸검은 공격할 때마다 남은 쿨타임의 15%를 깎는다. 황혼과 새벽, 내셔의 이빨, 삼위일체, 쇼진의 창, 아이오니아 장화가 가속 85와 충분한 공격 속도를 줘서 두 번 공격하면 장막이 돌아온다.",
+ "Gain Attack Range.": "공격 사거리를 얻습니다."
 }

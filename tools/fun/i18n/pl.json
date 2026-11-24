@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "Czasy odnowienia krótsze o 10% (zamiana prędkości ataku na przyspieszenie jest już w twoim panelu).",
  "Volley": "Salwa",
  "Hawkshot": "Sokole Oko",
- "Enchanted Crystal Arrow": "Zaczarowana Kryształowa Strzała"
+ "Enchanted Crystal Arrow": "Zaczarowana Kryształowa Strzała",
+ "Unc Is Wallmaxxing": "Wujek Robi Ściany na Maksa",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "Yasuo przestaje dashować i twardo stoi za Ścianą Wichru, tłukąc jej czas odnowienia, aż dwie lub trzy ściany są zawsze w grze, a nic z pociskiem nie ma czego szukać.",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "Najpierw maksuj Ścianę Wichru: ranga 5 ma najkrótsze odnowienie i jest prawie dwa razy szersza niż ranga 1. Postaw ścianę, atakuj z jej cienia to, co najbliżej (miniony się liczą), wciśnij W ponownie, gdy tylko się zaświeci, i nigdy nie dashuj do środka.",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV: zlockowałeś bohatera z dystansu, a wujek postawił trzy ściany, zanim doleciał twój pierwszy strzał",
+ "Wind Wall": "Ściana Wichru",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "Blokuje każdy wrogi pocisk przez 4 sekundy, z odnowieniem 17 sekund na maksymalnej randze. Yasuo nie ma many, więc odnowienie to jedyna cena.",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "Mistyczny Cios skraca Ścianę Wichru o 1,25 sekundy przy każdym ataku, a Podwójne Klepnięcie sprawia, że każdy cios krytyczny robi to dwa razy. Podwójne Klepnięcie i Krytyczny Rytm dają razem 50% szansy na cios krytyczny, którą jego bierna podbija aż do 100%, a Krytyczny Rytm dokłada jeszcze 60% prędkości ataku. Najbardziej Snajperskie Uzbrojenie pozwala mu zamachnąć się zza własnej ściany.",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "Migoczące Ostrze Navori skraca o 15% pozostały czas odnowienia przy każdym ataku. Zmierzch i Brzask, Ząb Nashora, Moc Trójcy, Włócznia Shojin i Ioniańskie Buty Jasności Umysłu dają 85 przyspieszenia i tyle prędkości ataku, że dwa ataki przywracają ścianę.",
+ "Gain Attack Range.": "Zyskujesz zasięg ataku."
 }
