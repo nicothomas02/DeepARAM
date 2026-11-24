@@ -91,5 +91,9 @@
  "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Tahmini: hiçbir oyun tüm takımların sonuçlarını kaydetmez, bu yüzden bunlar her şampiyonun ve her ikilinin birlikte performansından gelir. Bunları kayıt değil, denenecek fikirler olarak görün.",
  "{own}% champions · {syn}% synergy": "%{own} şampiyonlar · %{syn} sinerji",
  "Best pair: {a} + {b}": "En iyi ikili: {a} + {b}",
- "Projected": "Tahmini"
+ "Projected": "Tahmini",
+ "Strongest by data": "Verilere göre en güçlüler",
+ "With a frontline": "Ön hatlı",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Her takımda bir Warden, Vanguard veya Juggernaut var. Bu bir kadro kuralı, verilerin ölçtüğü bir şey değil.",
+ "Ranked only by how the champions and their pairs do.": "Yalnızca şampiyonların ve ikililerinin sonuçlarına göre sıralandı."
 }

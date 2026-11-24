@@ -6678,3 +6678,12 @@ html[data-view="detailed"] .wr-ci {
 .ft-more:hover {
   background: var(--hover);
 }
+.ft-lists {
+  display: inline-flex;
+  margin-bottom: 0.4rem;
+}
+.ft-list-note {
+  margin: 0 0 0.6rem;
+  font-size: 13px;
+  color: var(--muted);
+}

@@ -18,7 +18,7 @@ type Team = {
   pairs_known: number;
   best_pairs?: [string, string][];
 };
-type TeamsFile = { teams: Team[] };
+type TeamsFile = { teams: Team[]; frontline_teams?: Team[] };
 
 export type TeamRow = {
   /** Champion aliases ("TwistedFate"), strongest first. */
@@ -33,9 +33,16 @@ export type TeamRow = {
   bestPair: [string, string] | null;
 };
 
-export function fullTeams(): TeamRow[] {
+/** The two lists (Nico chose "Show both lists", 2026-11-24): strongest by data alone, and the best teams that hold a
+ *  frontline (a Warden, Vanguard or Juggernaut; a design rule, not measured). No champion is in more than 3 teams of a
+ *  list (teams.py MAX_PER_CHAMPION), so the list isn't one champion plus four others. */
+export function fullTeams(): { data: TeamRow[]; frontline: TeamRow[] } {
   const file = readRepoJson<TeamsFile>("data/estimates/teams.json");
-  return (file?.teams ?? []).flatMap((t) => {
+  return { data: toRows(file?.teams), frontline: toRows(file?.frontline_teams) };
+}
+
+function toRows(teams: Team[] | undefined): TeamRow[] {
+  return (teams ?? []).flatMap((t) => {
     const own = (t.from_champions - 0.5) * 100;
     const total = own + t.synergy_pts;
     if (!(total > 0) || t.names.length !== 5) return [];

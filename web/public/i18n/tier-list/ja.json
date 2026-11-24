@@ -91,5 +91,9 @@
  "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "予測値：チーム全体を記録した試合データはないため、各チャンピオンの成績と各ペアの相性から算出しています。記録ではなく、試してみるアイデアとしてご覧ください。",
  "{own}% champions · {syn}% synergy": "チャンピオン {own}% · シナジー {syn}%",
  "Best pair: {a} + {b}": "ベストペア：{a} + {b}",
- "Projected": "予測"
+ "Projected": "予測",
+ "Strongest by data": "データ上で最強",
+ "With a frontline": "前衛あり",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "各チームにWarden、Vanguard、Juggernautのいずれかを含みます。データで測ったものではなく、編成上のルールです。",
+ "Ranked only by how the champions and their pairs do.": "チャンピオンとそのペアの成績だけで順位付けしています。"
 }

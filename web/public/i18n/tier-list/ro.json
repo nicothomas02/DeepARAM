@@ -91,5 +91,9 @@
  "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Estimat: niciun meci nu înregistrează echipe întregi, așa că acestea vin din rezultatele fiecărui campion și ale fiecărei perechi împreună. Privește-le ca idei de încercat, nu ca recorduri.",
  "{own}% champions · {syn}% synergy": "{own}% campioni · {syn}% sinergie",
  "Best pair: {a} + {b}": "Cea mai bună pereche: {a} + {b}",
- "Projected": "Estimat"
+ "Projected": "Estimat",
+ "Strongest by data": "Cele mai puternice după date",
+ "With a frontline": "Cu linie frontală",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Fiecare echipă are un Warden, Vanguard sau Juggernaut. E o regulă de compoziție, nu ceva măsurat în date.",
+ "Ranked only by how the champions and their pairs do.": "Ordonate doar după rezultatele campionilor și ale perechilor lor."
 }

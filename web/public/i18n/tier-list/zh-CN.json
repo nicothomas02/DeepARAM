@@ -91,5 +91,9 @@
  "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "预测：没有对局记录完整阵容的结果，因此这些来自每位英雄的表现以及每对英雄的配合。请把它们当作可尝试的思路，而非记录。",
  "{own}% champions · {syn}% synergy": "英雄 {own}% · 协同 {syn}%",
  "Best pair: {a} + {b}": "最佳组合：{a} + {b}",
- "Projected": "预测"
+ "Projected": "预测",
+ "Strongest by data": "数据最强",
+ "With a frontline": "含前排",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "每支队伍都有一名 Warden、Vanguard 或 Juggernaut。这是阵容规则，并非数据测得。",
+ "Ranked only by how the champions and their pairs do.": "仅按英雄及其两两组合的表现排序。"
 }

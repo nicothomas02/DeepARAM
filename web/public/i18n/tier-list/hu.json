@@ -91,5 +91,9 @@
  "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Becsült: egyetlen játék sem rögzít teljes csapatokat, ezért ezek az egyes hősök és a párosaik közös eredményeiből jönnek. Tekintsd őket kipróbálandó ötleteknek, nem eredményeknek.",
  "{own}% champions · {syn}% synergy": "{own}% hősök · {syn}% szinergia",
  "Best pair: {a} + {b}": "Legjobb páros: {a} + {b}",
- "Projected": "Becsült"
+ "Projected": "Becsült",
+ "Strongest by data": "Legerősebbek az adatok alapján",
+ "With a frontline": "Frontvonallal",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Minden csapatban van Warden, Vanguard vagy Juggernaut. Ez összeállítási szabály, nem az adatok mérése.",
+ "Ranked only by how the champions and their pairs do.": "Csak a hősök és párosaik eredményei alapján rangsorolva."
 }

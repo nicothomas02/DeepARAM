@@ -113,7 +113,7 @@ export default function TierListPage() {
             />
           }
           duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} quests={teamQuests()} /> : undefined}
-          teams={teams.length ? <FullTeams rows={teams} /> : undefined}
+          teams={teams.data.length ? <FullTeams data={teams.data} frontline={teams.frontline} /> : undefined}
           team={duos ? <TeamFit version={teamFitVersion()} /> : undefined}
         />
       ),

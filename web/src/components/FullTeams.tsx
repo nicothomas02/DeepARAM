@@ -10,12 +10,15 @@ import { useNames, useT } from "./I18n";
 // five champions and how much of the team's strength comes from the champions themselves versus how they work
 // together. No projected win rate: summed pair synergies likely overstate whole teams.
 
-export default function FullTeams({ rows }: { rows: TeamRow[] }) {
+export default function FullTeams({ data, frontline }: { data: TeamRow[]; frontline: TeamRow[] }) {
   const t = useT("tier-list");
   const tc = useT("champions");
   const names = useNames();
   // Lean by default (Nico, 2026-11-24): the top 10, the rest behind a button.
   const [all, setAll] = useState(false);
+  // Two lists (Nico, 2026-11-24): strongest by data alone, or the best that hold a frontline.
+  const [front, setFront] = useState(false);
+  const rows = front && frontline.length ? frontline : data;
   const shown = all ? rows : rows.slice(0, 10);
   return (
     <div className="full-teams">
@@ -24,6 +27,23 @@ export default function FullTeams({ rows }: { rows: TeamRow[] }) {
           "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.",
         )}
       </p>
+      {frontline.length > 0 && (
+        <>
+          <div className="seg ft-lists" role="group" aria-label={t("Full teams")}>
+            <button type="button" aria-pressed={!front} onClick={() => setFront(false)}>
+              {t("Strongest by data")}
+            </button>
+            <button type="button" aria-pressed={front} onClick={() => setFront(true)}>
+              {t("With a frontline")}
+            </button>
+          </div>
+          <p className="ft-list-note">
+            {front
+              ? t("Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.")
+              : t("Ranked only by how the champions and their pairs do.")}
+          </p>
+        </>
+      )}
       <ol className="ft-list">
         {shown.map((r, i) => {
           const own = Math.round(r.fromChampions * 100);

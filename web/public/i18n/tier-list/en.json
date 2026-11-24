@@ -91,5 +91,9 @@
  "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.",
  "{own}% champions · {syn}% synergy": "{own}% champions · {syn}% synergy",
  "Best pair: {a} + {b}": "Best pair: {a} + {b}",
- "Projected": "Projected"
+ "Projected": "Projected",
+ "Strongest by data": "Strongest by data",
+ "With a frontline": "With a frontline",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.",
+ "Ranked only by how the champions and their pairs do.": "Ranked only by how the champions and their pairs do."
 }

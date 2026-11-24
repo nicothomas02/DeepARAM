@@ -91,5 +91,9 @@
  "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "예상치: 팀 전체 결과를 기록한 게임이 없어 각 챔피언의 성적과 각 2인 조합의 궁합으로 계산했습니다. 기록이 아니라 시도해 볼 아이디어로 봐 주세요.",
  "{own}% champions · {syn}% synergy": "챔피언 {own}% · 시너지 {syn}%",
  "Best pair: {a} + {b}": "최고의 2인 조합: {a} + {b}",
- "Projected": "예상"
+ "Projected": "예상",
+ "Strongest by data": "데이터상 최강",
+ "With a frontline": "앞라인 포함",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "모든 팀에 Warden, Vanguard, Juggernaut 중 하나가 있습니다. 데이터로 측정한 것이 아니라 조합 규칙입니다.",
+ "Ranked only by how the champions and their pairs do.": "챔피언과 2인 조합의 성적만으로 순위를 매겼습니다."
 }

@@ -91,5 +91,9 @@
  "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "คาดการณ์: ไม่มีเกมใดบันทึกผลของทั้งทีม จึงคำนวณจากผลงานของแต่ละแชมเปี้ยนและของแต่ละคู่เมื่อเล่นด้วยกัน ให้มองเป็นไอเดียไว้ลองเล่น ไม่ใช่สถิติ",
  "{own}% champions · {syn}% synergy": "แชมเปี้ยน {own}% · ซินเนอร์จี {syn}%",
  "Best pair: {a} + {b}": "คู่ที่ดีที่สุด: {a} + {b}",
- "Projected": "คาดการณ์"
+ "Projected": "คาดการณ์",
+ "Strongest by data": "แข็งแกร่งที่สุดตามข้อมูล",
+ "With a frontline": "มีแนวหน้า",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "ทุกทีมมี Warden, Vanguard หรือ Juggernaut นี่คือกฎการจัดทีม ไม่ใช่สิ่งที่ข้อมูลวัดได้",
+ "Ranked only by how the champions and their pairs do.": "จัดอันดับจากผลงานของแชมเปี้ยนและคู่ของพวกเขาเท่านั้น"
 }

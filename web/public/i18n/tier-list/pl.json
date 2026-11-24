@@ -91,5 +91,9 @@
  "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Prognoza: żadna gra nie zapisuje wyników całych drużyn, więc wynikają one z tego, jak radzi sobie każdy bohater i każda para razem. Traktuj je jako pomysły do wypróbowania, nie zapisy.",
  "{own}% champions · {syn}% synergy": "{own}% bohaterowie · {syn}% synergia",
  "Best pair: {a} + {b}": "Najlepsza para: {a} + {b}",
- "Projected": "Prognoza"
+ "Projected": "Prognoza",
+ "Strongest by data": "Najsilniejsze według danych",
+ "With a frontline": "Z frontem",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Każda drużyna ma Wardena, Vanguarda lub Juggernauta. To zasada składu, a nie coś zmierzonego w danych.",
+ "Ranked only by how the champions and their pairs do.": "Kolejność tylko według wyników bohaterów i ich par."
 }
