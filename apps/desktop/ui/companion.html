@@ -23,8 +23,6 @@
   .name { font-weight: 600; }
   .why { color: var(--muted); font-size: 12px; }
   .num { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; }
-  /* DeepScore badge: the number, coloured by its tier (same colours as the site's tier chips). */
-  .ds-S { color: #e0604a; } .ds-A { color: #f0913a; } .ds-B { color: #e6c24a; } .ds-C { color: #7fb6e8; } .ds-D { color: var(--muted); }
   .mates { display: flex; gap: 6px; }
   .mates img { width: 28px; height: 28px; }
   .big { font-size: 44px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
@@ -40,6 +38,13 @@
   input[type=search] { width: 100%; font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line);
     border-radius: 10px; padding: 7px 10px; margin-bottom: 8px; }
   .why.bad { color: var(--bad); }
+  .badge { display: inline-block; margin-top: 4px; padding: 3px 10px; border-radius: 8px; font-size: 16px; font-weight: 800; }
+  .badge.green { color: #07130d; background: var(--good); } .badge.blue { color: #04131d; background: var(--accent); }
+  .num.big { font-size: 22px; font-weight: 800; } .num.green { color: var(--good); } .num.gold { color: var(--gold); } .num.red { color: var(--bad); }
+  .num.t-s { color: #e0573f; } .num.t-a { color: #f0913a; } .num.t-b { color: #e6c24a; } .num.t-c { color: #7fb6e8; } .num.t-d { color: var(--muted); }
+  .row.card { padding: 10px 12px; }
+  .tag { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
+  .dim .row { opacity: .55; padding: 5px 8px; font-size: 12px; } .dim .row .name { font-size: 13px; }
   /* In-game cues (Nico 2026-11-24: icons and pictures, required text larger and coloured). */
   .cue { font-size: 15px; font-weight: 600; margin-top: 8px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
   .cue .ii { width: 20px; height: 20px; vertical-align: middle; margin: 0; }
@@ -83,7 +88,9 @@
   .why.lbl b { text-transform: none; letter-spacing: 0; }
   .items.lst .why.lbl { margin: 4px 0 -2px; }
   .tip { margin-top: 8px; }
-  .plan { display: flex; justify-content: space-between; align-items: center; }
+  .plan { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
+  .plan .keys { margin-right: auto; } .mates img.nx { box-shadow: 0 0 0 2px var(--gold); }
+  .aug .num.big { font-size: 17px; white-space: nowrap; }
   .plan .keys b { color: var(--accent); }
   .filters { display: flex; gap: 6px; margin-bottom: 8px; }
   .chip.f, .chip.br { padding: 3px 10px; }
@@ -108,13 +115,17 @@
     .row { grid-template-columns: 40px 1fr auto; }
     .why, .num, .note { font-size: 14px; }
   }
-  /* The site's look: a champion splash banner, cards with depth, rarity rings, the prismatic flourish. */
+  /* The site's look: a header glowing in the champion's colour, cards with depth, rarity rings, the prismatic flourish. */
   .row, .box { box-shadow: var(--depth); }
   .hero { position: relative; display: flex; align-items: flex-end; gap: 14px; min-height: 132px; padding: 16px 18px; margin: -4px 0 14px;
     border-radius: 18px; border: 1px solid var(--line); overflow: hidden; background: var(--surface); box-shadow: var(--depth); }
-  .hero > img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 22%; border: 0; border-radius: 0; }
-  .hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, rgb(9 11 15 / .92) 15%, rgb(9 11 15 / .55) 55%, rgb(9 11 15 / .15)), linear-gradient(0deg, rgb(9 11 15 / .7), transparent 60%); }
-  .hero > :not(.bg) { position: relative; z-index: 2; }
+  /* The site's champion-page glow (globals.css .cp-hero-glow), in the champion's colour; the site's blue without one. */
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: 1;
+    background: radial-gradient(ellipse 55% 90% at 88% 10%, hsl(var(--champ-h, 205) var(--champ-s, 70%) 50% / 0.55), transparent 70%),
+      radial-gradient(ellipse 45% 70% at 62% 105%, hsl(calc(var(--champ-h, 205) + 35) var(--champ-s, 70%) 45% / 0.35), transparent 70%),
+      linear-gradient(115deg, transparent 35%, hsl(var(--champ-h, 205) 40% 30% / 0.25));
+    mask-image: linear-gradient(90deg, transparent 10%, #000 70%); }
+  .hero > * { position: relative; z-index: 2; }
   .hero > img { width: 56px; height: 56px; border-radius: 14px; border: 2px solid rgb(255 255 255 / .15); }
   .hero .title { font-size: 24px; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
   .hero .sub { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-top: 4px; }
@@ -173,9 +184,12 @@
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const icon = (alias) => `<img src="${SITE}/icons/champions/${encodeURIComponent(alias)}.webp" alt="">`;
   const label = (alias) => alias.replace(/([a-z])([A-Z])/g, "$1 $2");
-  // The champion's splash, as on the site's champion page (Data Dragon spells Fiddlesticks with one capital).
-  const splash = (alias) => `${SITE}/assets/dd/img/champion/splash/${encodeURIComponent(alias === "FiddleSticks" ? "Fiddlesticks" : alias)}_0.jpg`;
-  const hero = (alias, title, sub, subId = "") => `<div class="hero">${alias ? `<img class="bg" src="${splash(alias)}" alt="" data-drop>` : ""}
+  // Each champion's colour [hue, saturation %], worked out ahead of time from the site's splash tiles with the site's
+  // own method (SplashAccent dominantHue): the site's images can't be read from this page. The header glows in it,
+  // as on the site's champion page, instead of showing the splash (Nico 2026-11-24).
+  const HUES = {"Aatrox":[5,69],"Ahri":[218,71],"Akali":[7,55],"Akshan":[38,74],"Alistar":[277,55],"Ambessa":[5,55],"Amumu":[203,60],"Anivia":[203,68],"Annie":[21,55],"Aphelios":[204,81],"Ashe":[217,68],"AurelionSol":[219,82],"Aurora":[8,55],"Azir":[23,56],"Bard":[34,56],"Belveth":[230,55],"Blitzcrank":[39,65],"Brand":[22,73],"Braum":[39,83],"Briar":[326,55],"Caitlyn":[250,57],"Cassiopeia":[22,55],"Chogath":[339,55],"Corki":[23,55],"Darius":[38,56],"DrMundo":[276,55],"Draven":[9,55],"Ekko":[175,69],"Elise":[342,65],"Evelynn":[308,66],"Ezreal":[218,67],"FiddleSticks":[24,55],"Fiora":[214,55],"Fizz":[217,55],"Galio":[215,55],"Gangplank":[36,67],"Garen":[22,55],"Gnar":[22,73],"Gragas":[11,66],"Graves":[7,63],"Gwen":[203,75],"Hecarim":[175,73],"Heimerdinger":[9,78],"Hwei":[187,55],"Illaoi":[154,58],"Irelia":[340,74],"Ivern":[39,55],"Janna":[200,55],"JarvanIV":[23,73],"Jax":[214,55],"Jayce":[40,55],"Jhin":[23,55],"Jinx":[216,55],"KSante":[22,62],"Kaisa":[233,65],"Kalista":[190,73],"Karma":[171,77],"Karthus":[202,55],"Kassadin":[278,79],"Katarina":[354,61],"Kayle":[25,55],"Kayn":[353,55],"Kennen":[290,62],"Khazix":[189,55],"Kindred":[205,57],"Kled":[24,55],"KogMaw":[71,55],"Leblanc":[2,55],"LeeSin":[349,55],"Leona":[37,73],"Lillia":[9,55],"Lissandra":[216,55],"Locke":[228,68],"Lucian":[7,55],"Lulu":[8,55],"Lux":[23,55],"Malphite":[4,55],"Malzahar":[261,77],"Maokai":[200,55],"MasterYi":[51,63],"Mel":[352,55],"Milio":[24,63],"MissFortune":[19,63],"MonkeyKing":[7,77],"Mordekaiser":[159,55],"Morgana":[306,71],"Naafiri":[6,55],"Nami":[183,65],"Nasus":[51,59],"Nautilus":[21,76],"Neeko":[202,56],"Nidalee":[23,55],"Nilah":[35,55],"Nocturne":[204,71],"Nunu":[8,55],"Olaf":[33,62],"Orianna":[229,55],"Ornn":[350,73],"Pantheon":[22,69],"Poppy":[23,55],"Pyke":[171,55],"Qiyana":[21,66],"Quinn":[8,55],"Rakan":[350,55],"Rammus":[39,76],"RekSai":[232,55],"Rell":[38,55],"Renata":[335,55],"Renekton":[24,55],"Rengar":[169,55],"Riven":[37,55],"Rumble":[19,67],"Ryze":[233,79],"Samira":[24,55],"Sejuani":[203,67],"Senna":[183,55],"Seraphine":[336,76],"Sett":[24,55],"Shaco":[353,64],"Shen":[216,55],"Shyvana":[23,55],"Singed":[115,55],"Sion":[351,83],"Sivir":[24,61],"Skarner":[22,62],"Smolder":[216,55],"Sona":[217,55],"Soraka":[7,55],"Swain":[3,56],"Sylas":[230,55],"Syndra":[262,55],"Taliyah":[20,57],"Talon":[201,73],"Taric":[262,78],"Teemo":[37,55],"Thresh":[171,81],"Tristana":[353,55],"Trundle":[203,55],"Tryndamere":[169,59],"TwistedFate":[8,69],"Twitch":[157,62],"Udyr":[204,55],"Urgot":[100,55],"Varus":[335,66],"Vayne":[232,59],"Veigar":[264,55],"Velkoz":[294,60],"Vex":[202,55],"Vi":[339,55],"Viego":[203,55],"Viktor":[201,55],"Vladimir":[5,61],"Volibear":[219,63],"Warwick":[67,55],"Xayah":[339,55],"Xerath":[218,60],"XinZhao":[21,75],"Yasuo":[216,55],"Yone":[351,86],"Yorick":[174,55],"Yunara":[249,55],"Yuumi":[21,55],"Zaahen":[3,55],"Zac":[110,55],"Zed":[8,60],"Zeri":[67,71],"Ziggs":[23,55],"Zilean":[201,63],"Zoe":[7,59],"Zyra":[354,59]};
+  const hueOf = (alias) => HUES[Object.keys(HUES).find((k) => k.toLowerCase() === String(alias).toLowerCase())] ?? null;
+  const hero = (alias, title, sub, subId = "") => `<div class="hero glow"${alias && hueOf(alias) ? ` data-style="--champ-h:${hueOf(alias)[0]};--champ-s:${hueOf(alias)[1]}%"` : ""}>
       ${alias ? icon(alias) : `<img src="icon.png" alt="">`}<div><div class="title">${title}</div><div class="sub"${subId ? ` id="${subId}"` : ""}>${sub}</div></div>
       ${window.__TAURI_INTERNALS__ ? `<button class="fs">${isFull ? "Exit full screen" : "Full screen"}</button>` : ""}</div>`;
   // Full screen from the button, F11 or Esc; the app answers with the state it ended in, which labels the button.
@@ -262,7 +276,7 @@
       <div class="row${i === 0 && p.id !== byId[mine] ? " best" : ""}">
         ${icon(p.id)}
         <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${[p.base >= 0.01 ? "Strong this patch" : "", p.rec ? `Your record ${p.rec.w}-${p.rec.n - p.rec.w} (${pts(p.rec.nudge)})` : ""].filter(Boolean).join(" · ")}</div><div class="sbar"><span data-style="width:${Math.max(4, Math.min(100, 50 + p.strength * 1000))}%;background:${p.strength >= 0.01 ? "var(--good)" : p.strength <= -0.01 ? "var(--bad)" : "var(--gold)"}"></span></div></div>
-        <div class="num">Strength ${pts(p.strength)}</div>
+        <div class="num" title="Strength this patch${bracket !== "all" ? ` for ${esc(BRACKETS.find(([b]) => b === bracket)[1])} players` : ""}, in win-rate points. A guide, not a promise.">${pts(p.strength)}</div>
       </div>`).join("");
     const [builds, k, ap] = await Promise.all([loadBuilds(), loadKinds(), loadPicks()]);
     // Game plan for the champion you're on: skill order and first three items, one glance before loading in.
@@ -270,9 +284,10 @@
     const plan = me && builds?.champions?.find((c) => c.id.toLowerCase() === me.toLowerCase());
     const planHtml = plan ? `<h2>Plan for ${esc(label(me))}</h2><div class="box plan">
         <span class="keys"${plan.skillSplit ? ` title="${plan.skillSplit.weak ? "Your pick, weaker evidence" : "Your pick, estimated"}"` : ""}>${plan.skillSplit ? `<b>${plan.skillSplit.first}</b> to ${plan.skillSplit.points}, then ` : ""}${(plan.skills ?? []).map((x) => `<b>${x}</b>`).join(" › ")}</span>
-        <span class="mates">${plan.items.slice(0, 3).map((it) => `<img src="${SITE}${it.icon}" alt="" title="${esc(it.name)}">`).join("")}</span></div>` : "";
+        ${plan.start?.length ? `<span class="mates" title="Start">${plan.start.map((it) => `<img src="${SITE}${it.icon}" alt="" title="Start: ${esc(it.name)}">`).join("")}</span><span class="why">›</span>` : ""}
+        <span class="mates">${[...plan.items.map((it) => [it, true]), ...(plan.full ?? []).map((it) => [it, false])].slice(0, 6).map(([it, core]) => `<img${core ? ' class="nx"' : ""} src="${SITE}${it.icon}" alt="" title="${esc(it.name)}${core ? " (core)" : ""}">`).join("")}</span></div>` : "";
     // Team gap: one line, only once the whole team is in and only when something is missing.
-    let gap = "";
+    let gap = "", gapShort = "";
     const all = [...team, ...(me ? [me] : [])];
     if (all.length >= 5) {
       const FRONT = new Set(["Vanguard", "Warden", "Juggernaut"]);
@@ -283,17 +298,17 @@
       // expected (178 teams). "No frontline" failed its test and "under 25% magic" had too few teams, so both stay off.
       void front;
       gap = magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
+      gapShort = magic > 0.75 ? "⚠ Low physical damage" : "";
     }
     setView(`
       ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion")}
       ${team.length ? `<h2>Your team</h2><div class="mates">${team.map(icon).join("")}</div>` : ""}
-      ${gap ? `<div class="box">${esc(gap)}</div>` : ""}
+      ${gap ? `<div class="cue gold" title="${esc(gap)}">${esc(gapShort)}</div>` : ""}
       <h2>Your choices, best first</h2>
       ${Object.keys(d.brackets ?? {}).length ? `<div class="filters" title="Skill brackets come from a rating built from game results, not official ranks.${d.bracketPatch && d.bracketPatch !== d.patch ? ` This patch's brackets aren't out yet, so they use patch ${esc(d.bracketPatch)}.` : ""}">${BRACKETS.filter(([b]) => b === "all" || d.brackets[b]).map(([b, l]) => `<button class="chip br${b === bracket ? " on" : ""}" data-b="${b}">${l}</button>`).join("")}</div>` : ""}
       ${rows || `<p class="note">Waiting for your champion and bench…</p>`}
       ${planHtml}
-      ${gameSettings(ap, me)}
-      <p class="note">Strength this patch${bracket !== "all" ? ` for ${esc(BRACKETS.find(([b]) => b === bracket)[1])} players` : ""}, in win-rate points. A guide, not a promise. You make the pick.</p>`);
+      ${gameSettings(ap, me)}`);
   };
 
   function chart(points, from) {
@@ -410,14 +425,27 @@
   const rankAugments = (d, ck, taken, tier) => E.rankAugments(d, ck, taken, { lucky, seen: [...seen], tier, headliner: game?.headliner });
   function rerollAdvice(d, all, offered, taken) {
     const a = E.rerollAdvice(d, all, offered, taken, { seen: [...seen], rerolled: [...rerolled], headliner: game?.headliner });
-    if (!a) return "";
-    const nm = (id) => esc(d.augments[id]?.[0] ?? `#${id}`);
+    if (!a) return { html: "", card: null };
     // In game only a glance (Nico 2026-11-24: a few seconds per alt-tab): the cue, with the reason on hover.
     const plain = (id) => d.augments[id]?.[0] ?? `#${id}`;
+    // Reroll: the card's own badge says it (reason on its hover). Keep: one line under the cards.
     return a.action === "reroll"
-      ? `<div class="cue blue" title="${esc(`${pct(a.beats)} of ${label(game.champ)}'s ${a.rarity ?? ""} augments beat ${plain(a.best)}, worth about +${a.gain.toFixed(1)} on average.`)}">↻ Reroll ${augIco(a.card)}${nm(a.card)}</div>`
-      : `<div class="cue green" title="${esc(`${a.beats ? `Only ${pct(a.beats)}` : "None"} of ${label(game.champ)}'s ${a.rarity ?? ""} augments beat ${plain(a.best)}. A reroll is unlikely to help.`)}">✓ Keep</div>`;
+      ? { card: a.card, html: "", why: `${pct(a.beats)} of ${label(game.champ)}'s ${a.rarity ?? ""} augments beat ${plain(a.best)}, worth about +${a.gain.toFixed(1)} on average.` }
+      : { card: null, html: `<div class="cue green" title="${esc(`${a.beats ? `Only ${pct(a.beats)}` : "None"} of ${label(game.champ)}'s ${a.rarity ?? ""} augments beat ${plain(a.best)}. A reroll is unlikely to help.`)}">✓ Keep, no reroll</div>` };
   }
+  // A score in this game (synergy, combo odds and headliner included) on the champion's own DeepScore scale: read off
+  // its rows' score→DeepScore curve ([id, score, DeepScore, ...]), so it compares with the list's numbers.
+  function gameDeep(d, ck, score) {
+    const pts = (d.champions?.[ck] ?? []).filter((r) => typeof r[1] === "number" && typeof r[2] === "number").map((r) => [r[1], r[2]]).sort((x, y) => x[0] - y[0]);
+    if (typeof score !== "number" || pts.length < 2) return -1;
+    if (score <= pts[0][0]) return pts[0][1];
+    if (score >= pts[pts.length - 1][0]) return Math.min(100, pts[pts.length - 1][1]);
+    const j = pts.findIndex((q) => q[0] >= score);
+    const [a, b] = [pts[j - 1], pts[j]];
+    return Math.round(b[0] === a[0] ? b[1] : a[1] + ((score - a[0]) / (b[0] - a[0])) * (b[1] - a[1]));
+  }
+  // The site's tier colours (S red, A orange, B yellow, C blue, D grey), on the number alone (Nico: one value).
+  const tierCls = (ds) => `t-${deepTier(ds).toLowerCase()}`;
 
   async function renderAugments() {
     const box = document.getElementById("augs");
@@ -436,7 +464,7 @@
     // the list stays below for when the reading misses a card.
     const onOffer = offer.filter((id) => !taken.includes(id));
     const offered = onOffer.length ? [...ranked.filter((a) => onOffer.includes(a.id)), ...onOffer.filter((id) => !ranked.some((a) => a.id === id)).map((id) => ({ id, boost: null, deep: -1, mate: null, combo: null, potential: 0 }))] : [];
-    const reroll = offered.length >= 2 ? rerollAdvice(d, ranked, offered, taken) : "";
+    const advice = offered.length >= 2 ? rerollAdvice(d, ranked, offered, taken) : { html: "", card: null };
     // Cards within noise of the best: highlighted too, "either is fine".
     const ties = offered.length >= 2 && offered.every((a) => typeof a.score === "number") ? E.nearTies(d, ck, offered) : [];
     // Can't decide between them: more combo potential, else the less common pick (Nico 2026-11-24).
@@ -446,6 +474,22 @@
     // [label html, colour, hover]
     const reason = (a) => a.conflict ? ["⚠ Conflicts", "red", `Conflicts: ${a.conflict}`] : a.mate !== null ? [`+${augIco(a.mate)}${esc(name(a.mate))}`, "green", `Synergy with ${name(a.mate)}`]
       : a.combo !== null && a.potential >= 0.3 ? [`⚡${augIco(a.combo)}${esc(name(a.combo))}`, "gold", `Combo potential with ${name(a.combo)} (+${a.potential.toFixed(1)})`] : ["", "", ""];
+    // On the offer, each card: a big badge (Take, or ≈ Take for a near tie; Reroll) and its DeepScore in this game.
+    const card = (a, i) => {
+      const [tag, tone, why] = reason(a);
+      const pick = tb && tb.id === a.id ? `Can't decide? This one: ${tb.why}` : "";
+      const hover = [why, pick, whatItDoes("augments", Number(a.id))].filter(Boolean).join("\n");
+      const take = i === 0 || ties.includes(a.id);
+      const badge = advice.card === a.id ? `<span class="badge blue" title="${esc(advice.why ?? "")}">↻ Reroll</span>` : take ? `<span class="badge green">${ties.length ? "≈" : "✓"} Take</span>` : "";
+      // The engine scores in points (row score × 100).
+      const gd = typeof a.score === "number" ? gameDeep(d, ck, a.score / 100) : -1;
+      return `
+      <div class="row aug card${take ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
+        ${augIcon(a.id)}
+        <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${badge}</div>
+        <div class="num big ${gd >= 0 ? tierCls(gd) : ""}" title="DeepScore in this game: this champion's DeepScore with synergy, combo odds and the headliner counted">${gd >= 0 ? gd : ""}</div>
+      </div>`;
+    };
     const row = (a, best) => {
       const [tag, tone, why] = reason(a);
       const pick = tb && tb.id === a.id ? `Can't decide? This one: ${tb.why}` : "";
@@ -456,14 +500,14 @@
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${typeof a.draw === "number" && Math.abs(a.draw) >= 0.1 ? `<div class="cue sm ${a.draw > 0 ? "green" : "red"}">🎲 ${a.draw > 0 ? "+" : ""}${a.draw.toFixed(1)}</div>` : ""}</div>
-        <div class="num" title="${esc([a.deep >= 0 ? `DeepScore ${a.deep} on this champion (tier ${deepTier(a.deep)})` : "", a.boost !== null ? `Ranking ${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)} (adds synergy with what you took)` : ""].filter(Boolean).join("\n"))}">${a.deep >= 0 ? `<b class="ds-${deepTier(a.deep)}">${a.deep}</b>` : a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
+        ${(() => { const gd = typeof a.score === "number" ? gameDeep(d, ck, a.score / 100) : a.deep; return `<div class="num${gd >= 0 ? ` big ${tierCls(gd)}` : ""}" title="DeepScore in this game${gd >= 0 ? `, tier ${deepTier(gd)}` : ""}${a.deep >= 0 ? `\nOn this champion: ${a.deep}` : ""}">${gd >= 0 ? gd : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>`; })()}
       </div>`;
     };
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
-    const took = taken.length ? `<div class="taken"><span class="why lbl">You took</span>${taken.map((id) => `<span class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}">${augIcon(id)}${esc(name(id))}</span>`).join("")}</div>` : "";
+    const took = taken.length ? `<div class="taken"><span class="tag">Taken</span>${taken.map((id) => `<span class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}">${augIcon(id)}${esc(name(id))}</span>`).join("")}</div>` : "";
     box.innerHTML = `${took}
-      ${offered.length ? `<div class="offer">${ties.length ? `<div class="cue gold" title="The highlighted cards are within noise of each other.${tb ? " ★ breaks the tie (hover it)." : ""}">≈ Either${tb ? ` · ${augIco(tb.id)}${esc(name(tb.id))}` : ""}</div>` : ""}${offered.map((a, i) => row(a, i === 0 || ties.includes(a.id))).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
-      ${shown.map((a, i) => row(a, i === 0 && !offered.length)).join("")}
+      ${offered.length ? `<div class="offer">${ties.length ? `<div class="cue gold" title="The highlighted cards are within noise of each other.${tb ? " ★ breaks the tie (hover it)." : ""}">≈ Either${tb ? ` · ${augIco(tb.id)}${esc(name(tb.id))}` : ""}</div>` : ""}${offered.map(card).join("")}${advice.html}</div><h2>Best augments <span class="tag">not offered</span></h2>` : ""}
+      <div class="${offered.length ? "dim" : ""}">${shown.map((a, i) => row(a, i === 0 && !offered.length)).join("")}</div>
       ${settings.length ? `<div class="why" title="Set in champion select">${esc(settings.join(" · "))}</div>` : ""}`;
   }
 
@@ -638,7 +682,7 @@
     const st = E.startFor ? E.startFor(b, getTaken(game), bought(game) ? undefined : game.gold, k) : { start: b.start ?? [], augment: null };
     box.innerHTML = `<div class="quick">
       <div class="keys"${b.skillSplit ? ` title="${b.skillSplit.weak ? "Your pick, weaker evidence" : "Your pick, estimated"}"` : ""}>${b.skillSplit ? `<span class="key">${esc(b.skillSplit.first)}</span><span class="why">to ${b.skillSplit.points}, then</span>` : ""}${(b.skills ?? []).map((k, i) => `${i ? `<span class="why">›</span>` : ""}<span class="key">${esc(k)}</span>`).join("")}</div>
-      ${(b.spells ?? []).map((sp) => `<span class="spell"><img src="${src(sp.icon)}" alt="">${esc(sp.name)}</span>`).join("")}
+      ${(b.spells ?? []).map((sp) => `<span class="spell" title="${esc(sp.name)}"><img src="${src(sp.icon)}" alt=""></span>`).join("")}
       ${st.start.length ? `<span class="spell"${st.filled ? ` title="You have extra gold: spend it on these parts"` : st.augment ? ` title="Changed by your first augment"` : st.rich ? ` title="You have extra gold to start"` : ""}>Start ${st.start.map((it) => `<img src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</span>` : ""}
     </div>`;
   }
@@ -710,19 +754,18 @@
     const verdict = result === "Win" ? "Victory" : result === "Lose" ? "Defeat" : "Game over";
     const turnRows = turns.map((t) => `
       <div class="box"><span class="${t.after >= t.before ? "up" : "down"}">${t.after >= t.before ? "▲" : "▼"}</span> ${clock(t.from)}–${clock(t.to)}: ${pct(t.before)} → <b data-style="color:${color(t.after)}">${pct(t.after)}</b>
-        <div class="why">${t.kills >= 0 ? "+" : "−"}${Math.abs(t.kills)} kills${t.towers ? `, ${t.towers > 0 ? "+" : "−"}${Math.abs(t.towers)} towers` : ""} for your team</div></div>`).join("");
+        <span class="why">${t.kills >= 0 ? "+" : "−"}${Math.abs(t.kills)} kills${t.towers ? `, ${t.towers > 0 ? "+" : "−"}${Math.abs(t.towers)} towers` : ""}</span></div>`).join("");
     // The surrender call: the chance stayed under the line for a full minute (Nico approved the full-minute hold,
     // 2026-11-23).
     const ff = ffFrom != null
-      ? `<div class="box yes">From ${clock(ffFrom)} a surrender would have saved time: the chance stayed under the line for a full minute.</div>`
-      : `<div class="box">A surrender never paid off this game.</div>`;
+      ? `<div class="box yes" title="The chance stayed under the line for a full minute from then.">Surrender from ${clock(ffFrom)}</div>`
+      : `<div class="box">✓ Never worth it</div>`;
     setView(`
       ${hero(lastChamp, `<span class="${result === "Win" ? "ink" : ""}">${verdict}</span>`, "Game review")}
-      <h2>Chance to win over the game</h2>
+      <h2 title="Predicted, not measured: an estimate from kills, towers, levels and team strength.">Chance to win</h2>
       ${chart(points, ffFrom)}
       ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
       <h2>Surrender</h2>${ff}
-      <p class="note">Predicted, not measured: an estimate from kills, towers, levels and team strength.</p>
       <div id="recap"></div><div id="invite"></div>`);
     renderRecap();
     if (result === "Win") inviteToShare();

@@ -69,6 +69,10 @@ pub struct State {
     first_done: bool,
     /// The augments on offer right now, left to right, as read off the screen.
     pub offer: Vec<i64>,
+    /// A reading that differs from the offer shown, waiting for a second read to agree.
+    pending: Vec<i64>,
+    /// Augments taken this game (learned from clicks): never part of an offer again.
+    taken: Vec<i64>,
     /// The same cards with their centres across the screen, for the click watcher.
     cards: Vec<(i64, f64)>,
     /// The card under the player's last click while the offer was up, and when.
@@ -171,6 +175,8 @@ fn start(app: &AppHandle, agent: &ureq::Agent) -> bool {
         s.offer.clear();
         s.cards.clear();
         s.clicked = None;
+        s.pending.clear();
+        s.taken.clear();
         s.gone = 0;
         s.samples.clear();
         s.next_sample = 0.0;
@@ -317,34 +323,10 @@ fn scan(app: &AppHandle, game_time: f64) {
     let Some(names) = names(app) else { return };
     let Some(lines) = augscan::read_screen() else { return };
     let cards = augscan::match_offer_at(&lines, &names);
-    let found: Vec<i64> = cards.iter().map(|(id, _)| *id).collect();
-    let mut picked = None;
-    let changed = {
+    let (changed, picked) = {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
-        if found.len() >= 2 {
-            s.gone = 0;
-            s.saw_offer = true;
-            // Still up (the player is thinking it over or rerolled): keep reading.
-            s.scan_until = s.scan_until.max(game_time + 10.0);
-            s.cards = cards;
-            (s.offer != found).then(|| {
-                // A new offer or a reroll: a click before it picked nothing.
-                s.clicked = None;
-                s.offer = found;
-                s.offer.clone()
-            })
-        } else if !s.offer.is_empty() {
-            s.gone += 1;
-            (s.gone >= GONE_AFTER).then(|| {
-                // Picked: stop reading until the next augment level.
-                picked = close_offer(&mut s);
-                s.scan_until = 0.0;
-                Vec::new()
-            })
-        } else {
-            None
-        }
+        read_offer(&mut s, cards, game_time)
     };
     if let Some(offer) = changed {
         companion::show_offer(app, &offer);
@@ -352,6 +334,47 @@ fn scan(app: &AppHandle, game_time: f64) {
     if let Some(id) = picked {
         companion::auto_taken(app, id);
     }
+}
+
+/// One reading of the screen: the offer to show if it changed, and the pick if the offer just closed.
+/// Augments already taken can't be on offer (text outside the cards, like the player's own augment list, can name
+/// them), and a new offer counts only once two reads in a row agree on it (PC app 1.26.3).
+fn read_offer(s: &mut State, cards: Vec<(i64, f64)>, game_time: f64) -> (Option<Vec<i64>>, Option<i64>) {
+    let cards: Vec<(i64, f64)> = cards.into_iter().filter(|(id, _)| !s.taken.contains(id)).collect();
+    let found: Vec<i64> = cards.iter().map(|(id, _)| *id).collect();
+    if found.len() >= 2 {
+        s.gone = 0;
+        s.saw_offer = true;
+        // Still up (the player is thinking it over or rerolled): keep reading.
+        s.scan_until = s.scan_until.max(game_time + 10.0);
+        if s.offer == found {
+            s.cards = cards;
+            s.pending.clear();
+            return (None, None);
+        }
+        if s.pending != found {
+            s.pending = found;
+            return (None, None);
+        }
+        // A new offer or a reroll: a click before it picked nothing.
+        s.pending.clear();
+        s.cards = cards;
+        s.clicked = None;
+        s.offer = found;
+        return (Some(s.offer.clone()), None);
+    }
+    s.pending.clear();
+    if s.offer.is_empty() {
+        return (None, None);
+    }
+    s.gone += 1;
+    if s.gone < GONE_AFTER {
+        return (None, None);
+    }
+    // Picked: stop reading until the next augment level.
+    let picked = close_offer(s);
+    s.scan_until = 0.0;
+    (Some(Vec::new()), picked)
 }
 
 /// The offer is gone: the card clicked shortly before is the pick (the cards close on the click that picks).
@@ -363,7 +386,11 @@ fn close_offer(s: &mut State) -> Option<i64> {
         s.owed = s.owed.saturating_sub(1);
     }
     s.first_done = true;
-    s.clicked.take().filter(|(id, at)| at.elapsed() <= PICK_WITHIN && was.contains(id)).map(|(id, _)| id)
+    let picked = s.clicked.take().filter(|(id, at)| at.elapsed() <= PICK_WITHIN && was.contains(id)).map(|(id, _)| id);
+    if let Some(id) = picked {
+        s.taken.push(id);
+    }
+    picked
 }
 
 /// While an offer is up, notes which card each left click lands on. Read-only: it asks Windows where the pointer
@@ -486,6 +513,23 @@ mod tests {
         assert!(scanning(600.0, true, 640.0, false)); // after an augment level
         assert!(!scanning(641.0, true, 640.0, false));
         assert!(scanning(900.0, true, 640.0, true)); // dead with a screen owed
+    }
+
+    #[test]
+    fn an_offer_needs_two_matching_reads_and_never_shows_taken_augments() {
+        let mut s = State { first_done: true, taken: vec![9], ..Default::default() };
+        let cards = |ids: &[i64]| ids.iter().enumerate().map(|(i, id)| (*id, 100.0 * i as f64)).collect::<Vec<_>>();
+        assert_eq!(read_offer(&mut s, cards(&[1, 2, 3]), 10.0), (None, None)); // first read: waits
+        assert_eq!(read_offer(&mut s, cards(&[1, 2, 3]), 11.0), (Some(vec![1, 2, 3]), None));
+        // A taken augment named elsewhere on screen doesn't count, so a reroll needs two reads too.
+        assert_eq!(read_offer(&mut s, cards(&[1, 2, 3, 9]), 12.0), (None, None));
+        assert_eq!(read_offer(&mut s, cards(&[1, 4, 3]), 13.0), (None, None));
+        assert_eq!(read_offer(&mut s, cards(&[1, 4, 3]), 14.0), (Some(vec![1, 4, 3]), None));
+        // Two reads with nothing: closed. A recent click on a card makes it the pick, never offered again.
+        s.clicked = Some((4, Instant::now()));
+        assert_eq!(read_offer(&mut s, vec![], 15.0), (None, None));
+        assert_eq!(read_offer(&mut s, vec![], 16.0), (Some(vec![]), Some(4)));
+        assert!(s.taken.contains(&4));
     }
 
     #[test]
