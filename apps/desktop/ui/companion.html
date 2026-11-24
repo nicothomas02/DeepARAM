@@ -430,8 +430,8 @@
     const tb = ties.length ? E.tieBreak(d, ck, [offered[0].id, ...ties], ranked) : null;
     const shown = ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
     // A one-word label at most; the reason and what the augment does are on hover.
-    const reason = (a) => a.conflict ? ["Conflict", `Conflicts: ${a.conflict}`] : a.mate !== null ? ["Synergy", `Synergy with ${name(a.mate)}`]
-      : a.combo !== null && a.potential >= 0.3 ? ["Combo", `Combo potential with ${name(a.combo)} (+${a.potential.toFixed(1)})`] : ["", ""];
+    const reason = (a) => a.conflict ? ["Conflicts", `Conflicts: ${a.conflict}`] : a.mate !== null ? [`+ ${name(a.mate)}`, `Synergy with ${name(a.mate)}`]
+      : a.combo !== null && a.potential >= 0.3 ? [`Combo: ${name(a.combo)}`, `Combo potential with ${name(a.combo)} (+${a.potential.toFixed(1)})`] : ["", ""];
     const row = (a, best) => {
       const [tag, why] = reason(a);
       const pick = tb && tb.id === a.id ? `Can't decide? This one: ${tb.why}` : "";
@@ -439,14 +439,14 @@
       return `
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
-        <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="why${tag === "Conflict" ? " bad" : ""}">${tag}</div>` : ""}</div>
+        <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="why${tag === "Conflicts" ? " bad" : ""}">${esc(tag)}</div>` : ""}</div>
         <div class="num" title="DeepScore on this champion (ranking adds synergy with what you took)">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `${a.boost !== null ? "<br>" : ""}<small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </div>`;
     };
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
     const took = taken.length ? `<div class="taken"><span class="why lbl">You took</span>${taken.map((id) => `<span class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}">${augIcon(id)}${esc(name(id))}</span>`).join("")}</div>` : "";
     box.innerHTML = `${took}
-      ${offered.length ? `<div class="offer">${ties.length ? `<div class="why src" title="The highlighted cards are within noise of each other.${tb ? " ★ breaks the tie (hover it)." : ""}">About equal: pick either</div>` : ""}${offered.map((a, i) => row(a, i === 0 || ties.includes(a.id))).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
+      ${offered.length ? `<div class="offer">${ties.length ? `<div class="why src" title="The highlighted cards are within noise of each other.${tb ? " ★ breaks the tie (hover it)." : ""}">Either${tb ? ` · ${esc(name(tb.id))}` : ""}</div>` : ""}${offered.map((a, i) => row(a, i === 0 || ties.includes(a.id))).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
       ${shown.map((a, i) => row(a, i === 0 && !offered.length)).join("")}
       ${settings.length ? `<div class="why" title="Set in champion select">${esc(settings.join(" · "))}</div>` : ""}`;
   }
@@ -567,7 +567,7 @@
     // Redrawn only when it changes, to keep the window's work small during a game.
     if (ff.lastHtml !== ffHtml) { ff.lastHtml = ffHtml; ff.innerHTML = ffHtml; }
     const head = document.getElementById("augHead");
-    head.textContent = waiting ? "Augment at your next death" : pickNow ? "Augment pick: best first" : "Augments";
+    head.textContent = waiting ? "Augment at your next death" : pickNow ? "Pick now" : "Augments";
     head.classList.toggle("now", pickNow);
     // Only what the item advice reads: attack speed near its cap and ability haste from 100 (in steps of 10), so a
     // buff that ticks attack speed up and down doesn't redraw the items every two seconds.
@@ -583,7 +583,7 @@
     if (setOffer(ids) && game) {
       renderAugments();
       const h = document.getElementById("augHead");
-      if (h && offer.length) { h.textContent = "Augment pick: best first"; h.classList.add("now"); }
+      if (h && offer.length) { h.textContent = "Pick now"; h.classList.add("now"); }
     }
   };
 
