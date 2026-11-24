@@ -1,6 +1,7 @@
 import "server-only";
 import championIds from "@/data/champion-ids.json";
-import { readRepoJson } from "./repo-data";
+import { readdirSync } from "node:fs";
+import { readRepoCsv, readRepoJson, repoPath } from "./repo-data";
 import { synergy } from "./synergy";
 import { pairLacksHardCC } from "./cc";
 import { livePatch } from "./highlights";
@@ -34,7 +35,20 @@ const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, nu
 export const hasDuos = () => Boolean(readRepoJson<Champs>("data/cn/champions.json")?.champions.some((c) => c.best_partners?.length));
 
 /** games: the pair's estimated games together on the live patch (lib/sample.ts), for its range and low-sample tag. */
-export type DuoRow = { a: string; b: string; pair: string; delta: number; pick_rate: number; roles: string; noCC: string; games: number | null };
+export type DuoRow = {
+  a: string;
+  b: string;
+  pair: string;
+  delta: number;
+  pick_rate: number;
+  roles: string;
+  noCC: string;
+  games: number | null;
+  /** How the two kits work together, from the champion tags (estimated); "" when no rule fits (duoWhy). */
+  why: string;
+  /** Earlier patches whose saved snapshot measured the pair (holdsOn), for the "Held on" note. */
+  held: number;
+};
 export type ArchetypeRow = { a: string; b: string; delta: number; duos: number };
 
 const MEDIAN_GAMES = 1000; // pseudo-games for a pair of median popularity, as on the Tier List
@@ -76,10 +90,89 @@ export function duoVersion() {
   return (h >>> 0).toString(36);
 }
 
+// Duo checks (Nico 2026-11-24: "Build duo checks"). A pair's boost must hold across patches: each ended patch's
+// teammate synergy is saved (data/cn/partner_history.py), and a pair is kept only when its measured synergy has the
+// same sign on most of the last HELD_PATCHES ended patches that measured it (a pair no earlier patch measured is kept).
+// Patch-to-patch synergies correlate ~0.92, so few pairs drop; those that do were one-patch flukes.
+const HELD_PATCHES = 3;
+type PartnerFile = { patch: string; pairs: Record<string, number> };
+function earlierSynergies(live: string | null): PartnerFile[] {
+  let files: string[] = [];
+  try {
+    files = readdirSync(repoPath("data/cn/history/partners")).filter((f) => f.endsWith(".json"));
+  } catch {
+    return [];
+  }
+  const vkey = (p: string) => p.split(".").map((x) => x.padStart(4, "0")).join(".");
+  return files
+    .map((f) => f.replace(/\.json$/, ""))
+    .filter((p) => p !== live)
+    .sort((x, y) => vkey(y).localeCompare(vkey(x)))
+    .slice(0, HELD_PATCHES)
+    .flatMap((p) => readRepoJson<PartnerFile>(`data/cn/history/partners/${p}.json`) ?? []);
+}
+/** null: no earlier patch measured the pair; else whether most of them agree with today's sign, and how many there were. */
+function holdsOn(earlier: PartnerFile[], a: number, b: number, now: number): { ok: boolean; n: number } | null {
+  const key = [a, b].sort((m, n) => m - n).join("-");
+  const seen = earlier.flatMap((f) => (f.pairs[key] === undefined ? [] : [f.pairs[key]]));
+  if (!seen.length) return null;
+  const agree = seen.filter((v) => Math.sign(v) === Math.sign(now)).length;
+  return { ok: agree * 2 > seen.length, n: seen.length };
+}
+
+// 101's own champion win rates on the day of its teammate numbers (data/cn/history/daily): merge.py lays AramHex's
+// rates over champions.json, and comparing a 101 pair rate with AramHex solo rates mixed two sources (~0.7 points
+// apart per champion). Falls back to champions.json's rates when that day isn't saved.
+function sameDayRates(statDate: string | undefined): Map<number, number> {
+  if (!statDate || statDate.length !== 8) return new Map();
+  const day = `${statDate.slice(0, 4)}-${statDate.slice(4, 6)}-${statDate.slice(6)}`;
+  const rows = readRepoCsv(`data/cn/history/daily/${day.slice(0, 7)}.csv`) ?? [];
+  return new Map(rows.filter((r) => r.date === day).map((r) => [Number(r.champion_id), Number(r.win_rate)]));
+}
+
+// "Why it works": one line from the two kits (champions/tags.json: subclasses, playstyles, crowd control), the
+// first rule that fits. Our own reading of the tags, so it is labelled estimated on the page.
+type TagChamp = { classes?: string[]; subclasses?: string[]; playstyles?: string[]; cc?: Record<string, string>; hardCC?: boolean };
+let tagChamps: Record<string, TagChamp> | null = null;
+export function duoWhy(x: string, y: string): string {
+  tagChamps ??= readRepoJson<{ champions: Record<string, TagChamp> }>("champions/tags.json")?.champions ?? {};
+  const t = (c: string) => {
+    const d = tagChamps![c] ?? {};
+    return new Set([...(d.classes ?? []), ...(d.subclasses ?? []), ...(d.playstyles ?? [])]);
+  };
+  const airborne = (c: string) => Object.values(tagChamps![c]?.cc ?? {}).some((k) => k === "knockup" || k === "knockback");
+  const hard = (c: string) => !!tagChamps![c]?.hardCC;
+  const [A, B] = [t(x), t(y)];
+  const either = (f: (p: Set<string>, q: Set<string>, pc: string, qc: string) => boolean) => f(A, B, x, y) || f(B, A, y, x);
+  const has = (s: Set<string>, ...k: string[]) => k.some((v) => s.has(v));
+  if (either((_p, _q, pc, qc) => pc === "Yasuo" && airborne(qc))) return "Knock-ups set up Yasuo's ultimate.";
+  if (either((p, q) => has(p, "Enchanter", "Ally Protection") && has(q, "Hypercarry", "Marksman"))) return "Heals and shields keep the carry fighting.";
+  if (either((p, q) => has(p, "Catcher") && has(q, "Burst", "Assassin", "Artillery"))) return "Hooks and traps catch targets for burst.";
+  if (either((p, q, pc) => has(p, "Initiator", "Vanguard") && hard(pc) && has(q, "Burst", "Assassin", "Artillery"))) return "Engage locks enemies down for burst damage.";
+  if (either((p, q) => has(p, "Warden", "Tank") && has(q, "Marksman", "Hypercarry"))) return "A frontline peels for the carry.";
+  if (A.has("AoE") && B.has("AoE") && (hard(x) || hard(y))) return "Crowd control groups enemies for area damage.";
+  return "";
+}
+
+// The solo win rate a pair is compared with: 101's same-day rate, else champions.json's.
+let soloCache: ((id: number) => number) | null = null;
+export function duoSoloRate(id: number): number {
+  if (!soloCache) {
+    const file = readRepoJson<Champs & { meta?: { champion_stat_date?: string } }>("data/cn/champions.json");
+    const solo = new Map((file?.champions ?? []).map((c) => [c.champion_id, c.win_rate]));
+    const own = sameDayRates(file?.meta?.champion_stat_date);
+    soloCache = (i) => own.get(i) ?? solo.get(i) ?? 0.5;
+  }
+  return soloCache(id);
+}
+
 function build() {
   if (cache) return cache;
-  const champs = readRepoJson<Champs>("data/cn/champions.json")?.champions ?? [];
+  const file = readRepoJson<Champs>("data/cn/champions.json");
+  const champs = file?.champions ?? [];
   const solo = new Map(champs.map((c) => [c.champion_id, c]));
+  const soloRate = duoSoloRate;
+  const earlier = earlierSynergies(livePatch());
   // Roles per champion, as the duo list writes them ("mage,support" becomes "mage/support").
   const roles = new Map<number, string>();
   for (const d of readRepoJson<Duos>("data/cn/duos.json")?.duos ?? [])
@@ -103,16 +196,21 @@ function build() {
       seen.add(key);
       const [first, second] = damage(p.champion_id) > damage(c.champion_id) ? [p.champion_id, c.champion_id] : [c.champion_id, p.champion_id];
       const [x, y] = [ALIAS[first], ALIAS[second]];
+      const measured = synergy(p.win_rate, soloRate(c.champion_id), soloRate(p.champion_id));
+      const held = holdsOn(earlier, c.champion_id, p.champion_id, measured);
+      if (held && !held.ok) continue;
       out.push({
         a: x,
         b: y,
         pair: `${x} ${y}`,
-        delta: synergy(p.win_rate, c.win_rate, other.win_rate),
+        delta: measured,
         pick_rate: withMate(first, second),
         roles: [roles.get(first), roles.get(second)].filter(Boolean).join(" + "),
         // Marked when neither champion can lock an enemy down (lib/cc.ts).
         noCC: pairLacksHardCC(x, y) ? "No hard CC" : "",
         games: matches ? Math.round((solo.get(first)?.pick_rate ?? 0) * withMate(first, second) * matches) : null,
+        why: duoWhy(x, y),
+        held: held?.n ?? 0,
       });
       weight.push((solo.get(first)?.pick_rate ?? 0) * withMate(first, second));
       rates.set(`${x} ${y}`, withMate(first, second)).set(`${y} ${x}`, withMate(second, first));

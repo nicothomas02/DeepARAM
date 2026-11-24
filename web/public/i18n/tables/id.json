@@ -167,5 +167,7 @@
  "{n} crowd control": "{n} crowd control",
  "{n} deaths per 10 minutes": "{n} kematian per 10 menit",
  "Fewer columns": "Lebih sedikit kolom",
- "More columns ({n})": "Lebih banyak kolom ({n})"
+ "More columns ({n})": "Lebih banyak kolom ({n})",
+ "Why it works": "Kenapa berhasil",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "Perkiraan dari kit tiap champion: engage, crowd control, heal dan shield, carry. Pasangan hanya ditampilkan jika bonusnya juga bertahan di patch sebelumnya."
 }

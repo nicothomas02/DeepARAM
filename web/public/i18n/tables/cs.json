@@ -167,5 +167,7 @@
  "{n} crowd control": "{n} omezení pohybu",
  "{n} deaths per 10 minutes": "{n} úmrtí za 10 minut",
  "Fewer columns": "Méně sloupců",
- "More columns ({n})": "Více sloupců ({n})"
+ "More columns ({n})": "Více sloupců ({n})",
+ "Why it works": "Proč to funguje",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "Odhad podle sady schopností každého šampiona: zahájení boje, kontrola davu, léčení a štíty, carry. Dvojice jsou uvedeny jen tehdy, když jejich bonus platil i v dřívějších patchích."
 }

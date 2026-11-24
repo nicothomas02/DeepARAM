@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "Yalnızca {patch}",
  "Includes similar recent patches, weighted toward this one": "Benzer son yamaları da içerir, en çok bu yamaya ağırlık verir",
- "Games counted": "Sayılan maçlar"
+ "Games counted": "Sayılan maçlar",
+ "Knock-ups set up Yasuo's ultimate.": "Havaya kaldırmalar Yasuo'nun ultisini hazırlar.",
+ "Heals and shields keep the carry fighting.": "İyileştirme ve kalkanlar taşıyıcıyı savaşta tutar.",
+ "Hooks and traps catch targets for burst.": "Kancalar ve tuzaklar ani hasar için hedef yakalar.",
+ "Engage locks enemies down for burst damage.": "Kapışma başlatma, ani hasar için rakipleri kilitler.",
+ "A frontline peels for the carry.": "Bir ön cephe taşıyıcıyı korur.",
+ "Crowd control groups enemies for area damage.": "Kitle kontrolü alan hasarı için rakipleri toplar."
 }

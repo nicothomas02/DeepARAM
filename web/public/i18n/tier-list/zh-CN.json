@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "仅 {patch}",
  "Includes similar recent patches, weighted toward this one": "包含相似的近期版本，以本版本为主",
- "Games counted": "计入的对局"
+ "Games counted": "计入的对局",
+ "Knock-ups set up Yasuo's ultimate.": "击飞为亚索的大招创造机会。",
+ "Heals and shields keep the carry fighting.": "治疗和护盾让核心输出持续作战。",
+ "Hooks and traps catch targets for burst.": "钩子和陷阱抓住目标打出爆发。",
+ "Engage locks enemies down for burst damage.": "开团控住敌人打出爆发伤害。",
+ "A frontline peels for the carry.": "前排保护核心输出。",
+ "Crowd control groups enemies for area damage.": "控制聚拢敌人打出范围伤害。"
 }

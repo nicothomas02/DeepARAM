@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "{patch} only",
  "Includes similar recent patches, weighted toward this one": "Includes similar recent patches, weighted toward this one",
- "Games counted": "Games counted"
+ "Games counted": "Games counted",
+ "Knock-ups set up Yasuo's ultimate.": "Knock-ups set up Yasuo's ultimate.",
+ "Heals and shields keep the carry fighting.": "Heals and shields keep the carry fighting.",
+ "Hooks and traps catch targets for burst.": "Hooks and traps catch targets for burst.",
+ "Engage locks enemies down for burst damage.": "Engage locks enemies down for burst damage.",
+ "A frontline peels for the carry.": "A frontline peels for the carry.",
+ "Crowd control groups enemies for area damage.": "Crowd control groups enemies for area damage."
 }

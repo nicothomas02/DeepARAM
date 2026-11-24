@@ -167,5 +167,7 @@
  "{n} crowd control": "行動妨害 {n}",
  "{n} deaths per 10 minutes": "10分あたりのデス {n}",
  "Fewer columns": "列を減らす",
- "More columns ({n})": "列を増やす（{n}）"
+ "More columns ({n})": "列を増やす（{n}）",
+ "Why it works": "相性の理由",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "各チャンピオンのスキル構成から推定：エンゲージ、CC、回復とシールド、キャリー。以前のパッチでもボーナスが維持されたペアのみ表示します。"
 }

@@ -38,6 +38,15 @@ const CC: Column = {
   hint: "Marked when neither champion has a stun, root, knock-up, taunt, fear, charm, sleep or suppression, so the pair struggles to lock anyone down.",
   phone: "hide",
 };
+// One line on how the two kits work together, from the champion tags (lib/duos.ts duoWhy). Our own reading, so estimated.
+const WHY: Column = {
+  key: "why",
+  label: "Why it works",
+  format: "text",
+  sortable: false,
+  hint: "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.",
+  phone: "hide",
+};
 const PAIRS: Column = {
   key: "duos",
   label: "Duos",
@@ -112,16 +121,17 @@ export default function DuosTable({
       {view}
       <DataTable
         key="champions"
-        columns={[champion("a", "Champion"), champion("b", "With"), PAIR_DELTA, PICK]}
+        columns={[champion("a", "Champion"), champion("b", "With"), PAIR_DELTA, PICK, WHY]}
         advancedColumns={[
           champion("a", "Champion"),
           champion("b", "With"),
           DELTA,
           PICK,
+          WHY,
           ...(rows.some((r) => r.noCC) ? [CC] : []),
           { key: "roles", label: "Roles", format: "text", sortable: false },
         ]}
-        rows={rows.some((r) => r.noCC) ? rows.map((r) => (r.noCC ? { ...r, noCC: t(String(r.noCC)) } : r)) : rows}
+        rows={rows.map((r) => ({ ...r, ...(r.noCC ? { noCC: t(String(r.noCC)) } : {}), why: r.why ? t(String(r.why)) : "" }))}
         initialSort={{ key: "delta", desc: true }}
         searchKey="pair"
         searchLabel="Find a champion"

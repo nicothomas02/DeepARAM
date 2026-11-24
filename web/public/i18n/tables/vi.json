@@ -167,5 +167,7 @@
  "{n} crowd control": "{n} khống chế",
  "{n} deaths per 10 minutes": "{n} lần chết mỗi 10 phút",
  "Fewer columns": "Ít cột hơn",
- "More columns ({n})": "Thêm cột ({n})"
+ "More columns ({n})": "Thêm cột ({n})",
+ "Why it works": "Vì sao hiệu quả",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "Ước tính từ bộ kỹ năng của từng tướng: mở giao tranh, khống chế, hồi máu và lá chắn, chủ lực. Chỉ liệt kê cặp có mức tăng giữ vững ở các bản cập nhật trước."
 }

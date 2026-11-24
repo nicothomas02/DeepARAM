@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "เฉพาะ {patch}",
  "Includes similar recent patches, weighted toward this one": "รวมแพตช์ล่าสุดที่คล้ายกัน โดยให้น้ำหนักกับแพตช์นี้มากที่สุด",
- "Games counted": "เกมที่นับ"
+ "Games counted": "เกมที่นับ",
+ "Knock-ups set up Yasuo's ultimate.": "การกระแทกลอยช่วยเปิดอัลติของยาสึโอะ",
+ "Heals and shields keep the carry fighting.": "ฮีลและโล่ช่วยให้ตัวแครี่สู้ต่อได้",
+ "Hooks and traps catch targets for burst.": "ตะขอและกับดักจับเป้าหมายให้ระเบิดดาเมจ",
+ "Engage locks enemies down for burst damage.": "การเปิดไฟต์ตรึงศัตรูให้ระเบิดดาเมจ",
+ "A frontline peels for the carry.": "แนวหน้าคอยปกป้องตัวแครี่",
+ "Crowd control groups enemies for area damage.": "การควบคุมรวมศัตรูให้โดนดาเมจวงกว้าง"
 }

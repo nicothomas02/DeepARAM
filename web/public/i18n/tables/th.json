@@ -167,5 +167,7 @@
  "{n} crowd control": "การควบคุม {n}",
  "{n} deaths per 10 minutes": "การตายต่อ 10 นาที {n}",
  "Fewer columns": "คอลัมน์น้อยลง",
- "More columns ({n})": "คอลัมน์เพิ่มเติม ({n})"
+ "More columns ({n})": "คอลัมน์เพิ่มเติม ({n})",
+ "Why it works": "ทำไมถึงเข้ากัน",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "ประเมินจากชุดสกิลของแต่ละแชมเปี้ยน: การเปิดไฟต์ การควบคุม การฮีลและโล่ ตัวแครี่ แสดงเฉพาะคู่ที่ค่าเพิ่มยังคงอยู่ในแพตช์ก่อนหน้าด้วย"
 }

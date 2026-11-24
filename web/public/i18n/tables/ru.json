@@ -167,5 +167,7 @@
  "{n} crowd control": "{n} контроля",
  "{n} deaths per 10 minutes": "{n} смертей за 10 минут",
  "Fewer columns": "Меньше столбцов",
- "More columns ({n})": "Больше столбцов ({n})"
+ "More columns ({n})": "Больше столбцов ({n})",
+ "Why it works": "Почему работает",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "Оценка по набору умений каждого чемпиона: инициация, контроль, лечение и щиты, керри. Пары показываются, только если их бонус держался и в прошлых патчах."
 }

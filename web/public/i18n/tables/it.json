@@ -167,5 +167,7 @@
  "{n} crowd control": "{n} controllo",
  "{n} deaths per 10 minutes": "{n} morti ogni 10 minuti",
  "Fewer columns": "Meno colonne",
- "More columns ({n})": "Più colonne ({n})"
+ "More columns ({n})": "Più colonne ({n})",
+ "Why it works": "Perché funziona",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "Stimato dal kit di ogni campione: ingaggio, controllo di massa, cure e scudi, carry. Le coppie compaiono solo se il loro vantaggio ha tenuto anche nelle patch precedenti."
 }

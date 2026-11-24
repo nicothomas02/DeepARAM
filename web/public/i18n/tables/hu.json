@@ -167,5 +167,7 @@
  "{n} crowd control": "{n} irányításgátlás",
  "{n} deaths per 10 minutes": "{n} halál 10 percenként",
  "Fewer columns": "Kevesebb oszlop",
- "More columns ({n})": "Több oszlop ({n})"
+ "More columns ({n})": "Több oszlop ({n})",
+ "Why it works": "Miért működik",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "Becslés az egyes hősök képességei alapján: harckezdés, tömegirányítás, gyógyítás és pajzs, carry. A párok csak akkor szerepelnek, ha az előnyük a korábbi patchekben is megmaradt."
 }
