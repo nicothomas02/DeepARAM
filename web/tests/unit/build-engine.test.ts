@@ -509,3 +509,30 @@ describe("split skill orders", () => {
     }
   });
 });
+
+describe("crit cap (critCap)", () => {
+  it("swaps a near-tied crit pick for a non-crit one at 100% crit, never for Yasuo", async () => {
+    const { plan, CRIT_CONVERTERS } = await import("@/lib/engine/build-engine");
+    const icon = (id: number) => `/assets/dd/16.23.1/img/item/${220000 + id}.png`;
+    const champ0 = {
+      id: "Tristana",
+      skills: ["Q", "E", "W"],
+      items: [{ name: "Berserker's Greaves", icon: icon(3006) }, { name: "Yun Tal Wildarrows", icon: icon(3032) }],
+      laterSlots: [{ slot: 2, items: [{ name: "Infinity Edge", icon: icon(3031), deepScore: 70, tie: true }, { name: "Lord Dominik's Regards", icon: icon(3036), deepScore: 68, tie: true }] }],
+    };
+    const kinds = {
+      champions: { Tristana: 0.1, Yasuo: 0.1 },
+      items: { "3031": ["ad", "crit"], "3036": ["ad"], "3032": ["ad", "crit", "as"], "3006": ["as"] },
+      boots: [3006],
+      recipes: { "3031": ["Infinity Edge", 3500, []], "3036": ["Lord Dominik's Regards", 3100, []], "3032": ["Yun Tal Wildarrows", 3000, []], "3006": ["Berserker's Greaves", 1100, []] },
+    } as never;
+    const g = (champ: string, crit: number) => ({ champ, items: [3006, 3032], stats: [crit, 1.5, 0], level: 11 });
+    const at = (champ: string, crit: number) => plan({ champ: { ...champ0, id: champ }, kinds, picks: null, fit: null, game: g(champ, crit), taken: [] } as never);
+    expect(at("Tristana", 0.6).path.map((x) => x.name)).toContain("Infinity Edge");
+    const capped = at("Tristana", 1);
+    expect(capped.path.map((x) => x.name)).toContain("Lord Dominik's Regards");
+    expect(capped.rules).toContain("critCap");
+    expect(CRIT_CONVERTERS.has("yasuo")).toBe(true);
+    expect(at("Yasuo", 1).path.map((x) => x.name)).toContain("Infinity Edge");
+  });
+});

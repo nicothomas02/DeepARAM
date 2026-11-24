@@ -561,7 +561,7 @@
     head.classList.toggle("now", pickNow);
     // Only what the item advice reads: attack speed near its cap and ability haste from 100 (in steps of 10), so a
     // buff that ticks attack speed up and down doesn't redraw the items every two seconds.
-    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.t >= 600, x.enemies, x.skills, x.level, x.stats && [x.stats[1] >= 4.5, x.stats[2] >= 100 ? Math.floor(x.stats[2] / 10) : 0], x.dead && Math.round((x.gold ?? 0) / 100)]);
+    const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.t >= 600, x.enemies, x.skills, x.level, x.stats && [x.stats[0] >= 0.995, x.stats[1] >= 4.5, x.stats[2] >= 100 ? Math.floor(x.stats[2] / 10) : 0], x.dead && Math.round((x.gold ?? 0) / 100)]);
     if (setOffer(g.offer)) renderAugments();
     if (!prev || key(prev) !== key(g)) renderItems();
     // Before the first buy, extra gold (the Debonair headliner pays gold per augment pick) can change the start.

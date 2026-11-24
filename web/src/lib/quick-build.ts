@@ -77,7 +77,16 @@ export type QuickBuild = {
 };
 
 /** No raw win or pick rates: the quick build feeds the public app's overlay (tests/unit/overlay-data.test.ts). */
-type LaterItem = Named & { deepScore: number | null };
+type LaterItem = Named & { deepScore: number | null; tie?: boolean };
+
+/** Whether a slot item is a near-tie with the slot's best: win rates within 1.96 x their combined standard error. */
+function slotTie(best: ItemRow, r: ItemRow): boolean {
+  if (r === best) return true;
+  const n1 = best.games ?? 0, n2 = r.games ?? 0;
+  if (!(n1 > 0 && n2 > 0)) return false;
+  const se = Math.sqrt((best.winRate * (1 - best.winRate)) / n1 + (r.winRate * (1 - r.winRate)) / n2);
+  return Math.abs(best.winRate - r.winRate) <= 1.96 * se;
+}
 
 export function quickBuilds(): QuickBuild[] {
   const tiers = new Map(liveTiers().map((t) => [t.id, t]));
@@ -100,7 +109,12 @@ export function quickBuilds(): QuickBuild[] {
       rest: (core?.rest ?? []).flatMap((i) => named(i) ?? []),
       full: (core?.full ?? []).flatMap(laterOf),
       later: (core?.later ?? []).flatMap(laterOf),
-      laterSlots: (core?.slots ?? []).map((sl) => ({ slot: sl.slot, items: sl.items.flatMap(laterOf) })),
+      // tie: inside the 95% win-rate band of the slot's best item, the same band as the augment near-ties; the build
+      // engine's crit cap only swaps between tied items (lib/engine critCap).
+      laterSlots: (core?.slots ?? []).map((sl) => ({
+        slot: sl.slot,
+        items: sl.items.flatMap((r) => laterOf(r).map((x) => (sl.items[0] && slotTie(sl.items[0], r) ? { ...x, tie: true } : x))),
+      })),
       situational: situ.flatMap((s): QuickBuild["situational"] => {
         const id = s.options[0]?.items[0];
         const n = named(id);

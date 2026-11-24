@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.11";
+export const ENGINE_VERSION = "1.3.12";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -43,6 +43,7 @@ export const RULES: Record<string, Rule> = {
   destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
+  critCap: { source: "game data", on: true, why: "At 100% crit or more (live crit chance), a later slot's crit item gives way to a near-tied option (inside its 95% win-rate band) with better synergy: an item a taken augment pulls in, then a kit match, then a non-crit item, whose stats and passive keep full value (Mayhem turns crit over 100% into 0.75 adaptive force per 1%, wiki). Not Yasuo or Yone: their passive also turns extra crit into AD. Archive: overcap is noise on win rate (-1.7 +- 3.7 pts). Nico approved 2026-11-24 as a tiebreak." },
   skillSplits: { source: "assumption", on: true, why: "Katarina and Kayn put 3 points in Q before maxing E (Katarina) or W (Kayn). Nico approved 2026-11-24 (his pick) after a one-time regular ARAM cross-check: the only two intentional splits that beat the champion's best standard order at levels 10 and 15 (800+ games each). Azir and Soraka (Q to 3, then max W) added by Nico the same day as weaker evidence: they lead at both levels but within luck. Dr. Mundo (Q to 3, then E), Ashe (W to 3, then Q) and Rumble (E to 3, then Q) added by Nico for their kit logic; about even on win rate. Shown as estimated; no stats of its own." },
   augmentSkills: { source: "assumption", on: true, why: "A few champions max another ability first once they take an augment (Gwen: E>Q>W with Ethereal Weapon). Nico approved 2026-11-24 (he asked for it); no source splits skill orders by augment, so it's estimated." },
   augmentStart: { source: "data", on: true, why: "The starting items follow the first augment when its first-screen pickers mostly start something else and it at least doubles that start for the champion (Upgrade Stormsurge: Hextech Alternator; Wooglet's Witchcap: Needlessly Large Rod). From the archive's other players against the same champions' players, estimated. Nico asked for it 2026-11-24." },
@@ -78,7 +79,13 @@ export const RULES: Record<string, Rule> = {
 // ---------------------------------------------------------------------------------------------------------------
 // Data shapes (the site's public files)
 
-export type Named = { name: string; icon: string | null; deepScore?: number | null };
+export type Named = {
+  name: string;
+  icon: string | null;
+  deepScore?: number | null;
+  /** Later-slot items: inside the 95% win-rate band of the slot's best item (a near-tie, site lib/quick-build.ts). */
+  tie?: boolean;
+};
 export type Situational = Named & { when?: string; why?: string; augments?: number[]; replaces?: Named };
 export type OverlayChamp = {
   id: string;
@@ -156,7 +163,7 @@ export type GameState = {
   dead?: boolean;
   /** Seconds since the game started. */
   t?: number;
-  /** [ad, attack speed, ability haste], when the app reads them. */
+  /** [crit chance (0 to 1), attack speed, ability haste] as the live game reports them, when the app reads them. */
   stats?: number[];
 };
 
@@ -861,7 +868,9 @@ export function laterPicks(champ: OverlayChamp | undefined, owned: Set<number>, 
   const room = Math.max(0, 6 - (champ?.items ?? []).length);
   const out: { slot: number; it: Named; alts: Named[] }[] = [];
   [...slots].sort((a, b) => a.slot - b.slot).slice(0, room).forEach((s, n) => {
-    const pick = fullRest[n] && ok(itemId(fullRest[n].icon)) ? [fullRest[n]] : [];
+    // the full path's pick, with the slot's own row for it when it has one (that row carries the near-tie flag)
+    const fr = fullRest[n] && ok(itemId(fullRest[n].icon)) ? fullRest[n] : null;
+    const pick = fr ? [(s.items ?? []).find((x) => itemId(x.icon) === itemId(fr.icon)) ?? fr] : [];
     const items = [...pick, ...(s.items ?? []).filter((x) => !pick.length || itemId(x.icon) !== itemId(pick[0].icon))];
     const free = items.filter((it) => ok(itemId(it.icon)));
     const it = free.find((x) => owned.has(itemId(x.icon))) ?? free[0];
@@ -1078,6 +1087,9 @@ export const START_GOLD = 1400;
 
 const ord = (n: number) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
 
+/** Champions whose own passive turns crit over 100% into AD (Yasuo, Yone: 0.5 bonus AD per 1%, wiki). */
+export const CRIT_CONVERTERS = new Set(["yasuo", "yone"]);
+
 export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, why: whyData, profiles }: PlanInput): Plan {
   const rules = itemRules(k);
   const used = new Set<string>();
@@ -1122,6 +1134,29 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
         if (alt) r.it = alt;
       }
     slotRows = slotRows.filter((r) => owned.has(itemId(r.it.icon)) || ![...owned].some((o) => rules.clash(o, itemId(r.it.icon))));
+  }
+  // Crit cap (critCap): at 100%+ live crit, a crit item in a later slot gives way to a near-tied option with better
+  // synergy (augment pull, then kit match, then a non-crit item whose stats and passive keep full value).
+  const critNow = (game.stats ?? [])[0] ?? 0;
+  if (slotRows && k && RULES.critCap.on && (critNow > 2 ? critNow / 100 : critNow) >= 0.995 && !CRIT_CONVERTERS.has(champKey(game.champ))) {
+    const isCrit = (it: Named) => (k.items[String(itemId(it.icon))] ?? []).includes("crit");
+    const synergy = (it: Named) => {
+      const w = RULES.whyBest.on ? whyBest(itemId(it.icon), game.champ, it.name, taken, whyData, profiles)?.kind : undefined;
+      return (w === "augment" ? 4 : w === "kit" ? 2 : 0) + (isCrit(it) ? 0 : 1);
+    };
+    const usedIds = new Set([...(champ?.items ?? []), ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
+    for (const r of slotRows) {
+      if (owned.has(itemId(r.it.icon)) || !isCrit(r.it) || !r.it.tie) continue;
+      const better = r.alts
+        .filter((x) => x.tie && !usedIds.has(itemId(x.icon)) && ![...owned].some((o) => rules.clash(o, itemId(x.icon))) && synergy(x) > synergy(r.it))
+        .sort((x, y) => synergy(y) - synergy(x))[0];
+      if (!better) continue;
+      usedIds.delete(itemId(r.it.icon));
+      usedIds.add(itemId(better.icon));
+      r.alts = [r.it, ...r.alts.filter((x) => x !== better)].slice(0, 2);
+      r.it = better;
+      applied("critCap");
+    }
   }
   const baseList = [...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : (champ?.rest ?? []))];
   const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules);
