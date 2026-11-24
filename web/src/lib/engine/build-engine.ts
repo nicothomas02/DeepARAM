@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.2.1";
+export const ENGINE_VERSION = "1.3.0";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
