@@ -43,7 +43,9 @@ const AUGS = augmentNames as Record<string, string>;
 export const MIN_PAIR_PICK = 0.008;
 
 /** games: real games behind the row when the source has them (AramHex rows, data/aramhex/merge.py). */
-type Raw = { items: number[]; pick_rate: number; win_rate?: number; games?: number; pooled?: { win_rate: number; games: number; patches: number } };
+/** augment: on a starting row, the augment whose first-screen picks explain most of its games (augment_share, at least
+ *  half; data/aramhex/merge.py mark_augment_starts); such a start never leads the card. */
+type Raw = { items: number[]; pick_rate: number; win_rate?: number; games?: number; pooled?: { win_rate: number; games: number; patches: number }; augment?: number; augment_share?: number };
 type Builds = {
   items?: Partial<
     Record<"starting" | "boots" | "core" | "other" | "full_builds", Raw[]>
@@ -272,6 +274,7 @@ export function championPage(alias: string): ChampionPage | null {
         ...rated(r.win_rate, r.pick_rate),
         ...(r.games ? { games: r.games } : {}),
         ...(r.pooled ? { pooled: { winRate: r.pooled.win_rate, games: r.pooled.games, patches: r.pooled.patches } } : {}),
+        ...(r.augment ? { augment: r.augment } : {}),
       }));
 
   // Skill orders from real level-ups, best DeepScore first (lib/skill-orders.ts; Nico 2026-11-24). The feed's list is
@@ -382,17 +385,22 @@ export function championPage(alias: string): ChampionPage | null {
   // buyingOrder), on top of the starting items: a core opens with the item its starter builds into (Cloak + Tome:
   // Rite of Ruin), and a starter's parts build into the first item or the boots, or are standalone starters (Tear,
   // Guardian's Blade). A finished item can't be afforded at the start, so a row holding one is noise.
-  // Starters keep the fitted estimate without the bound's small-sample penalty: on starters the bound dropped 16 of
-  // 62 rarely bought starters that lead today (Guardian's Orb starts, Zeri's Guardian's Blade), and Nico wants slept-on
-  // picks kept (2026-11-24). No starter history to backtest either rule on.
-  const startRows: ItemRow[] = scoreRows<ItemRow>(rows(b?.items?.starting), FIT.items);
+  // Starters on the same bound rule, scored on their pooled numbers where earlier patches agree (data/aramhex/merge.py
+  // pool_starts), as augments and spell pairs are: a rarely bought start with a steady lead keeps it (Nico 2026-11-24).
+  const startRows = scoreItems(rows(b?.items?.starting));
   const affordable = startRows.filter((r) => !r.items.some((i) => itemTier(i) === "legendary"));
   // A starter needs a real following to lead (same 1/4 rule as builds, Nico 2026-11-21) or enough games of its own
   // (START_MIN_GAMES), so a start bought in a handful of games can't lead on luck.
   const startPool = affordable.length ? affordable : startRows;
   const startTop = Math.max(0, ...startPool.map((r) => r.pickRate));
-  const startFollowed = (r: ItemRow) => r.pickRate >= MIN_FOLLOWING * startTop || (r.games ?? 0) >= START_MIN_GAMES;
-  const scoredStart = [...startPool.filter(startFollowed), ...startPool.filter((r) => !startFollowed(r))];
+  // A start an Upgrade augment on the first screen could account for (Ahri's Hextech Alternator with Upgrade
+  // Stormsurge) never leads, and comes last: the default start mustn't come from an augment rush (Nico 2026-11-24).
+  const startFollowed = (r: ItemRow) => !r.augment && (r.pickRate >= MIN_FOLLOWING * startTop || (r.games ?? 0) >= START_MIN_GAMES);
+  const scoredStart = [
+    ...startPool.filter(startFollowed),
+    ...startPool.filter((r) => !startFollowed(r) && !r.augment),
+    ...startPool.filter((r) => r.augment),
+  ];
   const standalone = (i: number) => ["starter", "consumable"].includes(itemTier(i));
   const withBootsOf = (c: ItemRow, its: number[]) => [...its, ...(c.boots !== undefined ? [c.boots] : [])];
   // A start fits when its parts go into the core, its boots or the rest of the usual build (Long Sword + Guardian's
@@ -442,7 +450,7 @@ export function championPage(alias: string): ChampionPage | null {
         ).sort((x, y) => (swapScore.get(y.item) ?? -Infinity) - (swapScore.get(x.item) ?? -Infinity))
       : [];
   const core = withBootsCore.map((c) => {
-    const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find(fits(c));
+    const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find((r) => !r.augment && fits(c)(r));
     const { items } = buyingOrder(st ? startFirst(c.items, st.items, itemParts, standalone) : c.items, orderRows);
     const row: ItemRow = { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
     return withLater(row);
@@ -453,7 +461,8 @@ export function championPage(alias: string): ChampionPage | null {
         .reduce<ItemRow[]>((out, ok) => [...out, ...scoredStart.filter((r) => ok(r) && !out.includes(r))], [])
     : scoredStart;
   const starting = startingRows;
-  const page0Start = (core[0] ? starting.find(fits(core[0])) : starting[0]) ?? null;
+  const cardStarts = starting.filter((r) => !r.augment);
+  const page0Start = (core[0] ? cardStarts.find(fits(core[0])) : cardStarts[0]) ?? null;
   // Builds by style (Nico, 2026-11-21: crit vs AP Ashe, everything on the card follows the build). The card's own
   // best core stands for the style it belongs to; the other styles take their summary from build_archetypes.json.
   const base10k = (i: number) => i % 10000;
@@ -487,7 +496,7 @@ export function championPage(alias: string): ChampionPage | null {
           const coreHasBoots = coreIds.some((i) => itemTier(i) === "boots");
           const bootsId = noBoots || coreHasBoots ? undefined : a.boots?.[0] !== undefined ? known(a.boots[0]) : undefined;
           const row: ItemRow = { items: coreIds, ...rated(a.win_rate, a.share), boots: bootsId, bootsAt: bootsId !== undefined ? (playedSlot ?? undefined) : undefined };
-          const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find(fits(row)) ?? null;
+          const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find((r) => !r.augment && fits(row)(r)) ?? null;
           const ordered = buyingOrder(st ? startFirst(coreIds, st.items, itemParts, standalone) : coreIds, orderRows).items;
           const c0: ItemRow = { ...row, items: ordered, rest: withoutClashes((a.later ?? []).map(known).filter((i) => !ordered.includes(i)), ordered).slice(0, 3) };
           const c: ItemRow = withLater(c0);
@@ -658,7 +667,7 @@ function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: It
 
 // One DeepScore rule for every list (Nico chose "Same rule everywhere", 2026-11-24): the Tier List's bound rule with
 // the items fit (lib/card-score.ts scoreRows) for boots, cores, six-item builds, build styles and single items, as for
-// augments and spell pairs. Starters are the exception (see startRows). Next-patch backtest (analysis/scoring/consistency.py) against the old
+// augments and spell pairs; starters too, on their pooled numbers (see startRows). Next-patch backtest (analysis/scoring/consistency.py) against the old
 // shrunk-only rule: boots top pick -0.10 ± 0.06 pts, cores 0.00, ranking equal or better (boots rho 0.861 -> 0.862,
 // thin data 0.817 -> 0.825); rarely picked rows that lead (flat 1,000-game minimum) kept 260 of 261.
 const scoreItems = (list: ItemRow[]): ItemRow[] => scoreRows(list, FIT.items, { bound: true });

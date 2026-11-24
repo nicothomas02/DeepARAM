@@ -4,9 +4,8 @@
 //    with settings fitted on past patches (FIT below, data/analysis/predictive.py), at the low end of its
 //    likely range (estimate minus one typical miss). Backtests showed the old rule, pulling rarely picked
 //    entries harder toward the average, predicted next patch worse: with this many games, a rare pick's
-//    lead is mostly real. A champion's lists (augments, spell pairs, boots, cores, builds, single items) all
-//    use this one rule (Nico 2026-11-24), on the items fit where they have no fit of their own; starters drop the
-//    penalty (lib/champion-page.ts startRows) so rarely bought starters with a lead keep it. Lists
+//    lead is mostly real. A champion's lists (augments, spell pairs, starters, boots, cores, builds, single
+//    items) all use this one rule (Nico 2026-11-24), on the items fit where they have no fit of their own. Lists
 //    without real games or history (duos, the item tier pages) keep the old beta prior (lowerBound).
 // 2. Recency: across several patches, older patches count for less (champions: lib/tiers.ts).
 // 3. Spread: scores become z-scores against the rest of the list (50 is average, each 15 points is one

@@ -24,6 +24,7 @@ import argparse
 import csv
 import io
 import json
+import math
 import os
 import sys
 
@@ -41,6 +42,11 @@ SPELLS = os.path.join(ROOT, "data", "fill", "spells_games.json")
 MIN_AUG_GAMES = 100
 MIN_ITEM_GAMES = 100
 MIN_SPELL_GAMES = 100
+ITEM_LIST = os.path.join(ROOT, "web", "public", "assets", "cd", "latest", "plugins", "rcp-be-lol-game-data", "global",
+                         "default", "v1", "items.json")
+# A start is marked as an augment's when the champion's first-screen picks of augments explain at least this share of
+# its games (a majority; flagged to Nico 2026-11-24 as a chosen threshold).
+AUGMENT_START_SHARE = 0.5
 RARITY = {"silver": "silver", "gold": "gold", "prismatic": "prismatic"}
 
 changed = []
@@ -216,6 +222,117 @@ def pooled_table(live, name, cid, key=None):
     return ah.pool(hist) if hist else {}
 
 
+def start_history(live):
+    """Each earlier patch's starting items per champion from the saved 101 snapshots (data/cn/history/builds), as
+    {cid: {key: [games, wins]}} with games = the champion's AramHex games that patch x the start's pick rate."""
+    out = []
+    for p in ah.earlier(live):
+        path = os.path.join(HIST, "builds", p + ".json")
+        heroes = ah.load(p, "heroes") or {}
+        if not os.path.exists(path) or not heroes:
+            break
+        t = {}
+        for cid, c in read_json(path).get("champions", {}).items():
+            g_all = (heroes.get(cid) or [0])[0]
+            rows = {}
+            for ids, pick, wr in (c.get("items") or {}).get("starting") or []:
+                g = int(round(g_all * pick))
+                if g > 0 and wr is not None:
+                    rows[start_key(ids)] = [g, int(round(g * wr))]
+            t[cid] = rows
+        out.append(t)
+    return out
+
+
+def start_key(ids):
+    return "+".join(map(str, sorted(ids)))
+
+
+def augment_starts():
+    path = os.path.join(ROOT, "data", "estimates", "augment_starts.json")
+    return read_json(path) if os.path.exists(path) else {}
+
+
+# Start rows are matched without potions and wards, which the feeds and the archive list unevenly.
+SKIP_STARTS = None
+
+
+def start_set(ids):
+    global SKIP_STARTS
+    if SKIP_STARTS is None:
+        SKIP_STARTS = {r["id"] for r in read_json(ITEM_LIST) if {"Consumable", "Trinket"} & set(r.get("categories") or [])} \
+            if os.path.exists(ITEM_LIST) else set()
+    return tuple(sorted(i for i in ids if i not in SKIP_STARTS))
+
+
+def wilson_low(k, n, z=1.96):
+    if not n:
+        return 0.0
+    p = k / n
+    return (p + z * z / (2 * n) - z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))) / (1 + z * z / n)
+
+
+def mark_augment_starts(rows, augs, est):
+    """Estimates how many of each starting row's games come from the champion's first-screen picks of an augment that
+    makes players buy that start (data/estimates/augment_starts.py: Upgrade Stormsurge -> Hextech Alternator, Ethereal
+    Weapon -> Sheen, Wooglet's Witchcap -> Needlessly Large Rod...). For each augment the champion takes, its
+    first-screen pickers (games x first_share) times how much more often first-pickers start that exact set than the
+    same champions' other players start with all of its items (the archive's and the feeds' start sets differ in small
+    parts, Upgrade Stormsurge's Amplifying Tome + Hextech Alternator against Ahri's Hextech Alternator), counted only where the archive shows a real rise (95% lower bound above the rest's rate). A row
+    whose games are mostly explained that way is marked (augment: the main one, augment_share: the share); the site
+    keeps marked rows off the card's default start (Nico 2026-11-24: the default start mustn't come from an augment
+    rush, including ones like Ethereal Weapon or BEES!)."""
+    for r in rows:
+        r.pop("augment", None)
+        r.pop("augment_share", None)
+    if not est:
+        return
+    groups = {}
+    for r in rows:
+        k = start_set(r["items"])
+        if k and r.get("games"):
+            groups.setdefault(k, []).append(r)
+    for k, rs in groups.items():
+        g = sum(r["games"] for r in rs)
+        extra = {}
+        for aid, a in (est.get("augments") or {}).items():
+            mine = augs.get(int(aid))
+            if not mine:
+                continue
+            n = a["first_pickers"]
+            hit = sum(h for s, h, _ in a["starts"] if set(k) <= set(s))
+            exp = sum(x for s, _, x in a["starts"] if set(k) <= set(s))
+            rest = exp / n
+            if wilson_low(hit, n) <= rest:
+                continue
+            extra[int(aid)] = mine["games"] * a["first_share"] * (hit / n - rest)
+        e = sum(extra.values())
+        if e / g >= AUGMENT_START_SHARE:
+            for r in rs:
+                r["augment"] = max(extra, key=extra.get)
+                r["augment_share"] = round(min(1.0, e / g), 2)
+
+
+def pool_starts(rows, g_all, cid, hist):
+    """Starting items with real games (g_all x pick rate) and, where earlier patches agree, pooled like the other
+    lists (common.pool), so a rarely bought start with a steady lead keeps it under the bound rule (Nico 2026-11-24:
+    unify the rule while keeping rare starters; analysis/scoring/starters_pool.py)."""
+    live = {}
+    for r in rows:
+        g = int(round(g_all * r["pick_rate"]))
+        if g > 0 and r.get("win_rate") is not None:
+            r["games"] = g
+            live[start_key(r["items"])] = [g, int(round(g * r["win_rate"]))]
+        r.pop("pooled", None)
+    if not live:
+        return
+    pooled = ah.pool([live] + [h.get(cid) or {} for h in hist])
+    for r in rows:
+        p = pooled.get(start_key(r["items"]))
+        if p and p[2] > 1:
+            r["pooled"] = {"win_rate": p[0], "games": p[1], "patches": p[2]}
+
+
 def merge_builds(check, live):
     heroes = ah.load(live, "heroes") or {}
     A = ah.load(live, "augments") or {}
@@ -226,6 +343,8 @@ def merge_builds(check, live):
     own_cores = "cores" not in ah.carried(live)
     # Augments pooled with earlier patches where nothing changed (common.pool); the site ranks on these by default.
     aug_hist = [ah.load(p, "augments") or {} for p in ah.earlier(live)]
+    starts_hist = start_history(live)
+    a_starts = augment_starts()
     boot_ids = {int(i) for v in boots.values() for i in v["items"]}
     n = 0
     for name in sorted(os.listdir(BUILDS)):
@@ -260,6 +379,9 @@ def merge_builds(check, live):
             b["augments"] = augs
             src["augments"] = "aramhex"
         it = b.setdefault("items", {})
+        if it.get("starting"):
+            pool_starts(it["starting"], g_all, cid, starts_hist)
+            mark_augment_starts(it["starting"], {r["id"]: r for r in (b.get("augments") or {}).get("all", [])}, a_starts)
         bt = boots.get(cid)
         if bt and bt["items"]:
             den = bt["all"][0]

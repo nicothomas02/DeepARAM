@@ -122,3 +122,41 @@ penalty (Z = 0.5) everywhere kept 4 more rarely picked leaders on the cards but 
 (rho 0.764 -> 0.759 -> 0.701 at Z = 0). Nico chose the bound rule everywhere. Starters stay on the estimate
 without the penalty: the bound dropped 16 of the 62 rarely bought starters that lead (Guardian's Orb starts,
 Zeri's Guardian's Blade), against Nico's ask to keep slept-on picks, and there is no starter history to test it.
+
+## Starters on the one rule, pooled (2026-11-24)
+
+`starters_pool.py`: starters from the saved 101 snapshots (16.20-16.23), games = the champion's AramHex games x
+pick rate, scored on patch T and judged on T+1 (329 champion-patches; under the card's 25% / 2,000-game lead rule).
+Top pick vs today's estimate without penalty, pts, and rare picks (under 25% of the top start's pick rate):
+
+| Data | bound, live patch only | bound, pooled with earlier patches |
+|---|---|---|
+| Full patches | 0.00, rare 230 of 230 | 0.00 ± 0.01, rare 229 |
+| Thinned to 10% | -0.06 ± 0.02, rare 169 of 185 | -0.02 ± 0.02, rare 181 |
+| Thinned to 3% | -0.06 ± 0.02, rare 73 of 90 | +0.01 ± 0.02, rare 85 |
+
+On a young patch the bound alone loses rare starters and picks worse; pooled, it matches today's rule and keeps them.
+On the live cards: 65 rare starters lead (62 before), 22 champions change starter.
+
+## Starts that an augment drives (2026-11-24)
+
+Mayhem offers the first augment before the first shop, so some starts follow the augment rather than the champion
+(Nico: "make sure starting item default isn't based on an augment like upgrade stormsurge", and "some might be harder
+to detect like ethereal/bees"). `data/estimates/augment_starts.py` compares, in the owner's archive (other players
+only, 12,139 rows), what each augment's first-screen pickers start with against the same champions' other players.
+Comparing within champions matters: across all players Steel Your Heart looked like it caused Giant's Belt starts,
+but its pickers are tanks who start that anyway.
+
+Clear shifts: Upgrade Stormsurge to Hextech Alternator, Wooglet's Witchcap to Needlessly Large Rod, Armored Impact to
+Chain Vest, Ultra Hydra to Tiamat or Brutalizer, Icathia's Fall to Spectre's Cowl, Weapon of Destiny to Long Sword
+starts, Ethereal Weapon to Sheen (31 of 185 first-pickers against 11 expected). BEES! doesn't raise Sheen (2 of 65
+against 3); if anything Guardian's Orb (4 against 1.2).
+
+`merge.py` estimates each champion's starting row's games from first-screen picks (champion's augment games x first
+share x the rise, counted where the 95% lower bound clears the other players' rate) and marks rows where that is at
+least half. 116 rows across the champions are marked; the card skips them for its default. Card changes against #677:
+Ahri, Syndra, Aurora, Viktor back to Amplifying Tome + Guardian's Orb (Alternator was Stormsurge's); Xerath to
+Refillable Potion + Lost Chapter; Evelynn to Needlessly Large Rod; Elise to Tome + Orb + Alternator; Warwick to Dagger
++ Vampiric Scepter; Pyke to Long Sword + Serrated Dirk; Rammus to Cloth Armor + Chain Vest + Bramble Vest; Gnar shows
+no start (its only AD start, Long Sword + Caulfield's, is half Weapon of Destiny). Ekko: Ethereal Weapon (25% of his
+games) explains about 10-15% of his Ruby + Sheen starts, so it stays unmarked, and it isn't his card start either way.
