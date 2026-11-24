@@ -22,6 +22,7 @@ import { whatItDoes } from "@/lib/mechanisms";
 import { augmentTiers } from "@/lib/augment-tiers";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
+import { KING_ME, TRANSMUTE, WEAPON_OF_DESTINY } from "@/lib/engine/build-engine";
 
 // One page per augment, so each can be found in search (lib/augments.ts).
 
@@ -106,6 +107,22 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
           <Description kind="augments" id={a.id}>
             {DESC.augments[String(a.id)]}
           </Description>
+        )}
+        {/* Random-draw cards (engine rule transmuteDraw): the apps adjust their score live. */}
+        {TRANSMUTE[a.id] && (
+          <p className="cp-mini">
+            {TRANSMUTE[a.id].swap ? (
+              <T ns="augments">Random draw: the score here averages every result. In game, the app adjusts it for what is left to draw (augments already shown never return) and for the augments you hold, which it would replace. Estimated.</T>
+            ) : (
+              <T ns="augments">Random draw: the score here averages every result. In game, the app adjusts it for what is left to draw (augments already shown never return). Estimated.</T>
+            )}
+          </p>
+        )}
+        {/* slotFirst (engine): these upgrade the first Legendary in slots 1-6. */}
+        {(a.id === WEAPON_OF_DESTINY || a.id === KING_ME) && (
+          <p className="cp-mini">
+            <T ns="augments">It upgrades the first Legendary in your inventory (slots 1 to 6): move the item you want upgraded to slot 1 first. In game, the app says which.</T>
+          </p>
         )}
         <div className="stat-row">
           <div>

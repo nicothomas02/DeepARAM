@@ -592,11 +592,13 @@
     const row = (a, best) => {
       const [tag, tone, why] = reason(a);
       const pick = tb && tb.id === a.id ? `Can't decide? This one: ${tb.why}` : "";
-      const hover = [why, pick, whatItDoes("augments", Number(a.id))].filter(Boolean).join("\n");
+      // Transmute/Pandora's Box (transmuteDraw): the live adjustment for what's left to draw (and, Pandora's, what you hold).
+      const draw = typeof a.draw === "number" ? `Random draw (estimated): ${a.draw >= 0 ? "+" : ""}${a.draw.toFixed(1)} for what's left to draw${d.augments[a.id]?.[0] === "Pandora's Box" ? " and the augments you hold" : ""}` : "";
+      const hover = [why, draw, pick, whatItDoes("augments", Number(a.id))].filter(Boolean).join("\n");
       return `
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
-        <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}</div>
+        <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${typeof a.draw === "number" && Math.abs(a.draw) >= 0.1 ? `<div class="cue sm ${a.draw > 0 ? "green" : "red"}">🎲 ${a.draw > 0 ? "+" : ""}${a.draw.toFixed(1)}</div>` : ""}</div>
         ${(() => { const gd = typeof a.score === "number" ? gameDeep(d, ck, a.score / 100) : a.deep; return `<div class="num${gd >= 0 ? ` big ${tierCls(gd)}` : ""}" title="DeepScore in this game${gd >= 0 ? `, tier ${deepTier(gd)}` : ""}${a.deep >= 0 ? `\nOn this champion: ${a.deep}` : ""}">${gd >= 0 ? gd : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>`; })()}
       </div>`;
     };
@@ -684,6 +686,8 @@
     const lines = [
       p.switched ? `<div class="cue gold"${p.switched.because ? ` title="For ${esc(p.switched.because)}"` : ""}>⇄ ${esc(p.switched.style)}</div>` : "",
       opts ? `<div class="cue gold">+ ${opts}</div>` : "",
+      // slotFirst: Weapon of Destiny, King Me and Ornn upgrade the first Legendary in slots 1-6.
+      p.slotCue ? `<div class="cue blue" title="${esc(`${p.slotCue.why}${p.slotCue.estimated ? " (estimated pick)" : ""}`)}">${p.slotCue.item.icon ? `<img class="ii" src="${src(p.slotCue.item.icon)}" alt="" data-drop>` : ""} → slot 1</div>` : "",
     ].join("");
     box.innerHTML = `<div class="box${shop ? " now" : ""}">
       ${p.next[0] ? `<div class="nextup"><span class="lb">NEXT</span>${p.next[0].icon ? `<img src="${src(p.next[0].icon)}" alt="" data-drop>` : ""}<span class="nm">${esc(p.next[0].name)}</span></div>` : ""}
