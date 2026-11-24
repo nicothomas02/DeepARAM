@@ -6749,3 +6749,38 @@ html[data-view="detailed"] .wr-ci {
     color: var(--fg);
   }
 }
+
+/* Page loading bar (components/NavProgress.tsx): appears only when a page change takes over 300 ms. */
+.nav-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 1000;
+  height: 3px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s;
+}
+.nav-progress[data-on] {
+  opacity: 1;
+  transition: opacity 0.2s 0.3s;
+}
+.nav-progress::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 40%;
+  border-radius: 0 3px 3px 0;
+  background: linear-gradient(90deg, transparent, var(--accent) 40%, var(--gold));
+  animation: nav-progress 1.1s ease-in-out infinite;
+}
+@keyframes nav-progress {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(250%); }
+}
+:root[data-motion="reduce"] .nav-progress::before {
+  animation-duration: 2.4s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-progress::before { animation-duration: 2.4s; }
+}

@@ -232,6 +232,8 @@ export const generateStaticParams = () =>
 // real purchase timelines.
 const SHOW_ITEM_TIMING = false;
 const NS = "champions";
+// The most augment synergies the panel shows (Nico 2026-11-24: a few good ones, not dozens).
+const SYNERGY_SHOWN = 6;
 // All items: an item built on the previous patch that this patch doesn't have enough games for yet.
 const EARLIER_HELP = "Built on the previous patch; not enough games on this patch yet, so it has no DeepScore.";
 
@@ -538,10 +540,27 @@ export default async function ChampionPage({
     }))
     .sort(byScore(scores));
   const synergyPairs = augmentSynergy(c.alias, augRows.map((a) => a.id));
-  // Confirmed-mechanic pairs that add to each other, strongest first (the Augment synergies panel).
+  // The Augment synergies panel: a short, curated list (Nico 2026-11-24: "don't need as many as 32… realistic, compounding,
+  // not repeated"). Confirmed-mechanic pairs that add to each other, both augments taken by at least a quarter as many of
+  // this champion's players as its median augment, ranked by points times how often the two are picked; one pair per
+  // reason and each augment once, at most SYNERGY_SHOWN. The full list still re-ranks augments once a visitor marks picks.
+  const pickOf = new Map(augRows.map((a) => [a.id, a.pickRate ?? 0]));
+  const picks = [...pickOf.values()].sort((x, y) => x - y);
+  const realistic = (picks[Math.floor(picks.length / 2)] ?? 0) / 4;
+  const pts = (r: (typeof synergyPairs)[number]) => (r.order ? Math.max(...r.order) : r.points);
+  const seenWhy = new Set<string>();
+  const seenAug = new Set<number>();
   const gains = synergyPairs
-    .filter((r) => r.rule && (r.order ? Math.max(...r.order) : r.points) > 0)
-    .sort((x, y) => (y.order ? Math.max(...y.order) : y.points) - (x.order ? Math.max(...x.order) : x.points));
+    .filter((r) => r.rule && pts(r) > 0 && (pickOf.get(r.a) ?? 0) >= realistic && (pickOf.get(r.b) ?? 0) >= realistic)
+    .sort((x, y) => pts(y) * Math.sqrt((pickOf.get(y.a) ?? 0) * (pickOf.get(y.b) ?? 0)) - pts(x) * Math.sqrt((pickOf.get(x.a) ?? 0) * (pickOf.get(x.b) ?? 0)))
+    .filter((r) => {
+      const why = r.why ?? `${r.a}-${r.b}`;
+      if (seenWhy.has(why) || seenAug.has(r.a) || seenAug.has(r.b)) return false;
+      seenWhy.add(why);
+      seenAug.add(r.a).add(r.b);
+      return true;
+    })
+    .slice(0, SYNERGY_SHOWN);
   const interactions = kitInteractions(c.alias, p.augments);
   const bestStart = p.cardStart;
   // Skill orders: real level-ups ranked by DeepScore (lib/skill-orders.ts), best first.

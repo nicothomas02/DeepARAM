@@ -772,6 +772,14 @@ const scoreSingles = scoreItems;
 const EARLIER_ITEM_GAMES = 100;
 
 /** The previous AramHex patch's single items for this champion that the live list lacks (ChampionPage.earlierItems). */
+type ItemsFile = Record<string, { all: [number, number]; items: Record<string, [number, number]> }>;
+// Read once per patch: every champion page (and the tests that build them all) would otherwise parse it again.
+const earlierFiles = new Map<string, ItemsFile | null>();
+const earlierItemsFile = (patch: string) => {
+  if (!earlierFiles.has(patch)) earlierFiles.set(patch, readRepoJson<ItemsFile>(`data/aramhex/patches/${patch}/items.json`));
+  return earlierFiles.get(patch)!;
+};
+
 function earlierSingles(
   id: number,
   raw: { aramhex_patch?: string } | null,
@@ -784,7 +792,7 @@ function earlierSingles(
   const at = live ? patches.indexOf(live) : -1;
   if (at < 1) return none;
   const prev = patches[at - 1];
-  const t = readRepoJson<Record<string, { all: [number, number]; items: Record<string, [number, number]> }>>(`data/aramhex/patches/${prev}/items.json`)?.[String(id)];
+  const t = earlierItemsFile(prev)?.[String(id)];
   if (!t?.all?.[0]) return none;
   const rows: ItemRow[] = Object.entries(t.items)
     .map(([k, [g, w]]) => ({ item: Number(k), g, w }))

@@ -59,7 +59,8 @@ export default function PageTransitions() {
             done.current = resolve;
             a.closest("dialog")?.close();
             router.push(target);
-            setTimeout(resolve, 1200); // never hold the page if the route doesn't change
+            // A slow page lets go after 500 ms, so the screen isn't frozen and the loading bar (NavProgress) can show.
+            setTimeout(resolve, 500);
           }),
       );
       // The browser drops the animation when the tab is hidden or the window resizes mid-change. The
