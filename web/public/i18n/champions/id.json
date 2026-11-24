@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "Kritikal mereka menumpuk pada damage seiring waktu.",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} tidak mengubah pengurangan cooldown langsung seperti ini, jadi cooldown tetap seimbang tanpa haste yang menurun.",
  "{1} makes the echo even harder to dodge.": "{1} membuat gema makin sulit dihindari.",
- "{1}'s higher mana costs feed {2}.": "Biaya mana {1} yang lebih tinggi menyuplai {2}."
+ "{1}'s higher mana costs feed {2}.": "Biaya mana {1} yang lebih tinggi menyuplai {2}.",
+ "Your augments": "Augment-mu",
+ "Drag an augment here, or press + on it.": "Seret augment ke sini, atau tekan + padanya.",
+ "Drag another augment here to replace it.": "Seret augment lain ke sini untuk menggantinya.",
+ "Recent patches": "Patch terbaru",
+ "This patch only": "Hanya patch ini",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Belum ada sinergi yang diketahui dengan {names} untuk champion ini, jadi sisanya diurutkan berdasarkan dorongannya saja.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Sudah punya augment? Tekan + atau seret ke slotmu, dan sisanya diurutkan ulang berdasarkan sinergi."
 }

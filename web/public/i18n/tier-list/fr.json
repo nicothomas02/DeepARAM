@@ -77,5 +77,14 @@
  "Top 5%": "Top 5 %",
  "Skill bracket": "Niveau de jeu",
  "Skill brackets come from a rating built from game results, not official ranks.": "Les niveaux viennent d'une note calculée à partir des résultats des parties, pas des rangs officiels.",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Ce patch n'a pas encore de chiffres par niveau, ils viennent donc du patch {patch}."
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Ce patch n'a pas encore de chiffres par niveau, ils viennent donc du patch {patch}.",
+ "Best pick": "Meilleur choix",
+ "Loading…": "Chargement…",
+ "Strong this patch": "Fort sur ce patch",
+ "Remove": "Retirer",
+ "Your team": "Ton équipe",
+ "Your choices (optional)": "Tes choix (facultatif)",
+ "Your choices, best first": "Tes choix, le meilleur d'abord",
+ "Best picks": "Meilleurs choix",
+ "Strength {n}": "Force {n}"
 }

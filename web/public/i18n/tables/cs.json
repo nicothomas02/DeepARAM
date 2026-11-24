@@ -165,5 +165,7 @@
  "{n} healing": "{n} léčení",
  "{n} damage blocked": "{n} zablokované poškození",
  "{n} crowd control": "{n} omezení pohybu",
- "{n} deaths per 10 minutes": "{n} úmrtí za 10 minut"
+ "{n} deaths per 10 minutes": "{n} úmrtí za 10 minut",
+ "Fewer columns": "Méně sloupců",
+ "More columns ({n})": "Více sloupců ({n})"
 }

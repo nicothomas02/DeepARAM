@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "Kritik vuruşları zamana yayılan hasarda birikir.",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} bunun gibi doğrudan bekleme süresi azaltmalarını dönüştürmez, bu yüzden bekleme süreleri azalan hız olmadan dengede kalır.",
  "{1} makes the echo even harder to dodge.": "{1} yankıdan kaçmayı daha da zorlaştırır.",
- "{1}'s higher mana costs feed {2}.": "{1} yüksek mana maliyetleri {2} güçlendirmesini besler."
+ "{1}'s higher mana costs feed {2}.": "{1} yüksek mana maliyetleri {2} güçlendirmesini besler.",
+ "Your augments": "Güçlendirmelerin",
+ "Drag an augment here, or press + on it.": "Bir güçlendirmeyi buraya sürükle ya da üzerindeki +'ya bas.",
+ "Drag another augment here to replace it.": "Değiştirmek için başka bir güçlendirmeyi buraya sürükle.",
+ "Recent patches": "Son yamalar",
+ "This patch only": "Yalnızca bu yama",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Bu şampiyonda {names} ile bilinen bir sinerji henüz yok, bu yüzden diğerleri yalnızca kendi katkılarına göre sıralanıyor.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Zaten güçlendirmelerin var mı? +'ya bas ya da yuvalarına sürükle, diğerleri sinerjiye göre yeniden sıralansın."
 }

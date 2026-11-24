@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "Sus críticos se acumulan en el daño con el tiempo.",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} no convierte reducciones directas de enfriamiento como esta, así que los enfriamientos quedan equilibrados sin celeridad decreciente.",
  "{1} makes the echo even harder to dodge.": "{1} hace el eco aún más difícil de esquivar.",
- "{1}'s higher mana costs feed {2}.": "Los mayores costes de maná de {1} alimentan {2}."
+ "{1}'s higher mana costs feed {2}.": "Los mayores costes de maná de {1} alimentan {2}.",
+ "Your augments": "Tus aumentos",
+ "Drag an augment here, or press + on it.": "Arrastra un aumento aquí o pulsa + sobre él.",
+ "Drag another augment here to replace it.": "Arrastra otro aumento aquí para reemplazarlo.",
+ "Recent patches": "Parches recientes",
+ "This patch only": "Solo este parche",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Aún no hay sinergia conocida con {names} en este campeón, así que el resto se ordena solo por su ventaja.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "¿Ya tienes aumentos? Pulsa + o arrástralos a tus huecos y el resto se reordena por sinergia."
 }

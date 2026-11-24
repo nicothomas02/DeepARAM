@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "تتراكم ضرباتها الحرجة على الضرر بمرور الوقت.",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "لا يحوّل {1} تقليلات وقت التبريد المباشرة مثل هذه، لذا تبقى أوقات التبريد متوازنة دون سرعة متناقصة.",
  "{1} makes the echo even harder to dodge.": "{1} يجعل الصدى أصعب في التفادي.",
- "{1}'s higher mana costs feed {2}.": "تكاليف المانا الأعلى من {1} تغذي {2}."
+ "{1}'s higher mana costs feed {2}.": "تكاليف المانا الأعلى من {1} تغذي {2}.",
+ "Your augments": "معززاتك",
+ "Drag an augment here, or press + on it.": "اسحب معززًا إلى هنا، أو اضغط + عليه.",
+ "Drag another augment here to replace it.": "اسحب معززًا آخر إلى هنا لاستبداله.",
+ "Recent patches": "التحديثات الأخيرة",
+ "This patch only": "هذا التحديث فقط",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "لا يوجد تآزر معروف مع {names} لهذا البطل بعد، لذا تُرتَّب البقية حسب تعزيزها فقط.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "لديك معززات بالفعل؟ اضغط + أو اسحبها إلى خاناتك، وسيُعاد ترتيب البقية حسب التآزر."
 }

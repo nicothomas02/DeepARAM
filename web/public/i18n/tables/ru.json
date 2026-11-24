@@ -165,5 +165,7 @@
  "{n} healing": "{n} лечения",
  "{n} damage blocked": "{n} заблокированного урона",
  "{n} crowd control": "{n} контроля",
- "{n} deaths per 10 minutes": "{n} смертей за 10 минут"
+ "{n} deaths per 10 minutes": "{n} смертей за 10 минут",
+ "Fewer columns": "Меньше столбцов",
+ "More columns ({n})": "Больше столбцов ({n})"
 }

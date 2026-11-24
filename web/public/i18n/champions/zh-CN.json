@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "它们的暴击会叠加在持续伤害上。",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1}不会转化像这样的直接冷却缩减，因此冷却保持平衡，没有递减的急速。",
  "{1} makes the echo even harder to dodge.": "{1}让回声更难躲避。",
- "{1}'s higher mana costs feed {2}.": "{1}更高的法力消耗为{2}提供能量。"
+ "{1}'s higher mana costs feed {2}.": "{1}更高的法力消耗为{2}提供能量。",
+ "Your augments": "你的强化符文",
+ "Drag an augment here, or press + on it.": "把强化符文拖到这里，或点击它上面的 +。",
+ "Drag another augment here to replace it.": "把另一个强化符文拖到这里即可替换。",
+ "Recent patches": "最近版本",
+ "This patch only": "仅本版本",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "该英雄与{names}暂无已知协同，因此其余强化符文仅按自身提升排序。",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "已经有强化符文了？点击 + 或拖入你的栏位，其余的会按协同重新排序。"
 }

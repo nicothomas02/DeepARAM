@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "クリティカルが継続ダメージに重複します。",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1}はこのような直接のクールダウン短縮を変換しないため、ヘイストの逓減なしでクールダウンのバランスが保たれます。",
  "{1} makes the echo even harder to dodge.": "{1}でエコーがさらに避けにくくなります。",
- "{1}'s higher mana costs feed {2}.": "{1}による高いマナコストが{2}を強化します。"
+ "{1}'s higher mana costs feed {2}.": "{1}による高いマナコストが{2}を強化します。",
+ "Your augments": "あなたのオーグメント",
+ "Drag an augment here, or press + on it.": "ここにオーグメントをドラッグするか、+を押してください。",
+ "Drag another augment here to replace it.": "別のオーグメントをここにドラッグすると入れ替わります。",
+ "Recent patches": "最近のパッチ",
+ "This patch only": "今パッチのみ",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "このチャンピオンでは{names}との既知のシナジーがまだないため、残りは単体の強さだけで並びます。",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "すでにオーグメントがありますか？+を押すかスロットにドラッグすると、残りがシナジー順に並び替わります。"
 }

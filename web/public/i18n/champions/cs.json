@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "Jejich kritické zásahy se sčítají s poškozením v čase.",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} nepřevádí přímá zkrácení přebíjení jako toto, takže přebíjení zůstává vyvážené bez klesajícího zrychlení.",
  "{1} makes the echo even harder to dodge.": "{1} ještě ztěžuje uhnutí ozvěně.",
- "{1}'s higher mana costs feed {2}.": "Vyšší cena many u {1} živí {2}."
+ "{1}'s higher mana costs feed {2}.": "Vyšší cena many u {1} živí {2}.",
+ "Your augments": "Tvoje vylepšení",
+ "Drag an augment here, or press + on it.": "Přetáhni sem vylepšení nebo na něm stiskni +.",
+ "Drag another augment here to replace it.": "Přetáhni sem jiné vylepšení, aby ho nahradilo.",
+ "Recent patches": "Nedávné patche",
+ "This patch only": "Jen tento patch",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "S {names} zatím u tohoto šampiona neznáme žádnou synergii, takže ostatní se řadí jen podle svého přínosu.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Už máš vylepšení? Stiskni + nebo je přetáhni do svých slotů a ostatní se přeřadí podle synergie."
 }

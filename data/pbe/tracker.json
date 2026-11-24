@@ -1,9 +1,9 @@
 {
  "builds": {
-  "pbe": "16.24.8407700",
-  "live": "16.23.8406595"
+  "pbe": "16.24.8412701",
+  "live": "16.23.8413489"
  },
- "dataAsOf": "2026-11-21",
+ "dataAsOf": "2026-11-24",
  "counts": {
   "buff": 1,
   "mixed": 1,
@@ -28,20 +28,32 @@
    "icon": "/assets/augments/pbe/biggestsnowballever_large.png",
    "lines": [
     {
-     "text": "Snowball size when thrown: 100% → 40%, growing to full as it flies",
+     "text": "Snowball size when thrown: 100% → 20%, growing to full as it flies",
      "tag": "nerf"
     },
     {
-     "text": "Snowball speed when thrown: 100% → 65%, speeding up as it flies",
+     "text": "Snowball speed when thrown: 100% → 40%, speeding up as it flies",
      "tag": "nerf"
     },
     {
-     "text": "Stun: none → 0.25 to 0.75 seconds, longer as the snowball grows",
+     "text": "Bonus damage: full → 50% to 100%, more the farther it flies",
+     "tag": "nerf"
+    },
+    {
+     "text": "Stun: none → 0.25 to 1 second, longer the farther it flies",
      "tag": "buff"
     },
     {
-     "text": "Knockback: none → 50 to 120 units, farther as the snowball grows",
+     "text": "Knockback: none → 50 to 120 units, more the farther it flies",
      "tag": "buff"
+    },
+    {
+     "text": "Knock-up: 0.75 seconds → none",
+     "tag": "nerf"
+    },
+    {
+     "text": "Slow: 20% for 2 seconds → none",
+     "tag": "nerf"
     }
    ],
    "tag": "mixed"
@@ -54,7 +66,7 @@
    "set": null,
    "lines": [
     {
-     "text": "Gain the Surge Field summoner spell. Casting it creates a zone for 10 seconds: while in it, you gain 40% Movement Speed and 150 Ability Haste, and fire missiles at enemies that deal 30% of the damage you deal.",
+     "text": "Gain the Surge Field summoner spell. Casting it creates a zone for 10 seconds: while in it, you gain 40% Movement Speed and 150 Ability Haste for basic abilities, and fire missiles at enemies that deal 30% of the damage you deal. Recast it to teleport back to the zone.",
      "tag": "new"
     }
    ],

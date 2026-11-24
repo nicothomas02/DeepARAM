@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "Đòn chí mạng của chúng cộng dồn lên sát thương theo thời gian.",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} không chuyển đổi các khoản giảm hồi chiêu trực tiếp như thế này, nên hồi chiêu vẫn cân bằng mà không bị giảm dần điểm hồi kỹ năng.",
  "{1} makes the echo even harder to dodge.": "{1} khiến tiếng vọng càng khó né hơn.",
- "{1}'s higher mana costs feed {2}.": "Chi phí năng lượng cao hơn của {1} tiếp sức cho {2}."
+ "{1}'s higher mana costs feed {2}.": "Chi phí năng lượng cao hơn của {1} tiếp sức cho {2}.",
+ "Your augments": "Lõi nâng cấp của bạn",
+ "Drag an augment here, or press + on it.": "Kéo một lõi nâng cấp vào đây, hoặc nhấn + trên nó.",
+ "Drag another augment here to replace it.": "Kéo lõi nâng cấp khác vào đây để thay thế.",
+ "Recent patches": "Các bản gần đây",
+ "This patch only": "Chỉ bản này",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Chưa có cộng hưởng đã biết với {names} ở tướng này, nên phần còn lại chỉ xếp theo mức tăng của chính nó.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Đã có lõi nâng cấp? Nhấn + hoặc kéo vào ô của bạn, phần còn lại sẽ xếp lại theo cộng hưởng."
 }

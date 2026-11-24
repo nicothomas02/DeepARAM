@@ -165,5 +165,7 @@
  "{n} healing": "治療 {n}",
  "{n} damage blocked": "阻擋傷害 {n}",
  "{n} crowd control": "控場 {n}",
- "{n} deaths per 10 minutes": "每10分鐘死亡 {n}"
+ "{n} deaths per 10 minutes": "每10分鐘死亡 {n}",
+ "Fewer columns": "較少欄位",
+ "More columns ({n})": "更多欄位（{n}）"
 }

@@ -77,5 +77,14 @@
  "Top 5%": "상위 5%",
  "Skill bracket": "실력 구간",
  "Skill brackets come from a rating built from game results, not official ranks.": "실력 구간은 공식 랭크가 아니라 경기 결과로 만든 점수에서 나옵니다.",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "이 패치는 아직 구간별 수치가 없어 {patch} 패치 수치를 사용합니다."
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "이 패치는 아직 구간별 수치가 없어 {patch} 패치 수치를 사용합니다.",
+ "Best pick": "최고의 픽",
+ "Loading…": "불러오는 중…",
+ "Strong this patch": "이번 패치 강세",
+ "Remove": "제거",
+ "Your team": "내 팀",
+ "Your choices (optional)": "내 선택지 (선택 사항)",
+ "Your choices, best first": "내 선택지, 좋은 순",
+ "Best picks": "최고의 픽",
+ "Strength {n}": "강도 {n}"
 }

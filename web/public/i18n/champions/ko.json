@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "치명타가 지속 피해에 중첩됩니다.",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1}은 이런 직접적인 재사용 대기시간 감소를 전환하지 않으므로, 가속 감소 없이 재사용 대기시간이 균형을 유지합니다.",
  "{1} makes the echo even harder to dodge.": "{1} 덕분에 메아리를 피하기가 더 어려워집니다.",
- "{1}'s higher mana costs feed {2}.": "{1}의 높은 마나 소모량이 {2}에 힘을 실어 줍니다."
+ "{1}'s higher mana costs feed {2}.": "{1}의 높은 마나 소모량이 {2}에 힘을 실어 줍니다.",
+ "Your augments": "내 증강",
+ "Drag an augment here, or press + on it.": "여기로 증강을 끌어오거나 +를 누르세요.",
+ "Drag another augment here to replace it.": "다른 증강을 여기로 끌어오면 교체됩니다.",
+ "Recent patches": "최근 패치",
+ "This patch only": "이번 패치만",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "이 챔피언에서는 아직 {names}와(과)의 알려진 시너지가 없어, 나머지는 자체 상승폭만으로 순위가 매겨집니다.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "이미 증강이 있나요? +를 누르거나 슬롯으로 끌어오면 나머지가 시너지 순으로 다시 정렬됩니다."
 }

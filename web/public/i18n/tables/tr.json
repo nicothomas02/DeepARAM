@@ -165,5 +165,7 @@
  "{n} healing": "{n} iyileştirme",
  "{n} damage blocked": "{n} engellenen hasar",
  "{n} crowd control": "{n} kitle kontrolü",
- "{n} deaths per 10 minutes": "10 dakikada {n} ölüm"
+ "{n} deaths per 10 minutes": "10 dakikada {n} ölüm",
+ "Fewer columns": "Daha az sütun",
+ "More columns ({n})": "Daha fazla sütun ({n})"
 }

@@ -165,5 +165,7 @@
  "{n} healing": "회복량 {n}",
  "{n} damage blocked": "막은 피해량 {n}",
  "{n} crowd control": "군중 제어 {n}",
- "{n} deaths per 10 minutes": "10분당 데스 {n}"
+ "{n} deaths per 10 minutes": "10분당 데스 {n}",
+ "Fewer columns": "열 줄이기",
+ "More columns ({n})": "열 더 보기 ({n})"
 }

@@ -77,5 +77,14 @@
  "Top 5%": "أفضل 5%",
  "Skill bracket": "مستوى المهارة",
  "Skill brackets come from a rating built from game results, not official ranks.": "تأتي المستويات من تقييم مبني على نتائج المباريات، لا من الرتب الرسمية.",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "لا تتوفر بعد أرقام حسب المستوى لهذا التحديث، لذا هي من التحديث {patch}."
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "لا تتوفر بعد أرقام حسب المستوى لهذا التحديث، لذا هي من التحديث {patch}.",
+ "Best pick": "أفضل اختيار",
+ "Loading…": "جارٍ التحميل…",
+ "Strong this patch": "قوي في هذا التحديث",
+ "Remove": "إزالة",
+ "Your team": "فريقك",
+ "Your choices (optional)": "اختياراتك (اختياري)",
+ "Your choices, best first": "اختياراتك، الأفضل أولًا",
+ "Best picks": "أفضل الاختيارات",
+ "Strength {n}": "القوة {n}"
 }

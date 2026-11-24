@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "คริติคอลของมันซ้อนบนดาเมจต่อเนื่อง",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} ไม่แปลงการลดคูลดาวน์โดยตรงแบบนี้ คูลดาวน์จึงสมดุลโดยไม่มีความเร่งที่ลดลง",
  "{1} makes the echo even harder to dodge.": "{1} ทำให้เสียงสะท้อนหลบยากขึ้นอีก",
- "{1}'s higher mana costs feed {2}.": "ค่ามานาที่สูงขึ้นของ {1} ช่วยเสริม {2}"
+ "{1}'s higher mana costs feed {2}.": "ค่ามานาที่สูงขึ้นของ {1} ช่วยเสริม {2}",
+ "Your augments": "ออกเมนต์ของคุณ",
+ "Drag an augment here, or press + on it.": "ลากออกเมนต์มาที่นี่ หรือกด + บนออกเมนต์นั้น",
+ "Drag another augment here to replace it.": "ลากออกเมนต์อื่นมาที่นี่เพื่อแทนที่",
+ "Recent patches": "แพตช์ล่าสุด",
+ "This patch only": "แพตช์นี้เท่านั้น",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "ยังไม่มีซินเนอร์จีที่ทราบกับ {names} สำหรับแชมเปียนนี้ ที่เหลือจึงเรียงตามค่าเพิ่มของตัวเองเท่านั้น",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "มีออกเมนต์แล้ว? กด + หรือลากเข้าช่อง แล้วที่เหลือจะจัดอันดับใหม่ตามซินเนอร์จี"
 }

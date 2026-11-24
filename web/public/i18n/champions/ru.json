@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "Их критические удары складываются с уроном со временем.",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} не преобразует прямые сокращения перезарядки вроде этого, поэтому перезарядки остаются сбалансированными без убывающего ускорения.",
  "{1} makes the echo even harder to dodge.": "{1} делает эхо ещё труднее увернуться.",
- "{1}'s higher mana costs feed {2}.": "Повышенная стоимость маны от {1} питает {2}."
+ "{1}'s higher mana costs feed {2}.": "Повышенная стоимость маны от {1} питает {2}.",
+ "Your augments": "Ваши усилители",
+ "Drag an augment here, or press + on it.": "Перетащите сюда усилитель или нажмите на нём +.",
+ "Drag another augment here to replace it.": "Перетащите сюда другой усилитель, чтобы заменить.",
+ "Recent patches": "Последние патчи",
+ "This patch only": "Только этот патч",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Пока нет известной синергии с {names} у этого чемпиона, поэтому остальные ранжируются только по собственному приросту.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Уже есть усилители? Нажмите + или перетащите их в ячейки, и остальные перестроятся по синергии."
 }

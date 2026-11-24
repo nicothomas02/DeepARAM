@@ -322,5 +322,12 @@
  "Their crits stack on damage over time.": "Τα κρίσιμα χτυπήματά τους αθροίζονται στη ζημιά με τον χρόνο.",
  "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "Το {1} δεν μετατρέπει άμεσες μειώσεις επαναφόρτισης όπως αυτή, έτσι οι επαναφορτίσεις μένουν ισορροπημένες χωρίς φθίνουσα επιτάχυνση.",
  "{1} makes the echo even harder to dodge.": "Το {1} κάνει την ηχώ ακόμη πιο δύσκολη στην αποφυγή.",
- "{1}'s higher mana costs feed {2}.": "Το υψηλότερο κόστος μάνα του {1} τροφοδοτεί το {2}."
+ "{1}'s higher mana costs feed {2}.": "Το υψηλότερο κόστος μάνα του {1} τροφοδοτεί το {2}.",
+ "Your augments": "Οι ενισχύσεις σου",
+ "Drag an augment here, or press + on it.": "Σύρε μια ενίσχυση εδώ ή πάτα + πάνω της.",
+ "Drag another augment here to replace it.": "Σύρε άλλη ενίσχυση εδώ για να την αντικαταστήσεις.",
+ "Recent patches": "Πρόσφατα patch",
+ "This patch only": "Μόνο αυτό το patch",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Δεν υπάρχει ακόμη γνωστή συνέργεια με {names} σε αυτόν τον ήρωα, οπότε οι υπόλοιπες κατατάσσονται μόνο με βάση την ώθησή τους.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Έχεις ήδη ενισχύσεις; Πάτα + ή σύρε τις στις θέσεις σου και οι υπόλοιπες θα ανακαταταχθούν βάσει συνέργειας."
 }

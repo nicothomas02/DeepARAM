@@ -165,5 +165,7 @@
  "{n} healing": "การฮีล {n}",
  "{n} damage blocked": "ดาเมจที่บล็อก {n}",
  "{n} crowd control": "การควบคุม {n}",
- "{n} deaths per 10 minutes": "การตายต่อ 10 นาที {n}"
+ "{n} deaths per 10 minutes": "การตายต่อ 10 นาที {n}",
+ "Fewer columns": "คอลัมน์น้อยลง",
+ "More columns ({n})": "คอลัมน์เพิ่มเติม ({n})"
 }

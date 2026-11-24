@@ -165,5 +165,7 @@
  "{n} healing": "回復量 {n}",
  "{n} damage blocked": "軽減ダメージ {n}",
  "{n} crowd control": "行動妨害 {n}",
- "{n} deaths per 10 minutes": "10分あたりのデス {n}"
+ "{n} deaths per 10 minutes": "10分あたりのデス {n}",
+ "Fewer columns": "列を減らす",
+ "More columns ({n})": "列を増やす（{n}）"
 }
