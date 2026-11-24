@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "{champion}の物理ダメージに合う。",
  "Fits a carry, not a tank.": "タンクではなくキャリー向け。",
  "Fits a champion who takes the hits.": "攻撃を受け止めるチャンピオン向け。",
- "Stronger on melee champions.": "近接チャンピオンでより強力。"
+ "Stronger on melee champions.": "近接チャンピオンでより強力。",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "アークメイジでホークショットとRが互いにクールダウンを縮めます。まずこのスキルヘイストを確保し（Rランク3）、それからビルドを仕上げます。",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "スキルヘイスト{haste} · ホークショット ランク{rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "アイテムで必要な{need}のうち{haste}のスキルヘイストに届きます。"
 }

@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "يناسب الضرر الجسدي لـ{champion}.",
  "Fits a carry, not a tank.": "لحامل الضرر، لا للدبابة.",
  "Fits a champion who takes the hits.": "لبطل يتلقى الضربات.",
- "Stronger on melee champions.": "أقوى على أبطال الالتحام."
+ "Stronger on melee champions.": "أقوى على أبطال الالتحام.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "يجعل Archmage مهارتي Hawkshot وR تعيدان شحن بعضهما. اجمع هذا القدر من تسريع القدرات أولًا (رتبة R 3)، ثم أكمل البناء.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} تسريع قدرات · رتبة Hawkshot {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "تصل العناصر إلى {haste} من أصل {need} تسريع قدرات مطلوب."
 }

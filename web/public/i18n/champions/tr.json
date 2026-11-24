@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "{champion} karakterinin fiziksel hasarına uyuyor.",
  "Fits a carry, not a tank.": "Taşıyıcı için, tank için değil.",
  "Fits a champion who takes the hits.": "Darbeleri karşılayan bir şampiyon için.",
- "Stronger on melee champions.": "Yakın dövüş şampiyonlarında daha güçlü."
+ "Stronger on melee champions.": "Yakın dövüş şampiyonlarında daha güçlü.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage, Hawkshot ve R'nin birbirini yenilemesini sağlar. Önce bu kadar yetenek hızı topla (R 3. seviye), sonra dizilimi tamamla.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} yetenek hızı · Hawkshot {rank}. seviye",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Eşyalar gereken {need} yetenek hızının {haste} kadarını sağlıyor."
 }

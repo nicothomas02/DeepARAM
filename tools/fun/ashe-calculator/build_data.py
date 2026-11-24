@@ -15,6 +15,10 @@ AUGMENTS = ["ARAM_Archmage", "UltimateAwakening", "UltimateRecursion", "ARAM_Ult
             "ARAM_MysticPunch", "ARAM_BreadAndCheese", "ARAM_Purist_Caster"]
 # Numbers the game files leave out of the augment's data values (League wiki text).
 WIKI_VALUES = {"UltimateRecursion": {"UltimateHaste": 50.0}, "ARAM_Purist_Caster": {"CooldownReduction": 0.1}}
+# Ability-haste items for the Archmage route (data/estimates/archmage_routes.py picks among the ones AP Ashe players
+# build): AP items, Ionian Boots, and Malignance's Ultimate Haste.
+ITEMS = [3158, 3118, 4005, 4628, 3137, 3089, 4645, 2503, 3115, 4629, 3165, 4633, 3100, 6655, 3040, 3003, 8020,
+         3152, 6653, 4646, 3135, 3157, 3102, 6657, 3116]
 SPELLS = {"W": "VolleyAbility/Volley", "E": "AsheSpiritOfTheHawkAbility/AsheSpiritOfTheHawk",
           "R": "EnchantedCrystalArrowAbility/EnchantedCrystalArrow"}
 
@@ -64,9 +68,17 @@ def main():
         a["text"] = wiki.get(a["name"].lower()) or fill(a["text"], a["values"])
         augments.append(a)
     champion = {"name": "Ashe", "icon": g.champion_icon(22), "spells": spells}
+    items = []
+    for i in ITEMS:
+        x = g.item(i)
+        if not x:
+            print("skipping missing item", i)
+            continue
+        items.append({"id": x["id"], "name": x["name"], "price": x["price"], "icon": x["icon"], "haste": x["haste"],
+                      "ultHaste": x["values"].get("UltimateHaste", 0.0), "limitGroups": x.get("limitGroups") or []})
     write_data_js(os.path.join(HERE, "data.js"), "ASHE_DATA",
-                  {"patch": g.version, "channel": g.ch, "champion": champion, "augments": augments})
-    print(f"{g.version}: {len(augments)} augments")
+                  {"patch": g.version, "channel": g.ch, "champion": champion, "augments": augments, "items": items})
+    print(f"{g.version}: {len(augments)} augments, {len(items)} items")
 
 
 if __name__ == "__main__":

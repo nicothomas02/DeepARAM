@@ -15,10 +15,12 @@ stray tag; check the wiki text when a tag decides the build.
 
 ## Augments
 
-- **Archmage:** each cast takes 30% of the *cast* ability's *base* cooldown off another random ability. It can
-  land on a ready ability (wasted) or on R, never on summoner spells. Haste doesn't shrink the refund.
+- **Archmage:** each cast takes 30% of the *cast* ability's *base* cooldown off another random ability on
+  cooldown (R included), never on summoner spells. Haste doesn't shrink the refund.
   On an ammo ability (Ashe's Hawkshot) the "base cooldown" is the charge recharge (90 to 50 s), not the 5 s gap
-  between casts; Ashe's Q (no cooldown) can still be picked, wasting the refund (Nico, 2026-11-23).
+  between casts. Target: only abilities on cooldown (AramHex's AP Ashe guide; Nico chose it 2026-11-24, replacing
+  "Ashe's Q can be picked, wasting the refund" from 2026-11-23), so an Archmage Ashe who doesn't cast W makes E and R
+  refund each other.
 - **Ashe's Hawkshot:** haste doesn't shorten the 5 s gap between charges. Ultimate Awakening's "refresh basic
   abilities" refills both charges, and Mystic Punch shortens the recharge (Nico, 2026-11-23). Infinite Ashe
   calculator: tools/fun/ashe-calculator.

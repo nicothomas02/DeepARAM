@@ -16,6 +16,7 @@ import {
   rankAugments,
   rerollAdvice,
   RULES,
+  skillUp,
   triggers,
   type Fit,
   type Kinds,
@@ -208,6 +209,33 @@ describe("build engine", () => {
     expect(first?.action).toBe("reroll");
     const again = rerollAdvice(picks, ranked, offered, [100], { seen, rerolled: offered.map((o) => o.id) });
     expect(again?.card ?? null).toBeNull();
+  });
+
+  it("AP Ashe with Archmage follows the haste route for the loop augments taken, Hawkshot capped at its rank", () => {
+    const c: OverlayChamp = {
+      ...champ,
+      skills: ["Q", "W", "E"],
+      archmage: {
+        augment: 2087,
+        style: "ap",
+        skills: ["W", "Q", "E"],
+        routes: [
+          { with: [], eRank: 4, need: 160, reach: false, items: [item(3006), item(3031), item(3046)], routeLen: 2 },
+          { with: [1349], eRank: 1, need: 40, reach: true, items: [item(3006), item(3003), item(3036)], routeLen: 1 },
+        ],
+      },
+    };
+    expect(ids(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] }).path).slice(0, 3)).toEqual([3006, 3031, 3046]);
+    const p = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [2087, 1349] });
+    expect(ids(p.path)).toEqual([3006, 3003, 3036]);
+    expect(p.coreLen).toBe(2);
+    expect(p.rules).toContain("archmageRoute");
+    expect(p.switched?.style).toMatch(/^ap/);
+    expect(p.why[1]).toMatch(/40 Ability Haste.*rank 1/);
+    // Hawkshot stays at rank 1: at level 4 with Q1 W1 E1, the point goes to W (the AP order), never E.
+    const tip = plan({ champ: c, kinds, picks, fit, game: game([], { level: 4, skills: [1, 1, 1, 0] }), taken: [2087, 1349] }).tips.find((t) => t.kind === "skill");
+    expect(tip?.text).toBe("W");
+    expect(skillUp(["E", "Q", "W"], [2, 2, 1, 1], 7, [], "Ashe", 1)).toBe("Q");
   });
 
   it("never plans two items of one limit group, on any champion's real data", async () => {

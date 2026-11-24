@@ -350,6 +350,7 @@ var DeepEngine = (() => {
     measuredReplan: { source: "data", on: true, why: "Ethereal Weapon switches to the champion's own on-hit build (+25.9 pts on-hit build share). Only measured switches." },
     destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
     upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
+    archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
     hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
     ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
     // Design choices Nico hasn't picked yet: kept as they were.
@@ -680,7 +681,7 @@ var DeepEngine = (() => {
     const parts = r[2].filter((c) => !owned.has(c) && (k.recipes[c]?.[1] ?? 1e9) <= gold).sort((x, y) => k.recipes[y][1] - k.recipes[x][1]);
     return parts.length ? { id: parts[0], name: k.recipes[parts[0]][0], whole: false, cost: k.recipes[parts[0]][1] } : null;
   }
-  function skillUp(order, pts, level, taken, champ) {
+  function skillUp(order, pts, level, taken, champ, eCap = 5) {
     const spent = pts.reduce((a, b) => a + b, 0);
     if (!order?.length || !pts.length || spent >= level) return "";
     const noR = !R_PASSIVE.has(champKey(champ)) && taken.some((id) => BACK_TO_BASICS.has(id));
@@ -689,7 +690,7 @@ var DeepEngine = (() => {
     const idx = { Q: 0, W: 1, E: 2 };
     const cap = Math.min(5, Math.ceil(level / 2));
     const first = level <= 3 && order.find((key) => pts[idx[key]] === 0);
-    return first || order.find((key) => pts[idx[key]] < cap) || "";
+    return first || order.find((key) => pts[idx[key]] < Math.min(cap, key === "E" ? eCap : 5)) || "";
   }
   var METRIC_WORD = { damage: "damage to champions", healing: "healing", mitigated: "damage mitigated", cc: "crowd control", deaths: "deaths per 10 min" };
   function whyBest(id, champ, name, taken, why, profiles) {
@@ -732,7 +733,11 @@ var DeepEngine = (() => {
     const applied = (r) => used.add(r);
     const alt = lucky && !game.items.some((i) => (k?.recipes[base(i)]?.[1] ?? 0) >= 2e3) ? luckyBuild(champ0) : null;
     if (alt) applied("luckyTilt");
-    const champ = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
+    const champ1 = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
+    const arch = RULES.archmageRoute.on && champ0?.archmage && taken.includes(champ0.archmage.augment) ? champ0.archmage : null;
+    const route = arch ? [...arch.routes].filter((r) => r.with.every((a) => taken.includes(a))).sort((x, y) => y.with.length - x.with.length)[0] ?? null : null;
+    if (route) applied("archmageRoute");
+    const champ = route && champ1 && arch ? { ...champ1, items: route.items.slice(0, 1 + route.routeLen), rest: route.items.slice(1 + route.routeLen), laterSlots: void 0, skills: arch.skills } : champ1;
     const owned = new Set(game.items.map(base));
     const bootIds = new Set(k?.boots ?? []);
     let slotRows = laterPicks(champ, owned, rules);
@@ -854,13 +859,13 @@ var DeepEngine = (() => {
       if (isOwned(it)) return "You have it.";
       const r = reason(it);
       const tm = timing.find((t) => t.item === it);
-      const b = picked.style ? `Switched to ${picked.style}${picked.because ? ` for ${picked.because}` : ""}${picked.classWide ? ": usual item for that style" : ""}.` : i < coreLen ? "Core: the most played build here with the best DeepScore." : slotRows ? `${slotName(i - coreLen)} item: players usually buy it ${slotName(i - coreLen)}.` : "Usually finishes this build.";
+      const b = route && !picked.style ? i < coreLen ? route.need !== null ? `${augName(arch.augment)}: ${route.reach ? "reaches" : "heads for"} ${route.need} Ability Haste, so Hawkshot and R refresh each other (keep Hawkshot at rank ${route.eRank}).` : `${augName(arch.augment)}: Ability Haste for Hawkshot and R.` : "Rest of the AP build, best DeepScore first." : picked.style ? `Switched to ${picked.style}${picked.because ? ` for ${picked.because}` : ""}${picked.classWide ? ": usual item for that style" : ""}.` : i < coreLen ? "Core: the most played build here with the best DeepScore." : slotRows ? `${slotName(i - coreLen)} item: players usually buy it ${slotName(i - coreLen)}.` : "Usually finishes this build.";
       const up = upgraded.get(itemId(it.icon));
       if (up) applied("upgradeLabel");
       return [tm ? `Earlier: ${tm.because}.` : "", b, up ? `${up} upgrades it.` : "", r ? `${r.when}: ${r.why}` : ""].filter(Boolean).join(" ");
     });
     const tips = [];
-    const point = skillUp(champ?.skills, game.skills ?? [], game.level ?? 0, taken, game.champ);
+    const point = skillUp(champ?.skills, game.skills ?? [], game.level ?? 0, taken, game.champ, route?.eRank ?? 5);
     if (point) tips.push({ rank: 1, kind: "skill", text: point });
     const shop = game.dead ? "You're dead: a good time to shop." : (game.t ?? 999) < 60 ? "In base: a good time to shop." : "";
     if (shop) tips.push({ rank: 0, kind: "shop", text: shop });
@@ -898,7 +903,7 @@ var DeepEngine = (() => {
       lit,
       swaps,
       pointers,
-      switched: picked.style ? { style: picked.style, because: picked.because ?? "", classWide: !!picked.classWide, instead: baseNext && next[0] && itemId(baseNext.icon) !== itemId(next[0].icon) ? baseNext : null } : null,
+      switched: picked.style ? { style: picked.style, because: picked.because ?? "", classWide: !!picked.classWide, instead: baseNext && next[0] && itemId(baseNext.icon) !== itemId(next[0].icon) ? baseNext : null } : route && arch ? { style: `${arch.style} (haste for the loop)`, because: augName(arch.augment), classWide: false, instead: null } : null,
       timing,
       tips,
       rules: [...used],

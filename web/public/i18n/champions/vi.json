@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Hợp với sát thương vật lý của {champion}.",
  "Fits a carry, not a tank.": "Dành cho carry, không phải đỡ đòn.",
  "Fits a champion who takes the hits.": "Dành cho tướng chịu đòn.",
- "Stronger on melee champions.": "Mạnh hơn trên tướng cận chiến."
+ "Stronger on melee champions.": "Mạnh hơn trên tướng cận chiến.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Pháp Sư Tối Thượng khiến Ưng Tiễn và R hồi chiêu cho nhau. Hãy đạt chừng này Điểm hồi kỹ năng trước (R cấp 3), rồi hoàn thiện lối lên đồ.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Điểm hồi kỹ năng · Ưng Tiễn cấp {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Trang bị đạt {haste} trên {need} Điểm hồi kỹ năng cần thiết."
 }

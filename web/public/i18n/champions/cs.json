@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Hodí se k fyzickému poškození {champion}.",
  "Fits a carry, not a tank.": "Pro carry, ne pro tanka.",
  "Fits a champion who takes the hits.": "Pro šampiona, který schytává rány.",
- "Stronger on melee champions.": "Silnější na šampionech na blízko."
+ "Stronger on melee champions.": "Silnější na šampionech na blízko.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage nechává Hawkshot a R navzájem obnovovat. Nejdřív získej tolik zrychlení schopností (R na úrovni 3), pak dokonči build.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} zrychlení schopností · Hawkshot na úrovni {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Předměty dají {haste} z potřebných {need} zrychlení schopností."
 }

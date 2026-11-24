@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Illik {champion} fizikai sebzéséhez.",
  "Fits a carry, not a tank.": "Carrynak való, nem tanknak.",
  "Fits a champion who takes the hits.": "Olyan hősnek, aki bekapja az ütéseket.",
- "Stronger on melee champions.": "Erősebb közelharci hősökön."
+ "Stronger on melee champions.": "Erősebb közelharci hősökön.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Az Archmage miatt a Hawkshot és az R egymást tölti vissza. Először szerezz ennyi képességsietséget (R 3. szinten), utána fejezd be a buildet.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} képességsietség · Hawkshot {rank}. szint",
+ "Items reach {haste} of the {need} Ability Haste needed.": "A tárgyak {haste} képességsietséget adnak a szükséges {need}-ből."
 }
