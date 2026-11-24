@@ -384,10 +384,10 @@ test("champion header timeframe: live patch by default, then patches, sets or al
 });
 
 test("each Synergies list opens on its best score, and no Simulator-made panel shows on champion pages", async ({ page }) => {
-  await page.goto("/champions/Braum");
+  // "What fits this champion" has no rail link since Win rate boosts left the page (2026-11-24); its #anchor opens the fold.
+  await page.goto("/champions/Braum#synergies");
   // The Simulator is a fun tool only for now (lib/sim-policy.ts): no build picker, Best upgrades or "Changes your build" tag.
   await expect(page.locator("#augment-builds, #upgrades, .cp-changes")).toHaveCount(0);
-  await page.locator('.cp-rail a[href="#synergies"]').click();
   const syn = page.locator(".cp-panel .syn");
   await syn.locator(".syn-sort").filter({ hasText: "Pick rate" }).click();
   await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Pick rate");
