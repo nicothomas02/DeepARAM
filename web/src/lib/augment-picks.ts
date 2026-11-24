@@ -31,8 +31,9 @@ export type AugmentPicks = {
   /** augment id -> the build styles it points to (crit, onhit, ap, lethality, fighter, tank, enchanter) */
   styles: Record<string, string[]>;
   /** alias -> the champion's builds by style (public live stats, data/estimates/build_archetypes.json), most played
-   *  first: [style, share of games, boots, core, later] (item ids) */
-  builds: Record<string, [string, number, number[], number[], number[]][]>;
+   *  first: [style, share of games, boots, core, later] (item ids). Niche builds (data/estimates/niche_builds.json) come
+   *  after, with a 6th entry: the augments that switch to them. */
+  builds: Record<string, [string, number, number[], number[], number[], number[]?][]>;
   /** alias -> the same rows as `champions`, ranked on the live patch's games alone ("16.23 only"); only champions
    *  where pooling earlier patches changes something. `champions` is the pooled default ("16.23+"). */
   only: Record<string, [number, number, number, number, number, number][]>;
@@ -69,6 +70,8 @@ export function augmentPicks(): AugmentPicks {
     readRepoJson<{ champions: Record<string, Archetype[]> }>(
       "data/estimates/build_archetypes.json",
     )?.champions ?? {};
+  const niche =
+    readRepoJson<{ champions: Record<string, (Archetype & { triggers?: number[] })[]> }>("data/estimates/niche_builds.json")?.champions ?? {};
   for (const { id: alias } of champList()) {
     const p = championPage(alias);
     if (!p?.augments.length) continue;
@@ -107,15 +110,13 @@ export function augmentPicks(): AugmentPicks {
       if (only.some((r, i) => r[0] !== pooled[i][0] || r[2] !== pooled[i][2])) out.only[alias] = only;
     }
     out.champions[alias] = rows.sort((x, y) => y[1] - x[1]);
-    const builds = arch[String(ids0[alias])] ?? [];
-    if (builds.length > 1)
-      out.builds[alias] = builds.map((b) => [
-        b.style,
-        r4(b.share),
-        b.boots ?? [],
-        b.core ?? [],
-        b.later ?? [],
-      ]);
+    const usual = arch[String(ids0[alias])] ?? [];
+    const rare = usual.length ? (niche[String(ids0[alias])] ?? []).filter((n) => !usual.some((a) => a.style === n.style)) : [];
+    if (usual.length + rare.length > 1)
+      out.builds[alias] = [
+        ...usual.map((b): [string, number, number[], number[], number[]] => [b.style, r4(b.share), b.boots ?? [], b.core ?? [], b.later ?? []]),
+        ...rare.map((b): [string, number, number[], number[], number[], number[]] => [b.style, r4(b.share), b.boots ?? [], b.core ?? [], b.later ?? [], b.triggers ?? []]),
+      ];
     out.pairs[alias] = augmentSynergy(
       alias,
       rows.map((r) => r[0]),
