@@ -20,8 +20,9 @@
 // swap replaces, shop convenience tips) stay as they are until he picks.
 
 import augmentItemsData from "../../data/augment-items.json";
+import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.2.1";
+export const ENGINE_VERSION = "1.3.0";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -50,7 +51,8 @@ export const RULES: Record<string, Rule> = {
   swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
   shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
   // No evidence either way: off until a test passes (Nico 2026-11-23, apply defaults).
-  upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off until tested." },
+  upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off: augmentShift moves items by how much earlier holders really buy them." },
+  augmentShift: { source: "data", on: true, why: "Every augment pulls items earlier/later and in/out of the build by how players who took it really build, vs the same champion's players without it (10-player archive lobbies, EB-shrunk so thin pairs barely move; data/augment-item-shift.json). Nico 2026-11-24: all augments change build and order." },
   augmentReplan: { source: "assumption", on: false, why: "Other augments switch the build style (style tags, the other 3-vote build changers, the class-wide fallback build). Off until measured like Draw Your Sword -> Death's Dance." },
   countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
   stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
@@ -394,7 +396,7 @@ export type LitItem = Situational & { why: string; aug?: boolean; proven?: boole
  * doesn't). Augment-driven entries light up once you take one of their augments and come first. Armor items also
  * answer "Vs auto attacks". `proven` marks the counters that passed the mechanism test.
  */
-export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit | null, enemies: Enemy[], taken: number[], skip: Set<number>): LitItem[] {
+export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit | null, enemies: Enemy[], taken: number[], skip: Set<number>, augName: (id: number) => string = (id) => `#${id}`): LitItem[] {
   const own = champ?.situational ?? [];
   // Measured augment -> item patterns the champion's list doesn't already have.
   const prefix = ([...(champ?.items ?? []), ...own].find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
@@ -405,6 +407,26 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
           && all.findIndex((y) => y.augment === x.augment && taken.includes(y.augment) && k.recipes[y.item] && !own.some((it) => itemId(it.icon) === y.item) && !skip.has(y.item)) === n)
         .map((x) => ({ name: k.recipes[x.item][0], icon: `${prefix}${220000 + x.item}.png`, when: `With ${x.augmentName}`, why: augmentItemWhy(x), augments: [x.augment] }))
     : [];
+  // Every other augment you took: items its holders finish clearly more often than the same champion's players
+  // without it (EB-shrunk build pull >= SHIFT_SWAP_MIN). The pulls are over all champions, so an item must also match
+  // this champion's own build: no AD-only item on a champion whose build has no AD item, and the same for AP.
+  if (RULES.augmentShift.on && taken.length) {
+    const pure = (t: string[]) => (t.includes("ad") && !t.includes("ap") ? "ad" : t.includes("ap") && !t.includes("ad") ? "ap" : "");
+    const tags = new Set([...(champ?.items ?? []), ...(champ?.rest ?? []), ...(champ?.full ?? [])].map((it) => (it?.icon ? pure(k.items[String(itemId(it.icon))] ?? []) : "")));
+    const fits = (id: number) => { const p0 = pure(k.items[String(id)] ?? []); return !p0 || tags.has(p0); };
+    const known = new Set([...own, ...extra].map((it) => itemId(it.icon)));
+    const cand = new Map<number, { pull: number; by: number; sure: boolean }>();
+    for (const a of taken)
+      for (const [i, v] of Object.entries(AUGMENT_SHIFT[String(a)] ?? {})) {
+        const id = Number(i);
+        if (known.has(id) || skip.has(id) || !k.recipes[id] || k.boots.includes(id) || !fits(id)) continue;
+        const sh = shiftOf(taken, id);
+        if (sh.build >= SHIFT_SWAP_MIN && !cand.has(id)) cand.set(id, { pull: sh.build, by: a, sure: shiftSure(v, 0) });
+      }
+    for (const [id, c] of [...cand].sort((x, y) => y[1].pull - x[1].pull).slice(0, 2))
+      extra.push({ name: k.recipes[id][0], icon: `${prefix}${220000 + id}.png`, when: `With ${augName(c.by)}`,
+        why: `With ${augName(c.by)}, ${Math.round(c.pull * 100)}% more players build it (estimated)`, augments: [c.by] });
+  }
   const list = [...own, ...extra].filter((it) => !skip.has(itemId(it.icon)));
   if (!list.length) return [];
   const t = triggers(k, fit, enemies);
@@ -461,6 +483,27 @@ export const UPGRADES: Record<number, number[]> = {
   2140: [3074], 2143: [6610], 2157: [6333], 3150: [4646],
 };
 export const WEAPON_OF_DESTINY = 3081;
+/** augment -> item -> [build, early, holders, builders, z build, z early]: build = extra share of holders who finish
+ *  the item, early = extra share with it as 1st/2nd legendary, both EB-shrunk (tools/augment_item_shift.py, DeepARAM-PC). */
+export const AUGMENT_SHIFT = (augmentShiftData as { pairs: Record<string, Record<string, number[]>> }).pairs;
+/** Path positions an item moves per 1.0 of shrunk early pull (Wooglet's -> Rabadon's 0.52 moves it ~4 places). */
+export const SHIFT_ORDER_GAIN = 8;
+/** Shrunk build pull before an item outside your path becomes a swap (10 points more holders build it). */
+export const SHIFT_SWAP_MIN = 0.1;
+/** Measured enough to drop "(estimated)": z >= 4 with 50+ holders. */
+const shiftSure = (v: number[] | undefined, at: 0 | 1) => !!v && Math.abs(v[4 + at]) >= 4 && v[2 + at] >= 50;
+/** Sum of the taken augments' pulls on an item: [build, early, the augment pulling hardest early, sure]. */
+export function shiftOf(taken: number[], id: number): { build: number; early: number; by: number | null; sure: boolean } {
+  let build = 0, early = 0, by: number | null = null, top = 0, sure = false;
+  if (!RULES.augmentShift.on) return { build, early, by, sure };
+  for (const a of taken) {
+    const v = AUGMENT_SHIFT[String(a)]?.[String(id)];
+    if (!v) continue;
+    build += v[0]; early += v[1];
+    if (Math.abs(v[1]) > top) { top = Math.abs(v[1]); by = a; sure = shiftSure(v, 1); }
+  }
+  return { build, early, by, sure };
+}
 
 /** A style build for a champion with none of that style: the style's usual items over all champions. */
 export function classBuild(picks: Picks, k: Kinds, style: string, magic: boolean, rules: ItemRules): [number[], number[]] | null {
@@ -763,6 +806,22 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const idx = next.findIndex((it) => family.includes(itemId(it.icon)));
       if (idx >= 0 && !timing.some((t) => t.item === next[idx])) { front(idx, `${augName(a)} upgrades it`); applied("upgradeNext"); }
     }
+  // Every taken augment pulls items earlier or later by how much more often its holders buy them early (shrunk), on
+  // top of the base order; items another rule put first stay first.
+  if (RULES.augmentShift.on && taken.length) {
+    const fixed = next.filter((it) => timing.some((t) => t.item === it));
+    const rest0 = next.filter((it) => !fixed.includes(it));
+    const pos = new Map(rest0.map((it, i) => [it, i - SHIFT_ORDER_GAIN * shiftOf(taken, itemId(it.icon)).early]));
+    const sorted = [...rest0].sort((x, y) => pos.get(x)! - pos.get(y)! || rest0.indexOf(x) - rest0.indexOf(y));
+    sorted.forEach((it, i) => {
+      if (i < rest0.indexOf(it)) {
+        const sh = shiftOf(taken, itemId(it.icon));
+        if (sh.by !== null) timing.push({ item: it, because: `${augName(sh.by)}: players who take it buy this earlier${sh.sure ? "" : " (estimated)"}` });
+      }
+    });
+    if (sorted.some((it, i) => it !== rest0[i])) applied("augmentShift");
+    next = [...fixed, ...sorted];
+  }
   const stack = RULES.stackingFirst.on && !finished && !timing.length ? next.findIndex((it) => STACKING.has(itemId(it.icon))) : -1;
   if (stack > 0) { next = [next[stack], ...next.filter((_, i) => i !== stack)]; applied("stackingFirst"); }
   const [, aspd = 0, haste = 0] = game.stats ?? [];
@@ -781,7 +840,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Situational: lit items in the path explain themselves; the rest become swaps (augment-driven or proven) or
   // pointers.
   const inPath = new Set(path.map((it) => itemId(it.icon)));
-  const all = k ? situational(champ, k, fit, game.enemies ?? [], taken, owned) : [];
+  const all = k ? situational(champ, k, fit, game.enemies ?? [], taken, owned, augName) : [];
   const reason = (it: Named) => all.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
   const lit = path.map((it) => ({ item: it, why: reason(it)?.why ?? "" })).filter((x) => x.why);
   const open = rest.filter((it) => !isOwned(it) && it !== next[0]);
@@ -791,6 +850,11 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     if (clash) return clash;
     const sub = unbought.find((p) => rules.substitute(itemId(p.icon), id));
     if (sub) { applied("substitutes"); return sub; }
+    // the open item your augments pull out of the build the most (holders finish it less often), if any
+    const out = RULES.augmentShift.on
+      ? open.filter((p) => !taken0.has(p)).map((p) => [p, shiftOf(taken, itemId(p.icon)).build] as const).filter(([, b]) => b <= -0.05).sort((x, y) => x[1] - y[1])[0]
+      : undefined;
+    if (out) return out[0];
     if (!RULES.swapLastSlot.on) return null;
     return [...open].reverse().find((p) => !taken0.has(p)) ?? null;
   };
