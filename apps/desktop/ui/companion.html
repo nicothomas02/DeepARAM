@@ -390,7 +390,6 @@
 
   // DeepScore tier, as on the site: 50 is average, S from 70, A 59, B 44, C 32, D below.
   const deepTier = (ds) => (ds >= 70 ? "S" : ds >= 59 ? "A" : ds >= 44 ? "B" : ds >= 32 ? "C" : "D");
-  const deepLabel = (ds) => (ds >= 0 ? `${deepTier(ds)} ${ds}` : "");
 
   // Ranking, reroll advice, the item path, swaps and tips come from the shared build engine (engine.js, built from
   // web/src/lib/engine/build-engine.ts), the same one Nico's PC app and the site use, so they can't drift. This page
@@ -455,7 +454,7 @@
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${typeof a.draw === "number" && Math.abs(a.draw) >= 0.1 ? `<div class="cue sm ${a.draw > 0 ? "green" : "red"}">🎲 ${a.draw > 0 ? "+" : ""}${a.draw.toFixed(1)}</div>` : ""}</div>
-        <div class="num" title="DeepScore on this champion (ranking adds synergy with what you took)">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `${a.boost !== null ? "<br>" : ""}<small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
+        <div class="num" title="${esc([a.deep >= 0 ? `DeepScore ${a.deep} on this champion` : "", a.boost !== null ? `Ranking ${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)} (adds synergy with what you took)` : ""].filter(Boolean).join("\n"))}">${a.deep >= 0 ? `<b>${deepTier(a.deep)}</b>` : a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </div>`;
     };
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
