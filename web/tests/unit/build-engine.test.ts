@@ -21,6 +21,9 @@ import {
   startFor,
   fillStart,
   picksLeft,
+  partnerPicks,
+  partnerOdds,
+  TIER_ODDS,
   triggers,
   type Fit,
   type Kinds,
@@ -321,10 +324,66 @@ describe("build engine", () => {
   it("counts a headliner's extra augments as picks left (K/DA, Superfans)", () => {
     expect(picksLeft(0)).toBe(3);
     expect(picksLeft(3)).toBe(0);
-    expect(picksLeft(0, "K/DA")).toBeCloseTo(4.54);
-    expect(picksLeft(3, "kda")).toBeCloseTo(1.54);
+    expect(picksLeft(0, "K/DA")).toBeCloseTo(3.93);
+    expect(picksLeft(3, "kda")).toBeCloseTo(0.93);
     expect(picksLeft(3, "Superfans")).toBeCloseTo(0.29);
     expect(picksLeft(3, "Pentakill")).toBe(0);
+  });
+
+  it("counts the screens left that can show a partner's tier (wiki: shared tier, first two never both Silver)", () => {
+    expect(partnerPicks(0, "silver", { tier: "silver" })).toBe(2);
+    expect(partnerPicks(0, "gold", { tier: "silver" })).toBe(3);
+    expect(partnerPicks(1, "silver", { tier: "silver" })).toBe(2);
+    expect(partnerPicks(0, "silver", { tier: "gold" })).toBe(3);
+    // Headliners only once the app knows them.
+    expect(partnerPicks(0, "prismatic", { headliner: "Command Line" })).toBe(0);
+    expect(partnerPicks(0, "gold", { headliner: "Command Line" })).toBe(3);
+    expect(partnerPicks(0, "gold", { headliner: "Maestro" })).toBe(4);
+    // Combo potential: the chance the partner is offered again (tierOdds), from tier odds and the pool left.
+    const silver = Object.fromEntries(Array.from({ length: 60 }, (_, n) => [String(100 + n), [`Aug ${n}`, "silver"]])) as Picks["augments"];
+    const big: Picks = { ...picks, augments: silver, champions: { Ashe: Array.from({ length: 60 }, (_, n) => [100 + n, 1 - n * 0.005] as [number, number]) } };
+    const at = (tier?: string) => rankAugments(big, "Ashe", [], { tier }).find((a) => a.id === 100)!.potential;
+    expect(at("gold")).toBeCloseTo(20 * partnerOdds(0, "silver", 60, { tier: "gold" }));
+    expect(at("silver")).toBeLessThan(at("gold"));
+  });
+
+  it("gives combo partners the chance they're offered again, by tier (archive tier odds, Nico 2026-11-24)", () => {
+    for (const t of [...Object.values(TIER_ODDS.second), ...Object.values(TIER_ODDS.next), TIER_ODDS.later])
+      expect(Object.values(t).reduce((a, b) => a + b, 0)).toBeCloseTo(1, 2);
+    // A Silver first screen: the second can't be Silver.
+    expect(partnerOdds(0, "silver", 60, { tier: "silver" })).toBeCloseTo(1 - (1 - 0.296 * 0.1) ** 2);
+    expect(partnerOdds(0, "silver", 60, { tier: "gold" })).toBeCloseTo(1 - (1 - 0.336 * 0.1) * (1 - 0.296 * 0.1) ** 2);
+    // Prismatic rarely follows Prismatic.
+    expect(partnerOdds(1, "prismatic", 60, { tier: "prismatic" })).toBeLessThan(partnerOdds(1, "prismatic", 60, { tier: "gold" }));
+    // A smaller pool left at that tier: likelier to be shown.
+    expect(partnerOdds(1, "gold", 20, {})).toBeGreaterThan(partnerOdds(1, "gold", 60, {}));
+    expect(partnerOdds(3, "gold", 60)).toBe(0);
+    expect(partnerOdds(3, "gold", 60, { headliner: "K/DA" })).toBeCloseTo(0.93 * 0.453 * 0.1);
+    expect(partnerOdds(0, "prismatic", 60, { headliner: "Command Line" })).toBe(0);
+    expect(partnerOdds(0, "gold", 60, { headliner: "Command Line" })).toBeGreaterThan(partnerOdds(0, "gold", 60));
+    expect(partnerOdds(0, "gold", 60, { headliner: "Maestro" })).toBeGreaterThan(partnerOdds(0, "gold", 60));
+  });
+
+  it("Command Line's first reroll draws a tier higher; Debonair's gold breaks a tie", () => {
+    const aug = Object.fromEntries([
+      ...Array.from({ length: 8 }, (_, n) => [String(200 + n), [`S${n}`, "silver"]]),
+      ...Array.from({ length: 8 }, (_, n) => [String(300 + n), [`G${n}`, "gold"]]),
+    ]) as Picks["augments"];
+    const own = [...Array.from({ length: 8 }, (_, n) => [200 + n, 0.5 - n * 0.01]), ...Array.from({ length: 8 }, (_, n) => [300 + n, 0.6 - n * 0.01])] as [number, number][];
+    const p: Picks = { ...picks, augments: aug, champions: { Ashe: own }, pairs: {} };
+    const ranked = rankAugments(p, "Ashe", []);
+    const offered = [{ id: 200 }, { id: 205 }, { id: 207 }];
+    const plain = rerollAdvice(p, ranked, offered, []);
+    const cl = rerollAdvice(p, ranked, offered, [], { headliner: "Command Line" });
+    expect(plain?.hacked).toBeUndefined();
+    expect(cl?.hacked).toBe(true);
+    expect(cl?.action).toBe("reroll");
+    expect(cl!.gain).toBeGreaterThan(plain!.gain);
+    // One reroll used on this screen: the rest are normal again.
+    expect(rerollAdvice(p, ranked, offered, [], { headliner: "Command Line", rerolled: [999, 207] })?.hacked).toBeUndefined();
+    const tie = [{ id: 200, score: 50, gold: 200 }, { id: 201, score: 50, gold: 700 }, { id: 202, score: 40, gold: 500 }];
+    expect(rerollAdvice(p, ranked, tie, [])?.best).toBe(200);
+    expect(rerollAdvice(p, ranked, tie, [], { headliner: "Debonair" })?.best).toBe(201);
   });
 
   it("fills a start from the recipes: owned parts count, the biggest part that fits goes first", () => {

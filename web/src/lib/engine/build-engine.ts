@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.5";
+export const ENGINE_VERSION = "1.3.7";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -47,8 +47,11 @@ export const RULES: Record<string, Rule> = {
   augmentStart: { source: "data", on: true, why: "The starting items follow the first augment when its first-screen pickers mostly start something else and it at least doubles that start for the champion (Upgrade Stormsurge: Hextech Alternator; Wooglet's Witchcap: Needlessly Large Rod). From the archive's other players against the same champions' players, estimated. Nico asked for it 2026-11-24." },
   richStart: { source: "data", on: true, why: "With more than the 1,400 starting gold before your first buy (the Debonair headliner pays gold for each augment pick; seen in 16 of 251 archive games since 16.21), the best start above 1,400 that you can afford, by DeepScore. Starts above 1,400 are never the default. Nico asked for it 2026-11-24." },
   goldFill: { source: "assumption", on: true, why: "Gold left after the start (Debonair, Upgrade augments) goes on the parts of the first item, biggest part that fits first; with an augment start, on the item that augment leads to (Upgrade X: X; Wooglet's Witchcap: Rabadon's Deathcap). Real Debonair players mostly keep the gold (137 of 160 in the archive), so no data says which is best. Nico approved it 2026-11-24." },
-  extraAugments: { source: "data", on: true, why: "Headliners that add augment picks count them as picks left for combo potential: K/DA +1.54 (in 49 archive games that look like K/DA, 476 of 490 players took a 5th augment and 280 a 6th), Superfans +0.29 (its 5th augment comes at level 21, which 29% of players reached in the 33 games above level 18). Used once the app knows the headliner; Nico asked 2026-11-24." },
+  extraAugments: { source: "data", on: true, why: "Headliners that add augment picks count them as picks left for combo potential: K/DA +0.93 (it gives a 5th augment, never a 6th (Nico); in 21 archive games that look like K/DA, 196 of 210 players had a 5th. Pentakill's empowerments are recorded as augments (3176 at the start; HEAVY, POWER or THRASH at 18), so they don't count), Superfans +0.29 (its 5th augment comes at level 21, which 29% of players reached in the 33 games above level 18). Used once the app knows the headliner; Nico asked 2026-11-24." },
+  screenTiers: { source: "game data", on: true, why: "Wiki (ARAM: Mayhem): every player gets the same tier on a screen, and the first two screens are never both Silver. Archive since 16.21: after a Silver first screen the second was Gold 15 times, Prismatic 15, Silver 0. So when the first screen is Silver, a Silver partner has one screen fewer to come." },
+  headlinerScreens: { source: "game data", on: true, why: "Used once the app knows the headliner (wiki + Nico 2026-11-24). Maestro: 4 cards a screen, each rerollable once, so 8 chances to see a partner instead of 6. Command Line: screens are only Silver or Gold, so a Prismatic partner only comes from a reroll; the first reroll on a screen draws one tier higher (Silver to Gold, Gold to Prismatic). Debonair: the gold on a card only breaks a tie." },
   heartsteelStickers: { source: "assumption", on: true, why: "HEARTSTEEL stickers add their estimated value to the augment they're on: stats the champion uses, priced at basic-item gold, 0.45 win-rate points per 1,000 gold (Deft/Recursion on builders vs non-builders). Nico approved estimates 2026-11-24." },
+  tierOdds: { source: "data", on: true, why: "Combo potential uses the chance each later screen comes at the partner's tier (archive since 16.21, all players, 225 games: e.g. after a Prismatic screen the next is Prismatic only 18% of the time, Gold 43%) and the chance the partner is among the 6 cards a screen can show from the champion's augments left at that tier, instead of a flat 4% per pick. Split-half backtest: predicts the next screen's tier better than tier-blind odds (log loss 1.05-1.07 vs 1.10). Nico approved 2026-11-24." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
   // Design choices Nico hasn't picked yet: kept as they were.
@@ -187,7 +190,7 @@ export function itemRules(k: Kinds | null | undefined): ItemRules {
 
 export const COMBO_ODDS = 0.04;
 /** Augment picks a headliner adds, on average per player (owner's archive since 16.21, other players included). */
-export const HEADLINER_EXTRA_PICKS: Record<string, number> = { kda: 1.54, superfans: 0.29 };
+export const HEADLINER_EXTRA_PICKS: Record<string, number> = { kda: 0.93, superfans: 0.29 };
 /** Regular augment screens: the first and levels 7, 11 and 15. */
 export const AUGMENT_SCREENS = 4;
 export const COMBO_CAP = 0.12;
@@ -243,28 +246,113 @@ export function luckyOrder<T extends { score: number }>(list: T[], se: (x: T) =>
 
 /**
  * This champion's augments best first: real per-champion score, plus synergy with what you took, plus a share of the
- * best combo you could still complete (COMBO_ODDS per pick left, at most COMBO_CAP; "I'm feeling lucky" raises it).
+ * best combo you could still complete (the chance it's offered again, partnerOdds, at most COMBO_CAP; "I'm feeling
+ * lucky" uses LUCKY_ODDS per pick left instead).
  * A partner already shown this game can't come back, so it adds no potential. A headliner that adds picks (K/DA,
- * Superfans) adds its expected extra picks to the picks left (extraAugments).
+ * Superfans) adds its expected extra picks to the picks left (extraAugments). `tier` is the tier of the screen being
+ * picked from: the picks left are counted per partner tier (partnerPicks).
  */
+/** A headliner's name as a key: "K/DA" -> "kda", "Command Line" -> "commandline". */
+export const headlinerKey = (h?: string | null): string => (h ?? "").toLowerCase().replace(/[^a-z]/g, "");
+
 /** Picks still to come after the one being made: the regular screens left, plus what the headliner adds on average. */
 export function picksLeft(taken: number, headliner?: string): number {
-  const extra = RULES.extraAugments.on && headliner ? HEADLINER_EXTRA_PICKS[headliner.toLowerCase().replace(/[^a-z]/g, "")] ?? 0 : 0;
+  const extra = RULES.extraAugments.on && headliner ? HEADLINER_EXTRA_PICKS[headlinerKey(headliner)] ?? 0 : 0;
   return Math.max(0, AUGMENT_SCREENS + extra - 1 - taken);
+}
+
+/** Chance of each tier on a later screen, from the archive since 16.21 (all players; every player gets the same tier on a
+ *  screen). second: screen 2 given screen 1 (never Silver twice); next: the screen after the one on offer; later: any
+ *  screen further on, and the extra K/DA or Superfans screens (random tier). */
+export const TIER_ODDS: { second: Record<string, Record<string, number>>; next: Record<string, Record<string, number>>; later: Record<string, number> } = {
+  second: {
+    gold: { gold: 0.427, prismatic: 0.237, silver: 0.336 },
+    prismatic: { gold: 0.493, prismatic: 0.134, silver: 0.373 },
+    silver: { gold: 0.481, prismatic: 0.519, silver: 0 },
+  },
+  next: {
+    gold: { gold: 0.478, prismatic: 0.271, silver: 0.251 },
+    prismatic: { gold: 0.431, prismatic: 0.183, silver: 0.385 },
+    silver: { gold: 0.433, prismatic: 0.291, silver: 0.276 },
+  },
+  later: { gold: 0.453, prismatic: 0.25, silver: 0.296 },
+};
+/** Cards a screen can show: 3 offered plus one reroll each. */
+export const SCREEN_DRAWS = 6;
+
+/**
+ * Chance a partner of this tier is offered again before your picks run out (tierOdds): for each screen left, the chance
+ * it comes at that tier times the chance the partner is among the cards it can show (SCREEN_DRAWS out of `pool`, the
+ * champion's augments left at that tier). `tier` is the screen on offer. Command Line screens are only Silver or Gold;
+ * Maestro shows 8 cards.
+ */
+export function partnerOdds(taken: number, rarity: string, pool: number, opts: { tier?: string; headliner?: string } = {}): number {
+  if (!rarity || pool <= 0) return 0;
+  const hl = RULES.headlinerScreens.on ? headlinerKey(opts.headliner) : "";
+  const draws = hl === "maestro" ? SCREEN_DRAWS * (MAESTRO_CARDS / 3) : SCREEN_DRAWS;
+  const shown = Math.min(1, draws / pool);
+  const odds = (t: Record<string, number>) => {
+    if (hl !== "commandline") return t[rarity] ?? 0;
+    const sg = (t.silver ?? 0) + (t.gold ?? 0);
+    return rarity === "prismatic" || sg <= 0 ? 0 : (t[rarity] ?? 0) / sg;
+  };
+  const screens: { p: number; w: number }[] = [];
+  const regular = Math.max(0, AUGMENT_SCREENS - 1 - taken);
+  for (let k = 0; k < regular; k++) {
+    const t = k === 0 && opts.tier ? (taken === 0 ? TIER_ODDS.second[opts.tier] : TIER_ODDS.next[opts.tier]) ?? TIER_ODDS.later : TIER_ODDS.later;
+    screens.push({ p: odds(t), w: 1 });
+  }
+  const extra = picksLeft(taken, opts.headliner) - regular;
+  if (extra > 0) screens.push({ p: odds(TIER_ODDS.later), w: extra });
+  // An extra screen that comes only some of the time counts that share of its chance.
+  return 1 - screens.reduce((miss, s) => miss * (1 - s.w * s.p * shown), 1);
+}
+
+/** Maestro shows this many cards a screen instead of 3. */
+export const MAESTRO_CARDS = 4;
+
+/**
+ * Chances still to come of seeing an augment of this tier, in regular screens (screenTiers, headlinerScreens):
+ * the picks left, minus the second screen for a Silver one when the first screen (`tier`) is Silver; none for a
+ * Prismatic one under Command Line; 4/3 as many under Maestro.
+ */
+export function partnerPicks(taken: number, rarity: string | undefined, opts: { tier?: string; headliner?: string } = {}): number {
+  let n = picksLeft(taken, opts.headliner);
+  const hl = RULES.headlinerScreens.on ? headlinerKey(opts.headliner) : "";
+  if (RULES.screenTiers.on && taken === 0 && opts.tier === "silver" && rarity === "silver") n = Math.max(0, n - 1);
+  if (hl === "commandline" && rarity === "prismatic") n = 0;
+  if (hl === "maestro") n *= MAESTRO_CARDS / 3;
+  return n;
 }
 
 export function rankAugments(
   picks: Picks,
   champ: string,
   taken: number[],
-  opts: { lucky?: boolean; seen?: number[]; headliner?: string; stickers?: Record<string, number> } = {},
+  opts: { lucky?: boolean; seen?: number[]; headliner?: string; tier?: string; stickers?: Record<string, number> } = {},
 ): RankedAugment[] {
   const ck = keyIn(picks.champions, champ);
   const own = ck ? picks.champions[ck] : [];
   const pairs = (keyIn(picks.pairs, champ) && picks.pairs[keyIn(picks.pairs, champ)!]) || [];
   const gone = new Set(RULES.seenAugments.on ? (opts.seen ?? []) : []);
-  const left = picksLeft(taken.length, opts.headliner);
-  const odds = opts.lucky ? Math.min(LUCKY_CAP, LUCKY_ODDS * left) : Math.min(COMBO_CAP, COMBO_ODDS * left);
+  // The champion's augments left at each tier: a partner is one of these (tierOdds).
+  const left = new Map<string, number>();
+  for (const [id] of own) {
+    if (taken.includes(id) || gone.has(id)) continue;
+    const r = picks.augments[id]?.[1] ?? "";
+    left.set(r, (left.get(r) ?? 0) + 1);
+  }
+  const oddsAt = new Map<string, number>();
+  const odds = (other: number) => {
+    const r = picks.augments[other]?.[1] ?? "";
+    if (!oddsAt.has(r)) {
+      const flat = partnerPicks(taken.length, r, opts);
+      oddsAt.set(r, opts.lucky ? Math.min(LUCKY_CAP, LUCKY_ODDS * flat)
+        : RULES.tierOdds.on ? Math.min(COMBO_CAP, partnerOdds(taken.length, r, left.get(r) ?? 0, opts))
+        : Math.min(COMBO_CAP, COMBO_ODDS * flat));
+    }
+    return oddsAt.get(r)!;
+  };
   const info = new Map(own.map(([id, , , , se = -1, pick = -1]) => [id, { se, pick }]));
   const ranked = own
     .filter(([id]) => !taken.includes(id))
@@ -276,8 +364,8 @@ export function rankAugments(
         if (taken.includes(other)) {
           bonus += p;
           if (p > best) { best = p; mate = other; }
-        } else if (!gone.has(other) && p > 0 && p * odds > potential) {
-          potential = p * odds;
+        } else if (!gone.has(other) && p > 0 && p * odds(other) > potential) {
+          potential = p * odds(other);
           combo = other;
         }
       }
@@ -360,43 +448,61 @@ export type RerollAdvice = {
   /** Expected points gained by rerolling `card`. */
   gain: number;
   rarity: string;
+  /** Command Line: this screen's rerolls still draw one tier higher. */
+  hacked?: boolean;
 };
 
+const NEXT_TIER: Record<string, string> = { silver: "gold", gold: "prismatic", prismatic: "prismatic" };
+
 /**
- * Reroll or keep. Rerolling a card swaps it for one drawn evenly from this champion's pool at the offer's rarity,
- * minus the cards on screen, the ones you took and every augment already shown this game. Each card can be rerolled
- * once, so cards in `rerolled` are never named. Null when the pool is too small to judge.
+ * Reroll or keep. Rerolling a card swaps it for one drawn evenly from this champion's pool at the card's tier (every
+ * card on a screen shares one), minus the cards on screen, the ones you took and every augment already shown this
+ * game. Each card can be rerolled once, so cards in `rerolled` are never named. With the headliner known
+ * (headlinerScreens): Command Line's first reroll on a screen draws one tier higher; Maestro's 4 cards need nothing
+ * more; Debonair's card gold (`gold`) breaks a tie for the best card. Null when the pool is too small to judge.
  */
 export function rerollAdvice(
   picks: Picks,
   ranked: RankedAugment[],
-  offered: { id: number; score?: number | null }[],
+  offered: { id: number; score?: number | null; gold?: number | null }[],
   taken: number[],
-  opts: { seen?: number[]; rerolled?: number[] } = {},
+  opts: { seen?: number[]; rerolled?: number[]; headliner?: string } = {},
 ): RerollAdvice | null {
   if (!offered.length) return null;
-  const r = picks.augments[offered[0].id]?.[1] ?? "";
+  const tierOf = (id: number) => picks.augments[id]?.[1] ?? "";
+  // The screen's tier: the one most cards share (a hacked reroll leaves one card a tier higher).
+  const tiers = offered.map((o) => tierOf(o.id));
+  const r = tiers.reduce((a, b) => (tiers.filter((t) => t === b).length > tiers.filter((t) => t === a).length ? b : a), tiers[0]);
+  const hl = RULES.headlinerScreens.on ? headlinerKey(opts.headliner) : "";
+  const done = new Set(RULES.rerollOnce.on ? (opts.rerolled ?? []) : []);
+  // Command Line: the first reroll on a screen is hacked; using it turns the others back to normal.
+  const hacked = hl === "commandline" && !offered.some((o) => (opts.rerolled ?? []).includes(o.id));
   const gone = new Set([...taken, ...offered.map((o) => o.id), ...(RULES.seenAugments.on ? (opts.seen ?? []) : [])]);
-  const pool = ranked.filter((a) => picks.augments[a.id]?.[1] === r && !gone.has(a.id)).map((a) => a.score);
+  const poolAt = (tier: string) => ranked.filter((a) => tierOf(a.id) === tier && !gone.has(a.id)).map((a) => a.score);
+  const pool = poolAt(r);
   if (pool.length < 5) return null;
   const low = Math.min(...pool);
   const scoreOf = (o: { id: number; score?: number | null }) => o.score ?? ranked.find((a) => a.id === o.id)?.score ?? low;
   const v = offered.map(scoreOf);
   const best = Math.max(...v);
-  const done = new Set(RULES.rerollOnce.on ? (opts.rerolled ?? []) : []);
   let pick = -1, gain = 0;
   v.forEach((_, j) => {
     if (done.has(offered[j].id)) return;
+    const draw = hacked ? poolAt(NEXT_TIER[tierOf(offered[j].id)] ?? "") : poolAt(tierOf(offered[j].id));
+    if (draw.length < 5) return;
     const keep = Math.max(...v.filter((__, k) => k !== j), -Infinity);
-    const g = pool.reduce((t, x) => t + Math.max(keep, x), 0) / pool.length - best;
+    const g = draw.reduce((t, x) => t + Math.max(keep, x), 0) / draw.length - best;
     if (g > gain) { gain = g; pick = j; }
   });
   const beats = pool.filter((x) => x > best).length / pool.length;
   const min = RULES.rerollMinGain.on ? REROLL_GAIN : 0;
-  const bestId = offered[v.indexOf(best)].id;
-  return pick >= 0 && gain > 0 && gain >= min
-    ? { action: "reroll", card: offered[pick].id, best: bestId, beats, gain, rarity: r }
-    : { action: "keep", card: null, best: bestId, beats, gain, rarity: r };
+  // Debonair: among cards that show the same score (to 0.1), the one with more gold.
+  const same = (x: number) => Math.round(x * 10) === Math.round(best * 10);
+  const tied = offered.map((o, k) => ({ o, k })).filter((x) => same(v[x.k]));
+  const top = hl === "debonair" && tied.length > 1 ? tied.reduce((a, b) => ((b.o.gold ?? 0) > (a.o.gold ?? 0) ? b : a)) : { o: offered[v.indexOf(best)] };
+  const bestId = top.o.id;
+  const out = { best: bestId, beats, gain, rarity: r, ...(hacked ? { hacked: true } : {}) };
+  return pick >= 0 && gain > 0 && gain >= min ? { action: "reroll", card: offered[pick].id, ...out } : { action: "keep", card: null, ...out };
 }
 
 // ---------------------------------------------------------------------------------------------------------------

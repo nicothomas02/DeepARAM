@@ -47,6 +47,9 @@ ITEM_LIST = os.path.join(ROOT, "web", "public", "assets", "cd", "latest", "plugi
 # A start is marked as an augment's when the champion's first-screen picks of augments explain at least this share of
 # its games (a majority; flagged to Nico 2026-11-24 as a chosen threshold).
 AUGMENT_START_SHARE = 0.5
+# The Pentakill headliner's own screen (HEAVY Q, POWER W, THRASH E, DOOM R; wiki ARAM: Mayhem): never offered on a
+# regular augment screen, so kept out of the augment lists. The Pentakill tab reads them from the patch files.
+PENTAKILL_PICKS = {"3170", "3171", "3172", "3173"}
 RARITY = {"silver": "silver", "gold": "gold", "prismatic": "prismatic"}
 
 changed = []
@@ -377,7 +380,7 @@ def merge_builds(check, live):
         rows = []
         pooled = ah.pool([A.get(cid) or {}] + [h.get(cid) or {} for h in aug_hist])
         for a, (g, w) in (A.get(cid) or {}).items():
-            if g < MIN_AUG_GAMES:
+            if g < MIN_AUG_GAMES or a in PENTAKILL_PICKS:
                 continue
             r = {"id": int(a), "pick_rate": round(g / g_all, 4), "win_rate": rate(g, w), "games": g}
             r["grade"] = grades.get(int(a)) or ""
