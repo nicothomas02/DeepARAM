@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "冷卻縮短10%（它的攻速轉加速效果已計入你的屬性面板）。",
  "Volley": "萬箭齊發",
  "Hawkshot": "鷹擊長空",
- "Enchanted Crystal Arrow": "魔法水晶箭"
+ "Enchanted Crystal Arrow": "魔法水晶箭",
+ "Unc Is Wallmaxxing": "大叔狂拉風牆",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "犽宿不再突進,穩穩站在風牆後面,一拳一拳把它的冷卻打沒,直到永遠有兩三道牆立著,帶彈道的東西一個都別想玩。",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "先把風牆點滿:5 級冷卻最短,寬度幾乎是 1 級的兩倍。放一道牆,躲在後面打離你最近的東西(小兵也算),牆一亮就立刻再按 W,千萬別衝進去。",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV:你鎖了個遠程英雄,結果大叔在你第一發打出去之前就立了三道牆",
+ "Wind Wall": "風牆",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "阻擋所有敵方彈道 4 秒,滿級冷卻 17 秒。犽宿沒有魔力,所以冷卻是唯一的代價。",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "祕術拳擊每次攻擊減少風牆 1.25 秒冷卻,而雙重命中讓每次暴擊觸發兩次。雙重命中和暴擊節奏加起來有 50% 暴擊率,被他的被動一路拉到 100%,暴擊節奏還額外疊 60% 攻速。頂狙武器讓他能躲在自己的牆後面揮刀。",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "那歐閃刃每次攻擊削減剩餘冷卻的 15%。暮夜與黎明、納什之牙、三相之力、精進之矛和愛歐尼亞之靴提供 85 加速和足夠的攻速,兩下攻擊牆就回來了。",
+ "Gain Attack Range.": "獲得攻擊距離。"
 }

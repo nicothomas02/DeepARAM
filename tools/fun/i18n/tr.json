@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "Bekleme süreleri %10 daha kısa (saldırı hızını yetenek hızına çevirmesi panelinde zaten var).",
  "Volley": "Yaylım Ateşi",
  "Hawkshot": "Şahin Atışı",
- "Enchanted Crystal Arrow": "Büyülü Kristal Ok"
+ "Enchanted Crystal Arrow": "Büyülü Kristal Ok",
+ "Unc Is Wallmaxxing": "Amca Duvarı Tavan Yaptı",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "Yasuo dash atmayı bırakıyor, Rüzgâr Duvarı'nın arkasında dimdik duruyor ve bekleme süresini yumruklayıp eritiyor; sonunda hep iki üç duvar ayakta, mermili hiçbir şey oynayamıyor.",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "Önce Rüzgâr Duvarı'nı sonuna kadar yükselt: 5. seviye en kısa bekleme süresine sahip ve 1. seviyeden neredeyse iki kat geniş. Duvarı koy, arkasından en yakındakine saldır (minyonlar da sayılır), yandığı anda tekrar W'ye bas ve asla dalma.",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV: menzilli bir şampiyon kilitledin ve amca ilk atışın isabet etmeden üç duvar dikti",
+ "Wind Wall": "Rüzgâr Duvarı",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "Düşmanın tüm mermilerini 4 saniye boyunca engeller; en yüksek seviyede bekleme süresi 17 saniyedir. Yasuo'nun manası yok, yani tek bedel bekleme süresi.",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "Mistik Yumruk her saldırıda Rüzgâr Duvarı'ndan 1,25 saniye düşer, Çifte İsabet ise her kritiğin bunu iki kez uygulamasını sağlar. Çifte İsabet ve Kritik Ritim toplam %50 kritik şansı verir, pasifi bunu %100'e kadar çıkarır, Kritik Ritim de üstüne %60 saldırı hızı ekler. En Büyük Dürbünlü Silahlar kendi duvarının arkasından kılıç sallamasını sağlar.",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "Navori Tezbıçağı her saldırıda kalan bekleme süresinin %15'ini keser. Gündüz ve Gece, Nashor'un Dişi, Üçlü Kuvvet, Shojin'in Mızrağı ve Ionia Çizmeleri 85 hız ve iki saldırıda duvarı geri getirecek kadar saldırı hızı ekler.",
+ "Gain Attack Range.": "Saldırı menzili kazan."
 }

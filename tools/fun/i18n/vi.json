@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "Hồi chiêu ngắn hơn 10% (phần chuyển tốc độ đánh thành điểm hồi của nó đã có trong bảng chỉ số của bạn).",
  "Volley": "Tán Xạ Tiễn",
  "Hawkshot": "Ưng Tiễn",
- "Enchanted Crystal Arrow": "Đại Băng Tiễn"
+ "Enchanted Crystal Arrow": "Đại Băng Tiễn",
+ "Unc Is Wallmaxxing": "Chú Dựng Tường Tối Đa",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "Yasuo thôi lướt, đứng vững sau Tường Gió, đấm bay hồi chiêu của nó cho đến khi lúc nào cũng có hai ba bức tường và thứ gì bắn đạn cũng hết đường chơi.",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "Tăng tối đa Tường Gió trước: bậc 5 có hồi chiêu ngắn nhất và rộng gần gấp đôi bậc 1. Dựng tường, đánh thứ gần nhất từ phía sau nó (lính cũng tính), bấm W lần nữa ngay khi nó sáng lên, và đừng bao giờ lao vào.",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV: bạn khóa một tướng đánh xa và chú đã dựng ba bức tường trước khi phát bắn đầu tiên của bạn trúng",
+ "Wind Wall": "Tường Gió",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "Chặn mọi đạn của địch trong 4 giây, hồi chiêu 17 giây ở bậc tối đa. Yasuo không dùng năng lượng, nên hồi chiêu là cái giá duy nhất.",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "Cú Đấm Thần Bí giảm 1,25 giây hồi chiêu Tường Gió mỗi đòn đánh, còn Bắn Một Được Hai khiến mỗi đòn chí mạng áp dụng điều đó hai lần. Bắn Một Được Hai và Nhịp Điệu Chí Mạng cộng lại cho 50% tỉ lệ chí mạng, nội tại của anh đẩy lên tận 100%, và Nhịp Điệu Chí Mạng còn cộng thêm 60% tốc độ đánh. Lắp Kính Nhắm Cỡ Đại cho phép anh chém từ sau bức tường của chính mình.",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "Đao Chớp Navori cắt 15% hồi chiêu còn lại mỗi đòn đánh. Bình Minh & Hoàng Hôn, Nanh Nashor, Tam Hợp Kiếm, Ngọn Giáo Shojin và Giày Khai Sáng Ionia cộng 85 haste và đủ tốc độ đánh để hai đòn đánh là tường quay lại.",
+ "Gain Attack Range.": "Nhận thêm tầm đánh."
 }

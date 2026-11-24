@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "Přebíjecí doby o 10 % kratší (převod rychlosti útoků na zrychlení už je ve tvém panelu).",
  "Volley": "Salva",
  "Hawkshot": "Jestřábí střela",
- "Enchanted Crystal Arrow": "Očarovaný křišťálový šíp"
+ "Enchanted Crystal Arrow": "Očarovaný křišťálový šíp",
+ "Unc Is Wallmaxxing": "Strejda staví zdi naplno",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "Yasuo přestane dashovat a stojí na svém za Větrnou zdí, vypíná její cooldown pěstmi, až jsou stále nahoře dvě nebo tři zdi a nic s projektilem si nezahraje.",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "Nejdřív vymaxuj Větrnou zeď: úroveň 5 má nejkratší cooldown a je skoro dvakrát širší než úroveň 1. Postav zeď, útoč na nejbližší cíl zpoza ní (počítají se i miniony), stiskni W znovu ve chvíli, kdy se rozsvítí, a nikdy se do toho nedashuj.",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV: vybral sis střelce na dálku a strejda postavil tři zdi dřív, než ti dopadla první rána",
+ "Wind Wall": "Větrná zeď",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "Blokuje všechny nepřátelské projektily po dobu 4 sekund, s cooldownem 17 sekund na nejvyšší úrovni. Yasuo nemá manu, takže cooldown je jediná cena.",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "Mystický úder ubere Větrné zdi 1,25 sekundy s každým útokem a Dvojitý zásah způsobí, že každý kritický zásah to udělá dvakrát. Dvojitý zásah a Kritický rytmus dohromady dávají 50 % šanci na kritický zásah, kterou jeho pasivka zvedne až na 100 %, a Kritický rytmus k tomu přidá 60 % rychlosti útoku. Nejpřesnější mířidla mu dovolí sekat zpoza vlastní zdi.",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "Blikavá čepel Navori ubere s každým útokem 15 % ze zbývajícího cooldownu. Soumrak a úsvit, Nashorův tesák, Trojsíla, Oštěp Šódžinu a Ionské boty jasnosti přidají 85 zrychlení a dost rychlosti útoku na to, aby zeď vrátily dva útoky.",
+ "Gain Attack Range.": "Získáš dosah útoku."
 }

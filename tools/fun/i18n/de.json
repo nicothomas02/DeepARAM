@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "Abklingzeiten 10 % kürzer (die Umwandlung von Angriffstempo in Fähigkeitstempo ist schon in deinem Fenster enthalten).",
  "Volley": "Salve",
  "Hawkshot": "Habicht-Schuss",
- "Enchanted Crystal Arrow": "Verzauberter Kristallpfeil"
+ "Enchanted Crystal Arrow": "Verzauberter Kristallpfeil",
+ "Unc Is Wallmaxxing": "Opa baut Mauern-Maxxing",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "Yasuo hört auf zu dashen und steht hinter Windmauer auf Business, boxt sich die Abklingzeit weg, bis dauerhaft zwei oder drei Mauern stehen und nichts mit einem Projektil mehr mitspielen darf.",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "Skille Windmauer zuerst: Rang 5 hat die kürzeste Abklingzeit und ist fast doppelt so breit wie Rang 1. Setz eine Mauer, greif von dahinter das Nächstbeste an (Vasallen zählen), drück W erneut, sobald sie aufleuchtet, und dash niemals rein.",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV: Du hast einen Fernkämpfer gelockt und Opa hat drei Mauern gestellt, bevor dein erster Schuss gelandet ist",
+ "Wind Wall": "Windmauer",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "Blockt 4 Sekunden lang jedes gegnerische Projektil, bei 17 Sekunden Abklingzeit auf höchstem Rang. Yasuo hat kein Mana, die Abklingzeit ist also der einzige Preis.",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "Mystischer Schlag nimmt mit jedem Angriff 1,25 Sekunden von Windmauer ab, und Doppeltreffer sorgt dafür, dass jeder kritische Treffer das zweimal macht. Doppeltreffer und Kritischer Rhythmus ergeben zusammen 50 % kritische Trefferchance, die seine Passive bis auf 100 % hochzieht, und Kritischer Rhythmus legt noch 60 % Angriffstempo obendrauf. Mit Bestes Zielfernrohr kann er hinter seiner eigenen Mauer zuschlagen.",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "Flimmerklinge der Navori nimmt mit jedem Angriff 15 % der übrigen Abklingzeit weg. Tag und Nacht, Nashors Zahn, Stärke der Dreieinigkeit, Speer von Shojin und Ionische Stiefel der Deutlichkeit geben 85 Tempo und genug Angriffstempo, dass zwei Angriffe die Mauer zurückbringen.",
+ "Gain Attack Range.": "Verleiht Angriffsreichweite."
 }

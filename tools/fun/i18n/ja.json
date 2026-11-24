@@ -538,5 +538,14 @@
  "Cooldowns 10% shorter (its attack speed to haste is already in your panel).": "クールダウン10%短縮(攻撃速度からヘイストへの変換分は既にステータス画面に含まれている)。",
  "Volley": "ボレー",
  "Hawkshot": "スカウトホーク",
- "Enchanted Crystal Arrow": "クリスタルアロー"
+ "Enchanted Crystal Arrow": "クリスタルアロー",
+ "Unc Is Wallmaxxing": "おじさん、壁マシマシ",
+ "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.": "ヤスオはダッシュをやめて、風殺の壁の後ろでどっしり構え、殴ってクールダウンを削り続ける。常に壁が2〜3枚立つようになり、飛び道具を持つ相手は何もできない。",
+ "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.": "まず風殺の壁を最大まで上げよう。ランク5はクールダウンが最短で、幅もランク1のほぼ2倍。壁を置いたら、その後ろから一番近い相手(ミニオンもOK)を攻撃し、光ったらすぐにWをもう一度押す。突っ込みは禁止。",
+ "POV: you locked in a ranged champ and unc put up three walls before your first shot landed": "POV: 遠距離チャンピオンをロックインしたら、最初の一発が当たる前におじさんが壁を3枚立てていた",
+ "Wind Wall": "風殺の壁",
+ "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price.": "敵の飛び道具をすべて4秒間ブロック。最大ランクでクールダウンは17秒。ヤスオはマナを使わないので、代償はクールダウンだけ。",
+ "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall.": "神秘の鉄拳は攻撃のたびに風殺の壁のクールダウンを1.25秒短縮し、ダブルタップはクリティカルのたびにそれを2回適用する。ダブルタップとクリティカルの律動でクリティカル率は合計50%、パッシブでそれが最大100%まで伸び、さらにクリティカルの律動が攻撃速度60%を上乗せする。超改造スコープ装着のおかげで、自分の壁の後ろから斬りつけられる。",
+ "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back.": "ナヴォリ フリッカーブレードは攻撃のたびに残りクールダウンの15%を短縮する。黄昏と暁、ナッシャー トゥース、トリニティ フォース、ショウジンの矛、アイオニア ブーツでヘイスト85と十分な攻撃速度が付き、2回の攻撃で壁が戻ってくる。",
+ "Gain Attack Range.": "攻撃範囲を獲得。"
 }

@@ -1,61 +1,37 @@
 {
-  "id": "lulu-whimsy-locked-in",
-  "title": "Whimsy Locked In",
-  "champion": "Lulu",
-  "champion_name": "Lulu",
-  "chef": "2026-11-20",
-  "why": "Lulu stops shielding anyone and presses Whimsy twice a second until the enemy team is a petting zoo.",
-  "play": "Max Whimsy first and leave Glitterlance at one point: it's 7 seconds at every rank and cheapest there. Whimsy an enemy, cast anything else, Whimsy the next one, punch a squirrel while you wait, and press Wild Growth on yourself the moment it's up.",
+  "id": "yasuo-unc-is-wallmaxxing",
+  "title": "Unc Is Wallmaxxing",
+  "champion": "Yasuo",
+  "champion_name": "Yasuo",
+  "chef": "2026-11-23",
+  "why": "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.",
+  "play": "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.",
   "items": [
-    "Seraph's Embrace",
-    "Malignance",
-    "Blackfire Torch",
-    "Frozen Heart",
-    "Essence Reaver",
+    "Navori Flickerblade",
+    "Dusk and Dawn",
+    "Nashor's Tooth",
+    "Trinity Force",
+    "Spear of Shojin",
     "Ionian Boots of Lucidity"
   ],
   "core": 4,
-  "tagline": "One enemy is a squirrel, then the other three, and the fifth one is just watching",
+  "tagline": "POV: you locked in a ranged champ and unc put up three walls before your first shot landed",
   "how": [
     [
-      "Whimsy",
-      "Turns an enemy into a harmless critter for 2 seconds at max rank, on an 18-second cooldown. That long cooldown is the whole trick."
+      "Wind Wall",
+      "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price."
     ],
     [
       "Augments",
-      "Overloaded, rolled on Whimsy, resets it every time she casts Glitterlance, Help, Pix! or Wild Growth, and every Whimsy makes Archmage hand 5.4 seconds (30% of its 18) to one of those three. Ultimate Awakening refreshes Q and E and adds 300 haste after each Wild Growth, and Mystic Punch takes 1.25 seconds off everything per attack."
+      "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall."
     ],
     [
       "Items",
-      "Seraph's Embrace, Malignance, Blackfire Torch and Frozen Heart are the mana bar, because four squirrels are expensive. Essence Reaver pays mana back on the attack after each cast."
+      "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back."
     ]
   ],
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/117.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/157.png",
   "augments": [
-    {
-      "name": "Overloaded",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Using another Ability resets the cooldown of the chosen ability.",
-      "icon": "/embed/fun/cook-builds/icons/augments/overloaded.png",
-      "id": 2123
-    },
-    {
-      "name": "Archmage",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Casting a spell refunds another random spell's cost by 30% of the original spell's Cooldown.",
-      "icon": "/embed/fun/cook-builds/icons/augments/archmage.png",
-      "id": 2087
-    },
-    {
-      "name": "Ultimate Awakening",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Gain 30 Ultimate Ability Haste. After using your Ultimate, refresh your basic abilities and gain 300 basic ability haste for 15s. (20s Cooldown)",
-      "icon": "/embed/fun/cook-builds/icons/augments/ultimate-awakening.png",
-      "id": 1349
-    },
     {
       "name": "Mystic Punch",
       "rarity": "Prismatic",
@@ -63,565 +39,589 @@
       "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
       "icon": "/embed/fun/cook-builds/icons/augments/mystic-punch.png",
       "id": 1058
+    },
+    {
+      "name": "Double Tap",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Your Critical Strikes apply On-Hit effects an additional time. Gain Crit chance.",
+      "icon": "/embed/fun/cook-builds/icons/augments/double-tap.png",
+      "id": 2010
+    },
+    {
+      "name": "Critical Rhythm",
+      "rarity": "Gold",
+      "core": true,
+      "text": "Your basic Attack stacks 6% Attack Speed on Critical Strikes up to 10 stacks. Gain 25% Crit chance.",
+      "icon": "/embed/fun/cook-builds/icons/augments/critical-rhythm.png",
+      "id": 1328
+    },
+    {
+      "name": "Scopiest Weapons",
+      "rarity": "Prismatic",
+      "core": true,
+      "text": "Gain Attack Range.",
+      "icon": "/embed/fun/cook-builds/icons/augments/scopiest-weapons.png",
+      "id": 1115
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-20",
-  "share_image": "/embed/fun/cook-builds/share/lulu-whimsy-locked-in.png",
+  "share_href": "/kitchen/2026-11-23",
+  "share_image": "/embed/fun/cook-builds/share/yasuo-unc-is-wallmaxxing.png",
   "item_ids": [
-    3040,
-    3118,
-    2503,
-    3110,
-    3508,
+    6675,
+    2510,
+    3115,
+    3078,
+    3161,
     3158
   ],
   "i18n": {
     "ar": {
-      "title": "النزوة مقفلة",
-      "why": "لولو توقف حماية الجميع وتضغط النزوة مرتين كل ثانية حتى يتحول الفريق المعادي إلى حديقة حيوانات للمداعبة.",
-      "play": "ارفع النزوة أولًا واترك الرمح اللامع عند نقطة واحدة: مدته 7 ثوانٍ في كل رتبة وهو الأرخص هناك. استخدم النزوة على عدو، ثم أي مهارة أخرى، ثم النزوة على التالي، والكم سنجابًا أثناء الانتظار، واضغط النمو المفرط على نفسك لحظة جاهزيته.",
-      "tagline": "عدو واحد يصبح سنجابًا، ثم الثلاثة الآخرون، والخامس يتفرج فقط",
+      "title": "العم بيعمل Wallmaxxing",
+      "why": "ياسو يبطل اندفاعاته ويقف بثبات خلف جدار الرياح، ويلكم وقت التهدئة بعيدًا إلى أن يصير عنده جداران أو ثلاثة دائمًا، ولا شيء له مقذوف يقدر يلعب.",
+      "play": "طوّر جدار الرياح أولًا: الرتبة 5 أقصر تهدئة وأعرض بقرابة الضعف من الرتبة 1. ضع جدارًا، واهجم أقرب هدف من خلفه (الجنود تُحسب)، واضغط W مجددًا لحظة ما يضيء، ولا تندفع للداخل أبدًا.",
+      "tagline": "POV: اخترت بطلًا بعيد المدى والعم نصب ثلاثة جدران قبل ما تنزل أول طلقة",
       "how": [
         [
-          "النزوة",
-          "تحوّل عدوًا إلى مخلوق صغير مسالم لمدة ثانيتين في أعلى رتبة، مع فترة تبريد 18 ثانية. فترة التبريد الطويلة هي سر اللعبة كلها."
+          "جدار الرياح",
+          "يصدّ كل مقذوفات الأعداء لمدة 4 ثوانٍ، بوقت تهدئة 17 ثانية في أعلى رتبة. ياسو ما عنده مانا، فوقت التهدئة هو الثمن الوحيد."
         ],
         [
           "التعزيزات",
-          "الحمل الزائد، عند اختياره على النزوة، يعيد تبريدها في كل مرة تستخدم فيها الرمح اللامع أو النجدة يا بيكس! أو النمو المفرط، وكل نزوة تجعل كبير السحرة يمنح 5.4 ثانية (30% من 18) لواحدة من هذه الثلاث. الصحوة الخارقة تجدد Q وE وتضيف 300 تسارع مهارات بعد كل نمو مفرط، ولكمة الغموض تخصم 1.25 ثانية من كل شيء مع كل ضربة."
+          "لكمة الغموض تنقص 1.25 ثانية من جدار الرياح مع كل هجمة، وإصابة مزدوجة تجعل كل ضربة حرجة تطبّق ذلك مرتين. إصابة مزدوجة والوتيرة الحرجة تجمعان 50% فرصة ضربة حرجة، وسلبيته ترفعها إلى 100%، والوتيرة الحرجة تضيف فوقها 60% سرعة هجوم. أسلحة القنص الأدق تتيح له الضرب من خلف جداره."
         ],
         [
           "العتاد",
-          "عناق سيراف والخبث ومشعل النار السوداء والقلب المتجمد هي شريط المانا، لأن أربعة سناجب غالية الثمن. ناهب الجوهر يعيد المانا في الضربة التي تلي كل تفعيل."
+          "نصال نافوري الخاطفة تقتطع 15% مما تبقى من وقت التهدئة مع كل هجمة. الفجر والغسق وسن ناشور وقوة الثالوث ورمح شوجين وحذاء الوعي الأيوني تمنحه 85 تسريعًا وسرعة هجوم تكفي ليعيد هجومان الجدار."
         ]
       ],
       "augments": [
-        "استخدام قدرة أخرى يعيد ضبط فترة تبريد القدرة المختارة.",
-        "يؤدي إلقاء تعويذة إلى استعادة جزءٍ من تكلفة تعويذة عشوائية أخرى بنسبة 30% من فترة تبريد التعويذة الأصلية.",
-        "تكسب 30 تسارع قدرة خارقة. بعد استخدام القدرة الخارقة، تجدد قدراتك الأساسية وتكسب 300 تسارع قدرة أساسية لمدة 15ث. (فترة تبريد 20ث)",
-        "عند الإصابة، تقلل فترة تهدئة مهاراتك بمقدار 1.25 ثانية."
+        "عند الإصابة، تقلل فترة تهدئة مهاراتك بمقدار 1.25 ثانية.",
+        "تطبّق ضرباتك الحرجة تأثيرات عند الإصابة مرة إضافية. تحصل على فرصة ضربة حرجة.",
+        "يكدّس هجومك الأساسي 6% من سرعة الهجوم عند الضربات الحرجة، حتى 10 تكديسات. تحصل على 25% فرصة ضربة حرجة.",
+        "اكسب مدى هجوم."
       ]
     },
     "cs": {
-      "title": "Rozmar zamčen",
-      "why": "Lulu přestane kohokoli štítit a mačká Rozmar dvakrát za sekundu, dokud se nepřátelský tým nezmění v dětskou zoo.",
-      "play": "Nejdřív maxni Rozmar a Blýskavici nech na jednom bodu: má 7 sekund na každé úrovni a tam je nejlevnější. Rozmar na nepřítele, seslat cokoli jiného, Rozmar na dalšího, mezitím praštit veverku a Rychlorůst si dát na sebe, jakmile je k dispozici.",
-      "tagline": "Jeden nepřítel je veverka, pak další tři a ten pátý se jen dívá",
+      "title": "Strejda staví zdi naplno",
+      "why": "Yasuo přestane dashovat a stojí na svém za Větrnou zdí, vypíná její cooldown pěstmi, až jsou stále nahoře dvě nebo tři zdi a nic s projektilem si nezahraje.",
+      "play": "Nejdřív vymaxuj Větrnou zeď: úroveň 5 má nejkratší cooldown a je skoro dvakrát širší než úroveň 1. Postav zeď, útoč na nejbližší cíl zpoza ní (počítají se i miniony), stiskni W znovu ve chvíli, kdy se rozsvítí, a nikdy se do toho nedashuj.",
+      "tagline": "POV: vybral sis střelce na dálku a strejda postavil tři zdi dřív, než ti dopadla první rána",
       "how": [
         [
-          "Rozmar",
-          "Promění nepřítele v neškodné zvířátko na 2 sekundy na max. úrovni, s odpočtem 18 sekund. Ten dlouhý odpočet je celý trik."
+          "Větrná zeď",
+          "Blokuje všechny nepřátelské projektily po dobu 4 sekund, s cooldownem 17 sekund na nejvyšší úrovni. Yasuo nemá manu, takže cooldown je jediná cena."
         ],
         [
           "Augmenty",
-          "Naprosté přesycení, vylosované na Rozmar, ho resetuje pokaždé, když seslá Blýskavici, Pomoc, Pixi! nebo Rychlorůst, a každý Rozmar způsobí, že Arcimág věnuje 5,4 sekundy (30 % z 18) jedné z těch tří. Ultimátní probuzení obnoví Q a E a po každém Rychlorůstu přidá 300 urychlení schopností a Mystický úder ubere 1,25 sekundy všemu s každým útokem."
+          "Mystický úder ubere Větrné zdi 1,25 sekundy s každým útokem a Dvojitý zásah způsobí, že každý kritický zásah to udělá dvakrát. Dvojitý zásah a Kritický rytmus dohromady dávají 50 % šanci na kritický zásah, kterou jeho pasivka zvedne až na 100 %, a Kritický rytmus k tomu přidá 60 % rychlosti útoku. Nejpřesnější mířidla mu dovolí sekat zpoza vlastní zdi."
         ],
         [
           "Předměty",
-          "Andělská náruč, Zhoubnost, Černá pochodeň a Ledové srdce jsou ukazatel many, protože čtyři veverky jsou drahé. Lovec esence vrací manu při útoku po každém seslání."
+          "Blikavá čepel Navori ubere s každým útokem 15 % ze zbývajícího cooldownu. Soumrak a úsvit, Nashorův tesák, Trojsíla, Oštěp Šódžinu a Ionské boty jasnosti přidají 85 zrychlení a dost rychlosti útoku na to, aby zeď vrátily dva útoky."
         ]
       ],
       "augments": [
-        "Použití jiné schopnosti resetuje přebíjecí dobu zvolené schopnosti.",
-        "Seslání schopnosti vrátí část nákladů jiné náhodné schopnosti ve výši 30 % přebíjecí doby té původní.",
-        "Získáš 30 ke zrychlení ultimátní schopnosti. Po použití ultimátky se ti obnoví základní schopnosti a na 15 sek. získáš 300 ke zrychlení základních schopností. (Přebíjecí doba 20 sek.)",
-        "Při zásahu zkrátí přebíjecí dobu tvých schopností o 1,25 s."
+        "Při zásahu zkrátí přebíjecí dobu tvých schopností o 1,25 s.",
+        "Tvé kritické zásahy použijí efekty při zásahu ještě jednou. Získáš šanci na kritický zásah.",
+        "Tvůj základní útok při kritických zásazích přidává 6 % rychlosti útoků, až do 10 účinků. Získáš 25% šanci na kritický zásah.",
+        "Získáš dosah útoku."
       ]
     },
     "de": {
-      "title": "Laune eingerastet",
-      "why": "Lulu schützt niemanden mehr und drückt zweimal pro Sekunde Laune, bis das gegnerische Team ein Streichelzoo ist.",
-      "play": "Skille zuerst Laune auf Max und lass Glitterlanze auf einem Punkt: Sie hält auf jedem Rang 7 Sekunden und ist dort am billigsten. Laune auf einen Gegner, irgendwas anderes casten, Laune auf den nächsten, nebenbei ein Eichhörnchen verhauen und Wildwuchs auf dich selbst drücken, sobald er bereit ist.",
-      "tagline": "Ein Gegner ist ein Eichhörnchen, dann die anderen drei, und der Fünfte guckt nur zu",
+      "title": "Opa baut Mauern-Maxxing",
+      "why": "Yasuo hört auf zu dashen und steht hinter Windmauer auf Business, boxt sich die Abklingzeit weg, bis dauerhaft zwei oder drei Mauern stehen und nichts mit einem Projektil mehr mitspielen darf.",
+      "play": "Skille Windmauer zuerst: Rang 5 hat die kürzeste Abklingzeit und ist fast doppelt so breit wie Rang 1. Setz eine Mauer, greif von dahinter das Nächstbeste an (Vasallen zählen), drück W erneut, sobald sie aufleuchtet, und dash niemals rein.",
+      "tagline": "POV: Du hast einen Fernkämpfer gelockt und Opa hat drei Mauern gestellt, bevor dein erster Schuss gelandet ist",
       "how": [
         [
-          "Laune",
-          "Verwandelt einen Gegner auf maximalem Rang für 2 Sekunden in ein harmloses Tierchen, bei 18 Sekunden Abklingzeit. Die lange Abklingzeit ist der ganze Trick."
+          "Windmauer",
+          "Blockt 4 Sekunden lang jedes gegnerische Projektil, bei 17 Sekunden Abklingzeit auf höchstem Rang. Yasuo hat kein Mana, die Abklingzeit ist also der einzige Preis."
         ],
         [
           "Augments",
-          "Überladen, auf Laune gewürfelt, setzt sie jedes Mal zurück, wenn sie Glitterlanze, Hilf, Pix! oder Wildwuchs wirkt, und jede Laune lässt Erzmagier 5,4 Sekunden (30 % von 18) an einen dieser drei verschenken. Ultimatives Erwachen frischt Q und E auf und gibt nach jedem Wildwuchs 300 Fähigkeitentempo, und Mystischer Schlag nimmt mit jedem Angriff 1,25 Sekunden von allem ab."
+          "Mystischer Schlag nimmt mit jedem Angriff 1,25 Sekunden von Windmauer ab, und Doppeltreffer sorgt dafür, dass jeder kritische Treffer das zweimal macht. Doppeltreffer und Kritischer Rhythmus ergeben zusammen 50 % kritische Trefferchance, die seine Passive bis auf 100 % hochzieht, und Kritischer Rhythmus legt noch 60 % Angriffstempo obendrauf. Mit Bestes Zielfernrohr kann er hinter seiner eigenen Mauer zuschlagen."
         ],
         [
           "Gegenstände",
-          "Umarmung des Seraphen, Bösartigkeit, Schwarzfeuer-Fackel und Gefrorenes Herz sind die Manaleiste, denn vier Eichhörnchen sind teuer. Essenzräuber zahlt beim Angriff nach jedem Zauber Mana zurück."
+          "Flimmerklinge der Navori nimmt mit jedem Angriff 15 % der übrigen Abklingzeit weg. Tag und Nacht, Nashors Zahn, Stärke der Dreieinigkeit, Speer von Shojin und Ionische Stiefel der Deutlichkeit geben 85 Tempo und genug Angriffstempo, dass zwei Angriffe die Mauer zurückbringen."
         ]
       ],
       "augments": [
-        "Der Einsatz einer anderen Fähigkeit setzt die Abklingzeit der gewählten Fähigkeit zurück.",
-        "Das Wirken eines Zaubers verkürzt die Abklingzeit eines anderen zufälligen Zaubers um 30 % der ursprünglichen Abklingzeit des gewirkten Zaubers.",
-        "Erhalte 30 ultimatives Fähigkeitstempo. Nach dem Einsatz deiner ultimativen Fähigkeit werden deine Basisfähigkeiten aufgefrischt und du erhältst 15 Sek. lang 300 Fähigkeitstempo für Basisfähigkeiten. (20 Sek. Abklingzeit)",
-        "Treffereffekt: Verringert die Abklingzeit deiner Fähigkeiten um 1,25 Sekunden."
+        "Treffereffekt: Verringert die Abklingzeit deiner Fähigkeiten um 1,25 Sekunden.",
+        "Deine kritischen Treffer lösen Treffereffekte ein weiteres Mal aus. Erhalte kritische Trefferchance.",
+        "Dein normaler Angriff stapelt bei kritischen Treffern 6 % Angriffstempo, bis zu 10 Steigerungen. Erhalte 25 % kritische Trefferchance.",
+        "Verleiht Angriffsreichweite."
       ]
     },
     "el": {
-      "title": "Φάρσα κλειδωμένη",
-      "why": "Η Λούλου σταματά να προστατεύει όλους και πατά τη Φάρσα δύο φορές το δευτερόλεπτο, μέχρι η εχθρική ομάδα να γίνει ζωολογικός κήπος με χάδια.",
-      "play": "Μάξαρε πρώτα τη Φάρσα και άφησε τη Νεραϊδολόγχη σε έναν βαθμό: κρατά 7 δευτερόλεπτα σε κάθε επίπεδο και εκεί κοστίζει φθηνότερα. Φάρσα σε έναν εχθρό, ρίξε οτιδήποτε άλλο, Φάρσα στον επόμενο, χτύπα έναν σκίουρο όσο περιμένεις και πάτα τη Ραγδαία Ανάπτυξη στον εαυτό σου μόλις είναι έτοιμη.",
-      "tagline": "Ένας εχθρός είναι σκίουρος, μετά οι άλλοι τρεις, και ο πέμπτος απλώς κοιτάζει",
+      "title": "Ο Μπάρμπας Κάνει Wallmaxxing",
+      "why": "Ο Υασούο σταματά να κάνει dash και στέκεται στα ίσα του πίσω από το Τείχος Ανέμου, γροθιάζοντας το cooldown του μέχρι να υπάρχουν πάντα δύο ή τρία τείχη και τίποτα με βλήμα να μην παίζει.",
+      "play": "Μάξαρε πρώτα το Τείχος Ανέμου: ο βαθμός 5 έχει το πιο σύντομο cooldown και είναι σχεδόν διπλάσιος σε πλάτος από τον βαθμό 1. Ρίξε ένα τείχος, χτύπα ό,τι είναι πιο κοντά από πίσω του (οι μινιόν μετράνε), πάτα ξανά W τη στιγμή που ανάβει και μην κάνεις ποτέ dash μέσα.",
+      "tagline": "POV: διάλεξες ranged πρωταθλητή και ο μπάρμπας έστησε τρία τείχη πριν προλάβει να φτάσει η πρώτη σου βολή",
       "how": [
         [
-          "Φάρσα",
-          "Μετατρέπει έναν εχθρό σε αβλαβές ζωάκι για 2 δευτερόλεπτα στο μέγιστο επίπεδο, με επαναφόρτιση 18 δευτερολέπτων. Η μεγάλη επαναφόρτιση είναι όλο το κόλπο."
+          "Τείχος Ανέμου",
+          "Μπλοκάρει κάθε εχθρικό βλήμα για 4 δευτερόλεπτα, με cooldown 17 δευτερολέπτων στον ανώτατο βαθμό. Ο Υασούο δεν έχει μάνα, οπότε το cooldown είναι το μόνο τίμημα."
         ],
         [
           "Ενισχύσεις",
-          "Η Υπέρταση, που τραβήχτηκε στη Φάρσα, την επαναφέρει κάθε φορά που ρίχνει Νεραϊδολόγχη, Βοήθεια, Πιξ! ή Ραγδαία Ανάπτυξη, και κάθε Φάρσα κάνει τον Αρχιμάγο να δίνει 5,4 δευτερόλεπτα (30% του 18) σε μία από αυτές τις τρεις. Η Υπέρτατη Αφύπνιση ανανεώνει τα Q και E και προσθέτει 300 επιτάχυνση ικανοτήτων μετά από κάθε Ραγδαία Ανάπτυξη, και η Μυστικιστική Γροθιά αφαιρεί 1,25 δευτερόλεπτα από τα πάντα σε κάθε επίθεση."
+          "Η Μυστικιστική Γροθιά κόβει 1,25 δευτερόλεπτα από το Τείχος Ανέμου με κάθε επίθεση, και το Διπλό Άγγιγμα κάνει κάθε κριτικό να το εφαρμόζει δύο φορές. Το Διπλό Άγγιγμα και ο Καίριος Ρυθμός αθροίζουν 50% πιθανότητα κριτικού, που το πασσίβ του ανεβάζει μέχρι και 100%, και ο Καίριος Ρυθμός προσθέτει από πάνω 60% ταχύτητα επίθεσης. Τα Όπλα με Όλες τις Διόπτρες τον αφήνουν να χτυπά πίσω από το δικό του τείχος."
         ],
         [
           "Αντικείμενα",
-          "Η Προστασία των Σεραφείμ, η Κακοήθεια, ο Πυρσός Μαύρου Πυρός και η Παγωμένη Καρδιά είναι η μπάρα μάνα, γιατί τέσσερις σκίουροι κοστίζουν ακριβά. Ο Θεριστής Ψυχών επιστρέφει μάνα στην επίθεση μετά από κάθε ρίψη."
+          "Η Τρεμολεπίδα των Ναβόρι κόβει 15% από ό,τι έχει μείνει από το cooldown με κάθε επίθεση. Το Δειλινό και Αυγή, το Δόντι του Νάσορ, η Δύναμη της Τριάδας, το Δόρυ του Σοτζίν και οι Ιόνιες Μπότες της Διαύγειας προσθέτουν 85 επιτάχυνση και αρκετή ταχύτητα επίθεσης ώστε δύο επιθέσεις να φέρνουν πίσω το τείχος."
         ]
       ],
       "augments": [
-        "Η χρήση άλλης Ικανότητας επαναφέρει τον χρόνο επαναφόρτισης της επιλεγμένης ικανότητας.",
-        "Η χρήση μιας ικανότητας σάς αποζημιώνει για το 30% του Χρόνου Επαναφόρτισης επί του κόστους μιας άλλης τυχαίας ικανότητας.",
-        "Αποκτάτε 30 Επιτάχυνση Υπέρτατης Ικανότητας. Αφού χρησιμοποιήσετε την Υπέρτατη Ικανότητά σας, ανανεώνετε τις βασικές ικανότητές σας και αποκτάτε 300 Επιτάχυνση βασικών ικανοτήτων για 15 δευτ. (Χρόνος Επαναφόρτισης: 20 δευτ.)",
-        "Κατά το χτύπημα, μειώνει τον χρόνο επαναφόρτισης των ικανοτήτων σου κατά 1,25 δευτερόλεπτα."
+        "Κατά το χτύπημα, μειώνει τον χρόνο επαναφόρτισης των ικανοτήτων σου κατά 1,25 δευτερόλεπτα.",
+        "Τα Καίρια Πλήγματά σου εφαρμόζουν τα εφέ κατά το χτύπημα μία επιπλέον φορά. Κερδίζεις πιθανότητα καίριου.",
+        "Η βασική Επίθεσή σου στοιβάζει 6% Ταχύτητα Επίθεσης στα Καίρια Πλήγματα, έως 10 στοίβες. Κερδίζεις 25% πιθανότητα καίριου.",
+        "Κερδίζεις εμβέλεια επίθεσης."
       ]
     },
     "es-MX": {
-      "title": "Capricho fijado",
-      "why": "Lulu deja de cubrir a todos con escudos y le da a Capricho dos veces por segundo hasta que el equipo enemigo es un zoológico de mascotas.",
-      "play": "Sube Capricho al máximo primero y deja Lanza Brillantina en un punto: dura 7 segundos en cada rango y ahí es más barata. Capricho a un enemigo, lanza cualquier otra cosa, Capricho al siguiente, dale un puñetazo a una ardilla mientras esperas y ponte Enormamiento en cuanto esté listo.",
-      "tagline": "Un enemigo es una ardilla, luego los otros tres, y el quinto nomás está viendo",
+      "title": "El Tío Hace Wallmaxxing",
+      "why": "Yasuo deja de hacer dash y se planta firme detrás de Muro de Viento, a puñetazos le quita el tiempo de reutilización hasta que siempre hay dos o tres muros arriba y nada con proyectil puede jugar.",
+      "play": "Sube primero Muro de Viento: el rango 5 tiene la reutilización más corta y es casi el doble de ancho que el rango 1. Pon un muro, ataca a lo más cercano desde atrás (los súbditos cuentan), vuelve a presionar W en cuanto se ilumine y jamás entres con dash.",
+      "tagline": "POV: elegiste un campeón a distancia y el tío puso tres muros antes de que aterrizara tu primer disparo",
       "how": [
         [
-          "Capricho",
-          "Convierte a un enemigo en un animalito inofensivo por 2 segundos al rango máximo, con 18 segundos de enfriamiento. Ese enfriamiento largo es todo el truco."
+          "Muro de Viento",
+          "Bloquea todos los proyectiles enemigos durante 4 segundos, con 17 segundos de reutilización en el rango máximo. Yasuo no tiene maná, así que la reutilización es el único costo."
         ],
         [
           "Aumentos",
-          "Sobrecargado, sacado en Capricho, lo reinicia cada vez que lanza Lanza Brillantina, ¡Ayudita, Pix! o Enormamiento, y cada Capricho hace que Archimago le dé 5.4 segundos (30% de sus 18) a uno de esos tres. Despertar Definitivo refresca Q y E y agrega 300 de aceleración de habilidad después de cada Enormamiento, y Golpe Místico quita 1.25 segundos de todo por cada ataque."
+          "Golpe Místico le quita 1.25 segundos a Muro de Viento con cada ataque, y Toque Doble hace que cada crítico lo aplique dos veces. Toque Doble y Ritmo Crítico suman 50% de probabilidad de golpe crítico, que su pasiva sube hasta 100%, y Ritmo Crítico agrega encima 60% de velocidad de ataque. De Más Largo Alcance le permite atacar desde atrás de su propio muro."
         ],
         [
           "Objetos",
-          "Abrazo del Serafín, Maldad, Antorcha de Fuegoscuro y Corazón de Hielo son la barra de maná, porque cuatro ardillas salen caras. Saqueador de Esencias devuelve maná en el ataque después de cada lanzamiento."
+          "Cuchilla Rauda de Navori recorta 15% de lo que quede de la reutilización con cada ataque. Ocaso y Alba, Diente de Nashor, Fuerza de la Trinidad, Lanza de Shojin y las Botas Jonias de la Lucidez suman 85 de velocidad y suficiente velocidad de ataque para que dos ataques traigan de vuelta el muro."
         ]
       ],
       "augments": [
-        "Usar otra habilidad reinicia el enfriamiento de la habilidad elegida.",
-        "Lanzar un hechizo reduce el enfriamiento de otro hechizo aleatorio en 30% del enfriamiento original del hechizo lanzado.",
-        "Obtienes 30 de velocidad de habilidades definitivas. Después de usar tu definitiva, se reinician tus habilidades básicas y obtienes 300 de velocidad de habilidades básicas por 15 s. (20 s de enfriamiento)",
-        "Al golpear, reduce el enfriamiento de tus habilidades en 1.25 segundos."
+        "Al golpear, reduce el enfriamiento de tus habilidades en 1.25 segundos.",
+        "Tus golpes críticos aplican los efectos al impactar una vez más. Obtienes probabilidad de crítico.",
+        "Tu ataque básico acumula 6% de velocidad de ataque con los golpes críticos, hasta 10 acumulaciones. Obtienes 25% de probabilidad de crítico.",
+        "Gana alcance de ataque."
       ]
     },
     "es": {
-      "title": "Banal fijado",
-      "why": "Lulu deja de proteger a nadie y pulsa Banal dos veces por segundo hasta que el equipo enemigo parece un zoo de mascotas.",
-      "play": "Sube Banal al máximo primero y deja Lanza reluciente en un punto: dura 7 segundos en cada rango y ahí es más barata. Banal a un enemigo, lanza cualquier otra cosa, Banal al siguiente, dale un guantazo a una ardilla mientras esperas y ponte Crecimiento salvaje en cuanto esté lista.",
-      "tagline": "Un enemigo es una ardilla, luego los otros tres, y el quinto solo mira",
+      "title": "El Abuelo Hace Wallmaxxing",
+      "why": "Yasuo deja de hacer dash y se planta con firmeza tras Muro de viento, a puñetazos le quita la recarga hasta que siempre hay dos o tres muros arriba y nada con proyectil puede jugar.",
+      "play": "Sube primero Muro de viento: el rango 5 tiene la recarga más corta y es casi el doble de ancho que el rango 1. Pon un muro, ataca a lo más cercano desde detrás (los súbditos cuentan), vuelve a pulsar W en cuanto se ilumine y no entres nunca con dash.",
+      "tagline": "POV: has elegido un campeón a distancia y el abuelo ha puesto tres muros antes de que aterrizara tu primer disparo",
       "how": [
         [
-          "Banal",
-          "Convierte a un enemigo en un bichito inofensivo durante 2 segundos al rango máximo, con 18 segundos de reutilización. Esa reutilización tan larga es todo el truco."
+          "Muro de viento",
+          "Bloquea todos los proyectiles enemigos durante 4 segundos, con 17 segundos de recarga en el rango máximo. Yasuo no tiene maná, así que la recarga es el único precio."
         ],
         [
           "Aumentos",
-          "Sobrecarga, sacada en Banal, lo reinicia cada vez que lanza Lanza reluciente, ¡Ayuda, Pix! o Crecimiento salvaje, y cada Banal hace que Archimago regale 5,4 segundos (el 30 % de sus 18) a una de esas tres. Despertar definitivo refresca Q y E y añade 300 de aceleración de habilidad tras cada Crecimiento salvaje, y Guantazo místico quita 1,25 segundos a todo con cada ataque."
+          "Guantazo místico le quita 1,25 segundos a Muro de viento con cada ataque, y Redoble hace que cada crítico lo aplique dos veces. Redoble y Ritmo crítico suman un 50 % de probabilidad de crítico, que su pasiva sube hasta el 100 %, y Ritmo crítico añade encima un 60 % de velocidad de ataque. Armas telescópicamente telescópicas le dejan atacar desde detrás de su propio muro."
         ],
         [
           "Objetos",
-          "Abrazo del serafín, Malignidad, Antorcha de fuego negro y Corazón de hielo son la barra de maná, porque cuatro ardillas salen caras. Segador de esencia devuelve maná en el ataque posterior a cada lanzamiento."
+          "Filofugaz de Navori recorta un 15 % de lo que quede de la recarga con cada ataque. Amanecer y anochecer, Diente de Nashor, Fuerza de trinidad, Lanza de Shojin y Botas jonias de la lucidez suman 85 de velocidad y la velocidad de ataque justa para que dos ataques traigan el muro de vuelta."
         ]
       ],
       "augments": [
-        "Usar otra habilidad reinicia el enfriamiento de la habilidad elegida.",
-        "Lanzar un hechizo reduce el enfriamiento de otro hechizo aleatorio en un 30 % del enfriamiento original del hechizo lanzado.",
-        "Obtienes 30 de velocidad de habilidades definitivas. Tras usar tu definitiva, se reinician tus habilidades básicas y obtienes 300 de velocidad de habilidades básicas durante 15 s. (20 s de enfriamiento)",
-        "Al impactar, reduce el enfriamiento de tus habilidades en 1,25 segundos."
+        "Al impactar, reduce el enfriamiento de tus habilidades en 1,25 segundos.",
+        "Tus golpes críticos aplican los efectos al impactar una vez más. Obtienes probabilidad de crítico.",
+        "Tu ataque básico acumula un 6 % de velocidad de ataque con los golpes críticos, hasta 10 acumulaciones. Obtienes un 25 % de probabilidad de crítico.",
+        "Gana alcance de ataque."
       ]
     },
     "fr": {
-      "title": "Fantaisie verrouillée",
-      "why": "Lulu arrête de protéger qui que ce soit et appuie sur Fantaisie deux fois par seconde jusqu'à ce que l'équipe ennemie devienne une mini-ferme.",
-      "play": "Monte Fantaisie en premier et laisse Duo éclatant à un seul point : il dure 7 secondes à chaque rang et c'est là qu'il coûte le moins. Fantaisie sur un ennemi, lance n'importe quoi d'autre, Fantaisie sur le suivant, colle un coup de poing à un écureuil en attendant et lance Croissance prodigieuse sur toi dès qu'elle est prête.",
-      "tagline": "Un ennemi devient un écureuil, puis les trois autres, et le cinquième regarde juste",
+      "title": "Tonton fait du Wallmaxxing",
+      "why": "Yasuo arrête de dasher et reste droit dans ses bottes derrière Mur de vent, en lui boxant son délai de récupération jusqu'à ce que deux ou trois murs soient toujours up et que rien avec un projectile ne puisse jouer.",
+      "play": "Monte d'abord Mur de vent : le rang 5 a le délai de récupération le plus court et est presque deux fois plus large que le rang 1. Pose un mur, attaque ce qui est le plus proche depuis derrière (les sbires comptent), appuie de nouveau sur W dès qu'il s'illumine et ne dash jamais dedans.",
+      "tagline": "POV : tu as locké un champion à distance et tonton a posé trois murs avant que ton premier tir n'atterrisse",
       "how": [
         [
-          "Fantaisie",
-          "Transforme un ennemi en petite bestiole inoffensive pendant 2 secondes au rang max, avec 18 secondes de délai de récupération. Ce long délai, c'est toute l'astuce."
+          "Mur de vent",
+          "Bloque tous les projectiles ennemis pendant 4 secondes, avec 17 secondes de délai de récupération au rang max. Yasuo n'a pas de mana, donc le délai de récupération est le seul prix."
         ],
         [
           "Augments",
-          "Réinitialisation, tirée sur Fantaisie, la remet à zéro chaque fois qu'elle lance Duo éclatant, Pix à la rescousse ! ou Croissance prodigieuse, et chaque Fantaisie fait céder à Archimage 5,4 secondes (30 % de ses 18) à l'un de ces trois sorts. Éveil ultime rafraîchit Q et E et ajoute 300 d'accélération de compétence après chaque Croissance prodigieuse, et Coups accélérants retire 1,25 seconde à tout à chaque attaque."
+          "Coups accélérants retire 1,25 seconde à Mur de vent à chaque attaque, et Maléfices de zone fait que chaque coup critique l'applique deux fois. Maléfices de zone et Rythme critique donnent ensemble 50 % de chances de coup critique, que sa passive pousse jusqu'à 100 %, et Rythme critique ajoute 60 % de vitesse d'attaque par-dessus. Armes à très grosse lunette lui permet de frapper depuis derrière son propre mur."
         ],
         [
           "Objets",
-          "Étreinte du séraphin, Malfaisance, Torche noire et Cœur gelé forment la barre de mana, parce que quatre écureuils, ça coûte cher. Faux spectrale rend du mana à l'attaque qui suit chaque lancer."
+          "Tremblelame navori retire 15 % de ce qui reste du délai de récupération à chaque attaque. Aube et crépuscule, Dent de Nashor, Force de la trinité, Lance de Shojin et Bottes de lucidité ajoutent 85 d'accélération et assez de vitesse d'attaque pour que deux attaques ramènent le mur."
         ]
       ],
       "augments": [
-        "Utiliser une autre compétence réinitialise le délai de récupération de la compétence choisie.",
-        "Lancer un sort réduit le délai de récupération d'un autre sort au hasard de 30 % du délai de récupération d'origine du sort lancé.",
-        "Gagnez 30 d'accélération de compétence ultime. Après avoir utilisé votre ultime, vos compétences de base sont réinitialisées et vous gagnez 300 d'accélération de compétence de base pendant 15 s. (20 s de délai de récupération)",
-        "À l'impact, réduit le délai de récupération de vos compétences de 1,25 seconde."
+        "À l'impact, réduit le délai de récupération de vos compétences de 1,25 seconde.",
+        "Vos coups critiques appliquent les effets à l'impact une fois de plus. Octroie des chances de coup critique.",
+        "Votre attaque de base cumule 6 % de vitesse d'attaque sur les coups critiques, jusqu'à 10 cumuls. Octroie 25 % de chances de coup critique.",
+        "Octroie de la portée d'attaque."
       ]
     },
     "hu": {
-      "title": "Szeszély bezárva",
-      "why": "Lulu abbahagyja a pajzsolást, és másodpercenként kétszer nyomja a Szeszélyt, amíg az ellenséges csapat egy kisállat-simogató nem lesz.",
-      "play": "Először maxold a Szeszélyt, a Ragyogó sugárból pedig elég egy pont: minden szinten 7 másodperc, és ott a legolcsóbb. Szeszély az egyik ellenfélre, bármi más képesség, Szeszély a következőre, üss meg egy mókust, amíg vársz, és a Vadon szava mehet magadra, amint lehet.",
-      "tagline": "Az egyik ellenfél mókus, aztán a másik három is, az ötödik meg csak nézi",
+      "title": "Az öreg fal-maxxing közben",
+      "why": "Yasuo abbahagyja a dashelést, és keményen kiáll a Szélfal mögött: az ütésekkel addig tolja le a töltési idejét, amíg két-három fal mindig fent van, és semmi lövedékes nem játszhat.",
+      "play": "Először a Szélfalat maxold: az 5. szinten a legrövidebb a töltési idő, és majdnem kétszer olyan széles, mint az 1. szinten. Rakj le egy falat, üsd a legközelebbit mögüle (a minyonok is számítanak), nyomd újra a W-t, amint felvillan, és soha ne dashelj be.",
+      "tagline": "POV: lockoltál egy távolsági bajnokot, és az öreg három falat húzott fel, mielőtt az első lövésed becsapódott volna",
       "how": [
         [
-          "Szeszély",
-          "Max szinten 2 másodpercre ártalmatlan kis jószággá változtat egy ellenfelet, 18 másodperces újratöltéssel. Az a hosszú újratöltés a trükk lényege."
+          "Szélfal",
+          "4 másodpercig blokkol minden ellenséges lövedéket, max szinten 17 másodperces töltési idővel. Yasuónak nincs manája, így a töltési idő az egyetlen ár."
         ],
         [
           "Bővítések",
-          "A Szeszélyre húzott Túltöltött minden alkalommal visszaállítja, amikor Lulu Ragyogó sugarat, Segíts, Pix!-et vagy A vadon szavát használ, és minden Szeszély után a Főmágus 5,4 másodpercet (a 18 30%-át) ad az egyik ilyen képességnek. A Végső ébredés újratölti a Q-t és az E-t, és minden A vadon szava után 300 gyorsítást ad, a Misztikus ütés pedig támadásonként 1,25 másodpercet vesz le mindenről."
+          "A Misztikus ütés minden támadással 1,25 másodpercet vesz le a Szélfal töltési idejéből, a Dupla lövés pedig minden krittet kétszer érvényesít. A Dupla lövés és a Kritikus ritmus együtt 50% kritikus esélyt ad, amit a passzívja egészen 100%-ig feltol, a Kritikus ritmus ráadásul 60% támadási sebességet rak rá. A Legtávcsövesebb fegyverek lehetővé teszik, hogy a saját fala mögül csapjon."
         ],
         [
           "Tárgyak",
-          "A szeráf ölelése, Rosszindulat, Fekete fáklya és Fagyos szív a mana-sáv, mert négy mókus drága mulatság. Az Esszenciamartalóc minden képesség után a következő támadáson visszatölti a manát."
+          "A Navori villanópenge minden támadással 15%-ot vág le a hátralévő töltési időből. Az Alkony és hajnal, Nashor foga, A háromság hatalma, Shojin lándzsája és az Ioniai fénycipő 85 gyorsítást és annyi támadási sebességet ad, hogy két támadás visszahozza a falat."
         ]
       ],
       "augments": [
-        "Egy másik képesség használata visszaállítja a választott képesség töltési idejét.",
-        "Egy képesség elsütése az eredeti képesség töltési idejének 30%-ával megegyező mértékben tölti vissza egy másik, véletlenszerű képesség költségét.",
-        "30 végsőképesség-gyorsítást kapsz. A végső képességed használata után minden alapképességed töltési ideje visszaáll, és 15 másodpercre 300 alapképesség-gyorsítást kapsz. (20 mp. töltési idő)",
-        "Találatkor 1,25 másodperccel csökkenti a képességeid töltési idejét."
+        "Találatkor 1,25 másodperccel csökkenti a képességeid töltési idejét.",
+        "A kritikus találataid még egyszer kiváltják a találatkori hatásokat. Kritikus esélyt kapsz.",
+        "Az alaptámadásod kritikus találatkor 6% támadási sebességet halmoz, legfeljebb 10 halomig. 25% kritikus esélyt kapsz.",
+        "Támadási hatótávolságot ad."
       ]
     },
     "id": {
-      "title": "Whimsy Terkunci",
-      "why": "Lulu berhenti ngasih shield ke siapa pun dan mencet Whimsy dua kali per detik sampai tim musuh jadi kebun binatang mini.",
-      "play": "Max Whimsy duluan dan Glitterlance cukup 1 poin: durasinya 7 detik di semua rank dan paling murah di situ. Whimsy satu musuh, cast skill lain, Whimsy musuh berikutnya, tonjok tupai sambil nunggu, lalu pakai Wild Growth ke diri sendiri begitu siap.",
-      "tagline": "Satu musuh jadi tupai, lalu tiga lainnya, dan yang kelima cuma nonton",
+      "title": "Unc Lagi Wallmaxxing",
+      "why": "Yasuo berhenti dash dan stands on business di belakang Wind Wall, memukul cooldown-nya sampai habis sampai dua atau tiga wall selalu aktif dan tidak ada yang punya projectile bisa main.",
+      "play": "Max Wind Wall dulu: rank 5 punya cooldown paling pendek dan hampir dua kali lebih lebar dari rank 1. Pasang wall, serang apa pun yang paling dekat dari belakangnya (minion juga boleh), tekan W lagi begitu menyala, dan jangan pernah dash masuk.",
+      "tagline": "POV: kamu locked in pakai champ ranged dan unc sudah pasang tiga wall sebelum tembakan pertamamu kena",
       "how": [
         [
-          "Whimsy",
-          "Mengubah musuh jadi hewan kecil tak berbahaya selama 2 detik di rank maksimal, dengan cooldown 18 detik. Cooldown panjang itu kunci triknya."
+          "Wind Wall",
+          "Memblokir semua projectile musuh selama 4 detik, dengan cooldown 17 detik di rank maksimal. Yasuo tidak punya mana, jadi cooldown satu-satunya harganya."
         ],
         [
           "Augment",
-          "Overloaded, di-roll di Whimsy, mereset Whimsy setiap kali Lulu cast Glitterlance, Help, Pix! atau Wild Growth, dan setiap Whimsy bikin Archmage ngasih 5,4 detik (30% dari 18) ke salah satu dari tiga skill itu. Ultimate Awakening me-refresh Q dan E dan nambah 300 haste setelah tiap Wild Growth, dan Mystic Punch memotong 1,25 detik dari semuanya per serangan."
+          "Mystic Punch memotong 1,25 detik dari Wind Wall di setiap serangan, dan Double Tap bikin setiap crit menerapkannya dua kali. Double Tap dan Critical Rhythm menambah total 50% crit chance, yang dinaikkan passive-nya sampai 100%, dan Critical Rhythm menumpuk 60% attack speed di atasnya. Scopiest Weapons bikin dia bisa menebas dari balik wall-nya sendiri."
         ],
         [
           "Item",
-          "Seraph's Embrace, Malignance, Blackfire Torch dan Frozen Heart jadi bar mana, karena empat tupai itu mahal. Essence Reaver mengembalikan mana lewat serangan setelah tiap cast."
+          "Navori Flickerblade memotong 15% dari sisa cooldown di setiap serangan. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin, dan Ionian Boots menambah 85 haste dan cukup attack speed sampai dua serangan sudah memunculkan wall lagi."
         ]
       ],
       "augments": [
-        "Memakai Ability lain mereset cooldown ability yang dipilih.",
-        "Meng-cast spell mengembalikan biaya spell acak lain sebesar 30% dari Cooldown spell aslinya.",
-        "Dapatkan 30 Ultimate Ability Haste. Setelah memakai Ultimate, segarkan ability dasarmu dan dapatkan 300 Ability Haste dasar selama 15 detik. (Cooldown 20 detik)",
-        "On-Hit mengurangi cooldown skill-mu sebesar 1,25 detik."
+        "On-Hit mengurangi cooldown skill-mu sebesar 1,25 detik.",
+        "Critical Strike-mu menerapkan efek On-Hit sekali lagi. Dapatkan crit chance.",
+        "Basic Attack-mu menumpuk 6% Attack Speed saat Critical Strike, hingga 10 tumpukan. Dapatkan 25% crit chance.",
+        "Dapat Attack Range."
       ]
     },
     "it": {
-      "title": "Metamorfosi bloccata",
-      "why": "Lulu smette di proteggere chiunque e preme Metamorfosi due volte al secondo finché la squadra nemica non diventa uno zoo di contatto.",
-      "play": "Porta al massimo Metamorfosi per prima e lascia Lancia luccicante a un punto: dura 7 secondi a ogni rango ed è più economica lì. Metamorfosi su un nemico, lancia qualsiasi altra cosa, Metamorfosi sul successivo, prendi a pugni uno scoiattolo mentre aspetti e usa Crescita selvaggia su te stessa appena è pronta.",
-      "tagline": "Un nemico è uno scoiattolo, poi gli altri tre, e il quinto sta solo a guardare",
+      "title": "Il vecchio fa wallmaxxing",
+      "why": "Yasuo smette di scattare e stands on business dietro il Muro di vento, prendendo a pugni il suo tempo di ricarica finché due o tre muri sono sempre su e niente che abbia un proiettile può giocare.",
+      "play": "Maxa prima il Muro di vento: il grado 5 ha la ricarica più corta ed è largo quasi il doppio del grado 1. Metti un muro, attacca chi ti è più vicino da dietro (i minion contano), premi di nuovo W appena si illumina e non scattare mai dentro.",
+      "tagline": "POV: hai lockato un campione a distanza e il vecchio ha messo su tre muri prima che il tuo primo colpo arrivasse",
       "how": [
         [
-          "Metamorfosi",
-          "Trasforma un nemico in una creaturina innocua per 2 secondi al rango massimo, con 18 secondi di ricarica. Quella ricarica lunga è tutto il trucco."
+          "Muro di vento",
+          "Blocca ogni proiettile nemico per 4 secondi, con una ricarica di 17 secondi al grado massimo. Yasuo non ha mana, quindi la ricarica è l'unico prezzo."
         ],
         [
           "Potenziamenti",
-          "Sovraccaricato, scelto su Metamorfosi, la resetta ogni volta che lancia Lancia luccicante, Aiuto, Pix! o Crescita selvaggia, e ogni Metamorfosi fa sì che Arcimago passi 5,4 secondi (il 30% di 18) a una di quelle tre. Risveglio supremo ricarica Q ed E e aggiunge 300 di rapidità dopo ogni Crescita selvaggia, e Pugno mistico toglie 1,25 secondi a tutto a ogni attacco."
+          "Pugno mistico toglie 1,25 secondi al Muro di vento a ogni attacco, e Doppio colpo fa applicare ogni critico due volte. Doppio colpo e Ritmo critico sommano il 50% di probabilità di critico, che la sua passiva porta fino al 100%, e Ritmo critico ci aggiunge il 60% di velocità d'attacco. Armi ancora più precise gli permettono di menare da dietro il suo stesso muro."
         ],
         [
           "Oggetti",
-          "Abbraccio serafico, Malignità, Torcia del fuoco tetro e Fulcro dei geli sono la barra del mana, perché quattro scoiattoli costano cari. Predatore d'essenza ridà mana con l'attacco dopo ogni lancio."
+          "Lama rotante Navori toglie il 15% della ricarica rimasta a ogni attacco. Crepuscolo e Alba, Dente di Nashor, Virtù della Triade, Lancia di Shojin e Stivali dell'acume di Ionia danno 85 di velocità e abbastanza velocità d'attacco da far tornare il muro in due attacchi."
         ]
       ],
       "augments": [
-        "Usare un'altra abilità azzera la ricarica dell'abilità scelta.",
-        "Lanciare un incantesimo riduce la ricarica di un altro incantesimo casuale del 30% della ricarica originale dell'incantesimo lanciato.",
-        "Ottieni 30 di velocità abilità suprema. Dopo aver usato la tua suprema, le tue abilità base vengono ripristinate e ottieni 300 di velocità abilità base per 15 s. (20 s di ricarica)",
-        "Sul colpo, riduce la ricarica delle tue abilità di 1,25 secondi."
+        "Sul colpo, riduce la ricarica delle tue abilità di 1,25 secondi.",
+        "I tuoi colpi critici applicano gli effetti sul colpo un'altra volta. Ottieni probabilità di critico.",
+        "Il tuo attacco base accumula il 6% di velocità d'attacco sui colpi critici, fino a 10 cariche. Ottieni il 25% di probabilità di critico.",
+        "Ottieni gittata d'attacco."
       ]
     },
     "ja": {
-      "title": "イタズラ全振り",
-      "why": "ルルはもう誰もシールドせず、敵チームが触れ合い動物園になるまで1秒に2回イタズラを押し続けます。",
-      "play": "まずイタズラを最大にして、ぴかぴかビームは1ポイントでストップ。どのランクでも7秒で、そこが一番お安いです。敵にイタズラ、別のスキルを使って、次の敵にイタズラ、待ち時間にリスをパンチして、おおきくなぁれ！は使えるようになったらすぐ自分に。",
-      "tagline": "まず1人がリス、次に残りの3人、そして5人目はただ見てるだけ",
+      "title": "おじさん、壁マシマシ",
+      "why": "ヤスオはダッシュをやめて、風殺の壁の後ろでどっしり構え、殴ってクールダウンを削り続ける。常に壁が2〜3枚立つようになり、飛び道具を持つ相手は何もできない。",
+      "play": "まず風殺の壁を最大まで上げよう。ランク5はクールダウンが最短で、幅もランク1のほぼ2倍。壁を置いたら、その後ろから一番近い相手(ミニオンもOK)を攻撃し、光ったらすぐにWをもう一度押す。突っ込みは禁止。",
+      "tagline": "POV: 遠距離チャンピオンをロックインしたら、最初の一発が当たる前におじさんが壁を3枚立てていた",
       "how": [
         [
-          "イタズラ",
-          "最大ランクで敵を2秒間無害な小動物に変えます。クールダウンは18秒。この長いクールダウンこそがキモです。"
+          "風殺の壁",
+          "敵の飛び道具をすべて4秒間ブロック。最大ランクでクールダウンは17秒。ヤスオはマナを使わないので、代償はクールダウンだけ。"
         ],
         [
           "オーグメント",
-          "イタズラに付けたオーバーロードは、ルルがぴかぴかビーム、ピックス、おねがい！、おおきくなぁれ！のどれかを使うたびにイタズラをリセットし、イタズラのたびに魔帝がその3つのどれかに5.4秒（18の30%）を渡します。究極の目覚めはQとEをリフレッシュし、おおきくなぁれ！のたびに加速を300追加。神秘の鉄拳は攻撃ごとにすべてのクールダウンを1.25秒短縮します。"
+          "神秘の鉄拳は攻撃のたびに風殺の壁のクールダウンを1.25秒短縮し、ダブルタップはクリティカルのたびにそれを2回適用する。ダブルタップとクリティカルの律動でクリティカル率は合計50%、パッシブでそれが最大100%まで伸び、さらにクリティカルの律動が攻撃速度60%を上乗せする。超改造スコープ装着のおかげで、自分の壁の後ろから斬りつけられる。"
         ],
         [
           "アイテム",
-          "セラフ エンブレイス、マリグナンス、黒炎のトーチ、フローズン ハートがマナ源です。だってリス4匹は高くつくので。エッセンス リーバーはスキルを使った後の攻撃でマナを返してくれます。"
+          "ナヴォリ フリッカーブレードは攻撃のたびに残りクールダウンの15%を短縮する。黄昏と暁、ナッシャー トゥース、トリニティ フォース、ショウジンの矛、アイオニア ブーツでヘイスト85と十分な攻撃速度が付き、2回の攻撃で壁が戻ってくる。"
         ]
       ],
       "augments": [
-        "他のスキルを使うと、選んだスキルのクールダウンがリセットされる。",
-        "スキルを使うと、元のスキルのクールダウンの30%分、ランダムな別のスキルのコストを返還する。",
-        "アルティメットスキルヘイスト30を獲得。アルティメット使用後、通常スキルをリフレッシュし、15秒間通常スキルのスキルヘイスト300を獲得する。(クールダウン20秒)",
-        "通常攻撃時: スキルのクールダウンを1.25秒短縮する。"
+        "通常攻撃時: スキルのクールダウンを1.25秒短縮する。",
+        "クリティカルが通常攻撃時効果をもう一度発動する。クリティカル率を獲得。",
+        "通常攻撃がクリティカルになると攻撃速度6%をスタック（最大10スタック）。クリティカル率25%を獲得。",
+        "攻撃範囲を獲得。"
       ]
     },
     "ko": {
-      "title": "변덕쟁이 올인",
-      "why": "룰루는 아무에게도 보호막을 씌우지 않고, 적 팀이 동물 체험장이 될 때까지 변덕쟁이를 1초에 두 번씩 누릅니다.",
-      "play": "변덕쟁이를 먼저 마스터하고 반짝반짝 창은 1포인트만 찍으세요. 어느 랭크든 7초라 거기가 제일 가성비입니다. 적 하나에 변덕쟁이, 다른 스킬 쓰고, 다음 적에게 변덕쟁이, 기다리는 동안 다람쥐를 한 대 치고, 급성장은 쿨이 돌자마자 자기한테 쓰세요.",
-      "tagline": "한 명은 다람쥐, 그다음 나머지 세 명, 다섯 번째는 그냥 구경 중",
+      "title": "아재, 벽맥싱 중",
+      "why": "야스오는 돌진을 멈추고 바람 장막 뒤에서 당당하게 버티며, 쿨타임이 다 닳을 때까지 주먹으로 두들긴다. 그러면 장막 두세 개가 항상 떠 있고, 투사체 가진 놈은 아무것도 못 한다.",
+      "play": "바람 장막부터 마스터하자. 5레벨은 쿨타임이 가장 짧고 폭도 1레벨의 거의 두 배다. 장막을 깔고, 그 뒤에서 제일 가까운 대상(미니언도 OK)을 때리고, 불이 들어오면 바로 W를 다시 누르고, 절대 돌진해 들어가지 말 것.",
+      "tagline": "POV: 원거리 챔피언 락인했는데 첫 공격이 맞기도 전에 아재가 장막을 세 개나 깔았다",
       "how": [
         [
-          "변덕쟁이",
-          "최대 랭크에서 적을 2초 동안 무해한 동물로 바꾸고, 재사용 대기시간은 18초입니다. 이 긴 쿨타임이 핵심입니다."
+          "바람 장막",
+          "적의 모든 투사체를 4초 동안 막는다. 최대 레벨에서 쿨타임은 17초. 야스오는 마나가 없으니 쿨타임이 유일한 대가다."
         ],
         [
           "증강",
-          "변덕쟁이에 뽑은 과충전은 룰루가 반짝반짝 창, 도와줘, 픽스!, 급성장을 쓸 때마다 변덕쟁이를 초기화하고, 변덕쟁이를 쓸 때마다 대마법사가 그 셋 중 하나에 5.4초(18초의 30%)를 줍니다. 궁극의 각성은 Q와 E를 초기화하고 급성장 후마다 가속 300을 더하며, 신비한 주먹은 공격할 때마다 모든 스킬의 대기시간을 1.25초 줄입니다."
+          "신비한 주먹은 공격할 때마다 바람 장막의 쿨타임을 1.25초 줄이고, 한 발에 두 놈은 치명타마다 그 효과를 두 번 적용한다. 한 발에 두 놈과 치명적 리듬을 합치면 치명타 확률 50%이고, 패시브가 이를 최대 100%까지 끌어올리며, 치명적 리듬이 공격 속도 60%까지 더해준다. 최상급 조준경 부착 덕분에 자기 장막 뒤에서 칼을 휘두를 수 있다."
         ],
         [
           "아이템",
-          "대천사의 포옹, 악의, 어둠불꽃 횃불, 얼어붙은 심장이 마나통입니다. 다람쥐 네 마리는 비싸니까요. 정수 약탈자는 스킬을 쓴 뒤 공격할 때마다 마나를 돌려줍니다."
+          "나보리 명멸검은 공격할 때마다 남은 쿨타임의 15%를 깎는다. 황혼과 새벽, 내셔의 이빨, 삼위일체, 쇼진의 창, 아이오니아 장화가 가속 85와 충분한 공격 속도를 줘서 두 번 공격하면 장막이 돌아온다."
         ]
       ],
       "augments": [
-        "다른 스킬을 쓰면 선택한 스킬의 재사용 대기시간이 초기화된다.",
-        "스킬을 쓰면 원래 스킬 재사용 대기시간의 30%만큼 다른 무작위 스킬의 비용을 환급한다.",
-        "궁극기 스킬 가속 30을 얻는다. 궁극기를 쓴 후 기본 스킬을 초기화하고 15초 동안 기본 스킬 가속 300을 얻는다. (재사용 대기시간 20초)",
-        "적중 시 스킬 재사용 대기시간이 1.25초 감소합니다."
+        "적중 시 스킬 재사용 대기시간이 1.25초 감소합니다.",
+        "치명타가 적중 시 효과를 한 번 더 적용합니다. 치명타 확률을 얻습니다.",
+        "치명타 시 기본 공격이 공격 속도 6%를 중첩합니다(최대 10회). 치명타 확률 25%를 얻습니다.",
+        "공격 사거리를 얻습니다."
       ]
     },
     "pl": {
-      "title": "Fanaberia na full",
-      "why": "Lulu przestaje komukolwiek dawać tarczę i wciska Fanaberię dwa razy na sekundę, aż wrogi zespół zamieni się w mini zoo.",
-      "play": "Najpierw wymaksuj Fanaberię, a Lśniącą Lancę zostaw na jednym punkcie: trwa 7 sekund na każdym poziomie i tam jest najtańsza. Fanaberia na jednego wroga, rzuć cokolwiek innego, Fanaberia na następnego, przywal wiewiórce, póki czekasz, i użyj Szalonego Rozrostu na sobie, gdy tylko będzie gotowy.",
-      "tagline": "Jeden wróg to wiewiórka, potem pozostała trójka, a piąty tylko się gapi",
+      "title": "Wujek Robi Ściany na Maksa",
+      "why": "Yasuo przestaje dashować i twardo stoi za Ścianą Wichru, tłukąc jej czas odnowienia, aż dwie lub trzy ściany są zawsze w grze, a nic z pociskiem nie ma czego szukać.",
+      "play": "Najpierw maksuj Ścianę Wichru: ranga 5 ma najkrótsze odnowienie i jest prawie dwa razy szersza niż ranga 1. Postaw ścianę, atakuj z jej cienia to, co najbliżej (miniony się liczą), wciśnij W ponownie, gdy tylko się zaświeci, i nigdy nie dashuj do środka.",
+      "tagline": "POV: zlockowałeś bohatera z dystansu, a wujek postawił trzy ściany, zanim doleciał twój pierwszy strzał",
       "how": [
         [
-          "Fanaberia",
-          "Na maksymalnym poziomie zamienia wroga w nieszkodliwe zwierzątko na 2 sekundy, z czasem odnowienia 18 sekund. Ten długi czas odnowienia to cały trik."
+          "Ściana Wichru",
+          "Blokuje każdy wrogi pocisk przez 4 sekundy, z odnowieniem 17 sekund na maksymalnej randze. Yasuo nie ma many, więc odnowienie to jedyna cena."
         ],
         [
           "Wzmocnienia",
-          "Przeciążenie wybrane na Fanaberii resetuje ją za każdym razem, gdy Lulu rzuci Lśniącą Lancę, Na pomoc, Pix! albo Szalony Rozrost, a każda Fanaberia sprawia, że Arcymag oddaje 5,4 sekundy (30% z 18) jednej z tych trzech umiejętności. Ostateczne Przebudzenie odświeża Q i E i dodaje 300 przyspieszenia po każdym Szalonym Rozroście, a Mistyczny Cios zabiera 1,25 sekundy ze wszystkiego przy każdym ataku."
+          "Mistyczny Cios skraca Ścianę Wichru o 1,25 sekundy przy każdym ataku, a Podwójne Klepnięcie sprawia, że każdy cios krytyczny robi to dwa razy. Podwójne Klepnięcie i Krytyczny Rytm dają razem 50% szansy na cios krytyczny, którą jego bierna podbija aż do 100%, a Krytyczny Rytm dokłada jeszcze 60% prędkości ataku. Najbardziej Snajperskie Uzbrojenie pozwala mu zamachnąć się zza własnej ściany."
         ],
         [
           "Przedmioty",
-          "Uścisk Serafina, Złowrogość, Pochodnia Mrocznego Ognia i Mroźne Serce to pasek many, bo cztery wiewiórki słono kosztują. Złodziej Esencji zwraca manę przy ataku po każdym rzuceniu zaklęcia."
+          "Migoczące Ostrze Navori skraca o 15% pozostały czas odnowienia przy każdym ataku. Zmierzch i Brzask, Ząb Nashora, Moc Trójcy, Włócznia Shojin i Ioniańskie Buty Jasności Umysłu dają 85 przyspieszenia i tyle prędkości ataku, że dwa ataki przywracają ścianę."
         ]
       ],
       "augments": [
-        "Użycie innej umiejętności resetuje czas odnowienia wybranej umiejętności.",
-        "Rzucenie zaklęcia zwraca koszt innego losowego zaklęcia o 30% czasu odnowienia rzucanego zaklęcia.",
-        "Zyskujesz 30 jedn. przyspieszenia superumiejętności. Po użyciu swojej superumiejętności odświeżasz umiejętności podstawowe i zyskujesz 300 jedn. przyspieszenia podstawowych umiejętności na 15 sek. (20 sek. odnowienia).",
-        "Przy trafieniu skraca czas odnowienia twoich umiejętności o 1,25 sekundy."
+        "Przy trafieniu skraca czas odnowienia twoich umiejętności o 1,25 sekundy.",
+        "Twoje trafienia krytyczne nakładają efekty przy trafieniu jeszcze raz. Zyskujesz szansę na trafienie krytyczne.",
+        "Twój podstawowy atak kumuluje 6% prędkości ataku przy trafieniach krytycznych, do 10 ładunków. Zyskujesz 25% szansy na trafienie krytyczne.",
+        "Zyskujesz zasięg ataku."
       ]
     },
     "pt-BR": {
-      "title": "Caprichos no Talo",
-      "why": "Lulu para de proteger qualquer um e aperta Caprichos duas vezes por segundo até o time inimigo virar um zoológico de contato.",
-      "play": "Maximize Caprichos primeiro e deixe Lança-Purpurina com um ponto: dura 7 segundos em qualquer nível e é mais barata ali. Caprichos num inimigo, lance qualquer outra coisa, Caprichos no próximo, soque um esquilo enquanto espera e use Crescimento Virente em si mesma assim que estiver pronto.",
-      "tagline": "Um inimigo vira esquilo, depois os outros três, e o quinto só fica olhando",
+      "title": "Tiozão Fazendo Wallmaxxing",
+      "why": "Yasuo para de avançar e fica firme atrás da Parede de Vento, socando a recarga dela até sempre haver duas ou três paredes de pé e nada com projétil conseguir jogar.",
+      "play": "Maximize a Parede de Vento primeiro: o nível 5 tem a menor recarga e é quase duas vezes mais larga que o nível 1. Solte uma parede, ataque o que estiver mais perto de trás dela (minions contam), aperte W de novo assim que ela acender e nunca avance.",
+      "tagline": "POV: você deu lock num campeão à distância e o tiozão já colocou três paredes antes de o seu primeiro tiro acertar",
       "how": [
         [
-          "Caprichos",
-          "Transforma um inimigo em um bichinho inofensivo por 2 segundos no nível máximo, com 18 segundos de recarga. Essa recarga longa é o truque todo."
+          "Parede de Vento",
+          "Bloqueia todo projétil inimigo por 4 segundos, com recarga de 17 segundos no nível máximo. Yasuo não tem mana, então a recarga é o único preço."
         ],
         [
           "Aumentos",
-          "Sobrecarga, escolhida em Caprichos, reinicia a habilidade toda vez que Lulu lança Lança-Purpurina, Socorro, Pix! ou Crescimento Virente, e cada Caprichos faz Arquimago dar 5,4 segundos (30% de 18) a uma dessas três. Despertar Supremo reinicia Q e E e adiciona 300 de aceleração após cada Crescimento Virente, e Soco Místico tira 1,25 segundo de tudo a cada ataque."
+          "Soco Místico tira 1,25 segundo da Parede de Vento a cada ataque, e Enfeitiçamento Coletivo faz cada crítico aplicar isso duas vezes. Enfeitiçamento Coletivo e Ritmo Crítico somam 50% de chance de crítico, que a passiva dele eleva até 100%, e Ritmo Crítico ainda empilha 60% de velocidade de ataque. Armas Extensivas deixam ele bater de trás da própria parede."
         ],
         [
           "Itens",
-          "Abraço de Seraph, Malevolência, Tocha de Chamas Negras e Coração Congelado são a barra de mana, porque quatro esquilos saem caro. Colhedor de Essência devolve mana no ataque depois de cada lançamento."
+          "Adaga Oscilante Navori corta 15% da recarga restante a cada ataque. Aurora e Crepúsculo, Dente de Na'Shor, Força da Trindade, Lança de Shojin e Botas Ionianas da Lucidez dão 85 de aceleração e velocidade de ataque suficiente para que dois ataques tragam a parede de volta."
         ]
       ],
       "augments": [
-        "Usar outra habilidade reinicia a recarga da habilidade escolhida.",
-        "Lançar um feitiço reduz a recarga de outro feitiço aleatório em 30% da recarga original do feitiço lançado.",
-        "Ganhe 30 de Aceleração de Habilidade suprema. Depois de usar sua suprema, suas habilidades básicas são renovadas e você ganha 300 de Aceleração de Habilidade básica por 15s. (20s de Recarga)",
-        "Ao atingir, reduz a recarga das suas habilidades em 1,25 segundo."
+        "Ao atingir, reduz a recarga das suas habilidades em 1,25 segundo.",
+        "Seus Acertos Críticos aplicam efeitos ao atingir mais uma vez. Receba chance de crítico.",
+        "Seu Ataque básico acumula 6% de velocidade de ataque em Acertos Críticos, até 10 acúmulos. Receba 25% de chance de crítico.",
+        "Ganhe alcance de ataque."
       ]
     },
     "ro": {
-      "title": "Capriciu pe repeat",
-      "why": "Lulu nu mai protejează pe nimeni și apasă Capriciu de două ori pe secundă până când echipa inamică devine grădină zoologică.",
-      "play": "Maximizează întâi Capriciu și lasă Val de scântei la un punct: durează 7 secunde la orice rang și costă cel mai puțin acolo. Capriciu pe un inamic, lansezi orice altceva, Capriciu pe următorul, dai un pumn unei veverițe cât aștepți și apeși Creștere sălbatică pe tine imediat ce e gata.",
-      "tagline": "Un inamic e veveriță, apoi ceilalți trei, iar al cincilea doar se uită",
+      "title": "Unc-ul face Wallmaxxing",
+      "why": "Yasuo nu mai face dash-uri și stă ferm în spatele lui Zid de vânt, dând pumni cooldown-ului până când sunt mereu două sau trei ziduri sus și nimic cu proiectile nu mai apucă să se joace.",
+      "play": "Ia Zid de vânt primul la maxim: rangul 5 are cel mai scurt cooldown și e aproape de două ori mai lat decât rangul 1. Pune un zid, atacă ce e mai aproape din spatele lui (și minionii contează), apasă W din nou imediat ce se aprinde și nu intra niciodată cu dash.",
+      "tagline": "POV: ai dat lock-in pe un campion ranged și unc-ul a pus trei ziduri înainte să-ți nimerească prima lovitură",
       "how": [
         [
-          "Capriciu",
-          "Transformă un inamic într-o făptură inofensivă pentru 2 secunde la rangul maxim, cu un timp de reactivare de 18 secunde. Timpul ăsta lung de reactivare e tot trucul."
+          "Zid de vânt",
+          "Blochează toate proiectilele inamice timp de 4 secunde, cu cooldown de 17 secunde la rang maxim. Yasuo nu are mană, deci cooldown-ul e singurul preț."
         ],
         [
           "Augmentări",
-          "Supraîncărcat, luat pe Capriciu, îl resetează de fiecare dată când ea lansează Val de scântei, Pix, ajutor! sau Creștere sălbatică, iar fiecare Capriciu îl face pe Arhimag să dea 5,4 secunde (30% din 18) uneia dintre cele trei. Trezire supremă reîmprospătează Q și E și adaugă 300 de viteză de abilitate după fiecare Creștere sălbatică, iar Lovitură mistică scade 1,25 secunde din toate la fiecare atac."
+          "Lovitură mistică scade 1,25 secunde din Zid de vânt la fiecare atac, iar Lovitură dublă face ca fiecare crit să aplice asta de două ori. Lovitură dublă și Ritm critic însumează 50% șansă de crit, pe care pasiva lui o ridică până la 100%, iar Ritm critic mai pune deasupra 60% viteză de atac. Arme cu lunetă imensă îl lasă să lovească din spatele propriului zid."
         ],
         [
           "Obiecte",
-          "Îmbrățișarea serafimului, Nocivitate, Torța focului negru și Inimă înghețată sunt bara de mană, pentru că patru veverițe costă scump. Hoțul de esență îți dă mana înapoi la atacul de după fiecare lansare."
+          "Tăișul sclipitor din Navori taie 15% din cooldown-ul rămas la fiecare atac. Apus și răsărit, Dintele lui Nashor, Forța treimii, Lancea lui Shojin și Cizme ioniene adaugă 85 haste și destulă viteză de atac cât două atacuri să aducă zidul înapoi."
         ]
       ],
       "augments": [
-        "Folosirea altei abilități resetează timpul de reîncărcare al abilității alese.",
-        "Lansarea unei vrăji reduce timpul de reîncărcare al altei vrăji aleatorii cu 30% din timpul de reîncărcare inițial al vrăjii lansate.",
-        "Primești 30 de grabă a abilităților supreme. După ce folosești abilitatea supremă, abilitățile de bază se reîmprospătează și primești 300 de grabă a abilităților de bază timp de 15 s. (20 s timp de reîncărcare)",
-        "La impact, reduce timpul de reîncărcare al abilităților tale cu 1,25 secunde."
+        "La impact, reduce timpul de reîncărcare al abilităților tale cu 1,25 secunde.",
+        "Loviturile tale critice aplică efectele la impact încă o dată. Primești șansă de critic.",
+        "Atacul tău de bază acumulează 6% viteză de atac la loviturile critice, până la 10 cumuluri. Primești 25% șansă de critic.",
+        "Primești rază de atac."
       ]
     },
     "ru": {
-      "title": "Причуда на повторе",
-      "why": "Лулу больше никого не защищает и жмёт Причуду два раза в секунду, пока вражеская команда не превратится в контактный зоопарк.",
-      "play": "Сначала качайте Причуду на максимум, а Сияющую стрелу оставьте на одном очке: она длится 7 секунд на любом ранге и дешевле всего на первом. Причуда на врага, любое другое заклинание, Причуда на следующего, пока ждёте, врежьте белке и нажмите Буйный рост на себя, как только он будет готов.",
-      "tagline": "Сначала один враг становится белкой, потом остальные трое, а пятый просто смотрит",
+      "title": "Дядя ставит стенки на максималках",
+      "why": "Ясуо перестаёт дэшиться и стоит на своём за Стеной ветра, выбивая кулаками её перезарядку, пока два-три барьера не стоят постоянно и ничто со снарядами не может поиграть.",
+      "play": "Сначала качай Стену ветра на максимум: 5-й ранг даёт самую короткую перезарядку и почти вдвое большую ширину, чем 1-й. Поставь стену, бей ближайшую цель из-за неё (миньоны тоже считаются), жми W снова, как только она загорится, и никогда не лети вперёд.",
+      "tagline": "POV: ты залочил дальнобойного чемпиона, а дядя поставил три стены раньше, чем долетел твой первый выстрел",
       "how": [
         [
-          "Причуда",
-          "На максимальном ранге превращает врага в безобидного зверька на 2 секунды, перезарядка 18 секунд. Вся хитрость в этой долгой перезарядке."
+          "Стена ветра",
+          "Блокирует все вражеские снаряды на 4 секунды, перезарядка 17 секунд на максимальном ранге. У Ясуо нет маны, так что единственная цена здесь перезарядка."
         ],
         [
           "Аугменты",
-          "Подзарядка, выпавшая на Причуду, сбрасывает её каждый раз, когда Лулу применяет Сияющую стрелу, Помоги, Пикс! или Буйный рост, а каждая Причуда заставляет Архимага отдать 5,4 секунды (30% от 18) одной из этих трёх способностей. Абсолютное пробуждение обновляет Q и E и даёт 300 ускорения умений после каждого Буйного роста, а Мистический удар убирает 1,25 секунды перезарядки у всего с каждой атакой."
+          "Мистический удар сокращает перезарядку Стены ветра на 1,25 секунды с каждой атакой, а Два по цене одного заставляет каждый крит применять это дважды. Два по цене одного и Критический ритм вместе дают 50% шанса крита, который его пассивка поднимает аж до 100%, а Критический ритм сверху добавляет 60% скорости атаки. Точнейший оптический прицел позволяет бить из-за собственной стены."
         ],
         [
           "Предметы",
-          "Объятья серафима, Пагубность, Факел темного огня и Ледяное сердце — это полоска маны, потому что четыре белки стоят дорого. Похититель сущности возвращает ману при атаке после каждого применения."
+          "Летающий нож Навори срезает 15% от оставшейся перезарядки с каждой атакой. Рассвет и закат, Зуб Нашора, Тройственный Союз, Копье Седзина и Ионийские сапоги просветления дают 85 ускорения и столько скорости атаки, что двух атак хватает, чтобы вернуть стену."
         ]
       ],
       "augments": [
-        "Применение другого умения сбрасывает перезарядку выбранного умения.",
-        "Применение умения сокращает перезарядку другого, случайного умения на 30% от перезарядки исходного.",
-        "Вы получаете 30 ускорения абсолютного умения. После применения абсолютного умения перезарядка всех ваших базовых умений сбрасывается, и вы получаете 300 ускорения базовых умений на 15 сек. Перезарядка: 20 сек.",
-        "При попадании сокращает время перезарядки ваших умений на 1,25 сек."
+        "При попадании сокращает время перезарядки ваших умений на 1,25 сек.",
+        "Ваши критические удары применяют эффекты при попадании ещё раз. Вы получаете шанс критического удара.",
+        "Ваша обычная атака при критических ударах накапливает 6% скорости атаки, до 10 зарядов. Вы получаете 25% шанса критического удара.",
+        "Увеличивает дальность атаки."
       ]
     },
     "th": {
-      "title": "Whimsy ล็อกแน่น",
-      "why": "Lulu เลิกปกป้องใครทั้งนั้น แล้วกด Whimsy วินาทีละสองครั้ง จนทีมศัตรูกลายเป็นสวนสัตว์เปิดให้เข้าไปลูบ",
-      "play": "อัป Whimsy ให้เต็มก่อน แล้วเหลือ Glitterlance ไว้แค่หนึ่งแต้ม เพราะมัน 7 วินาทีทุกเลเวลและถูกสุดที่เลเวลนั้น Whimsy ศัตรูคนหนึ่ง ร่ายสกิลอื่นอะไรก็ได้ แล้ว Whimsy คนต่อไป ระหว่างรอก็ต่อยกระรอกเล่น แล้วกด Wild Growth ใส่ตัวเองทันทีที่ใช้ได้",
-      "tagline": "ศัตรูคนแรกเป็นกระรอก ตามด้วยอีกสามคน ส่วนคนที่ห้าได้แต่ยืนดู",
+      "title": "Unc Is Wallmaxxing",
+      "why": "Yasuo เลิกแดชแล้วยืนหยัดอยู่หลัง Wind Wall ต่อยคูลดาวน์ของมันหายไปเรื่อย ๆ จนมีกำแพงขึ้นอยู่สองถึงสามแผ่นตลอดเวลา และอะไรที่ยิงกระสุนก็เล่นไม่ได้เลย",
+      "play": "อัป Wind Wall ก่อนสุด: แรงก์ 5 คูลดาวน์สั้นที่สุดและกว้างเกือบสองเท่าของแรงก์ 1 วางกำแพง แล้วตีอะไรก็ได้ที่ใกล้สุดจากข้างหลังมัน (มินเนียนก็นับ) กด W ซ้ำทันทีที่ไอคอนสว่าง และอย่าแดชเข้าไปเด็ดขาด",
+      "tagline": "POV: คุณล็อกแชมป์สายยิง แล้วลุงตั้งกำแพงสามแผ่นก่อนที่นัดแรกของคุณจะโดน",
       "how": [
         [
-          "Whimsy",
-          "เปลี่ยนศัตรูให้เป็นสัตว์ตัวน้อยไร้พิษภัยนาน 2 วินาทีเมื่ออัปเต็ม คูลดาวน์ 18 วินาที คูลดาวน์ที่ยาวนี่แหละคือเคล็ดลับทั้งหมด"
+          "Wind Wall",
+          "บล็อกกระสุนศัตรูทุกชนิด 4 วินาที คูลดาวน์ 17 วินาทีที่แรงก์สูงสุด Yasuo ไม่มีมานา ดังนั้นคูลดาวน์คือราคาเดียวที่ต้องจ่าย"
         ],
         [
           "Augment",
-          "Overloaded ที่สุ่มได้บน Whimsy จะรีเซ็ตมันทุกครั้งที่เธอร่าย Glitterlance, Help, Pix! หรือ Wild Growth และทุกครั้งที่ใช้ Whimsy ก็ทำให้ Archmage ลดคูลดาวน์ 5.4 วินาที (30% ของ 18) ให้หนึ่งในสามสกิลนั้น Ultimate Awakening รีเฟรช Q กับ E และเพิ่มความเร็วสกิล 300 หลังใช้ Wild Growth ทุกครั้ง ส่วน Mystic Punch ลดคูลดาวน์ทุกอย่างลง 1.25 วินาทีต่อการโจมตีหนึ่งครั้ง"
+          "Mystic Punch ลดคูลดาวน์ Wind Wall ลง 1.25 วินาทีทุกครั้งที่โจมตี และ Double Tap ทำให้ทุกคริใช้ผลนั้นสองครั้ง Double Tap กับ Critical Rhythm รวมกันได้โอกาสคริ 50% ซึ่งพาสซีฟของเขาดันขึ้นไปถึง 100% และ Critical Rhythm ยังซ้อนความเร็วโจมตีอีก 60% Scopiest Weapons ทำให้เขาฟันจากหลังกำแพงของตัวเองได้"
         ],
         [
           "ไอเทม",
-          "Seraph's Embrace, Malignance, Blackfire Torch และ Frozen Heart คือหลอดมานา เพราะกระรอกสี่ตัวมันแพง ส่วน Essence Reaver คืนมานาให้ตอนโจมตีหลังร่ายสกิลแต่ละครั้ง"
+          "Navori Flickerblade ตัดคูลดาวน์ที่เหลืออีก 15% ทุกครั้งที่โจมตี Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin และ Ionian Boots เพิ่ม 85 haste และความเร็วโจมตีมากพอที่โจมตีสองครั้งก็เรียกกำแพงกลับมา"
         ]
       ],
       "augments": [
-        "การใช้สกิลอื่นจะรีเซ็ตคูลดาวน์ของสกิลที่เลือก",
-        "การร่ายสกิลจะคืนค่าใช้จ่ายของสกิลสุ่มอีกอันเท่ากับ 30% ของคูลดาวน์เดิมของสกิลนั้น",
-        "รับ Ultimate Ability Haste 30 หลังใช้อัลติเมต รีเฟรชสกิลพื้นฐานและรับ Ability Haste สกิลพื้นฐาน 300 เป็นเวลา 15 วินาที (คูลดาวน์ 20 วินาที)",
-        "On-Hit ลดคูลดาวน์สกิลของคุณ 1.25 วินาที"
+        "On-Hit ลดคูลดาวน์สกิลของคุณ 1.25 วินาที",
+        "คริติคอลของคุณใช้เอฟเฟกต์ On-Hit ซ้ำอีกหนึ่งครั้ง ได้รับโอกาสคริ",
+        "การโจมตีปกติของคุณสะสม Attack Speed 6% เมื่อติดคริติคอล สูงสุด 10 สแต็ก ได้รับโอกาสคริ 25%",
+        "ได้ระยะโจมตีเพิ่ม"
       ]
     },
     "tr": {
-      "title": "Kapris Kilitlendi",
-      "why": "Lulu kimseyi korumayı bırakıp saniyede iki kere Kapris basıyor, ta ki düşman takım bir mini hayvanat bahçesine dönene kadar.",
-      "play": "Önce Kapris'i son seviyeye çıkar, Işıltılı Ok'ta tek puan bırak: her seviyede 7 saniye sürüyor ve en ucuzu orada. Bir düşmana Kapris at, başka bir şey kullan, sıradaki düşmana Kapris at, beklerken bir sincaba yumruk salla ve Vahşi Büyüme hazır olur olmaz kendine bas.",
-      "tagline": "Önce bir düşman sincap olur, sonra diğer üçü, beşincisi ise sadece izler",
+      "title": "Amca Duvarı Tavan Yaptı",
+      "why": "Yasuo dash atmayı bırakıyor, Rüzgâr Duvarı'nın arkasında dimdik duruyor ve bekleme süresini yumruklayıp eritiyor; sonunda hep iki üç duvar ayakta, mermili hiçbir şey oynayamıyor.",
+      "play": "Önce Rüzgâr Duvarı'nı sonuna kadar yükselt: 5. seviye en kısa bekleme süresine sahip ve 1. seviyeden neredeyse iki kat geniş. Duvarı koy, arkasından en yakındakine saldır (minyonlar da sayılır), yandığı anda tekrar W'ye bas ve asla dalma.",
+      "tagline": "POV: menzilli bir şampiyon kilitledin ve amca ilk atışın isabet etmeden üç duvar dikti",
       "how": [
         [
-          "Kapris",
-          "Son seviyede bir düşmanı 2 saniyeliğine zararsız bir hayvana çevirir, bekleme süresi 18 saniye. Bütün olay o uzun bekleme süresinde."
+          "Rüzgâr Duvarı",
+          "Düşmanın tüm mermilerini 4 saniye boyunca engeller; en yüksek seviyede bekleme süresi 17 saniyedir. Yasuo'nun manası yok, yani tek bedel bekleme süresi."
         ],
         [
           "Güçlendirmeler",
-          "Kapris'e denk gelen Aşırı Yüklü, Lulu her Işıltılı Ok, Yetiş, Pix! veya Vahşi Büyüme kullandığında onu sıfırlıyor ve her Kapris, Baş Büyücü'nün bu üçünden birine 5,4 saniye (18'in %30'u) vermesini sağlıyor. Ulti Uyanışı, Q ve E'yi yeniliyor ve her Vahşi Büyüme'den sonra 300 hız ekliyor; Mistik Yumruk ise her saldırıda her şeyden 1,25 saniye düşüyor."
+          "Mistik Yumruk her saldırıda Rüzgâr Duvarı'ndan 1,25 saniye düşer, Çifte İsabet ise her kritiğin bunu iki kez uygulamasını sağlar. Çifte İsabet ve Kritik Ritim toplam %50 kritik şansı verir, pasifi bunu %100'e kadar çıkarır, Kritik Ritim de üstüne %60 saldırı hızı ekler. En Büyük Dürbünlü Silahlar kendi duvarının arkasından kılıç sallamasını sağlar."
         ],
         [
           "Eşyalar",
-          "Seraph'ın Şefkati, Habaset, Siyahateş Meşalesi ve Donmuş Yürek mana barı oluyor, çünkü dört sincap pahalıya patlıyor. Canbiçen ise her kullanımdan sonraki saldırıda mana geri veriyor."
+          "Navori Tezbıçağı her saldırıda kalan bekleme süresinin %15'ini keser. Gündüz ve Gece, Nashor'un Dişi, Üçlü Kuvvet, Shojin'in Mızrağı ve Ionia Çizmeleri 85 hız ve iki saldırıda duvarı geri getirecek kadar saldırı hızı ekler."
         ]
       ],
       "augments": [
-        "Başka bir Yetenek kullanmak seçilen yeteneğin bekleme süresini sıfırlar.",
-        "Bir yetenek kullandığında rasgele başka bir yeteneğin bekleme süresi, kullandığın yeteneğin bekleme süresinin %30 kadarı azalır.",
-        "30 Ulti Hızı kazanırsın. Ultini kullandıktan sonra temel yeteneklerinin bekleme süreleri sıfırlanır ve 15 saniyeliğine 300 Temel Yetenek Hızı kazanırsın (20 sn. bekleme süresi).",
-        "İsabette yeteneklerinin bekleme süresini 1,25 saniye azaltır."
+        "İsabette yeteneklerinin bekleme süresini 1,25 saniye azaltır.",
+        "Kritik vuruşların isabet etkilerini bir kez daha uygular. Kritik ihtimali kazanırsın.",
+        "Temel saldırın kritik vuruşlarda %6 saldırı hızı biriktirir, en fazla 10 yük. %25 kritik ihtimali kazanırsın.",
+        "Saldırı menzili kazan."
       ]
     },
     "vi": {
-      "title": "Biến Hóa Khóa Chặt",
-      "why": "Lulu thôi che chắn cho ai hết và bấm Biến Hóa hai lần mỗi giây cho tới khi cả đội địch thành sở thú mini.",
-      "play": "Tối đa Biến Hóa trước và chỉ để Ngọn Thương Ánh Sáng một điểm: nó kéo dài 7 giây ở mọi cấp và rẻ nhất ở cấp đó. Biến Hóa một tên địch, tung chiêu nào đó khác, Biến Hóa tên kế tiếp, vừa chờ vừa đấm một con sóc, rồi bấm Khổng Lồ Hóa lên bản thân ngay khi nó sẵn sàng.",
-      "tagline": "Một tên địch thành sóc, rồi ba tên còn lại, còn tên thứ năm thì chỉ đứng xem",
+      "title": "Chú Dựng Tường Tối Đa",
+      "why": "Yasuo thôi lướt, đứng vững sau Tường Gió, đấm bay hồi chiêu của nó cho đến khi lúc nào cũng có hai ba bức tường và thứ gì bắn đạn cũng hết đường chơi.",
+      "play": "Tăng tối đa Tường Gió trước: bậc 5 có hồi chiêu ngắn nhất và rộng gần gấp đôi bậc 1. Dựng tường, đánh thứ gần nhất từ phía sau nó (lính cũng tính), bấm W lần nữa ngay khi nó sáng lên, và đừng bao giờ lao vào.",
+      "tagline": "POV: bạn khóa một tướng đánh xa và chú đã dựng ba bức tường trước khi phát bắn đầu tiên của bạn trúng",
       "how": [
         [
-          "Biến Hóa",
-          "Biến một tên địch thành sinh vật vô hại trong 2 giây ở cấp tối đa, hồi chiêu 18 giây. Thời gian hồi chiêu dài đó chính là mấu chốt."
+          "Tường Gió",
+          "Chặn mọi đạn của địch trong 4 giây, hồi chiêu 17 giây ở bậc tối đa. Yasuo không dùng năng lượng, nên hồi chiêu là cái giá duy nhất."
         ],
         [
           "Lõi nâng cấp",
-          "Quá Tải Sát Thương, quay trúng Biến Hóa, sẽ làm mới nó mỗi khi cô ấy dùng Ngọn Thương Ánh Sáng, Giúp Nào Pix! hoặc Khổng Lồ Hóa, và mỗi lần Biến Hóa khiến Đại Pháp Sư tặng 5,4 giây (30% của 18) cho một trong ba chiêu đó. Thức Tỉnh Tối Thượng làm mới Q và E và thêm 300 tốc độ chiêu sau mỗi lần Khổng Lồ Hóa, còn Cú Đấm Thần Bí giảm 1,25 giây hồi chiêu của mọi thứ sau mỗi đòn đánh."
+          "Cú Đấm Thần Bí giảm 1,25 giây hồi chiêu Tường Gió mỗi đòn đánh, còn Bắn Một Được Hai khiến mỗi đòn chí mạng áp dụng điều đó hai lần. Bắn Một Được Hai và Nhịp Điệu Chí Mạng cộng lại cho 50% tỉ lệ chí mạng, nội tại của anh đẩy lên tận 100%, và Nhịp Điệu Chí Mạng còn cộng thêm 60% tốc độ đánh. Lắp Kính Nhắm Cỡ Đại cho phép anh chém từ sau bức tường của chính mình."
         ],
         [
           "Trang bị",
-          "Quyền Trượng Đại Thiên Sứ, Hỏa Khuẩn, Đuốc Lửa Đen và Tim Băng là thanh năng lượng, vì bốn con sóc tốn kém lắm. Lưỡi Hái Linh Hồn hoàn lại năng lượng ở đòn đánh sau mỗi lần dùng chiêu."
+          "Đao Chớp Navori cắt 15% hồi chiêu còn lại mỗi đòn đánh. Bình Minh & Hoàng Hôn, Nanh Nashor, Tam Hợp Kiếm, Ngọn Giáo Shojin và Giày Khai Sáng Ionia cộng 85 haste và đủ tốc độ đánh để hai đòn đánh là tường quay lại."
         ]
       ],
       "augments": [
-        "Dùng kỹ năng khác sẽ đặt lại hồi chiêu của kỹ năng đã chọn.",
-        "Dùng kỹ năng sẽ hoàn lại chi phí của một kỹ năng ngẫu nhiên khác bằng 30% thời gian hồi chiêu gốc của kỹ năng đó.",
-        "Nhận 30 Gia Tốc Chiêu Cuối. Sau khi dùng Chiêu Cuối, làm mới các kỹ năng cơ bản và nhận 300 gia tốc kỹ năng cơ bản trong 15 giây. (Hồi chiêu 20 giây)",
-        "Hiệu ứng trên đòn đánh: giảm 1,25 giây thời gian hồi chiêu của các kỹ năng."
+        "Hiệu ứng trên đòn đánh: giảm 1,25 giây thời gian hồi chiêu của các kỹ năng.",
+        "Đòn chí mạng của bạn áp dụng hiệu ứng trên đòn đánh thêm một lần. Nhận tỉ lệ chí mạng.",
+        "Đòn đánh thường của bạn cộng dồn 6% tốc độ đánh khi chí mạng, tối đa 10 cộng dồn. Nhận 25% tỉ lệ chí mạng.",
+        "Nhận thêm tầm đánh."
       ]
     },
     "zh-CN": {
-      "title": "奇思妙想锁定",
-      "why": "璐璐不再给任何人套盾，一秒按两次奇思妙想，直到敌方全队变成一座儿童动物园。",
-      "play": "先把奇思妙想加满，闪耀长枪只留一点：它每一级都是7秒，而且那里最省蓝。对一个敌人用奇思妙想，放点别的技能，再对下一个用奇思妙想，等的时候顺手揍只松鼠，狂野生长一好就给自己来一下。",
-      "tagline": "先是一个敌人变松鼠，然后是另外三个，第五个只能干看着",
+      "title": "大叔狂拉风墙",
+      "why": "疾风剑豪不再突进,稳稳站在风之障壁后面,一拳一拳把它的冷却打没,直到永远有两三堵墙立着,带弹道的玩意儿一个都别想玩。",
+      "play": "先把风之障壁点满:5 级冷却最短,宽度几乎是 1 级的两倍。放一堵墙,躲在后面打离你最近的东西(小兵也算),墙一亮就立刻再按 W,千万别冲进去。",
+      "tagline": "POV:你锁了个远程英雄,结果大叔在你第一发打出去之前就立了三堵墙",
       "how": [
         [
-          "奇思妙想",
-          "满级时把敌人变成无害的小动物，持续2秒，冷却时间18秒。这个超长冷却就是全部的秘诀。"
+          "风之障壁",
+          "阻挡所有敌方弹道 4 秒,满级冷却 17 秒。疾风剑豪没有蓝条,所以冷却是唯一的代价。"
         ],
         [
           "海克斯强化",
-          "超负荷刷在奇思妙想上，她每放一次闪耀长枪、帮忙，皮克斯！或狂野生长就会重置它，而每次奇思妙想都会让大法师给这三个技能中的一个减少5.4秒冷却（18秒的30%）。终极唤醒会刷新Q和E，并在每次狂野生长后增加300技能急速，秘术冲拳则让每次攻击减少所有技能1.25秒冷却。"
+          "秘术冲拳每次攻击减少风之障壁 1.25 秒冷却,而双发快射让每次暴击触发两次。双发快射和暴击律动加起来有 50% 暴击率,被他的被动一路拉到 100%,暴击律动还额外叠 60% 攻速。最万用的瞄准镜让他能躲在自己的墙后面挥刀。"
         ],
         [
           "装备",
-          "炽天使之拥、残疫、黯炎火炬和冰霜之心就是蓝条，因为四只松鼠很烧钱。夺萃之镰会在每次施法后的那下攻击里把蓝还给你。"
+          "纳沃利烁刃每次攻击削减剩余冷却的 15%。黄昏与黎明、纳什之牙、三相之力、朔极之矛和明朗之靴提供 85 急速和足够的攻速,两下攻击墙就回来了。"
         ]
       ],
       "augments": [
-        "使用其他技能会重置所选技能的冷却时间。",
-        "施放技能后，按原技能冷却时间的30%返还另一个随机技能的消耗。",
-        "获得30终极技能急速。使用终极技能后，刷新你的基础技能，并在15秒内获得300基础技能急速。（20秒冷却）",
-        "攻击特效：使你的技能冷却时间减少1.25秒。"
+        "攻击特效：使你的技能冷却时间减少1.25秒。",
+        "你的暴击会额外再触发一次命中时效果。获得暴击几率。",
+        "你的普通攻击暴击时叠加6%攻击速度，最多10层。获得25%暴击几率。",
+        "获得攻击距离。"
       ]
     },
     "zh-TW": {
-      "title": "幻想曲鎖定",
-      "why": "露璐不再替任何人套盾，一秒按兩次幻想曲，直到敵方全隊變成一座小動物園。",
-      "play": "先把幻想曲點滿，閃耀雙重奏只留一點：它每一級都是7秒，而且那裡最省魔。對一個敵人用幻想曲，放點別的技能，再對下一個用幻想曲，等的時候順手揍隻松鼠，究極鍊化一好就對自己來一下。",
-      "tagline": "先是一個敵人變松鼠，然後是另外三個，第五個只能乾看著",
+      "title": "大叔狂拉風牆",
+      "why": "犽宿不再突進,穩穩站在風牆後面,一拳一拳把它的冷卻打沒,直到永遠有兩三道牆立著,帶彈道的東西一個都別想玩。",
+      "play": "先把風牆點滿:5 級冷卻最短,寬度幾乎是 1 級的兩倍。放一道牆,躲在後面打離你最近的東西(小兵也算),牆一亮就立刻再按 W,千萬別衝進去。",
+      "tagline": "POV:你鎖了個遠程英雄,結果大叔在你第一發打出去之前就立了三道牆",
       "how": [
         [
-          "幻想曲",
-          "滿級時把敵人變成無害的小動物，持續2秒，冷卻時間18秒。這個超長冷卻就是全部的秘訣。"
+          "風牆",
+          "阻擋所有敵方彈道 4 秒,滿級冷卻 17 秒。犽宿沒有魔力,所以冷卻是唯一的代價。"
         ],
         [
           "強化",
-          "輸出超負荷骰在幻想曲上，她每放一次閃耀雙重奏、帥啊小皮！或究極鍊化就會重置它，而每次幻想曲都會讓大法師給這三個技能中的一個減少5.4秒冷卻（18秒的30%）。大絕覺醒會刷新Q和E，並在每次究極鍊化後增加300技能加速，祕術拳擊則讓每次攻擊減少所有技能1.25秒冷卻。"
+          "祕術拳擊每次攻擊減少風牆 1.25 秒冷卻,而雙重命中讓每次暴擊觸發兩次。雙重命中和暴擊節奏加起來有 50% 暴擊率,被他的被動一路拉到 100%,暴擊節奏還額外疊 60% 攻速。頂狙武器讓他能躲在自己的牆後面揮刀。"
         ],
         [
           "裝備",
-          "熾天使的擁抱、惡意、黑焰火炬和冰霜之心就是魔力條，因為四隻松鼠很燒錢。奪魄之鐮會在每次施法後的那下攻擊把魔力還給你。"
+          "那歐閃刃每次攻擊削減剩餘冷卻的 15%。暮夜與黎明、納什之牙、三相之力、精進之矛和愛歐尼亞之靴提供 85 加速和足夠的攻速,兩下攻擊牆就回來了。"
         ]
       ],
       "augments": [
-        "使用其他技能會重置所選技能的冷卻時間。",
-        "施放技能後，依原技能冷卻時間的30%返還另一個隨機技能的消耗。",
-        "獲得30終極技能加速。使用終極技能後，刷新你的基礎技能，並在15秒內獲得300基礎技能加速。（20秒冷卻）",
-        "命中特效：使你的技能冷卻時間減少1.25秒。"
+        "命中特效：使你的技能冷卻時間減少1.25秒。",
+        "你的暴擊會額外再觸發一次命中時效果。獲得暴擊機率。",
+        "你的普通攻擊暴擊時疊加6%攻擊速度，最多10層。獲得25%暴擊機率。",
+        "獲得攻擊距離。"
       ]
     }
   }
