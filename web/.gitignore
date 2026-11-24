@@ -45,6 +45,7 @@ next-env.d.ts
 
 # copied in by scripts/sync-embeds.mjs
 /public/embed/
+/public/data/
 
 # Cloudflare
 /.open-next/

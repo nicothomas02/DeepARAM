@@ -17,3 +17,21 @@
 
 /sw.js
   Cache-Control: no-cache
+
+# Data feeds, copied from the prerendered routes at build (scripts/static-data.mjs) so they skip the Worker. The
+# apps read some from their own origin (next.config.ts lists the same files). Rebuilt each deploy: an hour fresh,
+# then the old copy while the new one loads.
+/data/*
+  Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
+/data/team-fit.json
+  Access-Control-Allow-Origin: *
+/data/augment-picks.json
+  Access-Control-Allow-Origin: *
+/data/overlay.json
+  Access-Control-Allow-Origin: *
+/data/damage-types.json
+  Access-Control-Allow-Origin: *
+/data/mechanism-profiles.json
+  Access-Control-Allow-Origin: *
+/data/why-best.json
+  Access-Control-Allow-Origin: *
