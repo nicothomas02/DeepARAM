@@ -17,7 +17,7 @@ LabI18n.ready(function () {
   };
   const fullDay = (iso) => LabI18n.date(iso, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
 
-  // Every build with a `chef` date was the Chef Special that day; a new one is added every day and the
+  // Every build with a `chef` date was the Chef Special that day; a new one is added every Friday and the
   // older ones stay in the archive. Today's is the newest. No stats: a Chef Special is picked for the idea.
   const specials = data.builds.filter((b) => b.chef).sort((a, b) => b.chef.localeCompare(a.chef));
   const chef = specials[0] || null;
@@ -96,8 +96,9 @@ LabI18n.ready(function () {
     </article>`;
   }
 
-  // A new special lands every day at 7:50 PM New York time. Until today's has landed, the newest one is
-  // yesterday's (or older), so it's the "Latest" special, with when the next one arrives in the visitor's own time.
+  // A new special lands once a week, Fridays at 7:50 PM New York time (SERVE_DAY, 0 = Sunday). A special from the last
+  // 7 days is "This week's"; an older one is the "Latest", with when the next one arrives in the visitor's own time.
+  const SERVE_DAY = 5;
   const NY = "America/New_York";
   const nyParts = (t) => Object.fromEntries(new Intl.DateTimeFormat("en-US", { timeZone: NY, hourCycle: "h23", year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit" })
     .formatToParts(t).filter((p) => p.type !== "literal").map((p) => [p.type, +p.value]));
@@ -111,21 +112,25 @@ LabI18n.ready(function () {
     return new Date(guess - offset);
   }
   const clock = (t) => t.toLocaleTimeString(LabI18n.lang === "en" ? "en-US" : LabI18n.lang, { hour: "numeric", minute: "2-digit" });
+  const weekday = (t) => t.toLocaleDateString(LabI18n.lang === "en" ? "en-US" : LabI18n.lang, { weekday: "long" });
   function freshness(b) {
     const now = new Date();
-    if (b.chef >= nyToday(now)) return { fresh: true };
-    const serve = nyServeTime(now);
-    return { fresh: false, next: serve > now ? T("Next special at {time}, your time.", { time: clock(serve) }) : T("The next special is on its way.") };
+    if (b.chef > nyToday(new Date(now.getTime() - 7 * 86400000))) return { fresh: true };
+    const p = nyParts(now);
+    let add = (SERVE_DAY - new Date(Date.UTC(p.year, p.month - 1, p.day)).getUTCDay() + 7) % 7;
+    if (add === 0 && nyServeTime(now) <= now) add = 7;
+    const serve = nyServeTime(new Date(now.getTime() + add * 86400000));
+    return { fresh: false, next: serve > now ? T("Next special {day} at {time}, your time.", { day: weekday(serve), time: clock(serve) }) : T("The next special is on its way.") };
   }
 
-  // The Chef Special box shows today's special, or an older one picked from the archive.
+  // The Chef Special box shows this week's special, or an older one picked from the archive.
   function showSpecial(b) {
     const box = document.getElementById("chefs-special");
     const i = specials.indexOf(b);
     const today = b === chef;
     const f = today ? freshness(b) : null;
     const date = { date: day(b.chef) };
-    const label = esc(!today ? T("Chef Special · {date}", date) : f.fresh ? T("Today's Chef Special · {date}", date) : T("Latest Chef Special · {date}", date));
+    const label = esc(!today ? T("Chef Special · {date}", date) : f.fresh ? T("This week's Chef Special · {date}", date) : T("Latest Chef Special · {date}", date));
     // Two menus: in-pool specials, and Off-menu ones that use augments the champion isn't normally offered.
     const opt = (s) => `<option value="${esc(s.chef)}"${s === b ? " selected" : ""}>${esc(day(s.chef))} · ${esc(T(s.title))} (${esc(champ(s))})</option>`;
     const onMenu = specials.filter((s) => s.menu !== "off"), offMenu = specials.filter((s) => s.menu === "off");
@@ -133,7 +138,7 @@ LabI18n.ready(function () {
       ? `<optgroup label="${esc(T("On the menu"))}">${onMenu.map(opt).join("")}</optgroup><optgroup label="${esc(T("Off-menu"))}">${offMenu.map(opt).join("")}</optgroup>`
       : specials.map(opt).join("");
     box.innerHTML = `<div class="chef-head"><p class="eyebrow" id="chef-label">${label}</p>
-      <p class="muted small">${today ? `${T("A new unconventional build every day, built on augments that work together.")}${f.next ? ` ${esc(f.next)}` : ""}` : `${esc(T("Served {date}.", { date: fullDay(b.chef) }))} <a href="#chefs-special">${T("Back to today's")}</a>`}</p></div>
+      <p class="muted small">${today ? `${T("A new unconventional build every Friday, built on augments that work together.")}${f.next ? ` ${esc(f.next)}` : ""}` : `${esc(T("Served {date}.", { date: fullDay(b.chef) }))} <a href="#chefs-special">${T("Back to this week's")}</a>`}</p></div>
       <div class="chef-archive" id="chef-archive" role="group" aria-label="${T("Chef Special archive")}">
         <span class="eyebrow">${esc(T(specials.length === 1 ? "Archive · {n} special" : "Archive · {n} specials", { n: specials.length }))}</span>
         <button type="button" data-go="${i + 1}"${i + 1 >= specials.length ? " disabled" : ""}>${T("‹ Earlier")}</button>
