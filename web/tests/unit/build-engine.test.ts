@@ -169,7 +169,8 @@ describe("build engine", () => {
   it("puts a finished item you own off the path into the first open later slot", () => {
     const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3031, 3075] }), taken: [] });
     expect(ids(p.path)).toEqual([3006, 3031, 3046, 3075, 3094, 6333]);
-    expect(ids(p.next)[0]).toBe(3046);
+    // Thornmail took the 3rd item's place: that one moves behind the rest (ownedReplan)
+    expect(ids(p.next)[0]).toBe(3094);
   });
 
   it("plain Boots don't fill the build's boots: the build's boots stay next", () => {
@@ -178,11 +179,16 @@ describe("build engine", () => {
     expect(ids(p.next)).toContain(3006);
   });
 
-  it("off-path buys re-plan: an item passed over twice stops being Next, one out-of-order buy keeps it", () => {
-    expect(ids(plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036] }), taken: [] }).next)[0]).toBe(3031);
-    const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036, 3003] }), taken: [] });
-    expect(ids(p.next)[0]).not.toBe(3031);
+  it("off-path buys re-plan: an item you skip stops being Next; an off-path buy takes one slot, not the whole path", () => {
+    // bought the 4th item first: the 2nd (the one it took the place of) moves behind the rest
+    const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036] }), taken: [] });
+    expect(ids(p.next)[0]).toBe(3046);
+    expect(ids(p.next)).not.toContain(3031);
     expect(p.rules).toContain("ownedReplan");
+    // one off-path buy passes only the first unbought item
+    expect(ids(plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3003] }), taken: [] }).next)[0]).toBe(3046);
+    // nothing bought: the plan as it is
+    expect(ids(plan({ champ, kinds, picks, fit, game: game([]), taken: [] }).next)[0]).toBe(3006);
   });
 
   it("off-path buys of the other damage type switch the rest of the build to that style (AP Zeri)", () => {
@@ -195,8 +201,10 @@ describe("build engine", () => {
     expect(p.rules).toContain("ownedReplan");
     expect(ids(p.path)).toEqual(expect.arrayContaining([3003, 3089, 3135]));
     expect([3135, 4645]).toContain(ids(p.next)[0]);
-    // one off-path AP item doesn't switch
-    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+    // one purely-AP off-path item is enough; one mixed item (Nashor's: AD and AP) isn't
+    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched?.style).toBeTruthy();
+    const k3 = { ...k2, items: { ...k2.items, 3115: ["ad", "ap", "as"] }, recipes: { ...k2.recipes, 3115: ["#3115", 3000, []] } } as Kinds;
+    expect(plan({ champ, kinds: k3, picks: p2, fit, game: game([], { items: [3006, 3115] }), taken: [] }).switched).toBeNull();
   });
 
   it("an augment whose holders rush an item puts it in the core and makes it Next (augmentRush)", () => {
@@ -209,6 +217,14 @@ describe("build engine", () => {
     expect(ids(p.path.slice(0, p.coreLen))).toContain(id);
     expect(p.path).toHaveLength(6);
     expect(p.rules).toContain("augmentRush");
+  });
+
+  it("a rushed item must fit the build's damage type unless ADAPt converts it", () => {
+    const wooglets = Object.entries(AUGMENT_SHIFT).find(([, m]) => (m["3157"]?.[4] ?? 0) >= RUSH_Z_BUILD && (m["3157"]?.[5] ?? 0) >= RUSH_Z_EARLY)?.[0];
+    expect(wooglets).toBeTruthy();
+    const k2 = { ...kinds, items: { ...kinds.items, 3157: ["ap", "armor"] }, recipes: { ...kinds.recipes, 3157: ["#3157", 3000, []] } } as Kinds;
+    expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets)] }).path)).not.toContain(3157);
+    expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets), 1205] }).path)).toContain(3157);
   });
 
   it("never shows an item twice in the path", () => {

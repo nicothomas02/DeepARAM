@@ -42,7 +42,6 @@ var DeepEngine = (() => {
     MARK_AUGMENTS: () => MARK_AUGMENTS,
     MEASURED_SWITCHES: () => MEASURED_SWITCHES,
     MIN_HOLDERS: () => MIN_HOLDERS,
-    PASSED_OVER: () => PASSED_OVER,
     POINTS_PER_1000_GOLD: () => POINTS_PER_1000_GOLD,
     PROVEN: () => PROVEN,
     REROLL_GAIN: () => REROLL_GAIN,
@@ -782,8 +781,8 @@ var DeepEngine = (() => {
     augmentConflicts: { source: "game data", on: true, why: "An augment that can't work with one you took goes last, with the reason (wiki augment text): Back to Basics seals your ultimate, so augments that need your ultimate cast are dead with it; ADAPt and EscAPADe convert opposite ways; you have two summoner spell slots, so Mark augments, Flash augments and augments that replace a spell can't all fit. Nico asked 2026-11-24; the longer list of possible anti-synergies is in research/augment-conflicts for his review." },
     hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
     ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
-    ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). A path item you've passed over with two finished items (bought after it in the path, or off it) moves behind the rest, so Next moves on (2 is estimated: one situational buy out of order keeps the plan); two or more off-path items of one style (class-wide builds over all champions, AramHex) switch the rest of the build to that style, e.g. AP Zeri." },
-    augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
+    ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). Owning n finished items means the path's first n should be bought: one of those you skipped (for an item later in the path or off it) moves behind the rest, so Next moves on after the first buy that skips it (replay audit: Next stuck 8+ min with 3,500+ gold in 103 moments); boots too once bought past without starting them; off-path items of the other damage type (one if it's purely that type, two if mixed; Nico 2026-11-24: the core is a baseline that follows your buys) switch the rest of the build to the class-wide style build (AramHex, all champions) holding most of what you own, e.g. AP Zeri." },
+    augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share, of the build's damage type unless ADAPt; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
     pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
     converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
     pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
@@ -1266,7 +1265,6 @@ var DeepEngine = (() => {
     const rest = pickFree(ids.filter((id) => !byCore.includes(id)).sort((a, b) => score[b] - score[a]), 5, byCore);
     return byCore.length === 3 ? [byCore, rest] : null;
   }
-  var PASSED_OVER = 2;
   function pickBuild(base0, picks, k, champ, taken, owned, rules, forced = null) {
     if (!k || !picks) return { list: base0, style: null, core: null };
     if (!forced && (!(RULES.augmentReplan.on || RULES.measuredReplan.on) || !taken.length)) return { list: base0, style: null, core: null };
@@ -1478,6 +1476,7 @@ var DeepEngine = (() => {
     const owned = new Set(game.items.map(base));
     const bootIds = new Set(k?.boots ?? []);
     let slotRows = laterPicks(champ, owned, rules);
+    const placedOff = /* @__PURE__ */ new Set();
     if (slotRows && RULES.itemLimits.on) applied("itemLimits");
     let forced = null;
     if (RULES.ownedReplan.on && k && picks) {
@@ -1487,7 +1486,8 @@ var DeepEngine = (() => {
       const tag = (i, t) => (k.items[String(i)] ?? []).includes(t);
       const magicOf = (ids) => ids.filter((i) => tag(i, "ap") && !tag(i, "ad")).length > ids.filter((i) => tag(i, "ad") && !tag(i, "ap")).length;
       const pathIds = [...listed].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i));
-      if (off.length >= 2 && magicOf(fin) !== magicOf(pathIds)) {
+      const pure = (i) => tag(i, "ap") !== tag(i, "ad");
+      if ((off.length >= 2 || off.length === 1 && pure(off[0])) && magicOf(fin) !== magicOf(pathIds)) {
         const magic = magicOf(fin);
         const inPath2 = fin.filter((i) => listed.has(i)).length;
         let best = null;
@@ -1496,7 +1496,7 @@ var DeepEngine = (() => {
           if (!cb) continue;
           const ids = /* @__PURE__ */ new Set([...cb[0], ...cb[1]]);
           const hit = fin.filter((i) => ids.has(i)).length;
-          if (off.filter((i) => ids.has(i)).length >= 2 && hit > inPath2 && (!best || hit > best.hit)) best = { st, hit };
+          if (off.filter((i) => ids.has(i)).length >= Math.min(2, off.length) && hit > inPath2 && (!best || hit > best.hit)) best = { st, hit };
         }
         if (best) forced = { style: best.st, magic, because: off.slice(0, 2).map((i) => k.recipes[i][0]).join(" + ") };
       }
@@ -1505,6 +1505,7 @@ var DeepEngine = (() => {
       const listed = new Set([...champ?.items ?? [], ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
       const prefix = ((champ?.items ?? []).find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
       const extra = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !(k.boots ?? []).includes(i) && !listed.has(i));
+      extra.forEach((i) => placedOff.add(i));
       for (const i of extra) {
         const row = slotRows.find((r) => !owned.has(itemId(r.it.icon)));
         if (!row) break;
@@ -1568,6 +1569,11 @@ var DeepEngine = (() => {
         if (!top) continue;
         const id = Number(top[0]);
         if (owned.has(id) || [...owned].some((o) => o !== id && rules.clash(o, id))) continue;
+        const t = k.items[top[0]] ?? [];
+        const pathAp = build.filter((x) => (k.items[String(itemId(x.icon))] ?? []).includes("ap") && !(k.items[String(itemId(x.icon))] ?? []).includes("ad")).length;
+        const pathAd = build.filter((x) => (k.items[String(itemId(x.icon))] ?? []).includes("ad") && !(k.items[String(itemId(x.icon))] ?? []).includes("ap")).length;
+        const wrongType = t.includes("ap") && !t.includes("ad") && pathAd > pathAp || t.includes("ad") && !t.includes("ap") && pathAp > pathAd;
+        if (wrongType && !taken.includes(ADAPT)) continue;
         let at = build.findIndex((it2) => itemId(it2.icon) === id);
         const it = at >= 0 ? build[at] : { name: k.recipes[top[0]][0], icon: `${prefix}${22e4 + id}.png` };
         if (at >= 0) build.splice(at, 1);
@@ -1619,12 +1625,13 @@ var DeepEngine = (() => {
     if (RULES.ownedReplan.on) {
       const buildIds = build.map((it) => itemId(it.icon));
       const fin = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i));
-      const passed = (it) => fin.filter((i) => {
-        const at = buildIds.indexOf(i);
-        return at < 0 || at > build.indexOf(it);
-      }).length >= PASSED_OVER;
+      const n = fin.length;
+      const nonBoot = build.filter((it) => !bootIds.has(itemId(it.icon)));
+      const bootsAt = build.findIndex((it) => bootIds.has(itemId(it.icon)));
+      const beforeBoots = bootsAt < 0 ? 0 : build.slice(0, bootsAt).filter((it) => !bootIds.has(itemId(it.icon))).length;
       const started = [...owned].some((i) => TIER1_BOOTS.has(i));
-      const skipped = next.filter((it) => passed(it) && !(started && bootIds.has(itemId(it.icon))));
+      const passed = (it) => bootIds.has(itemId(it.icon)) ? !started && n > beforeBoots : nonBoot.indexOf(it) < n;
+      const skipped = next.filter(passed);
       if (skipped.length && skipped.length < next.length) {
         next = [...next.filter((it) => !skipped.includes(it)), ...skipped];
         applied("ownedReplan");
