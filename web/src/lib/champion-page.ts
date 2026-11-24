@@ -5,7 +5,7 @@ import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
 import { clashWith, withoutClashes } from "./item-limits";
-import { alongCore, bestRow, buildOrder, followed, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, realFullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, ITEM_FOLLOWING, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, realFullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
@@ -418,7 +418,7 @@ export function championPage(alias: string): ChampionPage | null {
           legendaryPool,
           itemRoles,
           (i) => all.get(i)?.name,
-          [...c.items, ...followed(sameStyle(legendaryPool, c.items, itemClasses)).map((r) => r.items[0])].filter((i, k, a) => a.indexOf(i) === k),
+          [...c.items, ...followed(sameStyle(legendaryPool, c.items, itemClasses), ITEM_FOLLOWING).map((r) => r.items[0])].filter((i, k, a) => a.indexOf(i) === k),
         )
       : [];
   const core = withBootsCore.map((c) => {
@@ -565,7 +565,7 @@ function tiered(list: ItemRow[]): ItemRow[] {
 
 /**
  * Each core build with its boots: among the boots bought alongside it in six-item builds with a real following
- * (MIN_FOLLOWING of the most common pairing), the one with the best DeepScore on the boots list, so the most popular
+ * (ITEM_FOLLOWING of the most common pairing), the one with the best DeepScore on the boots list, so the most popular
  * pairing doesn't win on popularity alone (Nico, 2026-11-21: Zeri's card showed Berserker's Greaves over the higher
  * scoring Gluttonous Greaves); the best boots overall when no six-item build has the core. Then
  * when to buy them: the simulated step for that core, else the step the champion's other cores use most with those boots.
@@ -596,7 +596,7 @@ function withBoots(
     const top = Math.max(0, ...share.values());
     const score = (i: number) => scored.find((b) => b.items[0] === i)?.deepScore ?? -1;
     const paired = [...share]
-      .filter(([, s]) => s >= MIN_FOLLOWING * top)
+      .filter(([, s]) => s >= ITEM_FOLLOWING * top)
       .sort((x, y) => score(y[0]) - score(x[0]) || y[1] - x[1])[0]?.[0];
     const boots = paired ?? scored[0]?.items[0];
     if (boots === undefined) return r;
