@@ -232,11 +232,21 @@ export function augmentSwaps(
       .sort((a, b) => (b.deepScore ?? 0) - (a.deepScore ?? 0))[0];
     if (pick && !out.some((o) => o.item === pick.items[0])) out.push({ augments: ids, item: pick.items[0], kind: "style", why: c.why });
   }
-  // One item per augment: its most followed one the build doesn't already hold.
+  // One item per augment: its most followed one the build doesn't already hold. The tip's share comes from all
+  // champions, so it only shows where this champion's own games can hold it: at least `rate` of the augment's takers
+  // could have built the item (item pick rate >= rate x augment pick rate). Aurora takes Jeweled Gauntlet in 12% of
+  // games but builds Infinity Edge in 0.9%, so "40% of players build Infinity Edge" can't be true on her (champion
+  // review 2026-11-24, reviews/champion-review-tracker.md G3).
+  const base = (i: number) => (i >= 100000 ? i % 10000 : i);
+  const itemPick = new Map<number, number>();
+  for (const r of pool) itemPick.set(base(r.items[0]), Math.max(itemPick.get(base(r.items[0])) ?? 0, r.pickRate));
+  const augPick = new Map(augments.map((a) => [a.id, a.pickRate]));
+  const holds = (c: (typeof ITEM_CHANGERS)[number], ids: number[]) =>
+    (itemPick.get(base(c.item)) ?? 0) >= c.rate * Math.max(...ids.map((i) => augPick.get(i) ?? 0));
   const tipped = new Set<number>();
   for (const c of [...ITEM_CHANGERS].sort((x, y) => y.rate - x.rate)) {
     const ids = c.ids.filter((i) => own.has(i));
-    if (ids.length && !tipped.has(ids[0]) && !has.has(c.item) && nameOf(c.item) && !out.some((o) => o.item === c.item)) {
+    if (ids.length && !tipped.has(ids[0]) && !has.has(c.item) && nameOf(c.item) && !out.some((o) => o.item === c.item) && holds(c, ids)) {
       out.push({ augments: ids, item: c.item, kind: "style", why: c.why });
       tipped.add(ids[0]);
     }
