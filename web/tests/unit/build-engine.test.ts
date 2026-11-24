@@ -19,6 +19,8 @@ import {
   situational,
   skillUp,
   startFor,
+  fillStart,
+  picksLeft,
   triggers,
   type Fit,
   type Kinds,
@@ -288,6 +290,47 @@ describe("build engine", () => {
     expect(startFor(c, [], 1700)).toMatchObject({ rich: true, start: c.richStarts![0].start });
     expect(startFor(c, [], 1600).rich).toBe(false);
     expect(startFor(c, []).rich).toBe(false);
+  });
+
+  it("spends extra gold on the first item's parts, or on the item the first augment leads to", async () => {
+    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsGET().json()) as Kinds;
+    const names = (c: OverlayChamp | undefined, taken: number[], gold?: number) => startFor(c, taken, gold, k).start.map((s) => s.name);
+    const ahri = champs.find((x) => x.id === "Ahri");
+    // Normal gold: nothing changes.
+    expect(startFor(ahri, [], 1400, k)).toMatchObject({ filled: false, start: ahri?.start });
+    // Debonair +1,000: Lost Chapter for Luden's Echo, Guardian's Orb kept.
+    expect(names(ahri, [], 2400)).toEqual(expect.arrayContaining(["Guardian's Orb", "Lost Chapter"]));
+    // Upgrade Stormsurge (+500) and Debonair (+1,000): the whole Stormsurge.
+    expect(ahri?.augmentStarts?.find((a) => a.augment === 3150)?.toward).toBe(4646);
+    expect(names(ahri, [3150], 2900)).toEqual(["Stormsurge"]);
+    // Every champion, every gold step: never spends more than it has, never leaves the start behind unless it built into it.
+    const cost = (ids: number[]) => ids.reduce((sum, i) => sum + k.recipes[i][1], 0);
+    for (const c of champs)
+      for (const gold of [1554, 1900, 2400, 2900]) {
+        const st = startFor(c, [], gold, k);
+        if (!st.filled) continue;
+        const ids = st.start.map((s) => itemId(s.icon));
+        expect(cost(ids), `${c.id} at ${gold}`).toBeLessThanOrEqual(gold);
+        expect(cost(ids), `${c.id} at ${gold}`).toBeGreaterThan(cost((c.start ?? []).map((s) => itemId(s.icon))));
+      }
+  });
+
+  it("counts a headliner's extra augments as picks left (K/DA, Superfans)", () => {
+    expect(picksLeft(0)).toBe(3);
+    expect(picksLeft(3)).toBe(0);
+    expect(picksLeft(0, "K/DA")).toBeCloseTo(4.54);
+    expect(picksLeft(3, "kda")).toBeCloseTo(1.54);
+    expect(picksLeft(3, "Superfans")).toBeCloseTo(0.29);
+    expect(picksLeft(3, "Pentakill")).toBe(0);
+  });
+
+  it("fills a start from the recipes: owned parts count, the biggest part that fits goes first", () => {
+    const recipes = { 1: ["Part", 400, []], 2: ["Other", 300, []], 3: ["Mid", 900, [1, 1]], 4: ["Big", 2000, [3, 2]] } as unknown as Kinds["recipes"];
+    expect(fillStart([1], [4], 1000, recipes)).toEqual([3]);
+    expect(fillStart([1], [4], 700, recipes)).toEqual([1, 2]);
+    expect(fillStart([], [4], 2000, recipes)).toEqual([4]);
+    expect(fillStart([1], [4], 400, recipes)).toBeNull();
   });
 
   it("never plans two items of one limit group, on any champion's real data", async () => {

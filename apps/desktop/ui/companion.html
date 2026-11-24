@@ -589,11 +589,13 @@
     const b = (c.builds ?? []).length > 1 ? { ...c, ...c.builds[0] } : c;
     const src = (u) => (u?.startsWith("http") ? u : SITE + (u ?? ""));
     // The first augment can change the start (Upgrade Stormsurge: Hextech Alternator), as the engine says.
-    const st = E.startFor ? E.startFor(b, getTaken(game), bought(game) ? undefined : game.gold) : { start: b.start ?? [], augment: null };
+    // With extra gold (Debonair, Upgrade augments) the rest goes on the first item's parts (engine goldFill).
+    const k = await loadKinds();
+    const st = E.startFor ? E.startFor(b, getTaken(game), bought(game) ? undefined : game.gold, k) : { start: b.start ?? [], augment: null };
     box.innerHTML = `<div class="quick">
       <div class="keys">${(b.skills ?? []).map((k, i) => `${i ? `<span class="why">›</span>` : ""}<span class="key">${esc(k)}</span>`).join("")}</div>
       ${(b.spells ?? []).map((sp) => `<span class="spell"><img src="${src(sp.icon)}" alt="">${esc(sp.name)}</span>`).join("")}
-      ${st.start.length ? `<span class="spell"${st.augment ? ` title="Changed by your first augment"` : st.rich ? ` title="You have extra gold to start"` : ""}>Start ${st.start.map((it) => `<img src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</span>` : ""}
+      ${st.start.length ? `<span class="spell"${st.filled ? ` title="You have extra gold: spend it on these parts"` : st.augment ? ` title="Changed by your first augment"` : st.rich ? ` title="You have extra gold to start"` : ""}>Start ${st.start.map((it) => `<img src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</span>` : ""}
     </div>`;
   }
 

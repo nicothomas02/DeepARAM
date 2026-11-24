@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.3";
+export const ENGINE_VERSION = "1.3.4";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -46,6 +46,8 @@ export const RULES: Record<string, Rule> = {
   augmentSkills: { source: "assumption", on: true, why: "A few champions max another ability first once they take an augment (Gwen: E>Q>W with Ethereal Weapon). Nico approved 2026-11-24 (he asked for it); no source splits skill orders by augment, so it's estimated." },
   augmentStart: { source: "data", on: true, why: "The starting items follow the first augment when its first-screen pickers mostly start something else and it at least doubles that start for the champion (Upgrade Stormsurge: Hextech Alternator; Wooglet's Witchcap: Needlessly Large Rod). From the archive's other players against the same champions' players, estimated. Nico asked for it 2026-11-24." },
   richStart: { source: "data", on: true, why: "With more than the 1,400 starting gold before your first buy (the Debonair headliner pays gold for each augment pick; seen in 16 of 251 archive games since 16.21), the best start above 1,400 that you can afford, by DeepScore. Starts above 1,400 are never the default. Nico asked for it 2026-11-24." },
+  goldFill: { source: "assumption", on: true, why: "Gold left after the start (Debonair, Upgrade augments) goes on the parts of the first item, biggest part that fits first; with an augment start, on the item that augment leads to (Upgrade X: X; Wooglet's Witchcap: Rabadon's Deathcap). Real Debonair players mostly keep the gold (137 of 160 in the archive), so no data says which is best. Nico approved it 2026-11-24." },
+  extraAugments: { source: "data", on: true, why: "Headliners that add augment picks count them as picks left for combo potential: K/DA +1.54 (in 49 archive games that look like K/DA, 476 of 490 players took a 5th augment and 280 a 6th), Superfans +0.29 (its 5th augment comes at level 21, which 29% of players reached in the 33 games above level 18). Used once the app knows the headliner; Nico asked 2026-11-24." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
   // Design choices Nico hasn't picked yet: kept as they were.
@@ -93,7 +95,7 @@ export type OverlayChamp = {
   /** Skill max orders once an augment is taken (site lib/augment-skills.ts). */
   augmentSkills?: { augment: number; skills: string[] }[];
   /** The start once an augment is taken first (site lib/quick-build.ts augmentStarts), estimated. */
-  augmentStarts?: { augment: number; start: Named[] }[];
+  augmentStarts?: { augment: number; start: Named[]; toward?: number }[];
   /** Starts above the starting gold, best first, with their cost (site lib/quick-build.ts richStarts). */
   richStarts?: { start: Named[]; cost: number }[];
   start?: Named[];
@@ -183,6 +185,10 @@ export function itemRules(k: Kinds | null | undefined): ItemRules {
 // Augments
 
 export const COMBO_ODDS = 0.04;
+/** Augment picks a headliner adds, on average per player (owner's archive since 16.21, other players included). */
+export const HEADLINER_EXTRA_PICKS: Record<string, number> = { kda: 1.54, superfans: 0.29 };
+/** Regular augment screens: the first and levels 7, 11 and 15. */
+export const AUGMENT_SCREENS = 4;
 export const COMBO_CAP = 0.12;
 export const LUCKY_ODDS = 0.35;
 export const LUCKY_CAP = 1;
@@ -237,19 +243,26 @@ export function luckyOrder<T extends { score: number }>(list: T[], se: (x: T) =>
 /**
  * This champion's augments best first: real per-champion score, plus synergy with what you took, plus a share of the
  * best combo you could still complete (COMBO_ODDS per pick left, at most COMBO_CAP; "I'm feeling lucky" raises it).
- * A partner already shown this game can't come back, so it adds no potential.
+ * A partner already shown this game can't come back, so it adds no potential. A headliner that adds picks (K/DA,
+ * Superfans) adds its expected extra picks to the picks left (extraAugments).
  */
+/** Picks still to come after the one being made: the regular screens left, plus what the headliner adds on average. */
+export function picksLeft(taken: number, headliner?: string): number {
+  const extra = RULES.extraAugments.on && headliner ? HEADLINER_EXTRA_PICKS[headliner.toLowerCase().replace(/[^a-z]/g, "")] ?? 0 : 0;
+  return Math.max(0, AUGMENT_SCREENS + extra - 1 - taken);
+}
+
 export function rankAugments(
   picks: Picks,
   champ: string,
   taken: number[],
-  opts: { lucky?: boolean; seen?: number[] } = {},
+  opts: { lucky?: boolean; seen?: number[]; headliner?: string } = {},
 ): RankedAugment[] {
   const ck = keyIn(picks.champions, champ);
   const own = ck ? picks.champions[ck] : [];
   const pairs = (keyIn(picks.pairs, champ) && picks.pairs[keyIn(picks.pairs, champ)!]) || [];
   const gone = new Set(RULES.seenAugments.on ? (opts.seen ?? []) : []);
-  const left = Math.max(0, 3 - taken.length);
+  const left = picksLeft(taken.length, opts.headliner);
   const odds = opts.lucky ? Math.min(LUCKY_CAP, LUCKY_ODDS * left) : Math.min(COMBO_CAP, COMBO_ODDS * left);
   const info = new Map(own.map(([id, , , , se = -1, pick = -1]) => [id, { se, pick }]));
   const ranked = own
@@ -740,17 +753,78 @@ export type PlanInput = {
 
 /** The starting items to show: the first augment's own start when it has one (augmentStart); else, with more gold
  *  than the 1,400 everyone starts with (the Debonair headliner pays gold per augment pick), the best start above
- *  1,400 you can afford (richStart); else the champion's. */
+ *  1,400 you can afford (richStart); else the champion's. With gold left over and the item recipes (damage-types.json),
+ *  the rest goes on the parts of the item that start leads to (goldFill). */
 export function startFor(
-  champ: Pick<OverlayChamp, "start" | "augmentStarts" | "richStarts"> | undefined,
+  champ: Pick<OverlayChamp, "start" | "augmentStarts" | "richStarts" | "items"> | undefined,
   taken: number[],
   gold?: number,
-): { start: Named[]; augment: number | null; rich: boolean } {
+  kinds?: Pick<Kinds, "recipes" | "boots"> | null,
+): { start: Named[]; augment: number | null; rich: boolean; filled: boolean } {
   const hit = RULES.augmentStart.on && taken.length ? champ?.augmentStarts?.find((a) => a.augment === taken[0]) : undefined;
-  if (hit) return { start: hit.start, augment: hit.augment, rich: false };
-  const rich = RULES.richStart.on && gold !== undefined && gold > START_GOLD ? champ?.richStarts?.find((r) => r.cost <= gold) : undefined;
-  if (rich) return { start: rich.start, augment: null, rich: true };
-  return { start: champ?.start ?? [], augment: null, rich: false };
+  const rich = !hit && RULES.richStart.on && gold !== undefined && gold > START_GOLD ? champ?.richStarts?.find((r) => r.cost <= gold) : undefined;
+  const start = hit?.start ?? rich?.start ?? champ?.start ?? [];
+  const out = { start, augment: hit?.augment ?? null, rich: !!rich, filled: false };
+  if (!RULES.goldFill.on || gold === undefined || gold <= START_GOLD || !kinds?.recipes) return out;
+  const core = (champ?.items ?? []).map((it) => itemId(it.icon)).filter((i) => i && !kinds.boots?.includes(i));
+  const targets = [...(hit?.toward ? [hit.toward] : []), ...core].filter((x, n, a) => a.indexOf(x) === n);
+  const ids = fillStart(start.map((it) => itemId(it.icon)), targets, gold, kinds.recipes);
+  if (!ids) return out;
+  const prefix = ([...start, ...(champ?.items ?? [])].find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+  const known = new Map(start.map((it) => [itemId(it.icon), it]));
+  return { ...out, filled: true, start: ids.map((i) => known.get(i) ?? { name: kinds.recipes[i]?.[0] ?? `#${i}`, icon: prefix ? `${prefix}${i}.png` : null }) };
+}
+
+type Part = { id: number; own: number; kids: Part[]; have?: boolean };
+/** Spends the gold left after a start on the targets' parts (recipes: id -> [name, total cost, parts]): the biggest
+ *  part that fits first, owned parts counted; on to the next target once nothing more fits. null when nothing is
+ *  bought. */
+export function fillStart(start: number[], targets: number[], gold: number, recipes: Kinds["recipes"]): number[] | null {
+  const cost = (i: number) => recipes[i]?.[1];
+  if (start.some((i) => cost(i) === undefined)) return null;
+  let have = [...start];
+  let left = gold - have.reduce((sum, i) => sum + (cost(i) ?? 0), 0);
+  let bought = false;
+  const tree = (i: number, depth = 0): Part | null => {
+    const r = recipes[i];
+    if (!r) return null;
+    const kids = depth < 4 ? r[2].flatMap((k) => tree(k, depth + 1) ?? []) : [];
+    // A part missing from the recipes can't be priced: never buy around it.
+    if (kids.length !== r[2].length) return { id: i, own: Infinity, kids: [] };
+    return { id: i, own: r[1] - kids.reduce((sum, k) => sum + (cost(k.id) ?? 0), 0), kids };
+  };
+  const mark = (n: Part, owned: number[]) => {
+    const k = owned.indexOf(n.id);
+    n.have = k >= 0;
+    if (n.have) owned.splice(k, 1);
+    else for (const c of n.kids) mark(c, owned);
+  };
+  const price = (n: Part): number => (n.have ? 0 : n.own + n.kids.reduce((sum, c) => sum + price(c), 0));
+  const open = (n: Part): Part[] => (n.have ? [] : [n, ...n.kids.flatMap(open)]);
+  const inside = (n: Part): number[] => n.kids.flatMap((c) => (c.have ? [c.id] : inside(c)));
+  for (const target of targets) {
+    for (let step = 0; step < 8 && left > 0; step++) {
+      const t = tree(target);
+      if (!t) break;
+      mark(t, [...have]);
+      const pick = open(t).map((n) => ({ n, p: price(n) })).filter((x) => x.p > 0 && x.p <= left).sort((x, y) => y.p - x.p)[0];
+      if (!pick) break;
+      // Owned parts of what we buy go into it.
+      const used = inside(pick.n);
+      have = have.filter((i) => {
+        const k = used.indexOf(i);
+        if (k < 0) return true;
+        used.splice(k, 1);
+        return false;
+      });
+      have.push(pick.n.id);
+      left -= pick.p;
+      bought = true;
+      if (pick.n === t) break;
+    }
+    if (left <= 0) break;
+  }
+  return bought ? have : null;
 }
 
 /** Every player's gold at 0:00 (the owner's archive, all patches). */
