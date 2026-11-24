@@ -85,6 +85,7 @@ std::map<std::string, Effect> loadEffects(const json::Value& obj, const char* de
         e.needsItem = v["requires_item"].asString();
         e.group = v["group"].asString();
         e.bind = v["spell_bind"].asString();
+        e.headliner = v["headliner"].asString();
         out[key] = e;
     }
     return out;
@@ -375,8 +376,8 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
 const std::vector<std::pair<std::string, std::string>>& Library::settingKeys() {
     static const std::vector<std::pair<std::string, std::string>> keys = {
         // fight
-        {"level", "your champion's level (1-18)"},
-        {"enemy_level", "the enemies' level (1-18); their Health, resists and damage come from it plus their build"},
+        {"level", "your champion's level (1-18; 21 with the Superfans headliner)"},
+        {"enemy_level", "the enemies' level (1-18; 21 with Superfans); their Health, resists and damage come from it plus their build"},
         {"fight_mean", "average fight length, seconds"},
         {"fight_sd", "spread of fight length, seconds"},
         {"fight_min", "shortest fight, seconds"},
@@ -517,6 +518,25 @@ Library Library::load(const std::string& rulesPath, const Settings& settings, co
     lib.augments = loadEffects(json::parse(readFile(game + "/augments.json"))["augments"], "augment");
     const std::string pool = root["scenario"]["enemy_pool"].asString();
     if (!pool.empty()) lib.enemyPool = json::parse(readFile(dir + "/" + pool));
+    // Headliner pieces and stat shards (data/headliners.json): extra "augments" tagged with their headliner.
+    std::ifstream hlFile(dir + "/headliners.json");
+    if (hlFile) {
+        const json::Value hl = json::parse(readFile(dir + "/headliners.json"));
+        for (auto& [key, e] : loadEffects(hl["augments"], "augment"))
+            if (!lib.augments.count(key)) lib.augments[key] = e;
+        for (const auto& [key, tag] : hl["tag"].obj)
+            if (auto it = lib.augments.find(key); it != lib.augments.end()) it->second.headliner = tag.asString();
+        for (const auto& [key, h] : hl["headliners"].obj) {
+            Library::Headliner x;
+            x.key = key;
+            x.name = h["name"].asString(key);
+            x.augmentSlots = static_cast<int>(h["augment_slots"].asNumber(4));
+            x.levelCap = static_cast<int>(h["level_cap"].asNumber(18));
+            x.empowerments = static_cast<int>(h["empowerments"].asNumber(0));
+            x.stickers = static_cast<int>(h["stickers"].asNumber(0));
+            lib.headliners.push_back(x);
+        }
+    }
     // A game-data dir (the PBE patch) carries its own pools; otherwise use the live ones.
     std::string poolPath = game + "/augment_pools.json";
     if (!std::ifstream(poolPath)) poolPath = dir + "/augment_pools.json";
@@ -537,7 +557,8 @@ std::vector<std::string> Library::augmentsFor(const ChampionKit& c, bool modeled
     auto it = augmentPools.find(c.championId);
     for (const auto& [key, a] : augments) {
         if (modeledOnly && a.stats.empty() && a.effects.empty()) continue;
-        if (it != augmentPools.end() && !it->second.empty() &&
+        if (!a.headliner.empty()) continue;  // headliner pieces and stat shards have their own rows
+        if (!anyAugments && it != augmentPools.end() && !it->second.empty() &&
             std::find(it->second.begin(), it->second.end(), key) == it->second.end())
             continue;
         out.push_back(key);
@@ -694,7 +715,7 @@ Scenario Library::scenarioFor(const ChampionKit& c) const {
         if (it != fight.end()) field = static_cast<std::decay_t<decltype(field)>>(it->second);
     };
     set("enemy_level", sc.enemyLevel);
-    sc.enemyLevel = std::clamp(sc.enemyLevel, 1, 18);
+    sc.enemyLevel = std::clamp(sc.enemyLevel, 1, 21);  // 21: Superfans
     auto equip = [&](EnemyProfile& p, bool listed = false) { equipEnemy(p, sc.enemyLevel, listed); };
     for (auto& e : sc.enemies) equip(e);
 
@@ -751,7 +772,7 @@ Scenario Library::scenarioFor(const ChampionKit& c) const {
         sc.teamSize = static_cast<int>(picked.size());
     }
     set("level", sc.level);
-    sc.level = std::clamp(sc.level, 1, 18);
+    sc.level = std::clamp(sc.level, 1, 21);  // 21: the Superfans headliner's level cap
     set("fight_mean", sc.fightMean);
     set("fight_sd", sc.fightSd);
     set("fight_min", sc.fightMin);
@@ -819,6 +840,8 @@ void Library::validate(const Build& b) const {
                 throw std::runtime_error(items.at(b.items[i]).name + " and " + items.at(b.items[j]).name +
                                          " can't be bought together");
     for (const auto& a : b.augments)
+        if (!augments.count(a)) throw std::runtime_error("unknown augment '" + a + "'");
+    for (const auto& a : extraAugments)
         if (!augments.count(a)) throw std::runtime_error("unknown augment '" + a + "'");
 }
 
@@ -1056,7 +1079,7 @@ private:
     // Effect values at this fight's level: an "x_l1"/"x_l18" pair becomes "x" (straight line between).
     Bag atLevel(const Bag& b) const {
         Bag out;
-        const double lv = (sc_.level - 1) / 17.0;
+        const double lv = std::min(1.0, (sc_.level - 1) / 17.0);  // values by level stop at 18
         for (const auto& [k, v] : b) {
             const size_t n = k.size();
             if (n > 3 && k.compare(n - 3, 3, "_l1") == 0) continue;
@@ -1099,6 +1122,10 @@ private:
             if (!a.needsItem.empty() && std::find(b.items.begin(), b.items.end(), a.needsItem) == b.items.end()) continue;
             effects.push_back(&a);
         }
+        // Headliner pieces and stat shards (--extra-augs) come with every build; an empty build is only
+        // the exposure probe (meanExposure), which leaves them out like the rest of the build.
+        if (!b.items.empty() || !b.augments.empty())
+            for (const auto& id : lib_.extraAugments) effects.push_back(&lib_.augments.at(id));
         if (!ch_.kitStats.empty() || !ch_.kitEffects.empty()) {
             kitFx_.stats = ch_.kitStats;
             kitFx_.effects = ch_.kitEffects;
@@ -1144,7 +1171,7 @@ private:
         bonusAd_ = get(stats, "ad");
         ap_ = get(stats, "ap");
         // AP that grows with level (Witchful Thinking: ap_min at level 1 up to ap_max at 18).
-        if (get(fx_, "ap_max") > 0) ap_ += get(fx_, "ap_min") + (get(fx_, "ap_max") - get(fx_, "ap_min")) * (sc_.level - 1) / 17.0;
+        if (get(fx_, "ap_max") > 0) ap_ += get(fx_, "ap_min") + (get(fx_, "ap_max") - get(fx_, "ap_min")) * std::min(1.0, (sc_.level - 1) / 17.0);
         // Converting one damage stat into the other (escAPADe, ADAPt).
         if (get(fx_, "ap_to_ad") > 0) { bonusAd_ += ap_ * get(fx_, "ap_to_ad"); ap_ = 0; }
         if (get(fx_, "ad_to_ap") > 0) { ap_ += bonusAd_ * get(fx_, "ad_to_ap"); bonusAd_ = 0; }
@@ -1164,6 +1191,9 @@ private:
         attackRange_ += ranged_ ? get(fx_, "range_ranged") : get(fx_, "range_melee");
         // Flat Adaptive Force (stat anvils, Slap Around's stacks when the kit can immobilize).
         addAdaptive(get(fx_, "adaptive_flat") + (hasImmobilize_ ? get(fx_, "cc_af") : 0.0));
+        // Stat anvils' damage shard (Stats!): the AP shard for AP builds, the AD one otherwise (wiki shard values).
+        if (ap_ >= bonusAd_) ap_ += get(fx_, "shard_ap");
+        else { bonusAd_ += get(fx_, "shard_ad"); ad_ += get(fx_, "shard_ad"); }
         // Adaptive amplifiers boost whichever of AP or bonus AD the build has more of.
         const double adaptive = get(fx_, "adaptive_amp");
         if (ap_ >= bonusAd_) ap_ *= 1.0 + adaptive;
@@ -1252,7 +1282,7 @@ private:
         // A kit's own percent penetration (Annie R's passive) multiplies with items', as in League.
         magicPenPct_ = 1.0 - (1.0 - get(stats, "magic_pen_pct")) * (1.0 - get(fx_, "magic_pen_pct_kit"));
         lifesteal_ = get(stats, "lifesteal") + sword * get(fx_, "sword_lifesteal");
-        omnivamp_ = get(stats, "omnivamp") + get(fx_, "omnivamp_per_ap") * ap_;
+        omnivamp_ = get(stats, "omnivamp") + get(fx_, "omnivamp_per_ap") * ap_ - (ranged_ ? get(fx_, "omnivamp_ranged_cut") : 0.0);
         // Overflow: double mana costs for more effective damage, heals and shields (more with more mana).
         const double overflow = ch_.resource == 1 && get(fx_, "overflow_amp") > 0
                                     ? get(fx_, "overflow_amp") + get(fx_, "overflow_amp_per_mana") * maxMana_ : 0.0;
@@ -2557,7 +2587,7 @@ private:
         int waves = 0;
         for (double need : {5, 12, 20, 30, 44, 63, 90, 129, 187, 275}) waves += fed >= need;
         if (!waves) return;
-        const double lv = (sc_.level - 1) / 17.0;
+        const double lv = std::min(1.0, (sc_.level - 1) / 17.0);
         const double dmg = get(f, "poro_min") + (get(f, "poro_max") - get(f, "poro_min")) * lv + get(f, "poro_per_fed") * fed;
         Ability a;
         a.castTime = 0.25;
@@ -3511,7 +3541,8 @@ private:
                 if (j != i && !ch_.abilities[j].noHaste && readyAt_[j] > t_ && readyAt_[j] < 1e17) pool.push_back(j);
             if (!pool.empty()) {
                 const size_t pick = pool[static_cast<size_t>(abilityRng_.uniform() * static_cast<double>(pool.size())) % pool.size()];
-                readyAt_[pick] = std::max(t_, readyAt_[pick] - get(fx_, "archmage") * cooldownOf(a));
+                // A share of the cast ability's BASE cooldown, before haste (wiki; Nico 2026-11-24).
+                readyAt_[pick] = std::max(t_, readyAt_[pick] - get(fx_, "archmage") * a.cooldown);
             }
         }
         for (const auto& bd : bound_)  // Overloaded: casting another ability resets the chosen one
@@ -4233,6 +4264,7 @@ TeamResult runTeam(const Library& lib, const std::vector<TeamPick>& allies, cons
     for (int s = 0; s < 2; ++s) {
         Library vs = lib;
         vs.enemyTeam.clear();
+        vs.extraAugments.clear();  // headliner pieces are the 1v1 panel's
         for (const auto& m : *sides[1 - s].picks) vs.enemyTeam.push_back(teamEntry(m));
         for (const auto& [k, b] : *sides[s].picks) {
             TeamMember m;

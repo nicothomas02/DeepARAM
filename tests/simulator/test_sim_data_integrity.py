@@ -178,10 +178,23 @@ def test_augments(patch):
 
 
 def test_list_json_modeled_flag_matches_data(list_json):
-    augs = augments("live")
+    # Headliner pieces and stat shards (data/headliners.json) list as augments tagged "headliner".
+    extra = load_json(DATA_DIR / "headliners.json")["augments"]
+    augs = {**extra, **augments("live")}
     for a in list_json["augments"]:
         d = augs[a["key"]]
         assert a["modeled"] == (bool(d.get("stats")) or bool(d.get("effects"))), a["key"]
+        assert bool(a.get("headliner")) == (a["key"] in extra or a["key"] in {"heavy", "power", "thrash", "doom"}), a["key"]
+
+
+def test_headliner_pieces_never_join_augment_pools(list_json):
+    """Pentakill empowerments, HEARTSTEEL stickers and stat shards are never regular augment picks."""
+    tagged = {a["key"] for a in list_json["augments"] if a.get("headliner")}
+    assert {"heavy", "power", "thrash", "doom", "sticker_ksante", "shard_g_ad"} <= tagged
+    for c in list_json["champions"]:
+        assert not tagged & set(c["augments"]), c["id"]
+    keys = {h["key"]: h for h in list_json["headliners"]}
+    assert keys["kda"]["augment_slots"] == 5 and keys["superfans"]["level_cap"] == 21
 
 
 # ---------------------------------------------------------------- augment pools
