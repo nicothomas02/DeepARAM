@@ -63,8 +63,8 @@ export const RULES: Record<string, Rule> = {
   augmentConflicts: { source: "game data", on: true, why: "An augment that can't work with one you took goes last, with the reason (wiki augment text): Back to Basics seals your ultimate, so augments that need your ultimate cast are dead with it; ADAPt and EscAPADe convert opposite ways; you have two summoner spell slots, so Mark augments, Flash augments and augments that replace a spell can't all fit. Nico asked 2026-11-24; the longer list of possible anti-synergies is in research/augment-conflicts for his review." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
-  ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). Owning n finished items means the path's first n should be bought: one of those you skipped (for an item later in the path or off it) moves behind the rest, so Next moves on after the first buy that skips it (replay audit: Next stuck 8+ min with 3,500+ gold in 103 moments); boots too once bought past without starting them; two or more off-path items of one style (class-wide builds over all champions, AramHex) switch the rest of the build to that style, e.g. AP Zeri." },
-  augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
+  ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). Owning n finished items means the path's first n should be bought: one of those you skipped (for an item later in the path or off it) moves behind the rest, so Next moves on after the first buy that skips it (replay audit: Next stuck 8+ min with 3,500+ gold in 103 moments); boots too once bought past without starting them; off-path items of the other damage type (one if it's purely that type, two if mixed; Nico 2026-11-24: the core is a baseline that follows your buys) switch the rest of the build to the class-wide style build (AramHex, all champions) holding most of what you own, e.g. AP Zeri." },
+  augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share, of the build's damage type unless ADAPt; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
   // Design choices Nico hasn't picked yet: kept as they were.
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
@@ -1162,7 +1162,10 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const tag = (i: number, t: string) => (k.items[String(i)] ?? []).includes(t);
     const magicOf = (ids: number[]) => ids.filter((i) => tag(i, "ap") && !tag(i, "ad")).length > ids.filter((i) => tag(i, "ad") && !tag(i, "ap")).length;
     const pathIds = [...listed].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i));
-    if (off.length >= 2 && magicOf(fin) !== magicOf(pathIds)) {
+    // one off-path item is enough when it's purely the other damage type (Nico 2026-11-24: the core is a baseline that
+    // should follow your buys); a mixed item (Nashor's) needs a second
+    const pure = (i: number) => tag(i, "ap") !== tag(i, "ad");
+    if ((off.length >= 2 || (off.length === 1 && pure(off[0]))) && magicOf(fin) !== magicOf(pathIds)) {
       const magic = magicOf(fin);
       const inPath = fin.filter((i) => listed.has(i)).length;
       let best: { st: string; hit: number } | null = null;
@@ -1171,7 +1174,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
         if (!cb) continue;
         const ids = new Set([...cb[0], ...cb[1]]);
         const hit = fin.filter((i) => ids.has(i)).length;
-        if (off.filter((i) => ids.has(i)).length >= 2 && hit > inPath && (!best || hit > best.hit)) best = { st, hit };
+        if (off.filter((i) => ids.has(i)).length >= Math.min(2, off.length) && hit > inPath && (!best || hit > best.hit)) best = { st, hit };
       }
       if (best) forced = { style: best.st, magic, because: off.slice(0, 2).map((i) => k.recipes[i][0]).join(" + ") };
     }
@@ -1249,6 +1252,12 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       if (!top) continue;
       const id = Number(top[0]);
       if (owned.has(id) || [...owned].some((o) => o !== id && rules.clash(o, id))) continue;
+      // only an item of the build's damage type (no Wooglet's -> Zhonya's on an AD build) unless ADAPt converts it
+      const t = k.items[top[0]] ?? [];
+      const pathAp = build.filter((x) => (k.items[String(itemId(x.icon))] ?? []).includes("ap") && !(k.items[String(itemId(x.icon))] ?? []).includes("ad")).length;
+      const pathAd = build.filter((x) => (k.items[String(itemId(x.icon))] ?? []).includes("ad") && !(k.items[String(itemId(x.icon))] ?? []).includes("ap")).length;
+      const wrongType = (t.includes("ap") && !t.includes("ad") && pathAd > pathAp) || (t.includes("ad") && !t.includes("ap") && pathAp > pathAd);
+      if (wrongType && !taken.includes(ADAPT)) continue;
       let at = build.findIndex((it) => itemId(it.icon) === id);
       const it: Named = at >= 0 ? build[at] : { name: k.recipes[top[0]][0], icon: `${prefix}${220000 + id}.png` };
       if (at >= 0) build.splice(at, 1);

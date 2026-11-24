@@ -201,8 +201,10 @@ describe("build engine", () => {
     expect(p.rules).toContain("ownedReplan");
     expect(ids(p.path)).toEqual(expect.arrayContaining([3003, 3089, 3135]));
     expect([3135, 4645]).toContain(ids(p.next)[0]);
-    // one off-path AP item doesn't switch
-    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+    // one purely-AP off-path item is enough; one mixed item (Nashor's: AD and AP) isn't
+    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched?.style).toBeTruthy();
+    const k3 = { ...k2, items: { ...k2.items, 3115: ["ad", "ap", "as"] }, recipes: { ...k2.recipes, 3115: ["#3115", 3000, []] } } as Kinds;
+    expect(plan({ champ, kinds: k3, picks: p2, fit, game: game([], { items: [3006, 3115] }), taken: [] }).switched).toBeNull();
   });
 
   it("an augment whose holders rush an item puts it in the core and makes it Next (augmentRush)", () => {
@@ -215,6 +217,14 @@ describe("build engine", () => {
     expect(ids(p.path.slice(0, p.coreLen))).toContain(id);
     expect(p.path).toHaveLength(6);
     expect(p.rules).toContain("augmentRush");
+  });
+
+  it("a rushed item must fit the build's damage type unless ADAPt converts it", () => {
+    const wooglets = Object.entries(AUGMENT_SHIFT).find(([, m]) => (m["3157"]?.[4] ?? 0) >= RUSH_Z_BUILD && (m["3157"]?.[5] ?? 0) >= RUSH_Z_EARLY)?.[0];
+    expect(wooglets).toBeTruthy();
+    const k2 = { ...kinds, items: { ...kinds.items, 3157: ["ap", "armor"] }, recipes: { ...kinds.recipes, 3157: ["#3157", 3000, []] } } as Kinds;
+    expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets)] }).path)).not.toContain(3157);
+    expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets), 1205] }).path)).toContain(3157);
   });
 
   it("never shows an item twice in the path", () => {
