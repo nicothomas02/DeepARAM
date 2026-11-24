@@ -1373,6 +1373,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       rushed.push({ item: it, by: a });
       applied("augmentRush");
     }
+    // the path then follows this re-planned list, not the per-slot picks (they'd list the rushed item twice)
+    if (rushed.length) slotRows = null;
   }
   // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA
   // 2026-11-24: "Build done" with plain Boots while the build's Sorcerer's Shoes were still owed).
@@ -1449,7 +1451,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
 
   // Path: the core, then the 4th/5th/6th picks (or the rest of the build).
   const coreItems = build.slice(0, coreLen);
-  const rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
+  const rest = (slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6)).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
   const path = [...coreItems, ...rest];
   const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
   const slotName = (i: number) => ord(slotRows?.[i]?.slot ?? first + i);

@@ -1319,6 +1319,7 @@ var DeepEngine = (() => {
         rushed.push({ item: it, by: a });
         applied("augmentRush");
       }
+      if (rushed.length) slotRows = null;
     }
     const hasBoots = [...owned].some((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
     const isOwned = (it) => owned.has(itemId(it.icon)) || hasBoots && bootIds.has(itemId(it.icon));
@@ -1400,7 +1401,7 @@ var DeepEngine = (() => {
     }
     next = next.slice(0, 2);
     const coreItems = build.slice(0, coreLen);
-    const rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
+    const rest = (slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6)).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
     const path = [...coreItems, ...rest];
     const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
     const slotName = (i) => ord(slotRows?.[i]?.slot ?? first + i);
