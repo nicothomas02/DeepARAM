@@ -64,6 +64,7 @@ export const RULES: Record<string, Rule> = {
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
   ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). A path item you've passed over with two finished items (bought after it in the path, or off it) moves behind the rest, so Next moves on (2 is estimated: one situational buy out of order keeps the plan); two or more off-path items of one style (class-wide builds over all champions, AramHex) switch the rest of the build to that style, e.g. AP Zeri." },
+  augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
   // Design choices Nico hasn't picked yet: kept as they were.
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
@@ -772,6 +773,8 @@ export const WEAPON_OF_DESTINY = 3081;
 export const AUGMENT_SHIFT = (augmentShiftData as { pairs: Record<string, Record<string, number[]>> }).pairs;
 /** Path positions an item moves per 1.0 of shrunk early pull (Wooglet's -> Rabadon's 0.52 moves it ~4 places). */
 export const SHIFT_ORDER_GAIN = 8;
+/** augmentRush gates: build-share z, early-buy z, and build-share lift (21 pairs pass on the 2026-11-24 data). */
+export const RUSH_Z_BUILD = 3, RUSH_Z_EARLY = 2, RUSH_LIFT = 0.15;
 /** Shrunk build pull before an item outside your path becomes a swap (10 points more holders build it). */
 export const SHIFT_SWAP_MIN = 0.1;
 /** Measured enough to drop "(estimated)": z >= 4 with 50+ holders. */
@@ -1233,8 +1236,36 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const baseList = [...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : (champ?.rest ?? []))].filter((it, i, a) => a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
   const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules, forced);
   if (picked.style) { slotRows = null; applied(forced && picked.because === forced.because ? "ownedReplan" : RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan"); }
-  const build = picked.list;
+  const build = [...picked.list];
   const coreLen = picked.core ?? (champ?.items ?? []).length;
+  // Rush (augmentRush): an augment whose holders build one item far more AND earlier (augment-item-shift.json, real
+  // lobbies: build z >= 3, early z >= 2, +15 pts build share, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's
+  // -> Zhonya's) puts that item in the core and makes it Next. Smaller pulls only nudge the order (augmentShift).
+  const rushed: { item: Named; by: number }[] = [];
+  if (RULES.augmentRush.on && k) {
+    const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+    for (const a of taken) {
+      const top = Object.entries(AUGMENT_SHIFT[String(a)] ?? {})
+        .filter(([i, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT && !!k.recipes[i])
+        .sort((x, y) => y[1][4] - x[1][4])[0];
+      if (!top) continue;
+      const id = Number(top[0]);
+      if (owned.has(id) || [...owned].some((o) => o !== id && rules.clash(o, id))) continue;
+      let at = build.findIndex((it) => itemId(it.icon) === id);
+      const it: Named = at >= 0 ? build[at] : { name: k.recipes[top[0]][0], icon: `${prefix}${220000 + id}.png` };
+      if (at >= 0) build.splice(at, 1);
+      // it takes the last core place you haven't bought (or the one it can't be built with); boots keep theirs
+      const clash = build.findIndex((x) => rules.clash(itemId(x.icon), id) && !owned.has(itemId(x.icon)));
+      if (clash >= 0) build.splice(clash, 1);
+      else if (at < 0 && build.length >= 6) {
+        const drop = [...build.keys()].reverse().find((j) => !owned.has(itemId(build[j].icon)) && !bootIds.has(itemId(build[j].icon)));
+        if (drop !== undefined) build.splice(drop, 1);
+      }
+      build.splice(Math.min(Math.max(coreLen - 1, 0), build.length), 0, it);
+      rushed.push({ item: it, by: a });
+      applied("augmentRush");
+    }
+  }
   // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA
   // 2026-11-24: "Build done" with plain Boots while the build's Sorcerer's Shoes were still owed).
   const hasBoots = [...owned].some((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
@@ -1264,6 +1295,10 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   if (RULES.destinyFirst.on && taken.includes(WEAPON_OF_DESTINY) && !finished && champ?.destiny) {
     const idx = next.findIndex((it) => itemId(it.icon) === itemId(champ.destiny!.icon));
     if (idx >= 0) { front(idx, `${augName(WEAPON_OF_DESTINY)}: your first legendary becomes the Weapon`); applied("destinyFirst"); }
+  }
+  for (const r of [...rushed].reverse()) {
+    const idx = next.findIndex((it) => itemId(it.icon) === itemId(r.item.icon));
+    if (idx >= 0 && !timing.some((t) => t.item === next[idx])) front(idx, `${augName(r.by)}: players who take it rush this`);
   }
   const upgraded = new Map<number, string>();
   for (const a of taken) for (const id of UPGRADES[a] ?? []) if (RULES.upgradeLabel.on) upgraded.set(id, augName(a));

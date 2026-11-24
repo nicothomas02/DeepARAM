@@ -33,6 +33,10 @@ import {
   type OverlayChamp,
   type Picks,
   shiftOf,
+  AUGMENT_SHIFT,
+  RUSH_Z_BUILD,
+  RUSH_Z_EARLY,
+  RUSH_LIFT,
   stickerValue,
   STICKERS,
 } from "@/lib/engine/build-engine";
@@ -156,7 +160,7 @@ describe("build engine", () => {
     // Upgrade Infinity Edge: IE is a 1st/2nd legendary for 83% of holders vs 52% without (augmentShift)
     const up = plan({ champ, kinds, picks, fit, game: game([]), taken: [1336] });
     expect(ids(up.next)).toEqual([3031, 3006]);
-    expect(up.timing[0].because).toMatch(/buy this earlier/);
+    expect(up.timing[0].because).toMatch(/rush this|buy this earlier/);
     expect(up.why[ids(up.path).indexOf(3031)]).toMatch(/upgrades it/);
     // a pull too small to matter (Ethereal Weapon -> Nashor's, shrunk) moves nothing on its own
     expect(Math.abs(shiftOf([1029], 3115).early)).toBeLessThan(0.05);
@@ -193,6 +197,18 @@ describe("build engine", () => {
     expect([3135, 4645]).toContain(ids(p.next)[0]);
     // one off-path AP item doesn't switch
     expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+  });
+
+  it("an augment whose holders rush an item puts it in the core and makes it Next (augmentRush)", () => {
+    const shift = Object.entries(AUGMENT_SHIFT).flatMap(([a, m]) => Object.entries(m).filter(([i, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT && kinds.recipes[i] === undefined).map(([i]) => [Number(a), Number(i)]));
+    expect(shift.length).toBeGreaterThan(0);
+    const [aug, id] = shift[0];
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, [String(id)]: [`#${id}`, 3000, []] } } as Kinds;
+    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [3006] }), taken: [aug] });
+    expect(ids(p.next)[0]).toBe(id);
+    expect(ids(p.path.slice(0, p.coreLen))).toContain(id);
+    expect(p.path).toHaveLength(6);
+    expect(p.rules).toContain("augmentRush");
   });
 
   it("never shows an item twice in the path", () => {
