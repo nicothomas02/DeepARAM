@@ -448,11 +448,13 @@
     const row = (a, best) => {
       const [tag, tone, why] = reason(a);
       const pick = tb && tb.id === a.id ? `Can't decide? This one: ${tb.why}` : "";
-      const hover = [why, pick, whatItDoes("augments", Number(a.id))].filter(Boolean).join("\n");
+      // Transmute/Pandora's Box (transmuteDraw): the live adjustment for what's left to draw (and, Pandora's, what you hold).
+      const draw = typeof a.draw === "number" ? `Random draw (estimated): ${a.draw >= 0 ? "+" : ""}${a.draw.toFixed(1)} for what's left to draw${d.augments[a.id]?.[0] === "Pandora's Box" ? " and the augments you hold" : ""}` : "";
+      const hover = [why, draw, pick, whatItDoes("augments", Number(a.id))].filter(Boolean).join("\n");
       return `
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
-        <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}</div>
+        <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${typeof a.draw === "number" && Math.abs(a.draw) >= 0.1 ? `<div class="cue sm ${a.draw > 0 ? "green" : "red"}">🎲 ${a.draw > 0 ? "+" : ""}${a.draw.toFixed(1)}</div>` : ""}</div>
         <div class="num" title="DeepScore on this champion (ranking adds synergy with what you took)">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `${a.boost !== null ? "<br>" : ""}<small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </div>`;
     };

@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.15";
+export const ENGINE_VERSION = "1.3.16";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -54,6 +54,7 @@ export const RULES: Record<string, Rule> = {
   screenTiers: { source: "game data", on: true, why: "Wiki (ARAM: Mayhem): every player gets the same tier on a screen, and the first two screens are never both Silver. Archive since 16.21: after a Silver first screen the second was Gold 15 times, Prismatic 15, Silver 0. So when the first screen is Silver, a Silver partner has one screen fewer to come." },
   headlinerScreens: { source: "game data", on: true, why: "Used once the app knows the headliner (wiki + Nico 2026-11-24). Maestro: 4 cards a screen, each rerollable once, so 8 chances to see a partner instead of 6. Command Line: screens are only Silver or Gold, so a Prismatic partner only comes from a reroll; the first reroll on a screen draws one tier higher (Silver to Gold, Gold to Prismatic). Debonair: the gold on a card only breaks a tie." },
   heartsteelStickers: { source: "assumption", on: true, why: "HEARTSTEEL stickers add their estimated value to the augment they're on: stats the champion uses, priced at basic-item gold, 0.45 win-rate points per 1,000 gold (Deft/Recursion on builders vs non-builders). Nico approved estimates 2026-11-24." },
+  transmuteDraw: { source: "assumption", on: true, why: "Transmute: Gold/Prismatic/Chaos and Pandora's Box draw at random, so their score moves with what is left to draw: the card's own DeepScore on the champion, plus how far the champion's augments still drawable at that tier (minus the ones taken or already shown) sit above or below the full list, times how much a pool's strength moves the card across champions (AramHex 16.21-16.23, 173 champions: Gold 0.34, Prismatic 0.61, Chaos 0.54 on every tier; Pandora's per draw as Prismatic). Pandora's also swaps every augment you hold for a random Prismatic: that draw minus each held augment's score, and held synergy bonuses are lost. Estimated: the wiki doesn't say the draw is from the champion's own augments or skips ones already shown (a pool's strength predicting the card, r 0.69, suggests the champion's own). Nico approved 2026-11-24 (he asked for it)." },
   tierOdds: { source: "data", on: true, why: "Combo potential uses the chance each later screen comes at the partner's tier (archive since 16.21, all players, 225 games: e.g. after a Prismatic screen the next is Prismatic only 18% of the time, Gold 43%) and the chance the partner is among the 6 cards a screen can show from the champion's augments left at that tier, instead of a flat 4% per pick. Split-half backtest: predicts the next screen's tier better than tier-blind odds (log loss 1.05-1.07 vs 1.10). Nico approved 2026-11-24." },
   nearTies: { source: "data", on: true, why: "Cards on offer within the 95% noise band of the best (1.96 x their combined standard error) are shown as 'either is fine'. Engine scorecard on 9,399 archive picks since 16.21 (other players, game state at pick time controlled): a gap outside the band predicts wins (+0.043 log-odds per point, z 5.0); inside it, which side you're on doesn't (above -2.7 vs below -1.3 pts, se 1.7). Nico approved trying it 2026-11-24." },
   augmentConflicts: { source: "game data", on: true, why: "An augment that can't work with one you took goes last, with the reason (wiki augment text): Back to Basics seals your ultimate, so augments that need your ultimate cast are dead with it; ADAPt and EscAPADe convert opposite ways; you have two summoner spell slots, so Mark augments, Flash augments and augments that replace a spell can't all fit. Nico asked 2026-11-24; the longer list of possible anti-synergies is in research/augment-conflicts for his review." },
@@ -223,6 +224,9 @@ export type RankedAugment = {
   tilt?: number;
   /** Why it can't work with an augment you took (augmentConflicts); such augments go last. */
   conflict?: string;
+  /** Transmute/Pandora's Box (transmuteDraw): points added (or taken) for what is left to draw and, for Pandora's,
+   *  what you hold. Estimated. */
+  draw?: number;
 };
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -371,6 +375,55 @@ export function partnerPicks(taken: number, rarity: string | undefined, opts: { 
   return n;
 }
 
+/**
+ * Random-draw cards (transmuteDraw, estimated). `tier` is what the draw comes from ("" = every tier: Chaos, which
+ * also skips the other cards on screen, already in `seen`); `slope` is how much the card's score moves per point of
+ * its pool's average across champions (AramHex 16.21-16.23); `swap` = Pandora's, which also turns every augment you
+ * hold into a random Prismatic.
+ */
+export const TRANSMUTE: Record<number, { tier: string; slope: number; swap?: boolean }> = {
+  1237: { tier: "gold", slope: 0.34 }, 237: { tier: "gold", slope: 0.34 },
+  1238: { tier: "prismatic", slope: 0.61 }, 238: { tier: "prismatic", slope: 0.61 },
+  1243: { tier: "", slope: 0.54 }, 243: { tier: "", slope: 0.54 },
+  12317: { tier: "prismatic", slope: 0.61, swap: true }, 317: { tier: "prismatic", slope: 0.61, swap: true },
+};
+
+function transmuteDraw(
+  picks: Picks,
+  own: [number, number, number?, number?, number?, number?][],
+  pairs: [number, number, number][],
+  taken: number[],
+  gone: Set<number>,
+  ranked: RankedAugment[],
+) {
+  const tierOf = (id: number) => picks.augments[id]?.[1] ?? "";
+  const value = new Map(own.map(([id, score]) => [id, score * 100]));
+  // Synergy an augment would add with what you hold (the same pair bonus the ranking uses).
+  const bonus = (id: number) => pairs.reduce((t, [a, b, p]) => t + ((a === id && taken.includes(b)) || (b === id && taken.includes(a)) ? p : 0), 0);
+  const mean = (xs: number[]) => xs.reduce((t, x) => t + x, 0) / xs.length;
+  for (const r of ranked) {
+    const t = TRANSMUTE[r.id];
+    if (!t) continue;
+    const inTier = own.filter(([id]) => !TRANSMUTE[id] && (!t.tier || tierOf(id) === t.tier));
+    const left = inTier.filter(([id]) => !taken.includes(id) && !gone.has(id));
+    if (inTier.length < 5 || left.length < 3) continue;
+    const full = mean(inTier.map(([id]) => value.get(id)!));
+    const now = mean(left.map(([id]) => value.get(id)! + bonus(id)));
+    let draw = t.slope * (now - full);
+    if (t.swap) {
+      // Each held augment becomes a random Prismatic: the draw's worth minus what it was worth, and synergy between
+      // held augments is gone.
+      const held = taken.filter((id) => value.has(id) && !TRANSMUTE[id]);
+      draw += held.reduce((s, id) => s + t.slope * (now - value.get(id)!), 0);
+      draw -= pairs.reduce((s, [a, b, p]) => s + (taken.includes(a) && taken.includes(b) ? p : 0), 0);
+    }
+    if (!Number.isFinite(draw) || Math.abs(draw) < 0.005) continue;
+    r.draw = draw;
+    r.score += draw;
+    if (r.boost !== null) r.boost += draw;
+  }
+}
+
 export function rankAugments(
   picks: Picks,
   champ: string,
@@ -418,8 +471,9 @@ export function rankAugments(
       const baseScore = score * 100 + bonus + (RULES.heartsteelStickers.on ? opts.stickers?.[id] ?? 0 : 0);
       const conflict = augmentConflict(picks, taken, id);
       return { id, score: baseScore + potential, boost: est ? baseScore : null, potential, combo, mate, deep, ...(conflict ? { conflict } : {}) } as RankedAugment;
-    })
-    .sort((x, y) => Number(!!x.conflict) - Number(!!y.conflict) || y.score - x.score);
+    });
+  if (RULES.transmuteDraw.on) transmuteDraw(picks, own, pairs, taken, gone, ranked);
+  ranked.sort((x, y) => Number(!!x.conflict) - Number(!!y.conflict) || y.score - x.score);
   if (!opts.lucky) return ranked;
   return luckyOrder(ranked, (a) => info.get(a.id)?.se ?? null, (a) => info.get(a.id)?.pick ?? null);
 }

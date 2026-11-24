@@ -554,3 +554,41 @@ describe("augments tip a weaker split (splitAugments)", () => {
     expect(splitFor(["E", "Q", "W"], { first: "Q", points: 3 }, [1103]).tipped).toBe(false);
   });
 });
+
+describe("transmuteDraw", () => {
+  // 10 Prismatics scored 0.10 down to 0.01, 10 Silvers at 0.02, and the two random-draw cards.
+  const aug = Object.fromEntries([
+    ...Array.from({ length: 10 }, (_, n) => [String(500 + n), [`P${n}`, "prismatic"]]),
+    ...Array.from({ length: 10 }, (_, n) => [String(600 + n), [`S${n}`, "silver"]]),
+    ["1238", ["Transmute: Prismatic", "gold"]],
+    ["12317", ["Pandora's Box", "prismatic"]],
+  ]) as Picks["augments"];
+  const own = [
+    ...Array.from({ length: 10 }, (_, n) => [500 + n, 0.1 - n * 0.01]),
+    ...Array.from({ length: 10 }, (_, n) => [600 + n, -0.02]),
+    [1238, 0], [12317, -0.03],
+  ] as [number, number][];
+  const p: Picks = { ...picks, augments: aug, champions: { Ashe: own }, pairs: {} };
+  const at = (id: number, taken: number[] = [], seen: number[] = []) => rankAugments(p, "Ashe", taken, { seen }).find((a) => a.id === id)!;
+
+  it("a Transmute is worth more once weak augments of its tier are gone", () => {
+    expect(at(1238).draw).toBeUndefined();
+    // The 4 weakest Prismatics were shown: the pool's average rises from 5.5 to 7.5 points; x 0.61.
+    const later = at(1238, [], [506, 507, 508, 509]);
+    expect(later.draw).toBeCloseTo(0.61 * 2, 5);
+    expect(later.score).toBeCloseTo(1.22, 5);
+    // The strongest ones gone: worth less.
+    expect(at(1238, [], [500, 501, 502, 503]).draw!).toBeLessThan(0);
+  });
+
+  it("Pandora's Box gains from weak augments held and loses their synergy", () => {
+    const weak = at(12317, [600, 601]);
+    // Each held Silver (-2) becomes a random Prismatic (avg 5.5): 0.61 x 7.5 each.
+    expect(weak.draw).toBeCloseTo(2 * 0.61 * 7.5, 5);
+    const paired: Picks = { ...p, pairs: { Ashe: [[600, 601, 3]] } };
+    const lost = rankAugments(paired, "Ashe", [600, 601]).find((a) => a.id === 12317)!;
+    expect(lost.draw).toBeCloseTo(2 * 0.61 * 7.5 - 3, 5);
+    // Holding strong Prismatics instead: a loss.
+    expect(at(12317, [500, 501]).draw!).toBeLessThan(0);
+  });
+});

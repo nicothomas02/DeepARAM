@@ -22,6 +22,7 @@ import { whatItDoes } from "@/lib/mechanisms";
 import { augmentTiers } from "@/lib/augment-tiers";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
+import { TRANSMUTE } from "@/lib/engine/build-engine";
 
 // One page per augment, so each can be found in search (lib/augments.ts).
 
@@ -106,6 +107,16 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
           <Description kind="augments" id={a.id}>
             {DESC.augments[String(a.id)]}
           </Description>
+        )}
+        {/* Random-draw cards (engine rule transmuteDraw): the apps adjust their score live. */}
+        {TRANSMUTE[a.id] && (
+          <p className="cp-mini">
+            {TRANSMUTE[a.id].swap ? (
+              <T ns="augments">Random draw: the score here averages every result. In game, the app adjusts it for what is left to draw (augments already shown never return) and for the augments you hold, which it would replace. Estimated.</T>
+            ) : (
+              <T ns="augments">Random draw: the score here averages every result. In game, the app adjusts it for what is left to draw (augments already shown never return). Estimated.</T>
+            )}
+          </p>
         )}
         <div className="stat-row">
           <div>
