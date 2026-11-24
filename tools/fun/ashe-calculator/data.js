@@ -1,5 +1,5 @@
 window.ASHE_DATA = {
- "patch": "16.23.8406595",
+ "patch": "16.23.8413489",
  "channel": "latest",
  "champion": {
   "name": "Ashe",
@@ -68,7 +68,7 @@ window.ASHE_DATA = {
    "id": 1349,
    "name": "Ultimate Awakening",
    "tier": "Prismatic",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/zerohour_small.png",
+   "icon": "/assets/cd/latest/game/assets/ux/mayhem/augments/icons/zerohour_small.png",
    "values": {
     "Cooldown": 20.0,
     "AH": 30.0,
@@ -83,7 +83,7 @@ window.ASHE_DATA = {
    "id": 3055,
    "name": "Ultimate Recursion",
    "tier": "Silver",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/zealot_large.png",
+   "icon": "/assets/cd/latest/game/assets/ux/mayhem/augments/icons/zealot_large.png",
    "values": {
     "UltimateHaste": 50.0
    },
@@ -120,7 +120,7 @@ window.ASHE_DATA = {
    "id": 1151,
    "name": "Bread and Cheese",
    "tier": "Gold",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/genericabilityaugmenticon_gold.png",
+   "icon": "/assets/cd/latest/game/assets/ux/mayhem/augments/icons/genericabilityaugmenticon_gold.png",
    "values": {
     "EAbilityHaste": 100.0
    },
@@ -132,7 +132,7 @@ window.ASHE_DATA = {
    "id": 2018,
    "name": "Purist - Caster",
    "tier": "Silver",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/puristcaster_small.png",
+   "icon": "/assets/cd/latest/game/assets/ux/mayhem/augments/icons/puristcaster_small.png",
    "values": {
     "CooldownReduction": 0.1,
     "Haste_Per_AS": 0.6499999761581421,
