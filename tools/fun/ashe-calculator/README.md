@@ -35,14 +35,14 @@ R first whenever it is up, then Hawkshot, then Volley if that setting is on, 0.2
 - Mystic Punch takes 1.25 s off R, W and Hawkshot's recharge per basic attack, keeping at least 0.5 s of what's left
   (the Simulator's reading of `MinCDR`), Hawkshot's recharge included. Attacks only land between casts.
 - Purist - Caster: only its 10% shorter cooldowns are added; its attack speed to haste is already in the panel haste.
-  We read "total cooldowns reduced by 10%" as 10% off the hasted cooldown. AramHex takes 10% of the base cooldown
-  off instead (much stronger at high haste: a 0.33 s gap at 500 haste against our 0.75 s); unconfirmed, ask Nico.
+  It takes 10% of the base cooldown off the hasted cooldown, as AramHex's page does (Nico chose this 2026-11-24 over
+  10% off the hasted cooldown; neither the wiki nor the game files settle it).
 - Ultimate Recursion's 50 Ultimate Haste and Purist's 10% are missing from the game files and come from the wiki.
 
 Checked against AramHex's Ashe page (2026-11-24, Archmage only, R per minute after the first minute): R3 E4 at 100,
 150, 202 and 300 haste: 5.0, 9.6, 28.4 and 40 on both; R2 E2 at 210: 29.2 on both; Ultimate Awakening at 100: 11.4 on
 both. Stable thresholds: R3 E4 202 / 202, R2 E2 210 / 210, R1 E1 249 / 250, R3 E5 261 / 263, Ultimate Awakening 185 /
-185, Bread and Cheese 209 / 210 (AramHex / ours).
+185, Bread and Cheese 209 / 210, Purist - Caster 132 / 132 (34.3 / 34.4 R per minute at 150 haste) (AramHex / ours).
 
 The "infinite build" preset: Archmage, Ultimate Awakening, Ultimate Recursion and Mystic Punch at 1.5 attacks per
 second close the loop from 20 haste at Hawkshot rank 1, 65 at rank 3 and 170 at rank 5. Archmage alone needs about

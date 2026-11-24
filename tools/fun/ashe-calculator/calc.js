@@ -33,7 +33,7 @@
     const ultHaste = (+build.ultHaste || 0)
       + (awaken ? v("UltimateAwakening", "AH", 30) : 0)
       + (has("UltimateRecursion") ? v("UltimateRecursion", "UltimateHaste", 50) : 0);
-    const purist = has("ARAM_Purist_Caster") ? 1 - v("ARAM_Purist_Caster", "CooldownReduction", 0.1) : 1;
+    const purist = has("ARAM_Purist_Caster") ? v("ARAM_Purist_Caster", "CooldownReduction", 0.1) : 0;
     return {
       R: S.R.cooldown[build.rRank - 1],
       E: S.E.recharge[build.eRank - 1],
@@ -58,9 +58,9 @@
     };
   }
 
-  // Seconds an ability's cooldown lasts with this much haste: base x 100 / (100 + haste), then Purist's 10%.
-  // The game caps total haste (ability haste plus basic or ultimate haste) at 500.
-  const hasted = (base, haste, purist) => (base * 100) / (100 + Math.min(500, haste)) * purist;
+  // Seconds an ability's cooldown lasts with this much haste: base x 100 / (100 + haste), less Purist's 10% of the
+  // base cooldown (AramHex's reading, Nico chose it 2026-11-24). The game caps total haste at 500.
+  const hasted = (base, haste, purist = 0) => Math.max(0, base * (100 / (100 + Math.min(500, haste)) - purist));
 
   // Shortest time between two Hawkshots at this basic haste: the gap (5 s, shortened by haste), which starts when the
   // cast ends, and never less than two cast times (an R and a Hawkshot).
