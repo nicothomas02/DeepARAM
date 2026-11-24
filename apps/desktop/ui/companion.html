@@ -564,12 +564,17 @@
     const key = (x) => JSON.stringify([x.champ, x.items, x.dead, x.t < 60, x.t >= 600, x.enemies, x.skills, x.level, x.stats?.map((v) => Math.round(v * 10)), x.dead && Math.round((x.gold ?? 0) / 100)]);
     if (setOffer(g.offer)) renderAugments();
     if (!prev || key(prev) !== key(g)) renderItems();
+    // Before the first buy, extra gold (the Debonair headliner pays gold per augment pick) can change the start.
+    if (!bought(g) && prev && Math.round((prev.gold ?? 0) / 50) !== Math.round((g.gold ?? 0) / 50)) renderQuick();
   };
 
   // The offer changed (read off the screen the moment it did): re-rank right away instead of at the next update.
   window.showOffer = (ids) => {
     if (setOffer(ids) && game) renderAugments();
   };
+
+  // Bought anything yet (Poro-Snax, which ARAM hands out, doesn't count)?
+  const bought = (g) => (g.items ?? []).some((i) => i % 10000 !== 2052);
 
   // The champion's quick build, as on the site's card: skill order and spells (the items are just above, live).
   async function renderQuick() {
@@ -581,11 +586,11 @@
     const b = (c.builds ?? []).length > 1 ? { ...c, ...c.builds[0] } : c;
     const src = (u) => (u?.startsWith("http") ? u : SITE + (u ?? ""));
     // The first augment can change the start (Upgrade Stormsurge: Hextech Alternator), as the engine says.
-    const st = E.startFor ? E.startFor(b, getTaken(game)) : { start: b.start ?? [], augment: null };
+    const st = E.startFor ? E.startFor(b, getTaken(game), bought(game) ? undefined : game.gold) : { start: b.start ?? [], augment: null };
     box.innerHTML = `<div class="quick">
       <div class="keys">${(b.skills ?? []).map((k, i) => `${i ? `<span class="why">›</span>` : ""}<span class="key">${esc(k)}</span>`).join("")}</div>
       ${(b.spells ?? []).map((sp) => `<span class="spell"><img src="${src(sp.icon)}" alt="">${esc(sp.name)}</span>`).join("")}
-      ${st.start.length ? `<span class="spell"${st.augment ? ` title="Changed by your first augment"` : ""}>Start ${st.start.map((it) => `<img src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</span>` : ""}
+      ${st.start.length ? `<span class="spell"${st.augment ? ` title="Changed by your first augment"` : st.rich ? ` title="You have extra gold to start"` : ""}>Start ${st.start.map((it) => `<img src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</span>` : ""}
     </div>`;
   }
 

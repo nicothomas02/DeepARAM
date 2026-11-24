@@ -39,6 +39,9 @@ import { archmageRoutes, ASHE, type ArchmageRoute } from "./archmage-route";
 const IDS = championIds as Record<string, number>;
 const AUGS = augmentNames as Record<string, string>;
 
+/** Every player's gold at 0:00 in the owner's archive (1,245 games, all patches). */
+export const STARTING_GOLD = 1400;
+
 /** The first-item start fallback needs this many archive players rushing the item, and this many on the start itself
  *  (chosen lines, flagged to Nico 2026-11-24). */
 const MIN_FIRST_ITEM_PLAYERS = 20;
@@ -200,6 +203,8 @@ export type ChampionPage = {
   /** The start players who take an augment first switch to (Upgrade Stormsurge: Hextech Alternator), estimated from
    *  the archive (data/aramhex/merge.py mark_augment_starts); the apps switch to it once that augment is the first. */
   augmentStarts: { augment: number; items: number[] }[];
+  /** Starts above the starting gold (Debonair, Upgrade augments' gold), best first, with their cost. */
+  richStarts: { items: number[]; cost: number }[];
   augments: AugmentRow[];
   mates: Mate[];
   styles: Style[];
@@ -405,11 +410,17 @@ export function championPage(alias: string): ChampionPage | null {
   const startTop = Math.max(0, ...startPool.map((r) => r.pickRate));
   // A start an Upgrade augment on the first screen could account for (Ahri's Hextech Alternator with Upgrade
   // Stormsurge) never leads, and comes last: the default start mustn't come from an augment rush (Nico 2026-11-24).
-  const startFollowed = (r: ItemRow) => !r.augment && (r.pickRate >= MIN_FOLLOWING * startTop || (r.games ?? 0) >= START_MIN_GAMES);
+  // A start that costs more than the starting gold needs extra gold at the start: the Debonair headliner (gold for
+  // each augment picked, 200 to 1,000 on the first screen) or an Upgrade augment (200 or 500). Nico 2026-11-24: those
+  // starts aren't the default; with the gold, the apps pick the best one you can afford (richStarts).
+  const startCost = (r: ItemRow) => r.items.reduce((sum, i) => sum + (itemRecipe(i)?.price ?? 0), 0);
+  const overBudget = (r: ItemRow) => startCost(r) > STARTING_GOLD;
+  const offDefault = (r: ItemRow) => !!r.augment || overBudget(r);
+  const startFollowed = (r: ItemRow) => !offDefault(r) && (r.pickRate >= MIN_FOLLOWING * startTop || (r.games ?? 0) >= START_MIN_GAMES);
   const scoredStart = [
     ...startPool.filter(startFollowed),
-    ...startPool.filter((r) => !startFollowed(r) && !r.augment),
-    ...startPool.filter((r) => r.augment),
+    ...startPool.filter((r) => !startFollowed(r) && !offDefault(r)),
+    ...startPool.filter(offDefault),
   ];
   const standalone = (i: number) => ["starter", "consumable"].includes(itemTier(i));
   const withBootsOf = (c: ItemRow, its: number[]) => [...its, ...(c.boots !== undefined ? [c.boots] : [])];
@@ -460,7 +471,7 @@ export function championPage(alias: string): ChampionPage | null {
         ).sort((x, y) => (swapScore.get(y.item) ?? -Infinity) - (swapScore.get(x.item) ?? -Infinity))
       : [];
   const core = withBootsCore.map((c) => {
-    const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find((r) => !r.augment && fits(c)(r));
+    const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find((r) => !offDefault(r) && fits(c)(r));
     const { items } = buyingOrder(st ? startFirst(c.items, st.items, itemParts, standalone) : c.items, orderRows);
     const row: ItemRow = { ...c, items, rest: restOfBuild(items, c.boots, full, isBoots) };
     return withLater(row);
@@ -471,7 +482,7 @@ export function championPage(alias: string): ChampionPage | null {
         .reduce<ItemRow[]>((out, ok) => [...out, ...scoredStart.filter((r) => ok(r) && !out.includes(r))], [])
     : scoredStart;
   const starting = startingRows;
-  const cardStarts = starting.filter((r) => !r.augment);
+  const cardStarts = starting.filter((r) => !offDefault(r));
   const page0Start = (core[0] ? cardStarts.find(fits(core[0])) : cardStarts[0]) ?? null;
   // Builds by style (Nico, 2026-11-21: crit vs AP Ashe, everything on the card follows the build). The card's own
   // best core stands for the style it belongs to; the other styles take their summary from build_archetypes.json.
@@ -523,7 +534,7 @@ export function championPage(alias: string): ChampionPage | null {
           const coreHasBoots = coreIds.some((i) => itemTier(i) === "boots");
           const bootsId = noBoots || coreHasBoots ? undefined : a.boots?.[0] !== undefined ? known(a.boots[0]) : undefined;
           const row: ItemRow = { items: coreIds, ...rated(a.win_rate, a.share), boots: bootsId, bootsAt: bootsId !== undefined ? (playedSlot ?? undefined) : undefined };
-          const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find((r) => !r.augment && fits(row)(r)) ?? null;
+          const st = scoredStart.find((r) => startFollowed(r) && fits(row)(r)) ?? scoredStart.find((r) => !offDefault(r) && fits(row)(r)) ?? null;
           const ordered = buyingOrder(st ? startFirst(coreIds, st.items, itemParts, standalone) : coreIds, orderRows).items;
           const c0: ItemRow = { ...row, items: ordered, rest: withoutClashes((a.later ?? []).map(known).filter((i) => !ordered.includes(i)), ordered).slice(0, 3) };
           const c: ItemRow = withLater(c0);
@@ -566,6 +577,11 @@ export function championPage(alias: string): ChampionPage | null {
         .flatMap((i) => (all.get(i) ? [{ id: i, name: all.get(i)!.name }] : [])),
     ),
     augmentSwaps: swapsFor(core[0]),
+    // Starts above the starting gold, best DeepScore first, the ones fitting the main core first: the apps use the
+    // first one you can afford when you start with extra gold (Debonair, Upgrade augments).
+    richStarts: [...startPool.filter((r) => !r.augment && overBudget(r))]
+      .sort((x, y) => Number(core[0] ? fits(core[0])(y) : 0) - Number(core[0] ? fits(core[0])(x) : 0) || (y.deepScore ?? 0) - (x.deepScore ?? 0))
+      .map((r) => ({ items: r.items, cost: startCost(r) })),
     augmentStarts: Object.entries(b?.augment_starts ?? {}).map(([a, items]) => ({ augment: Number(a), items })),
     augments,
     mates,

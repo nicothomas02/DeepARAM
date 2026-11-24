@@ -68,6 +68,8 @@ export type QuickBuild = {
   augmentSkills?: AugmentSkill[];
   /** The start once an augment is taken first (Upgrade Stormsurge: Hextech Alternator), estimated. The engine's startFor. */
   augmentStarts?: { augment: number; start: Named[] }[];
+  /** Starts above the starting gold, best first: the engine's startFor takes the first you can afford (Debonair). */
+  richStarts?: { start: Named[]; cost: number }[];
   builds: (Pick<QuickBuild, "skills" | "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number; nearBest: boolean })[];
 };
 
@@ -168,6 +170,10 @@ export function quickBuilds(): QuickBuild[] {
       const start = a.items.flatMap((i) => named(i) ?? []);
       return start.length ? [{ augment: a.augment, start }] : [];
     });
+    const rich = p.richStarts.slice(0, 3).flatMap((r) => {
+      const start = r.items.flatMap((i) => named(i) ?? []);
+      return start.length === r.items.length ? [{ start, cost: r.cost }] : [];
+    });
     const first = builds[0] ?? { ...pieces(p.core[0], p.cardStart, p.situational, p.rush, p.augmentSwaps), augments: augsOf() };
     const { start, items, rest, full, later, laterSlots, situational, rush, augments } = first;
     return [
@@ -193,6 +199,7 @@ export function quickBuilds(): QuickBuild[] {
         ...(arch ? { archmage: arch } : {}),
         ...(AUGMENT_SKILLS[id] ? { augmentSkills: AUGMENT_SKILLS[id] } : {}),
         ...(augStarts.length ? { augmentStarts: augStarts } : {}),
+        ...(rich.length ? { richStarts: rich } : {}),
       },
     ];
   });
