@@ -329,5 +329,8 @@
  "Recent patches": "Legutóbbi patchek",
  "This patch only": "Csak ez a patch",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Ennél a hősnél még nincs ismert szinergia ezzel: {names}, ezért a többi csak a saját előnye alapján rangsorolódik.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Már vannak fejlesztéseid? Nyomd meg a + gombot, vagy húzd őket a helyeidre, és a többi szinergia szerint rendeződik át."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Már vannak fejlesztéseid? Nyomd meg a + gombot, vagy húzd őket a helyeidre, és a többi szinergia szerint rendeződik át.",
+ "In the build": "A buildben",
+ "{win} win · {pick} pick": "{win} győzelem · {pick} választás",
+ "or": "vagy"
 }

@@ -329,5 +329,8 @@
  "Recent patches": "Son yamalar",
  "This patch only": "Yalnızca bu yama",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Bu şampiyonda {names} ile bilinen bir sinerji henüz yok, bu yüzden diğerleri yalnızca kendi katkılarına göre sıralanıyor.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Zaten güçlendirmelerin var mı? +'ya bas ya da yuvalarına sürükle, diğerleri sinerjiye göre yeniden sıralansın."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Zaten güçlendirmelerin var mı? +'ya bas ya da yuvalarına sürükle, diğerleri sinerjiye göre yeniden sıralansın.",
+ "In the build": "Dizilimde",
+ "{win} win · {pick} pick": "{win} galibiyet · {pick} seçim",
+ "or": "veya"
 }

@@ -329,5 +329,8 @@
  "Recent patches": "Patch-uri recente",
  "This patch only": "Doar acest patch",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Încă nu există o sinergie cunoscută cu {names} pentru acest campion, așa că restul se ordonează doar după avantajul propriu.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Ai deja augmenturi? Apasă + sau trage-le în sloturi, iar restul se reordonează după sinergie."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Ai deja augmenturi? Apasă + sau trage-le în sloturi, iar restul se reordonează după sinergie.",
+ "In the build": "În build",
+ "{win} win · {pick} pick": "{win} victorii · {pick} alegere",
+ "or": "sau"
 }

@@ -329,5 +329,8 @@
  "Recent patches": "Recent patches",
  "This patch only": "This patch only",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.",
+ "In the build": "In the build",
+ "{win} win · {pick} pick": "{win} win · {pick} pick",
+ "or": "or"
 }

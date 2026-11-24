@@ -329,5 +329,8 @@
  "Recent patches": "最近のパッチ",
  "This patch only": "今パッチのみ",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "このチャンピオンでは{names}との既知のシナジーがまだないため、残りは単体の強さだけで並びます。",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "すでにオーグメントがありますか？+を押すかスロットにドラッグすると、残りがシナジー順に並び替わります。"
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "すでにオーグメントがありますか？+を押すかスロットにドラッグすると、残りがシナジー順に並び替わります。",
+ "In the build": "ビルドに含む",
+ "{win} win · {pick} pick": "勝率 {win} · 採用率 {pick}",
+ "or": "または"
 }

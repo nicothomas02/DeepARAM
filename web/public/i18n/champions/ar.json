@@ -329,5 +329,8 @@
  "Recent patches": "التحديثات الأخيرة",
  "This patch only": "هذا التحديث فقط",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "لا يوجد تآزر معروف مع {names} لهذا البطل بعد، لذا تُرتَّب البقية حسب تعزيزها فقط.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "لديك معززات بالفعل؟ اضغط + أو اسحبها إلى خاناتك، وسيُعاد ترتيب البقية حسب التآزر."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "لديك معززات بالفعل؟ اضغط + أو اسحبها إلى خاناتك، وسيُعاد ترتيب البقية حسب التآزر.",
+ "In the build": "ضمن البناء",
+ "{win} win · {pick} pick": "{win} فوز · {pick} اختيار",
+ "or": "أو"
 }

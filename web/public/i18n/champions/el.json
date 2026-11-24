@@ -329,5 +329,8 @@
  "Recent patches": "Πρόσφατα patch",
  "This patch only": "Μόνο αυτό το patch",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Δεν υπάρχει ακόμη γνωστή συνέργεια με {names} σε αυτόν τον ήρωα, οπότε οι υπόλοιπες κατατάσσονται μόνο με βάση την ώθησή τους.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Έχεις ήδη ενισχύσεις; Πάτα + ή σύρε τις στις θέσεις σου και οι υπόλοιπες θα ανακαταταχθούν βάσει συνέργειας."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Έχεις ήδη ενισχύσεις; Πάτα + ή σύρε τις στις θέσεις σου και οι υπόλοιπες θα ανακαταταχθούν βάσει συνέργειας.",
+ "In the build": "Στο build",
+ "{win} win · {pick} pick": "{win} νίκες · {pick} επιλογή",
+ "or": "ή"
 }

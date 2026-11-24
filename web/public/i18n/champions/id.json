@@ -329,5 +329,8 @@
  "Recent patches": "Patch terbaru",
  "This patch only": "Hanya patch ini",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Belum ada sinergi yang diketahui dengan {names} untuk champion ini, jadi sisanya diurutkan berdasarkan dorongannya saja.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Sudah punya augment? Tekan + atau seret ke slotmu, dan sisanya diurutkan ulang berdasarkan sinergi."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Sudah punya augment? Tekan + atau seret ke slotmu, dan sisanya diurutkan ulang berdasarkan sinergi.",
+ "In the build": "Dalam build",
+ "{win} win · {pick} pick": "{win} menang · {pick} dipilih",
+ "or": "atau"
 }
