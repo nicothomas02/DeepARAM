@@ -5666,141 +5666,141 @@ window.COOK_DATA = {
    }
   },
   {
-   "id": "yasuo-unc-is-wallmaxxing",
+   "id": "yasuo-sweeping-broom",
    "champion": "Yasuo",
-   "title": "Unc Is Wallmaxxing",
-   "tagline": "POV: you locked in a ranged champ and unc put up three walls before your first shot landed",
+   "title": "Sweeping Broom",
+   "tagline": "He sealed his own ult and grabbed a broom: the dash cleans up the whole team now.",
    "augments": [
     {
-     "name": "Mystic Punch",
-     "id": 1058,
+     "name": "Back To Basics",
+     "id": 1004,
      "rarity": "Prismatic",
-     "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
+     "text": "Your Ultimate Ability is sealed. Gain 35% Ability Damage, Healing, Shielding, and 70 Ability Haste.",
      "core": true,
-     "icon": "icons/augments/mystic-punch.png",
-     "win_rate": 0.5225,
-     "pick_rate": 0.3126,
-     "win_rank": 26,
+     "icon": "icons/augments/back-to-basics.png",
+     "win_rate": 0.545,
+     "pick_rate": 0.3019,
+     "win_rank": 4,
      "best_champions": [
-      "Yasuo",
-      "MasterYi",
-      "Yone",
+      "Ryze",
+      "TwistedFate",
+      "Kaisa",
+      "Gangplank",
+      "TahmKench",
+      "Smolder"
+     ],
+     "champion_is_best": false
+    },
+    {
+     "name": "Trusty Weapon",
+     "id": 2136,
+     "rarity": "Silver",
+     "text": "Striking enemy champions with the chosen ability forges a bond of Friendship.the chosen ability gains temporarily increased damage based on your level of Friendship.",
+     "core": true,
+     "icon": "icons/augments/trusty-weapon.png",
+     "win_rate": 0.4744,
+     "pick_rate": 0.0584,
+     "win_rank": 198,
+     "best_champions": [
+      "TwistedFate",
+      "Ezreal",
       "Hecarim",
-      "Fiora",
-      "XinZhao"
+      "Ryze",
+      "Ziggs",
+      "Veigar"
      ],
-     "champion_is_best": true
+     "champion_is_best": false
     },
     {
-     "name": "Double Tap",
-     "id": 2010,
-     "rarity": "Prismatic",
-     "text": "Your Critical Strikes apply On-Hit effects an additional time. Gain Crit chance.",
+     "name": "Mighty Shield",
+     "id": 1314,
+     "rarity": "Silver",
+     "text": "Gain Adaptive Force for 3 seconds when you gain a Shield (5 seconds Cooldown).",
      "core": true,
-     "icon": "icons/augments/double-tap.png",
-     "win_rate": 0.476,
-     "pick_rate": 0.1406,
-     "win_rank": 191,
+     "icon": "icons/augments/mighty-shield.png",
+     "win_rate": 0.4945,
+     "pick_rate": 0.0224,
+     "win_rank": 116,
      "best_champions": [
-      "Vayne",
-      "Jinx",
-      "Caitlyn",
-      "Jhin",
-      "Yasuo",
-      "Lucian"
-     ],
-     "champion_is_best": true
-    },
-    {
-     "name": "Critical Rhythm",
-     "id": 1328,
-     "rarity": "Gold",
-     "text": "Your basic Attack stacks 6% Attack Speed on Critical Strikes up to 10 stacks. Gain 25% Crit chance.",
-     "core": true,
-     "icon": "icons/augments/critical-rhythm.png",
-     "win_rate": 0.4848,
-     "pick_rate": 0.2203,
-     "win_rank": 159,
-     "best_champions": [
-      "Caitlyn",
-      "Jinx",
-      "Jhin",
       "Yasuo",
       "Yone",
-      "Vayne"
+      "Mordekaiser",
+      "Nautilus",
+      "Rumble",
+      "Shen"
      ],
      "champion_is_best": true
     },
     {
-     "name": "Scopiest Weapons",
-     "id": 1115,
+     "name": "Hand of Baron",
+     "id": 1389,
      "rarity": "Prismatic",
-     "text": "Gain Attack Range.",
+     "text": "Gain 25% Adaptive Force. Nearby allied minions are greatly empowered.",
      "core": true,
-     "icon": "icons/augments/scopiest-weapons.png",
-     "win_rate": 0.4913,
-     "pick_rate": 0.1967,
-     "win_rank": 130,
+     "icon": "icons/augments/hand-of-baron.png",
+     "win_rate": 0.54,
+     "pick_rate": 0.043,
+     "win_rank": 7,
      "best_champions": [
+      "AurelionSol",
+      "Ryze",
+      "Jayce",
+      "TwistedFate",
       "Jhin",
-      "Caitlyn",
-      "Jinx",
-      "Vayne",
-      "Smolder",
-      "Kayle"
+      "Karthus"
      ],
      "champion_is_best": false
     }
    ],
    "core": 4,
    "items": [
-    "Navori Flickerblade",
-    "Dusk and Dawn",
-    "Nashor's Tooth",
-    "Trinity Force",
-    "Spear of Shojin",
-    "Ionian Boots of Lucidity"
+    "Rabadon's Deathcap",
+    "Void Staff",
+    "Shadowflame",
+    "Stormsurge",
+    "Riftmaker",
+    "Sorcerer's Shoes"
    ],
-   "why": "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.",
+   "why": "Yasuo seals his own Last Breath and goes full Ability Power, because the little dash he uses to get around was secretly his biggest spell.",
    "how": [
     [
-     "Wind Wall",
-     "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price."
+     "Sweeping Blade",
+     "130 magic damage plus 60% of his Ability Power at rank 5, on a 0.1-second cooldown. Every dash adds 25% for 5 seconds, up to 4 times, so a warmed-up dash is 260 plus 120% Ability Power."
     ],
     [
      "Augments",
-     "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall."
+     "Back To Basics seals Last Breath for 35% more ability damage, and Trusty Weapon, rolled on Sweeping Blade, adds 5% per champion he dashes through: five champions in, each dash scales with 200% of his Ability Power. Mighty Shield turns his Flow shield into Ability Power, and Hand of Baron adds 25% Adaptive Force on top."
     ],
     [
      "Items",
-     "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back."
+     "Rabadon's Deathcap is 130 Ability Power and 30% more of all of it, and Shadowflame, Stormsurge and Riftmaker pile on the rest. Void Staff and Sorcerer's Shoes make sure nobody's Magic Resist gets a say."
     ]
    ],
-   "play": "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.",
+   "play": "Max Sweeping Blade first, then Steel Tempest. Dash through four minions to warm up, then through every champion once: each one can be dashed again after 6 seconds, exactly as long as a Trusty Weapon stack lasts.",
    "chef": "2026-11-23",
    "champion_name": "Yasuo",
    "item_ids": [
-    6675,
-    2510,
-    3115,
-    3078,
-    3161,
-    3158
+    3089,
+    3135,
+    4645,
+    4646,
+    4633,
+    3020
    ],
    "champion_icon": "icons/champions/157.png",
    "champion_win_rate": 0.5851,
    "champion_pick_rate": 0.116,
    "champion_win_rank": 1,
-   "core_win_rate": 0.4936,
+   "core_win_rate": 0.5135,
    "tier": "Pure troll",
-   "core_usual": 3,
-   "core_pick_rate": 0.2175,
+   "core_usual": 1,
+   "core_pick_rate": 0.1064,
    "sim": {
-    "dps": 519,
-    "survival": 0.021,
+    "dps": 356,
+    "survival": 0.012,
     "best_dps": 1213,
     "best_survival": 0.082,
-    "pct_of_best": 0.428,
+    "pct_of_best": 0.294,
     "best_items": [
      "Berserker's Greaves",
      "Blade of The Ruined King",
