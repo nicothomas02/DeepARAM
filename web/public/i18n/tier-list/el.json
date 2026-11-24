@@ -70,5 +70,12 @@
  "1st augment": "1η ενίσχυση",
  "2nd augment": "2η ενίσχυση",
  "3rd augment": "3η ενίσχυση",
- "4th augment": "4η ενίσχυση"
+ "4th augment": "4η ενίσχυση",
+ "All players": "Όλοι οι παίκτες",
+ "Casual": "Περιστασιακοί",
+ "Mid": "Μεσαίοι",
+ "Top 5%": "Top 5%",
+ "Skill bracket": "Επίπεδο δεξιοτήτων",
+ "Skill brackets come from a rating built from game results, not official ranks.": "Τα επίπεδα βγαίνουν από βαθμολογία βάσει αποτελεσμάτων αγώνων, όχι από επίσημες κατατάξεις.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Αυτό το patch δεν έχει ακόμη αριθμούς ανά επίπεδο, οπότε προέρχονται από το patch {patch}."
 }

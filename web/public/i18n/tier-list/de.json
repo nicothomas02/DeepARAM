@@ -70,5 +70,12 @@
  "1st augment": "1. Augment",
  "2nd augment": "2. Augment",
  "3rd augment": "3. Augment",
- "4th augment": "4. Augment"
+ "4th augment": "4. Augment",
+ "All players": "Alle Spieler",
+ "Casual": "Gelegenheitsspieler",
+ "Mid": "Mittelfeld",
+ "Top 5%": "Top 5 %",
+ "Skill bracket": "Spielstärke",
+ "Skill brackets come from a rating built from game results, not official ranks.": "Die Stufen beruhen auf einer Wertung aus Spielergebnissen, nicht auf offiziellen Rängen.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Für diesen Patch gibt es noch keine Werte nach Spielstärke, daher stammen sie aus Patch {patch}."
 }

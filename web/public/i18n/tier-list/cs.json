@@ -70,5 +70,12 @@
  "1st augment": "1. vylepšení",
  "2nd augment": "2. vylepšení",
  "3rd augment": "3. vylepšení",
- "4th augment": "4. vylepšení"
+ "4th augment": "4. vylepšení",
+ "All players": "Všichni hráči",
+ "Casual": "Příležitostní",
+ "Mid": "Střední",
+ "Top 5%": "Top 5 %",
+ "Skill bracket": "Úroveň hráčů",
+ "Skill brackets come from a rating built from game results, not official ranks.": "Úrovně vycházejí z hodnocení podle výsledků her, ne z oficiálních rankingů.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Tento patch zatím nemá čísla podle úrovně, proto jsou z patche {patch}."
 }

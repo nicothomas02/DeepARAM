@@ -2107,3 +2107,31 @@ button.cp-few-tag:focus::after {
 .cp-why b {
   font-weight: 600;
 }
+/* Win rate per skill bracket under the hero numbers; the visitor's bracket is marked. */
+.cp-brackets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+.cp-brackets-h {
+  color: var(--muted);
+  cursor: help;
+}
+.cp-brackets button {
+  padding: 0.15rem 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+.cp-brackets button small {
+  color: var(--muted);
+}
+.cp-brackets button[aria-pressed="true"] {
+  border-color: var(--accent, var(--fg));
+  background: color-mix(in srgb, var(--accent, var(--fg)) 14%, transparent);
+}

@@ -70,5 +70,12 @@
  "1st augment": "1. fejlesztés",
  "2nd augment": "2. fejlesztés",
  "3rd augment": "3. fejlesztés",
- "4th augment": "4. fejlesztés"
+ "4th augment": "4. fejlesztés",
+ "All players": "Minden játékos",
+ "Casual": "Alkalmi",
+ "Mid": "Közepes",
+ "Top 5%": "Top 5%",
+ "Skill bracket": "Tudásszint",
+ "Skill brackets come from a rating built from game results, not official ranks.": "A szintek a meccseredményekből számolt értékelésből jönnek, nem a hivatalos rangokból.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Ehhez a patchhez még nincsenek szintenkénti számok, ezért a(z) {patch} patchből jönnek."
 }

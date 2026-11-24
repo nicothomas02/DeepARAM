@@ -70,5 +70,12 @@
  "1st augment": "Augment ที่ 1",
  "2nd augment": "Augment ที่ 2",
  "3rd augment": "Augment ที่ 3",
- "4th augment": "Augment ที่ 4"
+ "4th augment": "Augment ที่ 4",
+ "All players": "ผู้เล่นทั้งหมด",
+ "Casual": "ทั่วไป",
+ "Mid": "ระดับกลาง",
+ "Top 5%": "ท็อป 5%",
+ "Skill bracket": "ระดับฝีมือ",
+ "Skill brackets come from a rating built from game results, not official ranks.": "ระดับมาจากคะแนนที่คำนวณจากผลการแข่งขัน ไม่ใช่แรงก์ทางการ",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "แพตช์นี้ยังไม่มีตัวเลขตามระดับ จึงใช้ของแพตช์ {patch}"
 }

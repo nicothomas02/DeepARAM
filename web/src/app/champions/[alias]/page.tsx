@@ -11,6 +11,8 @@ import DeepScore from "@/components/DeepScore";
 import { BUILD_DEEPSCORE_HELP, FIT, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
 import FewPlayers from "@/components/champion/FewPlayers";
 import BuildWhy from "@/components/champion/BuildWhy";
+import BracketRates from "@/components/champion/BracketRates";
+import { championBrackets } from "@/lib/brackets";
 import { buildWhy } from "@/lib/why-best";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
@@ -821,6 +823,10 @@ export default async function ChampionPage({
               </div>
           </TfStrip>
         )}
+        {(() => {
+          const br = championBrackets(c.alias, c.patch);
+          return br ? <BracketRates rates={br.rates} borrowed={br.patch !== c.patch ? br.patch : null} /> : null;
+        })()}
         {/* One glance: the core, the best augments and the skill order; the card below has the detail. */}
         {(glanceCore || augRows.length > 0 || bestSkill) && (
           <a className="cp-glance" href="#build" aria-label="Build at a glance">

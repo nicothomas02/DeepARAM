@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { loadSettings } from "@/lib/settings";
+import { useBracket, type BracketKey } from "@/lib/bracket-pref";
 import { getParam, setParams } from "@/lib/url-state";
 import DataTable, { type Column } from "./DataTable";
 import { champStats, TIER_HELP, type PatchRow } from "@/lib/tiers";
@@ -178,15 +179,21 @@ export default function ChampionTiers({
   const before = one ? patches[patches.indexOf(one) - 1] : undefined;
   // Skill bracket (?bracket=high): one patch with bracket numbers swaps in that bracket's win and pick rates, and its
   // games for the ranges; the change column compares with the same bracket on the patch before when it has one.
-  const [bracket, setBracket] = useState("all");
-  useEffect(() => {
-    const b = getParam("bracket");
-    if (b && BRACKET_LABELS.some(([k]) => k === b)) setBracket(b);
-  }, []);
-  const bracketsHere = one ? brackets[one] : undefined;
+  // The choice is remembered (settings, synced to the account); not chosen yet: All players, or Top 5% for the
+  // site owner (lib/bracket-pref.ts).
+  const [bracket, setBracket] = useBracket();
+  // A patch without bracket numbers yet (a new patch's first days) borrows the newest earlier patch's, with a note,
+  // like the public app (#657). No change column then: it would compare a patch with itself.
+  const bracketPatch = one
+    ? brackets[one]
+      ? one
+      : patches.slice(0, patches.indexOf(one)).reverse().find((p) => brackets[p])
+    : undefined;
+  const borrowed = bracketPatch && bracketPatch !== one ? bracketPatch : null;
+  const bracketsHere = bracketPatch ? brackets[bracketPatch] : undefined;
   const activeBracket = bracket !== "all" && bracketsHere?.[bracket] ? bracket : "all";
   const inBracket = (list: PatchRow[], patch: string | undefined) => {
-    const b = patch ? brackets[patch]?.[activeBracket] : undefined;
+    const b = patch ? brackets[patch === one && borrowed ? borrowed : patch]?.[activeBracket] : undefined;
     if (!b) return null;
     return list.flatMap((r) => {
       if (r.patch !== patch) return [r];
@@ -205,7 +212,7 @@ export default function ChampionTiers({
   const stats = useMemo(() => {
     if (missing) return [];
     const bRows = activeBracket !== "all" ? inBracket(rows, one ?? undefined) : null;
-    const prevRows = activeBracket !== "all" ? inBracket(rows, before) : rows;
+    const prevRows = activeBracket !== "all" ? (borrowed ? null : inBracket(rows, before)) : rows;
     const prev =
       before && have.has(before) && prevRows
         ? new Map(champStats(prevRows, new Set([before])).map((c) => [c.name, c]))
@@ -246,6 +253,7 @@ export default function ChampionTiers({
     activeBracket,
     brackets,
     bracketsHere,
+    borrowed,
   ]);
 
   // Archetype filter (?tag=Mage,Poke): a champion shows when it has every picked tag. Tiers and
@@ -450,13 +458,18 @@ export default function ChampionTiers({
         {bracketsHere && (
           <label
             className="patch-bracket"
-            data-tip={t("Skill brackets come from a rating built from game results, not official ranks.")}
+            data-tip={
+              t("Skill brackets come from a rating built from game results, not official ranks.") +
+              (borrowed && activeBracket !== "all"
+                ? " " + t("This patch has no skill bracket numbers yet, so they come from patch {patch}.", { patch: patchName(borrowed) })
+                : "")
+            }
           >
             <span className="sr-only">{t("Skill bracket")}</span>
             <select
               value={activeBracket}
               onChange={(e) => {
-                setBracket(e.target.value);
+                setBracket(e.target.value as BracketKey);
                 setParams({ bracket: e.target.value === "all" ? null : e.target.value });
               }}
             >

@@ -70,5 +70,12 @@
  "1st augment": "1º aprimoramento",
  "2nd augment": "2º aprimoramento",
  "3rd augment": "3º aprimoramento",
- "4th augment": "4º aprimoramento"
+ "4th augment": "4º aprimoramento",
+ "All players": "Todos os jogadores",
+ "Casual": "Casuais",
+ "Mid": "Médio",
+ "Top 5%": "Top 5%",
+ "Skill bracket": "Nível de habilidade",
+ "Skill brackets come from a rating built from game results, not official ranks.": "Os níveis vêm de uma pontuação baseada nos resultados das partidas, não de elos oficiais.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Este patch ainda não tem números por nível, então eles vêm do patch {patch}."
 }

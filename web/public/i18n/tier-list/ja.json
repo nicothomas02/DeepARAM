@@ -70,5 +70,12 @@
  "1st augment": "1つ目のオーグメント",
  "2nd augment": "2つ目のオーグメント",
  "3rd augment": "3つ目のオーグメント",
- "4th augment": "4つ目のオーグメント"
+ "4th augment": "4つ目のオーグメント",
+ "All players": "全プレイヤー",
+ "Casual": "カジュアル",
+ "Mid": "中級",
+ "Top 5%": "上位5%",
+ "Skill bracket": "スキル帯",
+ "Skill brackets come from a rating built from game results, not official ranks.": "スキル帯は公式ランクではなく、試合結果から算出したレーティングに基づきます。",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "このパッチにはまだスキル帯別の数値がないため、パッチ{patch}のものを使っています。"
 }

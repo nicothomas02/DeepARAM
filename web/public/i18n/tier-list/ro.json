@@ -70,5 +70,12 @@
  "1st augment": "Primul augment",
  "2nd augment": "Al 2-lea augment",
  "3rd augment": "Al 3-lea augment",
- "4th augment": "Al 4-lea augment"
+ "4th augment": "Al 4-lea augment",
+ "All players": "Toți jucătorii",
+ "Casual": "Ocazionali",
+ "Mid": "Mediu",
+ "Top 5%": "Top 5%",
+ "Skill bracket": "Nivel de joc",
+ "Skill brackets come from a rating built from game results, not official ranks.": "Nivelurile vin dintr-un scor bazat pe rezultatele meciurilor, nu din rangurile oficiale.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Acest patch nu are încă cifre pe niveluri, așa că vin din patch-ul {patch}."
 }
