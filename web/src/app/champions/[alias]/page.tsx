@@ -1160,7 +1160,7 @@ export default async function ChampionPage({
             {p.starting.length > 0 && (
               <Panel title="Starter items" count={p.starting.length}>
                 <Head what="Starter items" cols={SCORED_COLS} />
-                <ShowMore total={p.starting.length} limit={null}>
+                <ShowMore total={p.starting.length} limit={5}>
                   {itemRows(p.starting, false, "starting")}
                 </ShowMore>
               </Panel>
@@ -1168,7 +1168,7 @@ export default async function ChampionPage({
             {p.boots.length > 0 && (
               <Panel title="Boots" count={p.boots.length}>
                 <Head what="Boots" cols={SCORED_COLS} />
-                <ShowMore total={p.boots.length} limit={null}>
+                <ShowMore total={p.boots.length} limit={5}>
                   {singleRows(p.boots, "boots")}
                 </ShowMore>
               </Panel>
@@ -1288,7 +1288,7 @@ export default async function ChampionPage({
                   what="Spells"
                   cols={spellsEstimated ? ["Pick rate", "Games"] : undefined}
                 />
-                <ShowMore total={spells.length} limit={null}>
+                <ShowMore total={spells.length} limit={5}>
                   {spells.map((r, i) => (
                     <Row
                       key={i}
