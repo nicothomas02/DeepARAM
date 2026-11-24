@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canLead, leading, MIN_GAMES } from "@/lib/card-score";
+import { canLead, leading, MIN_GAMES, SPELL_MIN_GAMES } from "@/lib/card-score";
 
 const row = (pickRate: number, games?: number, pooled?: number) => ({
   pickRate,
@@ -27,5 +27,11 @@ describe("canLead (flat game minimum, Nico 2026-11-24)", () => {
     const rows = [row(0.5), row(0.03), row(0.02)];
     expect(rows.map(canLead(rows, 0.05))).toEqual([true, true, false]);
     expect(leading(rows, 0.05)).toEqual([rows[0], rows[1], rows[2]]);
+  });
+
+  it("lets spell pairs lead from SPELL_MIN_GAMES (Nico chose 100, 2026-11-24)", () => {
+    const rows = [row(0.9, 90000), row(0.001, SPELL_MIN_GAMES), row(0.001, SPELL_MIN_GAMES - 1)];
+    expect(rows.map(canLead(rows, 0.02, SPELL_MIN_GAMES))).toEqual([true, true, false]);
+    expect(rows.map(canLead(rows, 0.02))).toEqual([true, false, false]);
   });
 });

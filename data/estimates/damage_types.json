@@ -1,0 +1,3082 @@
+{
+ "estimated": true,
+ "about": "Share of damage to champions by type, from archived games (all ten players), pooled over patches. depends_on_build: the split varies widely game to game; by_build: the split per build style (first three completed items) with enough games.",
+ "games": 1249,
+ "champions": {
+  "1": {
+   "physical": 0.032,
+   "magic": 0.895,
+   "true": 0.074,
+   "games": 54,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.031,
+     "magic": 0.895,
+     "true": 0.074,
+     "games": 51
+    }
+   }
+  },
+  "2": {
+   "physical": 0.699,
+   "magic": 0.014,
+   "true": 0.287,
+   "games": 25,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.686,
+     "magic": 0.016,
+     "true": 0.298,
+     "games": 22
+    }
+   }
+  },
+  "3": {
+   "physical": 0.132,
+   "magic": 0.811,
+   "true": 0.057,
+   "games": 89,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.164,
+     "magic": 0.778,
+     "true": 0.058,
+     "games": 70
+    },
+    "ap": {
+     "physical": 0.013,
+     "magic": 0.928,
+     "true": 0.058,
+     "games": 14
+    }
+   }
+  },
+  "4": {
+   "physical": 0.124,
+   "magic": 0.821,
+   "true": 0.055,
+   "games": 96,
+   "depends_on_build": true,
+   "by_build": {
+    "ap": {
+     "physical": 0.036,
+     "magic": 0.9,
+     "true": 0.064,
+     "games": 69
+    },
+    "crit": {
+     "physical": 0.384,
+     "magic": 0.602,
+     "true": 0.014,
+     "games": 13
+    }
+   }
+  },
+  "5": {
+   "physical": 0.697,
+   "magic": 0.259,
+   "true": 0.045,
+   "games": 60,
+   "depends_on_build": false,
+   "by_build": {
+    "onhit": {
+     "physical": 0.643,
+     "magic": 0.318,
+     "true": 0.04,
+     "games": 28
+    },
+    "fighter": {
+     "physical": 0.834,
+     "magic": 0.103,
+     "true": 0.063,
+     "games": 18
+    }
+   }
+  },
+  "6": {
+   "physical": 0.825,
+   "magic": 0.058,
+   "true": 0.116,
+   "games": 33,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.83,
+     "magic": 0.09,
+     "true": 0.08,
+     "games": 15
+    },
+    "fighter": {
+     "physical": 0.822,
+     "magic": 0.036,
+     "true": 0.142,
+     "games": 12
+    }
+   }
+  },
+  "7": {
+   "physical": 0.041,
+   "magic": 0.897,
+   "true": 0.063,
+   "games": 54,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.03,
+     "magic": 0.912,
+     "true": 0.057,
+     "games": 53
+    }
+   }
+  },
+  "8": {
+   "physical": 0.034,
+   "magic": 0.93,
+   "true": 0.036,
+   "games": 64,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.035,
+     "magic": 0.929,
+     "true": 0.036,
+     "games": 62
+    }
+   }
+  },
+  "9": {
+   "physical": 0.015,
+   "magic": 0.915,
+   "true": 0.069,
+   "games": 52,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.015,
+     "magic": 0.917,
+     "true": 0.068,
+     "games": 45
+    }
+   }
+  },
+  "10": {
+   "physical": 0.342,
+   "magic": 0.63,
+   "true": 0.027,
+   "games": 80,
+   "depends_on_build": false,
+   "by_build": {
+    "onhit": {
+     "physical": 0.406,
+     "magic": 0.57,
+     "true": 0.024,
+     "games": 44
+    },
+    "ap": {
+     "physical": 0.227,
+     "magic": 0.735,
+     "true": 0.038,
+     "games": 23
+    }
+   }
+  },
+  "11": {
+   "physical": 0.712,
+   "magic": 0.034,
+   "true": 0.254,
+   "games": 47,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.752,
+     "magic": 0.008,
+     "true": 0.24,
+     "games": 21
+    },
+    "onhit": {
+     "physical": 0.661,
+     "magic": 0.058,
+     "true": 0.281,
+     "games": 18
+    }
+   }
+  },
+  "12": {
+   "physical": 0.278,
+   "magic": 0.645,
+   "true": 0.077,
+   "games": 62,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.331,
+     "magic": 0.593,
+     "true": 0.076,
+     "games": 53
+    }
+   }
+  },
+  "13": {
+   "physical": 0.026,
+   "magic": 0.935,
+   "true": 0.038,
+   "games": 73,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.025,
+     "magic": 0.935,
+     "true": 0.04,
+     "games": 68
+    }
+   }
+  },
+  "14": {
+   "physical": 0.634,
+   "magic": 0.279,
+   "true": 0.087,
+   "games": 81,
+   "depends_on_build": true,
+   "by_build": {
+    "tank": {
+     "physical": 0.586,
+     "magic": 0.341,
+     "true": 0.073,
+     "games": 62
+    }
+   }
+  },
+  "15": {
+   "physical": 0.899,
+   "magic": 0.086,
+   "true": 0.016,
+   "games": 103,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.905,
+     "magic": 0.08,
+     "true": 0.015,
+     "games": 89
+    }
+   }
+  },
+  "16": {
+   "physical": 0.05,
+   "magic": 0.826,
+   "true": 0.124,
+   "games": 90,
+   "depends_on_build": false,
+   "by_build": {
+    "enchanter": {
+     "physical": 0.046,
+     "magic": 0.82,
+     "true": 0.134,
+     "games": 63
+    },
+    "tank": {
+     "physical": 0.055,
+     "magic": 0.826,
+     "true": 0.119,
+     "games": 16
+    }
+   }
+  },
+  "17": {
+   "physical": 0.094,
+   "magic": 0.834,
+   "true": 0.072,
+   "games": 81,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.069,
+     "magic": 0.868,
+     "true": 0.063,
+     "games": 65
+    },
+    "onhit": {
+     "physical": 0.207,
+     "magic": 0.688,
+     "true": 0.105,
+     "games": 14
+    }
+   }
+  },
+  "18": {
+   "physical": 0.874,
+   "magic": 0.098,
+   "true": 0.028,
+   "games": 89,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.877,
+     "magic": 0.097,
+     "true": 0.026,
+     "games": 80
+    }
+   }
+  },
+  "19": {
+   "physical": 0.425,
+   "magic": 0.534,
+   "true": 0.041,
+   "games": 33,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.489,
+     "magic": 0.46,
+     "true": 0.051,
+     "games": 12
+    }
+   }
+  },
+  "20": {
+   "physical": 0.095,
+   "magic": 0.831,
+   "true": 0.074,
+   "games": 51,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.034,
+     "magic": 0.894,
+     "true": 0.071,
+     "games": 38
+    },
+    "tank": {
+     "physical": 0.326,
+     "magic": 0.588,
+     "true": 0.086,
+     "games": 12
+    }
+   }
+  },
+  "21": {
+   "physical": 0.578,
+   "magic": 0.373,
+   "true": 0.049,
+   "games": 129,
+   "depends_on_build": true,
+   "by_build": {
+    "ap": {
+     "physical": 0.286,
+     "magic": 0.662,
+     "true": 0.052,
+     "games": 60
+    },
+    "crit": {
+     "physical": 0.877,
+     "magic": 0.075,
+     "true": 0.048,
+     "games": 42
+    },
+    "lethality": {
+     "physical": 0.845,
+     "magic": 0.103,
+     "true": 0.052,
+     "games": 16
+    }
+   }
+  },
+  "22": {
+   "physical": 0.763,
+   "magic": 0.21,
+   "true": 0.027,
+   "games": 153,
+   "depends_on_build": true,
+   "by_build": {
+    "crit": {
+     "physical": 0.835,
+     "magic": 0.144,
+     "true": 0.022,
+     "games": 84
+    },
+    "ap": {
+     "physical": 0.393,
+     "magic": 0.556,
+     "true": 0.051,
+     "games": 27
+    },
+    "onhit": {
+     "physical": 0.79,
+     "magic": 0.187,
+     "true": 0.023,
+     "games": 23
+    }
+   }
+  },
+  "23": {
+   "physical": 0.922,
+   "magic": 0.033,
+   "true": 0.046,
+   "games": 35,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.922,
+     "magic": 0.03,
+     "true": 0.048,
+     "games": 27
+    }
+   }
+  },
+  "24": {
+   "physical": 0.546,
+   "magic": 0.402,
+   "true": 0.051,
+   "games": 49,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.638,
+     "magic": 0.322,
+     "true": 0.04,
+     "games": 25
+    },
+    "ap": {
+     "physical": 0.306,
+     "magic": 0.617,
+     "true": 0.077,
+     "games": 10
+    }
+   }
+  },
+  "25": {
+   "physical": 0.025,
+   "magic": 0.918,
+   "true": 0.057,
+   "games": 122,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.025,
+     "magic": 0.918,
+     "true": 0.057,
+     "games": 112
+    }
+   }
+  },
+  "26": {
+   "physical": 0.044,
+   "magic": 0.886,
+   "true": 0.071,
+   "games": 56,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.041,
+     "magic": 0.889,
+     "true": 0.07,
+     "games": 52
+    }
+   }
+  },
+  "27": {
+   "physical": 0.069,
+   "magic": 0.855,
+   "true": 0.075,
+   "games": 106,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.038,
+     "magic": 0.889,
+     "true": 0.073,
+     "games": 81
+    },
+    "tank": {
+     "physical": 0.163,
+     "magic": 0.776,
+     "true": 0.061,
+     "games": 17
+    }
+   }
+  },
+  "28": {
+   "physical": 0.033,
+   "magic": 0.898,
+   "true": 0.069,
+   "games": 42,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.033,
+     "magic": 0.897,
+     "true": 0.069,
+     "games": 40
+    }
+   }
+  },
+  "29": {
+   "physical": 0.754,
+   "magic": 0.085,
+   "true": 0.161,
+   "games": 97,
+   "depends_on_build": true,
+   "by_build": {
+    "crit": {
+     "physical": 0.834,
+     "magic": 0.043,
+     "true": 0.123,
+     "games": 77
+    },
+    "ap": {
+     "physical": 0.249,
+     "magic": 0.351,
+     "true": 0.4,
+     "games": 12
+    }
+   }
+  },
+  "30": {
+   "physical": 0.005,
+   "magic": 0.899,
+   "true": 0.096,
+   "games": 95,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.005,
+     "magic": 0.899,
+     "true": 0.097,
+     "games": 93
+    }
+   }
+  },
+  "31": {
+   "physical": 0.212,
+   "magic": 0.554,
+   "true": 0.234,
+   "games": 89,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.236,
+     "magic": 0.531,
+     "true": 0.233,
+     "games": 70
+    },
+    "ap": {
+     "physical": 0.059,
+     "magic": 0.697,
+     "true": 0.244,
+     "games": 13
+    }
+   }
+  },
+  "32": {
+   "physical": 0.114,
+   "magic": 0.727,
+   "true": 0.16,
+   "games": 62,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.134,
+     "magic": 0.702,
+     "true": 0.164,
+     "games": 46
+    },
+    "ap": {
+     "physical": 0.044,
+     "magic": 0.818,
+     "true": 0.137,
+     "games": 11
+    }
+   }
+  },
+  "33": {
+   "physical": 0.377,
+   "magic": 0.532,
+   "true": 0.091,
+   "games": 31,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.377,
+     "magic": 0.532,
+     "true": 0.091,
+     "games": 30
+    }
+   }
+  },
+  "34": {
+   "physical": 0.032,
+   "magic": 0.891,
+   "true": 0.077,
+   "games": 37,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.032,
+     "magic": 0.891,
+     "true": 0.077,
+     "games": 37
+    }
+   }
+  },
+  "35": {
+   "physical": 0.407,
+   "magic": 0.499,
+   "true": 0.095,
+   "games": 137,
+   "depends_on_build": true,
+   "by_build": {
+    "ap": {
+     "physical": 0.055,
+     "magic": 0.84,
+     "true": 0.105,
+     "games": 54
+    },
+    "crit": {
+     "physical": 0.667,
+     "magic": 0.263,
+     "true": 0.07,
+     "games": 46
+    },
+    "lethality": {
+     "physical": 0.604,
+     "magic": 0.273,
+     "true": 0.123,
+     "games": 25
+    }
+   }
+  },
+  "36": {
+   "physical": 0.501,
+   "magic": 0.44,
+   "true": 0.058,
+   "games": 89,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.502,
+     "magic": 0.439,
+     "true": 0.059,
+     "games": 82
+    }
+   }
+  },
+  "37": {
+   "physical": 0.154,
+   "magic": 0.763,
+   "true": 0.083,
+   "games": 85,
+   "depends_on_build": false,
+   "by_build": {
+    "enchanter": {
+     "physical": 0.157,
+     "magic": 0.75,
+     "true": 0.092,
+     "games": 68
+    },
+    "ap": {
+     "physical": 0.118,
+     "magic": 0.825,
+     "true": 0.057,
+     "games": 11
+    }
+   }
+  },
+  "38": {
+   "physical": 0.104,
+   "magic": 0.838,
+   "true": 0.058,
+   "games": 45,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.106,
+     "magic": 0.836,
+     "true": 0.059,
+     "games": 43
+    }
+   }
+  },
+  "39": {
+   "physical": 0.653,
+   "magic": 0.276,
+   "true": 0.07,
+   "games": 73,
+   "depends_on_build": false,
+   "by_build": {
+    "onhit": {
+     "physical": 0.678,
+     "magic": 0.246,
+     "true": 0.076,
+     "games": 30
+    },
+    "fighter": {
+     "physical": 0.707,
+     "magic": 0.238,
+     "true": 0.056,
+     "games": 26
+    }
+   }
+  },
+  "40": {
+   "physical": 0.104,
+   "magic": 0.788,
+   "true": 0.108,
+   "games": 72,
+   "depends_on_build": false,
+   "by_build": {
+    "enchanter": {
+     "physical": 0.107,
+     "magic": 0.778,
+     "true": 0.115,
+     "games": 63
+    }
+   }
+  },
+  "41": {
+   "physical": 0.718,
+   "magic": 0.149,
+   "true": 0.132,
+   "games": 90,
+   "depends_on_build": true,
+   "by_build": {
+    "crit": {
+     "physical": 0.776,
+     "magic": 0.105,
+     "true": 0.119,
+     "games": 58
+    },
+    "ap": {
+     "physical": 0.386,
+     "magic": 0.43,
+     "true": 0.185,
+     "games": 15
+    }
+   }
+  },
+  "42": {
+   "physical": 0.651,
+   "magic": 0.181,
+   "true": 0.168,
+   "games": 60,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.64,
+     "magic": 0.19,
+     "true": 0.169,
+     "games": 33
+    },
+    "fighter": {
+     "physical": 0.672,
+     "magic": 0.166,
+     "true": 0.162,
+     "games": 24
+    }
+   }
+  },
+  "43": {
+   "physical": 0.057,
+   "magic": 0.863,
+   "true": 0.079,
+   "games": 79,
+   "depends_on_build": false,
+   "by_build": {
+    "enchanter": {
+     "physical": 0.113,
+     "magic": 0.778,
+     "true": 0.109,
+     "games": 37
+    },
+    "ap": {
+     "physical": 0.029,
+     "magic": 0.904,
+     "true": 0.067,
+     "games": 36
+    }
+   }
+  },
+  "44": {
+   "physical": 0.373,
+   "magic": 0.532,
+   "true": 0.095,
+   "games": 28,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.375,
+     "magic": 0.531,
+     "true": 0.095,
+     "games": 25
+    }
+   }
+  },
+  "45": {
+   "physical": 0.022,
+   "magic": 0.949,
+   "true": 0.029,
+   "games": 75,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.02,
+     "magic": 0.951,
+     "true": 0.029,
+     "games": 74
+    }
+   }
+  },
+  "48": {
+   "physical": 0.581,
+   "magic": 0.355,
+   "true": 0.064,
+   "games": 69,
+   "depends_on_build": true,
+   "by_build": {
+    "tank": {
+     "physical": 0.682,
+     "magic": 0.264,
+     "true": 0.054,
+     "games": 19
+    },
+    "fighter": {
+     "physical": 0.731,
+     "magic": 0.204,
+     "true": 0.065,
+     "games": 19
+    },
+    "ap": {
+     "physical": 0.24,
+     "magic": 0.696,
+     "true": 0.064,
+     "games": 19
+    }
+   }
+  },
+  "50": {
+   "physical": 0.07,
+   "magic": 0.86,
+   "true": 0.07,
+   "games": 91,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.06,
+     "magic": 0.867,
+     "true": 0.073,
+     "games": 72
+    },
+    "tank": {
+     "physical": 0.125,
+     "magic": 0.816,
+     "true": 0.058,
+     "games": 15
+    }
+   }
+  },
+  "51": {
+   "physical": 0.92,
+   "magic": 0.058,
+   "true": 0.022,
+   "games": 131,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.92,
+     "magic": 0.057,
+     "true": 0.022,
+     "games": 120
+    }
+   }
+  },
+  "53": {
+   "physical": 0.278,
+   "magic": 0.664,
+   "true": 0.058,
+   "games": 108,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.347,
+     "magic": 0.584,
+     "true": 0.069,
+     "games": 53
+    },
+    "ap": {
+     "physical": 0.162,
+     "magic": 0.789,
+     "true": 0.049,
+     "games": 41
+    }
+   }
+  },
+  "54": {
+   "physical": 0.269,
+   "magic": 0.639,
+   "true": 0.091,
+   "games": 123,
+   "depends_on_build": true,
+   "by_build": {
+    "ap": {
+     "physical": 0.144,
+     "magic": 0.771,
+     "true": 0.085,
+     "games": 74
+    },
+    "tank": {
+     "physical": 0.479,
+     "magic": 0.421,
+     "true": 0.1,
+     "games": 46
+    }
+   }
+  },
+  "55": {
+   "physical": 0.451,
+   "magic": 0.479,
+   "true": 0.07,
+   "games": 120,
+   "depends_on_build": true,
+   "by_build": {
+    "onhit": {
+     "physical": 0.544,
+     "magic": 0.392,
+     "true": 0.063,
+     "games": 78
+    },
+    "ap": {
+     "physical": 0.104,
+     "magic": 0.808,
+     "true": 0.088,
+     "games": 28
+    }
+   }
+  },
+  "56": {
+   "physical": 0.886,
+   "magic": 0.06,
+   "true": 0.054,
+   "games": 36,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.879,
+     "magic": 0.062,
+     "true": 0.059,
+     "games": 21
+    }
+   }
+  },
+  "57": {
+   "physical": 0.18,
+   "magic": 0.739,
+   "true": 0.081,
+   "games": 74,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.202,
+     "magic": 0.711,
+     "true": 0.087,
+     "games": 62
+    }
+   }
+  },
+  "58": {
+   "physical": 0.779,
+   "magic": 0.16,
+   "true": 0.061,
+   "games": 43,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.781,
+     "magic": 0.151,
+     "true": 0.068,
+     "games": 34
+    }
+   }
+  },
+  "59": {
+   "physical": 0.799,
+   "magic": 0.135,
+   "true": 0.065,
+   "games": 78,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.844,
+     "magic": 0.08,
+     "true": 0.076,
+     "games": 29
+    },
+    "fighter": {
+     "physical": 0.827,
+     "magic": 0.118,
+     "true": 0.055,
+     "games": 21
+    },
+    "tank": {
+     "physical": 0.739,
+     "magic": 0.199,
+     "true": 0.062,
+     "games": 17
+    }
+   }
+  },
+  "60": {
+   "physical": 0.056,
+   "magic": 0.886,
+   "true": 0.058,
+   "games": 56,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.056,
+     "magic": 0.886,
+     "true": 0.059,
+     "games": 54
+    }
+   }
+  },
+  "61": {
+   "physical": 0.033,
+   "magic": 0.911,
+   "true": 0.056,
+   "games": 88,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.034,
+     "magic": 0.909,
+     "true": 0.057,
+     "games": 82
+    }
+   }
+  },
+  "62": {
+   "physical": 0.768,
+   "magic": 0.168,
+   "true": 0.064,
+   "games": 53,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.764,
+     "magic": 0.17,
+     "true": 0.066,
+     "games": 38
+    }
+   }
+  },
+  "63": {
+   "physical": 0.022,
+   "magic": 0.896,
+   "true": 0.082,
+   "games": 111,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.022,
+     "magic": 0.896,
+     "true": 0.082,
+     "games": 111
+    }
+   }
+  },
+  "64": {
+   "physical": 0.758,
+   "magic": 0.191,
+   "true": 0.051,
+   "games": 78,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.784,
+     "magic": 0.183,
+     "true": 0.034,
+     "games": 39
+    },
+    "fighter": {
+     "physical": 0.75,
+     "magic": 0.186,
+     "true": 0.064,
+     "games": 29
+    }
+   }
+  },
+  "67": {
+   "physical": 0.58,
+   "magic": 0.077,
+   "true": 0.342,
+   "games": 108,
+   "depends_on_build": false,
+   "by_build": {
+    "onhit": {
+     "physical": 0.552,
+     "magic": 0.084,
+     "true": 0.363,
+     "games": 58
+    },
+    "crit": {
+     "physical": 0.626,
+     "magic": 0.069,
+     "true": 0.306,
+     "games": 43
+    }
+   }
+  },
+  "68": {
+   "physical": 0.035,
+   "magic": 0.883,
+   "true": 0.082,
+   "games": 51,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.03,
+     "magic": 0.884,
+     "true": 0.085,
+     "games": 46
+    }
+   }
+  },
+  "69": {
+   "physical": 0.026,
+   "magic": 0.901,
+   "true": 0.073,
+   "games": 44,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.026,
+     "magic": 0.901,
+     "true": 0.073,
+     "games": 42
+    }
+   }
+  },
+  "72": {
+   "physical": 0.577,
+   "magic": 0.34,
+   "true": 0.083,
+   "games": 25,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.568,
+     "magic": 0.347,
+     "true": 0.085,
+     "games": 24
+    }
+   }
+  },
+  "74": {
+   "physical": 0.018,
+   "magic": 0.911,
+   "true": 0.071,
+   "games": 59,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.018,
+     "magic": 0.911,
+     "true": 0.071,
+     "games": 59
+    }
+   }
+  },
+  "75": {
+   "physical": 0.433,
+   "magic": 0.525,
+   "true": 0.042,
+   "games": 57,
+   "depends_on_build": true,
+   "by_build": {
+    "ap": {
+     "physical": 0.076,
+     "magic": 0.885,
+     "true": 0.039,
+     "games": 23
+    },
+    "tank": {
+     "physical": 0.691,
+     "magic": 0.256,
+     "true": 0.053,
+     "games": 21
+    },
+    "fighter": {
+     "physical": 0.749,
+     "magic": 0.222,
+     "true": 0.03,
+     "games": 10
+    }
+   }
+  },
+  "76": {
+   "physical": 0.042,
+   "magic": 0.891,
+   "true": 0.067,
+   "games": 85,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.034,
+     "magic": 0.9,
+     "true": 0.066,
+     "games": 79
+    }
+   }
+  },
+  "77": {
+   "physical": 0.233,
+   "magic": 0.693,
+   "true": 0.074,
+   "games": 50,
+   "depends_on_build": true,
+   "by_build": {
+    "ap": {
+     "physical": 0.097,
+     "magic": 0.84,
+     "true": 0.062,
+     "games": 32
+    }
+   }
+  },
+  "78": {
+   "physical": 0.729,
+   "magic": 0.188,
+   "true": 0.082,
+   "games": 54,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.706,
+     "magic": 0.207,
+     "true": 0.086,
+     "games": 46
+    }
+   }
+  },
+  "79": {
+   "physical": 0.115,
+   "magic": 0.806,
+   "true": 0.079,
+   "games": 60,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.075,
+     "magic": 0.849,
+     "true": 0.076,
+     "games": 40
+    },
+    "tank": {
+     "physical": 0.222,
+     "magic": 0.69,
+     "true": 0.088,
+     "games": 19
+    }
+   }
+  },
+  "80": {
+   "physical": 0.9,
+   "magic": 0.049,
+   "true": 0.051,
+   "games": 64,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.904,
+     "magic": 0.047,
+     "true": 0.048,
+     "games": 38
+    },
+    "lethality": {
+     "physical": 0.893,
+     "magic": 0.056,
+     "true": 0.051,
+     "games": 15
+    }
+   }
+  },
+  "81": {
+   "physical": 0.607,
+   "magic": 0.354,
+   "true": 0.039,
+   "games": 128,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.657,
+     "magic": 0.305,
+     "true": 0.038,
+     "games": 89
+    },
+    "ap": {
+     "physical": 0.312,
+     "magic": 0.645,
+     "true": 0.042,
+     "games": 17
+    },
+    "crit": {
+     "physical": 0.604,
+     "magic": 0.357,
+     "true": 0.04,
+     "games": 13
+    }
+   }
+  },
+  "82": {
+   "physical": 0.145,
+   "magic": 0.82,
+   "true": 0.035,
+   "games": 62,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.156,
+     "magic": 0.809,
+     "true": 0.036,
+     "games": 38
+    },
+    "ap": {
+     "physical": 0.117,
+     "magic": 0.848,
+     "true": 0.035,
+     "games": 20
+    }
+   }
+  },
+  "83": {
+   "physical": 0.706,
+   "magic": 0.242,
+   "true": 0.052,
+   "games": 21,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.7,
+     "magic": 0.257,
+     "true": 0.043,
+     "games": 12
+    }
+   }
+  },
+  "84": {
+   "physical": 0.106,
+   "magic": 0.824,
+   "true": 0.069,
+   "games": 69,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.077,
+     "magic": 0.866,
+     "true": 0.057,
+     "games": 47
+    },
+    "tank": {
+     "physical": 0.225,
+     "magic": 0.672,
+     "true": 0.103,
+     "games": 12
+    }
+   }
+  },
+  "85": {
+   "physical": 0.054,
+   "magic": 0.881,
+   "true": 0.065,
+   "games": 36,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.044,
+     "magic": 0.89,
+     "true": 0.066,
+     "games": 32
+    }
+   }
+  },
+  "86": {
+   "physical": 0.709,
+   "magic": 0.071,
+   "true": 0.22,
+   "games": 66,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.772,
+     "magic": 0.014,
+     "true": 0.214,
+     "games": 32
+    },
+    "tank": {
+     "physical": 0.581,
+     "magic": 0.205,
+     "true": 0.214,
+     "games": 19
+    },
+    "fighter": {
+     "physical": 0.73,
+     "magic": 0.028,
+     "true": 0.242,
+     "games": 14
+    }
+   }
+  },
+  "89": {
+   "physical": 0.332,
+   "magic": 0.597,
+   "true": 0.071,
+   "games": 69,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.331,
+     "magic": 0.598,
+     "true": 0.071,
+     "games": 68
+    }
+   }
+  },
+  "90": {
+   "physical": 0.021,
+   "magic": 0.918,
+   "true": 0.061,
+   "games": 79,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.021,
+     "magic": 0.918,
+     "true": 0.061,
+     "games": 76
+    }
+   }
+  },
+  "91": {
+   "physical": 0.887,
+   "magic": 0.009,
+   "true": 0.104,
+   "games": 42,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.879,
+     "magic": 0.009,
+     "true": 0.112,
+     "games": 37
+    }
+   }
+  },
+  "92": {
+   "physical": 0.899,
+   "magic": 0.029,
+   "true": 0.072,
+   "games": 58,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.895,
+     "magic": 0.032,
+     "true": 0.072,
+     "games": 40
+    },
+    "fighter": {
+     "physical": 0.91,
+     "magic": 0.021,
+     "true": 0.069,
+     "games": 13
+    }
+   }
+  },
+  "96": {
+   "physical": 0.312,
+   "magic": 0.545,
+   "true": 0.143,
+   "games": 66,
+   "depends_on_build": true,
+   "by_build": {
+    "onhit": {
+     "physical": 0.441,
+     "magic": 0.451,
+     "true": 0.108,
+     "games": 35
+    },
+    "ap": {
+     "physical": 0.043,
+     "magic": 0.794,
+     "true": 0.163,
+     "games": 19
+    }
+   }
+  },
+  "98": {
+   "physical": 0.52,
+   "magic": 0.412,
+   "true": 0.068,
+   "games": 86,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.52,
+     "magic": 0.412,
+     "true": 0.068,
+     "games": 84
+    }
+   }
+  },
+  "99": {
+   "physical": 0.036,
+   "magic": 0.908,
+   "true": 0.056,
+   "games": 109,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.034,
+     "magic": 0.909,
+     "true": 0.056,
+     "games": 95
+    }
+   }
+  },
+  "101": {
+   "physical": 0.016,
+   "magic": 0.93,
+   "true": 0.054,
+   "games": 81,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.016,
+     "magic": 0.93,
+     "true": 0.054,
+     "games": 77
+    }
+   }
+  },
+  "102": {
+   "physical": 0.345,
+   "magic": 0.559,
+   "true": 0.097,
+   "games": 65,
+   "depends_on_build": true,
+   "by_build": {
+    "fighter": {
+     "physical": 0.458,
+     "magic": 0.417,
+     "true": 0.125,
+     "games": 22
+    },
+    "tank": {
+     "physical": 0.431,
+     "magic": 0.483,
+     "true": 0.087,
+     "games": 20
+    },
+    "ap": {
+     "physical": 0.14,
+     "magic": 0.786,
+     "true": 0.073,
+     "games": 19
+    }
+   }
+  },
+  "103": {
+   "physical": 0.032,
+   "magic": 0.661,
+   "true": 0.306,
+   "games": 119,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.032,
+     "magic": 0.661,
+     "true": 0.307,
+     "games": 115
+    }
+   }
+  },
+  "104": {
+   "physical": 0.869,
+   "magic": 0.08,
+   "true": 0.051,
+   "games": 78,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.892,
+     "magic": 0.053,
+     "true": 0.055,
+     "games": 60
+    }
+   }
+  },
+  "105": {
+   "physical": 0.174,
+   "magic": 0.784,
+   "true": 0.042,
+   "games": 70,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.136,
+     "magic": 0.82,
+     "true": 0.044,
+     "games": 57
+    },
+    "tank": {
+     "physical": 0.41,
+     "magic": 0.559,
+     "true": 0.03,
+     "games": 13
+    }
+   }
+  },
+  "106": {
+   "physical": 0.442,
+   "magic": 0.515,
+   "true": 0.043,
+   "games": 62,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.537,
+     "magic": 0.399,
+     "true": 0.065,
+     "games": 21
+    },
+    "ap": {
+     "physical": 0.365,
+     "magic": 0.603,
+     "true": 0.033,
+     "games": 18
+    },
+    "onhit": {
+     "physical": 0.374,
+     "magic": 0.592,
+     "true": 0.034,
+     "games": 17
+    }
+   }
+  },
+  "107": {
+   "physical": 0.77,
+   "magic": 0.15,
+   "true": 0.08,
+   "games": 82,
+   "depends_on_build": true,
+   "by_build": {
+    "lethality": {
+     "physical": 0.863,
+     "magic": 0.075,
+     "true": 0.063,
+     "games": 43
+    },
+    "crit": {
+     "physical": 0.831,
+     "magic": 0.051,
+     "true": 0.118,
+     "games": 20
+    }
+   }
+  },
+  "110": {
+   "physical": 0.655,
+   "magic": 0.311,
+   "true": 0.035,
+   "games": 105,
+   "depends_on_build": true,
+   "by_build": {
+    "lethality": {
+     "physical": 0.793,
+     "magic": 0.165,
+     "true": 0.043,
+     "games": 33
+    },
+    "onhit": {
+     "physical": 0.547,
+     "magic": 0.428,
+     "true": 0.025,
+     "games": 27
+    },
+    "crit": {
+     "physical": 0.697,
+     "magic": 0.266,
+     "true": 0.037,
+     "games": 25
+    }
+   }
+  },
+  "111": {
+   "physical": 0.373,
+   "magic": 0.547,
+   "true": 0.08,
+   "games": 95,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.398,
+     "magic": 0.518,
+     "true": 0.084,
+     "games": 81
+    },
+    "ap": {
+     "physical": 0.138,
+     "magic": 0.815,
+     "true": 0.047,
+     "games": 10
+    }
+   }
+  },
+  "112": {
+   "physical": 0.021,
+   "magic": 0.937,
+   "true": 0.042,
+   "games": 58,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.02,
+     "magic": 0.938,
+     "true": 0.041,
+     "games": 54
+    }
+   }
+  },
+  "113": {
+   "physical": 0.569,
+   "magic": 0.305,
+   "true": 0.126,
+   "games": 27,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.569,
+     "magic": 0.305,
+     "true": 0.126,
+     "games": 27
+    }
+   }
+  },
+  "114": {
+   "physical": 0.555,
+   "magic": 0.07,
+   "true": 0.375,
+   "games": 39,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.54,
+     "magic": 0.069,
+     "true": 0.39,
+     "games": 31
+    }
+   }
+  },
+  "115": {
+   "physical": 0.025,
+   "magic": 0.929,
+   "true": 0.046,
+   "games": 73,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.022,
+     "magic": 0.931,
+     "true": 0.047,
+     "games": 67
+    }
+   }
+  },
+  "117": {
+   "physical": 0.179,
+   "magic": 0.723,
+   "true": 0.098,
+   "games": 57,
+   "depends_on_build": false,
+   "by_build": {
+    "enchanter": {
+     "physical": 0.147,
+     "magic": 0.748,
+     "true": 0.105,
+     "games": 46
+    }
+   }
+  },
+  "119": {
+   "physical": 0.946,
+   "magic": 0.026,
+   "true": 0.028,
+   "games": 72,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.944,
+     "magic": 0.026,
+     "true": 0.03,
+     "games": 66
+    }
+   }
+  },
+  "120": {
+   "physical": 0.794,
+   "magic": 0.156,
+   "true": 0.049,
+   "games": 68,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.809,
+     "magic": 0.153,
+     "true": 0.037,
+     "games": 57
+    }
+   }
+  },
+  "121": {
+   "physical": 0.879,
+   "magic": 0.062,
+   "true": 0.059,
+   "games": 63,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.875,
+     "magic": 0.062,
+     "true": 0.063,
+     "games": 44
+    },
+    "crit": {
+     "physical": 0.9,
+     "magic": 0.065,
+     "true": 0.035,
+     "games": 10
+    }
+   }
+  },
+  "122": {
+   "physical": 0.773,
+   "magic": 0.029,
+   "true": 0.197,
+   "games": 68,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.795,
+     "magic": 0.025,
+     "true": 0.18,
+     "games": 56
+    }
+   }
+  },
+  "126": {
+   "physical": 0.784,
+   "magic": 0.164,
+   "true": 0.052,
+   "games": 112,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.775,
+     "magic": 0.166,
+     "true": 0.059,
+     "games": 74
+    },
+    "crit": {
+     "physical": 0.825,
+     "magic": 0.149,
+     "true": 0.026,
+     "games": 20
+    },
+    "fighter": {
+     "physical": 0.768,
+     "magic": 0.172,
+     "true": 0.06,
+     "games": 13
+    }
+   }
+  },
+  "127": {
+   "physical": 0.026,
+   "magic": 0.919,
+   "true": 0.055,
+   "games": 52,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.026,
+     "magic": 0.919,
+     "true": 0.055,
+     "games": 49
+    }
+   }
+  },
+  "131": {
+   "physical": 0.122,
+   "magic": 0.827,
+   "true": 0.051,
+   "games": 46,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.083,
+     "magic": 0.869,
+     "true": 0.048,
+     "games": 31
+    }
+   }
+  },
+  "133": {
+   "physical": 0.887,
+   "magic": 0.079,
+   "true": 0.034,
+   "games": 35,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.903,
+     "magic": 0.062,
+     "true": 0.035,
+     "games": 27
+    }
+   }
+  },
+  "134": {
+   "physical": 0.02,
+   "magic": 0.88,
+   "true": 0.1,
+   "games": 104,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.02,
+     "magic": 0.88,
+     "true": 0.1,
+     "games": 102
+    }
+   }
+  },
+  "136": {
+   "physical": 0.007,
+   "magic": 0.909,
+   "true": 0.084,
+   "games": 121,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.006,
+     "magic": 0.91,
+     "true": 0.083,
+     "games": 114
+    }
+   }
+  },
+  "141": {
+   "physical": 0.899,
+   "magic": 0.05,
+   "true": 0.051,
+   "games": 54,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.888,
+     "magic": 0.058,
+     "true": 0.054,
+     "games": 33
+    },
+    "fighter": {
+     "physical": 0.931,
+     "magic": 0.028,
+     "true": 0.041,
+     "games": 18
+    }
+   }
+  },
+  "142": {
+   "physical": 0.06,
+   "magic": 0.767,
+   "true": 0.173,
+   "games": 73,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.054,
+     "magic": 0.773,
+     "true": 0.174,
+     "games": 68
+    }
+   }
+  },
+  "143": {
+   "physical": 0.022,
+   "magic": 0.883,
+   "true": 0.095,
+   "games": 75,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.021,
+     "magic": 0.883,
+     "true": 0.096,
+     "games": 73
+    }
+   }
+  },
+  "145": {
+   "physical": 0.383,
+   "magic": 0.594,
+   "true": 0.023,
+   "games": 137,
+   "depends_on_build": true,
+   "by_build": {
+    "onhit": {
+     "physical": 0.502,
+     "magic": 0.481,
+     "true": 0.017,
+     "games": 68
+    },
+    "ap": {
+     "physical": 0.172,
+     "magic": 0.797,
+     "true": 0.032,
+     "games": 51
+    }
+   }
+  },
+  "147": {
+   "physical": 0.051,
+   "magic": 0.881,
+   "true": 0.068,
+   "games": 93,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.048,
+     "magic": 0.88,
+     "true": 0.072,
+     "games": 77
+    },
+    "enchanter": {
+     "physical": 0.09,
+     "magic": 0.893,
+     "true": 0.016,
+     "games": 10
+    }
+   }
+  },
+  "150": {
+   "physical": 0.701,
+   "magic": 0.223,
+   "true": 0.076,
+   "games": 54,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.748,
+     "magic": 0.164,
+     "true": 0.088,
+     "games": 33
+    },
+    "tank": {
+     "physical": 0.69,
+     "magic": 0.268,
+     "true": 0.042,
+     "games": 10
+    }
+   }
+  },
+  "154": {
+   "physical": 0.149,
+   "magic": 0.768,
+   "true": 0.083,
+   "games": 52,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.15,
+     "magic": 0.763,
+     "true": 0.088,
+     "games": 48
+    }
+   }
+  },
+  "157": {
+   "physical": 0.831,
+   "magic": 0.108,
+   "true": 0.061,
+   "games": 84,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.832,
+     "magic": 0.1,
+     "true": 0.067,
+     "games": 69
+    }
+   }
+  },
+  "161": {
+   "physical": 0.012,
+   "magic": 0.719,
+   "true": 0.269,
+   "games": 67,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.012,
+     "magic": 0.719,
+     "true": 0.27,
+     "games": 64
+    }
+   }
+  },
+  "163": {
+   "physical": 0.016,
+   "magic": 0.922,
+   "true": 0.062,
+   "games": 50,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.016,
+     "magic": 0.922,
+     "true": 0.062,
+     "games": 48
+    }
+   }
+  },
+  "164": {
+   "physical": 0.651,
+   "magic": 0.058,
+   "true": 0.291,
+   "games": 34,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.651,
+     "magic": 0.054,
+     "true": 0.295,
+     "games": 29
+    }
+   }
+  },
+  "166": {
+   "physical": 0.778,
+   "magic": 0.179,
+   "true": 0.043,
+   "games": 76,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.804,
+     "magic": 0.155,
+     "true": 0.041,
+     "games": 52
+    },
+    "onhit": {
+     "physical": 0.732,
+     "magic": 0.221,
+     "true": 0.047,
+     "games": 21
+    }
+   }
+  },
+  "200": {
+   "physical": 0.501,
+   "magic": 0.229,
+   "true": 0.27,
+   "games": 48,
+   "depends_on_build": true,
+   "by_build": {
+    "onhit": {
+     "physical": 0.555,
+     "magic": 0.179,
+     "true": 0.267,
+     "games": 33
+    }
+   }
+  },
+  "201": {
+   "physical": 0.307,
+   "magic": 0.597,
+   "true": 0.096,
+   "games": 41,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.313,
+     "magic": 0.594,
+     "true": 0.093,
+     "games": 36
+    }
+   }
+  },
+  "202": {
+   "physical": 0.898,
+   "magic": 0.07,
+   "true": 0.032,
+   "games": 139,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.897,
+     "magic": 0.07,
+     "true": 0.034,
+     "games": 119
+    },
+    "lethality": {
+     "physical": 0.918,
+     "magic": 0.066,
+     "true": 0.016,
+     "games": 14
+    }
+   }
+  },
+  "203": {
+   "physical": 0.836,
+   "magic": 0.133,
+   "true": 0.031,
+   "games": 55,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.846,
+     "magic": 0.125,
+     "true": 0.029,
+     "games": 49
+    }
+   }
+  },
+  "221": {
+   "physical": 0.709,
+   "magic": 0.263,
+   "true": 0.028,
+   "games": 98,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.734,
+     "magic": 0.246,
+     "true": 0.02,
+     "games": 86
+    }
+   }
+  },
+  "222": {
+   "physical": 0.878,
+   "magic": 0.101,
+   "true": 0.021,
+   "games": 121,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.881,
+     "magic": 0.098,
+     "true": 0.021,
+     "games": 103
+    }
+   }
+  },
+  "223": {
+   "physical": 0.24,
+   "magic": 0.708,
+   "true": 0.052,
+   "games": 100,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.245,
+     "magic": 0.702,
+     "true": 0.053,
+     "games": 91
+    }
+   }
+  },
+  "233": {
+   "physical": 0.786,
+   "magic": 0.148,
+   "true": 0.066,
+   "games": 70,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.823,
+     "magic": 0.136,
+     "true": 0.041,
+     "games": 40
+    },
+    "crit": {
+     "physical": 0.76,
+     "magic": 0.121,
+     "true": 0.119,
+     "games": 15
+    }
+   }
+  },
+  "234": {
+   "physical": 0.798,
+   "magic": 0.137,
+   "true": 0.065,
+   "games": 56,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.794,
+     "magic": 0.149,
+     "true": 0.056,
+     "games": 31
+    },
+    "onhit": {
+     "physical": 0.788,
+     "magic": 0.126,
+     "true": 0.086,
+     "games": 11
+    },
+    "fighter": {
+     "physical": 0.796,
+     "magic": 0.114,
+     "true": 0.091,
+     "games": 10
+    }
+   }
+  },
+  "235": {
+   "physical": 0.889,
+   "magic": 0.08,
+   "true": 0.031,
+   "games": 141,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.891,
+     "magic": 0.075,
+     "true": 0.035,
+     "games": 96
+    },
+    "onhit": {
+     "physical": 0.925,
+     "magic": 0.068,
+     "true": 0.006,
+     "games": 20
+    },
+    "enchanter": {
+     "physical": 0.742,
+     "magic": 0.202,
+     "true": 0.056,
+     "games": 11
+    }
+   }
+  },
+  "236": {
+   "physical": 0.822,
+   "magic": 0.146,
+   "true": 0.032,
+   "games": 115,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.837,
+     "magic": 0.133,
+     "true": 0.03,
+     "games": 104
+    }
+   }
+  },
+  "238": {
+   "physical": 0.872,
+   "magic": 0.055,
+   "true": 0.073,
+   "games": 74,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.872,
+     "magic": 0.056,
+     "true": 0.072,
+     "games": 66
+    }
+   }
+  },
+  "240": {
+   "physical": 0.858,
+   "magic": 0.093,
+   "true": 0.05,
+   "games": 21,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.879,
+     "magic": 0.074,
+     "true": 0.048,
+     "games": 10
+    }
+   }
+  },
+  "245": {
+   "physical": 0.101,
+   "magic": 0.846,
+   "true": 0.053,
+   "games": 79,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.098,
+     "magic": 0.848,
+     "true": 0.054,
+     "games": 75
+    }
+   }
+  },
+  "246": {
+   "physical": 0.825,
+   "magic": 0.11,
+   "true": 0.064,
+   "games": 96,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.823,
+     "magic": 0.108,
+     "true": 0.068,
+     "games": 79
+    }
+   }
+  },
+  "254": {
+   "physical": 0.845,
+   "magic": 0.082,
+   "true": 0.074,
+   "games": 36,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.868,
+     "magic": 0.07,
+     "true": 0.062,
+     "games": 16
+    }
+   }
+  },
+  "266": {
+   "physical": 0.856,
+   "magic": 0.096,
+   "true": 0.048,
+   "games": 86,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.85,
+     "magic": 0.095,
+     "true": 0.055,
+     "games": 42
+    },
+    "lethality": {
+     "physical": 0.865,
+     "magic": 0.094,
+     "true": 0.041,
+     "games": 35
+    }
+   }
+  },
+  "267": {
+   "physical": 0.07,
+   "magic": 0.849,
+   "true": 0.08,
+   "games": 113,
+   "depends_on_build": false,
+   "by_build": {
+    "enchanter": {
+     "physical": 0.077,
+     "magic": 0.842,
+     "true": 0.082,
+     "games": 86
+    },
+    "ap": {
+     "physical": 0.048,
+     "magic": 0.872,
+     "true": 0.08,
+     "games": 21
+    }
+   }
+  },
+  "268": {
+   "physical": 0.079,
+   "magic": 0.866,
+   "true": 0.055,
+   "games": 45,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.053,
+     "magic": 0.887,
+     "true": 0.06,
+     "games": 40
+    }
+   }
+  },
+  "350": {
+   "physical": 0.014,
+   "magic": 0.807,
+   "true": 0.178,
+   "games": 75,
+   "depends_on_build": false,
+   "by_build": {
+    "enchanter": {
+     "physical": 0.018,
+     "magic": 0.768,
+     "true": 0.215,
+     "games": 52
+    },
+    "ap": {
+     "physical": 0.008,
+     "magic": 0.876,
+     "true": 0.116,
+     "games": 14
+    }
+   }
+  },
+  "360": {
+   "physical": 0.811,
+   "magic": 0.115,
+   "true": 0.075,
+   "games": 69,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.811,
+     "magic": 0.114,
+     "true": 0.075,
+     "games": 67
+    }
+   }
+  },
+  "412": {
+   "physical": 0.251,
+   "magic": 0.664,
+   "true": 0.085,
+   "games": 115,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.252,
+     "magic": 0.662,
+     "true": 0.087,
+     "games": 100
+    }
+   }
+  },
+  "420": {
+   "physical": 0.907,
+   "magic": 0.045,
+   "true": 0.048,
+   "games": 37,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.922,
+     "magic": 0.036,
+     "true": 0.042,
+     "games": 19
+    },
+    "tank": {
+     "physical": 0.912,
+     "magic": 0.036,
+     "true": 0.053,
+     "games": 16
+    }
+   }
+  },
+  "421": {
+   "physical": 0.606,
+   "magic": 0.162,
+   "true": 0.231,
+   "games": 22,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.693,
+     "magic": 0.118,
+     "true": 0.189,
+     "games": 10
+    }
+   }
+  },
+  "427": {
+   "physical": 0.278,
+   "magic": 0.615,
+   "true": 0.108,
+   "games": 27,
+   "depends_on_build": false,
+   "by_build": {
+    "enchanter": {
+     "physical": 0.289,
+     "magic": 0.56,
+     "true": 0.151,
+     "games": 19
+    }
+   }
+  },
+  "429": {
+   "physical": 0.792,
+   "magic": 0.18,
+   "true": 0.027,
+   "games": 52,
+   "depends_on_build": false,
+   "by_build": {
+    "onhit": {
+     "physical": 0.77,
+     "magic": 0.202,
+     "true": 0.028,
+     "games": 40
+    }
+   }
+  },
+  "432": {
+   "physical": 0.258,
+   "magic": 0.7,
+   "true": 0.042,
+   "games": 44,
+   "depends_on_build": true,
+   "by_build": {
+    "ap": {
+     "physical": 0.13,
+     "magic": 0.839,
+     "true": 0.031,
+     "games": 16
+    },
+    "onhit": {
+     "physical": 0.397,
+     "magic": 0.558,
+     "true": 0.044,
+     "games": 15
+    }
+   }
+  },
+  "497": {
+   "physical": 0.253,
+   "magic": 0.596,
+   "true": 0.151,
+   "games": 36,
+   "depends_on_build": true,
+   "by_build": {
+    "tank": {
+     "physical": 0.32,
+     "magic": 0.554,
+     "true": 0.127,
+     "games": 20
+    },
+    "enchanter": {
+     "physical": 0.083,
+     "magic": 0.733,
+     "true": 0.184,
+     "games": 10
+    }
+   }
+  },
+  "498": {
+   "physical": 0.92,
+   "magic": 0.052,
+   "true": 0.028,
+   "games": 99,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.92,
+     "magic": 0.052,
+     "true": 0.028,
+     "games": 89
+    }
+   }
+  },
+  "516": {
+   "physical": 0.385,
+   "magic": 0.541,
+   "true": 0.073,
+   "games": 35,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.392,
+     "magic": 0.533,
+     "true": 0.075,
+     "games": 34
+    }
+   }
+  },
+  "517": {
+   "physical": 0.139,
+   "magic": 0.801,
+   "true": 0.06,
+   "games": 81,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.136,
+     "magic": 0.803,
+     "true": 0.061,
+     "games": 75
+    }
+   }
+  },
+  "518": {
+   "physical": 0.058,
+   "magic": 0.885,
+   "true": 0.057,
+   "games": 54,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.042,
+     "magic": 0.899,
+     "true": 0.059,
+     "games": 49
+    }
+   }
+  },
+  "523": {
+   "physical": 0.922,
+   "magic": 0.056,
+   "true": 0.022,
+   "games": 55,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.923,
+     "magic": 0.056,
+     "true": 0.021,
+     "games": 52
+    }
+   }
+  },
+  "526": {
+   "physical": 0.323,
+   "magic": 0.598,
+   "true": 0.08,
+   "games": 58,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.331,
+     "magic": 0.589,
+     "true": 0.08,
+     "games": 55
+    }
+   }
+  },
+  "555": {
+   "physical": 0.83,
+   "magic": 0.017,
+   "true": 0.153,
+   "games": 94,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.83,
+     "magic": 0.015,
+     "true": 0.154,
+     "games": 87
+    }
+   }
+  },
+  "711": {
+   "physical": 0.034,
+   "magic": 0.918,
+   "true": 0.047,
+   "games": 41,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.034,
+     "magic": 0.918,
+     "true": 0.047,
+     "games": 40
+    }
+   }
+  },
+  "777": {
+   "physical": 0.709,
+   "magic": 0.166,
+   "true": 0.125,
+   "games": 66,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.71,
+     "magic": 0.168,
+     "true": 0.122,
+     "games": 55
+    }
+   }
+  },
+  "799": {
+   "physical": 0.933,
+   "magic": 0.034,
+   "true": 0.033,
+   "games": 25,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.939,
+     "magic": 0.034,
+     "true": 0.027,
+     "games": 11
+    },
+    "lethality": {
+     "physical": 0.939,
+     "magic": 0.022,
+     "true": 0.039,
+     "games": 11
+    }
+   }
+  },
+  "800": {
+   "physical": 0.037,
+   "magic": 0.915,
+   "true": 0.048,
+   "games": 106,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.037,
+     "magic": 0.916,
+     "true": 0.048,
+     "games": 103
+    }
+   }
+  },
+  "804": {
+   "physical": 0.602,
+   "magic": 0.378,
+   "true": 0.02,
+   "games": 147,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.608,
+     "magic": 0.37,
+     "true": 0.021,
+     "games": 127
+    }
+   }
+  },
+  "805": {
+   "physical": 0.064,
+   "magic": 0.857,
+   "true": 0.08,
+   "games": 65,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.058,
+     "magic": 0.86,
+     "true": 0.082,
+     "games": 61
+    }
+   }
+  },
+  "875": {
+   "physical": 0.655,
+   "magic": 0.049,
+   "true": 0.296,
+   "games": 105,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.62,
+     "magic": 0.056,
+     "true": 0.324,
+     "games": 58
+    },
+    "fighter": {
+     "physical": 0.692,
+     "magic": 0.041,
+     "true": 0.266,
+     "games": 40
+    }
+   }
+  },
+  "876": {
+   "physical": 0.016,
+   "magic": 0.785,
+   "true": 0.198,
+   "games": 105,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.016,
+     "magic": 0.785,
+     "true": 0.198,
+     "games": 102
+    }
+   }
+  },
+  "887": {
+   "physical": 0.131,
+   "magic": 0.736,
+   "true": 0.133,
+   "games": 88,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.127,
+     "magic": 0.739,
+     "true": 0.134,
+     "games": 76
+    }
+   }
+  },
+  "888": {
+   "physical": 0.11,
+   "magic": 0.65,
+   "true": 0.239,
+   "games": 56,
+   "depends_on_build": false,
+   "by_build": {
+    "enchanter": {
+     "physical": 0.086,
+     "magic": 0.66,
+     "true": 0.253,
+     "games": 37
+    }
+   }
+  },
+  "893": {
+   "physical": 0.035,
+   "magic": 0.924,
+   "true": 0.041,
+   "games": 124,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.035,
+     "magic": 0.924,
+     "true": 0.041,
+     "games": 115
+    }
+   }
+  },
+  "895": {
+   "physical": 0.938,
+   "magic": 0.013,
+   "true": 0.049,
+   "games": 33,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.938,
+     "magic": 0.014,
+     "true": 0.049,
+     "games": 29
+    }
+   }
+  },
+  "897": {
+   "physical": 0.773,
+   "magic": 0.117,
+   "true": 0.11,
+   "games": 27,
+   "depends_on_build": false,
+   "by_build": {
+    "tank": {
+     "physical": 0.77,
+     "magic": 0.121,
+     "true": 0.109,
+     "games": 26
+    }
+   }
+  },
+  "901": {
+   "physical": 0.772,
+   "magic": 0.123,
+   "true": 0.104,
+   "games": 114,
+   "depends_on_build": false,
+   "by_build": {
+    "crit": {
+     "physical": 0.787,
+     "magic": 0.113,
+     "true": 0.099,
+     "games": 74
+    },
+    "fighter": {
+     "physical": 0.739,
+     "magic": 0.142,
+     "true": 0.119,
+     "games": 33
+    }
+   }
+  },
+  "902": {
+   "physical": 0.077,
+   "magic": 0.846,
+   "true": 0.077,
+   "games": 62,
+   "depends_on_build": false,
+   "by_build": {
+    "enchanter": {
+     "physical": 0.107,
+     "magic": 0.769,
+     "true": 0.124,
+     "games": 34
+    },
+    "ap": {
+     "physical": 0.056,
+     "magic": 0.895,
+     "true": 0.049,
+     "games": 24
+    }
+   }
+  },
+  "904": {
+   "physical": 0.878,
+   "magic": 0.077,
+   "true": 0.045,
+   "games": 57,
+   "depends_on_build": false,
+   "by_build": {
+    "fighter": {
+     "physical": 0.876,
+     "magic": 0.077,
+     "true": 0.046,
+     "games": 49
+    }
+   }
+  },
+  "910": {
+   "physical": 0.026,
+   "magic": 0.909,
+   "true": 0.066,
+   "games": 56,
+   "depends_on_build": false,
+   "by_build": {
+    "ap": {
+     "physical": 0.027,
+     "magic": 0.912,
+     "true": 0.061,
+     "games": 54
+    }
+   }
+  },
+  "950": {
+   "physical": 0.889,
+   "magic": 0.03,
+   "true": 0.081,
+   "games": 38,
+   "depends_on_build": false,
+   "by_build": {
+    "lethality": {
+     "physical": 0.889,
+     "magic": 0.032,
+     "true": 0.08,
+     "games": 30
+    }
+   }
+  }
+ }
+}

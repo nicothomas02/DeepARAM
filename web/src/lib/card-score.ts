@@ -130,6 +130,13 @@ export const MIN_FOLLOWING = 0.25;
  * most played one leads, as in the backtest. Lists without real game counts keep the share rules below.
  */
 export const MIN_GAMES = 1000;
+/**
+ * Spell pairs lead from fewer games (Nico chose 2026-11-24, "Spells to 100, rest stay"). Same backtest, 16.21-16.23,
+ * 321 champion-patches, card's top pair vs 1,000 games: 100 games +0.74 pts next patch on full data, +0.30 on data
+ * thinned to 10% (250: +0.68 / +0.03; 500: +0.38 / -0.06; no minimum hurt early, -0.19). Items, boots, cores and
+ * starters gained nothing measurable below 1,000, so they keep it.
+ */
+export const SPELL_MIN_GAMES = 100;
 /** Fallback share for single items and boots without real game counts (Nico chose 5% on 2026-11-24). */
 export const ITEM_FOLLOWING = 0.05;
 /** Fallback share for spell pairs without real game counts (Nico chose 2% on 2026-11-24). */
@@ -139,15 +146,16 @@ export const SPELL_FOLLOWING = 0.02;
 export const gamesOf = (r: { games?: number; pooled?: Pooled }): number | undefined => r.pooled?.games ?? r.games;
 
 /**
- * Which rows of a list may lead it: with real game counts on every row, those with MIN_GAMES (else only the most
+ * Which rows of a list may lead it: with real game counts on every row, those with minGames (else only the most
  * played); otherwise those with `share` of the most common row's pick rate.
  */
 export function canLead<T extends { pickRate: number; games?: number; pooled?: Pooled }>(
   rows: T[],
   share: number,
+  minGames = MIN_GAMES,
 ): (r: T) => boolean {
   if (rows.length && rows.every((r) => (gamesOf(r) ?? 0) > 0)) {
-    if (rows.some((r) => gamesOf(r)! >= MIN_GAMES)) return (r) => gamesOf(r)! >= MIN_GAMES;
+    if (rows.some((r) => gamesOf(r)! >= minGames)) return (r) => gamesOf(r)! >= minGames;
     const most = rows.reduce((a, b) => (gamesOf(b)! > gamesOf(a)! ? b : a));
     return (r) => r === most;
   }
@@ -156,8 +164,12 @@ export function canLead<T extends { pickRate: number; games?: number; pooled?: P
 }
 
 /** The same rows with those that may lead first (canLead), each group keeping its order. */
-export function leading<T extends { pickRate: number; games?: number; pooled?: Pooled }>(rows: T[], share: number): T[] {
-  const ok = canLead(rows, share);
+export function leading<T extends { pickRate: number; games?: number; pooled?: Pooled }>(
+  rows: T[],
+  share: number,
+  minGames = MIN_GAMES,
+): T[] {
+  const ok = canLead(rows, share, minGames);
   return [...rows.filter(ok), ...rows.filter((r) => !ok(r))];
 }
 
