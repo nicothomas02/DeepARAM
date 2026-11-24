@@ -355,7 +355,7 @@ export default function Home() {
             <FreshChefSpecial id={special.id} />
             <div className="card-head">
               <h2>
-                <T>Today&apos;s Chef Special</T>
+                <T>This week&apos;s Chef Special</T>
               </h2>
               <Link href={special.href}>
                 <T>The Kitchen →</T>

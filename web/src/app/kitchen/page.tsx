@@ -10,7 +10,7 @@ import { checks } from "@/lib/checks";
 import { repoHas } from "@/lib/repo-data";
 import { discoverToolTabs } from "@/lib/tabs";
 
-// The Kitchen: the daily Chef Special and its archive (/kitchen#chefs-special-YYYY-MM-DD), Traps (?tab=traps: builds that work on paper but not in real games) and the Bug
+// The Kitchen: the weekly Chef Special and its archive (/kitchen#chefs-special-YYYY-MM-DD), Traps (?tab=traps: builds that work on paper but not in real games) and the Bug
 // finder (?tab=bug-finder: interactions that might be broken, to test in game). Formerly The Lab.
 // Chef Specials are for fun (Nico, 2026-11-12): they may lean on augments players rarely or never get on that champion.
 const FOR_FUN = "Chef Specials are just for fun. Some use augments that rarely or never show up on that champion, so don't count on getting them.";
