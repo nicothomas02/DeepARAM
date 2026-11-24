@@ -165,5 +165,7 @@
  "{n} healing": "{n} hồi máu",
  "{n} damage blocked": "{n} sát thương chặn được",
  "{n} crowd control": "{n} khống chế",
- "{n} deaths per 10 minutes": "{n} lần chết mỗi 10 phút"
+ "{n} deaths per 10 minutes": "{n} lần chết mỗi 10 phút",
+ "Fewer columns": "Ít cột hơn",
+ "More columns ({n})": "Thêm cột ({n})"
 }

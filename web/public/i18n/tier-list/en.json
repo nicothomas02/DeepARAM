@@ -77,5 +77,14 @@
  "Top 5%": "Top 5%",
  "Skill bracket": "Skill bracket",
  "Skill brackets come from a rating built from game results, not official ranks.": "Skill brackets come from a rating built from game results, not official ranks.",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "This patch has no skill bracket numbers yet, so they come from patch {patch}."
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "This patch has no skill bracket numbers yet, so they come from patch {patch}.",
+ "Best pick": "Best pick",
+ "Loading…": "Loading…",
+ "Strong this patch": "Strong this patch",
+ "Remove": "Remove",
+ "Your team": "Your team",
+ "Your choices (optional)": "Your choices (optional)",
+ "Your choices, best first": "Your choices, best first",
+ "Best picks": "Best picks",
+ "Strength {n}": "Strength {n}"
 }

@@ -77,5 +77,14 @@
  "Top 5%": "Top 5%",
  "Skill bracket": "Tudásszint",
  "Skill brackets come from a rating built from game results, not official ranks.": "A szintek a meccseredményekből számolt értékelésből jönnek, nem a hivatalos rangokból.",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Ehhez a patchhez még nincsenek szintenkénti számok, ezért a(z) {patch} patchből jönnek."
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Ehhez a patchhez még nincsenek szintenkénti számok, ezért a(z) {patch} patchből jönnek.",
+ "Best pick": "Legjobb választás",
+ "Loading…": "Betöltés…",
+ "Strong this patch": "Erős ebben a patchben",
+ "Remove": "Eltávolítás",
+ "Your team": "A csapatod",
+ "Your choices (optional)": "A választásaid (nem kötelező)",
+ "Your choices, best first": "A választásaid, a legjobb elöl",
+ "Best picks": "Legjobb választások",
+ "Strength {n}": "Erő {n}"
 }

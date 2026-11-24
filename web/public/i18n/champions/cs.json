@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Silnější na šampionech na blízko.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage nechává Hawkshot a R navzájem obnovovat. Nejdřív získej tolik zrychlení schopností (R na úrovni 3), pak dokonči build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} zrychlení schopností · Hawkshot na úrovni {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Předměty dají {haste} z potřebných {need} zrychlení schopností."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Předměty dají {haste} z potřebných {need} zrychlení schopností.",
+ "Your augments": "Tvoje vylepšení",
+ "Drag an augment here, or press + on it.": "Přetáhni sem vylepšení nebo na něm stiskni +.",
+ "Drag another augment here to replace it.": "Přetáhni sem jiné vylepšení, aby ho nahradilo.",
+ "Recent patches": "Nedávné patche",
+ "This patch only": "Jen tento patch",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "S {names} zatím u tohoto šampiona neznáme žádnou synergii, takže ostatní se řadí jen podle svého přínosu.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Už máš vylepšení? Stiskni + nebo je přetáhni do svých slotů a ostatní se přeřadí podle synergie."
 }

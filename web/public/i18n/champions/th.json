@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "แรงกว่าบนแชมเปี้ยนระยะประชิด",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage ทำให้ Hawkshot กับ R รีเฟรชกันและกัน เก็บ Ability Haste ให้ถึงค่านี้ก่อน (R เลเวล 3) แล้วค่อยออกของที่เหลือ",
  "{haste} Ability Haste · Hawkshot rank {rank}": "Ability Haste {haste} · Hawkshot เลเวล {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "ไอเท็มให้ Ability Haste {haste} จาก {need} ที่ต้องการ"
+ "Items reach {haste} of the {need} Ability Haste needed.": "ไอเท็มให้ Ability Haste {haste} จาก {need} ที่ต้องการ",
+ "Your augments": "ออกเมนต์ของคุณ",
+ "Drag an augment here, or press + on it.": "ลากออกเมนต์มาที่นี่ หรือกด + บนออกเมนต์นั้น",
+ "Drag another augment here to replace it.": "ลากออกเมนต์อื่นมาที่นี่เพื่อแทนที่",
+ "Recent patches": "แพตช์ล่าสุด",
+ "This patch only": "แพตช์นี้เท่านั้น",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "ยังไม่มีซินเนอร์จีที่ทราบกับ {names} สำหรับแชมเปียนนี้ ที่เหลือจึงเรียงตามค่าเพิ่มของตัวเองเท่านั้น",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "มีออกเมนต์แล้ว? กด + หรือลากเข้าช่อง แล้วที่เหลือจะจัดอันดับใหม่ตามซินเนอร์จี"
 }

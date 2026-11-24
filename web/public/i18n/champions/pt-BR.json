@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Mais forte em campeões corpo a corpo.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Arquimago faz o Disparo do Falcão e o R recarregarem um ao outro. Consiga primeiro essa Aceleração de Habilidade (R no nível 3) e depois termine a build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} de Aceleração de Habilidade · Disparo do Falcão nível {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Os itens chegam a {haste} dos {need} de Aceleração de Habilidade necessários."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Os itens chegam a {haste} dos {need} de Aceleração de Habilidade necessários.",
+ "Your augments": "Seus aumentos",
+ "Drag an augment here, or press + on it.": "Arraste um aumento para cá ou toque em + nele.",
+ "Drag another augment here to replace it.": "Arraste outro aumento para cá para substituí-lo.",
+ "Recent patches": "Patches recentes",
+ "This patch only": "Só este patch",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Ainda não há sinergia conhecida com {names} neste campeão, então o resto é ordenado só pela própria vantagem.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Já tem aumentos? Toque em + ou arraste-os para os seus espaços, e o resto é reordenado por sinergia."
 }

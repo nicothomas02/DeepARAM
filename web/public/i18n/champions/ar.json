@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "أقوى على أبطال الالتحام.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "يجعل Archmage مهارتي Hawkshot وR تعيدان شحن بعضهما. اجمع هذا القدر من تسريع القدرات أولًا (رتبة R 3)، ثم أكمل البناء.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} تسريع قدرات · رتبة Hawkshot {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "تصل العناصر إلى {haste} من أصل {need} تسريع قدرات مطلوب."
+ "Items reach {haste} of the {need} Ability Haste needed.": "تصل العناصر إلى {haste} من أصل {need} تسريع قدرات مطلوب.",
+ "Your augments": "معززاتك",
+ "Drag an augment here, or press + on it.": "اسحب معززًا إلى هنا، أو اضغط + عليه.",
+ "Drag another augment here to replace it.": "اسحب معززًا آخر إلى هنا لاستبداله.",
+ "Recent patches": "التحديثات الأخيرة",
+ "This patch only": "هذا التحديث فقط",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "لا يوجد تآزر معروف مع {names} لهذا البطل بعد، لذا تُرتَّب البقية حسب تعزيزها فقط.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "لديك معززات بالفعل؟ اضغط + أو اسحبها إلى خاناتك، وسيُعاد ترتيب البقية حسب التآزر."
 }

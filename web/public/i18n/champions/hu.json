@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Erősebb közelharci hősökön.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Az Archmage miatt a Hawkshot és az R egymást tölti vissza. Először szerezz ennyi képességsietséget (R 3. szinten), utána fejezd be a buildet.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} képességsietség · Hawkshot {rank}. szint",
- "Items reach {haste} of the {need} Ability Haste needed.": "A tárgyak {haste} képességsietséget adnak a szükséges {need}-ből."
+ "Items reach {haste} of the {need} Ability Haste needed.": "A tárgyak {haste} képességsietséget adnak a szükséges {need}-ből.",
+ "Your augments": "A fejlesztéseid",
+ "Drag an augment here, or press + on it.": "Húzz ide egy fejlesztést, vagy nyomd meg rajta a + gombot.",
+ "Drag another augment here to replace it.": "Húzz ide egy másik fejlesztést a cseréhez.",
+ "Recent patches": "Legutóbbi patchek",
+ "This patch only": "Csak ez a patch",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Ennél a hősnél még nincs ismert szinergia ezzel: {names}, ezért a többi csak a saját előnye alapján rangsorolódik.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Már vannak fejlesztéseid? Nyomd meg a + gombot, vagy húzd őket a helyeidre, és a többi szinergia szerint rendeződik át."
 }

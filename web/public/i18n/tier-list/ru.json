@@ -77,5 +77,14 @@
  "Top 5%": "Топ 5%",
  "Skill bracket": "Уровень игры",
  "Skill brackets come from a rating built from game results, not official ranks.": "Уровни основаны на рейтинге по результатам игр, а не на официальных рангах.",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Для этого патча ещё нет данных по уровням, поэтому они взяты из патча {patch}."
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Для этого патча ещё нет данных по уровням, поэтому они взяты из патча {patch}.",
+ "Best pick": "Лучший выбор",
+ "Loading…": "Загрузка…",
+ "Strong this patch": "Силён в этом патче",
+ "Remove": "Убрать",
+ "Your team": "Ваша команда",
+ "Your choices (optional)": "Ваши варианты (необязательно)",
+ "Your choices, best first": "Ваши варианты, лучшие сначала",
+ "Best picks": "Лучшие варианты",
+ "Strength {n}": "Сила {n}"
 }

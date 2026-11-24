@@ -165,5 +165,7 @@
  "{n} healing": "{n} θεραπεία",
  "{n} damage blocked": "{n} ζημιά που μπλοκάρεται",
  "{n} crowd control": "{n} έλεγχος πλήθους",
- "{n} deaths per 10 minutes": "{n} θάνατοι ανά 10 λεπτά"
+ "{n} deaths per 10 minutes": "{n} θάνατοι ανά 10 λεπτά",
+ "Fewer columns": "Λιγότερες στήλες",
+ "More columns ({n})": "Περισσότερες στήλες ({n})"
 }

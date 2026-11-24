@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "近戰英雄更強。",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "大法師讓鷹擊長空和 R 互相縮短冷卻。先把技能急速堆到這個數（R 3 級），再補完其餘出裝。",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} 技能急速 · 鷹擊長空 {rank} 級",
- "Items reach {haste} of the {need} Ability Haste needed.": "裝備能堆到 {haste}，需要 {need} 技能急速。"
+ "Items reach {haste} of the {need} Ability Haste needed.": "裝備能堆到 {haste}，需要 {need} 技能急速。",
+ "Your augments": "你的強化",
+ "Drag an augment here, or press + on it.": "把強化拖到這裡，或點擊它上面的 +。",
+ "Drag another augment here to replace it.": "把另一個強化拖到這裡即可替換。",
+ "Recent patches": "最近版本",
+ "This patch only": "僅本版本",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "此英雄與{names}尚無已知協同，因此其餘強化僅依自身提升排序。",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "已經有強化了？點擊 + 或拖入你的欄位，其餘的會依協同重新排序。"
 }

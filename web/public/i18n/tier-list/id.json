@@ -77,5 +77,14 @@
  "Top 5%": "Top 5%",
  "Skill bracket": "Tingkat skill",
  "Skill brackets come from a rating built from game results, not official ranks.": "Tingkat berasal dari rating berdasarkan hasil pertandingan, bukan rank resmi.",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Patch ini belum punya angka per tingkat, jadi diambil dari patch {patch}."
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Patch ini belum punya angka per tingkat, jadi diambil dari patch {patch}.",
+ "Best pick": "Pilihan terbaik",
+ "Loading…": "Memuat…",
+ "Strong this patch": "Kuat di patch ini",
+ "Remove": "Hapus",
+ "Your team": "Timmu",
+ "Your choices (optional)": "Pilihanmu (opsional)",
+ "Your choices, best first": "Pilihanmu, terbaik dulu",
+ "Best picks": "Pilihan terbaik",
+ "Strength {n}": "Kekuatan {n}"
 }

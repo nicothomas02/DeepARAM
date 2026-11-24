@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Mai puternic pe campionii corp la corp.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage face ca Hawkshot și R să se reîncarce reciproc. Strânge mai întâi atâta grabă a abilităților (R la rangul 3), apoi termină build-ul.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} grabă a abilităților · Hawkshot rangul {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Obiectele ajung la {haste} din cele {need} de grabă a abilităților necesare."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Obiectele ajung la {haste} din cele {need} de grabă a abilităților necesare.",
+ "Your augments": "Augmenturile tale",
+ "Drag an augment here, or press + on it.": "Trage un augment aici sau apasă + pe el.",
+ "Drag another augment here to replace it.": "Trage alt augment aici ca să-l înlocuiești.",
+ "Recent patches": "Patch-uri recente",
+ "This patch only": "Doar acest patch",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Încă nu există o sinergie cunoscută cu {names} pentru acest campion, așa că restul se ordonează doar după avantajul propriu.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Ai deja augmenturi? Apasă + sau trage-le în sloturi, iar restul se reordonează după sinergie."
 }
