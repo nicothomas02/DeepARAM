@@ -38,6 +38,7 @@ var DeepEngine = (() => {
     MAESTRO_CARDS: () => MAESTRO_CARDS,
     MEASURED_SWITCHES: () => MEASURED_SWITCHES,
     MIN_HOLDERS: () => MIN_HOLDERS,
+    POINTS_PER_1000_GOLD: () => POINTS_PER_1000_GOLD,
     PROVEN: () => PROVEN,
     REROLL_GAIN: () => REROLL_GAIN,
     RULES: () => RULES,
@@ -47,6 +48,8 @@ var DeepEngine = (() => {
     SHIFT_SWAP_MIN: () => SHIFT_SWAP_MIN,
     STACKING: () => STACKING,
     START_GOLD: () => START_GOLD,
+    STAT_GOLD: () => STAT_GOLD,
+    STICKERS: () => STICKERS,
     STYLE_NAMES: () => STYLE_NAMES,
     SUSTAIN_ITEMS: () => SUSTAIN_ITEMS,
     UPGRADES: () => UPGRADES,
@@ -73,6 +76,7 @@ var DeepEngine = (() => {
     situational: () => situational,
     skillUp: () => skillUp,
     startFor: () => startFor,
+    stickerValue: () => stickerValue,
     triggers: () => triggers,
     whyBest: () => whyBest
   });
@@ -374,6 +378,7 @@ var DeepEngine = (() => {
     extraAugments: { source: "data", on: true, why: "Headliners that add augment picks count them as picks left for combo potential: K/DA +0.93 (it gives a 5th augment, never a 6th (Nico); in 21 archive games that look like K/DA, 196 of 210 players had a 5th. Pentakill's empowerments are recorded as augments (3176 at the start; HEAVY, POWER or THRASH at 18), so they don't count), Superfans +0.29 (its 5th augment comes at level 21, which 29% of players reached in the 33 games above level 18). Used once the app knows the headliner; Nico asked 2026-11-24." },
     screenTiers: { source: "game data", on: true, why: "Wiki (ARAM: Mayhem): every player gets the same tier on a screen, and the first two screens are never both Silver. Archive since 16.21: after a Silver first screen the second was Gold 15 times, Prismatic 15, Silver 0. So when the first screen is Silver, a Silver partner has one screen fewer to come." },
     headlinerScreens: { source: "game data", on: true, why: "Used once the app knows the headliner (wiki + Nico 2026-11-24). Maestro: 4 cards a screen, each rerollable once, so 8 chances to see a partner instead of 6. Command Line: screens are only Silver or Gold, so a Prismatic partner only comes from a reroll; the first reroll on a screen draws one tier higher (Silver to Gold, Gold to Prismatic). Debonair: the gold on a card only breaks a tie." },
+    heartsteelStickers: { source: "assumption", on: true, why: "HEARTSTEEL stickers add their estimated value to the augment they're on: stats the champion uses, priced at basic-item gold, 0.45 win-rate points per 1,000 gold (Deft/Recursion on builders vs non-builders). Nico approved estimates 2026-11-24." },
     hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
     ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
     // Design choices Nico hasn't picked yet: kept as they were.
@@ -484,11 +489,56 @@ var DeepEngine = (() => {
           combo = other;
         }
       }
-      const baseScore = score * 100 + bonus;
+      const baseScore = score * 100 + bonus + (RULES.heartsteelStickers.on ? opts.stickers?.[id] ?? 0 : 0);
       return { id, score: baseScore + potential, boost: est ? baseScore : null, potential, combo, mate, deep };
     }).sort((x, y) => y.score - x.score);
     if (!opts.lucky) return ranked;
     return luckyOrder(ranked, (a) => info.get(a.id)?.se ?? null, (a) => info.get(a.id)?.pick ?? null);
+  }
+  var STICKERS = {
+    Aphelios: "2 Stat Anvils",
+    Ezreal: "+4 AD and +4 AP per level",
+    Kayn: "+5% omnivamp",
+    "K'Sante": "+1 level and +1 level cap",
+    Sett: "+30 health per level",
+    Yone: "+40% attack speed and +20 ability haste"
+  };
+  var STAT_GOLD = { ad: 35, ap: 20, hp: 400 / 150, as: 25, haste: 50, vamp: 53.6 };
+  var POINTS_PER_1000_GOLD = 0.45;
+  var AVERAGE_AUGMENT_POINTS = 1;
+  var LEVEL_GOLD = 600;
+  var STATS_AUGMENT = 1404;
+  function stickerValue(member, champ, kinds, picks, level = 1) {
+    if (!STICKERS[member] || !champ) return null;
+    const magic = kinds?.champions?.[champ.id] ?? kinds?.champions?.[keyIn(kinds?.champions, champ.id) ?? ""] ?? 0.5;
+    const build = [...champ.items ?? [], ...champ.rest ?? []].slice(0, 6).map((it) => itemId(it.icon));
+    const builds = (tag) => build.some((id) => (kinds?.items?.[String(id)] ?? []).includes(tag));
+    const tanky = builds("armor") || builds("mr");
+    const avgLevel = (Math.max(1, Math.min(18, level)) + 18) / 2;
+    const parts = [];
+    const add = (stat, gold2, used2) => parts.push({ stat, gold: Math.round(gold2), used: used2 });
+    let flat = null;
+    if (member === "Yone") {
+      add("attack speed", 40 * STAT_GOLD.as, builds("as") ? 1 : 0);
+      add("ability haste", 20 * STAT_GOLD.haste, builds("haste") ? 1 : 0);
+    }
+    if (member === "Ezreal") {
+      add("attack damage", 4 * avgLevel * STAT_GOLD.ad, 1 - magic);
+      add("ability power", 4 * avgLevel * STAT_GOLD.ap, magic);
+    }
+    if (member === "Sett") add("health", 30 * avgLevel * STAT_GOLD.hp, tanky ? 1 : 0.5);
+    if (member === "Kayn") add("omnivamp", 5 * STAT_GOLD.vamp, 1);
+    if (member === "K'Sante") add("a level", LEVEL_GOLD, 1);
+    if (member === "Aphelios") {
+      const ck = keyIn(picks?.champions, champ.id);
+      const row = ck ? picks.champions[ck].find(([id]) => id === STATS_AUGMENT) : void 0;
+      flat = Math.max(0, (row ? row[1] * 100 : 0) + AVERAGE_AUGMENT_POINTS);
+    }
+    const gold = parts.reduce((t, p) => t + p.gold * p.used, 0);
+    const points = flat ?? gold / 1e3 * POINTS_PER_1000_GOLD;
+    const used = parts.filter((p) => p.used > 0).map((p) => p.stat);
+    const why = flat !== null ? `${STICKERS[member]}: worth what the Stats! augment is on this champion (estimated)` : used.length ? `${STICKERS[member]}: about ${Math.round(gold / 50) * 50} gold of ${used.join(" and ")} you use (estimated)` : `${STICKERS[member]}: stats this build doesn't use (estimated)`;
+    return { member, gold: Math.round(gold), points: Math.round(points * 100) / 100, parts, why };
   }
   var NEXT_TIER = { silver: "gold", gold: "prismatic", prismatic: "prismatic" };
   function rerollAdvice(picks, ranked, offered, taken, opts = {}) {

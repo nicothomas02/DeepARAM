@@ -86,5 +86,14 @@
  "Your choices (optional)": "Tvoje volby (nepovinné)",
  "Your choices, best first": "Tvoje volby, nejlepší první",
  "Best picks": "Nejlepší volby",
- "Strength {n}": "Síla {n}"
+ "Strength {n}": "Síla {n}",
+ "Full teams": "Celé týmy",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Odhad: žádná hra nezaznamenává výsledky celých týmů, proto vycházejí z toho, jak si vede každý šampion a každá jejich dvojice spolu. Berte je jako nápady k vyzkoušení, ne jako záznamy.",
+ "{own}% champions · {syn}% synergy": "{own}% šampioni · {syn}% souhra",
+ "Best pair: {a} + {b}": "Nejlepší dvojice: {a} + {b}",
+ "Projected": "Odhad",
+ "Strongest by data": "Nejsilnější podle dat",
+ "With a frontline": "S frontlinou",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Každý tým má Wardena, Vanguarda nebo Juggernauta. Je to pravidlo sestavy, ne něco, co data změřila.",
+ "Ranked only by how the champions and their pairs do.": "Seřazeno jen podle toho, jak si vedou šampioni a jejich dvojice."
 }

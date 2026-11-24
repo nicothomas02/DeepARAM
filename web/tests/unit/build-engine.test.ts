@@ -28,6 +28,8 @@ import {
   type OverlayChamp,
   type Picks,
   shiftOf,
+  stickerValue,
+  STICKERS,
 } from "@/lib/engine/build-engine";
 import { bundleEngine, ENGINE_OUT } from "../../scripts/build-engine.mjs";
 
@@ -389,4 +391,35 @@ describe("build engine", () => {
     expect(bad).toEqual([]);
     expect(champs.filter((c) => c.destiny).length).toBeGreaterThan(100);
   }, 60_000);
+});
+
+describe("HEARTSTEEL stickers (estimated)", () => {
+  const icon = (id: number) => ({ name: String(id), icon: `/x/${id}.png` });
+  const kinds = { champions: { Mage: 1, Marksman: 0 }, items: { "1": ["ap", "haste"], "2": ["ad", "as"] }, boots: [], recipes: {} } as unknown as Kinds;
+  const mage = { id: "Mage", items: [icon(1)] } as OverlayChamp;
+  const adc = { id: "Marksman", items: [icon(2)] } as OverlayChamp;
+  const picks = { augments: {}, champions: { Mage: [[1404, -0.005, 50, 1]] }, pairs: {}, styles: {} } as unknown as Picks;
+
+  it("values only stats the champion uses", () => {
+    const yMage = stickerValue("Yone", mage, kinds, picks)!;
+    const yAdc = stickerValue("Yone", adc, kinds, picks)!;
+    expect(yMage.parts.find((p) => p.stat === "attack speed")!.used).toBe(0);
+    expect(yAdc.parts.find((p) => p.stat === "attack speed")!.used).toBe(1);
+    expect(yMage.gold).toBe(1000); // 20 haste only
+    expect(stickerValue("Ezreal", mage, kinds, picks)!.parts.find((p) => p.stat === "attack damage")!.used).toBe(0);
+    expect(yAdc.why).toMatch(/estimated/);
+  });
+
+  it("per-level bonuses use the average level from the pick to 18; Aphelios follows Stats!", () => {
+    expect(stickerValue("Sett", adc, kinds, picks, 1)!.gold).toBe(Math.round(30 * 9.5 * 400 / 150 * 0.5));
+    expect(stickerValue("Aphelios", mage, kinds, picks)!.points).toBeCloseTo(0.5, 5);
+    expect(stickerValue("Nobody", mage, kinds, picks)).toBeNull();
+    expect(Object.keys(STICKERS)).toHaveLength(6);
+  });
+
+  it("adds the sticker's points to that augment's ranking", () => {
+    const p = { augments: {}, champions: { Mage: [[10, 0.01, 50, 1], [11, 0.005, 50, 1]] }, pairs: {}, styles: {} } as unknown as Picks;
+    expect(rankAugments(p, "Mage", [])[0].id).toBe(10);
+    expect(rankAugments(p, "Mage", [], { stickers: { 11: 1 } })[0].id).toBe(11);
+  });
 });

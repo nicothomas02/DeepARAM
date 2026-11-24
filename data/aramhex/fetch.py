@@ -127,6 +127,17 @@ def convert(src, ds, prev_hashes):
             continue
         os.makedirs(os.path.join(out, "bands", band), exist_ok=True)
         dump(os.path.join(out, "bands", band, "heroes.json"), {h: gw(r) for h, r in hb.items()})
+        # Bracket augment and spell tables (Nico 2026-11-24 chose "half-and-half, live patch only": champion pages mix a
+        # bracket's augment scores 50/50 with all players', web/src/lib/bracket-augments.ts). Spells are kept to re-test
+        # (the one patch pair with bracket spells didn't support the mix), not shown.
+        bha = load(f"bands/{band}/hero_augments.json")
+        if bha:
+            dump(os.path.join(out, "bands", band, "augments.json"),
+                 {h: {a: gw(r) for a, r in v.items() if a not in excluded} for h, v in bha.items()})
+        bsp = load(f"bands/{band}/hero_spells.json")
+        if bsp:
+            dump(os.path.join(out, "bands", band, "spells.json"),
+                 {h: {k: gw(r) for k, r in v.items() if r["games"] >= MIN_SPELL_GAMES} for h, v in bsp.items()})
         bands.append(band)
     if bands:
         written.append("bands:" + "/".join(bands))

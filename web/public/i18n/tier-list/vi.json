@@ -86,5 +86,14 @@
  "Your choices (optional)": "Lựa chọn của bạn (không bắt buộc)",
  "Your choices, best first": "Lựa chọn của bạn, tốt nhất trước",
  "Best picks": "Lựa chọn tốt nhất",
- "Strength {n}": "Sức mạnh {n}"
+ "Strength {n}": "Sức mạnh {n}",
+ "Full teams": "Đội hình đầy đủ",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Dự đoán: không trận nào ghi lại kết quả cả đội, nên các đội này dựa trên thành tích của từng tướng và từng cặp khi chơi cùng nhau. Hãy xem đây là ý tưởng để thử, không phải số liệu ghi nhận.",
+ "{own}% champions · {syn}% synergy": "{own}% tướng · {syn}% phối hợp",
+ "Best pair: {a} + {b}": "Cặp tốt nhất: {a} + {b}",
+ "Projected": "Dự đoán",
+ "Strongest by data": "Mạnh nhất theo dữ liệu",
+ "With a frontline": "Có tuyến đầu",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Mỗi đội có một Warden, Vanguard hoặc Juggernaut. Đây là quy tắc đội hình, không phải điều dữ liệu đo được.",
+ "Ranked only by how the champions and their pairs do.": "Chỉ xếp theo thành tích của các tướng và các cặp của họ."
 }

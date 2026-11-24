@@ -86,5 +86,14 @@
  "Your choices (optional)": "اختياراتك (اختياري)",
  "Your choices, best first": "اختياراتك، الأفضل أولًا",
  "Best picks": "أفضل الاختيارات",
- "Strength {n}": "القوة {n}"
+ "Strength {n}": "القوة {n}",
+ "Full teams": "فرق كاملة",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "متوقَّع: لا تُسجَّل أي مباراة نتائج الفرق كاملة، لذا تأتي هذه من أداء كل بطل ومن أداء كل ثنائي منهم معًا. اعتبرها أفكارًا للتجربة لا سجلات.",
+ "{own}% champions · {syn}% synergy": "{own}% الأبطال · {syn}% التآزر",
+ "Best pair: {a} + {b}": "أفضل ثنائي: {a} + {b}",
+ "Projected": "متوقَّع",
+ "Strongest by data": "الأقوى حسب البيانات",
+ "With a frontline": "مع خط أمامي",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "في كل فريق Warden أو Vanguard أو Juggernaut. هذه قاعدة تصميم، وليست شيئًا قاسته البيانات.",
+ "Ranked only by how the champions and their pairs do.": "مرتبة فقط حسب أداء الأبطال وثنائياتهم."
 }
