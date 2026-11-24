@@ -1,5 +1,5 @@
 window.RYZE_DATA = {
- "patch": "16.23.8406595",
+ "patch": "16.23.8413489",
  "channel": "latest",
  "champion": {
   "name": "Ryze",
@@ -862,7 +862,7 @@ window.RYZE_DATA = {
    "id": 1389,
    "name": "Hand of Baron",
    "tier": "Prismatic",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/handofbaron_small.png",
+   "icon": "/assets/cd/latest/game/assets/ux/mayhem/augments/icons/handofbaron_small.png",
    "values": {
     "AFAmp": 0.25
    },
@@ -905,7 +905,7 @@ window.RYZE_DATA = {
    "id": 1390,
    "name": "Phenomenal Evil",
    "tier": "Gold",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/aram_phenomenalevil_small.png",
+   "icon": "/assets/cd/latest/game/assets/ux/mayhem/augments/icons/aram_phenomenalevil_small.png",
    "values": {
     "ProcCooldown": 1.0,
     "StartingAPIfSecondAugment": 40.0,
@@ -955,7 +955,7 @@ window.RYZE_DATA = {
    "id": 1314,
    "name": "Mighty Shield",
    "tier": "Silver",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/mightyshield_small.png",
+   "icon": "/assets/cd/latest/game/assets/ux/mayhem/augments/icons/mightyshield_small.png",
    "values": {
     "ShieldDuration": 3.0,
     "Cooldown": 5.0
@@ -973,7 +973,7 @@ window.RYZE_DATA = {
    "id": 1001,
    "name": "Titan's Resolve",
    "tier": "Prismatic",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/iamthejuggernaut_small.png",
+   "icon": "/assets/cd/latest/game/assets/ux/mayhem/augments/icons/iamthejuggernaut_small.png",
    "values": {
     "Stacks_Max": 7.0,
     "Stack_Duration": 6.0,
@@ -1045,7 +1045,7 @@ window.RYZE_DATA = {
    "id": 3094,
    "name": "Lich Brain",
    "tier": "Silver",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/lichbrain_small.png",
+   "icon": "/assets/cd/latest/game/assets/ux/mayhem/augments/icons/lichbrain_small.png",
    "values": {},
    "calcs": {},
    "text": "Gain @Calc_AP@ Ability Power."
@@ -1068,7 +1068,7 @@ window.RYZE_DATA = {
    "id": 3036,
    "name": "Double Time",
    "tier": "Gold",
-   "icon": "/assets/cd/latest/game/assets/ux/kiwi/augments/icons/aram_phenomenalevil_large.png",
+   "icon": "/assets/cd/latest/game/assets/ux/mayhem/augments/icons/aram_phenomenalevil_large.png",
    "values": {
     "DamageWindowSeconds": 4.0,
     "ManaGainCD": 4.0

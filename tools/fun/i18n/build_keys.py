@@ -1,4 +1,4 @@
-"""Collects every English string The Kitchen, Infinite Ryze, Infinite Ashe and Region Teams show and writes i18n/en.json (key = value), the list each
+"""Collects every English string The Kitchen, Infinite Ryze, Infinite Ashe, Infinite Zilean and Region Teams show and writes i18n/en.json (key = value), the list each
 language file translates. Run after changing any Lab page, script or data:
 
     python3 tools/fun/i18n/build_keys.py
@@ -14,9 +14,9 @@ import html.parser, json, os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
 FUN = os.path.dirname(HERE)
 PAGES = ["index.html", "cook-builds/index.html", "ryze-calculator/index.html",
-         "ashe-calculator/index.html"]
+         "ashe-calculator/index.html", "zilean-calculator/index.html"]
 SCRIPTS = ["index.html", "cook-builds/app.js", "ryze-calculator/app.js", "ryze-calculator/calc.js",
-           "ashe-calculator/app.js"]
+           "ashe-calculator/app.js", "zilean-calculator/app.js"]
 STR = r'"((?:[^"\\]|\\.)*)"'
 
 
@@ -90,6 +90,13 @@ def main():
     keys += [unescape(m) for m in re.findall(r'^\s+\w+: ' + STR + r',$', ashe, re.M)]             # augment lines
     ashe_data = js_data("ashe-calculator/data.js", "ASHE_DATA")
     keys += [s["name"] for s in ashe_data["champion"]["spells"].values()] + [a["tier"] for a in ashe_data["augments"]]
+
+    zilean = open(os.path.join(FUN, "zilean-calculator/app.js"), encoding="utf-8").read()
+    keys += [unescape(m) for m in re.findall(r'\[' + STR + r', (?:fmt|T\(|need|m\.)', zilean)]   # stats rows
+    keys += [unescape(m) for m in re.findall(r'^\s+\w+: ' + STR + r',$', zilean, re.M)]           # augment lines
+    zilean_data = js_data("zilean-calculator/data.js", "ZILEAN_DATA")
+    keys += [s["name"] for s in zilean_data["champion"]["spells"].values()] + [a["tier"] for a in zilean_data["augments"]]
+
 
     seen, out = set(), {}
     for k in keys:

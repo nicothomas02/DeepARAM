@@ -132,6 +132,8 @@ def calcs(spell_calcs, values):
 
 def write_data_js(path, var, data):
     # Pages load icons from the site's own copies (/assets/cd/..., see web/scripts/fetch_assets.py).
-    text = json.dumps(data, indent=1, ensure_ascii=False).replace(BASE + "/", "/assets/cd/")
+    # The mirror keeps CommunityDragon's "kiwi" (Mayhem) folders under "mayhem", so the paths must say so too.
+    text = re.sub(r'"/assets/cd/[^"]*"', lambda m: m.group(0).replace("kiwi", "mayhem"),
+                  json.dumps(data, indent=1, ensure_ascii=False).replace(BASE + "/", "/assets/cd/"))
     with open(path, "w") as f:
         f.write(f"window.{var} = " + text + ";\n")

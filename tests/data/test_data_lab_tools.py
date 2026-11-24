@@ -1,4 +1,4 @@
-"""The Lab (tools/fun/): Infinite Ryze, Infinite Ashe and Cook Builds generated data.js (tools/fun/*/build_data.py via tools/fun/cdragon.py)."""
+"""The Lab (tools/fun/): Infinite Ryze, Infinite Ashe, Infinite Zilean and Cook Builds generated data.js (tools/fun/*/build_data.py via tools/fun/cdragon.py)."""
 import glob
 import json
 import math
@@ -14,6 +14,7 @@ TOOLS = {
     "cook-builds": "COOK_DATA",
     "ryze-calculator": "RYZE_DATA",
     "ashe-calculator": "ASHE_DATA",
+    "zilean-calculator": "ZILEAN_DATA",
 }
 GAME_TOOLS = sorted(t for t in TOOLS if t != "cook-builds")
 
@@ -171,3 +172,49 @@ def test_ashe_calculator_math():
     # The page's preset closes the loop: an R for (nearly) every Hawkshot. Haste shortens Hawkshot's 5 s gap
     # (checked against AramHex's Ashe page), so the full loop runs far above 12 a minute.
     assert preset["loop"] >= 0.9 and preset["perMinute"] > 40
+
+
+# Infinite Zilean: tools/fun/zilean-calculator/calc.js, run through Node.
+def _zilean(builds):
+    import shutil, subprocess
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("node not installed")
+    script = (
+        "global.window = global; require('./tools/fun/zilean-calculator/data.js');"
+        "const C = require('./tools/fun/zilean-calculator/calc.js');"
+        "const out = JSON.parse(process.argv[1]).map((b) => ({ ...C.compute(window.ZILEAN_DATA, b, { runs: 20 }),"
+        " need: C.threshold(window.ZILEAN_DATA, b) }));"
+        "console.log(JSON.stringify(out));"
+    )
+    res = subprocess.run([node, "-e", script, json.dumps(builds)], cwd=REPO, capture_output=True, text=True, check=True)
+    return json.loads(res.stdout)
+
+
+ZILEAN = {"qRank": 1, "wRank": 5, "eRank": 1, "haste": 100, "castE": False, "rOnCooldown": False}
+
+
+def test_zilean_calculator_math():
+    plain, q1, q5, r_cd = _zilean([
+        {**ZILEAN, "haste": 500, "augments": []},
+        {**ZILEAN, "augments": ["ARAM_Archmage"]},
+        {**ZILEAN, "qRank": 5, "augments": ["ARAM_Archmage"]},
+        {**ZILEAN, "rOnCooldown": True, "augments": ["ARAM_Archmage"]},
+    ])
+    # Without Archmage, Rewind brings Time Bomb back once per Rewind cooldown: 6 s at rank 5, 1 s at 500 haste.
+    assert plain["perMinute"] == pytest.approx(60, abs=0.5)
+    # With Archmage, each Time Bomb takes 30% of its base cooldown (10 s at rank 1) off Rewind. Q-W-Q-W never waits
+    # once Rewind's 6 s fits in that 3 s plus the 0.25 s cast: 6 x 100 / (100 + h) <= 3.25 at about 85 haste.
+    assert q1["refundFromQ"] == pytest.approx(3, abs=0.01)
+    assert 80 <= q1["need"] <= 86 and q1["loop"] == pytest.approx(1)
+    assert q1["perMinute"] == pytest.approx(240, abs=1)
+    # A rank 5 Time Bomb (8 s base) refunds less, so the loop needs more haste (about 127).
+    assert 120 <= q5["need"] <= 130
+    # Every second bomb lands on a bombed target: a stun.
+    assert q1["stunsPerMinute"] == pytest.approx(120, abs=1)
+    # Mana stops it within seconds at level 18 with no items.
+    assert q1["withMana"]["runsOut"] and q1["withMana"]["lastsFor"] < 10
+    # When Chronoshift is on cooldown, half the refunds land on it and the loop doesn't close.
+    assert r_cd["need"] is None
+
+

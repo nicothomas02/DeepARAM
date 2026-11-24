@@ -9,7 +9,7 @@ import { repoHas } from "@/lib/repo-data";
 import { sections } from "@/lib/sections";
 
 // Calculators: Infinite Ryze (?tab=infinite-ryze, formerly a Kitchen and before that a Simulator tab) and
-// Infinite Ashe (?tab=infinite-ashe). Both pages live in tools/fun/ and share The Kitchen's embed folder.
+// Infinite Ashe (?tab=infinite-ashe) and Infinite Zilean (?tab=infinite-zilean). The pages live in tools/fun/ and share The Kitchen's embed folder.
 const tab = sections.find((s) => s.href === "/calculators")!;
 
 export const metadata: Metadata = pageMeta("/calculators", "ARAM Mayhem Calculators", tab.body);
@@ -17,6 +17,7 @@ export const metadata: Metadata = pageMeta("/calculators", "ARAM Mayhem Calculat
 const CALCULATORS = [
   { id: "infinite-ryze", label: "Infinite Ryze", folder: "ryze-calculator", minHeight: 900 },
   { id: "infinite-ashe", label: "Infinite Ashe", folder: "ashe-calculator", minHeight: 1100 },
+  { id: "infinite-zilean", label: "Infinite Zilean", folder: "zilean-calculator", minHeight: 1150 },
 ];
 
 export default function CalculatorsPage() {
