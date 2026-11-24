@@ -281,6 +281,15 @@ describe("build engine", () => {
     expect(ahri?.augmentStarts?.some((a) => a.augment === 1030)).toBe(false);
   });
 
+  it("starts with the best start you can afford when you have extra gold (Debonair headliner)", () => {
+    const n = (name: string) => ({ name, icon: null });
+    const c = { start: [n("Long Sword"), n("Guardian's Blade")], richStarts: [{ start: [n("B. F. Sword"), n("Long Sword")], cost: 1650 }, { start: [n("Serrated Dirk"), n("Pickaxe")], cost: 1875 }] } as unknown as OverlayChamp;
+    expect(startFor(c, [], 1400).start).toEqual(c.start);
+    expect(startFor(c, [], 1700)).toMatchObject({ rich: true, start: c.richStarts![0].start });
+    expect(startFor(c, [], 1600).rich).toBe(false);
+    expect(startFor(c, []).rich).toBe(false);
+  });
+
   it("never plans two items of one limit group, on any champion's real data", async () => {
     const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsGET().json()) as Kinds;

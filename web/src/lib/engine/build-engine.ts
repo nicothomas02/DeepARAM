@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.2";
+export const ENGINE_VERSION = "1.3.3";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -45,6 +45,7 @@ export const RULES: Record<string, Rule> = {
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
   augmentSkills: { source: "assumption", on: true, why: "A few champions max another ability first once they take an augment (Gwen: E>Q>W with Ethereal Weapon). Nico approved 2026-11-24 (he asked for it); no source splits skill orders by augment, so it's estimated." },
   augmentStart: { source: "data", on: true, why: "The starting items follow the first augment when its first-screen pickers mostly start something else and it at least doubles that start for the champion (Upgrade Stormsurge: Hextech Alternator; Wooglet's Witchcap: Needlessly Large Rod). From the archive's other players against the same champions' players, estimated. Nico asked for it 2026-11-24." },
+  richStart: { source: "data", on: true, why: "With more than the 1,400 starting gold before your first buy (the Debonair headliner pays gold for each augment pick; seen in 16 of 251 archive games since 16.21), the best start above 1,400 that you can afford, by DeepScore. Starts above 1,400 are never the default. Nico asked for it 2026-11-24." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
   // Design choices Nico hasn't picked yet: kept as they were.
@@ -93,6 +94,8 @@ export type OverlayChamp = {
   augmentSkills?: { augment: number; skills: string[] }[];
   /** The start once an augment is taken first (site lib/quick-build.ts augmentStarts), estimated. */
   augmentStarts?: { augment: number; start: Named[] }[];
+  /** Starts above the starting gold, best first, with their cost (site lib/quick-build.ts richStarts). */
+  richStarts?: { start: Named[]; cost: number }[];
   start?: Named[];
   /** Build styles, best DeepScore first; nearBest: its win rate's 95% range overlaps the best's (Feeling lucky). */
   builds?: (Partial<OverlayChamp> & { style: string; share: number; deepScore?: number; nearBest?: boolean })[];
@@ -735,11 +738,23 @@ export type PlanInput = {
   profiles?: Profiles | null;
 };
 
-/** The starting items to show: the first augment's own start when it has one (augmentStart), else the champion's. */
-export function startFor(champ: Pick<OverlayChamp, "start" | "augmentStarts"> | undefined, taken: number[]): { start: Named[]; augment: number | null } {
+/** The starting items to show: the first augment's own start when it has one (augmentStart); else, with more gold
+ *  than the 1,400 everyone starts with (the Debonair headliner pays gold per augment pick), the best start above
+ *  1,400 you can afford (richStart); else the champion's. */
+export function startFor(
+  champ: Pick<OverlayChamp, "start" | "augmentStarts" | "richStarts"> | undefined,
+  taken: number[],
+  gold?: number,
+): { start: Named[]; augment: number | null; rich: boolean } {
   const hit = RULES.augmentStart.on && taken.length ? champ?.augmentStarts?.find((a) => a.augment === taken[0]) : undefined;
-  return hit ? { start: hit.start, augment: hit.augment } : { start: champ?.start ?? [], augment: null };
+  if (hit) return { start: hit.start, augment: hit.augment, rich: false };
+  const rich = RULES.richStart.on && gold !== undefined && gold > START_GOLD ? champ?.richStarts?.find((r) => r.cost <= gold) : undefined;
+  if (rich) return { start: rich.start, augment: null, rich: true };
+  return { start: champ?.start ?? [], augment: null, rich: false };
 }
+
+/** Every player's gold at 0:00 (the owner's archive, all patches). */
+export const START_GOLD = 1400;
 
 const ord = (n: number) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
 
