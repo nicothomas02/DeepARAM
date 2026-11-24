@@ -387,9 +387,10 @@
   // "16.23+" (default: earlier patches pooled in where nothing changed, as the site) / "16.23 only" (Nico 2026-11-24).
   let onlyPatch = (() => { try { return localStorage.getItem("patchOnly") === "1"; } catch { return false; } })();
   const picksView = (d, ck) => (onlyPatch && d?.only?.[ck] ? { ...d, champions: { ...d.champions, [ck]: d.only[ck] } } : d);
-  const rankAugments = (d, ck, taken) => E.rankAugments(d, ck, taken, { lucky, seen: [...seen] });
+  // tier: the screen on offer (the picks left are counted per partner tier). headliner: only once the game reports one.
+  const rankAugments = (d, ck, taken, tier) => E.rankAugments(d, ck, taken, { lucky, seen: [...seen], tier, headliner: game?.headliner });
   function rerollAdvice(d, all, offered, taken) {
-    const a = E.rerollAdvice(d, all, offered, taken, { seen: [...seen], rerolled: [...rerolled] });
+    const a = E.rerollAdvice(d, all, offered, taken, { seen: [...seen], rerolled: [...rerolled], headliner: game?.headliner });
     if (!a) return "";
     const nm = (id) => esc(d.augments[id]?.[0] ?? `#${id}`);
     const who = `${esc(label(game.champ))}'s ${esc(a.rarity ?? "")} augments`;
@@ -409,12 +410,13 @@
     const settings = [lucky ? "Feeling lucky" : "", onlyPatch && d0.only?.[ck] ? `${pv} only` : ""].filter(Boolean);
     const taken = getTaken(game);
     const name = (id) => d.augments[id]?.[0] ?? `#${id}`;
-    const ranked = rankAugments(d, ck, taken);
+    const tier = offer.length ? d.augments[offer[0]]?.[1] : undefined;
+    const ranked = rankAugments(d, ck, taken, tier);
     // An offer on screen: its augments side by side in ranking order (highlighted, never picked for you). The rest of
     // the list stays below for when the reading misses a card.
     const onOffer = offer.filter((id) => !taken.includes(id));
     const offered = onOffer.length ? [...ranked.filter((a) => onOffer.includes(a.id)), ...onOffer.filter((id) => !ranked.some((a) => a.id === id)).map((id) => ({ id, boost: null, deep: -1, mate: null, combo: null, potential: 0 }))] : [];
-    const reroll = offered.length >= 2 ? rerollAdvice(d, rankAugments(d, ck, taken), offered, taken) : "";
+    const reroll = offered.length >= 2 ? rerollAdvice(d, ranked, offered, taken) : "";
     const shown = ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
     const row = (a, best) => `
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${whatItDoes("augments", Number(a.id)) ? ` title="${esc(whatItDoes("augments", Number(a.id)))}"` : ""}>
