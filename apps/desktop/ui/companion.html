@@ -41,6 +41,7 @@
   .badge { display: inline-block; margin-top: 4px; padding: 3px 10px; border-radius: 8px; font-size: 16px; font-weight: 800; }
   .badge.green { color: #07130d; background: var(--good); } .badge.blue { color: #04131d; background: var(--accent); }
   .num.big { font-size: 22px; font-weight: 800; } .num.green { color: var(--good); } .num.gold { color: var(--gold); } .num.red { color: var(--bad); }
+  .num.t-s { color: #e0573f; } .num.t-a { color: #f0913a; } .num.t-b { color: #e6c24a; } .num.t-c { color: #7fb6e8; } .num.t-d { color: var(--muted); }
   .row.card { padding: 10px 12px; }
   .tag { font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 1px 6px; }
   .dim .row { opacity: .55; padding: 5px 8px; font-size: 12px; } .dim .row .name { font-size: 13px; }
@@ -406,7 +407,6 @@
 
   // DeepScore tier, as on the site: 50 is average, S from 70, A 59, B 44, C 32, D below.
   const deepTier = (ds) => (ds >= 70 ? "S" : ds >= 59 ? "A" : ds >= 44 ? "B" : ds >= 32 ? "C" : "D");
-  const deepLabel = (ds) => (ds >= 0 ? `${deepTier(ds)} ${ds}` : "");
 
   // Ranking, reroll advice, the item path, swaps and tips come from the shared build engine (engine.js, built from
   // web/src/lib/engine/build-engine.ts), the same one Nico's PC app and the site use, so they can't drift. This page
@@ -444,7 +444,8 @@
     const [a, b] = [pts[j - 1], pts[j]];
     return Math.round(b[0] === a[0] ? b[1] : a[1] + ((score - a[0]) / (b[0] - a[0])) * (b[1] - a[1]));
   }
-  const tierTone = (ds) => (ds >= 59 ? "green" : ds >= 44 ? "gold" : "red");
+  // The site's tier colours (S red, A orange, B yellow, C blue, D grey), on the number alone (Nico: one value).
+  const tierCls = (ds) => `t-${deepTier(ds).toLowerCase()}`;
 
   async function renderAugments() {
     const box = document.getElementById("augs");
@@ -486,7 +487,7 @@
       <div class="row aug card${take ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${badge}</div>
-        <div class="num big ${gd >= 0 ? tierTone(gd) : ""}" title="DeepScore in this game: this champion's DeepScore with synergy, combo odds and the headliner counted">${gd >= 0 ? deepLabel(gd) : ""}</div>
+        <div class="num big ${gd >= 0 ? tierCls(gd) : ""}" title="DeepScore in this game: this champion's DeepScore with synergy, combo odds and the headliner counted">${gd >= 0 ? gd : ""}</div>
       </div>`;
     };
     const row = (a, best) => {
@@ -497,7 +498,7 @@
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}</div>
-        <div class="num${a.deep >= 0 ? ` big ${tierTone(a.deep)}` : ""}" title="DeepScore on this champion${a.boost !== null ? `\nRanking with what you took: ${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)} points` : ""}">${a.deep >= 0 ? deepLabel(a.deep) : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
+        ${(() => { const gd = typeof a.score === "number" ? gameDeep(d, ck, a.score / 100) : a.deep; return `<div class="num${gd >= 0 ? ` big ${tierCls(gd)}` : ""}" title="DeepScore in this game${gd >= 0 ? `, tier ${deepTier(gd)}` : ""}${a.deep >= 0 ? `\nOn this champion: ${a.deep}` : ""}">${gd >= 0 ? gd : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>`; })()}
       </div>`;
     };
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
