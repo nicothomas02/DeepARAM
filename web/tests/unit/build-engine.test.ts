@@ -34,6 +34,7 @@ import {
   type Picks,
   shiftOf,
   AUGMENT_SHIFT,
+  CONVERTERS,
   RUSH_Z_BUILD,
   RUSH_Z_EARLY,
   RUSH_LIFT,
@@ -168,7 +169,8 @@ describe("build engine", () => {
 
   it("puts a finished item you own off the path into the first open later slot", () => {
     const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3031, 3075] }), taken: [] });
-    expect(ids(p.path)).toEqual([3006, 3031, 3046, 3075, 3094, 6333]);
+    // owned items keep their places; the open ones follow Next's order (pathOrder), so the skipped 3rd item is last
+    expect(ids(p.path)).toEqual([3006, 3031, 3094, 3075, 6333, 3046]);
     // Thornmail took the 3rd item's place: that one moves behind the rest (ownedReplan)
     expect(ids(p.next)[0]).toBe(3094);
   });
@@ -224,6 +226,46 @@ describe("build engine", () => {
     expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets)] }).path)).not.toContain(3157);
     expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets), 1205] }).path)).toContain(3157);
   });
+
+  it("a converter augment puts the item it re-prices into the core, if the damage type fits (converterItems)", async () => {
+    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsGET().json()) as Kinds, p0 = (await picksGET().json()) as Picks;
+    const ori = champs.find((x) => x.id === "Orianna")!;
+    const run = (taken: number[], items: number[] = []) => plan({ champ: ori, kinds: k, picks: p0, fit: null, game: { champ: "Orianna", items }, taken });
+    const core = (taken: number[]) => { const p = run(taken); return p.path.slice(0, p.coreLen).map((x) => itemId(x.icon)); };
+    // ADAPt: AD items turn into AP, so the AD item ADAPt holders build most joins Orianna's core
+    expect(core([1205]).some((i) => CONVERTERS["1205"].items.includes(i))).toBe(true);
+    expect(run([1205]).rules).toContain("converterItems");
+    // Jeweled Gauntlet alone: Infinity Edge is an AD item, wasted on an AP build without ADAPt
+    expect(core([1048])).not.toContain(3031);
+    expect(core([1048, 1205])).toEqual(expect.arrayContaining([3031]));
+    // both converter items stay in the core
+    expect(core([1048, 1205]).filter((i) => CONVERTERS["1205"].items.includes(i) || i === 3031)).toHaveLength(2);
+    // nothing changes without a converter, and owned items never move
+    expect(run([]).rules).not.toContain("converterItems");
+  }, 30_000);
+
+  it("the path's unbought places follow Next's order (pathOrder)", async () => {
+    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsGET().json()) as Kinds, p0 = (await picksGET().json()) as Picks;
+    for (const [id, aug] of [["Ahri", 3150], ["Lux", 2018], ["Orianna", 1205]] as const) {
+      const p = plan({ champ: champs.find((x) => x.id === id)!, kinds: k, picks: p0, fit: null, game: { champ: id, items: [] }, taken: [aug] });
+      expect(itemId(p.path[0].icon)).toBe(itemId(p.next[0].icon));
+      expect(new Set(p.path.map((x) => itemId(x.icon))).size).toBe(p.path.length);
+    }
+  }, 30_000);
+
+  it("pushes back with a sell tip on one item of the other damage type, when selling buys the next item (sellMismatch)", async () => {
+    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsGET().json()) as Kinds, p0 = (await picksGET().json()) as Picks;
+    const ori = champs.find((x) => x.id === "Orianna")!;
+    const sell = (items: number[], gold: number, taken: number[] = []) =>
+      plan({ champ: ori, kinds: k, picks: p0, fit: null, game: { champ: "Orianna", items, gold, t: 30 }, taken }).tips.filter((t) => t.kind === "sell");
+    expect(sell([3020, 3031], 3000)).toEqual([expect.objectContaining({ item: 3031 })]);
+    expect(sell([3020, 3031], 0)).toHaveLength(0); // 70% of Infinity Edge alone doesn't buy the next legendary
+    expect(sell([3031], 3000, [1205])).toHaveLength(0); // ADAPt turns its AD into AP
+    expect(sell([3089], 3000)).toHaveLength(0); // on-type item
+  }, 30_000);
 
   it("never shows an item twice in the path", () => {
     const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3036)] }, { slot: 5, items: [item(3036), item(3094)] }, { slot: 6, items: [item(3031), item(6333)] }] };

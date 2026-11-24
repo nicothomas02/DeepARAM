@@ -1301,11 +1301,6 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const id = cv.items.find((i) => k.recipes[i] && fitsType(i) && ![...owned, ...ids].some((o) => rules.clash(o, i)));
       if (id === undefined) continue;
       const it: Named = { name: k.recipes[id][0], icon: `${prefix}${220000 + id}.png` };
-      if (build.length >= 6) {
-        const drop = [...build.keys()].reverse().find((j) => !owned.has(itemId(build[j].icon)) && !bootIds.has(itemId(build[j].icon)) && !rushed.some((r) => r.item === build[j]));
-        if (drop === undefined) continue;
-        build.splice(drop, 1);
-      }
       // it takes the last core place you haven't bought and no other augment claimed; that item moves just past the core
       const claimed = new Set([...rushed, ...converted].map((r) => r.item));
       const j = [...build.keys()].slice(0, coreLen).reverse().find((x) => !owned.has(itemId(build[x].icon)) && !bootIds.has(itemId(build[x].icon)) && !claimed.has(build[x]));
@@ -1396,11 +1391,22 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Path: the core, then the 4th/5th/6th picks (or the rest of the build).
   let coreItems = build.slice(0, coreLen);
   let rest = (slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6)).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
-  const path = [...coreItems, ...rest];
+  // Core items an augment pushed out of the core (augmentRush, converterItems) stay in the path right after the core
+  // rather than vanishing; the path keeps six items, dropping unbought ones from the end, never one you own.
+  const inPath0 = new Set([...coreItems, ...rest].map((it) => itemId(it.icon)));
+  const pushed = (champ?.items ?? []).filter((it) => !inPath0.has(itemId(it.icon)) && !isOwned(it) && build.some((b) => itemId(b.icon) === itemId(it.icon)));
+  const path = [...coreItems, ...pushed, ...rest];
+  while (path.length > 6) {
+    const j = [...path.keys()].reverse().find((x) => x >= coreItems.length && !isOwned(path[x]));
+    if (j === undefined) break;
+    path.splice(j, 1);
+  }
+  rest = path.slice(coreItems.length);
   // The path's unbought places follow Next's order (pathOrder): owned items keep their places, the rest are re-sorted
   // among the open places, so an augment's pull or rush shows in the path, not only in Next.
   if (RULES.pathOrder.on) {
-    const open0 = path.map((it, i) => (isOwned(it) ? -1 : i)).filter((i) => i >= 0);
+    // boots keep their place: their Next timing moves with what you buy, which would make the path flicker
+    const open0 = path.map((it, i) => (isOwned(it) || bootIds.has(itemId(it.icon)) ? -1 : i)).filter((i) => i >= 0);
     const at = (it: Named) => order.get(itemId(it.icon)) ?? Infinity;
     const sorted = open0.map((i) => path[i]).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
     if (sorted.some((it, n) => it !== path[open0[n]])) {
@@ -1409,6 +1415,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       rest = path.slice(coreItems.length);
       applied("pathOrder");
     }
+    // Next is the path's first unbought items, so it never names an item the path doesn't show
+    const fromPath = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+    if (fromPath.length) next = fromPath.slice(0, 2);
   }
   const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
   const slotName = (i: number) => ord(slotRows?.[i]?.slot ?? first + i);
@@ -1510,10 +1519,15 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // and selling it (70%) plus your gold buys the next path item now.
   if (RULES.sellMismatch.on && k && next[0] && !picked.style && !tips.some((t) => t.kind === "sell")) {
     const pure = (id: number) => { const t = k.items[String(id)] ?? []; return t.includes("ad") && !t.includes("ap") ? "ad" : t.includes("ap") && !t.includes("ad") ? "ap" : ""; };
-    const own0 = (champ0?.items ?? []).map((it) => pure(itemId(it.icon))).filter(Boolean);
+    // the champion's type only when every build style's core agrees (Volibear's Riftmaker builds make him neither)
+    const cores = [champ0?.items ?? [], ...(champ0?.builds ?? []).map((b) => b.items ?? [])];
+    const own0 = cores.flat().map((it) => pure(itemId(it.icon))).filter(Boolean);
     const type = own0.length && own0.every((t) => t === own0[0]) ? own0[0] : "";
+    // and never an item the champion's own data lists anywhere (Statikk Shiv on Teemo)
+    const lists = [champ0, ...(champ0?.builds ?? [])].flatMap((b) => [...(b?.items ?? []), ...(b?.rest ?? []), ...(b?.full ?? []), ...(b?.later ?? []), ...(b?.laterSlots ?? []).flatMap((x) => x.items)]);
+    const known = new Set(lists.map((it) => itemId(it.icon)));
     const converts = taken.some((a) => (type === "ap" ? TO_AP : TO_AD).has(a));
-    const off = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i) && type && pure(i) && pure(i) !== type);
+    const off = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i) && type && pure(i) && pure(i) !== type && !known.has(i));
     const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
     if (type && !converts && off.length === 1 && pure(itemId(next[0].icon)) !== pure(off[0]) && (game.gold ?? 0) + Math.round((k.recipes[off[0]]?.[1] ?? 0) * 0.7) >= cost) {
       tips.push({ rank: 2, kind: "sell", item: off[0], text: `Sell ${k.recipes[off[0]][0]} for ${next[0].name}: it doesn't fit this build.` });

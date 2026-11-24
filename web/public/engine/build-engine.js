@@ -785,6 +785,7 @@ var DeepEngine = (() => {
     augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share, of the build's damage type unless ADAPt; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
     pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
     converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
+    sellMismatch: { source: "data", on: true, why: "One finished item of the other damage type (pure AD on an AP build or the reverse, no ADAPt/EscAPADe): sell it when its 70% sell value plus your gold buys the next path item now. Archive, within champion: one such item in the first three legendaries goes with -2.0 +- 0.3 pts of team damage share (two: -4.3, three: -5.4), win rate flat (+0.1 +- 3.1). Nico 2026-11-24 asked for sell pushback when it's worth it; the 'buys it now' line is estimated." },
     pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
     // Design choices Nico hasn't picked yet: kept as they were.
     rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
@@ -1607,12 +1608,13 @@ var DeepEngine = (() => {
         const id = cv.items.find((i) => k.recipes[i] && fitsType(i) && ![...owned, ...ids].some((o) => rules.clash(o, i)));
         if (id === void 0) continue;
         const it = { name: k.recipes[id][0], icon: `${prefix}${22e4 + id}.png` };
-        if (build.length >= 6) {
-          const drop = [...build.keys()].reverse().find((j) => !owned.has(itemId(build[j].icon)) && !bootIds.has(itemId(build[j].icon)) && !rushed.some((r) => r.item === build[j]));
-          if (drop === void 0) continue;
-          build.splice(drop, 1);
+        const claimed2 = new Set([...rushed, ...converted].map((r) => r.item));
+        const j = [...build.keys()].slice(0, coreLen).reverse().find((x) => !owned.has(itemId(build[x].icon)) && !bootIds.has(itemId(build[x].icon)) && !claimed2.has(build[x]));
+        if (j === void 0) build.push(it);
+        else {
+          const [moved] = build.splice(j, 1, it);
+          build.splice(Math.min(coreLen, build.length), 0, moved);
         }
-        build.splice(Math.min(Math.max(coreLen - 1, 0), build.length), 0, it);
         converted.push({ item: it, by: a, does: cv.does });
         applied("converterItems");
       }
@@ -1703,9 +1705,17 @@ var DeepEngine = (() => {
     next = next.slice(0, 2);
     let coreItems = build.slice(0, coreLen);
     let rest = (slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6)).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
-    const path = [...coreItems, ...rest];
+    const inPath0 = new Set([...coreItems, ...rest].map((it) => itemId(it.icon)));
+    const pushed = (champ?.items ?? []).filter((it) => !inPath0.has(itemId(it.icon)) && !isOwned(it) && build.some((b) => itemId(b.icon) === itemId(it.icon)));
+    const path = [...coreItems, ...pushed, ...rest];
+    while (path.length > 6) {
+      const j = [...path.keys()].reverse().find((x) => x >= coreItems.length && !isOwned(path[x]));
+      if (j === void 0) break;
+      path.splice(j, 1);
+    }
+    rest = path.slice(coreItems.length);
     if (RULES.pathOrder.on) {
-      const open0 = path.map((it, i) => isOwned(it) ? -1 : i).filter((i) => i >= 0);
+      const open0 = path.map((it, i) => isOwned(it) || bootIds.has(itemId(it.icon)) ? -1 : i).filter((i) => i >= 0);
       const at = (it) => order.get(itemId(it.icon)) ?? Infinity;
       const sorted = open0.map((i) => path[i]).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
       if (sorted.some((it, n) => it !== path[open0[n]])) {
@@ -1716,6 +1726,8 @@ var DeepEngine = (() => {
         rest = path.slice(coreItems.length);
         applied("pathOrder");
       }
+      const fromPath = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+      if (fromPath.length) next = fromPath.slice(0, 2);
     }
     const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
     const slotName = (i) => ord(slotRows?.[i]?.slot ?? first + i);
@@ -1781,7 +1793,7 @@ var DeepEngine = (() => {
     else if (RULES.hasteMath.on && haste >= 100 && next[0] && has(next[0], "haste"))
       tips.push({ rank: 3, kind: "haste", text: `You have ${Math.round(haste)} ability haste: cooldowns are ${Math.round(haste / (100 + haste) * 100)}% shorter.` });
     if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
-    for (const t of timing.slice(0, 1)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
+    for (const t of [timing.find((x) => next[0] && x.item === next[0]) ?? timing[0]].filter(Boolean)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
     if (RULES.shopTips.on && k && next.length) {
       const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
       if (slots >= 6) {
@@ -1790,6 +1802,24 @@ var DeepEngine = (() => {
         const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
         if (sell !== void 0 && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
           tips.push({ rank: 3, kind: "sell", item: sell, text: `Full build: sell ${k.recipes[sell][0]} for ${next[0].name}.` });
+      }
+    }
+    if (RULES.sellMismatch.on && k && next[0] && !picked.style && !tips.some((t) => t.kind === "sell")) {
+      const pure = (id) => {
+        const t = k.items[String(id)] ?? [];
+        return t.includes("ad") && !t.includes("ap") ? "ad" : t.includes("ap") && !t.includes("ad") ? "ap" : "";
+      };
+      const cores = [champ0?.items ?? [], ...(champ0?.builds ?? []).map((b) => b.items ?? [])];
+      const own0 = cores.flat().map((it) => pure(itemId(it.icon))).filter(Boolean);
+      const type = own0.length && own0.every((t) => t === own0[0]) ? own0[0] : "";
+      const lists = [champ0, ...champ0?.builds ?? []].flatMap((b) => [...b?.items ?? [], ...b?.rest ?? [], ...b?.full ?? [], ...b?.later ?? [], ...(b?.laterSlots ?? []).flatMap((x) => x.items)]);
+      const known = new Set(lists.map((it) => itemId(it.icon)));
+      const converts = taken.some((a) => (type === "ap" ? TO_AP : TO_AD).has(a));
+      const off = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i) && type && pure(i) && pure(i) !== type && !known.has(i));
+      const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
+      if (type && !converts && off.length === 1 && pure(itemId(next[0].icon)) !== pure(off[0]) && (game.gold ?? 0) + Math.round((k.recipes[off[0]]?.[1] ?? 0) * 0.7) >= cost) {
+        tips.push({ rank: 2, kind: "sell", item: off[0], text: `Sell ${k.recipes[off[0]][0]} for ${next[0].name}: it doesn't fit this build.` });
+        applied("sellMismatch");
       }
     }
     tips.sort((x, y) => x.rank - y.rank);
