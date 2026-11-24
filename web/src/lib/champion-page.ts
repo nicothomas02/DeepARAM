@@ -399,8 +399,21 @@ export function championPage(alias: string): ChampionPage | null {
   // The items after the core, one by one, and split by the slot players buy them in (data/estimates/item_slots.json,
   // purchase order from the owner's archived games, all ten players: the feeds list six-item builds as sets).
   const itemSlots = readRepoJson<{ all: SlotCounts; champions: Record<string, SlotCounts> }>("data/estimates/item_slots.json");
+  // Items only another build style of this champion buys don't fill this style's later slots: with fewer games needed
+  // to lead (ITEM_FOLLOWING), crit Ashe listed AP Ashe's Nashor's Tooth (champion review 2026-11-24).
+  const archStyles = readRepoJson<{ champions: Record<string, Archetype[]> }>("data/estimates/build_archetypes.json")?.champions[String(id)] ?? [];
+  const foreignFor = (items: number[]): Set<number> => {
+    if (archStyles.length < 2) return new Set();
+    const b = (i: number) => i % 10000;
+    const has = (a: Archetype) => (a.core ?? []).filter((i) => items.some((j) => b(j) === b(i))).length;
+    const own = archStyles.reduce((best, a) => (has(a) > has(best) ? a : best));
+    const listed = (a: Archetype) => [...(a.core ?? []), ...(a.later ?? [])].map(b);
+    const mine = new Set(listed(own));
+    return new Set(archStyles.filter((a) => a !== own).flatMap(listed).filter((i) => !mine.has(i)));
+  };
   const withLater = (row: ItemRow): ItemRow => {
-    const pool = afterCore(row, single, full);
+    const away = foreignFor(row.items);
+    const pool = afterCore(row, single, full).filter((r) => !away.has(r.items[0] % 10000));
     const bySlot = slotItems(pool, row, itemClasses, itemSlots?.champions[String(id)], itemSlots?.all);
     const later = laterItems(pool, row, itemClasses);
     const picks = realFullPicks(row, full, single, bySlot ?? undefined, isBoots) ?? fullPicks(row, bySlot ?? undefined, later);
