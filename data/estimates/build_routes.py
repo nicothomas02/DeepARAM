@@ -7,7 +7,9 @@ A player's build style is that of their first three completed items (build_arche
 build styles). Per champion and style with at least MIN_GAMES games:
   orders    the most common first three completed items, in the order bought, with games
   starters  the most common starting buys (first ~minute), with games
-Games only, no win rates: at tens of games per build a win rate is mostly noise.
+Games only, no win rates: at tens of games per build a win rate is mostly noise. Starters here never replace the
+card's starter logic (pooled starters, augment-driven and extra-gold starts, PR #677/#679/#681): the page uses them
+only for a build that has no starter, like first_item_starts.json.
 
 Writes data/estimates/build_routes.json. Usage: python3 data/estimates/build_routes.py <archive-players.json>
 """
