@@ -246,6 +246,12 @@ describe("build engine", () => {
     expect(ids(p.path.slice(0, p.coreLen))).toContain(id);
   });
 
+  it("never says sell a legendary to upgrade boots you started", () => {
+    const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
+    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3036, 3094, 6333, 3075], gold: 5000, dead: true }), taken: [] });
+    expect(p.tips.some((t) => t.kind === "sell")).toBe(false);
+  });
+
   it("never shows an item twice in the path", () => {
     const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3036)] }, { slot: 5, items: [item(3036), item(3094)] }, { slot: 6, items: [item(3031), item(6333)] }] };
     const p = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] });
