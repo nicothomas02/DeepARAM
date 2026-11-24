@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} νίκες · {pick} επιλογή",
  "or": "ή",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "Πόσο καλύτερο είναι αυτό το augment σε αυτόν τον champion από τον μέσο champion (πόντοι DeepScore).",
- "Fit {n}": "Ταίριασμα {n}"
+ "Fit {n}": "Ταίριασμα {n}",
+ "Patch {patch}": "Ενημέρωση {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "Το {1} απενεργοποιεί την ultimate σου, οπότε αυτό το augment δεν κάνει τίποτα.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "Το {1} χρειάζεται κρίσιμα χτυπήματα: η επιπλέον πιθανότητα κρίσιμου το ενεργοποιεί.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Η επιτάχυνση ικανοτήτων του γίνεται και ταχύτητα κίνησης με το {1}.",
+ "Its Move Speed feeds the other augment's bonus.": "Η ταχύτητα κίνησής του ενισχύει το μπόνους του άλλου augment.",
+ "Its bonus Health becomes Lethality with {1}.": "Η επιπλέον ζωή του γίνεται θνησιμότητα με το {1}.",
+ "Its burn can critically strike with {1}.": "Το κάψιμό του μπορεί να κάνει κρίσιμο χτύπημα με το {1}.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Τα επιπλέον χτυπήματά του εφαρμόζουν τα εφέ κατά το χτύπημα, οπότε το άλλο augment ενεργοποιείται πιο συχνά.",
+ "Its healing also deals damage with {1}.": "Η θεραπεία του προκαλεί και ζημιά με το {1}.",
+ "More dashes, so the dash effects trigger more often.": "Περισσότερες εφορμήσεις, οπότε τα εφέ εφόρμησης ενεργοποιούνται πιο συχνά.",
+ "The burn it adds also cuts your basic ability cooldowns.": "Το κάψιμο που προσθέτει μειώνει και τον χρόνο αναμονής των βασικών ικανοτήτων σου.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Δύο χρήσεις ultimate ενεργοποιούν δύο φορές το εφέ της.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Οι ικανότητές σου μπορούν να κάνουν κρίσιμο, και το {1} σε θεραπεύει από αυτά.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Οι ικανότητές σου μπορούν να κάνουν κρίσιμο, οπότε η επιπλέον πιθανότητα κρίσιμου μετράει και γι' αυτές."
 }

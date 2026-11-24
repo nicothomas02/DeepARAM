@@ -56,6 +56,8 @@ export const MIN_PAIR_PICK = 0.008;
  *  half; data/aramhex/merge.py mark_augment_starts); such a start never leads the card. */
 type Raw = { items: number[]; pick_rate: number; win_rate?: number; games?: number; pooled?: { win_rate: number; games: number; patches: number }; augment?: number; augment_share?: number };
 type Builds = {
+  /** The AramHex patch the real counts come from (data/aramhex/merge.py). */
+  aramhex_patch?: string;
   items?: Partial<
     Record<"starting" | "boots" | "core" | "other" | "full_builds", Raw[]>
   >;
@@ -186,6 +188,13 @@ export type ChampionPage = {
   core: ItemRow[];
   full: ItemRow[];
   items: ItemRow[];
+  /**
+   * Items players built on the previous AramHex patch that this patch doesn't list yet (under 100 games so far), so the
+   * All items list isn't cut short early in a patch (Nico, 2026-11-24: other sites list many more items). Shown
+   * without a DeepScore, tagged with their patch; they never lead or join the build.
+   */
+  earlierItems: ItemRow[];
+  earlierPatch: string | null;
   /** Items to swap in after the core, by situation (vs healing, vs burst...). */
   situational: SituationRow[];
   /** One entry per real build style when the champion has two (lib/build-plan.ts styleCores), else empty. */
@@ -603,6 +612,7 @@ export function championPage(alias: string): ChampionPage | null {
     core,
     full,
     items: noBoots ? single.filter((r) => r.tier !== "boots") : single,
+    ...earlierSingles(id, raw, new Set(single.map((r) => r.items[0] % 10000)), (i) => all.has(i) && !rewards.has(i) && !(noBoots && itemTier(i) === "boots")),
     situational: situationalItems(core[0], single, full),
     // A tab per real build style (tank and AP Alistar), each with its own situational items.
     buildStyles: styleCores(core, itemClasses).map((s) => ({ ...s, situational: situationalItems(s.core, single, full), rush: rushParts(s.core.items[0], itemRecipe) })),
@@ -632,7 +642,7 @@ export function championPage(alias: string): ChampionPage | null {
     buildsEstimated: !!early,
   };
   const used = new Set(
-    [page.starting, page.boots, page.core, page.full, page.items]
+    [page.starting, page.boots, page.core, page.full, page.items, page.earlierItems]
       .flat()
       .flatMap((r) => (r.boots ? [r.boots, ...r.items] : r.items))
       .concat(page.rush, page.swaps.map((s) => s.item), page.buildStyles.flatMap((s) => s.rush), page.core.flatMap((c) => c.rest ?? []))
@@ -757,3 +767,29 @@ const scoreItems = (list: ItemRow[]): ItemRow[] => scoreRows(list, FIT.items, { 
 const scoreSingles = scoreItems;
 
 
+
+/** EARLIER_ITEM_GAMES: the same floor the live patch's single items use (data/aramhex/merge.py MIN_ITEM_GAMES). */
+const EARLIER_ITEM_GAMES = 100;
+
+/** The previous AramHex patch's single items for this champion that the live list lacks (ChampionPage.earlierItems). */
+function earlierSingles(
+  id: number,
+  raw: { aramhex_patch?: string } | null,
+  have: Set<number>,
+  keep: (item: number) => boolean,
+): { earlierItems: ItemRow[]; earlierPatch: string | null } {
+  const none = { earlierItems: [], earlierPatch: null };
+  const live = raw?.aramhex_patch;
+  const patches = readRepoJson<{ patches: string[] }>("data/aramhex/patches/index.json")?.patches ?? [];
+  const at = live ? patches.indexOf(live) : -1;
+  if (at < 1) return none;
+  const prev = patches[at - 1];
+  const t = readRepoJson<Record<string, { all: [number, number]; items: Record<string, [number, number]> }>>(`data/aramhex/patches/${prev}/items.json`)?.[String(id)];
+  if (!t?.all?.[0]) return none;
+  const rows: ItemRow[] = Object.entries(t.items)
+    .map(([k, [g, w]]) => ({ item: Number(k), g, w }))
+    .filter(({ item, g }) => g >= EARLIER_ITEM_GAMES && !have.has(item % 10000) && keep(item))
+    .sort((x, y) => y.g - x.g)
+    .map(({ item, g, w }) => ({ items: [item], winRate: w / g, pickRate: g / t.all[0], lift: 0, games: g, tier: itemTier(item) }));
+  return { earlierItems: rows, earlierPatch: rows.length ? prev : null };
+}

@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} فوز · {pick} اختيار",
  "or": "أو",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "كم يكون هذا التعزيز أفضل على هذا البطل منه على البطل المتوسط (نقاط DeepScore).",
- "Fit {n}": "الملاءمة {n}"
+ "Fit {n}": "الملاءمة {n}",
+ "Patch {patch}": "التحديث {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "يعطّل {1} قدرتك القصوى، لذا لا يفعل هذا التعزيز شيئًا.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "يحتاج {1} إلى ضربات حرجة: فرصة الضربة الحرجة الإضافية تفعّله.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "يتحوّل تسريع القدرات لديه أيضًا إلى سرعة حركة مع {1}.",
+ "Its Move Speed feeds the other augment's bonus.": "سرعة حركته تغذّي مكافأة التعزيز الآخر.",
+ "Its bonus Health becomes Lethality with {1}.": "تتحوّل الصحة الإضافية إلى فتك مع {1}.",
+ "Its burn can critically strike with {1}.": "يمكن لحرقه أن يكون ضربة حرجة مع {1}.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "ضرباته الإضافية تطبّق تأثيرات الإصابة، لذا يتفعّل التعزيز الآخر أكثر.",
+ "Its healing also deals damage with {1}.": "علاجه يُلحق ضررًا أيضًا مع {1}.",
+ "More dashes, so the dash effects trigger more often.": "اندفاعات أكثر، لذا تتفعّل تأثيرات الاندفاع أكثر.",
+ "The burn it adds also cuts your basic ability cooldowns.": "الحرق الذي يضيفه يقلّل أيضًا فترات تبريد قدراتك الأساسية.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "استخدامان للقدرة القصوى يفعّلان تأثيرها مرتين.",
+ "Your abilities can crit, and {1} heals you from those crits.": "يمكن لقدراتك أن تكون ضربات حرجة، و{1} يعالجك منها.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "يمكن لقدراتك أن تكون ضربات حرجة، لذا تفيدها فرصة الضربة الحرجة الإضافية أيضًا."
 }

@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} vittorie · {pick} scelta",
  "or": "oppure",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "Quanto è migliore questo potenziamento su questo campione rispetto al campione medio (punti DeepScore).",
- "Fit {n}": "Affinità {n}"
+ "Fit {n}": "Affinità {n}",
+ "Patch {patch}": "Patch {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} disattiva la tua suprema, quindi questo potenziamento non fa nulla.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} ha bisogno di critici: la probabilità di critico in più lo attiva.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "La sua velocità abilità diventa anche velocità di movimento con {1}.",
+ "Its Move Speed feeds the other augment's bonus.": "La sua velocità di movimento alimenta il bonus dell'altro potenziamento.",
+ "Its bonus Health becomes Lethality with {1}.": "La sua salute bonus diventa letalità con {1}.",
+ "Its burn can critically strike with {1}.": "La sua bruciatura può essere critica con {1}.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "I suoi colpi in più applicano gli effetti sul colpo, quindi l'altro potenziamento si attiva più spesso.",
+ "Its healing also deals damage with {1}.": "Le sue cure infliggono anche danni con {1}.",
+ "More dashes, so the dash effects trigger more often.": "Più scatti, quindi gli effetti degli scatti si attivano più spesso.",
+ "The burn it adds also cuts your basic ability cooldowns.": "La bruciatura aggiunta riduce anche la ricarica delle tue abilità base.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Due suprema attivano due volte l'effetto della suprema.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Le tue abilità possono essere critiche e {1} ti cura con quei critici.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Le tue abilità possono essere critiche, quindi la probabilità di critico in più conta anche per loro."
 }

@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} Siege · {pick} gewählt",
  "or": "oder",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "Wie viel besser dieses Augment auf diesem Champion ist als auf dem durchschnittlichen Champion (DeepScore-Punkte).",
- "Fit {n}": "Passung {n}"
+ "Fit {n}": "Passung {n}",
+ "Patch {patch}": "Patch {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} sperrt deine ultimative Fähigkeit, also bringt dieses Augment nichts.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} braucht kritische Treffer: Die zusätzliche Krit-Chance löst es aus.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Seine Fähigkeitstempo wird mit {1} auch zu Lauftempo.",
+ "Its Move Speed feeds the other augment's bonus.": "Sein Lauftempo verstärkt den Bonus des anderen Augments.",
+ "Its bonus Health becomes Lethality with {1}.": "Sein zusätzliches Leben wird mit {1} zu Letalität.",
+ "Its burn can critically strike with {1}.": "Sein Brand kann mit {1} kritisch treffen.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Seine zusätzlichen Treffer lösen Treffereffekte aus, also greift das andere Augment öfter.",
+ "Its healing also deals damage with {1}.": "Seine Heilung verursacht mit {1} auch Schaden.",
+ "More dashes, so the dash effects trigger more often.": "Mehr Sprints, also greifen die Sprint-Effekte öfter.",
+ "The burn it adds also cuts your basic ability cooldowns.": "Der zusätzliche Brand verkürzt auch die Abklingzeiten deiner Grundfähigkeiten.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Zwei Ultimates lösen den Ultimate-Effekt zweimal aus.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Deine Fähigkeiten können kritisch treffen, und {1} heilt dich durch diese Treffer.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Deine Fähigkeiten können kritisch treffen, also lohnt sich die zusätzliche Krit-Chance auch für sie."
 }

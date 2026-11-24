@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "勝率 {win} · 選取率 {pick}",
  "or": "或",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "該強化在此英雄上比在一般英雄上好多少（DeepScore 分）。",
- "Fit {n}": "契合度 {n}"
+ "Fit {n}": "契合度 {n}",
+ "Patch {patch}": "版本 {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} 會停用你的大絕，所以這個強化沒有作用。",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} 需要暴擊：額外的暴擊機率能觸發它。",
+ "Its Ability Haste also becomes Move Speed with {1}.": "它的技能急速透過 {1} 也會變成移動速度。",
+ "Its Move Speed feeds the other augment's bonus.": "它的移動速度會提升另一個強化的加成。",
+ "Its bonus Health becomes Lethality with {1}.": "它的額外生命透過 {1} 變成物理穿透。",
+ "Its burn can critically strike with {1}.": "它的燃燒透過 {1} 可以暴擊。",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "它的額外命中會觸發攻擊附加效果，所以另一個強化觸發得更頻繁。",
+ "Its healing also deals damage with {1}.": "它的治療透過 {1} 還會造成傷害。",
+ "More dashes, so the dash effects trigger more often.": "位移更多，所以位移效果觸發得更頻繁。",
+ "The burn it adds also cuts your basic ability cooldowns.": "它附加的燃燒還會縮短你基礎技能的冷卻時間。",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "施放兩次大絕會觸發兩次大絕效果。",
+ "Your abilities can crit, and {1} heals you from those crits.": "你的技能可以暴擊，{1} 會透過這些暴擊為你治療。",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "你的技能可以暴擊，所以額外的暴擊機率對技能也有用。"
 }

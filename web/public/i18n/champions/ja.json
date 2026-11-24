@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "勝率 {win} · 採用率 {pick}",
  "or": "または",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "このオーグメントが平均的なチャンピオンよりこのチャンピオンでどれだけ優れているか（DeepScoreポイント）。",
- "Fit {n}": "相性 {n}"
+ "Fit {n}": "相性 {n}",
+ "Patch {patch}": "パッチ{patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1}でアルティメットが使えないため、このオーグメントは効果がありません。",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1}にはクリティカルが必要です。追加のクリティカル率で発動します。",
+ "Its Ability Haste also becomes Move Speed with {1}.": "スキルヘイストが{1}で移動速度にもなります。",
+ "Its Move Speed feeds the other augment's bonus.": "移動速度がもう一方のオーグメントのボーナスを強化します。",
+ "Its bonus Health becomes Lethality with {1}.": "増加体力が{1}で脅威になります。",
+ "Its burn can critically strike with {1}.": "燃焼ダメージが{1}でクリティカルします。",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "追加ヒットが通常攻撃時効果を発動するため、もう一方のオーグメントがより頻繁に発動します。",
+ "Its healing also deals damage with {1}.": "回復が{1}でダメージも与えます。",
+ "More dashes, so the dash effects trigger more often.": "ダッシュが増えるので、ダッシュ時の効果がより頻繁に発動します。",
+ "The burn it adds also cuts your basic ability cooldowns.": "追加される燃焼が通常スキルのクールダウンも短縮します。",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "アルティメットを2回使うと、アルティメット時の効果が2回発動します。",
+ "Your abilities can crit, and {1} heals you from those crits.": "スキルがクリティカルし、{1}がそのクリティカルで回復させます。",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "スキルがクリティカルするため、追加のクリティカル率がスキルにも活きます。"
 }

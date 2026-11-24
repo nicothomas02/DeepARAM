@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} vitórias · {pick} escolha",
  "or": "ou",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "Quanto este aumento é melhor neste campeão do que no campeão médio (pontos de DeepScore).",
- "Fit {n}": "Encaixe {n}"
+ "Fit {n}": "Encaixe {n}",
+ "Patch {patch}": "Patch {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} desativa sua ultimate, então este aprimoramento não faz nada.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} precisa de acertos críticos: a chance de crítico extra o ativa.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Sua aceleração de habilidade também vira velocidade de movimento com {1}.",
+ "Its Move Speed feeds the other augment's bonus.": "Sua velocidade de movimento alimenta o bônus do outro aprimoramento.",
+ "Its bonus Health becomes Lethality with {1}.": "Sua vida adicional vira letalidade com {1}.",
+ "Its burn can critically strike with {1}.": "Sua queimadura pode ser crítica com {1}.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Seus acertos extras aplicam efeitos ao atingir, então o outro aprimoramento ativa mais vezes.",
+ "Its healing also deals damage with {1}.": "Sua cura também causa dano com {1}.",
+ "More dashes, so the dash effects trigger more often.": "Mais avanços, então os efeitos de avanço ativam mais vezes.",
+ "The burn it adds also cuts your basic ability cooldowns.": "A queimadura que ele adiciona também reduz a recarga das suas habilidades básicas.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Duas ultimates ativam o efeito de ultimate duas vezes.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Suas habilidades podem ser críticas, e {1} cura você com esses críticos.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Suas habilidades podem ser críticas, então a chance de crítico extra também vale para elas."
 }

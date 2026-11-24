@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} побед · {pick} выбор",
  "or": "или",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "Насколько это усиление лучше на этом чемпионе, чем на среднем чемпионе (очки DeepScore).",
- "Fit {n}": "Совместимость {n}"
+ "Fit {n}": "Совместимость {n}",
+ "Patch {patch}": "Патч {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} отключает твою суперспособность, так что это усиление ничего не даёт.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} нужны критические удары: дополнительный шанс крита его запускает.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Его ускорение умений с {1} превращается и в скорость передвижения.",
+ "Its Move Speed feeds the other augment's bonus.": "Его скорость передвижения усиливает бонус другого усиления.",
+ "Its bonus Health becomes Lethality with {1}.": "Его дополнительное здоровье с {1} превращается в смертоносность.",
+ "Its burn can critically strike with {1}.": "Его горение с {1} может наносить критический урон.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Его дополнительные удары применяют эффекты при попадании, так что другое усиление срабатывает чаще.",
+ "Its healing also deals damage with {1}.": "Его лечение с {1} ещё и наносит урон.",
+ "More dashes, so the dash effects trigger more often.": "Больше рывков, так что эффекты рывков срабатывают чаще.",
+ "The burn it adds also cuts your basic ability cooldowns.": "Добавленное горение ещё и сокращает перезарядку твоих базовых умений.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Два применения суперспособности запускают её эффект дважды.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Твои умения могут наносить крит, а {1} лечит тебя от этих критов.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Твои умения могут наносить крит, так что дополнительный шанс крита работает и для них."
 }

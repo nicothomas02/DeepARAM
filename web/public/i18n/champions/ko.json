@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "승률 {win} · 선택률 {pick}",
  "or": "또는",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "이 증강이 평균 챔피언보다 이 챔피언에게 얼마나 더 좋은지(DeepScore 점수).",
- "Fit {n}": "궁합 {n}"
+ "Fit {n}": "궁합 {n}",
+ "Patch {patch}": "{patch} 패치",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1}로 궁극기를 쓸 수 없어서 이 증강은 효과가 없습니다.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1}은 치명타가 필요합니다. 추가 치명타 확률로 발동합니다.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "스킬 가속이 {1}로 이동 속도도 됩니다.",
+ "Its Move Speed feeds the other augment's bonus.": "이동 속도가 다른 증강의 보너스를 키웁니다.",
+ "Its bonus Health becomes Lethality with {1}.": "추가 체력이 {1}로 물리 관통력이 됩니다.",
+ "Its burn can critically strike with {1}.": "화상 피해가 {1}로 치명타가 됩니다.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "추가 타격이 적중 시 효과를 적용해서 다른 증강이 더 자주 발동합니다.",
+ "Its healing also deals damage with {1}.": "회복이 {1}로 피해도 줍니다.",
+ "More dashes, so the dash effects trigger more often.": "돌진이 늘어서 돌진 효과가 더 자주 발동합니다.",
+ "The burn it adds also cuts your basic ability cooldowns.": "추가된 화상이 기본 스킬 재사용 대기시간도 줄여 줍니다.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "궁극기를 두 번 쓰면 궁극기 효과가 두 번 발동합니다.",
+ "Your abilities can crit, and {1} heals you from those crits.": "스킬이 치명타로 적중하고, {1}이 그 치명타로 회복시켜 줍니다.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "스킬이 치명타로 적중하므로 추가 치명타 확률이 스킬에도 효과가 있습니다."
 }

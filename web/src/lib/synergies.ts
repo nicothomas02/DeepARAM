@@ -211,12 +211,3 @@ export function augmentSynergies(id: number): SynTab[] {
 }
 
 /** Expected win rate for a build panel row (the champion page's Expected switch), keyed by family and items. */
-export function expectedBuilds(id: number): Map<string, { delta: number; expected: boolean }> {
-  const c = data()?.champions?.[String(id)];
-  const out = new Map<string, { delta: number; expected: boolean }>();
-  for (const fam of ["starting", "boots", "full_builds"] as Family[])
-    for (const r of c?.[fam] ?? [])
-      out.set(expectedKey(fam, r.items), { delta: r.expected - r.lift, expected: r.kind === "expected" });
-  return out;
-}
-export const expectedKey = (fam: Family, items: number[]) => `${fam}:${[...items].sort((a, b) => a - b).join(",")}`;
