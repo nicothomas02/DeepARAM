@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Combina com o dano físico de {champion}.",
  "Fits a carry, not a tank.": "Para um carregador, não um tanque.",
  "Fits a champion who takes the hits.": "Para um campeão que aguenta os golpes.",
- "Stronger on melee champions.": "Mais forte em campeões corpo a corpo."
+ "Stronger on melee champions.": "Mais forte em campeões corpo a corpo.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Arquimago faz o Disparo do Falcão e o R recarregarem um ao outro. Consiga primeiro essa Aceleração de Habilidade (R no nível 3) e depois termine a build.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} de Aceleração de Habilidade · Disparo do Falcão nível {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Os itens chegam a {haste} dos {need} de Aceleração de Habilidade necessários."
 }

@@ -22,10 +22,10 @@ LabI18n.ready(function () {
   // The fastest loop found by trying every augment set from her pool (README): Archmage, Ultimate Awakening,
   // Ultimate Recursion and Mystic Punch at 150 haste and 1.5 attacks per second.
   const PRESET = {
-    rRank: 3, eRank: 5, wRank: 5, haste: 150, ultHaste: 0, attackSpeed: 1.5, castW: true, onlyOnCooldown: false,
+    rRank: 3, eRank: 5, wRank: 5, haste: 150, ultHaste: 0, attackSpeed: 1.5, castW: false, onlyOnCooldown: true,
     augments: ["ARAM_Archmage", "UltimateAwakening", "UltimateRecursion", "ARAM_MysticPunch"],
   };
-  const EMPTY = { rRank: 3, eRank: 5, wRank: 5, haste: 100, ultHaste: 0, attackSpeed: 1.5, castW: true, onlyOnCooldown: false, augments: ["ARAM_Archmage"] };
+  const EMPTY = { rRank: 3, eRank: 5, wRank: 5, haste: 100, ultHaste: 0, attackSpeed: 1.5, castW: false, onlyOnCooldown: true, augments: ["ARAM_Archmage"] };
 
   // Settings, shown when they matter.
   const OPTIONS = [

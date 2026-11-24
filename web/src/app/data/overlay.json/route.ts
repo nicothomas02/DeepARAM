@@ -11,7 +11,7 @@ export const dynamic = "force-static";
 
 export function GET() {
   const destiny = new Map(destinyByChampion().map((r) => [r.champion, { name: r.item.name, icon: r.item.icon || null }]));
-  const champions = quickBuilds().map(({ id, name, skills, spells, start, items, rest, full, later, laterSlots, situational, rush, swaps, augments, builds }) => ({
+  const champions = quickBuilds().map(({ id, name, skills, spells, start, items, rest, full, later, laterSlots, situational, rush, swaps, augments, builds, archmage }) => ({
     id,
     name,
     icon: `/icons/champions/${id}.webp`,
@@ -31,6 +31,8 @@ export function GET() {
     augments,
     // Build styles (crit and AP Ashe), best DeepScore first; the overlay switches between them.
     builds,
+    // AP Ashe with Archmage: the haste route the engine follows once Archmage is taken (lib/archmage-route.ts).
+    ...(archmage ? { archmage } : {}),
     // The champion's best Weapon of Destiny item (real games): the build engine makes it the first legendary once
     // Weapon of Destiny is taken.
     destiny: destiny.get(id) ?? null,

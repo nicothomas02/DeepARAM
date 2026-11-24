@@ -141,5 +141,290 @@ window.ASHE_DATA = {
    "calcs": {},
    "text": "Convert all of your bonus attack speed into ability haste at a rate of 0.65 ability haste per 1% bonus attack speed. Additionally, your abilities' total cooldowns are reduced by 10%."
   }
+ ],
+ "items": [
+  {
+   "id": 3158,
+   "name": "Ionian Boots of Lucidity",
+   "price": 900,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3158_class_t2_ionianbootsoflucidity.png",
+   "haste": 10.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "Items/ItemGroups/Boots",
+    "Items/ItemGroups/BootsWithoutActives"
+   ]
+  },
+  {
+   "id": 3118,
+   "name": "Malignance",
+   "price": 2700,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3118_malignance.png",
+   "haste": 15.0,
+   "ultHaste": 20.0,
+   "limitGroups": [
+    "{143b41c4}"
+   ]
+  },
+  {
+   "id": 4005,
+   "name": "Imperial Mandate",
+   "price": 2400,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4005_enchanter_t4_imperialmandate.png",
+   "haste": 15.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{5f2a99fe}"
+   ]
+  },
+  {
+   "id": 4628,
+   "name": "Horizon Focus",
+   "price": 2700,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4628_mage_t3_horizonfocus.png",
+   "haste": 25.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{466ecfe1}"
+   ]
+  },
+  {
+   "id": 3137,
+   "name": "Cryptbloom",
+   "price": 3000,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3137_cryptbloom.png",
+   "haste": 20.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "Items/ItemGroups/VoidPen"
+   ]
+  },
+  {
+   "id": 3089,
+   "name": "Rabadon's Deathcap",
+   "price": 3500,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3089_mage_t3_deathcap.png",
+   "haste": 0.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{ac92b6ad}",
+    "Items/ItemGroups/APMultiplier"
+   ]
+  },
+  {
+   "id": 4645,
+   "name": "Shadowflame",
+   "price": 3200,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4645_shadowflame.png",
+   "haste": 0.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{bd7d02c0}"
+   ]
+  },
+  {
+   "id": 2503,
+   "name": "Blackfire Torch",
+   "price": 2800,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/2503_blackfiretorch64.png",
+   "haste": 20.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{693b07b5}"
+   ]
+  },
+  {
+   "id": 3115,
+   "name": "Nashor's Tooth",
+   "price": 2900,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3115_mage_t3_nashorstooth.png",
+   "haste": 15.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{093b3073}"
+   ]
+  },
+  {
+   "id": 4629,
+   "name": "Cosmic Drive",
+   "price": 3000,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4629_mage_t3_cosmicdrive.png",
+   "haste": 25.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{456ece4e}"
+   ]
+  },
+  {
+   "id": 3165,
+   "name": "Morellonomicon",
+   "price": 2850,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3165_mage_t3_morellonomicon.png",
+   "haste": 15.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{0938f1dc}"
+   ]
+  },
+  {
+   "id": 4633,
+   "name": "Riftmaker",
+   "price": 3100,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4633_mage_t4_riftmaker.png",
+   "haste": 15.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{bb6bb679}"
+   ]
+  },
+  {
+   "id": 3100,
+   "name": "Lich Bane",
+   "price": 2900,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3100_mage_t3_lichbane.png",
+   "haste": 10.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{123d7d35}",
+    "{8b55a7b3}"
+   ]
+  },
+  {
+   "id": 6655,
+   "name": "Luden's Echo",
+   "price": 2750,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6655_mage_t4_ludenstempest.png",
+   "haste": 10.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{3c60030b}"
+   ]
+  },
+  {
+   "id": 3040,
+   "name": "Seraph's Embrace",
+   "price": 2900,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3048_mage_t3_seraphsembrace.png",
+   "haste": 25.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{2bb000ae}",
+    "Items/ItemGroups/LifelineItems"
+   ]
+  },
+  {
+   "id": 3003,
+   "name": "Archangel's Staff",
+   "price": 2900,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3003_mage_t3_archangelstaff.png",
+   "haste": 25.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "Items/ItemGroups/TearItems",
+    "Items/ItemGroups/LifelineItems",
+    "{2bb000ae}"
+   ]
+  },
+  {
+   "id": 8020,
+   "name": "Abyssal Mask",
+   "price": 2650,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/8020_tank_t3_abyssalmask.png",
+   "haste": 15.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{d4211923}"
+   ]
+  },
+  {
+   "id": 3152,
+   "name": "Hextech Rocketbelt",
+   "price": 2650,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3152_mage_t4_hextechrocketbelt.png",
+   "haste": 10.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{9631810e}"
+   ]
+  },
+  {
+   "id": 6653,
+   "name": "Liandry's Torment",
+   "price": 3000,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6653_mage_t4_liandrysanguish.png",
+   "haste": 0.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{42600c7d}"
+   ]
+  },
+  {
+   "id": 4646,
+   "name": "Stormsurge",
+   "price": 2800,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/4646_stormsurge.png",
+   "haste": 0.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{c07d0779}"
+   ]
+  },
+  {
+   "id": 3135,
+   "name": "Void Staff",
+   "price": 3000,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3135_mage_t3_voidstaff.png",
+   "haste": 0.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "Items/ItemGroups/VoidPen"
+   ]
+  },
+  {
+   "id": 3157,
+   "name": "Zhonya's Hourglass",
+   "price": 3250,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3157_mage_t3_zhonyashourglass.png",
+   "haste": 0.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{9b3188ed}"
+   ]
+  },
+  {
+   "id": 3102,
+   "name": "Banshee's Veil",
+   "price": 3000,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3102_mage_t3_bansheesveil.png",
+   "haste": 0.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{103d7a0f}",
+    "{3fcdbdac}"
+   ]
+  },
+  {
+   "id": 6657,
+   "name": "Rod of Ages",
+   "price": 2600,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/6657_mage_t4_rodofages.png",
+   "haste": 0.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "Items/ItemGroups/EternityItems",
+    "{3e600631}"
+   ]
+  },
+  {
+   "id": 3116,
+   "name": "Rylai's Crystal Scepter",
+   "price": 2600,
+   "icon": "/assets/cd/latest/plugins/rcp-be-lol-game-data/global/default/assets/items/icons2d/3116_mage_t3_rylajscrystalscepter.png",
+   "haste": 0.0,
+   "ultHaste": 0.0,
+   "limitGroups": [
+    "{0a3b3206}"
+   ]
+  }
  ]
 };

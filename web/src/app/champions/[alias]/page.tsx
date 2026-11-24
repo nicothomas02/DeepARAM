@@ -92,6 +92,8 @@ import ExpectedSwitch from "@/components/champion/ExpectedSwitch";
 import { championSynergies, expectedBuilds, expectedKey, fewGames } from "@/lib/synergies";
 
 const AUG_NAMES = augmentNames as Record<string, string>;
+/** Archmage (lib/archmage-route.ts). */
+const ARCHMAGE_ID = 2087;
 const AUG_DESC = (descriptions as { augments: Record<string, string> }).augments;
 
 // A typical game's estimated numbers, in this order, with how each one is written.
@@ -633,6 +635,44 @@ export default async function ChampionPage({
     const fit = augRows.filter((a) => keep.has(a.id));
     return fit.length >= 3 ? fit : augRows;
   };
+  // AP Ashe with Archmage (lib/archmage-route.ts): the haste that keeps Hawkshot and R refreshing each other, the items
+  // that reach it first, then the rest of the build.
+  const archmageTile = (routes: NonNullable<(typeof p.builds)[number]["archmage"]>) => (
+    <div className="cp-best cp-best-wide cp-archmage">
+      <h4>
+        <T ns={NS} v={{ augment: (AUG_NAMES[ARCHMAGE_ID] ?? "Archmage") }}>{"With {augment}"}</T>{" "}
+        <small className="cp-stale-tag">
+          <T ns={NS}>Estimated</T>
+        </small>
+      </h4>
+      <p className="cp-same-note">
+        <T ns={NS}>{"Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build."}</T>
+      </p>
+      {routes.map((r) => (
+        <div key={r.with.join("+") || "alone"} className="cp-archmage-row">
+          <span className="cp-icons">
+            {[ARCHMAGE_ID, ...r.with].map((a) => (
+              <img key={a} className="cp-icon round" src={`/icons/augments/${a}.webp`} alt={AUG_NAMES[a] ?? ""} title={AUG_NAMES[a] ?? ""} width={28} height={28} />
+            ))}
+          </span>
+          <span className="cp-archmage-need">
+            {r.need !== null && (r.reach ? (
+              <T ns={NS} v={{ haste: r.need, rank: r.eRank }}>{"{haste} Ability Haste · Hawkshot rank {rank}"}</T>
+            ) : (
+              <T ns={NS} v={{ haste: r.haste, need: r.need }}>{"Items reach {haste} of the {need} Ability Haste needed."}</T>
+            ))}
+          </span>
+          <span className="cp-icons">
+            {r.items.map((id, i) => (
+              <span key={i} className={i > r.routeLen ? "cp-archmage-fill" : undefined}>
+                <ItemIcon id={id} info={info} />
+              </span>
+            ))}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
   const skillTile = (skill: typeof bestSkill) =>
     skill && (
       <div className="cp-best cp-best-skill">
@@ -881,7 +921,10 @@ export default async function ChampionPage({
                   b.start,
                   styleAugs(b.augments),
                   b.skills[0] ?? bestSkill,
-                  buildPlan(b.core, b.situational, b.rush, b.augmentSwaps),
+                  <>
+                    {buildPlan(b.core, b.situational, b.rush, b.augmentSwaps)}
+                    {b.archmage && archmageTile(b.archmage)}
+                  </>,
                   true,
                 ),
               }))}

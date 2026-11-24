@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Se potrivește cu daunele fizice ale lui {champion}.",
  "Fits a carry, not a tank.": "Pentru un carry, nu un tanc.",
  "Fits a champion who takes the hits.": "Pentru un campion care încasează loviturile.",
- "Stronger on melee champions.": "Mai puternic pe campionii corp la corp."
+ "Stronger on melee champions.": "Mai puternic pe campionii corp la corp.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage face ca Hawkshot și R să se reîncarce reciproc. Strânge mai întâi atâta grabă a abilităților (R la rangul 3), apoi termină build-ul.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} grabă a abilităților · Hawkshot rangul {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Obiectele ajung la {haste} din cele {need} de grabă a abilităților necesare."
 }

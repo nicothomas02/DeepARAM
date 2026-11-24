@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Passt zu {champion}s normalem Schaden.",
  "Fits a carry, not a tank.": "Für einen Carry, nicht für einen Tank.",
  "Fits a champion who takes the hits.": "Für einen Champion, der die Treffer einsteckt.",
- "Stronger on melee champions.": "Stärker auf Nahkampf-Champions."
+ "Stronger on melee champions.": "Stärker auf Nahkampf-Champions.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Mit Erzmagier laden sich Falkenschuss und R gegenseitig auf. Hol dir zuerst so viel Fähigkeitstempo (R auf Rang 3), dann schließ den Build ab.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Fähigkeitstempo · Falkenschuss Rang {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Die Gegenstände erreichen {haste} von {need} nötigem Fähigkeitstempo."
 }

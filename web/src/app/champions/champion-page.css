@@ -2135,3 +2135,20 @@ button.cp-few-tag:focus::after {
   border-color: var(--accent, var(--fg));
   background: color-mix(in srgb, var(--accent, var(--fg)) 14%, transparent);
 }
+
+/* AP Ashe with Archmage: one row per set of loop augments (lib/archmage-route.ts). */
+.cp-archmage-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 6px 0;
+  border-top: 1px solid var(--line, rgba(127, 127, 127, 0.2));
+}
+.cp-archmage-need {
+  flex: 1 1 180px;
+  font-size: 14px;
+}
+.cp-archmage-fill {
+  opacity: 0.55;
+}

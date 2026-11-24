@@ -28,6 +28,7 @@ import { repoHas, repoPath, readRepoJson } from "./repo-data";
 import { matesOf, type Mate } from "./duos";
 import { officialStyleLabels } from "./build-tags";
 import { skillOrders } from "./skill-orders";
+import { archmageRoutes, ASHE, type ArchmageRoute } from "./archmage-route";
 
 // The ranked tables on a champion page (/champions/<Alias>): skill orders, item paths, augments,
 // teammates, Mayhem's ability changes and base stats. Every row with a win rate also carries its
@@ -94,6 +95,8 @@ export type BuildOption = {
   augments: number[];
   /** The style's own skill orders (lib/skill-orders.ts) when it has enough players, else the champion's. */
   skills: SkillRow[];
+  /** AP Ashe: the haste routes for Archmage's E <-> R loop (lib/archmage-route.ts), estimated. */
+  archmage?: ArchmageRoute[];
 };
 type Archetype = {
   style: string;
@@ -475,6 +478,14 @@ export function championPage(alias: string): ChampionPage | null {
           return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false,
             core: c, start, situational: situationalItems(c, single, full), augmentSwaps: swapsFor(c), rush: rushParts(c.items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
         });
+  // AP Ashe follows AramHex's Archmage guide (Nico 2026-11-24): the haste route, from her AP build's own items.
+  const apArch = id === ASHE ? archetypes.find((a) => a.style === "ap") : undefined;
+  if (apArch) {
+    const scoreOf = new Map(single.map((r) => [base10k(r.items[0]), r.deepScore ?? 0]));
+    const routes = archmageRoutes([...(apArch.core ?? []), ...(apArch.later ?? [])], apArch.boots?.[0], (i) => scoreOf.get(base10k(i)) ?? 0)
+      .map((r) => ({ ...r, items: r.items.map(known) }));
+    for (const b of builds) if (b.style === "ap") b.archmage = routes;
+  }
   const page = {
     builds,
     winRate: base,

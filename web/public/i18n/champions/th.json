@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "เข้ากับดาเมจกายภาพของ {champion}",
  "Fits a carry, not a tank.": "สำหรับแครี่ ไม่ใช่แทงค์",
  "Fits a champion who takes the hits.": "สำหรับแชมเปี้ยนที่รับดาเมจ",
- "Stronger on melee champions.": "แรงกว่าบนแชมเปี้ยนระยะประชิด"
+ "Stronger on melee champions.": "แรงกว่าบนแชมเปี้ยนระยะประชิด",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage ทำให้ Hawkshot กับ R รีเฟรชกันและกัน เก็บ Ability Haste ให้ถึงค่านี้ก่อน (R เลเวล 3) แล้วค่อยออกของที่เหลือ",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "Ability Haste {haste} · Hawkshot เลเวล {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "ไอเท็มให้ Ability Haste {haste} จาก {need} ที่ต้องการ"
 }

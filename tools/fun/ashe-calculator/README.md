@@ -17,10 +17,11 @@ R first whenever it is up, then Hawkshot, then Volley if that setting is on, 0.2
 | `calc.js` | The fight math, with no DOM, usable from Node (`require("./calc.js")`). |
 | `app.js`, `index.html`, `ashe.css` | The page (shared styles in `../style.css`). |
 
-## Assumptions (the first five confirmed by Nico, 2026-11-23)
+## Assumptions (confirmed by Nico, 2026-11-23; the first changed 2026-11-24)
 
-- Archmage's refund can land on any of the other three abilities, Q included (Ashe's Q has no cooldown, so that refund
-  is wasted), as in data/cook-builds/MECHANICS.md. A setting switches to "only abilities on cooldown".
+- Archmage's refund lands only on abilities on cooldown, and Volley (W) isn't cast, so Hawkshot and R refund each other
+  (AramHex's AP Ashe Archmage guide; Nico chose this reading on 2026-11-24, replacing "Q can take it" from 2026-11-23).
+  Settings switch back to "any ability" and to casting Volley.
 - For a Hawkshot cast, Archmage's "base cooldown" is the recharge (90 to 50 s), not the 5 s gap between casts.
 - Haste doesn't shorten Hawkshot's 5 s gap between casts. A refund that finishes a charge doesn't carry over.
 - Ultimate Awakening refills both Hawkshot charges and resets Volley; its 300 haste speeds up W and E only.
@@ -30,7 +31,10 @@ R first whenever it is up, then Hawkshot, then Volley if that setting is on, 0.2
 - Purist - Caster: only its 10% shorter cooldowns are added; its attack speed to haste is already in the panel haste.
 - Ultimate Recursion's 50 Ultimate Haste and Purist's 10% are missing from the game files and come from the wiki.
 
-The "infinite build" preset came from trying every 4-augment set with Archmage from her pool at 1.5 attacks per
-second: Archmage, Ultimate Awakening, Ultimate Recursion and Mystic Punch close the loop from about 140 Ability Haste
-(patch 26.23). Without Mystic Punch the best set (Archmage, Ultimate Awakening, Ultimate Recursion, Purist - Caster)
-needs about 330 haste.
+The "infinite build" preset: Archmage, Ultimate Awakening, Ultimate Recursion and Mystic Punch at 1.5 attacks per
+second close the loop from any haste at Hawkshot rank 1 to 3 (30 at rank 5); with Purist - Caster instead of Mystic
+Punch, from 0 at rank 1 and 90 at rank 5. Archmage alone needs about 200 (rank 3 or 5) at R rank 3 (patch 26.23).
+
+`thresholds.js` writes the haste every set of loop augments needs, per R and Hawkshot rank, to
+data/estimates/ashe_archmage.json for AP Ashe's Archmage build on her champion page and in the apps
+(web/src/lib/archmage-route.ts). Run it after `build_data.py`.

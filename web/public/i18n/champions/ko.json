@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "{champion}의 물리 피해에 잘 맞습니다.",
  "Fits a carry, not a tank.": "탱커가 아닌 캐리용입니다.",
  "Fits a champion who takes the hits.": "공격을 받아내는 챔피언용입니다.",
- "Stronger on melee champions.": "근접 챔피언에게 더 강합니다."
+ "Stronger on melee champions.": "근접 챔피언에게 더 강합니다.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "대마법사로 매 날리기와 R이 서로 재사용 대기시간을 줄여 줍니다. 먼저 이만큼 스킬 가속을 갖추고(R 3레벨) 나머지 빌드를 완성하세요.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "스킬 가속 {haste} · 매 날리기 {rank}레벨",
+ "Items reach {haste} of the {need} Ability Haste needed.": "아이템으로 필요한 {need} 중 {haste}의 스킬 가속에 도달합니다."
 }

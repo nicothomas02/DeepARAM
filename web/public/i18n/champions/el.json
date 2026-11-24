@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Ταιριάζει στη φυσική ζημιά του {champion}.",
  "Fits a carry, not a tank.": "Για carry, όχι για tank.",
  "Fits a champion who takes the hits.": "Για πρωταθλητή που δέχεται τα χτυπήματα.",
- "Stronger on melee champions.": "Πιο δυνατό σε πρωταθλητές σώμα με σώμα."
+ "Stronger on melee champions.": "Πιο δυνατό σε πρωταθλητές σώμα με σώμα.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Ο Archmage κάνει το Hawkshot και το R να επαναφορτίζουν το ένα το άλλο. Πάρε πρώτα τόση Ταχύτητα Ικανοτήτων (R στο επίπεδο 3) και μετά ολοκλήρωσε το build.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Ταχύτητα Ικανοτήτων · Hawkshot επίπεδο {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Τα αντικείμενα φτάνουν {haste} από τα {need} Ταχύτητας Ικανοτήτων που χρειάζονται."
 }

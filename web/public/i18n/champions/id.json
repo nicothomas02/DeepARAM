@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Cocok dengan physical damage {champion}.",
  "Fits a carry, not a tank.": "Untuk carry, bukan tank.",
  "Fits a champion who takes the hits.": "Untuk champion yang menahan serangan.",
- "Stronger on melee champions.": "Lebih kuat di champion melee."
+ "Stronger on melee champions.": "Lebih kuat di champion melee.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage membuat Hawkshot dan R saling mengisi ulang. Kumpulkan Ability Haste sebanyak ini dulu (R rank 3), lalu selesaikan build-nya.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Ability Haste · Hawkshot rank {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Item mencapai {haste} dari {need} Ability Haste yang dibutuhkan."
 }

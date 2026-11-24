@@ -16,6 +16,9 @@ export const RARITIES = ["prismatic", "gold", "silver"] as const;
 export type Rarity = (typeof RARITIES)[number];
 export type Named = { name: string; icon: string | null };
 
+/** Archmage (lib/archmage-route.ts). */
+const ARCHMAGE = 2087;
+
 export type QuickBuild = {
   id: string;
   name: string;
@@ -50,6 +53,14 @@ export type QuickBuild = {
   augments: Record<Rarity, (Named & { deepScore?: number })[]>;
   /** With two or more build styles (crit and AP Ashe): each style's own card, best DeepScore first; the fields above
    *  are the first one's. Augments per style are estimated (build tags). Same switch as the champion page. */
+  /** AP Ashe with Archmage (lib/archmage-route.ts): the haste route per set of loop augments, with the AP build's
+   *  skill order. The build engine follows it once Archmage is taken. Estimated. */
+  archmage?: {
+    augment: number;
+    style: string;
+    skills: string[];
+    routes: { with: number[]; eRank: number; need: number | null; reach: boolean; items: Named[]; routeLen: number }[];
+  };
   builds: (Pick<QuickBuild, "skills" | "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number; nearBest: boolean })[];
 };
 
@@ -135,6 +146,15 @@ export function quickBuilds(): QuickBuild[] {
       ...pieces(b.core, b.start, b.situational, b.rush, b.augmentSwaps),
       augments: augsOf(b.augments),
     }));
+    const apArch = p.builds.find((b) => b.archmage?.length);
+    const arch = apArch
+      ? {
+          augment: ARCHMAGE,
+          style: apArch.style,
+          skills: apArch.skills[0]?.max ?? p.skills[0]?.max ?? [],
+          routes: apArch.archmage!.map((r) => ({ ...r, items: r.items.flatMap((i) => named(i) ?? []) })),
+        }
+      : null;
     const first = builds[0] ?? { ...pieces(p.core[0], p.cardStart, p.situational, p.rush, p.augmentSwaps), augments: augsOf() };
     const { start, items, rest, full, later, laterSlots, situational, rush, augments } = first;
     return [
@@ -157,6 +177,7 @@ export function quickBuilds(): QuickBuild[] {
         swaps,
         augments,
         builds,
+        ...(arch ? { archmage: arch } : {}),
       },
     ];
   });

@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Va avec les dégâts physiques de {champion}.",
  "Fits a carry, not a tank.": "Pour un carry, pas un tank.",
  "Fits a champion who takes the hits.": "Pour un champion qui encaisse les coups.",
- "Stronger on melee champions.": "Plus fort sur les champions de mêlée."
+ "Stronger on melee champions.": "Plus fort sur les champions de mêlée.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archimage fait que Tir du faucon et R se rechargent l'un l'autre. Prends d'abord cette accélération de compétence (R au rang 3), puis termine le build.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} d'accélération de compétence · Tir du faucon rang {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Les objets atteignent {haste} sur les {need} d'accélération de compétence nécessaires."
 }

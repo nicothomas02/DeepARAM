@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Pasuje do obrażeń fizycznych {champion}.",
  "Fits a carry, not a tank.": "Dla carry, nie dla tanka.",
  "Fits a champion who takes the hits.": "Dla bohatera, który przyjmuje ciosy.",
- "Stronger on melee champions.": "Silniejszy na bohaterach walczących wręcz."
+ "Stronger on melee champions.": "Silniejszy na bohaterach walczących wręcz.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Arcymag sprawia, że Sokoli Strzał i R wzajemnie się odnawiają. Najpierw zdobądź tyle przyspieszenia umiejętności (R na poziomie 3), potem dokończ build.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} przyspieszenia umiejętności · Sokoli Strzał poziom {rank}",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Przedmioty dają {haste} z potrzebnych {need} przyspieszenia umiejętności."
 }

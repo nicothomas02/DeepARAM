@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "契合{champion}的物理伤害。",
  "Fits a carry, not a tank.": "适合核心输出，不适合坦克。",
  "Fits a champion who takes the hits.": "适合承受伤害的英雄。",
- "Stronger on melee champions.": "近战英雄更强。"
+ "Stronger on melee champions.": "近战英雄更强。",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "大法师让鹰击长空和 R 互相缩短冷却。先把技能急速堆到这个数（R 3 级），再补完其余出装。",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} 技能急速 · 鹰击长空 {rank} 级",
+ "Items reach {haste} of the {need} Ability Haste needed.": "装备能堆到 {haste}，需要 {need} 技能急速。"
 }

@@ -309,5 +309,8 @@
  "Fits {champion}'s physical damage.": "Подходит под физический урон {champion}.",
  "Fits a carry, not a tank.": "Для керри, а не для танка.",
  "Fits a champion who takes the hits.": "Для чемпиона, который принимает удары.",
- "Stronger on melee champions.": "Сильнее на чемпионах ближнего боя."
+ "Stronger on melee champions.": "Сильнее на чемпионах ближнего боя.",
+ "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "С Архимагом Ястребиный выстрел и R перезаряжают друг друга. Сначала наберите столько ускорения умений (R 3-го уровня), потом завершите сборку.",
+ "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} ускорения умений · Ястребиный выстрел {rank}-го уровня",
+ "Items reach {haste} of the {need} Ability Haste needed.": "Предметы дают {haste} из нужных {need} ускорения умений."
 }
