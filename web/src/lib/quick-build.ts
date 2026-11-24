@@ -2,11 +2,11 @@
 // spells, boots, core and situational items, and the top augments as ranked on the page. Feeds /data/watch.json (Apple Watch)
 // and /data/overlay.json (the desktop app's in-game overlay).
 import { clashWith } from "./item-limits";
-import { AUGMENT_SKILLS, type AugmentSkill } from "./augment-skills";
+import { AUGMENT_SKILLS, CHAMPION_SKILLS, type AugmentSkill } from "./augment-skills";
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
 import type { AugmentSwap } from "@/lib/build-plan";
 import { buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
-import { followed, SPELL_FOLLOWING } from "@/lib/card-score";
+import { leading, SPELL_FOLLOWING } from "@/lib/card-score";
 import { FIT } from "@/lib/deepscore";
 import { champList } from "@/lib/champions";
 import { fillSpells } from "@/lib/fill";
@@ -110,7 +110,7 @@ export function quickBuilds(): QuickBuild[] {
       rush: rushIds.flatMap((i) => named(i) ?? []),
     });
     const rawSpells = fillSpells(id, t?.winRate ?? p.winRate ?? 0.5);
-    const spells = (rawSpells.some((r) => r.estimated) ? rawSpells : followed(scoreRows(rawSpells, FIT.items, { bound: true }), SPELL_FOLLOWING))[0];
+    const spells = (rawSpells.some((r) => r.estimated) ? rawSpells : leading(scoreRows(rawSpells, FIT.items, { bound: true }), SPELL_FOLLOWING))[0];
 
     const swaps = p.swaps.flatMap((sw) => {
       const item = named(sw.item);
@@ -144,8 +144,9 @@ export function quickBuilds(): QuickBuild[] {
       share: Math.round(b.share * 1000) / 1000,
       deepScore: b.deepScore,
       nearBest: near(b),
-      // Skill orders per build style where enough players took it (lib/skill-orders.ts), else the champion's.
-      skills: b.skills[0]?.max ?? p.skills[0]?.max ?? [],
+      // Skill orders per build style where enough players took it (lib/skill-orders.ts), else the champion's; Nico's
+      // per-champion order wins over both (lib/augment-skills.ts CHAMPION_SKILLS).
+      skills: CHAMPION_SKILLS[id] ?? b.skills[0]?.max ?? p.skills[0]?.max ?? [],
       ...pieces(b.core, b.start, b.situational, b.rush, b.augmentSwaps),
       augments: augsOf(b.augments),
     }));
@@ -154,7 +155,7 @@ export function quickBuilds(): QuickBuild[] {
       ? {
           augment: ARCHMAGE,
           style: apArch.style,
-          skills: apArch.skills[0]?.max ?? p.skills[0]?.max ?? [],
+          skills: CHAMPION_SKILLS[id] ?? apArch.skills[0]?.max ?? p.skills[0]?.max ?? [],
           routes: apArch.archmage!.map((r) => ({ ...r, items: r.items.flatMap((i) => named(i) ?? []) })),
         }
       : null;
@@ -167,7 +168,7 @@ export function quickBuilds(): QuickBuild[] {
         tier: t?.tier ?? null,
         winRate: t?.winRate ?? null,
         deepScore: t?.deepScore ?? null,
-        skills: builds[0]?.skills ?? p.skills[0]?.max ?? [],
+        skills: builds[0]?.skills ?? CHAMPION_SKILLS[id] ?? p.skills[0]?.max ?? [],
         spells: spells?.spells.map((s) => ({ name: s.name, icon: s.icon ?? null })) ?? [],
         start,
         items,

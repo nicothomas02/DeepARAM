@@ -1,5 +1,5 @@
 import { FIT } from "./deepscore";
-import { alongCore, followed, laterItems, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
+import { alongCore, laterItems, leading, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 import { buyingOrder, restOfBuild, startFirst, starterFits } from "./build-plan";
 import type { ItemTier } from "./items";
 import type { Situation } from "./situations";
@@ -97,7 +97,7 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
 
   const boots = scoreRows(lists("boots"), FIT.items);
   const full = lists("full_builds");
-  const best = followed(scoreRows(lists("core")))[0] ?? null;
+  const best = leading(scoreRows(lists("core")), MIN_FOLLOWING)[0] ?? null;
   let coreRow: ItemRow | null = best;
   // A champion that skips boots gets none on the card (lib/card-score.ts skipsBoots).
   const noBoots = skipsBoots(lists("boots"), full, (i) => file.items[i]?.tier === "boots");

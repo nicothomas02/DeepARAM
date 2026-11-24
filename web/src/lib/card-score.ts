@@ -118,18 +118,44 @@ export function shrunkLeads<T extends { id: number; winRate: number; pickRate: n
 /** Share of the most common row's pick rate a row needs to lead a list (FOLLOWED). */
 export const MIN_FOLLOWING = 0.25;
 /**
- * The following rule for single items and boots: 5% of the top row's games (Nico chose 2026-11-24, "more weight to
- * win rate and less on pick rate"). The bound rule already marks small samples down; next-patch backtest
- * (analysis/scoring/following_sweep.py) of the top row vs 25%: items +1.0 pts, boots +0.5. Cores, starters, skill
- * orders and six-item builds keep MIN_FOLLOWING: they have one patch of history, so they can't be backtested yet.
+ * Real games a row needs to lead an item, boots, spell-pair or core list (Nico chose 2026-11-24, "maybe consider flat
+ * sample size minimum instead of percentage requirement"), counted as the games its DeepScore stands on (pooled where
+ * earlier patches are pooled in). Next-patch backtest (analysis/scoring/following_sweep.py, bound rule) of the card's
+ * top row vs 25% of the top row's games: items +2.5 pts (5%: +1.0), boots +1.6 (5%: +1.1), spell pairs +1.0 (2%: +0.2),
+ * cores +0.4; on data thinned to 10%, items +1.7, boots +1.2, spells +0.2, cores +0.2. When no row has that many, the
+ * most played one leads, as in the backtest. Lists without real game counts keep the share rules below.
  */
+export const MIN_GAMES = 1000;
+/** Fallback share for single items and boots without real game counts (Nico chose 5% on 2026-11-24). */
 export const ITEM_FOLLOWING = 0.05;
-/** Spell pairs: 2% of the most common pair (Nico chose 2026-11-24, after 5% the same day: Gwen showed Flash + Mark,
- *  but Ghost + Mark, 6% of the top pair's games, won +0.8 to +1.0 pts more; Zeri's Flash + Cleanse, 2.2% of her top
- *  pair, wins about +2 pts more on 16.21, 16.22 and 16.23 with 12-19k games each). Backtest
- *  (analysis/scoring/following_sweep.py, bound rule): the top pair's next-patch lead vs 25% is +0.21 pts at 2% and
- *  +0.16 at 5% (thinned to 10%: +0.16 / +0.14); at 0% it falls below 25% on thin data. */
+/** Fallback share for spell pairs without real game counts (Nico chose 2% on 2026-11-24). */
 export const SPELL_FOLLOWING = 0.02;
+
+/** The real games behind a row's DeepScore: pooled where earlier patches are pooled in, else the live patch's. */
+export const gamesOf = (r: { games?: number; pooled?: Pooled }): number | undefined => r.pooled?.games ?? r.games;
+
+/**
+ * Which rows of a list may lead it: with real game counts on every row, those with MIN_GAMES (else only the most
+ * played); otherwise those with `share` of the most common row's pick rate.
+ */
+export function canLead<T extends { pickRate: number; games?: number; pooled?: Pooled }>(
+  rows: T[],
+  share: number,
+): (r: T) => boolean {
+  if (rows.length && rows.every((r) => (gamesOf(r) ?? 0) > 0)) {
+    if (rows.some((r) => gamesOf(r)! >= MIN_GAMES)) return (r) => gamesOf(r)! >= MIN_GAMES;
+    const most = rows.reduce((a, b) => (gamesOf(b)! > gamesOf(a)! ? b : a));
+    return (r) => r === most;
+  }
+  const top = Math.max(0, ...rows.map((r) => r.pickRate));
+  return (r) => r.pickRate >= share * top;
+}
+
+/** The same rows with those that may lead first (canLead), each group keeping its order. */
+export function leading<T extends { pickRate: number; games?: number; pooled?: Pooled }>(rows: T[], share: number): T[] {
+  const ok = canLead(rows, share);
+  return [...rows.filter(ok), ...rows.filter((r) => !ok(r))];
+}
 
 /**
  * The same rows with those that have a real following first (at least MIN_FOLLOWING of the most common row's pick
@@ -228,7 +254,7 @@ export const LATER_ITEMS = 5;
  */
 export function laterItems<T extends ItemRow>(pool: T[], core: ItemRow, classesOf: (id: number) => string[], n = LATER_ITEMS): T[] {
   const skip = new Set([...core.items, ...(core.boots !== undefined ? [core.boots] : [])]);
-  return followed(sameStyle(pool.filter((r) => !skip.has(r.items[0])), core.items, classesOf), ITEM_FOLLOWING).slice(0, n);
+  return leading(sameStyle(pool.filter((r) => !skip.has(r.items[0])), core.items, classesOf), ITEM_FOLLOWING).slice(0, n);
 }
 
 /** Per item id: how many players first bought it as their 1st to 6th legendary (data/estimates/item_slots.json). */
@@ -258,11 +284,10 @@ export function slotItems<T extends ItemRow>(
   const first = core.items.length + 1;
   const slots = Array.from({ length: Math.max(0, 7 - first) }, (_, k) => first + k);
   if (!slots.length || !all) return null;
-  // Only items with a real following (ITEM_FOLLOWING of the most bought one), as for builds: a 1% pick shouldn't fill a
-  // slot just because its few buyers bought it 5th.
+  // Only items that may lead (canLead: MIN_GAMES real games), as for builds: an item bought in a handful of games
+  // shouldn't fill a slot just because its few buyers bought it 5th.
   const all12 = laterItems(pool, core, classesOf, 12);
-  const top = Math.max(0, ...all12.map((r) => r.pickRate));
-  const cands = all12.filter((r) => r.pickRate >= ITEM_FOLLOWING * top);
+  const cands = all12.filter(canLead(all12, ITEM_FOLLOWING));
   const shares = new Map<number, number[]>();
   for (const r of cands) {
     // Counts are keyed by the base item id; the card may hold the mode's copy (223031 for 3031).

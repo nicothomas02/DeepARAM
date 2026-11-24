@@ -18,6 +18,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from backtest import FIT, PATCHES, leads, load, rows_of, scores, thin  # noqa: E402
 
 SHARES = [0.25, 0.10, 0.05, 0.02, 0.0]
+# Flat minimum game counts (Nico 2026-11-24: "maybe consider flat sample size minimum instead of percentage"), as
+# negative keys so one loop handles both: -500 means "at least 500 games".
+FLAT = [-100, -250, -500, -1000, -2000, -5000]
 LISTS = [("augments", "augments"), ("spells", "items"), ("items", "items"), ("boots", "items"), ("cores", "items")]
 
 
@@ -46,8 +49,8 @@ def run(name, fitkey, frac, seed=1):
             Y = leads(nxt)
             maxn = max(g for g, _ in now.values())
             base = None
-            for sh in SHARES:
-                ok = [k for k in S if now[k][0] >= sh * maxn]
+            for sh in SHARES + FLAT:
+                ok = [k for k in S if (now[k][0] >= sh * maxn if sh >= 0 else now[k][0] >= -sh)] or [max(S, key=lambda k: now[k][0])]
                 order = sorted(ok, key=lambda k: -S[k]["bound"])
                 top1 = [k for k in order[:1] if k in Y]
                 top3 = [k for k in order[:3] if k in Y]
@@ -83,6 +86,6 @@ if __name__ == "__main__":
             tag = "full" if frac == 1 else "thinned 10%"
             print(f"\n{name} ({tag}), {n} champion-patches")
             print("share".ljust(8) + "top1 vs 0.25".rjust(16) + "top3 vs 0.25".rjust(16) + "top1 now".rjust(12) + "changed".rjust(10))
-            for sh in SHARES:
+            for sh in SHARES + FLAT:
                 a = absol[(sh, "top1")]
-                print(f"{sh:<8}{fmt(res[(sh, 'top1')])}{fmt(res[(sh, 'top3')])}{(sum(a) / len(a) * 100 if a else float('nan')):+12.2f}{ch[sh]:>10}")
+                print(f"{(str(sh) if sh >= 0 else f'{-sh} g'):<8}{fmt(res[(sh, 'top1')])}{fmt(res[(sh, 'top3')])}{(sum(a) / len(a) * 100 if a else float('nan')):+12.2f}{ch[sh]:>10}")
