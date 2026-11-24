@@ -42,6 +42,7 @@ export const RULES: Record<string, Rule> = {
   destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
+  augmentSkills: { source: "assumption", on: true, why: "A few champions max another ability first once they take an augment (Gwen: E>Q>W with Ethereal Weapon). Nico approved 2026-11-24 (he asked for it); no source splits skill orders by augment, so it's estimated." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
   // Design choices Nico hasn't picked yet: kept as they were.
@@ -85,6 +86,8 @@ export type OverlayChamp = {
     skills: string[];
     routes: { with: number[]; eRank: number; need: number | null; reach: boolean; items: Named[]; routeLen: number }[];
   };
+  /** Skill max orders once an augment is taken (site lib/augment-skills.ts). */
+  augmentSkills?: { augment: number; skills: string[] }[];
   /** Build styles, best DeepScore first; nearBest: its win rate's 95% range overlaps the best's (Feeling lucky). */
   builds?: (Partial<OverlayChamp> & { style: string; share: number; deepScore?: number; nearBest?: boolean })[];
 };
@@ -697,10 +700,14 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     ? [...arch.routes].filter((r) => r.with.every((a) => taken.includes(a))).sort((x, y) => y.with.length - x.with.length)[0] ?? null
     : null;
   if (route) applied("archmageRoute");
-  const champ: OverlayChamp | undefined =
+  const champ2: OverlayChamp | undefined =
     route && champ1 && arch
       ? { ...champ1, items: route.items.slice(0, 1 + route.routeLen), rest: route.items.slice(1 + route.routeLen), laterSlots: undefined, skills: arch.skills }
       : champ1;
+  // A skill order that changes with an augment you took (Gwen with Ethereal Weapon).
+  const augSkill = RULES.augmentSkills.on ? champ0?.augmentSkills?.find((a) => taken.includes(a.augment)) : undefined;
+  if (augSkill) applied("augmentSkills");
+  const champ: OverlayChamp | undefined = augSkill && champ2 ? { ...champ2, skills: augSkill.skills } : champ2;
   const owned = new Set(game.items.map(base));
   const bootIds = new Set(k?.boots ?? []);
   let slotRows = laterPicks(champ, owned, rules);

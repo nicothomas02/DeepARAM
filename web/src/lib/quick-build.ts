@@ -2,6 +2,7 @@
 // spells, boots, core and situational items, and the top augments as ranked on the page. Feeds /data/watch.json (Apple Watch)
 // and /data/overlay.json (the desktop app's in-game overlay).
 import { clashWith } from "./item-limits";
+import { AUGMENT_SKILLS, type AugmentSkill } from "./augment-skills";
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
 import type { AugmentSwap } from "@/lib/build-plan";
 import { buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
@@ -61,6 +62,8 @@ export type QuickBuild = {
     skills: string[];
     routes: { with: number[]; eRank: number; need: number | null; reach: boolean; items: Named[]; routeLen: number }[];
   };
+  /** Skill max orders once an augment is taken (lib/augment-skills.ts, Nico's calls). The build engine follows them. */
+  augmentSkills?: AugmentSkill[];
   builds: (Pick<QuickBuild, "skills" | "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number; nearBest: boolean })[];
 };
 
@@ -178,6 +181,7 @@ export function quickBuilds(): QuickBuild[] {
         augments,
         builds,
         ...(arch ? { archmage: arch } : {}),
+        ...(AUGMENT_SKILLS[id] ? { augmentSkills: AUGMENT_SKILLS[id] } : {}),
       },
     ];
   });
