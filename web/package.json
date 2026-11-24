@@ -3,10 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/sync-embeds.mjs",
+    "predev": "node scripts/sync-embeds.mjs && node scripts/static-data.mjs --clean",
     "dev": "next dev",
-    "prebuild": "node scripts/sync-embeds.mjs",
+    "prebuild": "node scripts/sync-embeds.mjs && node scripts/static-data.mjs --clean",
     "build": "next build",
+    "postbuild": "node scripts/static-data.mjs",
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
