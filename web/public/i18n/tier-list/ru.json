@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "Только {patch}",
  "Includes similar recent patches, weighted toward this one": "Включает похожие недавние патчи, с наибольшим весом этого",
- "Games counted": "Учтённые игры"
+ "Games counted": "Учтённые игры",
+ "Knock-ups set up Yasuo's ultimate.": "Подбрасывания подготавливают ульту Ясуо.",
+ "Heals and shields keep the carry fighting.": "Лечение и щиты держат керри в бою.",
+ "Hooks and traps catch targets for burst.": "Хуки и ловушки ловят цели под бурст.",
+ "Engage locks enemies down for burst damage.": "Инициация обездвиживает врагов под бурст.",
+ "A frontline peels for the carry.": "Передняя линия защищает керри.",
+ "Crowd control groups enemies for area damage.": "Контроль собирает врагов под урон по площади."
 }

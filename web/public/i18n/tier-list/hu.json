@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "Csak {patch}",
  "Includes similar recent patches, weighted toward this one": "Hasonló friss patcheket is tartalmaz, a legnagyobb súllyal ezt",
- "Games counted": "Beszámított meccsek"
+ "Games counted": "Beszámított meccsek",
+ "Knock-ups set up Yasuo's ultimate.": "A levegőbe emelések előkészítik Yasuo ultiját.",
+ "Heals and shields keep the carry fighting.": "A gyógyítás és a pajzsok harcban tartják a carryt.",
+ "Hooks and traps catch targets for burst.": "Kampók és csapdák fogják meg a célokat a burstnek.",
+ "Engage locks enemies down for burst damage.": "A harckezdés lebénítja az ellenfeleket a burstnek.",
+ "A frontline peels for the carry.": "Egy frontvonal védi a carryt.",
+ "Crowd control groups enemies for area damage.": "A tömegirányítás összeterel ellenfeleket a területi sebzéshez."
 }

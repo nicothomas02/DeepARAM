@@ -167,5 +167,7 @@
  "{n} crowd control": "{n} تحكم بالحشود",
  "{n} deaths per 10 minutes": "{n} وفيات كل 10 دقائق",
  "Fewer columns": "أعمدة أقل",
- "More columns ({n})": "أعمدة أكثر ({n})"
+ "More columns ({n})": "أعمدة أكثر ({n})",
+ "Why it works": "لماذا ينجح",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "تقدير من مهارات كل بطل: الاشتباك، والتحكم الجماعي، والعلاج والدروع، والحاملون. تظهر الثنائيات فقط إذا صمد تعزيزها في التحديثات السابقة أيضًا."
 }

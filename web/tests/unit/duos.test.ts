@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { archetypeRows, duoRows, duoVersion, matesOf } from "@/lib/duos";
+import { archetypeRows, duoRows, duoSoloRate, duoVersion, matesOf } from "@/lib/duos";
 import { readRepoJson } from "@/lib/repo-data";
 import { synergy } from "@/lib/synergy";
 import championIds from "@/data/champion-ids.json";
@@ -45,7 +45,7 @@ describe("duo win rate boost and archetypes", () => {
   const measured = (r: { a: string; b: string }) => {
     const [x, y] = [champs.find((c) => c.champion_id === ids(r.a))!, champs.find((c) => c.champion_id === ids(r.b))!];
     const p = x.best_partners?.find((m) => m.champion_id === y.champion_id) ?? y.best_partners!.find((m) => m.champion_id === x.champion_id)!;
-    return synergy(p.win_rate, x.win_rate, y.win_rate);
+    return synergy(p.win_rate, duoSoloRate(x.champion_id), duoSoloRate(y.champion_id));
   };
 
   it("pulls each pair's measured synergy toward the average, never past it", () => {

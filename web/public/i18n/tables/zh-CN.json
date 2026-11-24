@@ -167,5 +167,7 @@
  "{n} crowd control": "控制 {n}",
  "{n} deaths per 10 minutes": "每10分钟死亡 {n}",
  "Fewer columns": "更少列",
- "More columns ({n})": "更多列（{n}）"
+ "More columns ({n})": "更多列（{n}）",
+ "Why it works": "为何有效",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "根据每位英雄的技能估算：开团、控制、治疗与护盾、核心输出。仅列出在之前版本中提升同样成立的组合。"
 }

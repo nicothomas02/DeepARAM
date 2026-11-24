@@ -72,6 +72,8 @@ jobs:
         run: python3 data/cn/history.py ${TODAY:+--today}
         env:
           TODAY: ${{ inputs.today && '1' || '' }}
+      - name: Save the live patch's duo synergies (for the Duos tab's hold check)
+        run: python3 data/cn/partner_history.py
       - name: Estimate how many games the stats come from (confidence intervals)
         continue-on-error: true
         run: python3 data/stats/games.py

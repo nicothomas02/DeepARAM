@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "Doar {patch}",
  "Includes similar recent patches, weighted toward this one": "Include patch-uri recente similare, cu cea mai mare pondere pe acesta",
- "Games counted": "Meciuri numărate"
+ "Games counted": "Meciuri numărate",
+ "Knock-ups set up Yasuo's ultimate.": "Aruncările în aer pregătesc ultimate-ul lui Yasuo.",
+ "Heals and shields keep the carry fighting.": "Vindecările și scuturile țin carry-ul în luptă.",
+ "Hooks and traps catch targets for burst.": "Cârligele și capcanele prind ținte pentru burst.",
+ "Engage locks enemies down for burst damage.": "Inițierea imobilizează inamicii pentru burst.",
+ "A frontline peels for the carry.": "O primă linie protejează carry-ul.",
+ "Crowd control groups enemies for area damage.": "Controlul de grup adună inamicii pentru daune în zonă."
 }

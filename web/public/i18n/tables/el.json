@@ -167,5 +167,7 @@
  "{n} crowd control": "{n} έλεγχος πλήθους",
  "{n} deaths per 10 minutes": "{n} θάνατοι ανά 10 λεπτά",
  "Fewer columns": "Λιγότερες στήλες",
- "More columns ({n})": "Περισσότερες στήλες ({n})"
+ "More columns ({n})": "Περισσότερες στήλες ({n})",
+ "Why it works": "Γιατί λειτουργεί",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "Εκτίμηση από το kit κάθε ήρωα: έναρξη μάχης, έλεγχος πλήθους, θεραπείες και ασπίδες, carry. Τα ζευγάρια εμφανίζονται μόνο αν η ενίσχυσή τους ίσχυσε και σε προηγούμενα patch."
 }

@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "Chỉ {patch}",
  "Includes similar recent patches, weighted toward this one": "Gồm các bản cập nhật gần đây tương tự, ưu tiên bản này",
- "Games counted": "Số trận được tính"
+ "Games counted": "Số trận được tính",
+ "Knock-ups set up Yasuo's ultimate.": "Hất tung tạo điều kiện cho chiêu cuối của Yasuo.",
+ "Heals and shields keep the carry fighting.": "Hồi máu và lá chắn giữ chủ lực trụ lại giao tranh.",
+ "Hooks and traps catch targets for burst.": "Móc kéo và bẫy bắt mục tiêu cho sát thương dồn.",
+ "Engage locks enemies down for burst damage.": "Mở giao tranh khóa chặt địch cho sát thương dồn.",
+ "A frontline peels for the carry.": "Tuyến đầu bảo vệ chủ lực.",
+ "Crowd control groups enemies for area damage.": "Khống chế gom địch cho sát thương diện rộng."
 }

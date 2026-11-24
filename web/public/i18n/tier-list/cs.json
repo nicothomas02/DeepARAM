@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "Jen {patch}",
  "Includes similar recent patches, weighted toward this one": "Zahrnuje podobné nedávné patche, s největší váhou tohoto",
- "Games counted": "Započítané hry"
+ "Games counted": "Započítané hry",
+ "Knock-ups set up Yasuo's ultimate.": "Vyhození do vzduchu připraví Yasuovo ultimátum.",
+ "Heals and shields keep the carry fighting.": "Léčení a štíty drží carry v boji.",
+ "Hooks and traps catch targets for burst.": "Háky a pasti chytí cíle pro burst.",
+ "Engage locks enemies down for burst damage.": "Zahájení boje znehybní nepřátele pro burst.",
+ "A frontline peels for the carry.": "Přední linie chrání carry.",
+ "Crowd control groups enemies for area damage.": "Kontrola davu shlukne nepřátele pro plošné poškození."
 }

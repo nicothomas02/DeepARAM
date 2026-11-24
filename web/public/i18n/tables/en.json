@@ -165,5 +165,7 @@
  "{n} crowd control": "{n} crowd control",
  "{n} deaths per 10 minutes": "{n} deaths per 10 minutes",
  "Fewer columns": "Fewer columns",
- "More columns ({n})": "More columns ({n})"
+ "More columns ({n})": "More columns ({n})",
+ "Why it works": "Why it works",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too."
 }

@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "Tylko {patch}",
  "Includes similar recent patches, weighted toward this one": "Obejmuje podobne ostatnie patche, z największą wagą tego",
- "Games counted": "Liczone gry"
+ "Games counted": "Liczone gry",
+ "Knock-ups set up Yasuo's ultimate.": "Podrzucenia przygotowują superumiejętność Yasuo.",
+ "Heals and shields keep the carry fighting.": "Leczenie i tarcze utrzymują carry w walce.",
+ "Hooks and traps catch targets for burst.": "Haki i pułapki łapią cele pod burst.",
+ "Engage locks enemies down for burst damage.": "Inicjacja unieruchamia wrogów pod burst.",
+ "A frontline peels for the carry.": "Pierwsza linia chroni carry.",
+ "Crowd control groups enemies for area damage.": "Kontrola tłumu grupuje wrogów pod obrażenia obszarowe."
 }

@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "{patch}のみ",
  "Includes similar recent patches, weighted toward this one": "似た最近のパッチも含み、このパッチを最も重視",
- "Games counted": "集計する試合"
+ "Games counted": "集計する試合",
+ "Knock-ups set up Yasuo's ultimate.": "打ち上げがヤスオのアルティメットを可能にする。",
+ "Heals and shields keep the carry fighting.": "回復とシールドでキャリーが戦い続けられる。",
+ "Hooks and traps catch targets for burst.": "フックや罠で標的を捕まえてバーストにつなげる。",
+ "Engage locks enemies down for burst damage.": "エンゲージで敵を拘束してバーストにつなげる。",
+ "A frontline peels for the carry.": "前衛がキャリーを守る。",
+ "Crowd control groups enemies for area damage.": "CCで敵をまとめて範囲ダメージにつなげる。"
 }

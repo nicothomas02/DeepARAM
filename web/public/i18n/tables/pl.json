@@ -167,5 +167,7 @@
  "{n} crowd control": "{n} kontroli tłumu",
  "{n} deaths per 10 minutes": "{n} śmierci na 10 minut",
  "Fewer columns": "Mniej kolumn",
- "More columns ({n})": "Więcej kolumn ({n})"
+ "More columns ({n})": "Więcej kolumn ({n})",
+ "Why it works": "Dlaczego to działa",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "Szacunek na podstawie zestawu umiejętności każdego bohatera: inicjacja, kontrola tłumu, leczenie i tarcze, carry. Pary są pokazywane tylko, gdy ich premia utrzymała się też we wcześniejszych patchach."
 }

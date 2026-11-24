@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "僅 {patch}",
  "Includes similar recent patches, weighted toward this one": "包含相似的近期版本，以本版本為主",
- "Games counted": "計入的對局"
+ "Games counted": "計入的對局",
+ "Knock-ups set up Yasuo's ultimate.": "擊飛為犽宿的大絕創造機會。",
+ "Heals and shields keep the carry fighting.": "治療和護盾讓核心輸出持續作戰。",
+ "Hooks and traps catch targets for burst.": "鉤子和陷阱抓住目標打出爆發。",
+ "Engage locks enemies down for burst damage.": "開團控住敵人打出爆發傷害。",
+ "A frontline peels for the carry.": "前排保護核心輸出。",
+ "Crowd control groups enemies for area damage.": "控制聚攏敵人打出範圍傷害。"
 }

@@ -101,5 +101,11 @@
  "{patch}+": "{patch}+",
  "{patch} only": "Nur {patch}",
  "Includes similar recent patches, weighted toward this one": "Enthält ähnliche letzte Patches, mit dem meisten Gewicht auf diesem",
- "Games counted": "Gezählte Spiele"
+ "Games counted": "Gezählte Spiele",
+ "Knock-ups set up Yasuo's ultimate.": "Hochschleudern bereitet Yasuos Ultimate vor.",
+ "Heals and shields keep the carry fighting.": "Heilungen und Schilde halten den Carry im Kampf.",
+ "Hooks and traps catch targets for burst.": "Haken und Fallen fangen Ziele für Burst.",
+ "Engage locks enemies down for burst damage.": "Engage hält Gegner für Burst-Schaden fest.",
+ "A frontline peels for the carry.": "Eine Frontline schützt den Carry.",
+ "Crowd control groups enemies for area damage.": "Massenkontrolle sammelt Gegner für Flächenschaden."
 }

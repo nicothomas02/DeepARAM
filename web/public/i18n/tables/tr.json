@@ -167,5 +167,7 @@
  "{n} crowd control": "{n} kitle kontrolü",
  "{n} deaths per 10 minutes": "10 dakikada {n} ölüm",
  "Fewer columns": "Daha az sütun",
- "More columns ({n})": "Daha fazla sütun ({n})"
+ "More columns ({n})": "Daha fazla sütun ({n})",
+ "Why it works": "Neden işe yarıyor",
+ "Estimated from each champion's kit: engage, crowd control, heals and shields, carries. Pairs are listed only when their boost held on earlier patches too.": "Her şampiyonun yeteneklerinden tahmin: kapışma başlatma, kitle kontrolü, iyileştirme ve kalkanlar, taşıyıcılar. İkililer yalnızca artışları önceki yamalarda da sürdüyse listelenir."
 }
