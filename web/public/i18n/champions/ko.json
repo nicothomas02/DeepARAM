@@ -303,5 +303,11 @@
  "Unverified": "미확인",
  "The augment upgrades this item.": "증강이 이 아이템을 강화합니다.",
  "Players who take this augment build this item far more often.": "이 증강을 고른 플레이어는 이 아이템을 훨씬 자주 만듭니다.",
- "Replaces": "대체:"
+ "Replaces": "대체:",
+ "Why these items": "이 아이템을 고른 이유",
+ "Built by most {champion} players.": "대부분의 {champion} 플레이어가 구매합니다.",
+ "Fits {champion}'s physical damage.": "{champion}의 물리 피해에 잘 맞습니다.",
+ "Fits a carry, not a tank.": "탱커가 아닌 캐리용입니다.",
+ "Fits a champion who takes the hits.": "공격을 받아내는 챔피언용입니다.",
+ "Stronger on melee champions.": "근접 챔피언에게 더 강합니다."
 }

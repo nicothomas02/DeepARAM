@@ -303,5 +303,11 @@
  "Unverified": "Не проверено",
  "The augment upgrades this item.": "Аугмент улучшает этот предмет.",
  "Players who take this augment build this item far more often.": "Игроки с этим аугментом собирают этот предмет намного чаще.",
- "Replaces": "Заменяет"
+ "Replaces": "Заменяет",
+ "Why these items": "Почему эти предметы",
+ "Built by most {champion} players.": "Его собирает большинство игроков на {champion}.",
+ "Fits {champion}'s physical damage.": "Подходит под физический урон {champion}.",
+ "Fits a carry, not a tank.": "Для керри, а не для танка.",
+ "Fits a champion who takes the hits.": "Для чемпиона, который принимает удары.",
+ "Stronger on melee champions.": "Сильнее на чемпионах ближнего боя."
 }

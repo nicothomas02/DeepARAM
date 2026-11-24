@@ -2089,3 +2089,21 @@ button.cp-few-tag:focus::after {
   white-space: normal;
   pointer-events: none;
 }
+/* "Why these items" under the card's build: closed by default, one short reason per item (Nico approved 2026-11-23). */
+.cp-why {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+.cp-why > summary {
+  cursor: pointer;
+  color: var(--muted);
+}
+.cp-why ul {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.2rem;
+}
+.cp-why b {
+  font-weight: 600;
+}

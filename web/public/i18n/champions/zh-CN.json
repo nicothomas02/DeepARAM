@@ -303,5 +303,11 @@
  "Unverified": "未验证",
  "The augment upgrades this item.": "该海克斯强化会升级这件装备。",
  "Players who take this augment build this item far more often.": "选这个强化的玩家出这件装备的频率高得多。",
- "Replaces": "替换"
+ "Replaces": "替换",
+ "Why these items": "为什么选这些装备",
+ "Built by most {champion} players.": "大多数{champion}玩家都会出。",
+ "Fits {champion}'s physical damage.": "契合{champion}的物理伤害。",
+ "Fits a carry, not a tank.": "适合核心输出，不适合坦克。",
+ "Fits a champion who takes the hits.": "适合承受伤害的英雄。",
+ "Stronger on melee champions.": "近战英雄更强。"
 }

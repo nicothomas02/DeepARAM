@@ -303,5 +303,11 @@
  "Unverified": "Doğrulanmadı",
  "The augment upgrades this item.": "Güçlendirme bu eşyayı yükseltir.",
  "Players who take this augment build this item far more often.": "Bu güçlendirmeyi alan oyuncular bu eşyayı çok daha sık yapar.",
- "Replaces": "Yerine geçer:"
+ "Replaces": "Yerine geçer:",
+ "Why these items": "Neden bu eşyalar",
+ "Built by most {champion} players.": "{champion} oyuncularının çoğu bunu alıyor.",
+ "Fits {champion}'s physical damage.": "{champion} karakterinin fiziksel hasarına uyuyor.",
+ "Fits a carry, not a tank.": "Taşıyıcı için, tank için değil.",
+ "Fits a champion who takes the hits.": "Darbeleri karşılayan bir şampiyon için.",
+ "Stronger on melee champions.": "Yakın dövüş şampiyonlarında daha güçlü."
 }

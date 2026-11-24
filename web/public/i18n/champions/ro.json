@@ -303,5 +303,11 @@
  "Unverified": "Neverificat",
  "The augment upgrades this item.": "Augmentul îmbunătățește acest obiect.",
  "Players who take this augment build this item far more often.": "Jucătorii care aleg acest augment construiesc acest obiect mult mai des.",
- "Replaces": "Înlocuiește"
+ "Replaces": "Înlocuiește",
+ "Why these items": "De ce aceste obiecte",
+ "Built by most {champion} players.": "Construit de majoritatea jucătorilor de {champion}.",
+ "Fits {champion}'s physical damage.": "Se potrivește cu daunele fizice ale lui {champion}.",
+ "Fits a carry, not a tank.": "Pentru un carry, nu un tanc.",
+ "Fits a champion who takes the hits.": "Pentru un campion care încasează loviturile.",
+ "Stronger on melee champions.": "Mai puternic pe campionii corp la corp."
 }

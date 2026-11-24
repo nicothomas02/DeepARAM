@@ -303,5 +303,11 @@
  "Unverified": "Non verificato",
  "The augment upgrades this item.": "L'aumento potenzia questo oggetto.",
  "Players who take this augment build this item far more often.": "Chi prende questo aumento costruisce questo oggetto molto più spesso.",
- "Replaces": "Sostituisce"
+ "Replaces": "Sostituisce",
+ "Why these items": "Perché questi oggetti",
+ "Built by most {champion} players.": "Costruito dalla maggior parte dei giocatori di {champion}.",
+ "Fits {champion}'s physical damage.": "Adatto ai danni fisici di {champion}.",
+ "Fits a carry, not a tank.": "Per un carry, non per un tank.",
+ "Fits a champion who takes the hits.": "Per un campione che incassa i colpi.",
+ "Stronger on melee champions.": "Più forte sui campioni corpo a corpo."
 }

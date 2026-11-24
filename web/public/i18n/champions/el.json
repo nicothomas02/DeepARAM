@@ -303,5 +303,11 @@
  "Unverified": "Μη επιβεβαιωμένο",
  "The augment upgrades this item.": "Το augment αναβαθμίζει αυτό το αντικείμενο.",
  "Players who take this augment build this item far more often.": "Οι παίκτες με αυτό το augment φτιάχνουν αυτό το αντικείμενο πολύ συχνότερα.",
- "Replaces": "Αντικαθιστά"
+ "Replaces": "Αντικαθιστά",
+ "Why these items": "Γιατί αυτά τα αντικείμενα",
+ "Built by most {champion} players.": "Το φτιάχνουν οι περισσότεροι παίκτες του {champion}.",
+ "Fits {champion}'s physical damage.": "Ταιριάζει στη φυσική ζημιά του {champion}.",
+ "Fits a carry, not a tank.": "Για carry, όχι για tank.",
+ "Fits a champion who takes the hits.": "Για πρωταθλητή που δέχεται τα χτυπήματα.",
+ "Stronger on melee champions.": "Πιο δυνατό σε πρωταθλητές σώμα με σώμα."
 }
