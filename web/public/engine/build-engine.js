@@ -351,6 +351,7 @@ var DeepEngine = (() => {
     destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
     upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
     archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
+    augmentSkills: { source: "assumption", on: true, why: "A few champions max another ability first once they take an augment (Gwen: E>Q>W with Ethereal Weapon). Nico approved 2026-11-24 (he asked for it); no source splits skill orders by augment, so it's estimated." },
     hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
     ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
     // Design choices Nico hasn't picked yet: kept as they were.
@@ -737,7 +738,10 @@ var DeepEngine = (() => {
     const arch = RULES.archmageRoute.on && champ0?.archmage && taken.includes(champ0.archmage.augment) ? champ0.archmage : null;
     const route = arch ? [...arch.routes].filter((r) => r.with.every((a) => taken.includes(a))).sort((x, y) => y.with.length - x.with.length)[0] ?? null : null;
     if (route) applied("archmageRoute");
-    const champ = route && champ1 && arch ? { ...champ1, items: route.items.slice(0, 1 + route.routeLen), rest: route.items.slice(1 + route.routeLen), laterSlots: void 0, skills: arch.skills } : champ1;
+    const champ2 = route && champ1 && arch ? { ...champ1, items: route.items.slice(0, 1 + route.routeLen), rest: route.items.slice(1 + route.routeLen), laterSlots: void 0, skills: arch.skills } : champ1;
+    const augSkill = RULES.augmentSkills.on ? champ0?.augmentSkills?.find((a) => taken.includes(a.augment)) : void 0;
+    if (augSkill) applied("augmentSkills");
+    const champ = augSkill && champ2 ? { ...champ2, skills: augSkill.skills } : champ2;
     const owned = new Set(game.items.map(base));
     const bootIds = new Set(k?.boots ?? []);
     let slotRows = laterPicks(champ, owned, rules);

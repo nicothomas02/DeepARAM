@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
+import { AUGMENT_SKILLS } from "@/lib/augment-skills";
 import type { Metadata } from "next";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import { Breadcrumbs } from "@/components/JsonLd";
@@ -683,6 +684,13 @@ export default async function ChampionPage({
         <div className="cp-mini">
           <RatedCells r={skill} />
         </div>
+        {(AUGMENT_SKILLS[c.alias] ?? []).map((a) => (
+          <div key={a.augment} className="cp-aug-skill">
+            <img className="cp-icon round" src={`/icons/augments/${a.augment}.webp`} alt="" width={22} height={22} />
+            <T ns={NS} v={{ augment: AUG_NAMES[a.augment] ?? "" }}>{"With {augment}"}</T>
+            <Keys keys={a.skills} />
+          </div>
+        ))}
         <small className="cp-stale-tag">
           <T ns={NS}>Estimated</T>
         </small>
