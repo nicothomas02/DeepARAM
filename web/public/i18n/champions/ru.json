@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Уже есть усилители? Нажмите + или перетащите их в ячейки, и остальные перестроятся по синергии.",
  "In the build": "В сборке",
  "{win} win · {pick} pick": "{win} побед · {pick} выбор",
- "or": "или"
+ "or": "или",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "Насколько это усиление лучше на этом чемпионе, чем на среднем чемпионе (очки DeepScore).",
+ "Fit {n}": "Совместимость {n}"
 }

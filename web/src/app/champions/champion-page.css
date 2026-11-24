@@ -1885,7 +1885,7 @@ html:not([data-raw]) .cp-row.aug-item {
 
 /* Tables with a header row don't repeat "Win rate" / "Pick rate" under every value (Nico, 2026-11-20: condense);
    only the Expected tag stays, since it says something the header doesn't. */
-.cp-panel:has(.cp-th) .cp-row .cp-cell > small:not(.xp-tag) {
+.cp-panel:has(.cp-th) .cp-row .cp-cell > small:not(.xp-tag):not(.cp-vs) {
   display: none;
 }
 .cp-panel:has(.cp-th) .cp-row {
@@ -2248,3 +2248,19 @@ button.cp-few-tag:focus::after {
 
 /* Skill order once an augment is taken (lib/augment-skills.ts) */
 .cp-aug-skill { display: flex; align-items: center; gap: 6px; margin-top: 6px; font-size: 0.85em; flex-wrap: wrap; }
+
+/* Augment table: Champion fit under each DeepScore, this champion's score minus the augment's score across all
+   champions. Coloured only for clear gaps (AugmentTable VS_ALL_GAP). */
+.cp-vs {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--muted);
+}
+.cp-vs.up {
+  color: var(--good);
+}
+.cp-vs.down {
+  color: var(--bad);
+}

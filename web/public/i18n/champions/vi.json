@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Đã có lõi nâng cấp? Nhấn + hoặc kéo vào ô của bạn, phần còn lại sẽ xếp lại theo cộng hưởng.",
  "In the build": "Trong build",
  "{win} win · {pick} pick": "{win} thắng · {pick} chọn",
- "or": "hoặc"
+ "or": "hoặc",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "Lõi nâng cấp này tốt hơn bao nhiêu trên tướng này so với tướng trung bình (điểm DeepScore).",
+ "Fit {n}": "Độ hợp {n}"
 }

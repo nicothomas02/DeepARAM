@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Ai deja augmenturi? Apasă + sau trage-le în sloturi, iar restul se reordonează după sinergie.",
  "In the build": "În build",
  "{win} win · {pick} pick": "{win} victorii · {pick} alegere",
- "or": "sau"
+ "or": "sau",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "Cu cât e mai bun acest augment pe acest campion decât pe campionul mediu (puncte DeepScore).",
+ "Fit {n}": "Potrivire {n}"
 }
