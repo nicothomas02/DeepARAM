@@ -22,6 +22,8 @@ import {
   fillStart,
   picksLeft,
   partnerPicks,
+  partnerOdds,
+  TIER_ODDS,
   triggers,
   type Fit,
   type Kinds,
@@ -337,10 +339,29 @@ describe("build engine", () => {
     expect(partnerPicks(0, "prismatic", { headliner: "Command Line" })).toBe(0);
     expect(partnerPicks(0, "gold", { headliner: "Command Line" })).toBe(3);
     expect(partnerPicks(0, "gold", { headliner: "Maestro" })).toBe(4);
-    const tiered: Picks = { ...picks, augments: { ...picks.augments, "111": ["Aug 11", "silver"] } };
-    const at = (tier?: string) => rankAugments(tiered, "Ashe", [], { tier }).find((a) => a.id === 100)!.potential;
-    expect(at("gold")).toBeCloseTo(20 * Math.min(0.12, 0.04 * 3));
-    expect(at("silver")).toBeCloseTo(20 * 0.04 * 2);
+    // Combo potential: the chance the partner is offered again (tierOdds), from tier odds and the pool left.
+    const silver = Object.fromEntries(Array.from({ length: 60 }, (_, n) => [String(100 + n), [`Aug ${n}`, "silver"]])) as Picks["augments"];
+    const big: Picks = { ...picks, augments: silver, champions: { Ashe: Array.from({ length: 60 }, (_, n) => [100 + n, 1 - n * 0.005] as [number, number]) } };
+    const at = (tier?: string) => rankAugments(big, "Ashe", [], { tier }).find((a) => a.id === 100)!.potential;
+    expect(at("gold")).toBeCloseTo(20 * partnerOdds(0, "silver", 60, { tier: "gold" }));
+    expect(at("silver")).toBeLessThan(at("gold"));
+  });
+
+  it("gives combo partners the chance they're offered again, by tier (archive tier odds, Nico 2026-11-24)", () => {
+    for (const t of [...Object.values(TIER_ODDS.second), ...Object.values(TIER_ODDS.next), TIER_ODDS.later])
+      expect(Object.values(t).reduce((a, b) => a + b, 0)).toBeCloseTo(1, 2);
+    // A Silver first screen: the second can't be Silver.
+    expect(partnerOdds(0, "silver", 60, { tier: "silver" })).toBeCloseTo(1 - (1 - 0.296 * 0.1) ** 2);
+    expect(partnerOdds(0, "silver", 60, { tier: "gold" })).toBeCloseTo(1 - (1 - 0.336 * 0.1) * (1 - 0.296 * 0.1) ** 2);
+    // Prismatic rarely follows Prismatic.
+    expect(partnerOdds(1, "prismatic", 60, { tier: "prismatic" })).toBeLessThan(partnerOdds(1, "prismatic", 60, { tier: "gold" }));
+    // A smaller pool left at that tier: likelier to be shown.
+    expect(partnerOdds(1, "gold", 20, {})).toBeGreaterThan(partnerOdds(1, "gold", 60, {}));
+    expect(partnerOdds(3, "gold", 60)).toBe(0);
+    expect(partnerOdds(3, "gold", 60, { headliner: "K/DA" })).toBeCloseTo(0.93 * 0.453 * 0.1);
+    expect(partnerOdds(0, "prismatic", 60, { headliner: "Command Line" })).toBe(0);
+    expect(partnerOdds(0, "gold", 60, { headliner: "Command Line" })).toBeGreaterThan(partnerOdds(0, "gold", 60));
+    expect(partnerOdds(0, "gold", 60, { headliner: "Maestro" })).toBeGreaterThan(partnerOdds(0, "gold", 60));
   });
 
   it("Command Line's first reroll draws a tier higher; Debonair's gold breaks a tie", () => {
