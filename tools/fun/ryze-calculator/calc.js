@@ -118,7 +118,7 @@
     const apPerMana = awe + riftRatio * hpMult * (hpPerMana + hpPerBonusMana);
     const loopGain = mult * apPerMana * M * p;
 
-    // Mind to Matter's Health stops at its cap (99,999 in the game files), so past it the loop runs on the other routes
+    // Mind to Matter's Health stops at its cap (99,999), so past it the loop runs on the other routes
     // only. `capped` evaluates the build with that Health fixed at the cap.
     function apFrom(ap, capped = false) {
       const maxMana = M * (1 + p * ap);
@@ -170,9 +170,9 @@
       spells[k] = (s.base[4] + s.apRatio * ap5 + s.bonusManaRatio * at.bonusMana) * dmgMult;
     }
 
-    // Cooldown loop: W and E reset Q. Cooldowns start when the 0.25 s cast ends (the wiki: most abilities do), so
+    // Cooldown loop: W and E reset Q. Cooldowns start when the 0.25 s cast ends (as most abilities do), so
     // E-Q-E-Q never waits once E is back within Q's cast, and the full E-Q-W-Q rotation once W and E are back within
-    // three casts. The game caps total Ability Haste at 500 (wiki: Haste), so E stays at 2.5 s / 6 at best.
+    // three casts. The game caps total Ability Haste at 500, so E stays at 2.5 s / 6 at best.
     const totalHaste = haste + apToHaste * (infinite ? Infinity : finalAP);
     const usedHaste = Math.min(HASTE_CAP, totalHaste);
     const cooldowns = {};

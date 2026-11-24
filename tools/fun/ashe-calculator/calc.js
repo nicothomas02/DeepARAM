@@ -59,7 +59,7 @@
   }
 
   // Seconds an ability's cooldown lasts with this much haste: base x 100 / (100 + haste), less Purist's 10% of the
-  // base cooldown (AramHex's reading, Nico chose it 2026-11-24). The game caps total haste at 500.
+  // base cooldown. The game caps total haste at 500.
   const hasted = (base, haste, purist = 0) => Math.max(0, base * (100 / (100 + Math.min(500, haste)) - purist));
 
   // Shortest time between two Hawkshots at this basic haste: the gap (5 s, shortened by haste), which starts when the
