@@ -21,8 +21,9 @@
 
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
+import augmentConvertersData from "../../data/augment-converters.json";
 
-export const ENGINE_VERSION = "1.3.15";
+export const ENGINE_VERSION = "1.4.0";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** ADAPt: converts bonus AD into AP, so AD items can fit an AP build. */
@@ -66,6 +67,8 @@ export const RULES: Record<string, Rule> = {
   ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). A path item you've passed over with two finished items (bought after it in the path, or off it) moves behind the rest, so Next moves on (2 is estimated: one situational buy out of order keeps the plan); two or more off-path items of one style (class-wide builds over all champions, AramHex) switch the rest of the build to that style, e.g. AP Zeri." },
   augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
+  converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
+  pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
   // Design choices Nico hasn't picked yet: kept as they were.
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
   swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
@@ -777,6 +780,12 @@ export const SHIFT_ORDER_GAIN = 8;
 export const RUSH_Z_BUILD = 3, RUSH_Z_EARLY = 2, RUSH_LIFT = 0.15;
 /** Shrunk build pull before an item outside your path becomes a swap (10 points more holders build it). */
 export const SHIFT_SWAP_MIN = 0.1;
+/** Converter augments (data/estimates/augment_converters.py): the kind of item the augment re-prices and the items of
+ *  that kind its holders build most; `on` is false if archive players following it did clearly worse. */
+export type Converter = { name: string; kind: string; champs: "ap" | "ad" | null; does: string; items: number[]; on: boolean };
+export const CONVERTERS = (augmentConvertersData as unknown as { pairs: Record<string, Converter> }).pairs;
+/** ADAPt (AD -> AP) and EscAPADe (AP -> AD), both id generations. */
+const TO_AP = new Set([1205, 205]), TO_AD = new Set([1206, 206]);
 /** Measured enough to drop "(estimated)": z >= 4 with 50+ holders. */
 const shiftSure = (v: number[] | undefined, at: 0 | 1) => !!v && Math.abs(v[4 + at]) >= 4 && v[2 + at] >= 50;
 /** Sum of the taken augments' pulls on an item: [build, early, the augment pulling hardest early, sure]. */
@@ -1242,6 +1251,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // lobbies: build z >= 3, early z >= 2, +15 pts build share, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's
   // -> Zhonya's) puts that item in the core and makes it Next. Smaller pulls only nudge the order (augmentShift).
   const rushed: { item: Named; by: number }[] = [];
+  const converted: { item: Named; by: number; does: string }[] = [];
   if (RULES.augmentRush.on && k) {
     const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
     for (const a of taken) {
@@ -1264,6 +1274,34 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       build.splice(Math.min(Math.max(coreLen - 1, 0), build.length), 0, it);
       rushed.push({ item: it, by: a });
       applied("augmentRush");
+    }
+  }
+  // Converters (converterItems): an augment that re-prices a stat (ADAPt, Jeweled Gauntlet, Ethereal Weapon...) puts the
+  // item of that kind its holders build most into the core, if it fits the champion's damage type or a taken ADAPt or
+  // EscAPADe converts it. Not when the build already switched style for it (Ethereal Weapon's on-hit build).
+  if (RULES.converterItems.on && k && !picked.style) {
+    const magic = (Object.entries(k.champions).find(([a]) => champKey(a) === champKey(game.champ))?.[1] ?? 0.5) > 0.5;
+    const pure = (id: number) => { const t = k.items[String(id)] ?? []; return t.includes("ad") && !t.includes("ap") ? "ad" : t.includes("ap") && !t.includes("ad") ? "ap" : ""; };
+    const toAp = taken.some((a) => TO_AP.has(a)), toAd = taken.some((a) => TO_AD.has(a));
+    const fitsType = (id: number) => { const p0 = pure(id); return !p0 || (p0 === "ap" ? magic || toAd : !magic || toAp); };
+    const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+    for (const a of taken) {
+      const cv = CONVERTERS[String(a)];
+      if (!cv?.on || (cv.champs === "ap" && !magic) || (cv.champs === "ad" && magic)) continue;
+      const ids = build.map((it) => itemId(it.icon));
+      // already building one of its items: nothing to add
+      if (cv.items.some((i) => ids.includes(i) || owned.has(i))) continue;
+      const id = cv.items.find((i) => k.recipes[i] && fitsType(i) && ![...owned, ...ids].some((o) => rules.clash(o, i)));
+      if (id === undefined) continue;
+      const it: Named = { name: k.recipes[id][0], icon: `${prefix}${220000 + id}.png` };
+      if (build.length >= 6) {
+        const drop = [...build.keys()].reverse().find((j) => !owned.has(itemId(build[j].icon)) && !bootIds.has(itemId(build[j].icon)) && !rushed.some((r) => r.item === build[j]));
+        if (drop === undefined) continue;
+        build.splice(drop, 1);
+      }
+      build.splice(Math.min(Math.max(coreLen - 1, 0), build.length), 0, it);
+      converted.push({ item: it, by: a, does: cv.does });
+      applied("converterItems");
     }
   }
   // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA
@@ -1295,6 +1333,10 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   if (RULES.destinyFirst.on && taken.includes(WEAPON_OF_DESTINY) && !finished && champ?.destiny) {
     const idx = next.findIndex((it) => itemId(it.icon) === itemId(champ.destiny!.icon));
     if (idx >= 0) { front(idx, `${augName(WEAPON_OF_DESTINY)}: your first legendary becomes the Weapon`); applied("destinyFirst"); }
+  }
+  for (const c of [...converted].reverse()) {
+    const idx = next.findIndex((it) => itemId(it.icon) === itemId(c.item.icon));
+    if (idx >= 0 && !timing.some((t) => t.item === next[idx])) front(idx, `${augName(c.by)}: ${c.does.replace(/\.$/, "").toLowerCase()}`);
   }
   for (const r of [...rushed].reverse()) {
     const idx = next.findIndex((it) => itemId(it.icon) === itemId(r.item.icon));
@@ -1331,12 +1373,26 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const has = (it: Named, kind: string) => (k?.items[String(itemId(it.icon))] ?? []).includes(kind);
   const nearCap = RULES.attackSpeedNudge.on && aspd >= 4.5;
   if (nearCap) { next = [...next.filter((it) => !has(it, "as")), ...next.filter((it) => has(it, "as"))]; applied("attackSpeedNudge"); }
+  const order = new Map(next.map((it, i) => [itemId(it.icon), i]));
   next = next.slice(0, 2);
 
   // Path: the core, then the 4th/5th/6th picks (or the rest of the build).
-  const coreItems = build.slice(0, coreLen);
-  const rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
+  let coreItems = build.slice(0, coreLen);
+  let rest = (slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6)).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
   const path = [...coreItems, ...rest];
+  // The path's unbought places follow Next's order (pathOrder): owned items keep their places, the rest are re-sorted
+  // among the open places, so an augment's pull or rush shows in the path, not only in Next.
+  if (RULES.pathOrder.on) {
+    const open0 = path.map((it, i) => (isOwned(it) ? -1 : i)).filter((i) => i >= 0);
+    const at = (it: Named) => order.get(itemId(it.icon)) ?? Infinity;
+    const sorted = open0.map((i) => path[i]).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+    if (sorted.some((it, n) => it !== path[open0[n]])) {
+      open0.forEach((i, n) => { path[i] = sorted[n]; });
+      coreItems = path.slice(0, coreItems.length);
+      rest = path.slice(coreItems.length);
+      applied("pathOrder");
+    }
+  }
   const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
   const slotName = (i: number) => ord(slotRows?.[i]?.slot ?? first + i);
 
