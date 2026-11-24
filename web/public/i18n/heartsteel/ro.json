@@ -1,0 +1,20 @@
+{
+ "Champion": "Campion",
+ "Best sticker": "Cel mai bun sticker",
+ "The sticker worth the most to this champion's usual build.": "Stickerul care valorează cel mai mult pentru build-ul obișnuit al acestui campion.",
+ "Value": "Valoare",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Estimat: cam câte puncte de rată de victorie valorează bonusul stickerului pe acest campion, din statisticile lui exprimate în aur și numărate doar unde build-ul obișnuit le folosește.",
+ "Runner-up": "Al doilea",
+ "Runner-up value": "Valoarea celui de-al doilea",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "Într-un meci HEARTSTEEL, cărțile de augment pot avea un sticker de la unul dintre cei șase membri HEARTSTEEL, fiecare cu propriul bonus. Nicio dată de meci nu înregistrează stickerele, așa că fiecare valoare de aici e estimată: statisticile bonusului exprimate în aur, numărate doar unde build-ul obișnuit al campionului le folosește.",
+ "pts on average": "pct. în medie",
+ "Best for {n} champions": "Cel mai bun pentru {n} campioni",
+ "Find a champion": "Caută un campion",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Estimat pentru un sticker luat la nivelul 1. Bonusurile pe nivel (Ezreal, Sett) valorează puțin mai puțin pe un augment ulterior.",
+ "2 Stat Anvils": "2 nicovale de statistici",
+ "+4 AD and +4 AP per level": "+4 AD și +4 AP pe nivel",
+ "+5% omnivamp": "+5% omnivampirism",
+ "+1 level and +1 level cap": "+1 nivel și +1 nivel maxim",
+ "+30 health per level": "+30 viață pe nivel",
+ "+40% attack speed and +20 ability haste": "+40% viteză de atac și +20 grabă a abilităților"
+}

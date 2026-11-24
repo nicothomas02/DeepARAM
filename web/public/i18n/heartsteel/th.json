@@ -1,0 +1,20 @@
+{
+ "Champion": "แชมเปี้ยน",
+ "Best sticker": "สติกเกอร์ที่ดีที่สุด",
+ "The sticker worth the most to this champion's usual build.": "สติกเกอร์ที่คุ้มที่สุดกับบิลด์ปกติของแชมเปี้ยนนี้",
+ "Value": "มูลค่า",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "ประมาณการ: โบนัสของสติกเกอร์มีค่าราวกี่แต้มอัตราชนะบนแชมเปี้ยนนี้ คำนวณจากสเตตัสที่ตีเป็นทอง และนับเฉพาะที่บิลด์ปกติใช้",
+ "Runner-up": "อันดับสอง",
+ "Runner-up value": "มูลค่าอันดับสอง",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "ในเกม HEARTSTEEL การ์ดออกเมนต์อาจมีสติกเกอร์จากหนึ่งในหกสมาชิก HEARTSTEEL แต่ละอันให้โบนัสของตัวเอง ไม่มีข้อมูลเกมใดบันทึกสติกเกอร์ ทุกค่าในที่นี้จึงเป็นการประมาณ: สเตตัสของโบนัสตีเป็นทอง นับเฉพาะที่บิลด์ปกติของแชมเปี้ยนใช้",
+ "pts on average": "แต้มโดยเฉลี่ย",
+ "Best for {n} champions": "ดีที่สุดสำหรับ {n} แชมเปี้ยน",
+ "Find a champion": "ค้นหาแชมเปี้ยน",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "ประมาณการสำหรับสติกเกอร์ที่เลือกที่เลเวล 1 โบนัสต่อเลเวล (Ezreal, Sett) จะมีค่าน้อยลงเล็กน้อยในออกเมนต์ที่เลือกทีหลัง",
+ "2 Stat Anvils": "Stat Anvil 2 อัน",
+ "+4 AD and +4 AP per level": "+4 AD และ +4 AP ต่อเลเวล",
+ "+5% omnivamp": "+5% Omnivamp",
+ "+1 level and +1 level cap": "+1 เลเวลและ +1 เลเวลสูงสุด",
+ "+30 health per level": "+30 พลังชีวิตต่อเลเวล",
+ "+40% attack speed and +20 ability haste": "+40% ความเร็วโจมตีและ +20 Ability Haste"
+}

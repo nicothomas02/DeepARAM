@@ -1,0 +1,20 @@
+{
+ "Champion": "Чемпион",
+ "Best sticker": "Лучшая наклейка",
+ "The sticker worth the most to this champion's usual build.": "Наклейка, которая ценнее всего для обычной сборки этого чемпиона.",
+ "Value": "Ценность",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Оценка: примерно сколько пунктов процента побед стоит бонус наклейки на этом чемпионе — по его характеристикам в золоте, учтённым только там, где их использует обычная сборка.",
+ "Runner-up": "Вторая",
+ "Runner-up value": "Ценность второй",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "В игре HEARTSTEEL на картах усилений может быть наклейка одного из шести участников HEARTSTEEL, каждая со своим бонусом. Данные матчей не записывают наклейки, поэтому каждая ценность здесь — оценка: характеристики бонуса в золоте, учтённые только там, где их использует обычная сборка чемпиона.",
+ "pts on average": "п. в среднем",
+ "Best for {n} champions": "Лучшая для {n} чемпионов",
+ "Find a champion": "Найти чемпиона",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Оценка для наклейки, взятой на 1-м уровне. Бонусы за уровень (Эзреаль, Сетт) на более позднем усилении стоят немного меньше.",
+ "2 Stat Anvils": "2 наковальни характеристик",
+ "+4 AD and +4 AP per level": "+4 AD и +4 AP за уровень",
+ "+5% omnivamp": "+5% всевампиризма",
+ "+1 level and +1 level cap": "+1 уровень и +1 к макс. уровню",
+ "+30 health per level": "+30 здоровья за уровень",
+ "+40% attack speed and +20 ability haste": "+40% скорости атаки и +20 ускорения умений"
+}

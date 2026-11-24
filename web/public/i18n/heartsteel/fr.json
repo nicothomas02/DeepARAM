@@ -1,0 +1,20 @@
+{
+ "Champion": "Champion",
+ "Best sticker": "Meilleur sticker",
+ "The sticker worth the most to this champion's usual build.": "Le sticker qui vaut le plus pour le build habituel de ce champion.",
+ "Value": "Valeur",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Estimé : environ combien de points de taux de victoire vaut le bonus du sticker sur ce champion, d'après ses stats converties en or et comptées seulement là où le build habituel les utilise.",
+ "Runner-up": "Deuxième",
+ "Runner-up value": "Valeur du deuxième",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "Dans une partie HEARTSTEEL, les cartes d'augment peuvent porter un sticker de l'un des six membres de HEARTSTEEL, chacun avec son propre bonus. Aucune donnée de partie n'enregistre les stickers, donc chaque valeur ici est estimée : les stats du bonus converties en or, comptées seulement là où le build habituel du champion les utilise.",
+ "pts on average": "pts en moyenne",
+ "Best for {n} champions": "Le meilleur pour {n} champions",
+ "Find a champion": "Trouver un champion",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Estimé pour un sticker pris au niveau 1. Les bonus par niveau (Ezreal, Sett) valent un peu moins sur un augment plus tardif.",
+ "2 Stat Anvils": "2 enclumes de stats",
+ "+4 AD and +4 AP per level": "+4 AD et +4 AP par niveau",
+ "+5% omnivamp": "+5 % d'omnivampirisme",
+ "+1 level and +1 level cap": "+1 niveau et +1 niveau max",
+ "+30 health per level": "+30 PV par niveau",
+ "+40% attack speed and +20 ability haste": "+40 % de vitesse d'attaque et +20 d'accélération de compétence"
+}
