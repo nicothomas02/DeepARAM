@@ -29,7 +29,7 @@ export default function RecentPlayed() {
             {t("{w}W {l}L", { w: wins, l: list.length - wins })}
           </span>
         </h2>
-        <Link href="/account#my-stats">{t("My Stats →")}</Link>
+        <Link href="/download">{t("My Stats →")}</Link>
       </div>
       <div className="recent-row">
         {list.map((g) => (

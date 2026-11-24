@@ -2,20 +2,22 @@
    Cool neutrals with a glacial blue accent (the Howling Abyss); the prismatic gradient is the one flourish. */
 :root {
   color-scheme: light;
-  --bg: #e7ebef;
-  --bg-rgb: 231 235 239;
-  --surface: #f0f3f6;
-  --surface-rgb: 240 243 246;
-  --raised: #e0e5eb;
-  --raised-rgb: 224 229 235;
+  /* Softer light mode (Nico, 2026-11-24: easier on the eyes): dimmer grey-blue page and cards instead of near-white,
+     so less glare; text keeps at least 6:1 contrast on cards (muted) and 12:1 (body). */
+  --bg: #dce1e7;
+  --bg-rgb: 220 225 231;
+  --surface: #e8ecf0;
+  --surface-rgb: 232 236 240;
+  --raised: #dde2e8;
+  --raised-rgb: 221 226 232;
   --fg: #1f252e;
   --fg-rgb: 31 37 46;
-  --muted: #525b68;
-  --muted-rgb: 82 91 104;
-  --line: #d3dae2;
-  --line-rgb: 211 218 226;
-  --hover: #e3e8ee;
-  --hover-rgb: 227 232 238;
+  --muted: #48515e;
+  --muted-rgb: 72 81 94;
+  --line: #cdd4dc;
+  --line-rgb: 205 212 220;
+  --hover: #e0e5eb;
+  --hover-rgb: 224 229 235;
   --accent: #09659d;
   --accent-rgb: 9 101 157;
   --accent-ink: #ffffff;
@@ -5040,12 +5042,6 @@ th > button[data-tip] {
 .home-recap { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; color: inherit; text-decoration: none; }
 .home-recap span { color: var(--muted); }
 .home-recap:hover b { text-decoration: underline; }
-/* A typical game: one slim strip with its three numbers inline. */
-.home-typical { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1.5rem; padding-block: 0.8rem; }
-.home-typical h2 { display: flex; align-items: baseline; gap: 0.6rem; font-size: 0.875rem; font-weight: 600; }
-.home-typical .stat-row { margin-top: 0; gap: 0.25rem 1.5rem; }
-.home-typical .stat-row div { display: flex; align-items: baseline; gap: 0.4rem; }
-.home-typical .stat-row b { font-size: 1.05rem; }
 /* Hero: what the site is, two ways in, and the tour offer for first-time visitors. Not .lede/.eyebrow, so
    Simple view keeps it. */
 /* Home: three cards on what sets the site apart, under the hero. */
@@ -5667,7 +5663,7 @@ html[dir="rtl"] .rank-v {
   --font-display: var(--font-sans);
   --r: 24px;
   --r-sm: 12px;
-  --card: #f7f9fb;
+  --card: #e9edf1;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -6726,4 +6722,30 @@ html[data-view="detailed"] .wr-ci {
 .hs-nums small {
   font-size: 13px;
   color: var(--muted);
+}
+
+/* Light mode readability (Nico, 2026-11-24): augment icons are pale glyphs that fade on a light card, so they get a dark
+   disc; the champion header's splash is calmer behind its numbers. Light mode is a saved "light", or "system" on a
+   light system (with nothing saved the site is dark). */
+:root[data-theme="light"] :is([class*="rarity-"]) > img.cp-icon.round,
+:root[data-theme="light"] img.cp-icon.round[class*="rarity-"] {
+  background: #26303c;
+}
+:root[data-theme="light"] .champ-hero::before {
+  opacity: 0.3;
+}
+:root[data-theme="light"] .cp-strip .cp-cell small {
+  color: var(--fg);
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) :is([class*="rarity-"]) > img.cp-icon.round,
+  :root:not([data-theme]) img.cp-icon.round[class*="rarity-"] {
+    background: #26303c;
+  }
+  :root:not([data-theme]) .champ-hero::before {
+    opacity: 0.3;
+  }
+  :root:not([data-theme]) .cp-strip .cp-cell small {
+    color: var(--fg);
+  }
 }

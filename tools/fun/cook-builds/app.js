@@ -187,12 +187,8 @@ LabI18n.ready(function () {
       .then((j) => {
         if (!j) return;
         const list = (j && Array.isArray(j.builds) ? j.builds : []).filter((c) => c && c.title && Array.isArray(c.items) && Array.isArray(c.augments));
-        // No approved builds yet: invite the first one instead of hiding the section.
-        document.getElementById("community-builds").innerHTML = list.length ? list.map(communityCard).join("") : `<div class="empty">
-          <p class="empty-title">${T("No community builds yet")}</p>
-          <p class="muted">${T("Cooked up something strange? Build it in the Simulator and send it in. The chef picks the best ones for this page.")}</p>
-          <a class="empty-cta" href="/simulator" target="_top">${T("Send a build from the Simulator")}</a>
-        </div>`;
+        // No approved builds yet: only the heading and its "Send yours" link show, no empty box (Nico, 2026-11-24: cut bloat).
+        document.getElementById("community-builds").innerHTML = list.map(communityCard).join("");
         document.getElementById("community").hidden = false;
         if (location.hash === "#community") document.getElementById("community").scrollIntoView();
       })

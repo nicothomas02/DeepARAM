@@ -33,6 +33,7 @@ import { itemPages } from "@/lib/item-pages";
 import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
 import SubTabs from "@/components/SubTabs";
+import HeadlinersPanel, { type HeadlinerView } from "@/components/HeadlinersPanel";
 import { readRepoCsv } from "@/lib/repo-data";
 import { allChampionTags, championTagData } from "@/lib/champion-tags";
 import { fillGames } from "@/lib/fill";
@@ -95,7 +96,7 @@ export default function TierListPage() {
       dead: num(r.avg_death_time),
       augs: r.augment_ids ?? "",
     }));
-  const tabs: { id: string; label: string; content: React.ReactNode; lazy?: boolean }[] = [
+  const tabs: { id: string; label: string; content: React.ReactNode; lazy?: boolean; aliases?: string[] }[] = [
     {
       id: "champions",
       label: "Champions",
@@ -280,27 +281,37 @@ export default function TierListPage() {
   // Which Legendary item to make the Weapon of Destiny (gold augment), from real games with the augment (AramHex).
   // This tab and Pentakill's were Simulator-made and hidden while it is a fun tool only (lib/sim-policy.ts); since
   // AramHex (2026-11-23) both rank on real games and are back.
+  // Weapon of Destiny, Pentakill and HEARTSTEEL share one Headliners tab (Nico, 2026-11-24), each behind a switch.
+  const headliners: HeadlinerView[] = [];
   const destiny = weaponOfDestiny();
   if (destiny?.rows.length) {
-    tabs.push({
+    headliners.push({
       id: "weapon-of-destiny",
       label: "Weapon of Destiny",
-      lazy: true,
-      content: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} champions={destinyByChampion()} />,
+      node: <WeaponOfDestiny items={destiny.rows} gold={destiny.gold} champions={destinyByChampion()} />,
     });
   }
 
   // Which abilities to Empower in a Pentakill game, from real games with each Empower (AramHex).
   const penta = pentakill();
   if (penta.length) {
-    tabs.push({ id: "pentakill", label: "Pentakill", lazy: true, content: <Pentakill rows={penta} /> });
+    headliners.push({ id: "pentakill", label: "Pentakill", node: <Pentakill rows={penta} /> });
   }
 
   // Which HEARTSTEEL sticker is worth most to each champion, estimated by the shared build engine (lib/heartsteel.ts):
   // no game data records stickers (Nico, 2026-11-24).
   const hs = heartsteel();
   if (hs.champions.length) {
-    tabs.push({ id: "heartsteel", label: "HEARTSTEEL", lazy: true, content: <Heartsteel champions={hs.champions} stickers={hs.stickers} /> });
+    headliners.push({ id: "heartsteel", label: "HEARTSTEEL", node: <Heartsteel champions={hs.champions} stickers={hs.stickers} /> });
+  }
+  if (headliners.length) {
+    tabs.push({
+      id: "headliners",
+      label: "Headliners",
+      lazy: true,
+      aliases: headliners.map((h) => h.id),
+      content: <HeadlinersPanel views={headliners} />,
+    });
   }
 
   return (

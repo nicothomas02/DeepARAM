@@ -206,8 +206,6 @@
  "Recording a game ({champion})": "Merekam game ({champion})",
  "{n} recorded": "{n} terekam",
  "Your Mayhem games, in one place.": "Game ARAM: Mayhem-mu, di satu tempat.",
- "Import your games with the button below. You need to be connected to the Riot Client: open it on this computer and sign in first. Your games stay on your computer.": "Impor game-mu dengan tombol di bawah. Kamu harus terhubung ke Riot Client: buka di komputer ini dan masuk terlebih dahulu. Game-mu tetap tersimpan di komputermu.",
- "Sign in above to see your Mayhem games here: win rate, champions, augments and recent matches.": "Masuk di atas untuk melihat game Mayhem kamu di sini: win rate, champion, augment, dan match terbaru.",
  "Champions you own": "Champion yang kamu miliki",
  "Save games to my account": "Simpan game ke akunku",
  "Off unless you turn it on. When on, each import also saves your games to your deeparam.com account, so My Stats on your account page shows them on any device. Only you can see them. Turning it off removes them from your account.": "Nonaktif kecuali kamu mengaktifkannya. Saat aktif, setiap impor juga menyimpan game-mu ke akun deeparam.com-mu, sehingga Statistik Saya di halaman akunmu menampilkannya di perangkat apa pun. Hanya kamu yang bisa melihatnya. Menonaktifkannya akan menghapusnya dari akunmu.",
@@ -259,7 +257,6 @@
  "Share my games anonymously to help build stats for everyone": "Bagikan game-ku secara anonim untuk membantu menyusun statistik bagi semua orang",
  "Off unless you tick it. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off in Mayhem Stats removes everything you shared.": "Nonaktif kecuali kamu mencentangnya. Game yang dibagikan berisi champion, item, augment, rune, spell, hasil, serta gold dan experience setiap pemain menit demi menit, tidak pernah nama atau ID akun. Menonaktifkannya di Mayhem Stats akan menghapus semua yang telah kamu bagikan.",
  "Mayhem Stats starts sharing your games anonymously. You can turn it off there at any time.": "Mayhem Stats mulai membagikan game-mu secara anonim. Kamu bisa menonaktifkannya di sana kapan saja.",
- "Sharing your games anonymously from Mayhem Stats builds stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion. It's off unless you turn it on, and never includes names or account ids.": "Membagikan game-mu secara anonim dari Mayhem Stats menyusun statistik yang tidak bisa didapat situs ini dengan cara lain: rune, matchup, pasangan augment, dan jumlah game sebenarnya untuk setiap champion. Fitur ini nonaktif kecuali kamu mengaktifkannya, dan tidak pernah menyertakan nama atau ID akun.",
  "Shared games build stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion.": "Game yang dibagikan menyusun statistik yang tidak bisa didapat situs ini dengan cara lain: rune, matchup, pasangan augment, dan jumlah game sebenarnya untuk setiap champion.",
  "1 loss": "1 kalah",
  "1 win": "1 menang",
@@ -376,5 +373,7 @@
  "{n} quadra kills": "{n} quadrakill",
  "{wr} in your other games": "{wr} di game-mu yang lain",
  "1 game together": "1 game bersama",
- "{n} games together": "{n} game bersama"
+ "{n} games together": "{n} game bersama",
+ "Your Mayhem games, win rate and matches are in the DeepARAM desktop app now.": "Permainan Mayhem, win rate, dan match kamu sekarang ada di aplikasi desktop DeepARAM.",
+ "Get the app →": "Unduh aplikasinya →"
 }

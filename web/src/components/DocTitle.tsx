@@ -35,7 +35,6 @@ const TEMPLATES = [
   "How {mode} Works: Rules, Quests & Augments",
   "{mode} Champions A to Z",
   "{mode} Patch {patch} Recap",
-  "Region Teams",
   "Privacy",
   "Terms",
   "Methodology",

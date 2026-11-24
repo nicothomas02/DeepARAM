@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Intro from "@/components/Intro";
-import Link from "next/link";
 import { T } from "@/components/I18n";
+import ResearchStudies from "@/components/ResearchStudies";
 import { pageMeta } from "@/lib/meta";
 import { damageDealtWorth, doseResponse, itemLiftSummary, pbeForecast, playstyleClusters, predictiveBacktest, typicalSettling } from "@/lib/analysis";
 
@@ -226,12 +226,8 @@ export default function Methodology() {
         <p>
           <T ns={NS}>New methods are added here as they ship.</T>
         </p>
-        <p>
-          <Link href="/research">
-            <T ns={NS}>See the Research page for worked examples.</T>
-          </Link>
-        </p>
       </article>
+      <ResearchStudies />
     </>
   );
 }

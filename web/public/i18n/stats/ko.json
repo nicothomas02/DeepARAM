@@ -206,8 +206,6 @@
  "Recording a game ({champion})": "게임 기록 중 ({champion})",
  "{n} recorded": "{n}게임 기록됨",
  "Your Mayhem games, in one place.": "내 아수라장 게임을 한곳에서.",
- "Import your games with the button below. You need to be connected to the Riot Client: open it on this computer and sign in first. Your games stay on your computer.": "아래 버튼으로 게임을 가져오세요. 라이엇 클라이언트에 연결되어 있어야 합니다. 먼저 이 컴퓨터에서 클라이언트를 열고 로그인하세요. 게임 기록은 내 컴퓨터에만 저장됩니다.",
- "Sign in above to see your Mayhem games here: win rate, champions, augments and recent matches.": "위에서 로그인하면 여기에서 아수라장 게임을 볼 수 있습니다: 승률, 챔피언, 증강, 최근 게임.",
  "Champions you own": "보유한 챔피언",
  "Save games to my account": "내 계정에 게임 저장",
  "Off unless you turn it on. When on, each import also saves your games to your deeparam.com account, so My Stats on your account page shows them on any device. Only you can see them. Turning it off removes them from your account.": "직접 켜기 전까지는 꺼져 있습니다. 켜면 가져올 때마다 게임이 deeparam.com 계정에도 저장되어, 어느 기기에서든 계정 페이지의 내 전적에서 볼 수 있습니다. 나만 볼 수 있습니다. 끄면 계정에서 삭제됩니다.",
@@ -259,7 +257,6 @@
  "Share my games anonymously to help build stats for everyone": "내 게임을 익명으로 공유해 모두를 위한 통계 만들기에 기여",
  "Off unless you tick it. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off in Mayhem Stats removes everything you shared.": "체크하기 전까지는 꺼져 있습니다. 공유되는 게임에는 챔피언, 아이템, 증강, 룬, 주문, 결과, 각 플레이어의 분당 골드와 경험치만 담기며 이름이나 계정 ID는 절대 포함되지 않습니다. Mayhem Stats에서 끄면 공유한 모든 데이터가 삭제됩니다.",
  "Mayhem Stats starts sharing your games anonymously. You can turn it off there at any time.": "Mayhem Stats가 게임을 익명으로 공유하기 시작합니다. 언제든 Mayhem Stats에서 끌 수 있습니다.",
- "Sharing your games anonymously from Mayhem Stats builds stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion. It's off unless you turn it on, and never includes names or account ids.": "Mayhem Stats에서 게임을 익명으로 공유하면 사이트가 다른 방법으로는 얻을 수 없는 통계가 만들어집니다: 룬, 상대 구도, 증강 조합, 모든 챔피언의 실제 게임 수. 직접 켜기 전까지는 꺼져 있으며 이름이나 계정 ID는 절대 포함되지 않습니다.",
  "Shared games build stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion.": "공유된 게임으로 사이트가 다른 방법으로는 얻을 수 없는 통계가 만들어집니다: 룬, 상대 구도, 증강 조합, 모든 챔피언의 실제 게임 수.",
  "1 loss": "1패",
  "1 win": "1승",
@@ -376,5 +373,7 @@
  "{n} quadra kills": "쿼드라킬 {n}회",
  "{wr} in your other games": "다른 게임에서는 {wr}",
  "1 game together": "함께 1게임",
- "{n} games together": "함께 {n}게임"
+ "{n} games together": "함께 {n}게임",
+ "Your Mayhem games, win rate and matches are in the DeepARAM desktop app now.": "Mayhem 게임, 승률, 경기 기록은 이제 DeepARAM 데스크톱 앱에서 볼 수 있습니다.",
+ "Get the app →": "앱 받기 →"
 }

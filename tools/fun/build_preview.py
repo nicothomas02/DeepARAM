@@ -10,8 +10,7 @@ from concurrent.futures import ThreadPoolExecutor
 HERE = os.path.dirname(os.path.abspath(__file__))
 TOOLS = [("cook-builds", "Chef Specials", "The Kitchen: today's Chef Special and every earlier one by date."),
          ("ryze-calculator", "Infinite Ryze", "On the Calculators tab: how far Ryze's AP to Mana loop goes."),
-         ("ashe-calculator", "Infinite Ashe", "On the Calculators tab: how often Archmage lets Ashe fire her R."),
-         ("region-teams", "Region Teams", "Moving to the Info tab: the strongest Mayhem team from each region of Runeterra.")]
+         ("ashe-calculator", "Infinite Ashe", "On the Calculators tab: how often Archmage lets Ashe fire her R.")]
 SWAP_ICONS = ("<script>(function(){var M=parent.FUN_ICONS||{};function w(o){for(var k in o){var v=o[k];"
               "if(typeof v==='string'){if(M[v])o[k]=M[v];}else if(v&&typeof v==='object')w(v);}}"
               "Object.keys(window).forEach(function(k){if(/_DATA$/.test(k))w(window[k]);});})();</script>")

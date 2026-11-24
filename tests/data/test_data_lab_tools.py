@@ -1,4 +1,4 @@
-"""The Lab (tools/fun/): Infinite Ryze, Region Teams and Cook Builds generated data.js (tools/fun/*/build_data.py via tools/fun/cdragon.py)."""
+"""The Lab (tools/fun/): Infinite Ryze, Infinite Ashe and Cook Builds generated data.js (tools/fun/*/build_data.py via tools/fun/cdragon.py)."""
 import glob
 import json
 import math
@@ -12,7 +12,6 @@ from deeparam_data_helpers import (REPO, TIERS, champion_aliases, champion_names
 
 TOOLS = {
     "cook-builds": "COOK_DATA",
-    "region-teams": "REGION_DATA",
     "ryze-calculator": "RYZE_DATA",
     "ashe-calculator": "ASHE_DATA",
 }
@@ -93,17 +92,6 @@ def test_kitchen_router_reaches_every_page():
     html = read("tools/fun/index.html")
     for tool in TOOLS:
         assert re.search(rf"['\"/]{re.escape(tool)}[/'\"#]", html) or tool in html, tool
-
-
-def test_region_teams():
-    regions = data("region-teams")["regions"]
-    assert regions
-    for r in regions:
-        champs = r["champions"]
-        assert len(champs) == 5 and len({c["alias"] for c in champs}) == 5, r["key"]
-        classes = [set(c["classes"]) for c in champs]
-        assert r["frontline"] == any(c & {"Tank", "Fighter"} for c in classes), r["key"]
-        assert sum("Marksman" in c for c in classes) <= 2, r["key"]
 
 
 # The Lab in the site's languages: tools/fun/i18n/<code>.json translates every English string The Lab shows

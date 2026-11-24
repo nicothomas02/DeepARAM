@@ -89,14 +89,16 @@ const Arrow = () => <span className="dir-arrow">→</span>;
 function Glance({ d, tracker }: { d: Pbe; tracker: TrackerEntry[] }) {
   const { augments: a, meta } = d;
   const tags = (tag: string) => tracker.filter((e) => e.tag === tag).length;
+  // With a change tracker, the augment, champion and item sections aren't on the page: link to the tracker instead.
+  const to = (id: string) => (tracker.length ? "tracker" : id);
   const rows: [string, React.ReactNode, React.ReactNode][] = [
-    ["augments", <P key="l">Augments</P>, <P key="v" v={{ added: a.added.length, changed: a.changed.length, removed: a.removed.length }}>{"{added} new · {changed} changed · {removed} removed"}</P>],
-    ["augments", <P key="l">Augment pool</P>, <>{meta.augmentPool.live} <Arrow /> {meta.augmentPool.pbe}</>],
+    [to("augments"), <P key="l">Augments</P>, <P key="v" v={{ added: a.added.length, changed: a.changed.length, removed: a.removed.length }}>{"{added} new · {changed} changed · {removed} removed"}</P>],
+    [to("augments"), <P key="l">Augment pool</P>, <>{meta.augmentPool.live} <Arrow /> {meta.augmentPool.pbe}</>],
     ["tracker", <P key="l">Likely buff</P>, tags("buff")],
     ["tracker", <P key="l">Likely nerf</P>, tags("nerf")],
     ["headliners", <P key="l">Headliners</P>, d.headliners.list.length],
-    ["champions", <P key="l">Champion changes</P>, d.championChanges.list.length],
-    ["items", <P key="l">Item changes</P>, d.itemChanges.list.length],
+    [to("champions"), <P key="l">Champion changes</P>, d.championChanges.list.length],
+    [to("items"), <P key="l">Item changes</P>, d.itemChanges.list.length],
     ["mode", <P key="l">Mode changes</P>, d.modeChanges.length],
   ];
   // Skip empty sections, which aren't on the page.
@@ -151,15 +153,16 @@ export default function PbePage() {
   const tracker = trackerEntries();
   const schedule = readRepoJson<PatchSchedule>("data/patch-schedule.json");
   const augCount = augments.added.length + augments.removed.length + augments.changed.length;
+  const dupes = tracker.length > 0;
   const toc = (
     [
       ["tracker", "Change tracker", tracker.length],
       ["headliners", "Headliners", d.headliners.list.length],
       ["fame", "Fame", d.fame.bands.length],
-      ["augments", "Augments", augCount],
+      ["augments", "Augments", dupes ? 0 : augCount],
       ["overrides", "Mayhem overrides", d.championOverrides.length],
-      ["champions", "Champions", d.championChanges.list.length],
-      ["items", "Items", d.itemChanges.list.length],
+      ["champions", "Champions", dupes ? 0 : d.championChanges.list.length],
+      ["items", "Items", dupes ? 0 : d.itemChanges.list.length],
       ["mode", "Mode", 1],
     ] as const
   ).filter(([, , n]) => n > 0);
@@ -196,6 +199,17 @@ export default function PbePage() {
           </p>
           <PbeForecast forecast={pbeForecast()} />
           <ChangeTracker entries={tracker} />
+          {d.itemChanges.outsideMayhemShop?.length ? (
+            <p className="sub">
+              <P>Not in the Mayhem shop:</P>{" "}
+              {d.itemChanges.outsideMayhemShop.map((x, i) => (
+                <span key={x}>
+                  {i > 0 && "; "}
+                  <D>{x}</D>
+                </span>
+              ))}
+            </p>
+          ) : null}
         </Section>
       )}
 
@@ -252,7 +266,10 @@ export default function PbePage() {
         </dl>
       </Section>
 
-      <Section id="augments" title="Augments" count={augCount}>
+      {/* Augment, champion and item changes are listed once, in the change tracker; these sections only show when it is
+          empty (Nico, 2026-11-24: cut repeated content). */}
+      {!dupes && (
+        <Section id="augments" title="Augments" count={augCount}>
         <h3>
           <P v={{ n: augments.added.length }}>{"Added ({n})"}</P>
         </h3>
@@ -300,7 +317,8 @@ export default function PbePage() {
             ))}
           </div>
         </PhoneMore>
-      </Section>
+        </Section>
+      )}
 
       <Section id="overrides" title="Mayhem overrides" count={d.championOverrides.length}>
         <dl className="defs">
@@ -324,7 +342,8 @@ export default function PbePage() {
         </dl>
       </Section>
 
-      <Section id="champions" title="Champion changes" count={d.championChanges.list.length}>
+      {!dupes && (
+        <Section id="champions" title="Champion changes" count={d.championChanges.list.length}>
         <p className="lede">
           <D>{d.championChanges.summary}</D>
         </p>
@@ -346,9 +365,11 @@ export default function PbePage() {
             ))}
           </dl>
         </PhoneMore>
-      </Section>
+        </Section>
+      )}
 
-      <Section id="items" title="Item changes" count={d.itemChanges.list.length}>
+      {!dupes && (
+        <Section id="items" title="Item changes" count={d.itemChanges.list.length}>
         <p className="lede">
           <D>{d.itemChanges.summary}</D>
         </p>
@@ -379,7 +400,8 @@ export default function PbePage() {
             ))}
           </p>
         ) : null}
-      </Section>
+        </Section>
+      )}
 
       <Section id="mode" title="Mode changes" count={d.modeChanges.length} keep>
         <ul className="bullets">
