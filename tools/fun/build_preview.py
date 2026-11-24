@@ -11,8 +11,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 TOOLS = [("cook-builds", "Chef Specials", "The Kitchen: today's Chef Special and every earlier one by date."),
          ("ryze-calculator", "Infinite Ryze", "On the Calculators tab: how far Ryze's AP to Mana loop goes."),
          ("ashe-calculator", "Infinite Ashe", "On the Calculators tab: how often Archmage lets Ashe fire her R."),
-         ("zilean-calculator", "Infinite Zilean", "On the Calculators tab: when Rewind and Archmage give Zilean a Time Bomb every cast."),
-         ("ezreal-calculator", "Infinite Ezreal", "On the Calculators tab: when Skilled Sniper brings Ezreal's Q back the moment it lands.")]
+         ("zilean-calculator", "Infinite Zilean", "On the Calculators tab: when Rewind and Archmage give Zilean a Time Bomb every cast.")]
 SWAP_ICONS = ("<script>(function(){var M=parent.FUN_ICONS||{};function w(o){for(var k in o){var v=o[k];"
               "if(typeof v==='string'){if(M[v])o[k]=M[v];}else if(v&&typeof v==='object')w(v);}}"
               "Object.keys(window).forEach(function(k){if(/_DATA$/.test(k))w(window[k]);});})();</script>")

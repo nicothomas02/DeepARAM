@@ -1,4 +1,4 @@
-"""The Lab (tools/fun/): Infinite Ryze, Infinite Ashe, Infinite Zilean, Infinite Ezreal and Cook Builds generated data.js (tools/fun/*/build_data.py via tools/fun/cdragon.py)."""
+"""The Lab (tools/fun/): Infinite Ryze, Infinite Ashe, Infinite Zilean and Cook Builds generated data.js (tools/fun/*/build_data.py via tools/fun/cdragon.py)."""
 import glob
 import json
 import math
@@ -15,7 +15,6 @@ TOOLS = {
     "ryze-calculator": "RYZE_DATA",
     "ashe-calculator": "ASHE_DATA",
     "zilean-calculator": "ZILEAN_DATA",
-    "ezreal-calculator": "EZREAL_DATA",
 }
 GAME_TOOLS = sorted(t for t in TOOLS if t != "cook-builds")
 
@@ -218,43 +217,4 @@ def test_zilean_calculator_math():
     # When Chronoshift is on cooldown, half the refunds land on it and the loop doesn't close.
     assert r_cd["need"] is None
 
-
-# Infinite Ezreal: tools/fun/ezreal-calculator/calc.js, run through Node.
-def _ezreal(builds):
-    import shutil, subprocess
-    node = shutil.which("node")
-    if not node:
-        pytest.skip("node not installed")
-    script = (
-        "global.window = global; require('./tools/fun/ezreal-calculator/data.js');"
-        "const C = require('./tools/fun/ezreal-calculator/calc.js');"
-        "const out = JSON.parse(process.argv[1]).map((b) => ({ ...C.compute(window.EZREAL_DATA, b, { runs: 10 }),"
-        " need: C.threshold(window.EZREAL_DATA, b) }));"
-        "console.log(JSON.stringify(out));"
-    )
-    res = subprocess.run([node, "-e", script, json.dumps(builds)], cwd=REPO, capture_output=True, text=True, check=True)
-    return json.loads(res.stdout)
-
-
-EZREAL = {"qRank": 5, "haste": 0, "distance": 1000, "castW": False, "othersOnCooldown": False}
-
-
-def test_ezreal_calculator_math():
-    plain, sniper, close, sniper600 = _ezreal([
-        {**EZREAL, "augments": []},
-        {**EZREAL, "augments": ["ARAM_SkilledSniper"]},
-        {**EZREAL, "distance": 500, "augments": ["ARAM_SkilledSniper"]},
-        {**EZREAL, "distance": 600, "augments": ["ARAM_SkilledSniper"]},
-    ])
-    # Mystic Shot flies 2,000 units a second: 0.5 s to 1,000 units.
-    assert sniper["flight"] == pytest.approx(0.5)
-    # Skilled Sniper from 600+ units: Q is back the moment it lands, at any haste. One Q per 0.25 s cast + flight.
-    assert sniper["need"] == 0 and sniper["perMinute"] == pytest.approx(80, abs=0.5)
-    assert sniper600["perMinute"] == pytest.approx(60 / 0.55, abs=0.5)
-    # Under 600 units Skilled Sniper does nothing, so haste has to bring Q down to flight + 1.5 s.
-    assert close["perMinute"] == pytest.approx(plain["perMinute"], rel=0.2) and close["loop"] < 0.5
-    # Without it, rank 5 Q (4.5 s) needs 4.5 x 100 / (100 + h) <= 2 at 1,000 units: about 125 haste (90% rule: less).
-    assert 105 <= plain["need"] <= 125
-    # Mana runs out within a minute at level 18 with no items.
-    assert sniper["withMana"]["runsOut"] and sniper["withMana"]["lastsFor"] < 60
 
