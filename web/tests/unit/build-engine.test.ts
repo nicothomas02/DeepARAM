@@ -23,6 +23,7 @@ import {
   picksLeft,
   partnerPicks,
   partnerOdds,
+  nearTies,
   TIER_ODDS,
   triggers,
   type Fit,
@@ -362,6 +363,13 @@ describe("build engine", () => {
     expect(partnerOdds(0, "prismatic", 60, { headliner: "Command Line" })).toBe(0);
     expect(partnerOdds(0, "gold", 60, { headliner: "Command Line" })).toBeGreaterThan(partnerOdds(0, "gold", 60));
     expect(partnerOdds(0, "gold", 60, { headliner: "Maestro" })).toBeGreaterThan(partnerOdds(0, "gold", 60));
+  });
+
+  it("calls cards within noise of the best a near-tie (engine scorecard)", () => {
+    const p: Picks = { ...picks, champions: { Ashe: [[1, 0.05, 50, 1, 0.5], [2, 0.045, 50, 1, 0.5], [3, 0.03, 50, 1, 0.5], [4, 0.049, 50, 0, -1]] } };
+    // 5.0 vs 4.5 points, standard error 0.5 each: band 1.39, a tie; 3.0 is not; an estimate is never a tie.
+    expect(nearTies(p, "Ashe", [{ id: 1, score: 5 }, { id: 2, score: 4.5 }, { id: 3, score: 3 }])).toEqual([2]);
+    expect(nearTies(p, "Ashe", [{ id: 1, score: 5 }, { id: 4, score: 4.9 }])).toEqual([]);
   });
 
   it("Command Line's first reroll draws a tier higher; Debonair's gold breaks a tie", () => {

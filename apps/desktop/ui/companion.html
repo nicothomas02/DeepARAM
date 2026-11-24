@@ -422,6 +422,8 @@
     const onOffer = offer.filter((id) => !taken.includes(id));
     const offered = onOffer.length ? [...ranked.filter((a) => onOffer.includes(a.id)), ...onOffer.filter((id) => !ranked.some((a) => a.id === id)).map((id) => ({ id, boost: null, deep: -1, mate: null, combo: null, potential: 0 }))] : [];
     const reroll = offered.length >= 2 ? rerollAdvice(d, ranked, offered, taken) : "";
+    // Cards within noise of the best: highlighted too, "either is fine".
+    const ties = offered.length >= 2 && offered.every((a) => typeof a.score === "number") ? E.nearTies(d, ck, offered) : [];
     const shown = ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
     const row = (a, best) => `
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${whatItDoes("augments", Number(a.id)) ? ` title="${esc(whatItDoes("augments", Number(a.id)))}"` : ""}>
@@ -432,7 +434,7 @@
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
     const took = taken.length ? `<div class="taken"><span class="why lbl">You took</span>${taken.map((id) => `<span class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}">${augIcon(id)}${esc(name(id))}</span>`).join("")}</div>` : "";
     box.innerHTML = `${took}
-      ${offered.length ? `<div class="offer"><div class="why src">On offer now, best first for you.</div>${offered.map((a, i) => row(a, i === 0)).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
+      ${offered.length ? `<div class="offer"><div class="why src">${ties.length ? "On offer now: the highlighted cards are about equal for you (within noise), so pick either." : "On offer now, best first for you."}</div>${offered.map((a, i) => row(a, i === 0 || ties.includes(a.id))).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
       ${shown.map((a, i) => row(a, i === 0 && !offered.length)).join("")}
       <p class="note">Best first for ${esc(label(game.champ))}, by how each does on this champion in real games (DeepScore)${settings.length ? `. Set in champion select: ${esc(settings.join(", "))}` : ""}.</p>`;
   }
