@@ -869,7 +869,9 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [
+    4645
+   ]
   },
   "133": {
    "name": "Magic Missile",
@@ -881,7 +883,9 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [
+    4645
+   ]
   },
   "54": {
    "name": "Master of Duality",

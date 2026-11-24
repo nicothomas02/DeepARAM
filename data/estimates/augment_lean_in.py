@@ -42,6 +42,8 @@ MIN_HOLDERS = 50
 SCALING = r"\(\+?\s*[\d.]+%?\s*(?:\([^)]*\)\s*)?(?:bonus |maximum |max )?(?:health|armor|magic resist|ability haste|attack speed|critical strike|mana|lethality)"
 POS_N, NEG_N = 15, 10  # matched holders needed to call a gain / a contradiction
 Z = 3.0  # ~600 pair tests: at 1.96 about 15 would cross by luck in each direction, at 3.0 about one
+FIT = float(os.environ.get("LEAN_FIT", "0.10"))  # a champion "normally builds" an item: 10%+ of its players without the augment
+FIT_MIN = 3  # ...and at least 3 of them (Nico 2026-11-24: losses may come from forcing an item on champions that can't use it)
 KIT_PULL = 0.03  # kit pairs also need holders to build the item 3+ pts more (behavior agrees with the logic)
 
 
@@ -94,8 +96,12 @@ def main(players_path, damage_path):
         for c, ps in by_champ.items():
             if want and ctype(c) != want:
                 continue
+            n = [p for p in ps if not p["aug"] & ids]
+            built = sum(item in p["fin"] for p in n)
+            if FIT and (built < FIT_MIN or built < FIT * len(n)):
+                continue
             h = [p for p in ps if p["aug"] & ids and p[metric] is not None]
-            n = [p for p in ps if not p["aug"] & ids and p[metric] is not None]
+            n = [p for p in n if p[metric] is not None]
             a = [p[metric] for p in h if item in p["fin"]]; b = [p[metric] for p in h if item not in p["fin"]]
             cc = [p[metric] for p in n if item in p["fin"]]; d = [p[metric] for p in n if item not in p["fin"]]
             if min(len(a), len(b)) < 2 or min(len(cc), len(d)) < 3:

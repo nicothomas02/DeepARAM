@@ -27,6 +27,8 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 export const ENGINE_VERSION = "1.4.0";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
+/** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
+const STAT_BONUS = 220000;
 /** ADAPt: converts bonus AD into AP, so AD items can fit an AP build. */
 const ADAPT = 1205;
 
@@ -73,7 +75,9 @@ export const RULES: Record<string, Rule> = {
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
   converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
   sellMismatch: { source: "data", on: true, why: "One finished item of the other damage type (pure AD on an AP build or the reverse, no ADAPt/EscAPADe): sell it when its 70% sell value plus your gold buys the next path item now. Archive, within champion: one such item in the first three legendaries goes with -2.0 +- 0.3 pts of team damage share (two: -4.3, three: -5.4), win rate flat (+0.1 +- 3.1). Nico 2026-11-24 asked for sell pushback when it's worth it; the 'buys it now' line is estimated." },
-  leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: Dual Wield -> Blade of the Ruined King, Critical Healing -> Moonstone) are taken out of every pull. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
+  leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: tested only on champions that normally build the item, so it isn't forcing it on champions that can't use it: Dual Wield -> Blade of the Ruined King, Critical Healing -> Moonstone, Magic Missile -> Shadowflame) lose the augment's push; the item stays wherever the champion's own build has it. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
+  ccCounters: { source: "kit rule", on: true, why: "3+ enemies built to lock you down (Catcher/Vanguard) light up tenacity and cleanse items (Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn) as a swap. Nico 2026-11-20: Mayhem has more CC than SR; 2026-11-24 approved enemy-aware swaps when damage mix or CC clearly calls for it. Untestable so far (match data has no CC-received stat; 3+ engage -> QSS had 5 buyers), so estimated." },
+  fullBuildShop: { source: "kit rule", on: true, why: "With six finished items and the build done: Stat Bonus (750 gold, permanent stat, level 9+) when you can afford it, else the elixir of your damage type (Sorcery for AP, Wrath for AD, Iron for tanks: 500 gold, 3 minutes) when 500-749 gold sits unspent. Permanent beats temporary for 250 more gold; the elixir only spends gold that would idle. Item text (Data Dragon 16.23); estimated, no archive data on consumables. Nico 2026-11-24 asked for elixir and anvil advice." },
   pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
   // Design choices Nico hasn't picked yet: kept as they were.
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
@@ -89,7 +93,7 @@ export const RULES: Record<string, Rule> = {
   selfHealWeight: { source: "assumption", on: false, why: "Count self-healers more for Vs healing. Off until tested." },
   wikiModifiers: { source: "assumption", on: false, why: "Weight enemies by the wiki's Mayhem healing/shielding modifiers. Off until tested." },
   itemDamageMix: { source: "assumption", on: false, why: "Enemy damage lean pulled toward their AP/AD items. Off until tested: the lean is the champions' own." },
-  resistAugmentSwaps: { source: "assumption", on: false, why: "Fortified/Mystic Guard/Steadfaster push resist swaps first. Off: no data yet." },
+  resistAugmentSwaps: { source: "kit rule", on: true, why: "Fortified (+25% bonus armor), Mystic Guard (+25% bonus MR) and Steadfaster Presence (+16-32% bonus resists) multiply resist items (26.23 patch notes), so a lit armor/MR swap of that kind comes first. Nico 2026-11-24: kit rules on unless data contradicts (no archive data on these 26.23 augments yet)." },
   // Removed: % penetration when 2+ enemies stack the resist failed its test (the gain is smaller when they stack).
 };
 
@@ -718,6 +722,7 @@ export function triggers(k: Kinds, fit: Fit | null, enemies: Enemy[]): Record<st
     "Vs magic damage": magic !== null && magic >= 0.65 ? `Enemy damage is about ${pct(magic)} magic.` : "",
     // Armor cut the share of physical damage taken vs 2+ marksmen (-7 ± 3 pts, placebo -2 ± 1).
     "Vs auto attacks": marksmen >= 2 ? n(marksmen, "are marksmen") : "",
+    "Vs heavy crowd control": RULES.ccCounters.on && count(CATCH) >= 3 ? n(count(CATCH), "lock you down") : "",
   };
   if (!RULES.countTriggers.on) return proven;
   return {
@@ -733,7 +738,11 @@ export function triggers(k: Kinds, fit: Fit | null, enemies: Enemy[]): Record<st
   };
 }
 
-export type LitItem = Situational & { why: string; aug?: boolean; proven?: boolean };
+export type LitItem = Situational & { why: string; aug?: boolean; proven?: boolean; kit?: boolean };
+/** Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn. */
+export const CC_ITEMS = new Set([3111, 3140, 3139, 6035]);
+/** Fortified, Mystic Guard, Steadfaster Presence: what each multiplies. */
+export const RESIST_AUGMENTS: Record<number, string[]> = { 3265: ["armor"], 3264: ["mr"], 3263: ["armor", "mr"] };
 
 /**
  * The champion's situational items checked against this game: each gets the reason it applies now ("" when it
@@ -787,6 +796,9 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
     const id = itemId(it.icon);
     let why = t[it.when ?? ""] || "";
     let proven = false;
+    // tenacity and cleanse items answer heavy CC (ccCounters), whatever situation the item is filed under
+    const kit = RULES.ccCounters.on && !!t["Vs heavy crowd control"] && (CC_ITEMS.has(id) || it.when === "Vs heavy crowd control");
+    if (kit) why = t["Vs heavy crowd control"];
     if (RULES.provenCounters.on) {
       for (const p of PROVEN) {
         const fitsItem = p.items === "armor" ? armor(id) : p.items.includes(id);
@@ -794,7 +806,7 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
         if (p.when === it.when || p.items === "armor") { why = t[p.when]; proven = true; }
       }
     }
-    return { ...it, why, proven };
+    return { ...it, why, proven, kit };
   });
   // Best item first in each group (Nico 2026-11-24: "sort by best at top"); entries without a DeepScore keep their place
   // after the scored ones.
@@ -1104,7 +1116,7 @@ export function luckyBuild(champ: OverlayChamp | undefined): NonNullable<Overlay
 // ---------------------------------------------------------------------------------------------------------------
 // The plan
 
-export type Swap = { item: Named; replaces: Named | null; at: number; why: string; kind: "augment" | "proven" };
+export type Swap = { item: Named; replaces: Named | null; at: number; why: string; kind: "augment" | "proven" | "kit" };
 export type Tip = { rank: number; kind: string; text: string; item?: number };
 export type Plan = {
   /** The whole path in buying order: core, then the 4th/5th/6th picks. */
@@ -1569,7 +1581,12 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const swaps: Swap[] = [];
   const pointers: Plan["pointers"] = [];
   const claimed = new Set<Named>();
-  for (const it of all.filter((x) => x.why && !inPath.has(itemId(x.icon)))) {
+  // a resist-multiplying augment you took puts lit swaps of that resist first (resistAugmentSwaps)
+  const resists = RULES.resistAugmentSwaps.on ? taken.flatMap((a) => RESIST_AUGMENTS[a] ?? []) : [];
+  const boosted = (x: LitItem) => resists.some((r) => (k?.items[String(itemId(x.icon))] ?? []).includes(r));
+  const candidates = all.filter((x) => x.why && !inPath.has(itemId(x.icon)));
+  if (resists.length && candidates.some(boosted)) applied("resistAugmentSwaps");
+  for (const it of [...candidates.filter((x) => x.why && boosted(x)), ...candidates.filter((x) => !boosted(x))]) {
     const id = itemId(it.icon);
     // never alongside an item you own that it can't be owned with
     const ownedClash = [...owned].find((o) => rules.clash(o, id));
@@ -1578,11 +1595,12 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     if (ownedClash !== undefined && !path.some((p) => itemId(p.icon) === ownedClash && !isOwned(p))) {
       continue;
     }
-    if ((it.aug || it.proven) && swaps.length < 2) {
+    if ((it.aug || it.proven || it.kit) && swaps.length < 2) {
       const r = target(id, claimed);
       if (r) claimed.add(r);
-      swaps.push({ item: it, replaces: r, at: r ? rest.indexOf(r) : -1, why: it.why, kind: it.aug ? "augment" : "proven" });
+      swaps.push({ item: it, replaces: r, at: r ? rest.indexOf(r) : -1, why: it.why, kind: it.aug ? "augment" : it.proven ? "proven" : "kit" });
       if (it.proven) applied("provenCounters");
+      if (it.kit && !it.proven) applied("ccCounters");
     } else if (pointers.length < 1) {
       pointers.push({ item: it, why: it.why, replaces: target(id, claimed) });
     }
@@ -1637,6 +1655,21 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
       if (sell !== undefined && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
         tips.push({ rank: 3, kind: "sell", item: sell, text: `Full build: sell ${k.recipes[sell][0]} for ${next[0].name}.` });
+    }
+  }
+  // Full build (fullBuildShop): spend idle gold on a permanent Stat Bonus, else your damage type's elixir.
+  if (RULES.fullBuildShop.on && k && shop && !next.length) {
+    const fullSlots = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i)).length >= 5;
+    const gold = game.gold ?? 0;
+    if (fullSlots && gold >= 750 && (game.level ?? 0) >= 9) {
+      tips.push({ rank: 2, kind: "anvil", item: STAT_BONUS, text: "Build done: buy a Stat Bonus (permanent stat)." });
+      applied("fullBuildShop");
+    } else if (fullSlots && gold >= 500) {
+      const magic = (Object.entries(k.champions).find(([a]) => champKey(a) === champKey(game.champ))?.[1] ?? 0.5) > 0.5;
+      const tank = build.filter((it) => { const t = k.items[String(itemId(it.icon))] ?? []; return (t.includes("armor") || t.includes("mr")) && !t.includes("ad") && !t.includes("ap"); }).length >= 3;
+      const elixir = tank ? 2138 : magic ? 2139 : 2140;
+      tips.push({ rank: 2, kind: "elixir", item: elixir, text: `Build done: buy ${k.recipes[elixir]?.[0] ?? "an elixir"} (3 minutes).` });
+      applied("fullBuildShop");
     }
   }
   // Sell pushback (sellMismatch): exactly one finished item of the other damage type than the champion's own build,

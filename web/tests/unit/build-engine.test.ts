@@ -95,11 +95,41 @@ describe("build engine", () => {
   });
 
   it("keeps assumption rules off (Nico 2026-11-23: apply defaults, then test)", () => {
-    for (const r of ["upgradeNext", "augmentReplan", "countTriggers", "stackingFirst", "attackSpeedNudge", "selfHealWeight", "wikiModifiers", "resistAugmentSwaps"])
+    for (const r of ["upgradeNext", "augmentReplan", "countTriggers", "stackingFirst", "attackSpeedNudge", "selfHealWeight", "wikiModifiers"])
       expect(RULES[r].on, r).toBe(false);
     for (const [name, r] of Object.entries(RULES)) if (r.on && r.source === "assumption") expect(r.why, name).toMatch(/Nico (decides|approved)/);
     // only the triggers that passed a test
-    expect(Object.keys(triggers(kinds, fit, game(["Lux", "Brand", "Annie"]).enemies))).toEqual(["Vs magic damage", "Vs auto attacks"]);
+    expect(Object.keys(triggers(kinds, fit, game(["Lux", "Brand", "Annie"]).enemies))).toEqual(["Vs magic damage", "Vs auto attacks", "Vs heavy crowd control"]);
+  });
+
+  it("3+ enemies built to lock you down make a tenacity or cleanse item a swap (ccCounters)", () => {
+    const f: Fit = { champions: { ...fit.champions, Leona: [0, ["Vanguard"]], Nautilus: [0, ["Vanguard"]], Blitzcrank: [0, ["Catcher"]] } };
+    const c = { ...champ, situational: [...champ.situational!, item(3140, { when: "Vs healing" })] };
+    const cc = plan({ champ: c, kinds, picks, fit: f, game: game(["Leona", "Nautilus", "Blitzcrank"]), taken: [] });
+    expect(cc.swaps.map((s) => [itemId(s.item.icon), s.kind])).toEqual([[3140, "kit"]]);
+    expect(cc.rules).toContain("ccCounters");
+    // two catchers aren't heavy crowd control
+    expect(plan({ champ: c, kinds, picks, fit: f, game: game(["Leona", "Nautilus", "Jinx"]), taken: [] }).swaps).toEqual([]);
+  });
+
+  it("a resist-multiplying augment puts the swap of that resist first (resistAugmentSwaps)", () => {
+    const f: Fit = { champions: { ...fit.champions, Leona: [0, ["Vanguard"]], Nautilus: [0, ["Vanguard"]], Blitzcrank: [0, ["Catcher"]] } };
+    const k2 = { ...kinds, items: { ...kinds.items, "3140": ["mr"], "3302": ["armor"] } };
+    const c = { ...champ, situational: [item(3140, { when: "Vs heavy crowd control" }), item(3302, { when: "Vs auto attacks" })] };
+    const swaps = (taken: number[]) => plan({ champ: c, kinds: k2, picks, fit: f, game: game(["Leona", "Nautilus", "Blitzcrank", "Jinx", "Ashe"]), taken }).swaps.map((s) => itemId(s.item.icon));
+    expect(swaps([])).toEqual([3140, 3302]);
+    expect(swaps([3265])).toEqual([3302, 3140]); // Fortified: armor first
+  });
+
+  it("at full build, spends idle gold on a Stat Bonus, else the elixir of your damage type (fullBuildShop)", () => {
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, "2138": ["Elixir of Iron", 500, []], "2139": ["Elixir of Sorcery", 500, []], "2140": ["Elixir of Wrath", 500, []] } } as Kinds;
+    const full = [3006, 3031, 3046, 3036, 3094, 6333];
+    const shop = (gold: number, level: number, items = full) => plan({ champ, kinds: k2, picks, fit, game: { champ: "Ashe", items, gold, level, dead: true }, taken: [] }).tips.filter((t) => t.kind === "anvil" || t.kind === "elixir").map((t) => t.item);
+    expect(shop(800, 12)).toEqual([220000]);
+    expect(shop(800, 8)).toEqual([2140]); // Stat Bonus needs level 9; Ashe is AD
+    expect(shop(600, 12)).toEqual([2140]);
+    expect(shop(400, 12)).toEqual([]);
+    expect(shop(800, 12, full.slice(0, 4))).toEqual([]); // build not done
   });
 
   it("lists situational items best DeepScore first (Nico 2026-11-24)", () => {
