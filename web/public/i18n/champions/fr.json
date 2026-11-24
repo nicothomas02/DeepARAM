@@ -312,5 +312,15 @@
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archimage fait que Tir du faucon et R se rechargent l'un l'autre. Prends d'abord cette accélération de compétence (R au rang 3), puis termine le build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} d'accélération de compétence · Tir du faucon rang {rank}",
  "Items reach {haste} of the {need} Ability Haste needed.": "Les objets atteignent {haste} sur les {need} d'accélération de compétence nécessaires.",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Après le build principal, prenez ce que la partie demande. Chaque situation vient de l'effet de l'objet ; le meilleur DeepScore en haut."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Après le build principal, prenez ce que la partie demande. Chaque situation vient de l'effet de l'objet ; le meilleur DeepScore en haut.",
+ "Ability hits apply on-hit, so they trigger {1}'s cooldown cut too.": "Les compétences appliquent les effets à l'impact, donc elles déclenchent aussi la réduction de délai de {1}.",
+ "Ability hits apply {1}'s on-hit damage.": "Les compétences appliquent les dégâts à l'impact de {1}.",
+ "Order matters: with {1} taken first, {2} doesn't convert its haste; taken after {2}, it does.": "L'ordre compte : avec {1} pris en premier, {2} ne convertit pas sa hâte ; pris après {2}, si.",
+ "Snowball augments stack.": "Les augments de boule de neige se cumulent.",
+ "Snowball augments stack: a huge snowball that bounces.": "Les augments de boule de neige se cumulent : une énorme boule de neige qui rebondit.",
+ "Their crit damage stacks on damage over time (4x).": "Leurs dégâts critiques se cumulent sur les dégâts sur la durée (x4).",
+ "Their crits stack on damage over time.": "Leurs coups critiques se cumulent sur les dégâts sur la durée.",
+ "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} ne convertit pas les réductions de délai directes comme celle-ci, donc les délais restent équilibrés sans hâte dégressive.",
+ "{1} makes the echo even harder to dodge.": "{1} rend l'écho encore plus dur à esquiver.",
+ "{1}'s higher mana costs feed {2}.": "Les coûts en mana plus élevés de {1} alimentent {2}."
 }

@@ -11,7 +11,7 @@ import { signedPts, tone } from "@/components/champion/Ranked";
 import type { AugmentRow } from "@/lib/champion-page";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import { PICK_TAG_SHARE, SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
-import { comboPotential, synergyWith, type SynergyPair } from "@/lib/synergy-picks";
+import { comboPotential, synergyWhyTemplate, synergyWith, type SynergyPair } from "@/lib/synergy-picks";
 
 // A champion's augments as one ranked table with rarity and augment pick filters, best DeepScore first, each with the game's
 // build tags, ten to a page. The number columns' headers re-sort it (highest first; a second click flips it). The search box
@@ -209,7 +209,9 @@ export default function AugmentTable({
         p.points >= 0
           ? t("Pairs well with {name}: +{n} pts.", { name: augName(p.with), n })
           : t("Overlaps with {name}: -{n} pts.", { name: augName(p.with), n });
-      parts.push(p.why ? `${line} ${p.why}` : line);
+      // The reason translates as a template with the augments' names in the page's language.
+      const w = p.why ? synergyWhyTemplate(p.why, [[byId.get(a.id)?.name ?? "", a.id], [byId.get(p.with)?.name ?? "", p.with]]) : null;
+      parts.push(w ? `${line} ${t(w.key, Object.fromEntries(w.ids.map((id, i) => [String(i + 1), augName(id)])))}` : line);
     }
     const n = Math.abs((a.lift ?? 0) * 100).toFixed(1);
     if (champ && a.lift !== undefined) {

@@ -312,5 +312,15 @@
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage face ca Hawkshot și R să se reîncarce reciproc. Strânge mai întâi atâta grabă a abilităților (R la rangul 3), apoi termină build-ul.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} grabă a abilităților · Hawkshot rangul {rank}",
  "Items reach {haste} of the {need} Ability Haste needed.": "Obiectele ajung la {haste} din cele {need} de grabă a abilităților necesare.",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "După build-ul de bază, cumpără ce cere meciul. Situația vine din efectul obiectului; cel mai bun DeepScore sus."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "După build-ul de bază, cumpără ce cere meciul. Situația vine din efectul obiectului; cel mai bun DeepScore sus.",
+ "Ability hits apply on-hit, so they trigger {1}'s cooldown cut too.": "Loviturile abilităților aplică efecte la impact, așa că declanșează și reducerea timpului de reîncărcare de la {1}.",
+ "Ability hits apply {1}'s on-hit damage.": "Loviturile abilităților aplică daunele la impact ale {1}.",
+ "Order matters: with {1} taken first, {2} doesn't convert its haste; taken after {2}, it does.": "Ordinea contează: cu {1} luat primul, {2} nu își convertește graba; luat după {2}, da.",
+ "Snowball augments stack.": "Augmentările bulgăre de zăpadă se cumulează.",
+ "Snowball augments stack: a huge snowball that bounces.": "Augmentările bulgăre de zăpadă se cumulează: un bulgăre uriaș care ricoșează.",
+ "Their crit damage stacks on damage over time (4x).": "Daunele lor critice se cumulează pe daunele în timp (4x).",
+ "Their crits stack on damage over time.": "Loviturile lor critice se cumulează pe daunele în timp.",
+ "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} nu convertește reducerile directe ale timpului de reîncărcare ca aceasta, așa că reîncărcările rămân echilibrate fără grabă descrescătoare.",
+ "{1} makes the echo even harder to dodge.": "{1} face ecoul și mai greu de evitat.",
+ "{1}'s higher mana costs feed {2}.": "Costurile mai mari de mană ale {1} alimentează {2}."
 }

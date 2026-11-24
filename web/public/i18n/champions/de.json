@@ -312,5 +312,15 @@
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Mit Erzmagier laden sich Falkenschuss und R gegenseitig auf. Hol dir zuerst so viel Fähigkeitstempo (R auf Rang 3), dann schließ den Build ab.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Fähigkeitstempo · Falkenschuss Rang {rank}",
  "Items reach {haste} of the {need} Ability Haste needed.": "Die Gegenstände erreichen {haste} von {need} nötigem Fähigkeitstempo.",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Nach dem Kern-Build kauft ihr, was das Spiel verlangt. Jede Situation ergibt sich aus dem Effekt des Items; der beste DeepScore steht oben."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Nach dem Kern-Build kauft ihr, was das Spiel verlangt. Jede Situation ergibt sich aus dem Effekt des Items; der beste DeepScore steht oben.",
+ "Ability hits apply on-hit, so they trigger {1}'s cooldown cut too.": "Fähigkeitstreffer lösen Treffereffekte aus, also auch die Abklingzeitverringerung von {1}.",
+ "Ability hits apply {1}'s on-hit damage.": "Fähigkeitstreffer wenden den Trefferschaden von {1} an.",
+ "Order matters: with {1} taken first, {2} doesn't convert its haste; taken after {2}, it does.": "Die Reihenfolge zählt: Mit {1} zuerst wandelt {2} seine Fähigkeitsbeschleunigung nicht um; nach {2} genommen schon.",
+ "Snowball augments stack.": "Schneeball-Augments stapeln sich.",
+ "Snowball augments stack: a huge snowball that bounces.": "Schneeball-Augments stapeln sich: ein riesiger Schneeball, der abprallt.",
+ "Their crit damage stacks on damage over time (4x).": "Ihr kritischer Schaden stapelt sich auf Schaden über Zeit (4x).",
+ "Their crits stack on damage over time.": "Ihre kritischen Treffer stapeln sich auf Schaden über Zeit.",
+ "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} wandelt direkte Abklingzeitverringerungen wie diese nicht um, daher bleiben die Abklingzeiten ausgeglichen, ohne abnehmende Beschleunigung.",
+ "{1} makes the echo even harder to dodge.": "{1} macht das Echo noch schwerer auszuweichen.",
+ "{1}'s higher mana costs feed {2}.": "Die höheren Manakosten von {1} speisen {2}."
 }

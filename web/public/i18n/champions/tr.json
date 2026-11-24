@@ -312,5 +312,15 @@
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage, Hawkshot ve R'nin birbirini yenilemesini sağlar. Önce bu kadar yetenek hızı topla (R 3. seviye), sonra dizilimi tamamla.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} yetenek hızı · Hawkshot {rank}. seviye",
  "Items reach {haste} of the {need} Ability Haste needed.": "Eşyalar gereken {need} yetenek hızının {haste} kadarını sağlıyor.",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Ana dizilimden sonra oyunun gerektirdiğini alın. Durum eşyanın kendi etkisinden gelir; en iyi DeepScore en üstte."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Ana dizilimden sonra oyunun gerektirdiğini alın. Durum eşyanın kendi etkisinden gelir; en iyi DeepScore en üstte.",
+ "Ability hits apply on-hit, so they trigger {1}'s cooldown cut too.": "Yetenek isabetleri isabet anında etkileri uygular, bu yüzden {1} bekleme süresi azaltmasını da tetikler.",
+ "Ability hits apply {1}'s on-hit damage.": "Yetenek isabetleri {1} isabet anında hasarını uygular.",
+ "Order matters: with {1} taken first, {2} doesn't convert its haste; taken after {2}, it does.": "Sıra önemli: önce {1} alınırsa {2} hızını dönüştürmez; {2} sonrasında alınırsa dönüştürür.",
+ "Snowball augments stack.": "Kartopu güçlendirmeleri birikir.",
+ "Snowball augments stack: a huge snowball that bounces.": "Kartopu güçlendirmeleri birikir: seken dev bir kartopu.",
+ "Their crit damage stacks on damage over time (4x).": "Kritik hasarları zamana yayılan hasarda birikir (4x).",
+ "Their crits stack on damage over time.": "Kritik vuruşları zamana yayılan hasarda birikir.",
+ "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} bunun gibi doğrudan bekleme süresi azaltmalarını dönüştürmez, bu yüzden bekleme süreleri azalan hız olmadan dengede kalır.",
+ "{1} makes the echo even harder to dodge.": "{1} yankıdan kaçmayı daha da zorlaştırır.",
+ "{1}'s higher mana costs feed {2}.": "{1} yüksek mana maliyetleri {2} güçlendirmesini besler."
 }

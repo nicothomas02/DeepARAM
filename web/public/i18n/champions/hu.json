@@ -312,5 +312,15 @@
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Az Archmage miatt a Hawkshot és az R egymást tölti vissza. Először szerezz ennyi képességsietséget (R 3. szinten), utána fejezd be a buildet.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} képességsietség · Hawkshot {rank}. szint",
  "Items reach {haste} of the {need} Ability Haste needed.": "A tárgyak {haste} képességsietséget adnak a szükséges {need}-ből.",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Az alap build után vedd azt, amit a meccs kíván. A helyzet a tárgy hatásából jön; a legjobb DeepScore felül."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Az alap build után vedd azt, amit a meccs kíván. A helyzet a tárgy hatásából jön; a legjobb DeepScore felül.",
+ "Ability hits apply on-hit, so they trigger {1}'s cooldown cut too.": "A képességtalálatok találati hatásokat alkalmaznak, így {1} töltési idő csökkentését is kiváltják.",
+ "Ability hits apply {1}'s on-hit damage.": "A képességtalálatok alkalmazzák {1} találati sebzését.",
+ "Order matters: with {1} taken first, {2} doesn't convert its haste; taken after {2}, it does.": "Számít a sorrend: ha {1} az első, {2} nem alakítja át a gyorsítását; {2} után felvéve igen.",
+ "Snowball augments stack.": "A hógolyós kiegészítők összeadódnak.",
+ "Snowball augments stack: a huge snowball that bounces.": "A hógolyós kiegészítők összeadódnak: egy hatalmas, pattogó hógolyó.",
+ "Their crit damage stacks on damage over time (4x).": "Kritikus sebzésük összeadódik az időben elnyújtott sebzésen (4x).",
+ "Their crits stack on damage over time.": "Kritikus találataik összeadódnak az időben elnyújtott sebzésen.",
+ "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} nem alakítja át az ilyen közvetlen töltésiidő-csökkentéseket, így a töltési idők kiegyensúlyozottak maradnak csökkenő gyorsítás nélkül.",
+ "{1} makes the echo even harder to dodge.": "{1} miatt a visszhang még nehezebben kerülhető ki.",
+ "{1}'s higher mana costs feed {2}.": "{1} magasabb manaköltségei táplálják ezt: {2}."
 }

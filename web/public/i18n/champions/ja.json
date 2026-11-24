@@ -312,5 +312,15 @@
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "アークメイジでホークショットとRが互いにクールダウンを縮めます。まずこのスキルヘイストを確保し（Rランク3）、それからビルドを仕上げます。",
  "{haste} Ability Haste · Hawkshot rank {rank}": "スキルヘイスト{haste} · ホークショット ランク{rank}",
  "Items reach {haste} of the {need} Ability Haste needed.": "アイテムで必要な{need}のうち{haste}のスキルヘイストに届きます。",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "コアビルドの後は試合に合わせて買いましょう。状況はアイテム自体の効果から判断し、DeepScoreが高い順に並べています。"
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "コアビルドの後は試合に合わせて買いましょう。状況はアイテム自体の効果から判断し、DeepScoreが高い順に並べています。",
+ "Ability hits apply on-hit, so they trigger {1}'s cooldown cut too.": "スキルの命中は通常攻撃時効果を発動するため、{1}のクールダウン短縮も発動します。",
+ "Ability hits apply {1}'s on-hit damage.": "スキルの命中で{1}の通常攻撃時ダメージが発動します。",
+ "Order matters: with {1} taken first, {2} doesn't convert its haste; taken after {2}, it does.": "順番が重要：{1}を先に取ると{2}はスキルヘイストを変換しません。{2}の後に取れば変換します。",
+ "Snowball augments stack.": "スノーボール系オーグメントは重複します。",
+ "Snowball augments stack: a huge snowball that bounces.": "スノーボール系オーグメントは重複します：跳ね回る巨大なスノーボール。",
+ "Their crit damage stacks on damage over time (4x).": "クリティカルダメージが継続ダメージに重複します（4倍）。",
+ "Their crits stack on damage over time.": "クリティカルが継続ダメージに重複します。",
+ "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1}はこのような直接のクールダウン短縮を変換しないため、ヘイストの逓減なしでクールダウンのバランスが保たれます。",
+ "{1} makes the echo even harder to dodge.": "{1}でエコーがさらに避けにくくなります。",
+ "{1}'s higher mana costs feed {2}.": "{1}による高いマナコストが{2}を強化します。"
 }

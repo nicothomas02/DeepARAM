@@ -312,5 +312,15 @@
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Arcimago fa sì che Colpo di falco e la R si ricarichino a vicenda. Prendi prima questa velocità abilità (R al rango 3), poi completa la build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} velocità abilità · Colpo di falco rango {rank}",
  "Items reach {haste} of the {need} Ability Haste needed.": "Gli oggetti arrivano a {haste} dei {need} di velocità abilità necessari.",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Dopo la build principale, compra ciò che serve nella partita. Ogni situazione deriva dall'effetto dell'oggetto; il miglior DeepScore in alto."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Dopo la build principale, compra ciò che serve nella partita. Ogni situazione deriva dall'effetto dell'oggetto; il miglior DeepScore in alto.",
+ "Ability hits apply on-hit, so they trigger {1}'s cooldown cut too.": "I colpi delle abilità applicano gli effetti sul colpo, quindi attivano anche la riduzione della ricarica di {1}.",
+ "Ability hits apply {1}'s on-hit damage.": "I colpi delle abilità applicano i danni sul colpo di {1}.",
+ "Order matters: with {1} taken first, {2} doesn't convert its haste; taken after {2}, it does.": "L'ordine conta: con {1} preso per primo, {2} non converte la sua velocità abilità; preso dopo {2}, sì.",
+ "Snowball augments stack.": "Gli augment palla di neve si sommano.",
+ "Snowball augments stack: a huge snowball that bounces.": "Gli augment palla di neve si sommano: un'enorme palla di neve che rimbalza.",
+ "Their crit damage stacks on damage over time (4x).": "I loro danni critici si sommano ai danni nel tempo (x4).",
+ "Their crits stack on damage over time.": "I loro critici si sommano ai danni nel tempo.",
+ "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "{1} non converte riduzioni dirette della ricarica come questa, quindi le ricariche restano bilanciate senza velocità abilità decrescente.",
+ "{1} makes the echo even harder to dodge.": "{1} rende l'eco ancora più difficile da schivare.",
+ "{1}'s higher mana costs feed {2}.": "I costi di mana più alti di {1} alimentano {2}."
 }

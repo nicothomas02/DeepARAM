@@ -312,5 +312,15 @@
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Ο Archmage κάνει το Hawkshot και το R να επαναφορτίζουν το ένα το άλλο. Πάρε πρώτα τόση Ταχύτητα Ικανοτήτων (R στο επίπεδο 3) και μετά ολοκλήρωσε το build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Ταχύτητα Ικανοτήτων · Hawkshot επίπεδο {rank}",
  "Items reach {haste} of the {need} Ability Haste needed.": "Τα αντικείμενα φτάνουν {haste} από τα {need} Ταχύτητας Ικανοτήτων που χρειάζονται.",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Μετά το βασικό build, αγοράστε ό,τι χρειάζεται το παιχνίδι. Η περίσταση προκύπτει από το εφέ του αντικειμένου· το καλύτερο DeepScore πάνω."
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Μετά το βασικό build, αγοράστε ό,τι χρειάζεται το παιχνίδι. Η περίσταση προκύπτει από το εφέ του αντικειμένου· το καλύτερο DeepScore πάνω.",
+ "Ability hits apply on-hit, so they trigger {1}'s cooldown cut too.": "Τα χτυπήματα ικανοτήτων εφαρμόζουν εφέ κατά το χτύπημα, άρα ενεργοποιούν και τη μείωση επαναφόρτισης του {1}.",
+ "Ability hits apply {1}'s on-hit damage.": "Τα χτυπήματα ικανοτήτων εφαρμόζουν τη ζημιά κατά το χτύπημα του {1}.",
+ "Order matters: with {1} taken first, {2} doesn't convert its haste; taken after {2}, it does.": "Η σειρά μετράει: με το {1} πρώτο, το {2} δεν μετατρέπει την επιτάχυνσή του· αν το πάρεις μετά το {2}, τη μετατρέπει.",
+ "Snowball augments stack.": "Οι επαυξήσεις χιονόμπαλας αθροίζονται.",
+ "Snowball augments stack: a huge snowball that bounces.": "Οι επαυξήσεις χιονόμπαλας αθροίζονται: μια τεράστια χιονόμπαλα που αναπηδά.",
+ "Their crit damage stacks on damage over time (4x).": "Η κρίσιμη ζημιά τους αθροίζεται στη ζημιά με τον χρόνο (4x).",
+ "Their crits stack on damage over time.": "Τα κρίσιμα χτυπήματά τους αθροίζονται στη ζημιά με τον χρόνο.",
+ "{1} doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.": "Το {1} δεν μετατρέπει άμεσες μειώσεις επαναφόρτισης όπως αυτή, έτσι οι επαναφορτίσεις μένουν ισορροπημένες χωρίς φθίνουσα επιτάχυνση.",
+ "{1} makes the echo even harder to dodge.": "Το {1} κάνει την ηχώ ακόμη πιο δύσκολη στην αποφυγή.",
+ "{1}'s higher mana costs feed {2}.": "Το υψηλότερο κόστος μάνα του {1} τροφοδοτεί το {2}."
 }
