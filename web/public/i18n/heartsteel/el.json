@@ -1,0 +1,20 @@
+{
+ "Champion": "Champion",
+ "Best sticker": "Καλύτερο αυτοκόλλητο",
+ "The sticker worth the most to this champion's usual build.": "Το αυτοκόλλητο με τη μεγαλύτερη αξία για το συνηθισμένο build αυτού του champion.",
+ "Value": "Αξία",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Εκτίμηση: περίπου πόσους πόντους ποσοστού νίκης αξίζει το μπόνους του αυτοκόλλητου σε αυτόν τον champion, από τα στατιστικά του σε χρυσό, μετρημένα μόνο όπου τα χρησιμοποιεί το συνηθισμένο build.",
+ "Runner-up": "Δεύτερο",
+ "Runner-up value": "Αξία δεύτερου",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "Σε παιχνίδι HEARTSTEEL, οι κάρτες augment μπορεί να έχουν αυτοκόλλητο από ένα από τα έξι μέλη των HEARTSTEEL, το καθένα με δικό του μπόνους. Κανένα δεδομένο αγώνα δεν καταγράφει αυτοκόλλητα, οπότε κάθε αξία εδώ είναι εκτίμηση: τα στατιστικά του μπόνους σε χρυσό, μετρημένα μόνο όπου τα χρησιμοποιεί το συνηθισμένο build του champion.",
+ "pts on average": "πόντ. κατά μέσο όρο",
+ "Best for {n} champions": "Καλύτερο για {n} champions",
+ "Find a champion": "Βρείτε champion",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Εκτίμηση για αυτοκόλλητο στο επίπεδο 1. Τα μπόνους ανά επίπεδο (Ezreal, Sett) αξίζουν λίγο λιγότερο σε μεταγενέστερο augment.",
+ "2 Stat Anvils": "2 αμόνια στατιστικών",
+ "+4 AD and +4 AP per level": "+4 AD και +4 AP ανά επίπεδο",
+ "+5% omnivamp": "+5% omnivamp",
+ "+1 level and +1 level cap": "+1 επίπεδο και +1 μέγιστο επίπεδο",
+ "+30 health per level": "+30 ζωή ανά επίπεδο",
+ "+40% attack speed and +20 ability haste": "+40% ταχύτητα επίθεσης και +20 επιτάχυνση ικανοτήτων"
+}

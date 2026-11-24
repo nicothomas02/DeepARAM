@@ -1,0 +1,20 @@
+{
+ "Champion": "Campeón",
+ "Best sticker": "Mejor sticker",
+ "The sticker worth the most to this champion's usual build.": "El sticker que más vale para la build habitual de este campeón.",
+ "Value": "Valor",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Estimado: aproximadamente cuántos puntos de tasa de victoria vale el bonus del sticker en este campeón, según sus estadísticas en oro y contadas solo donde la build habitual las usa.",
+ "Runner-up": "Segundo",
+ "Runner-up value": "Valor del segundo",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "En una partida HEARTSTEEL, las cartas de aumento pueden llevar un sticker de uno de los seis miembros de HEARTSTEEL, cada uno con su propio bonus. Ningún dato de partida registra los stickers, así que cada valor aquí es estimado: las estadísticas del bonus en oro, contadas solo donde la build habitual del campeón las usa.",
+ "pts on average": "pts de media",
+ "Best for {n} champions": "El mejor para {n} campeones",
+ "Find a champion": "Buscar un campeón",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Estimado para un sticker elegido a nivel 1. Los bonus por nivel (Ezreal, Sett) valen algo menos en un aumento posterior.",
+ "2 Stat Anvils": "2 yunques de estadísticas",
+ "+4 AD and +4 AP per level": "+4 de AD y +4 de AP por nivel",
+ "+5% omnivamp": "+5 % de omnivampirismo",
+ "+1 level and +1 level cap": "+1 nivel y +1 nivel máximo",
+ "+30 health per level": "+30 de vida por nivel",
+ "+40% attack speed and +20 ability haste": "+40 % de velocidad de ataque y +20 de celeridad de habilidades"
+}

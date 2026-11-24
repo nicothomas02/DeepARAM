@@ -1,0 +1,20 @@
+{
+ "Champion": "Champion",
+ "Best sticker": "Best sticker",
+ "The sticker worth the most to this champion's usual build.": "The sticker worth the most to this champion's usual build.",
+ "Value": "Value",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.",
+ "Runner-up": "Runner-up",
+ "Runner-up value": "Runner-up value",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.",
+ "pts on average": "pts on average",
+ "Best for {n} champions": "Best for {n} champions",
+ "Find a champion": "Find a champion",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.",
+ "2 Stat Anvils": "2 Stat Anvils",
+ "+4 AD and +4 AP per level": "+4 AD and +4 AP per level",
+ "+5% omnivamp": "+5% omnivamp",
+ "+1 level and +1 level cap": "+1 level and +1 level cap",
+ "+30 health per level": "+30 health per level",
+ "+40% attack speed and +20 ability haste": "+40% attack speed and +20 ability haste"
+}

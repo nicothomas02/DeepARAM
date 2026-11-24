@@ -1,0 +1,20 @@
+{
+ "Champion": "챔피언",
+ "Best sticker": "최고의 스티커",
+ "The sticker worth the most to this champion's usual build.": "이 챔피언의 일반 빌드에 가장 가치 있는 스티커입니다.",
+ "Value": "가치",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "추정치: 스티커 보너스가 이 챔피언에게 승률 몇 포인트만큼의 가치인지. 능력치를 골드로 환산하고 일반 빌드가 쓰는 능력치만 계산합니다.",
+ "Runner-up": "2순위",
+ "Runner-up value": "2순위 가치",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "HEARTSTEEL 게임에서는 증강 카드에 HEARTSTEEL 멤버 6명 중 한 명의 스티커가 붙을 수 있으며, 각각 고유한 보너스가 있습니다. 스티커를 기록한 게임 데이터가 없어 여기의 모든 값은 추정치입니다. 보너스 능력치를 골드로 환산하고, 챔피언의 일반 빌드가 쓰는 능력치만 계산합니다.",
+ "pts on average": "평균 포인트",
+ "Best for {n} champions": "{n}명의 챔피언에게 최고",
+ "Find a champion": "챔피언 찾기",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "레벨 1에 고른 스티커 기준 추정치입니다. 레벨당 보너스(이즈리얼, 세트)는 나중 증강에서는 가치가 조금 낮습니다.",
+ "2 Stat Anvils": "능력치 모루 2개",
+ "+4 AD and +4 AP per level": "레벨당 공격력 +4, 주문력 +4",
+ "+5% omnivamp": "모든 피해 흡혈 +5%",
+ "+1 level and +1 level cap": "레벨 +1, 레벨 상한 +1",
+ "+30 health per level": "레벨당 체력 +30",
+ "+40% attack speed and +20 ability haste": "공격 속도 +40%, 스킬 가속 +20"
+}

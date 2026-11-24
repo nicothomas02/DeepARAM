@@ -1,0 +1,20 @@
+{
+ "Champion": "チャンピオン",
+ "Best sticker": "最良のステッカー",
+ "The sticker worth the most to this champion's usual build.": "このチャンピオンの定番ビルドで最も価値のあるステッカー。",
+ "Value": "価値",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "推定値：ステッカーのボーナスがこのチャンピオンで勝率何ポイント分に相当するか。ステータスをゴールド換算し、定番ビルドが使うものだけを数えています。",
+ "Runner-up": "次点",
+ "Runner-up value": "次点の価値",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "HEARTSTEELの試合では、オーグメントカードにHEARTSTEELメンバー6人のいずれかのステッカーが付くことがあり、それぞれ固有のボーナスがあります。ステッカーを記録した試合データはないため、ここの値はすべて推定です。ボーナスのステータスをゴールド換算し、そのチャンピオンの定番ビルドが使うものだけを数えています。",
+ "pts on average": "平均ポイント",
+ "Best for {n} champions": "{n}体のチャンピオンで最良",
+ "Find a champion": "チャンピオンを検索",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "レベル1で取ったステッカーとして推定。レベルごとのボーナス（エズリアル、セト）は後半のオーグメントでは少し価値が下がります。",
+ "2 Stat Anvils": "ステータスの金床×2",
+ "+4 AD and +4 AP per level": "レベルごとに攻撃力+4、魔力+4",
+ "+5% omnivamp": "オムニヴァンプ+5%",
+ "+1 level and +1 level cap": "レベル+1、レベル上限+1",
+ "+30 health per level": "レベルごとに体力+30",
+ "+40% attack speed and +20 ability haste": "攻撃速度+40%、スキルヘイスト+20"
+}

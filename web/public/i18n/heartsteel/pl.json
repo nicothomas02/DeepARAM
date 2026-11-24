@@ -1,0 +1,20 @@
+{
+ "Champion": "Bohater",
+ "Best sticker": "Najlepsza naklejka",
+ "The sticker worth the most to this champion's usual build.": "Naklejka warta najwięcej dla typowego buildu tego bohatera.",
+ "Value": "Wartość",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Szacunek: mniej więcej ile punktów współczynnika zwycięstw jest wart bonus naklejki na tym bohaterze, ze statystyk przeliczonych na złoto i liczonych tylko tam, gdzie typowy build ich używa.",
+ "Runner-up": "Druga",
+ "Runner-up value": "Wartość drugiej",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "W grze HEARTSTEEL karty wzmocnień mogą mieć naklejkę jednego z sześciu członków HEARTSTEEL, każda z własnym bonusem. Żadne dane z gier nie zapisują naklejek, więc każda wartość tutaj jest szacunkowa: statystyki bonusu przeliczone na złoto, liczone tylko tam, gdzie typowy build bohatera ich używa.",
+ "pts on average": "pkt średnio",
+ "Best for {n} champions": "Najlepsza dla {n} bohaterów",
+ "Find a champion": "Znajdź bohatera",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Szacunek dla naklejki wziętej na poziomie 1. Bonusy za poziom (Ezreal, Sett) są warte nieco mniej na późniejszym wzmocnieniu.",
+ "2 Stat Anvils": "2 kowadła statystyk",
+ "+4 AD and +4 AP per level": "+4 AD i +4 AP na poziom",
+ "+5% omnivamp": "+5% wszechwampiryzmu",
+ "+1 level and +1 level cap": "+1 poziom i +1 maks. poziom",
+ "+30 health per level": "+30 zdrowia na poziom",
+ "+40% attack speed and +20 ability haste": "+40% prędkości ataku i +20 przyspieszenia umiejętności"
+}

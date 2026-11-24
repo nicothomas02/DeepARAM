@@ -1,0 +1,20 @@
+{
+ "Champion": "البطل",
+ "Best sticker": "أفضل ملصق",
+ "The sticker worth the most to this champion's usual build.": "الملصق الأعلى قيمة لبناء هذا البطل المعتاد.",
+ "Value": "القيمة",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "تقدير: كم نقطة من نسبة الفوز تعادل مكافأة الملصق تقريبًا على هذا البطل، من إحصاءاته محسوبة بالذهب ولا تُحسب إلا حيث يستخدمها البناء المعتاد.",
+ "Runner-up": "الثاني",
+ "Runner-up value": "قيمة الثاني",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "في مباراة HEARTSTEEL قد تحمل بطاقات التعزيز ملصقًا من أحد أعضاء HEARTSTEEL الستة، ولكل منهم مكافأته. لا تسجّل أي بيانات مباريات الملصقات، لذا فكل قيمة هنا تقديرية: إحصاءات المكافأة محسوبة بالذهب ولا تُحسب إلا حيث يستخدمها بناء البطل المعتاد.",
+ "pts on average": "نقطة في المتوسط",
+ "Best for {n} champions": "الأفضل لـ {n} بطلًا",
+ "Find a champion": "ابحث عن بطل",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "تقدير لملصق يؤخذ في المستوى 1. المكافآت لكل مستوى (Ezreal وSett) تساوي أقل قليلًا في تعزيز لاحق.",
+ "2 Stat Anvils": "سندانا إحصاءات",
+ "+4 AD and +4 AP per level": "+4 ضرر هجوم و+4 قوة قدرات لكل مستوى",
+ "+5% omnivamp": "+5% امتصاص شامل",
+ "+1 level and +1 level cap": "+1 مستوى و+1 للحد الأقصى للمستوى",
+ "+30 health per level": "+30 صحة لكل مستوى",
+ "+40% attack speed and +20 ability haste": "+40% سرعة هجوم و+20 تسريع قدرات"
+}

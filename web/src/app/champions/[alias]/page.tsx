@@ -70,6 +70,7 @@ import {
 } from "@/lib/fill";
 import { ITEM_TIERS, rewardItems, type ItemTier } from "@/lib/items";
 import { championAugmentStages, championEstimates } from "@/lib/estimates";
+import { bracketAugmentScores } from "@/lib/bracket-augments";
 import { augmentScores, byScore, rankedAugments } from "@/lib/champion-augments";
 import { SITUATIONS } from "@/lib/situations";
 import StyleTabs from "@/components/champion/StyleTabs";
@@ -534,6 +535,11 @@ export default async function ChampionPage({
   );
   // Augments rank by their DeepScore on this champion, the same ranking the rest of the site uses (lib/champion-augments.ts).
   const scores = augmentScores(c.alias);
+  // The augment list by skill bracket, live patch only (lib/bracket-augments.ts); null hides the bracket switch.
+  const bracketMaps = bracketAugmentScores(c.alias);
+  const bracketAugs = bracketMaps
+    ? Object.fromEntries(Object.entries(bracketMaps).map(([b, m]) => [b, Object.fromEntries(m!)]))
+    : null;
   // The same on the live patch's games alone, for the table's "This patch only" switch.
   const patchScores = augmentScores(c.alias, true);
   // Each augment's share of this champion's picks at the 1st to 4th augment pick (estimated).
@@ -987,7 +993,7 @@ export default async function ChampionPage({
                 ) : undefined
               }
             >
-              <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} patch={patchName(c.patch)} />
+              <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} patch={patchName(c.patch)} brackets={bracketAugs ?? undefined} />
             </Panel>
           )}
           {/* Augment synergies (Nico, 2026-11-20): pairs worth more than the sum of their parts, from confirmed
