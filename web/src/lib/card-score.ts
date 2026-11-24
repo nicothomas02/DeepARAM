@@ -142,6 +142,20 @@ export const ITEM_FOLLOWING = 0.05;
 /** Fallback share for spell pairs without real game counts (Nico chose 2% on 2026-11-24). */
 export const SPELL_FOLLOWING = 0.02;
 
+/** Flash's summoner spell id. */
+export const FLASH = 4;
+/** A spell pair without Flash that well under a quarter of the most-taken pair's players take (Nico 2026-11-24,
+ *  Yunara's Ghost + Barrier): it may lead, but the card tags it "Few players" with its pick rate so the risk shows. */
+export function fewPlayersSpell<T extends { pickRate: number; spells: { id: number }[]; estimated?: boolean }>(
+  r: T,
+  rows: T[],
+  share = 0.25,
+): boolean {
+  if (r.estimated || r.spells.some((s) => s.id === FLASH)) return false;
+  const top = Math.max(0, ...rows.map((x) => x.pickRate));
+  return top > 0 && r.pickRate < share * top;
+}
+
 /** The real games behind a row's DeepScore: pooled where earlier patches are pooled in, else the live patch's. */
 export const gamesOf = (r: { games?: number; pooled?: Pooled }): number | undefined => r.pooled?.games ?? r.games;
 

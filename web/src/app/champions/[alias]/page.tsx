@@ -21,7 +21,7 @@ import { championAliases, championSummary, champList, type RadarAxis } from "@/l
 import { TfCard, TfPerf, TfStrip, TfTier, TimeframePicker } from "@/components/champion/Timeframe";
 import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
-import { leading, SPELL_FOLLOWING, SPELL_MIN_GAMES } from "@/lib/card-score";
+import { fewPlayersSpell, leading, SPELL_FOLLOWING, SPELL_MIN_GAMES } from "@/lib/card-score";
 import {
   buildOrder,
   championPage,
@@ -642,6 +642,7 @@ export default async function ChampionPage({
             {bestSpells ? (
               <>
                 <Spells r={bestSpells} />
+                {fewPlayersSpell(bestSpells, spells) && <FewPlayers spellPickRate={bestSpells.pickRate} />}
                 <small className="cp-stale-tag">
                   <T ns={NS}>Estimated</T>
                 </small>
@@ -1317,6 +1318,7 @@ export default async function ChampionPage({
                       cells={<SpellCells r={r} />}
                     >
                       <Spells r={r} />
+                      {fewPlayersSpell(r, spells) && <FewPlayers spellPickRate={r.pickRate} />}
                     </Row>
                   ))}
                 </ShowMore>
