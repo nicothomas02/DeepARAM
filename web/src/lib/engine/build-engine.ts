@@ -63,6 +63,8 @@ export const RULES: Record<string, Rule> = {
   augmentConflicts: { source: "game data", on: true, why: "An augment that can't work with one you took goes last, with the reason (wiki augment text): Back to Basics seals your ultimate, so augments that need your ultimate cast are dead with it; ADAPt and EscAPADe convert opposite ways; you have two summoner spell slots, so Mark augments, Flash augments and augments that replace a spell can't all fit. Nico asked 2026-11-24; the longer list of possible anti-synergies is in research/augment-conflicts for his review." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
+  ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). A path item you've passed over with two finished items (bought after it in the path, or off it) moves behind the rest, so Next moves on (2 is estimated: one situational buy out of order keeps the plan); two or more off-path items of one style (class-wide builds over all champions, AramHex) switch the rest of the build to that style, e.g. AP Zeri." },
+  pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
   // Design choices Nico hasn't picked yet: kept as they were.
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
   swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
@@ -810,13 +812,19 @@ export function classBuild(picks: Picks, k: Kinds, style: string, magic: boolean
 
 export type BuildPick = { list: Named[]; style: string | null; core: number | null; because?: string; classWide?: boolean };
 
+/** Finished items bought past a path item before it moves behind the rest (ownedReplan). Estimated: 2 so that one
+ *  situational buy out of order (Thornmail before the 3rd item) keeps the plan. */
+export const PASSED_OVER = 2;
+
 /**
  * The build to follow: the champion's usual one or, once the augments you took point to another style (on-hit, AP,
  * tank...), that style: the champion's own build of it if players make one, else the class-wide style build. Only
  * what you haven't bought is re-planned: items you own stay.
  */
-export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, champ: string, taken: number[], owned: Set<number>, rules: ItemRules): BuildPick {
-  if (!(RULES.augmentReplan.on || RULES.measuredReplan.on) || !taken.length || !k || !picks) return { list: base0, style: null, core: null };
+export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, champ: string, taken: number[], owned: Set<number>, rules: ItemRules,
+  forced: { style: string; because: string; magic: boolean } | null = null): BuildPick {
+  if (!k || !picks) return { list: base0, style: null, core: null };
+  if (!forced && (!(RULES.augmentReplan.on || RULES.measuredReplan.on) || !taken.length)) return { list: base0, style: null, core: null };
   const ck = keyIn(picks.builds, champ);
   const styles = ck ? picks.builds![ck] : [];
   const votes: Record<string, number> = {}, because: Record<string, number> = {};
@@ -828,14 +836,16 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
       if (strong) because[st] = id;
     }
   }
-  const top = Object.entries(votes).sort((x, y) => y[1] - x[1])[0];
+  // the items you bought re-plan only when no augment switched the build
+  const top = Object.entries(votes).sort((x, y) => y[1] - x[1])[0] ?? (forced ? ([forced.style, 3] as [string, number]) : undefined);
   if (!top) return { list: base0, style: null, core: null };
   const [st, n] = top;
+  const byItems = !!forced && st === forced.style && !votes[st];
   if (styles[0]?.[0] === st) return { list: base0, style: null, core: null };
   const found = styles.find(([x]) => x === st);
   let plan: number[][] | null = found ? [found[2].slice(0, 1), found[3], found[4]] : null;
-  if (!plan && n >= 3 && RULES.augmentReplan.on) {
-    const magic = (Object.entries(k.champions).find(([a]) => a.toLowerCase() === champ.toLowerCase())?.[1] ?? 0.5) > 0.5;
+  if (!plan && n >= 3 && (RULES.augmentReplan.on || byItems)) {
+    const magic = byItems ? forced!.magic : (Object.entries(k.champions).find(([a]) => a.toLowerCase() === champ.toLowerCase())?.[1] ?? 0.5) > 0.5;
     const cb = classBuild(picks, k, st, magic, rules);
     const boots = base0.find((it) => k.boots.includes(itemId(it.icon)));
     if (cb) plan = [boots ? [itemId(boots.icon)] : [], cb[0], cb[1]];
@@ -851,7 +861,8 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
     return { name: k.recipes[b][0], icon: `${prefix}${ICON_ID[id] ? id : fin ? 220000 + b : b}.png` };
   };
   const fresh = [...plan[0].slice(0, 1), ...plan[1], ...plan[2]].flatMap((id) => mk(id) ?? []);
-  const kept = base0.filter((it) => owned.has(itemId(it.icon)));
+  const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 || k.boots.includes(i)).flatMap((i) => base0.find((it) => itemId(it.icon) === i) ?? mk(i) ?? [])
+    : base0.filter((it) => owned.has(itemId(it.icon)));
   const keptIds = kept.map((it) => itemId(it.icon));
   const list: Named[] = [...kept];
   for (const it of fresh) {
@@ -859,7 +870,7 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
     if (keptIds.includes(id) || owned.has(id) || list.some((x) => rules.clash(itemId(x.icon), id))) continue;
     list.push(it);
   }
-  const why = because[st] ? (picks.augments[because[st]]?.[0] ?? "") : "";
+  const why = byItems ? forced!.because : because[st] ? (picks.augments[because[st]]?.[0] ?? "") : "";
   const sized = list.slice(0, 6);
   return { list: sized, style: STYLE_NAMES[st] ?? st, core: Math.min(sized.length, (plan[0].length ? 1 : 0) + 3), because: why, classWide: !found };
 }
@@ -1141,6 +1152,30 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const bootIds = new Set(k?.boots ?? []);
   let slotRows = laterPicks(champ, owned, rules);
   if (slotRows && RULES.itemLimits.on) applied("itemLimits");
+  // Off the path (ownedReplan): two or more finished items the path doesn't list, of the other damage type than the
+  // path, switch what's left to the class-wide style build that holds the most of what you own.
+  let forced: { style: string; because: string; magic: boolean } | null = null;
+  if (RULES.ownedReplan.on && k && picks) {
+    const listed = new Set([...(champ?.items ?? []), ...(champ?.rest ?? []), ...(slotRows ?? []).flatMap((r) => [r.it, ...r.alts])].map((it) => itemId(it.icon)));
+    const fin = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i));
+    const off = fin.filter((i) => !listed.has(i));
+    const tag = (i: number, t: string) => (k.items[String(i)] ?? []).includes(t);
+    const magicOf = (ids: number[]) => ids.filter((i) => tag(i, "ap") && !tag(i, "ad")).length > ids.filter((i) => tag(i, "ad") && !tag(i, "ap")).length;
+    const pathIds = [...listed].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i));
+    if (off.length >= 2 && magicOf(fin) !== magicOf(pathIds)) {
+      const magic = magicOf(fin);
+      const inPath = fin.filter((i) => listed.has(i)).length;
+      let best: { st: string; hit: number } | null = null;
+      for (const st of [...new Set(Object.values(picks.builds ?? {}).flatMap((b) => b.map((x) => x[0])))]) {
+        const cb = classBuild(picks, k, st, magic, rules);
+        if (!cb) continue;
+        const ids = new Set([...cb[0], ...cb[1]]);
+        const hit = fin.filter((i) => ids.has(i)).length;
+        if (off.filter((i) => ids.has(i)).length >= 2 && hit > inPath && (!best || hit > best.hit)) best = { st, hit };
+      }
+      if (best) forced = { style: best.st, magic, because: off.slice(0, 2).map((i) => k.recipes[i][0]).join(" + ") };
+    }
+  }
   // Finished items you own that the path doesn't list take the first later slots you haven't filled.
   if (slotRows && k && RULES.ownedOffPath.on) {
     const listed = new Set([...(champ?.items ?? []), ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
@@ -1184,9 +1219,20 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       applied("critCap");
     }
   }
-  const baseList = [...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : (champ?.rest ?? []))];
-  const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules);
-  if (picked.style) { slotRows = null; applied(RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan"); }
+  // Each item once (pathOnce): a later slot that repeats an earlier item takes its first option not yet in the path.
+  if (slotRows && RULES.pathOnce.on) {
+    const seen = new Set((champ?.items ?? []).map((it) => itemId(it.icon)));
+    slotRows = slotRows.flatMap((r) => {
+      const pick = [r.it, ...r.alts].find((x) => !seen.has(itemId(x.icon)) && ![...seen].some((s) => rules.clash(s, itemId(x.icon))));
+      if (!pick) return [];
+      if (pick !== r.it) { applied("pathOnce"); r = { ...r, it: pick, alts: [r.it, ...r.alts.filter((x) => x !== pick)].slice(0, 2) }; }
+      seen.add(itemId(pick.icon));
+      return [r];
+    });
+  }
+  const baseList = [...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : (champ?.rest ?? []))].filter((it, i, a) => a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
+  const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules, forced);
+  if (picked.style) { slotRows = null; applied(forced && picked.because === forced.because ? "ownedReplan" : RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan"); }
   const build = picked.list;
   const coreLen = picked.core ?? (champ?.items ?? []).length;
   // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA
@@ -1195,6 +1241,17 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const isOwned = (it: Named) => owned.has(itemId(it.icon)) || (hasBoots && bootIds.has(itemId(it.icon)));
   let next = build.filter((it) => !isOwned(it));
   const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i)).length;
+  // A path item you've passed over twice (two finished items bought that come after it in the path, or aren't in it)
+  // moves behind the rest (ownedReplan): Next moves on instead of waiting on an item you keep skipping.
+  if (RULES.ownedReplan.on) {
+    const buildIds = build.map((it) => itemId(it.icon));
+    const fin = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i));
+    const passed = (it: Named) => fin.filter((i) => { const at = buildIds.indexOf(i); return at < 0 || at > build.indexOf(it); }).length >= PASSED_OVER;
+    // boots you've started (plain Boots owned) aren't skipped: you're building them
+    const started = [...owned].some((i) => TIER1_BOOTS.has(i));
+    const skipped = next.filter((it) => passed(it) && !(started && bootIds.has(itemId(it.icon))));
+    if (skipped.length && skipped.length < next.length) { next = [...next.filter((it) => !skipped.includes(it)), ...skipped]; applied("ownedReplan"); }
+  }
   const timing: { item: Named; because: string }[] = [];
   const augName = (id: number) => picks?.augments[id]?.[0] ?? `#${id}`;
   const front = (idx: number, because: string) => {
@@ -1243,7 +1300,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
 
   // Path: the core, then the 4th/5th/6th picks (or the rest of the build).
   const coreItems = build.slice(0, coreLen);
-  const rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6);
+  const rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
   const path = [...coreItems, ...rest];
   const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
   const slotName = (i: number) => ord(slotRows?.[i]?.slot ?? first + i);

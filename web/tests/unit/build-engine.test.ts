@@ -174,6 +174,34 @@ describe("build engine", () => {
     expect(ids(p.next)).toContain(3006);
   });
 
+  it("off-path buys re-plan: an item passed over twice stops being Next, one out-of-order buy keeps it", () => {
+    expect(ids(plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036] }), taken: [] }).next)[0]).toBe(3031);
+    const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036, 3003] }), taken: [] });
+    expect(ids(p.next)[0]).not.toBe(3031);
+    expect(p.rules).toContain("ownedReplan");
+  });
+
+  it("off-path buys of the other damage type switch the rest of the build to that style (AP Zeri)", () => {
+    const ap = [3003, 3089, 3135, 4645];
+    const k2 = { ...kinds, items: { ...kinds.items, ...Object.fromEntries(ap.map((i) => [String(i), ["ap"]])) },
+      recipes: { ...kinds.recipes, ...Object.fromEntries(ap.map((i) => [String(i), [`#${i}`, 3000, []]])) } } as Kinds;
+    const p2 = { ...picks, builds: { ...picks.builds, Lux: [["ap", 1, [3006], [3003, 3089, 3135], [4645]]] } } as Picks;
+    const p = plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003, 3089] }), taken: [] });
+    expect(p.switched?.style).toBeTruthy();
+    expect(p.rules).toContain("ownedReplan");
+    expect(ids(p.path)).toEqual(expect.arrayContaining([3003, 3089, 3135]));
+    expect([3135, 4645]).toContain(ids(p.next)[0]);
+    // one off-path AP item doesn't switch
+    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+  });
+
+  it("never shows an item twice in the path", () => {
+    const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3036)] }, { slot: 5, items: [item(3036), item(3094)] }, { slot: 6, items: [item(3031), item(6333)] }] };
+    const p = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] });
+    expect(new Set(ids(p.path)).size).toBe(p.path.length);
+    expect(ids(p.path)).toEqual([3006, 3031, 3046, 3036, 3094, 6333]);
+  });
+
   it("caps the path at six items with boots, like the site's card", () => {
     const c = { ...champ, items: [item(3006), item(3031), item(3046), item(3065)] };
     expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] }).path).toHaveLength(6);
