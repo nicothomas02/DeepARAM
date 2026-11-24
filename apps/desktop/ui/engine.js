@@ -414,6 +414,8 @@ var DeepEngine = (() => {
 
   // src/lib/engine/build-engine.ts
   var ENGINE_VERSION = "1.3.15";
+  var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
+  var ADAPT = 1205;
   var RULES = {
     // Backed by data or the game's own rules: on.
     itemLimits: { source: "game data", on: true, why: "The game's own-only-one groups; never broken in 1,730 public full builds or 1,245 archived games (Immolate and Hydras excepted)." },
@@ -789,7 +791,9 @@ var DeepEngine = (() => {
   function situational(champ, k, fit, enemies, taken, skip, augName = (id) => `#${id}`) {
     const own = champ?.situational ?? [];
     const prefix = ([...champ?.items ?? [], ...own].find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
-    const extra = RULES.augmentItems.on ? [...AUGMENT_ITEMS].sort((x, y) => y.rate - x.rate).filter((x, n, all) => taken.includes(x.augment) && k.recipes[x.item] && !own.some((it) => itemId(it.icon) === x.item) && !skip.has(x.item) && all.findIndex((y) => y.augment === x.augment && taken.includes(y.augment) && k.recipes[y.item] && !own.some((it) => itemId(it.icon) === y.item) && !skip.has(y.item)) === n).map((x) => ({ name: k.recipes[x.item][0], icon: `${prefix}${22e4 + x.item}.png`, when: `With ${x.augmentName}`, why: augmentItemWhy(x), augments: [x.augment] })) : [];
+    const hasAd = [...champ?.items ?? [], ...champ?.rest ?? [], ...champ?.full ?? []].some((it) => it?.icon && (k.items[String(itemId(it.icon))] ?? []).includes("ad"));
+    const fitsBuild = (id) => hasAd || taken.includes(ADAPT) || !(k.items[String(id)] ?? []).includes("ad");
+    const extra = RULES.augmentItems.on ? [...AUGMENT_ITEMS].sort((x, y) => y.rate - x.rate).filter((x, n, all) => taken.includes(x.augment) && k.recipes[x.item] && !own.some((it) => itemId(it.icon) === x.item) && !skip.has(x.item) && fitsBuild(x.item) && all.findIndex((y) => y.augment === x.augment && taken.includes(y.augment) && k.recipes[y.item] && !own.some((it) => itemId(it.icon) === y.item) && !skip.has(y.item) && fitsBuild(y.item)) === n).map((x) => ({ name: k.recipes[x.item][0], icon: `${prefix}${22e4 + x.item}.png`, when: `With ${x.augmentName}`, why: augmentItemWhy(x), augments: [x.augment] })) : [];
     if (RULES.augmentShift.on && taken.length) {
       const pure = (t2) => t2.includes("ad") && !t2.includes("ap") ? "ad" : t2.includes("ap") && !t2.includes("ad") ? "ap" : "";
       const tags = new Set([...champ?.items ?? [], ...champ?.rest ?? [], ...champ?.full ?? []].map((it) => it?.icon ? pure(k.items[String(itemId(it.icon))] ?? []) : ""));
@@ -1170,7 +1174,7 @@ var DeepEngine = (() => {
     }
     const build = picked.list;
     const coreLen = picked.core ?? (champ?.items ?? []).length;
-    const hasBoots = [...owned].some((i) => bootIds.has(i));
+    const hasBoots = [...owned].some((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
     const isOwned = (it) => owned.has(itemId(it.icon)) || hasBoots && bootIds.has(itemId(it.icon));
     let next = build.filter((it) => !isOwned(it));
     const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i)).length;
@@ -1299,7 +1303,7 @@ var DeepEngine = (() => {
     if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
     for (const t of timing.slice(0, 1)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
     if (RULES.shopTips.on && k && next.length) {
-      const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + (hasBoots ? 1 : 0);
+      const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
       if (slots >= 6) {
         const inBuild = new Set(build.map((it) => itemId(it.icon)));
         const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !inBuild.has(i) && !bootIds.has(i));

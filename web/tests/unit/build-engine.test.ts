@@ -168,6 +168,12 @@ describe("build engine", () => {
     expect(ids(p.next)[0]).toBe(3046);
   });
 
+  it("plain Boots don't fill the build's boots: the build's boots stay next", () => {
+    const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
+    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3046] }), taken: [] });
+    expect(ids(p.next)).toContain(3006);
+  });
+
   it("caps the path at six items with boots, like the site's card", () => {
     const c = { ...champ, items: [item(3006), item(3031), item(3046), item(3065)] };
     expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] }).path).toHaveLength(6);

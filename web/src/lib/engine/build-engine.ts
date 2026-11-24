@@ -23,6 +23,10 @@ import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
 export const ENGINE_VERSION = "1.3.15";
+/** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
+const TIER1_BOOTS = new Set([1001, 2422]);
+/** ADAPt: converts bonus AD into AP, so AD items can fit an AP build. */
+const ADAPT = 1205;
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -670,11 +674,16 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
   const own = champ?.situational ?? [];
   // Measured augment -> item patterns the champion's list doesn't already have.
   const prefix = ([...(champ?.items ?? []), ...own].find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+  // The patterns are measured over all champions: an AD item from one (Jeweled Gauntlet -> Infinity Edge) only fits a
+  // build with no AD items when ADAPt turns that AD into AP (Nico 2026-11-24: "Infinity Edge on mages works if they
+  // have ADAPt and Jeweled Gauntlet"; replay QA: Infinity Edge shown to Orianna with Jeweled Gauntlet alone).
+  const hasAd = [...(champ?.items ?? []), ...(champ?.rest ?? []), ...(champ?.full ?? [])].some((it) => it?.icon && (k.items[String(itemId(it.icon))] ?? []).includes("ad"));
+  const fitsBuild = (id: number) => hasAd || taken.includes(ADAPT) || !(k.items[String(id)] ?? []).includes("ad");
   const extra: Situational[] = RULES.augmentItems.on
     ? [...AUGMENT_ITEMS]
         .sort((x, y) => y.rate - x.rate)
-        .filter((x, n, all) => taken.includes(x.augment) && k.recipes[x.item] && !own.some((it) => itemId(it.icon) === x.item) && !skip.has(x.item)
-          && all.findIndex((y) => y.augment === x.augment && taken.includes(y.augment) && k.recipes[y.item] && !own.some((it) => itemId(it.icon) === y.item) && !skip.has(y.item)) === n)
+        .filter((x, n, all) => taken.includes(x.augment) && k.recipes[x.item] && !own.some((it) => itemId(it.icon) === x.item) && !skip.has(x.item) && fitsBuild(x.item)
+          && all.findIndex((y) => y.augment === x.augment && taken.includes(y.augment) && k.recipes[y.item] && !own.some((it) => itemId(it.icon) === y.item) && !skip.has(y.item) && fitsBuild(y.item)) === n)
         .map((x) => ({ name: k.recipes[x.item][0], icon: `${prefix}${220000 + x.item}.png`, when: `With ${x.augmentName}`, why: augmentItemWhy(x), augments: [x.augment] }))
     : [];
   // Every other augment you took: items its holders finish clearly more often than the same champion's players
@@ -1180,7 +1189,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   if (picked.style) { slotRows = null; applied(RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan"); }
   const build = picked.list;
   const coreLen = picked.core ?? (champ?.items ?? []).length;
-  const hasBoots = [...owned].some((i) => bootIds.has(i));
+  // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA
+  // 2026-11-24: "Build done" with plain Boots while the build's Sorcerer's Shoes were still owed).
+  const hasBoots = [...owned].some((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
   const isOwned = (it: Named) => owned.has(itemId(it.icon)) || (hasBoots && bootIds.has(itemId(it.icon)));
   let next = build.filter((it) => !isOwned(it));
   const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i)).length;
@@ -1321,7 +1332,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
   for (const t of timing.slice(0, 1)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
   if (RULES.shopTips.on && k && next.length) {
-    const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + (hasBoots ? 1 : 0);
+    const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
     if (slots >= 6) {
       const inBuild = new Set(build.map((it) => itemId(it.icon)));
       const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !inBuild.has(i) && !bootIds.has(i));
