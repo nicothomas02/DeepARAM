@@ -282,7 +282,7 @@
  "On-hit": "On-hit",
  "Fighter": "ไฟท์เตอร์",
  "Enchanter": "เอนแชนเตอร์",
- "Summoner spells and skill order are the same for every build: the stats don't split them by build.": "สเปลล์ซัมมอนเนอร์และลำดับสกิลเหมือนกันทุกบิลด์ เพราะสถิติไม่ได้แยกตามบิลด์",
+ "Summoner spells are the same for every build: the stats don't split them by build.": "สเปลล์ซัมมอนเนอร์เหมือนกันทุกบิลด์ เพราะสถิติไม่ได้แยกตามบิลด์",
  "No ranked augment on this champion matches that name.": "ไม่มีออกเมนต์ที่จัดอันดับของแชมเปียนนี้ที่ตรงกับชื่อนั้น",
  "Full build": "บิลด์เต็ม",
  "Other options": "ตัวเลือกอื่น",
