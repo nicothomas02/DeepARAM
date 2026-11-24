@@ -1,0 +1,95 @@
+name: iPhone app to TestFlight
+
+# Builds the iPhone app (with its widgets and the embedded Apple Watch app) and uploads it to TestFlight, with no Mac
+# needed. Started by hand only (Actions > "iPhone app to TestFlight" > Run workflow). It never submits to the App Store:
+# a person does that in App Store Connect.
+#
+# Needs these repository secrets (Settings > Secrets and variables > Actions):
+#   APPLE_TEAM_ID      the 10-character Team ID (developer.apple.com > Membership)
+#   ASC_KEY_ID         App Store Connect API key ID (App Store Connect > Users and Access > Integrations, App Manager role)
+#   ASC_ISSUER_ID      the issuer ID shown above that list of keys
+#   ASC_KEY_P8         the whole text of the downloaded AuthKey_XXXX.p8 file
+# With the key, Xcode registers the bundle IDs and the App Group and makes the signing certificate and profiles itself.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ios-testflight
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - name: Check the secrets are set
+        env:
+          TEAM: ${{ secrets.APPLE_TEAM_ID }}
+          KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ISSUER: ${{ secrets.ASC_ISSUER_ID }}
+          P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          missing=""
+          [ -n "$TEAM" ] || missing="$missing APPLE_TEAM_ID"
+          [ -n "$KEY_ID" ] || missing="$missing ASC_KEY_ID"
+          [ -n "$ISSUER" ] || missing="$missing ASC_ISSUER_ID"
+          [ -n "$P8" ] || missing="$missing ASC_KEY_P8"
+          if [ -n "$missing" ]; then echo "::error::Add these repository secrets first:$missing"; exit 1; fi
+
+      - uses: actions/checkout@v4
+
+      - name: Use the newest Xcode
+        run: sudo xcode-select -s "$(ls -d /Applications/Xcode_16*.app | sort -V | tail -1)" && xcodebuild -version
+
+      - name: Write the API key
+        env:
+          P8: ${{ secrets.ASC_KEY_P8 }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/asc"
+          printf '%s\n' "$P8" > "$RUNNER_TEMP/asc/key.p8"
+          chmod 600 "$RUNNER_TEMP/asc/key.p8"
+
+      - name: Archive
+        working-directory: apps/ios
+        env:
+          TEAM: ${{ secrets.APPLE_TEAM_ID }}
+          KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ISSUER: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          # Each upload needs a higher build number than the last; the run number always grows.
+          xcodebuild archive -project DeepARAM.xcodeproj -scheme DeepARAM \
+            -destination 'generic/platform=iOS' -archivePath "$RUNNER_TEMP/DeepARAM.xcarchive" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$RUNNER_TEMP/asc/key.p8" -authenticationKeyID "$KEY_ID" -authenticationKeyIssuerID "$ISSUER" \
+            DEVELOPMENT_TEAM="$TEAM" CODE_SIGN_STYLE=Automatic CURRENT_PROJECT_VERSION="${{ github.run_number }}" | tail -60
+          exit ${PIPESTATUS[0]}
+
+      - name: Upload to TestFlight
+        env:
+          TEAM: ${{ secrets.APPLE_TEAM_ID }}
+          KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ISSUER: ${{ secrets.ASC_ISSUER_ID }}
+        run: |
+          cat > "$RUNNER_TEMP/ExportOptions.plist" <<PLIST
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0"><dict>
+            <key>method</key><string>app-store-connect</string>
+            <key>destination</key><string>upload</string>
+            <key>teamID</key><string>$TEAM</string>
+            <key>signingStyle</key><string>automatic</string>
+            <key>manageAppVersionAndBuildNumber</key><false/>
+          </dict></plist>
+          PLIST
+          xcodebuild -exportArchive -archivePath "$RUNNER_TEMP/DeepARAM.xcarchive" \
+            -exportOptionsPlist "$RUNNER_TEMP/ExportOptions.plist" -exportPath "$RUNNER_TEMP/export" \
+            -allowProvisioningUpdates \
+            -authenticationKeyPath "$RUNNER_TEMP/asc/key.p8" -authenticationKeyID "$KEY_ID" -authenticationKeyIssuerID "$ISSUER" | tail -40
+          exit ${PIPESTATUS[0]}
+
+      - name: Remove the key
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/asc"
