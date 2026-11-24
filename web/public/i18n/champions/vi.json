@@ -329,5 +329,8 @@
  "Recent patches": "Các bản gần đây",
  "This patch only": "Chỉ bản này",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Chưa có cộng hưởng đã biết với {names} ở tướng này, nên phần còn lại chỉ xếp theo mức tăng của chính nó.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Đã có lõi nâng cấp? Nhấn + hoặc kéo vào ô của bạn, phần còn lại sẽ xếp lại theo cộng hưởng."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Đã có lõi nâng cấp? Nhấn + hoặc kéo vào ô của bạn, phần còn lại sẽ xếp lại theo cộng hưởng.",
+ "In the build": "Trong build",
+ "{win} win · {pick} pick": "{win} thắng · {pick} chọn",
+ "or": "hoặc"
 }

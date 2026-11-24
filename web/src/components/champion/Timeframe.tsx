@@ -380,9 +380,10 @@ export function TfCard({ alias, patches, matches, spells, skill, children }: Com
           {(card.core?.later ?? []).length > 0 && (
             <LaterItems
               rows={card.core!.later!}
-              slots={card.core!.slots?.map((sl, k) => ({ ...sl, items: sl.items.filter((r) => !card.core!.full?.some((f) => f.items[0] === r.items[0])) }))}
+              slots={card.core!.slots}
+              inBuild={card.core!.full}
               info={info}
-              title={(card.core!.full ?? []).length ? "Other options" : undefined}
+              title={(card.core!.full ?? []).length ? "Items 4 to 6" : undefined}
             />
           )}
           {card.situational.length > 0 && (
@@ -390,19 +391,31 @@ export function TfCard({ alias, patches, matches, spells, skill, children }: Com
               <h4>
                 <T ns="champions">Situational items</T>
               </h4>
-              <ul className="cp-sit-mini">
-                {card.situational.map((s) => (
-                  <li key={s.situation}>
-                    <small>
-                      <T ns="champions">{SITUATIONS[s.situation]}</T>
-                    </small>
-                    <span className="cp-icons">
-                      {s.options.slice(0, 3).map((r, i) => (
-                        <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named={i === 0} />
-                      ))}
-                    </span>
-                  </li>
-                ))}
+              <ul className="cp-sit-rows">
+                {card.situational.map((s) => {
+                  const [best, ...alts] = s.options.slice(0, 3);
+                  return (
+                    <li key={s.situation}>
+                      <span className="cp-sit-when">
+                        <T ns="champions">{SITUATIONS[s.situation]}</T>
+                      </span>
+                      <span className="cp-sit-best">{best && <ItemIcon id={best.items[0]} info={info} named />}</span>
+                      <span className="cp-sit-alt">
+                        {alts.length > 0 && (
+                          <>
+                            <small>
+                              <T ns="champions">or</T>
+                            </small>
+                            {alts.map((r) => (
+                              <ItemIcon key={r.items[0]} id={r.items[0]} info={info} />
+                            ))}
+                          </>
+                        )}
+                      </span>
+                      <small className="cp-sit-why" />
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           )}

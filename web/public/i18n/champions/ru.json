@@ -329,5 +329,8 @@
  "Recent patches": "Последние патчи",
  "This patch only": "Только этот патч",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Пока нет известной синергии с {names} у этого чемпиона, поэтому остальные ранжируются только по собственному приросту.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Уже есть усилители? Нажмите + или перетащите их в ячейки, и остальные перестроятся по синергии."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Уже есть усилители? Нажмите + или перетащите их в ячейки, и остальные перестроятся по синергии.",
+ "In the build": "В сборке",
+ "{win} win · {pick} pick": "{win} побед · {pick} выбор",
+ "or": "или"
 }

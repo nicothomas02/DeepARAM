@@ -241,35 +241,85 @@ function LaterList({ rows, info }: { rows: LaterRow[]; info: Record<number, { na
   );
 }
 
+/** One option chip for a slot: the item named, its DeepScore, then win and pick rate on a quieter line. */
+function SlotChip({ r, info, inBuild }: { r: LaterRow; info: Record<number, { name: string; icon?: string }>; inBuild?: boolean }) {
+  return (
+    <li className={inBuild ? "cp-slot-pick" : undefined}>
+      <ItemIcon id={r.items[0]} info={info} named />
+      <span className="cp-slot-nums">
+        {inBuild && (
+          <small className="cp-slot-tag">
+            <T ns={NS}>In the build</T>
+          </small>
+        )}
+        {r.deepScore !== undefined && (
+          <span>
+            <b>{r.deepScore}</b> <small>DeepScore</small>
+          </span>
+        )}
+        {Number.isFinite(r.winRate) && (
+          <small>
+            <T ns={NS} v={{ win: pct(r.winRate), pick: pct(r.pickRate) }}>
+              {"{win} win · {pick} pick"}
+            </T>
+          </small>
+        )}
+      </span>
+    </li>
+  );
+}
+
 /** The items to buy after the core, each with the DeepScore that orders it, then win and pick rate (Nico,
  *  2026-11-23: core, then the rest of the items singly, above the situational ones), split into the 4th, 5th and 6th
- *  item slots when the buying order is known. */
+ *  item slots when the buying order is known. With a full build on the card (inBuild), each slot row leads with the
+ *  build's own pick for that slot, then the options to swap in, best DeepScore first (Nico, 2026-11-24: "make item
+ *  options display more intuitive after core"). */
 export function LaterItems({
   rows,
   slots,
   info,
   title = "After the core",
+  inBuild = [],
 }: {
   rows: LaterRow[];
   slots?: { slot: number; items: LaterRow[] }[];
   info: Record<number, { name: string; icon?: string }>;
   /** "Other options" when the card already shows a full build with each slot's pick. */
   title?: string;
+  /** The full build's picks after the core, so each slot row can show which one the build already takes. */
+  inBuild?: LaterRow[];
 }) {
-  const bySlot = (slots ?? []).filter((s) => s.items.length > 0 && SLOT_NAMES[s.slot]);
+  const built = new Set(inBuild.map((r) => r.items[0]));
+  const placed = new Set<number>();
+  const ds = (r: LaterRow) => r.deepScore ?? -Infinity;
+  const bySlot = (slots ?? [])
+    .filter((s) => SLOT_NAMES[s.slot])
+    .map((s) => {
+      // The build's pick for this slot: the first of its picks bought in this slot, each placed once.
+      const pick = inBuild.find((b) => !placed.has(b.items[0]) && s.items.some((r) => r.items[0] === b.items[0]));
+      if (pick) placed.add(pick.items[0]);
+      const options = s.items.filter((r) => !built.has(r.items[0])).sort((x, y) => ds(y) - ds(x));
+      return { slot: s.slot, pick, options };
+    })
+    .filter((s) => s.options.length > 0);
   return (
     <div className="cp-best cp-best-wide cp-best-later">
       <h4>
         <T ns={NS}>{title}</T>
       </h4>
       {bySlot.length > 0 ? (
-        <div className="cp-later-slots">
+        <div className="cp-slot-rows">
           {bySlot.map((s) => (
-            <div key={s.slot}>
+            <div key={s.slot} className="cp-slot-row">
               <h5>
                 <T ns={NS}>{SLOT_NAMES[s.slot]}</T>
               </h5>
-              <LaterList rows={s.items} info={info} />
+              <ol className="cp-slot-opts">
+                {s.pick && <SlotChip r={s.pick} info={info} inBuild />}
+                {s.options.map((r) => (
+                  <SlotChip key={r.items[0]} r={r} info={info} />
+                ))}
+              </ol>
             </div>
           ))}
         </div>

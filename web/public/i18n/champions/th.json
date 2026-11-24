@@ -329,5 +329,8 @@
  "Recent patches": "แพตช์ล่าสุด",
  "This patch only": "แพตช์นี้เท่านั้น",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "ยังไม่มีซินเนอร์จีที่ทราบกับ {names} สำหรับแชมเปียนนี้ ที่เหลือจึงเรียงตามค่าเพิ่มของตัวเองเท่านั้น",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "มีออกเมนต์แล้ว? กด + หรือลากเข้าช่อง แล้วที่เหลือจะจัดอันดับใหม่ตามซินเนอร์จี"
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "มีออกเมนต์แล้ว? กด + หรือลากเข้าช่อง แล้วที่เหลือจะจัดอันดับใหม่ตามซินเนอร์จี",
+ "In the build": "อยู่ในบิลด์",
+ "{win} win · {pick} pick": "ชนะ {win} · เลือก {pick}",
+ "or": "หรือ"
 }

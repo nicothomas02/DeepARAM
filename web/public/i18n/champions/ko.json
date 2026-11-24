@@ -329,5 +329,8 @@
  "Recent patches": "최근 패치",
  "This patch only": "이번 패치만",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "이 챔피언에서는 아직 {names}와(과)의 알려진 시너지가 없어, 나머지는 자체 상승폭만으로 순위가 매겨집니다.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "이미 증강이 있나요? +를 누르거나 슬롯으로 끌어오면 나머지가 시너지 순으로 다시 정렬됩니다."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "이미 증강이 있나요? +를 누르거나 슬롯으로 끌어오면 나머지가 시너지 순으로 다시 정렬됩니다.",
+ "In the build": "빌드에 포함",
+ "{win} win · {pick} pick": "승률 {win} · 선택률 {pick}",
+ "or": "또는"
 }

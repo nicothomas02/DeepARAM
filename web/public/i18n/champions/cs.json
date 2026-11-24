@@ -329,5 +329,8 @@
  "Recent patches": "Nedávné patche",
  "This patch only": "Jen tento patch",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "S {names} zatím u tohoto šampiona neznáme žádnou synergii, takže ostatní se řadí jen podle svého přínosu.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Už máš vylepšení? Stiskni + nebo je přetáhni do svých slotů a ostatní se přeřadí podle synergie."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Už máš vylepšení? Stiskni + nebo je přetáhni do svých slotů a ostatní se přeřadí podle synergie.",
+ "In the build": "V buildu",
+ "{win} win · {pick} pick": "{win} výher · {pick} výběr",
+ "or": "nebo"
 }

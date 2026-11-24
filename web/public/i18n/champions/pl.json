@@ -329,5 +329,8 @@
  "Recent patches": "Ostatnie patche",
  "This patch only": "Tylko ten patch",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Nie znamy jeszcze synergii z {names} u tego bohatera, więc pozostałe są ułożone tylko według ich przewagi.",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Masz już wzmocnienia? Naciśnij + albo przeciągnij je do slotów, a pozostałe ułożą się według synergii."
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Masz już wzmocnienia? Naciśnij + albo przeciągnij je do slotów, a pozostałe ułożą się według synergii.",
+ "In the build": "W buildzie",
+ "{win} win · {pick} pick": "{win} wygranych · {pick} wyborów",
+ "or": "lub"
 }

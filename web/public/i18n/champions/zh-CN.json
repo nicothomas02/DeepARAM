@@ -329,5 +329,8 @@
  "Recent patches": "最近版本",
  "This patch only": "仅本版本",
  "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "该英雄与{names}暂无已知协同，因此其余强化符文仅按自身提升排序。",
- "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "已经有强化符文了？点击 + 或拖入你的栏位，其余的会按协同重新排序。"
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "已经有强化符文了？点击 + 或拖入你的栏位，其余的会按协同重新排序。",
+ "In the build": "出装内",
+ "{win} win · {pick} pick": "胜率 {win} · 选取率 {pick}",
+ "or": "或"
 }

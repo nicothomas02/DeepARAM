@@ -454,9 +454,10 @@ export default async function ChampionPage({
       {(core.later ?? []).length > 0 && (
         <LaterItems
           rows={core.later!}
-          slots={core.slots?.map((sl, k) => ({ ...sl, items: sl.items.filter((r) => !core.full?.some((f) => f.items[0] === r.items[0])) }))}
+          slots={core.slots}
+          inBuild={core.full}
           info={info}
-          title={(core.full ?? []).length ? "Other options" : undefined}
+          title={(core.full ?? []).length ? "Items 4 to 6" : undefined}
         />
       )}
       {(situ.length > 0 || swaps.length > 0) && (
@@ -464,51 +465,65 @@ export default async function ChampionPage({
           <h4>
             <T ns={NS}>Situational items</T>
           </h4>
-          <ul className="cp-sit-mini">
+          {/* One row per trigger, read left to right (Nico, 2026-11-24: clearer options after the core): when, the
+              best item for it, the runners-up, then why or which build item it replaces. Augment swaps first. */}
+          <ul className="cp-sit-rows">
             {/* Augment-triggered swaps (lib/build-plan.ts augmentSwaps): rule-based tips from what each augment does. */}
             {swaps.map((sw) => {
               const clash = clashWith(sw.item, owned);
               return (
-              <li key={`a${sw.item}`} title={sw.why}>
-                <small className="cp-sit-aug">
-                  <img className="cp-icon round" src={`/icons/augments/${sw.augments[0]}.webp`} alt="" width={20} height={20} />
-                  <T ns={NS} v={{ augment: AUG_NAMES[sw.augments[0]] ?? "" }}>
-                    {"With {augment}"}
-                  </T>
-                </small>
-                <span className="cp-icons">
-                  <ItemIcon id={sw.item} info={info} named />
-                </span>
-                <small className="cp-sit-why">
-                  <T ns={NS}>{sw.why}</T>
-                  {clash !== undefined && (
-                    <>
-                      {" "}
-                      <T ns={NS}>Replaces</T> <ItemName id={clash} info={info} />
-                    </>
-                  )}
-                </small>
-              </li>
+                <li key={`a${sw.item}`} className="cp-sit-row-aug">
+                  <span className="cp-sit-when">
+                    <img className="cp-icon round" src={`/icons/augments/${sw.augments[0]}.webp`} alt="" width={24} height={24} />
+                    <T ns={NS} v={{ augment: AUG_NAMES[sw.augments[0]] ?? "" }}>
+                      {"With {augment}"}
+                    </T>
+                  </span>
+                  <span className="cp-sit-best">
+                    <ItemIcon id={sw.item} info={info} named />
+                  </span>
+                  <span className="cp-sit-alt" />
+                  <small className="cp-sit-why">
+                    <T ns={NS}>{sw.why}</T>
+                    {clash !== undefined && (
+                      <>
+                        {" "}
+                        <T ns={NS}>Replaces</T> <ItemName id={clash} info={info} />
+                      </>
+                    )}
+                  </small>
+                </li>
               );
             })}
             {situ.map((st) => {
               // The game won't let you own both (lib/item-limits.ts): say which build item this one replaces.
               const clash = st.options[0] ? clashWith(st.options[0].items[0], owned) : undefined;
+              const [best, ...alts] = st.options.slice(0, 3);
               return (
                 <li key={st.situation}>
-                  <small>
+                  <span className="cp-sit-when">
                     <T ns={NS}>{SITUATIONS[st.situation]}</T>
-                  </small>
-                  <span className="cp-icons">
-                    {st.options.slice(0, 3).map((r, i) => (
-                      <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named={i === 0} />
-                    ))}
                   </span>
-                  {clash !== undefined && (
-                    <small className="cp-sit-why">
-                      <T ns={NS}>Replaces</T> <ItemName id={clash} info={info} />
-                    </small>
-                  )}
+                  <span className="cp-sit-best">{best && <ItemIcon id={best.items[0]} info={info} named />}</span>
+                  <span className="cp-sit-alt">
+                    {alts.length > 0 && (
+                      <>
+                        <small>
+                          <T ns={NS}>or</T>
+                        </small>
+                        {alts.map((r) => (
+                          <ItemIcon key={r.items[0]} id={r.items[0]} info={info} />
+                        ))}
+                      </>
+                    )}
+                  </span>
+                  <small className="cp-sit-why">
+                    {clash !== undefined && (
+                      <>
+                        <T ns={NS}>Replaces</T> <ItemName id={clash} info={info} />
+                      </>
+                    )}
+                  </small>
                 </li>
               );
             })}

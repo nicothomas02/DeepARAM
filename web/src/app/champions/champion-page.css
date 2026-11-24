@@ -174,49 +174,101 @@
 .cp-best-augs .cp-named.rarity-silver .cp-icon {
   box-shadow: 0 0 0 2px var(--silver, #9aa3ad);
 }
-/* Situational items on the game card: one line per situation (vs healing, vs burst...), its best item named and
-   the runner-up as an icon. Two columns where there's room. */
-.cp-game .cp-sit-mini {
+/* Situational items on the game card (Nico, 2026-11-24: clearer options after the core): one row per trigger, read
+   left to right in fixed columns: when (an augment or the enemy team), the best item named, the runners-up as icons,
+   then why or which build item it replaces. Phones stack the why under the row. */
+.cp-game .cp-sit-rows {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 0.4rem 1rem;
+  gap: 0;
 }
-.cp-game .cp-sit-mini li {
+.cp-game .cp-sit-rows li {
   display: grid;
-  grid-template-columns: 9.5rem minmax(0, 1fr);
+  grid-template-columns: minmax(8rem, 12rem) minmax(9rem, 15rem) minmax(4.5rem, 6rem) minmax(12rem, 1fr);
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--line, rgba(127, 127, 127, 0.18));
 }
-.cp-game .cp-sit-mini small {
+.cp-game .cp-sit-rows li:first-child {
+  border-top: 0;
+}
+.cp-game .cp-sit-rows .cp-sit-row-aug + li:not(.cp-sit-row-aug) {
+  border-top-width: 2px;
+}
+.cp-game .cp-sit-when {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   font-size: 14px;
   color: var(--muted, inherit);
+  min-width: 0;
 }
-.cp-game .cp-sit-mini .cp-icons {
+.cp-game .cp-sit-when .cp-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.cp-game .cp-sit-best .cp-named,
+.cp-game .cp-slot-opts .cp-named {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  flex-wrap: nowrap;
-}
-.cp-game .cp-sit-mini .cp-named {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
   width: auto;
   text-align: left;
 }
-.cp-game .cp-sit-mini .cp-named > small {
+.cp-game .cp-sit-best .cp-named > small,
+.cp-game .cp-slot-opts .cp-named > small {
   display: inline;
-  color: inherit;
+  color: var(--fg);
   font-size: 14px;
   text-align: left;
   hyphens: none;
 }
-.cp-game .cp-sit-mini .cp-icon {
-  width: 30px;
-  height: 30px;
+.cp-game .cp-sit-best .cp-icon {
+  width: 32px;
+  height: 32px;
+}
+.cp-game .cp-sit-alt {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.cp-game .cp-sit-alt small {
+  font-size: 13px;
+  color: var(--muted, inherit);
+}
+.cp-game .cp-sit-alt .cp-icon {
+  width: 26px;
+  height: 26px;
+  opacity: 0.9;
+}
+.cp-game .cp-sit-why {
+  font-size: 13px;
+  color: var(--muted, inherit);
+  min-width: 0;
+}
+.cp-game .cp-sit-why .cp-name {
+  font-size: inherit;
+  font-weight: 600;
+  color: var(--fg);
+}
+@media (max-width: 700px) {
+  .cp-game .cp-sit-rows li {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.3rem 0.6rem;
+  }
+  .cp-game .cp-sit-when {
+    grid-column: 1 / -1;
+  }
+  .cp-game .cp-sit-why {
+    grid-column: 1 / -1;
+  }
+  .cp-game .cp-sit-why:empty {
+    display: none;
+  }
 }
 /* Playstyle: the champion's tags, rating bars and (admins) 3D model, moved down from the header. */
 .cp-style-top {
@@ -1716,6 +1768,9 @@ html:not([data-raw]) .cp-row.aug-item {
   .cp-game > .cp-best-wide:not(.cp-best-augs) {
     grid-column: span 6;
   }
+  .cp-game > .cp-best-wide.cp-best-sit {
+    grid-column: 1 / -1;
+  }
 }
 .cp-game .cp-best .cp-mini {
   display: flex;
@@ -2037,29 +2092,67 @@ html:not([data-raw]) .cp-row.aug-item {
   font-size: 14px;
   color: var(--muted, inherit);
 }
-/* After the core, split into the 4th, 5th and 6th item slots: side by side, stacking on narrow screens. */
-.cp-game .cp-later-slots {
+/* Items 4 to 6, one row per slot (Nico, 2026-11-24): the build's own pick first, marked, then the options to swap
+   in, best DeepScore first, each with its DeepScore and a quieter win and pick rate line. Rows wrap on narrow cards. */
+.cp-game .cp-slot-rows {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
-  gap: 0.6rem 1.2rem;
+  gap: 0;
 }
-.cp-game .cp-later-slots h5 {
-  margin: 0 0 0.3rem;
+.cp-game .cp-slot-row {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--line, rgba(127, 127, 127, 0.18));
+}
+.cp-game .cp-slot-row:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.cp-game .cp-slot-row h5 {
+  margin: 0.45rem 0 0;
   font-size: 14px;
   color: var(--muted, inherit);
 }
-.cp-game .cp-later-slots .cp-later {
-  grid-template-columns: 1fr;
+.cp-game .cp-slot-opts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.5rem 0.75rem;
 }
-/* Narrow slot columns: the numbers wrap as whole pairs instead of running into each other. */
-.cp-game .cp-later-slots .cp-later-nums {
+.cp-game .cp-slot-opts li {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 8px;
+  min-width: 0;
+}
+.cp-game .cp-slot-opts li.cp-slot-pick {
+  background: color-mix(in srgb, var(--accent, #6aa9ff) 12%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent, #6aa9ff) 45%, transparent);
+}
+.cp-game .cp-slot-opts .cp-icon {
+  width: 30px;
+  height: 30px;
+}
+.cp-game .cp-slot-nums {
+  display: flex;
   flex-wrap: wrap;
-  gap: 0.1rem 0.6rem;
-  white-space: normal;
-  flex-shrink: 1;
+  align-items: baseline;
+  gap: 0.1rem 0.5rem;
+  font-size: 14px;
 }
-.cp-game .cp-later-slots .cp-later-nums > span {
-  white-space: nowrap;
+.cp-game .cp-slot-nums small {
+  font-size: 13px;
+  color: var(--muted, inherit);
+}
+.cp-game .cp-slot-nums .cp-slot-tag {
+  flex-basis: 100%;
+  color: var(--accent, #6aa9ff);
+  font-weight: 600;
 }
 
 /* "Few players" on a high-scoring legendary that the build leaves out; tap or hover for why. */
