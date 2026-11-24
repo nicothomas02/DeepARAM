@@ -36,6 +36,13 @@ TOP = 20
 BEAM = 400
 # Teams in the list differ by at least this many champions, so it isn't one core with every fifth member swapped.
 MIN_DIFFERENT = 2
+# Variety (website thread 2026-11-24): a champion appears in at most this many listed teams; the search keeps going
+# without it once it hits the cap, so the list still fills up. Set to None to remove the cap.
+MAX_PER_CHAMPION = 3
+# Second list (Nico chose "Show both lists" 2026-11-24): teams with at least one of these subclasses. A design rule,
+# not a measured effect: no data says teams need a frontline.
+FRONTLINE = {"Warden", "Vanguard", "Juggernaut"}
+FRONTLINE_LABEL = "Best with a frontline: each team has a Warden, Vanguard or Juggernaut (a design rule, not measured)"
 
 
 def logit(p):
@@ -135,25 +142,49 @@ def main():
         s = sum(pair_syn(a, b) for a, b in itertools.combinations(team, 2))
         return e + s
 
-    champs = sorted(edge, key=lambda c: -edge[c])
-    beam = [((c,), score((c,))) for c in champs]
-    for _ in range(SIZE - 1):
-        nxt = {}
-        for team, _ in beam:
-            for c in champs:
-                if c in team:
-                    continue
-                t = tuple(sorted(team + (c,)))
-                if t not in nxt:
-                    nxt[t] = score(t)
-        beam = sorted(nxt.items(), key=lambda kv: -kv[1])[:BEAM]
+    def subs(cid):
+        t = tags.get(alias.get(cid, ""), {})
+        return set(t.get("subclasses") or [])
 
-    picked = []
-    for team, sc in beam:
-        if all(len(set(team) - set(p)) >= MIN_DIFFERENT for p, _ in picked):
+    def search(allowed, seeds):
+        """Beam search over teams of SIZE from `allowed`, every team containing one of `seeds`."""
+        beam = [((c,), score((c,))) for c in seeds if c in allowed]
+        for _ in range(SIZE - 1):
+            nxt = {}
+            for team, _ in beam:
+                for c in allowed:
+                    if c in team:
+                        continue
+                    t = tuple(sorted(team + (c,)))
+                    if t not in nxt:
+                        nxt[t] = score(t)
+            beam = sorted(nxt.items(), key=lambda kv: -kv[1])[:BEAM]
+        return beam
+
+    def best_list(seeds):
+        picked, uses = [], {}
+        allowed = sorted(edge, key=lambda c: -edge[c])
+        beam = search(allowed, seeds)
+        while len(picked) < TOP and beam:
+            for team, sc in beam:
+                if all(len(set(team) - set(p)) >= MIN_DIFFERENT for p, _ in picked):
+                    break
+            else:
+                break
             picked.append((team, sc))
-        if len(picked) >= TOP:
-            break
+            for c in team:
+                uses[c] = uses.get(c, 0) + 1
+            capped = {c for c in team if MAX_PER_CHAMPION and uses[c] >= MAX_PER_CHAMPION}
+            if capped:
+                allowed = [c for c in allowed if c not in capped]
+                beam = search(allowed, [c for c in seeds if c in allowed])
+            else:
+                beam = [(t, s) for t, s in beam if t != team]
+        return picked
+
+    picked = best_list(list(edge))
+    front_ids = [c for c in edge if subs(c) & FRONTLINE]
+    front = best_list(front_ids)
 
     def row(team, sc):
         ps = list(itertools.combinations(team, 2))
@@ -179,14 +210,20 @@ def main():
         "carry_over_pairs": checked,
         "pair_additivity_pts": round(additivity * 25, 3),  # log-odds near 50% x 25 ~ percentage points
         "pairs": len(P),
+        "max_per_champion": MAX_PER_CHAMPION,
+        "teams_label": "Strongest by data: ranked by champion win rates and pair synergy only",
         "teams": [row(t, s) for t, s in picked],
+        "frontline_label": FRONTLINE_LABEL,
+        "frontline_teams": [row(t, s) for t, s in front],
     }
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
         f.write("\n")
     print(f"carry-over {carry:.3f} on {checked} pairs; average pair synergy {additivity * 25:+.2f} pts; {len(P)} pairs")
-    for r in out["teams"][:10]:
-        print(f"{r['projected_win_rate']:.3f} ({r['from_champions']:.3f} + {r['synergy_pts']:+.2f}) {', '.join(r['names'])} [{r['pairs_known']}/10 pairs]")
+    for key in ("teams", "frontline_teams"):
+        print(key)
+        for r in out[key][:10]:
+            print(f"  {r['projected_win_rate']:.3f} ({r['from_champions']:.3f} + {r['synergy_pts']:+.2f}) {', '.join(r['names'])} [{r['pairs_known']}/10 pairs]")
 
 
 if __name__ == "__main__":
