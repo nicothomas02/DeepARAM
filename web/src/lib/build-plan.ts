@@ -186,7 +186,7 @@ export const MEASURED_CHANGERS = new Set<number>([
   1029, 29,
 ]);
 
-/** Augments that pull in one specific item: the 26 follow patterns confirmed in the owner's archived lobbies (all ten
+/** Augments that pull in one specific item: the 30 follow patterns confirmed in the owner's archived lobbies (all ten
  *  players; data/augment-items.json, research/why-best section 2). Holders build the item far more often than the
  *  same champions without the augment, mostly after taking it. Nico 2026-11-23: these are the only augment -> item
  *  tips; payoff words only where a gain was measured (Steel Your Heart -> Bloodmail, Apex Inventor -> Unending

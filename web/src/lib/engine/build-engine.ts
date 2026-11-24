@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.14";
+export const ENGINE_VERSION = "1.3.15";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -36,7 +36,7 @@ export const RULES: Record<string, Rule> = {
   seenAugments: { source: "game data", on: true, why: "Wiki: an augment shown once is never offered again that game." },
   rerollOnce: { source: "game data", on: true, why: "Wiki: each card can be rerolled once." },
   provenCounters: { source: "data", on: true, why: "Mechanism tests: MR items, Kaenic, Spirit Visage, Mercury's vs magic-heavy teams (the effect is clearly larger from 60-65% magic up, so 65% holds); armor vs 2+ marksmen." },
-  augmentItems: { source: "data", on: true, why: "The 26 augment -> item follow patterns confirmed in the archive (data/augment-items.json); payoff words only for the two with a measured gain. Nico approved 2026-11-23." },
+  augmentItems: { source: "data", on: true, why: "The 30 augment -> item follow patterns confirmed in the archive (data/augment-items.json; 4 added 2026-11-24 from tested outside synergy leads); payoff words only for the two with a measured gain. Nico approved 2026-11-23." },
   whyBest: { source: "data", on: true, why: "One line per item, only from tested reasons: augment trigger, most players build it, kit match (10 items with held-out R2 > 0.2), what it does (estimated). Otherwise none. Nico approved 2026-11-23." },
   luckyTilt: { source: "assumption", on: true, why: "Feeling lucky: among options whose 95% ranges overlap the leader's, rarer picks get up to +0.3 points; never past a clearly better one. Nico approved 2026-11-23." },
   measuredReplan: { source: "data", on: true, why: "Ethereal Weapon switches to the champion's own on-hit build (+25.9 pts on-hit build share). Only measured switches." },

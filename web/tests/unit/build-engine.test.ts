@@ -133,10 +133,13 @@ describe("build engine", () => {
     const p = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [1134] });
     const dd = p.swaps.find((s) => itemId(s.item.icon) === 6333);
     expect(dd?.why).toMatch(/With Draw Your Sword, \d+% of players build Death's Dance/);
-    // Armored Impact isn't a confirmed pair: Thornmail may come (Nico 2026-11-24: all augments change the build), but
-    // only labeled estimated, never with the confirmed "x% of players build" line
+    // Armored Impact -> Thornmail became a confirmed pair 2026-11-24 (a tested outside synergy lead): the measured line
     const ai = plan({ champ, kinds, picks, fit, game: game([]), taken: [3049] }).swaps.find((s) => itemId(s.item.icon) === 3075);
-    if (ai) expect(ai.why).toMatch(/\(estimated\)$/);
+    if (ai) expect(ai.why).toMatch(/With Armored Impact, \d+% of players build Thornmail/);
+    // Overloaded -> Rod of Ages failed the checks: it may come (Nico 2026-11-24: all augments change the build), but only
+    // labeled estimated, never with the confirmed "x% of players build" line
+    const ol = plan({ champ, kinds, picks, fit, game: game([]), taken: [2123] }).swaps.find((s) => itemId(s.item.icon) === 6657);
+    if (ol) expect(ol.why).toMatch(/\(estimated\)$/);
   });
 
   it("switches build only for measured augments (Ethereal Weapon -> on-hit)", () => {
