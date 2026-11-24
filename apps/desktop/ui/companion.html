@@ -52,11 +52,7 @@
   .cue.sm { font-size: 13px; margin-top: 2px; }
   .cue .key.inl { font-size: 17px; min-width: 28px; height: 28px; border-radius: 8px; }
   h2.now { font-size: 16px; }
-  .nextup { display: flex; align-items: center; gap: 10px; color: var(--gold); font-weight: 700; margin: 2px 0 10px; }
-  .nextup img { width: 48px; height: 48px; border-radius: 8px; box-shadow: 0 0 0 2px var(--gold); }
-  .nextup .nm { font-size: 19px; color: var(--fg); }
-  .nextup .lb { font-size: 13px; letter-spacing: .08em; }
-  @media (min-width: 900px) { .cue { font-size: 18px; } .cue .ii { width: 24px; height: 24px; } .nextup img { width: 52px; height: 52px; } .nextup .nm { font-size: 21px; } }
+  @media (min-width: 900px) { .cue { font-size: 18px; } .cue .ii { width: 24px; height: 24px; } }
   .taken { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 8px; }
   .chip { display: flex; align-items: center; gap: 6px; font: inherit; font-size: 12px; color: var(--muted); cursor: pointer;
     background: var(--raised); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px 3px 3px; }
@@ -91,7 +87,7 @@
   .plan { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
   .plan .keys { font-size: 16px; } .plan .spells img { width: 36px; height: 36px; } .buildline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-left: auto; }
   .corebox { position: relative; display: inline-flex; gap: 6px; padding: 14px 6px 5px; border: 1px dashed color-mix(in srgb, var(--muted) 45%, transparent); border-radius: 10px; background: color-mix(in srgb, var(--muted) 6%, transparent); align-items: flex-start; }
-  .corebox > .lbl { position: absolute; top: 2px; left: 8px; font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .corebox > .lbl { position: absolute; top: 2px; right: 8px; font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 
   .aug .num.big { font-size: 17px; white-space: nowrap; }
   .plan .keys b { color: var(--accent); }
@@ -140,6 +136,15 @@
   .split .ad { background: #e8845a; } .split .ap { background: #7f8cff; }
   .split-key { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
   .split-key b { color: var(--fg); }
+  .hero.slim { min-height: 0; padding: 10px 16px; align-items: center; margin-bottom: 12px; }
+  .hero.slim > img { width: 40px; height: 40px; border-radius: 10px; } .hero.slim .title { font-size: 20px; } .hero.slim .foes { align-self: center; }
+  @media (max-width: 999px) { .cols { display: flex; flex-direction: column; } .cols.offer-up > #augSec { order: -1; } }
+  .slot { position: relative; align-content: start; } .slot.nx { transform: scale(1.1); transform-origin: center bottom; margin: 0 4px; }
+  .slot svg.arr { position: absolute; top: -14px; left: 50%; margin-left: -6px; color: var(--gold); width: 12px; height: 12px; }
+  .slot .pbar { display: block; margin: 0; width: 100%; height: 3px; border-radius: 2px; background: var(--raised); overflow: hidden; } .slot .pbar b { display: block; height: 100%; background: var(--gold); }
+  details.best > summary { cursor: pointer; list-style: none; } details.best > summary h2 { display: inline; } details.best > summary::-webkit-details-marker { display: none; } details.best > summary::before { content: "▸ "; } details.best[open] > summary::before { content: "▾ "; }
+  svg.i, svg.arr { display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: -0.125em; flex: none; }
+  .badge { display: inline-flex; align-items: center; gap: 5px; }
   .foes { margin-left: auto; min-width: 170px; max-width: 220px; align-self: flex-end; }
   .foes .mates img { width: 26px; height: 26px; border-radius: 7px; }
   .foes .why.lbl { margin: 0 0 4px; }
@@ -166,7 +171,8 @@
   .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
   .brand img { width: 36px; height: 36px; border-radius: 9px; }
   .brand b { font-size: 20px; letter-spacing: -.01em; }
-  @media (min-width: 1000px) { .hero { min-height: 220px; padding: 24px 28px; } .hero .title { font-size: 34px; } .hero > img { width: 72px; height: 72px; } }
+  @media (min-width: 1000px) { .hero { min-height: 220px; padding: 24px 28px; } .hero .title { font-size: 34px; } .hero > img { width: 72px; height: 72px; }
+    .hero.slim { min-height: 0; padding: 12px 20px; } .hero.slim .title { font-size: 24px; } .hero.slim > img { width: 48px; height: 48px; } }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -192,7 +198,7 @@
   // as on the site's champion page, instead of showing the splash (Nico 2026-11-24).
   const HUES = {"Aatrox":[5,69],"Ahri":[218,71],"Akali":[7,55],"Akshan":[38,74],"Alistar":[277,55],"Ambessa":[5,55],"Amumu":[203,60],"Anivia":[203,68],"Annie":[21,55],"Aphelios":[204,81],"Ashe":[217,68],"AurelionSol":[219,82],"Aurora":[8,55],"Azir":[23,56],"Bard":[34,56],"Belveth":[230,55],"Blitzcrank":[39,65],"Brand":[22,73],"Braum":[39,83],"Briar":[326,55],"Caitlyn":[250,57],"Cassiopeia":[22,55],"Chogath":[339,55],"Corki":[23,55],"Darius":[38,56],"DrMundo":[276,55],"Draven":[9,55],"Ekko":[175,69],"Elise":[342,65],"Evelynn":[308,66],"Ezreal":[218,67],"FiddleSticks":[24,55],"Fiora":[214,55],"Fizz":[217,55],"Galio":[215,55],"Gangplank":[36,67],"Garen":[22,55],"Gnar":[22,73],"Gragas":[11,66],"Graves":[7,63],"Gwen":[203,75],"Hecarim":[175,73],"Heimerdinger":[9,78],"Hwei":[187,55],"Illaoi":[154,58],"Irelia":[340,74],"Ivern":[39,55],"Janna":[200,55],"JarvanIV":[23,73],"Jax":[214,55],"Jayce":[40,55],"Jhin":[23,55],"Jinx":[216,55],"KSante":[22,62],"Kaisa":[233,65],"Kalista":[190,73],"Karma":[171,77],"Karthus":[202,55],"Kassadin":[278,79],"Katarina":[354,61],"Kayle":[25,55],"Kayn":[353,55],"Kennen":[290,62],"Khazix":[189,55],"Kindred":[205,57],"Kled":[24,55],"KogMaw":[71,55],"Leblanc":[2,55],"LeeSin":[349,55],"Leona":[37,73],"Lillia":[9,55],"Lissandra":[216,55],"Locke":[228,68],"Lucian":[7,55],"Lulu":[8,55],"Lux":[23,55],"Malphite":[4,55],"Malzahar":[261,77],"Maokai":[200,55],"MasterYi":[51,63],"Mel":[352,55],"Milio":[24,63],"MissFortune":[19,63],"MonkeyKing":[7,77],"Mordekaiser":[159,55],"Morgana":[306,71],"Naafiri":[6,55],"Nami":[183,65],"Nasus":[51,59],"Nautilus":[21,76],"Neeko":[202,56],"Nidalee":[23,55],"Nilah":[35,55],"Nocturne":[204,71],"Nunu":[8,55],"Olaf":[33,62],"Orianna":[229,55],"Ornn":[350,73],"Pantheon":[22,69],"Poppy":[23,55],"Pyke":[171,55],"Qiyana":[21,66],"Quinn":[8,55],"Rakan":[350,55],"Rammus":[39,76],"RekSai":[232,55],"Rell":[38,55],"Renata":[335,55],"Renekton":[24,55],"Rengar":[169,55],"Riven":[37,55],"Rumble":[19,67],"Ryze":[233,79],"Samira":[24,55],"Sejuani":[203,67],"Senna":[183,55],"Seraphine":[336,76],"Sett":[24,55],"Shaco":[353,64],"Shen":[216,55],"Shyvana":[23,55],"Singed":[115,55],"Sion":[351,83],"Sivir":[24,61],"Skarner":[22,62],"Smolder":[216,55],"Sona":[217,55],"Soraka":[7,55],"Swain":[3,56],"Sylas":[230,55],"Syndra":[262,55],"Taliyah":[20,57],"Talon":[201,73],"Taric":[262,78],"Teemo":[37,55],"Thresh":[171,81],"Tristana":[353,55],"Trundle":[203,55],"Tryndamere":[169,59],"TwistedFate":[8,69],"Twitch":[157,62],"Udyr":[204,55],"Urgot":[100,55],"Varus":[335,66],"Vayne":[232,59],"Veigar":[264,55],"Velkoz":[294,60],"Vex":[202,55],"Vi":[339,55],"Viego":[203,55],"Viktor":[201,55],"Vladimir":[5,61],"Volibear":[219,63],"Warwick":[67,55],"Xayah":[339,55],"Xerath":[218,60],"XinZhao":[21,75],"Yasuo":[216,55],"Yone":[351,86],"Yorick":[174,55],"Yunara":[249,55],"Yuumi":[21,55],"Zaahen":[3,55],"Zac":[110,55],"Zed":[8,60],"Zeri":[67,71],"Ziggs":[23,55],"Zilean":[201,63],"Zoe":[7,59],"Zyra":[354,59]};
   const hueOf = (alias) => HUES[Object.keys(HUES).find((k) => k.toLowerCase() === String(alias).toLowerCase())] ?? null;
-  const hero = (alias, title, sub, subId = "") => `<div class="hero glow"${alias && hueOf(alias) ? ` data-style="--champ-h:${hueOf(alias)[0]};--champ-s:${hueOf(alias)[1]}%"` : ""}>
+  const hero = (alias, title, sub, subId = "", slim = false) => `<div class="hero glow${slim ? " slim" : ""}"${alias && hueOf(alias) ? ` data-style="--champ-h:${hueOf(alias)[0]};--champ-s:${hueOf(alias)[1]}%"` : ""}>
       ${alias ? icon(alias) : `<img src="icon.png" alt="">`}<div><div class="title">${title}</div><div class="sub"${subId ? ` id="${subId}"` : ""}>${sub}</div></div>
       ${window.__TAURI_INTERNALS__ ? `<button class="fs">${isFull ? "Exit full screen" : "Full screen"}</button>` : ""}</div>`;
   // Full screen from the button, F11 or Esc; the app answers with the state it ended in, which labels the button.
@@ -308,13 +314,13 @@
       // expected (178 teams). "No frontline" failed its test and "under 25% magic" had too few teams, so both stay off.
       void front;
       gap = magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
-      gapShort = magic > 0.75 ? "⚠ Low physical damage" : "";
+      gapShort = magic > 0.75 ? "Low physical damage" : "";
     }
     setView(`
       ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion")}
       ${planHtml}
       ${team.length ? `<h2>Your team</h2><div class="mates">${team.map(icon).join("")}</div>` : ""}
-      ${gap ? `<div class="cue gold" title="${esc(gap)}">${esc(gapShort)}</div>` : ""}
+      ${gap ? `<div class="cue gold" title="${esc(gap)}">${ico("warn")} ${esc(gapShort)}</div>` : ""}
       <h2>Your choices, best first</h2>
       ${Object.keys(d.brackets ?? {}).length ? `<div class="filters" title="Skill brackets come from a rating built from game results, not official ranks.${d.bracketPatch && d.bracketPatch !== d.patch ? ` This patch's brackets aren't out yet, so they use patch ${esc(d.bracketPatch)}.` : ""}">${BRACKETS.filter(([b]) => b === "all" || d.brackets[b]).map(([b, l]) => `<button class="chip br${b === bracket ? " on" : ""}" data-b="${b}">${l}</button>`).join("")}</div>` : ""}
       ${rows || `<p class="note">Waiting for your champion and bench…</p>`}
@@ -415,6 +421,24 @@
     renderQuick();
   }
 
+  // Icons as inline SVG in the text colour (Nico 2026-11-24, as PC 1.26.9), not emoji glyphs.
+  const SVG = {
+    warn: '<path d="M12 3 2 21h20L12 3z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 10v5M12 18v.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
+    bolt: '<path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z" fill="currentColor"/>',
+    swap: '<path d="M4 8h14l-4-4M20 16H6l4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>',
+    reroll: '<path d="M20 12a8 8 0 1 1-2.4-5.7M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>',
+    check: '<path d="m4 12.5 5 5L20 6.5" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>',
+    approx: '<path d="M4 9.5c2.5-2.5 5.5 1.5 8 0s5.5-2.5 8 0M4 15.5c2.5-2.5 5.5 1.5 8 0s5.5-2.5 8 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>',
+    star: '<path d="m12 2.5 2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8L12 2.5z" fill="currentColor"/>',
+    up: '<path d="M12 20V5M5 11l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>',
+    down: '<path d="M4 7h16l-8 11z" fill="currentColor"/>',
+    plus: '<path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>',
+    flag: '<path d="M5 21V4M5 4h11l-2 4 2 4H5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>',
+  };
+  const ico = (n, cls = "i") => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${SVG[n]}</svg>`;
+  // Pentakill's empowerments come as augment ids the ranking data doesn't name (Nico 2026-11-24: not "#3172").
+  const PENTA = { 3170: "HEAVY", 3171: "POWER", 3172: "THRASH", 3173: "DOOM", 3176: "Pentakill" };
+
   // DeepScore tier, as on the site: 50 is average, S from 70, A 59, B 44, C 32, D below.
   const deepTier = (ds) => (ds >= 70 ? "S" : ds >= 59 ? "A" : ds >= 44 ? "B" : ds >= 32 ? "C" : "D");
 
@@ -427,6 +451,8 @@
   let lucky = (() => { try { return localStorage.getItem("lucky") === "1"; } catch { return false; } })();
   // Per game: every augment shown on a card (it can't come back) and the cards already rerolled (once each).
   let seen = new Set(), rerolled = new Set();
+  let bestOpen = false;
+  document.addEventListener("toggle", (e) => { if (e.target.matches?.("details.best")) bestOpen = e.target.open; }, true);
   const resetTrack = () => { seen = new Set(); rerolled = new Set(); };
   // "16.23+" (default: earlier patches pooled in where nothing changed, as the site) / "16.23 only" (Nico 2026-11-24).
   let onlyPatch = (() => { try { return localStorage.getItem("patchOnly") === "1"; } catch { return false; } })();
@@ -467,7 +493,7 @@
     const pv = d0.patch ?? "This patch";
     const settings = [lucky ? "Feeling lucky" : "", onlyPatch && d0.only?.[ck] ? `${pv} only` : ""].filter(Boolean);
     const taken = getTaken(game);
-    const name = (id) => d.augments[id]?.[0] ?? `#${id}`;
+    const name = (id) => d.augments[id]?.[0] ?? PENTA[id] ?? `#${id}`;
     const tier = offer.length ? d.augments[offer[0]]?.[1] : undefined;
     const ranked = rankAugments(d, ck, taken, tier);
     // An offer on screen: its augments side by side in ranking order (highlighted, never picked for you). The rest of
@@ -479,24 +505,25 @@
     const ties = offered.length >= 2 && offered.every((a) => typeof a.score === "number") ? E.nearTies(d, ck, offered) : [];
     // Can't decide between them: more combo potential, else the less common pick (Nico 2026-11-24).
     const tb = ties.length ? E.tieBreak(d, ck, [offered[0].id, ...ties], ranked) : null;
-    const shown = ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
+    // Best augments: collapsed by default, without the cards already shown this game (they can't come back).
+    const shown = ranked.filter((a) => !onOffer.includes(a.id) && !seen.has(a.id)).slice(0, 8);
     // A one-word label at most; the reason and what the augment does are on hover.
     // [label html, colour, hover]
-    const reason = (a) => a.conflict ? ["⚠ Conflicts", "red", `Conflicts: ${a.conflict}`] : a.mate !== null ? [`+${augIco(a.mate)}${esc(name(a.mate))}`, "green", `Synergy with ${name(a.mate)}`]
-      : a.combo !== null && a.potential >= 0.3 ? [`⚡${augIco(a.combo)}${esc(name(a.combo))}`, "gold", `Combo potential with ${name(a.combo)} (+${a.potential.toFixed(1)})`] : ["", "", ""];
+    const reason = (a) => a.conflict ? [`${ico("warn")} Conflicts`, "red", `Conflicts: ${a.conflict}`] : a.mate !== null ? [`${ico("plus")}${augIco(a.mate)}${esc(name(a.mate))}`, "green", `Synergy with ${name(a.mate)}`]
+      : a.combo !== null && a.potential >= 0.3 ? [`${ico("bolt")}${augIco(a.combo)}${esc(name(a.combo))}`, "gold", `Combo potential with ${name(a.combo)} (+${a.potential.toFixed(1)})`] : ["", "", ""];
     // On the offer, each card: a big badge (Take, or ≈ Take for a near tie; Reroll) and its DeepScore in this game.
     const card = (a, i) => {
       const [tag, tone, why] = reason(a);
       const pick = tb && tb.id === a.id ? `Can't decide? This one: ${tb.why}` : "";
       const hover = [why, pick, whatItDoes("augments", Number(a.id))].filter(Boolean).join("\n");
       const take = i === 0 || ties.includes(a.id);
-      const badge = advice.card === a.id ? `<span class="badge blue" title="${esc(advice.why ?? "")}">↻ Reroll</span>` : take ? `<span class="badge green">${ties.length ? "≈" : "✓"} Take</span>` : "";
+      const badge = advice.card === a.id ? `<span class="badge blue" title="${esc(advice.why ?? "")}">${ico("reroll")} Reroll</span>` : take ? `<span class="badge green">${ico(ties.length ? "approx" : "check")} Take</span>` : "";
       // The engine scores in points (row score × 100).
       const gd = typeof a.score === "number" ? gameDeep(d, ck, a.score / 100) : -1;
       return `
       <div class="row aug card${take ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
-        <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${badge}</div>
+        <div><div class="name">${esc(name(a.id))}${pick ? ` ${ico("star")}` : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${badge}</div>
         <div class="num big ${gd >= 0 ? tierCls(gd) : ""}" title="DeepScore in this game: this champion's DeepScore with synergy, combo odds and the headliner counted">${gd >= 0 ? gd : ""}</div>
       </div>`;
     };
@@ -507,15 +534,17 @@
       return `
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
-        <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}</div>
+        <div><div class="name">${esc(name(a.id))}${pick ? ` ${ico("star")}` : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}</div>
         ${(() => { const gd = typeof a.score === "number" ? gameDeep(d, ck, a.score / 100) : a.deep; return `<div class="num${gd >= 0 ? ` big ${tierCls(gd)}` : ""}" title="DeepScore in this game${gd >= 0 ? `, tier ${deepTier(gd)}` : ""}${a.deep >= 0 ? `\nOn this champion: ${a.deep}` : ""}">${gd >= 0 ? gd : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>`; })()}
       </div>`;
     };
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
     const took = taken.length ? `<div class="taken"><span class="tag">Taken</span>${taken.map((id) => `<span class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}">${augIcon(id)}${esc(name(id))}</span>`).join("")}</div>` : "";
+    // Narrow window: the cards go first while they're up (most important on top).
+    document.querySelector(".cols")?.classList.toggle("offer-up", offered.length > 0);
     box.innerHTML = `${took}
-      ${offered.length ? `<div class="offer">${ties.length ? `<div class="cue gold" title="The highlighted cards are within noise of each other.${tb ? " ★ breaks the tie (hover it)." : ""}">≈ Either${tb ? ` · ${augIco(tb.id)}${esc(name(tb.id))}` : ""}</div>` : ""}${offered.map(card).join("")}${advice.html}</div><h2>Best augments <span class="tag">not offered</span></h2>` : ""}
-      <div class="${offered.length ? "dim" : ""}">${shown.map((a, i) => row(a, i === 0 && !offered.length)).join("")}</div>
+      ${offered.length ? `<div class="offer">${ties.length ? `<div class="cue gold" title="The highlighted cards are within noise of each other.${tb ? " The star breaks the tie (hover it)." : ""}">${ico("approx")} Either${tb ? ` · ${augIco(tb.id)}${esc(name(tb.id))}` : ""}</div>` : ""}${offered.map(card).join("")}${advice.html}</div>` : ""}
+      ${shown.length ? `<details class="best"${bestOpen ? " open" : ""}><summary><h2>Best augments${offered.length ? ` <span class="tag">not offered</span>` : ""}</h2></summary><div class="${offered.length ? "dim" : ""}">${shown.map((a) => row(a, false)).join("")}</div></details>` : ""}
       ${settings.length ? `<div class="why" title="Set in champion select">${esc(settings.join(" · "))}</div>` : ""}`;
   }
 
@@ -553,8 +582,8 @@
     // In game: the action only (a key to level, an item to buy or sell), the sentence on hover. Notes that ask
     // nothing of you (haste maths, the attack-speed cap) stay out (Nico 2026-11-24: seconds per alt-tab).
     const ACT = { skill: "Level", buy: "Buy", sell: "Sell", stacking: "First", timing: "Next" };
-    const tipHtml = (t) => t.kind === "skill" ? `⬆ <span class="key inl">${esc(t.text)}</span>`
-      : `${ACT[t.kind]} ${t.item != null ? itemImg(t.item) : ""}${esc(tipItem(t))}`;
+    const tipHtml = (t) => t.kind === "skill" ? `${ico("up")} <span class="key inl">${esc(t.text)}</span>`
+      : `${ACT[t.kind]} ${t.item != null && itemImg(t.item) ? itemImg(t.item) : esc(tipItem(t))}`;
     // The item's name, from the engine's sentence ("Buy B. F. Sword now...", "Full build: sell X for Y.").
     function tipItem(t) {
       const m = /^Buy (.+?) now/.exec(t.text) ?? /buys (.+?) now/.exec(t.text) ?? /sell (.+?) for/.exec(t.text) ?? /^(.+?) (?:next|stacks)/.exec(t.text);
@@ -583,6 +612,14 @@
       const id = itemId(it.icon);
       return owned.has(id) || (hasBoots && bootIds.has(id)) ? " own" : id === nextId ? " nx" : "";
     };
+    // Share of the item's cost already in your inventory as its parts (the parts' parts count too).
+    const partsOwned = (id) => {
+      const rec = k?.recipes ?? {}, total = rec[id]?.[1];
+      if (!total) return 0;
+      const left = [...game.items.map((i) => i % 10000)];
+      const have = (pid) => { const j = left.indexOf(pid); if (j >= 0) { left.splice(j, 1); return rec[pid]?.[1] ?? 0; } return (rec[pid]?.[2] ?? []).reduce((t, c) => t + have(c), 0); };
+      return Math.min(1, (rec[id][2] ?? []).reduce((t, c) => t + have(c), 0) / total);
+    };
     const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
     let n = 0;
     // The core sits in one grey dashed box (Nico 2026-11-24, as the site card); the item being built reads "Building".
@@ -590,7 +627,10 @@
       const boot = bootIds.has(itemId(it.icon));
       const lbl = boot ? "Boots" : ord(++n);
       const st = state(it);
-      return `<div class="slot${st}${sw ? " sw" : ""}" title="${esc([`${it.name} · ${why}`, does ? "" : whatItDoes("items", itemId(it.icon ?? ""))].filter(Boolean).join("\n"))}"><img src="${src(it.icon ?? "")}" alt="" data-drop><span>${st === " nx" ? "▶ Building" : lbl}</span></div>`;
+      // The item being built, in place (Nico 2026-11-24, as PC 1.26.9): arrow, gold ring, a bar for the parts you own.
+      const nx = st === " nx";
+      const bar = nx ? `<i class="pbar"><b data-style="width:${Math.round(partsOwned(itemId(it.icon ?? "")) * 100)}%"></b></i>` : "";
+      return `<div class="slot${st}${sw ? " sw" : ""}" title="${esc([`${nx ? "Building: " : ""}${it.name} · ${why}`, does ? "" : whatItDoes("items", itemId(it.icon ?? ""))].filter(Boolean).join("\n"))}">${nx ? ico("down", "arr") : ""}<img src="${src(it.icon ?? "")}" alt="" data-drop>${bar}<span>${lbl}</span></div>`;
     };
     const coreT = shown.filter((x) => x.core).map(tile).join(""), restT = shown.filter((x) => !x.core).map(tile).join("");
     const tiles = `${coreT ? `<div class="corebox"><span class="lbl">Core</span>${coreT}</div>` : ""}${restT}`;
@@ -598,11 +638,10 @@
     const tipImg = (it, why) => (it?.icon ? `<img class="ii" src="${src(it.icon)}" alt="" title="${esc(`${it.name}: ${String(why ?? "").replace(/\.$/, "")}`)}" data-drop>` : "");
     const opts = [...p.lit, ...p.pointers].map((x) => tipImg(x.item, x.why)).join("");
     const lines = [
-      p.switched ? `<div class="cue gold"${p.switched.because ? ` title="For ${esc(p.switched.because)}"` : ""}>⇄ ${esc(p.switched.style)}</div>` : "",
+      p.switched ? `<div class="cue gold"${p.switched.because ? ` title="For ${esc(p.switched.because)}"` : ""}>${ico("swap")} ${esc(p.switched.style)}</div>` : "",
       opts ? `<div class="cue gold">+ ${opts}</div>` : "",
     ].join("");
     box.innerHTML = `<div class="box${shop ? " now" : ""}">
-      ${p.next[0] ? `<div class="nextup"><span class="lb">NEXT</span>${p.next[0].icon ? `<img src="${src(p.next[0].icon)}" alt="" data-drop>` : ""}<span class="nm">${esc(p.next[0].name)}</span></div>` : ""}
       <div class="path">${tiles}</div>
       ${lines}
       ${tip}</div>`;
@@ -615,11 +654,11 @@
     lastChamp = g.champ;
     if (!document.getElementById("augs") || prev?.champ !== g.champ) {
       setView(`
-        ${hero(g.champ, esc(label(g.champ)), "", "head").replace(/<\/div>$/, `<div class="foes" id="foes"></div></div>`)}
+        ${hero(g.champ, esc(label(g.champ)), "", "head", true).replace(/<\/div>$/, `<div class="foes" id="foes"></div></div>`)}
         <div class="cols">
-        <section><h2>Quick build</h2><div id="quick"></div>
-        <h2>Items</h2><div id="items"></div></section>
-        <section><h2 id="augHead">Augments</h2>
+        <section><h2>Items</h2><div id="items"></div>
+        <h2>Quick build</h2><div id="quick"></div></section>
+        <section id="augSec"><h2 id="augHead">Augments</h2>
         <div id="augs"></div></section>
         </div>`);
       renderQuick();
@@ -772,7 +811,7 @@
     // 2026-11-23).
     const ff = ffFrom != null
       ? `<div class="box yes" title="The chance stayed under the line for a full minute from then.">Surrender from ${clock(ffFrom)}</div>`
-      : `<div class="box">✓ Never worth it</div>`;
+      : `<div class="box">${ico("check")} Never worth it</div>`;
     setView(`
       ${hero(lastChamp, `<span class="${result === "Win" ? "ink" : ""}">${verdict}</span>`, "Game review")}
       <h2 title="Predicted, not measured: an estimate from kills, towers, levels and team strength.">Chance to win</h2>
