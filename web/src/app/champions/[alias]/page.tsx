@@ -373,11 +373,19 @@ export default async function ChampionPage({
           )}
         </h4>
         <ol className="cp-icons cp-buy-order">
-          {buildOrder(core).map((id) => (
-            <li key={id}>
-              <ItemIcon id={id} info={info} named />
-            </li>
-          ))}
+          {/* The core sits in one box (Nico 2026-11-24, same as the apps); the rest of the path follows outside it. */}
+          <li className="cp-core-box">
+            <small className="cp-core-label">
+              <T ns={NS}>Core items</T>
+            </small>
+            <ol className="cp-buy-order">
+              {buildOrder(core).map((id) => (
+                <li key={id}>
+                  <ItemIcon id={id} info={info} named />
+                </li>
+              ))}
+            </ol>
+          </li>
           {/* The full build (Nico, 2026-11-23): the core, then the best pick for each slot after it. */}
           {(core.full ?? []).map((r) => (
             <li key={r.items[0]} className="cp-full-pick">

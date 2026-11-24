@@ -1904,6 +1904,28 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   display: inline-flex;
   align-items: center;
 }
+.cp-game ol.cp-buy-order > li.cp-core-box {
+  position: relative;
+  padding: 1.15rem 0.45rem 0.3rem;
+  border: 1px solid rgb(var(--gold-rgb) / 0.55);
+  border-radius: 10px;
+  background: rgb(var(--gold-rgb) / 0.06);
+}
+.cp-game .cp-core-box > ol.cp-buy-order {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cp-core-label {
+  position: absolute;
+  top: 0.15rem;
+  left: 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
 .cp-game ol.cp-buy-order > li + li::before {
   content: "›";
   margin: 0 0.3rem;
@@ -2241,4 +2263,9 @@ button.cp-few-tag:focus::after {
 }
 .cp-vs.down {
   color: var(--bad);
+}
+@media (max-width: 480px) {
+  .cp-game ol.cp-buy-order > li + li::before {
+    margin: 0 0.1rem;
+  }
 }
