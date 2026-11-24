@@ -120,6 +120,18 @@ pub fn parse_lockfile(text: &str) -> Option<(u16, String)> {
     Some((parts[2].parse().ok()?, parts[3..n - 1].join(":")))
 }
 
+/// The League client's game phase ("Lobby", "ChampSelect"...): Ok(None) when the client isn't running, Err when it
+/// runs but doesn't answer.
+#[cfg_attr(not(windows), allow(dead_code))]
+pub fn client_phase() -> Result<Option<String>, ()> {
+    let Some((port, pw)) = find_client() else { return Ok(None) };
+    Client::new(port, &pw)
+        .get("/lol-gameflow/v1/gameflow-phase")
+        .and_then(|v| v.as_str().map(str::to_owned))
+        .map(Some)
+        .ok_or(())
+}
+
 fn find_client() -> Option<(u16, String)> {
     // Debug builds: a test client named by DEEPARAM_LCU ("port:password").
     #[cfg(debug_assertions)]

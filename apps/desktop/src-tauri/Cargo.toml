@@ -22,6 +22,8 @@ ureq = { version = "3", features = ["json"] }
 # Reads augment offers off the screen (screen copy and Windows' built-in text recognition) and lists running
 # programs without starting one. Same version Tauri already uses, so nothing extra to build.
 [target.'cfg(windows)'.dependencies]
+# Checks a downloaded update against the release's SHA-256 before it runs (already in the build through Tauri).
+sha2 = "0.10"
 windows = { version = "0.62", features = [
   "Foundation",
   "Foundation_Collections",

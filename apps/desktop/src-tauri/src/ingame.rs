@@ -57,6 +57,12 @@ pub struct State {
     me: Option<String>,
     team: Option<String>,
     level: u64,
+    /// Augment screens owed: levels 7, 11 and 15 reached whose offer hasn't come yet. Mayhem only opens the screen
+    /// with the shop open (dead, or on the starting platform), so one reached while alive waits for the next death.
+    owed: u32,
+    /// The player is dead right now, and whether an offer was read during this death.
+    dead: bool,
+    saw_offer: bool,
     /// Game time until which the screen is read for an augment offer.
     scan_until: f64,
     /// The game's first pick is done (its offer came and went).
@@ -92,13 +98,23 @@ pub fn my_row<'a>(me: &str, players: &'a [Value]) -> Option<&'a Value> {
 
 /// Whether going from level `prev` to `level` passed an augment level. The first reading of a game
 /// (`prev` 0) only records the level, so opening the app mid-game doesn't start a read.
+#[cfg(test)]
 pub fn reached_augment_level(prev: u64, level: u64) -> bool {
-    prev > 0 && AUGMENT_LEVELS.iter().any(|l| *l > prev && *l <= level)
+    augment_levels_passed(prev, level) > 0
 }
 
-/// Whether the screen should be read for an augment offer at this moment of the game.
-pub fn scanning(game_time: f64, first_done: bool, scan_until: f64) -> bool {
-    (game_time < START_FOR && !first_done) || game_time < scan_until
+/// How many augment levels going from `prev` to `level` passed (two at once still owe two screens).
+pub fn augment_levels_passed(prev: u64, level: u64) -> u32 {
+    if prev == 0 {
+        return 0;
+    }
+    AUGMENT_LEVELS.iter().filter(|l| **l > prev && **l <= level).count() as u32
+}
+
+/// Whether the screen should be read for an augment offer at this moment of the game: the first pick, just after an
+/// augment level, or while dead with a screen still owed (it opens with the shop).
+pub fn scanning(game_time: f64, first_done: bool, scan_until: f64, owed_and_dead: bool) -> bool {
+    (game_time < START_FOR && !first_done) || game_time < scan_until || owed_and_dead
 }
 
 /// The League client and the game serve their local APIs with Riot's own certificate, not one a public authority
@@ -115,6 +131,12 @@ pub(crate) fn local_agent() -> ureq::Agent {
 
 fn live(agent: &ureq::Agent, path: &str) -> Option<Value> {
     agent.get(format!("{LIVE}{path}")).call().ok()?.body_mut().read_json().ok()
+}
+
+/// A Mayhem game is running (as the game's own API reports it).
+#[cfg_attr(not(windows), allow(dead_code))]
+pub fn in_game(app: &AppHandle) -> bool {
+    app.state::<Shared>().lock().unwrap().in_game
 }
 
 /// The watcher runs while the companion window is on (it's where everything shows).
@@ -141,6 +163,9 @@ fn start(app: &AppHandle, agent: &ureq::Agent) -> bool {
         s.me = Some(me);
         s.team = team;
         s.level = 0;
+        s.owed = 0;
+        s.dead = false;
+        s.saw_offer = false;
         s.scan_until = 0.0;
         s.first_done = false;
         s.offer.clear();
@@ -244,16 +269,21 @@ fn show_review(app: &AppHandle, samples: &[Sample], result: Option<String>) {
 fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
     let me = app.state::<Shared>().lock().unwrap().me.clone();
     let players = live(agent, "/playerlist").and_then(|v| v.as_array().cloned()).unwrap_or_default();
-    let level = me.as_deref().and_then(|me| my_row(me, &players)).and_then(|r| r.get("level")?.as_u64()).unwrap_or(0);
+    let row = me.as_deref().and_then(|me| my_row(me, &players));
+    let level = row.and_then(|r| r.get("level")?.as_u64()).unwrap_or(0);
+    let dead = row.and_then(|r| r.get("isDead")?.as_bool()).unwrap_or(false);
     {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
         if level > s.level {
-            if reached_augment_level(s.level, level) {
+            let passed = augment_levels_passed(s.level, level);
+            if passed > 0 {
+                s.owed += passed;
                 s.scan_until = game_time + SCAN_FOR;
             }
             s.level = level;
         }
+        died_or_respawned(&mut s, dead);
     }
     sample(app, agent, game_time, &players);
 }
@@ -271,6 +301,17 @@ fn names(app: &AppHandle) -> Option<Vec<(i64, String)>> {
     Some(names)
 }
 
+/// A death starts a fresh look for the owed screen; respawning after a death with no offer on screen means none was
+/// coming (the owed count is a guess from levels, so it can't wait forever).
+fn died_or_respawned(s: &mut State, dead: bool) {
+    if dead && !s.dead {
+        s.saw_offer = false;
+    } else if !dead && s.dead && !s.saw_offer && s.offer.is_empty() {
+        s.owed = 0;
+    }
+    s.dead = dead;
+}
+
 /// Reads the screen once for an augment offer and tells the companion window when it changes.
 fn scan(app: &AppHandle, game_time: f64) {
     let Some(names) = names(app) else { return };
@@ -283,6 +324,7 @@ fn scan(app: &AppHandle, game_time: f64) {
         let mut s = state.lock().unwrap();
         if found.len() >= 2 {
             s.gone = 0;
+            s.saw_offer = true;
             // Still up (the player is thinking it over or rerolled): keep reading.
             s.scan_until = s.scan_until.max(game_time + 10.0);
             s.cards = cards;
@@ -316,6 +358,10 @@ fn scan(app: &AppHandle, game_time: f64) {
 fn close_offer(s: &mut State) -> Option<i64> {
     let was = std::mem::take(&mut s.offer);
     s.cards.clear();
+    // The game's first pick isn't one of the owed screens.
+    if s.first_done {
+        s.owed = s.owed.saturating_sub(1);
+    }
     s.first_done = true;
     s.clicked.take().filter(|(id, at)| at.elapsed() <= PICK_WITHIN && was.contains(id)).map(|(id, _)| id)
 }
@@ -386,7 +432,7 @@ pub fn watch(app: AppHandle) {
                 let state = app.state::<Shared>();
                 let s = state.lock().unwrap();
                 let now = game_time + last_check.map_or(0.0, |at| at.elapsed().as_secs_f64());
-                (s.in_game, s.in_game && scanning(now, s.first_done, s.scan_until))
+                (s.in_game, s.in_game && scanning(now, s.first_done, s.scan_until, s.owed > 0 && s.dead))
             };
             // The reading window closed with an offer still up (picked between two reads): it's gone now.
             let left = {
@@ -434,11 +480,36 @@ mod tests {
 
     #[test]
     fn reads_only_while_an_offer_can_be_up() {
-        assert!(scanning(5.0, false, 0.0)); // the first pick
-        assert!(!scanning(5.0, true, 0.0)); // already picked
-        assert!(!scanning(START_FOR + 1.0, false, 0.0));
-        assert!(scanning(600.0, true, 640.0)); // after an augment level
-        assert!(!scanning(641.0, true, 640.0));
+        assert!(scanning(5.0, false, 0.0, false)); // the first pick
+        assert!(!scanning(5.0, true, 0.0, false)); // already picked
+        assert!(!scanning(START_FOR + 1.0, false, 0.0, false));
+        assert!(scanning(600.0, true, 640.0, false)); // after an augment level
+        assert!(!scanning(641.0, true, 640.0, false));
+        assert!(scanning(900.0, true, 640.0, true)); // dead with a screen owed
+    }
+
+    #[test]
+    fn owed_screens_wait_for_a_death() {
+        assert_eq!(augment_levels_passed(6, 7), 1);
+        assert_eq!(augment_levels_passed(10, 15), 2);
+        assert_eq!(augment_levels_passed(0, 9), 0);
+        // Level 7 reached alive: owed until the death that opens the shop.
+        let mut s = State { owed: 1, first_done: true, ..Default::default() };
+        died_or_respawned(&mut s, true);
+        assert!(s.dead && !s.saw_offer);
+        s.offer = vec![1, 2, 3];
+        s.saw_offer = true;
+        assert_eq!(close_offer(&mut s), None);
+        assert_eq!(s.owed, 0);
+        // A death with no offer on screen: nothing was coming, stop looking.
+        let mut s = State { owed: 1, first_done: true, ..Default::default() };
+        died_or_respawned(&mut s, true);
+        died_or_respawned(&mut s, false);
+        assert_eq!(s.owed, 0);
+        // The first pick doesn't use up an owed screen.
+        let mut s = State { owed: 1, offer: vec![1, 2], ..Default::default() };
+        close_offer(&mut s);
+        assert_eq!(s.owed, 1);
     }
 
     #[test]

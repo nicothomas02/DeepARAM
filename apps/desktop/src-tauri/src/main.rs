@@ -7,6 +7,7 @@ mod ingame;
 mod procs;
 mod review;
 mod sharing;
+mod updater;
 
 use std::{fs, path::PathBuf, sync::Mutex, thread, time::Duration};
 
@@ -25,7 +26,7 @@ use tauri_plugin_window_state::StateFlags;
 const SITE: &str = "https://deeparam.com";
 const STATUS_URL: &str = "https://deeparam.com/data/app-status.json";
 const POLL_EVERY: Duration = Duration::from_secs(30 * 60);
-const HIDDEN_ARG: &str = "--hidden";
+pub(crate) const HIDDEN_ARG: &str = "--hidden";
 
 // Runs in every page: marks the site as running inside the app, shows a banner while offline,
 // and adds the app's shortcuts: Ctrl+1 to Ctrl+7 for the main sections, Ctrl+Shift+C to copy the
@@ -119,6 +120,10 @@ struct Saved {
     /// The companion window draws with the graphics card. Off by default: it draws on the processor, so the
     /// graphics card stays the game's (Nico 2026-11-24 saw lower frame rates with the app open).
     companion_gpu: bool,
+    /// Updates aren't installed by themselves (the tray's "Update automatically").
+    auto_update_off: bool,
+    /// The last update installed by itself, and when (seconds): not tried again for a day if it didn't take.
+    update_tried: Option<(String, u64)>,
     scan_hint_shown: bool,
 }
 
@@ -190,6 +195,22 @@ fn go(app: &AppHandle, path: &str) {
         let _ = win.navigate(url);
     }
     show(app);
+}
+
+pub(crate) fn auto_update_on(app: &AppHandle) -> bool {
+    !app.state::<Store>().saved.lock().unwrap().auto_update_off
+}
+
+#[cfg_attr(not(windows), allow(dead_code))]
+pub(crate) fn update_tried_recently(app: &AppHandle, tag: &str, now: u64) -> bool {
+    let store = app.state::<Store>();
+    let saved = store.saved.lock().unwrap();
+    saved.update_tried.as_ref().is_some_and(|(t, at)| t == tag && now.saturating_sub(*at) < updater::RETRY_AFTER)
+}
+
+#[cfg_attr(not(windows), allow(dead_code))]
+pub(crate) fn note_update_tried(app: &AppHandle, tag: &str, now: u64) {
+    app.state::<Store>().update(|s| s.update_tried = Some((tag.to_owned(), now)));
 }
 
 fn notify(app: &AppHandle, title: &str, body: &str) {
@@ -310,6 +331,14 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let pbe = MenuItem::with_id(app, "pbe", "PBE", true, None::<&str>)?;
     let check = MenuItem::with_id(app, "check", "Check for patch updates", true, None::<&str>)?;
     let notes = CheckMenuItem::with_id(app, "notes", "Patch notifications", true, notifications_on, None::<&str>)?;
+    let updates = CheckMenuItem::with_id(
+        app,
+        "updates",
+        "Update automatically",
+        cfg!(windows),
+        auto_update_on(app),
+        None::<&str>,
+    )?;
     let auto = CheckMenuItem::with_id(app, "auto", AUTOSTART_LABEL, true, autostart_on, None::<&str>)?;
     let quit = MenuItem::with_id(app, "quit", "Quit DeepARAM", true, None::<&str>)?;
     let sep = || PredefinedMenuItem::separator(app);
@@ -349,7 +378,21 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let share = sharing::menu_item(app)?;
     let menu = Menu::with_items(
         app,
-        &[&open, &sep()?, &tier, &sim, &patches, &pbe, &sep()?, &companion_menu, &share, &sep()?, &check, &notes],
+        &[
+            &open,
+            &sep()?,
+            &tier,
+            &sim,
+            &patches,
+            &pbe,
+            &sep()?,
+            &companion_menu,
+            &share,
+            &sep()?,
+            &check,
+            &notes,
+            &updates,
+        ],
     )?;
     if autostart_available() {
         menu.append(&auto)?;
@@ -376,6 +419,10 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
             "scan" => {
                 let on = scan.is_checked().unwrap_or(true);
                 app.state::<Store>().update(|s| s.scan_off = !on);
+            }
+            "updates" => {
+                let on = updates.is_checked().unwrap_or(true);
+                app.state::<Store>().update(|s| s.auto_update_off = !on);
             }
             "gpu" => {
                 let on = gpu.is_checked().unwrap_or(false);
@@ -451,6 +498,17 @@ fn main() {
             ingame::watch(handle.clone());
             companion::watch(handle.clone());
             sharing::watch(handle.clone());
+            updater::watch(handle.clone());
+            // Started again by an automatic update: say so once.
+            let updated = {
+                let running = handle.package_info().version.to_string();
+                let tried = handle.state::<Store>().saved.lock().unwrap().update_tried.clone();
+                tried.filter(|(tag, _)| tag.trim_start_matches('v') == running).map(|_| running)
+            };
+            if let Some(v) = updated {
+                handle.state::<Store>().update(|s| s.update_tried = None);
+                notify(&handle, "DeepARAM updated", &format!("You're on version {v}."));
+            }
             if !hidden {
                 sharing::ask_once(&handle);
             }
