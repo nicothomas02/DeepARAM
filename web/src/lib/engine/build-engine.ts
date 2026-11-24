@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.9";
+export const ENGINE_VERSION = "1.3.10";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -43,6 +43,7 @@ export const RULES: Record<string, Rule> = {
   destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
+  skillSplits: { source: "assumption", on: true, why: "Katarina and Kayn put 3 points in Q before maxing E (Katarina) or W (Kayn). Nico approved 2026-11-24 (his pick) after a one-time regular ARAM cross-check: the only two intentional splits that beat the champion's best standard order at levels 10 and 15 (800+ games each). Shown as estimated; no stats of its own." },
   augmentSkills: { source: "assumption", on: true, why: "A few champions max another ability first once they take an augment (Gwen: E>Q>W with Ethereal Weapon). Nico approved 2026-11-24 (he asked for it); no source splits skill orders by augment, so it's estimated." },
   augmentStart: { source: "data", on: true, why: "The starting items follow the first augment when its first-screen pickers mostly start something else and it at least doubles that start for the champion (Upgrade Stormsurge: Hextech Alternator; Wooglet's Witchcap: Needlessly Large Rod). From the archive's other players against the same champions' players, estimated. Nico asked for it 2026-11-24." },
   richStart: { source: "data", on: true, why: "With more than the 1,400 starting gold before your first buy (the Debonair headliner pays gold for each augment pick; seen in 16 of 251 archive games since 16.21), the best start above 1,400 that you can afford, by DeepScore. Starts above 1,400 are never the default. Nico asked for it 2026-11-24." },
@@ -100,6 +101,8 @@ export type OverlayChamp = {
   };
   /** Skill max orders once an augment is taken (site lib/augment-skills.ts). */
   augmentSkills?: { augment: number; skills: string[] }[];
+  /** Points into one ability before following `skills` (site lib/augment-skills.ts CHAMPION_SPLITS, Nico's pick). */
+  skillSplit?: { first: string; points: number };
   /** The start once an augment is taken first (site lib/quick-build.ts augmentStarts), estimated. */
   augmentStarts?: { augment: number; start: Named[]; toward?: number }[];
   /** Starts above the starting gold, best first, with their cost (site lib/quick-build.ts richStarts). */
@@ -880,7 +883,7 @@ export function buyNow(k: Kinds, nextId: number, owned: Set<number>, gold: numbe
 }
 
 /** On level-up: where the point goes. R at 6, 11 and 16; with Back to Basics only when R has a passive. */
-export function skillUp(order: string[] | undefined, pts: number[], level: number, taken: number[], champ: string, eCap = 5): string {
+export function skillUp(order: string[] | undefined, pts: number[], level: number, taken: number[], champ: string, eCap = 5, split?: { first: string; points: number }): string {
   const spent = pts.reduce((a, b) => a + b, 0);
   if (!order?.length || !pts.length || spent >= level) return "";
   const noR = !R_PASSIVE.has(champKey(champ)) && taken.some((id) => BACK_TO_BASICS.has(id));
@@ -888,8 +891,12 @@ export function skillUp(order: string[] | undefined, pts: number[], level: numbe
   if (!noR && pts[3] < rDue) return "R";
   const idx: Record<string, number> = { Q: 0, W: 1, E: 2 };
   const cap = Math.min(5, Math.ceil(level / 2));
-  const first = level <= 3 && order.find((key) => pts[idx[key]] === 0);
-  return first || order.find((key) => pts[idx[key]] < Math.min(cap, key === "E" ? eCap : 5)) || "";
+  const lead = split && RULES.skillSplits.on ? [split.first, ...order] : order;
+  const first = level <= 3 && lead.find((key) => pts[idx[key]] === 0);
+  if (first) return first;
+  // A split (Katarina: Q to 3, then max E): the split ability first, up to its points.
+  if (split && RULES.skillSplits.on && idx[split.first] !== undefined && pts[idx[split.first]] < Math.min(split.points, cap)) return split.first;
+  return order.find((key) => pts[idx[key]] < Math.min(cap, key === "E" ? eCap : 5)) || "";
 }
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -1245,7 +1252,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
 
   // Tips, most useful first.
   const tips: Tip[] = [];
-  const point = skillUp(champ?.skills, game.skills ?? [], game.level ?? 0, taken, game.champ, route?.eRank ?? 5);
+  // A split applies to the champion's own order only, not to an augment's or Archmage's.
+  const split = !augSkill && !route ? champ0?.skillSplit : undefined;
+  const point = skillUp(champ?.skills, game.skills ?? [], game.level ?? 0, taken, game.champ, route?.eRank ?? 5, split);
   if (point) tips.push({ rank: 1, kind: "skill", text: point });
   const shop = game.dead ? "You're dead: a good time to shop." : (game.t ?? 999) < 60 ? "In base: a good time to shop." : "";
   if (shop) tips.push({ rank: 0, kind: "shop", text: shop });

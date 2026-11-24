@@ -2,7 +2,7 @@
 // spells, boots, core and situational items, and the top augments as ranked on the page. Feeds /data/watch.json (Apple Watch)
 // and /data/overlay.json (the desktop app's in-game overlay).
 import { clashWith } from "./item-limits";
-import { AUGMENT_SKILLS, CHAMPION_SKILLS, type AugmentSkill } from "./augment-skills";
+import { AUGMENT_SKILLS, CHAMPION_SKILLS, CHAMPION_SPLITS, type AugmentSkill, type SkillSplit } from "./augment-skills";
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
 import type { AugmentSwap } from "@/lib/build-plan";
 import { buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
@@ -66,6 +66,8 @@ export type QuickBuild = {
   };
   /** Skill max orders once an augment is taken (lib/augment-skills.ts, Nico's calls). The build engine follows them. */
   augmentSkills?: AugmentSkill[];
+  /** Points into one ability before the order (lib/augment-skills.ts CHAMPION_SPLITS, Nico's pick). */
+  skillSplit?: SkillSplit;
   /** The start once an augment is taken first (Upgrade Stormsurge: Hextech Alternator), estimated. The engine's startFor. */
   /** toward = the item to spend extra gold on with that augment (Upgrade X: X), when there is one. */
   augmentStarts?: { augment: number; start: Named[]; toward?: number }[];
@@ -199,6 +201,7 @@ export function quickBuilds(): QuickBuild[] {
         builds,
         ...(arch ? { archmage: arch } : {}),
         ...(AUGMENT_SKILLS[id] ? { augmentSkills: AUGMENT_SKILLS[id] } : {}),
+        ...(CHAMPION_SPLITS[id] ? { skillSplit: CHAMPION_SPLITS[id] } : {}),
         ...(augStarts.length ? { augmentStarts: augStarts } : {}),
         ...(rich.length ? { richStarts: rich } : {}),
       },

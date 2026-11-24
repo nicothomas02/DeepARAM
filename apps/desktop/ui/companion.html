@@ -254,7 +254,7 @@
     const me = byId[mine];
     const plan = me && builds?.champions?.find((c) => c.id.toLowerCase() === me.toLowerCase());
     const planHtml = plan ? `<h2>Plan for ${esc(label(me))}</h2><div class="box plan">
-        <span class="keys">${(plan.skills ?? []).map((x) => `<b>${x}</b>`).join(" › ")}</span>
+        <span class="keys"${plan.skillSplit ? ` title="Your pick, estimated"` : ""}>${plan.skillSplit ? `<b>${plan.skillSplit.first}</b> to ${plan.skillSplit.points}, then ` : ""}${(plan.skills ?? []).map((x) => `<b>${x}</b>`).join(" › ")}</span>
         <span class="mates">${plan.items.slice(0, 3).map((it) => `<img src="${SITE}${it.icon}" alt="" title="${esc(it.name)}">`).join("")}</span></div>` : "";
     // Team gap: one line, only once the whole team is in and only when something is missing.
     let gap = "";
@@ -605,7 +605,7 @@
     const k = await loadKinds();
     const st = E.startFor ? E.startFor(b, getTaken(game), bought(game) ? undefined : game.gold, k) : { start: b.start ?? [], augment: null };
     box.innerHTML = `<div class="quick">
-      <div class="keys">${(b.skills ?? []).map((k, i) => `${i ? `<span class="why">›</span>` : ""}<span class="key">${esc(k)}</span>`).join("")}</div>
+      <div class="keys"${b.skillSplit ? ` title="Your pick, estimated"` : ""}>${b.skillSplit ? `<span class="key">${esc(b.skillSplit.first)}</span><span class="why">to ${b.skillSplit.points}, then</span>` : ""}${(b.skills ?? []).map((k, i) => `${i ? `<span class="why">›</span>` : ""}<span class="key">${esc(k)}</span>`).join("")}</div>
       ${(b.spells ?? []).map((sp) => `<span class="spell"><img src="${src(sp.icon)}" alt="">${esc(sp.name)}</span>`).join("")}
       ${st.start.length ? `<span class="spell"${st.filled ? ` title="You have extra gold: spend it on these parts"` : st.augment ? ` title="Changed by your first augment"` : st.rich ? ` title="You have extra gold to start"` : ""}>Start ${st.start.map((it) => `<img src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</span>` : ""}
     </div>`;
