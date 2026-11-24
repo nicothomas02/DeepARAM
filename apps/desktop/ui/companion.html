@@ -37,7 +37,7 @@
   h2.now { color: var(--accent); }
   input[type=search] { width: 100%; font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line);
     border-radius: 10px; padding: 7px 10px; margin-bottom: 8px; }
-  .taken { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .taken { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 8px; }
   .chip { display: flex; align-items: center; gap: 6px; font: inherit; font-size: 12px; color: var(--muted); cursor: pointer;
     background: var(--raised); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px 3px 3px; }
   .chip img { width: 22px; height: 22px; border-radius: 50%; }
@@ -339,8 +339,7 @@
     return `<div class="split" title="Enemy damage: about ${100 - m}% physical, ${m}% magic"><span class="ad" data-style="width:${100 - m}%"></span><span class="ap" data-style="width:${m}%"></span></div>
       <div class="split-key"><span>Physical <b>${100 - m}%</b></span><span>Magic <b>${m}%</b></span></div>`;
   }
-  // A new reading of the offer. When an offer goes away without a tap (picked in the game), its augments stay up as
-  // "Which one did you take?" so marking it is one tap, until the next offer or that tap.
+  // A new reading of the offer. Which card you took comes from the app, by the card you clicked (window.autoTaken).
   function setOffer(ids) {
     ids = ids ?? [];
     if (JSON.stringify(ids) === JSON.stringify(offer)) return false;
@@ -423,7 +422,9 @@
         <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : a.combo !== null && a.potential >= 0.3 ? `Combo potential with ${esc(name(a.combo))} (+${a.potential.toFixed(1)})` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
         <div class="num" title="DeepScore on this champion (ranking adds synergy with what you took)">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `${a.boost !== null ? "<br>" : ""}<small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </div>`;
-    box.innerHTML = `
+    // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
+    const took = taken.length ? `<div class="taken"><span class="why lbl">You took</span>${taken.map((id) => `<span class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}">${augIcon(id)}${esc(name(id))}</span>`).join("")}</div>` : "";
+    box.innerHTML = `${took}
       ${offered.length ? `<div class="offer"><div class="why src">On offer now, best first for you.</div>${offered.map((a, i) => row(a, i === 0)).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
       ${shown.map((a, i) => row(a, i === 0 && !offered.length)).join("")}
       <p class="note">Best first for ${esc(label(game.champ))}, by how each does on this champion in real games (DeepScore)${settings.length ? `. Set in champion select: ${esc(settings.join(", "))}` : ""}.</p>`;
@@ -558,6 +559,17 @@
       const h = document.getElementById("augHead");
       if (h && offer.length) { h.textContent = "Augment pick: best first"; h.classList.add("now"); }
     }
+  };
+
+  // The app saw which card you clicked as the offer closed: that's your pick. It re-ranks the rest and re-plans the
+  // items around it, with nothing to tap (Nico 2026-11-24: no taps in game).
+  window.autoTaken = (id) => {
+    if (!game) return;
+    const t = getTaken(game);
+    if (t.includes(id)) return;
+    setTaken(game, [...t, id]);
+    renderAugments();
+    renderItems();
   };
 
   // Bought anything yet (Poro-Snax, which ARAM hands out, doesn't count)?

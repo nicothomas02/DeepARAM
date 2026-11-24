@@ -263,6 +263,13 @@ pub fn show_offer(app: &AppHandle, offer: &[i64]) {
     }
 }
 
+/// The augment the player picked, learned from the card they clicked: the companion marks it taken by itself.
+pub fn auto_taken(app: &AppHandle, id: i64) {
+    if let Some(win) = app.get_webview_window(LABEL) {
+        let _ = win.eval(format!("window.autoTaken && window.autoTaken({id})"));
+    }
+}
+
 /// Which monitor the window goes full screen on: one that doesn't hold the game (or, without a game window to
 /// go by, isn't the main monitor, where League runs). None with a single monitor. Monitors are (x, y, w, h).
 pub fn other_monitor(monitors: &[(i32, i32, u32, u32)], game: Option<(i32, i32)>, primary: usize) -> Option<usize> {
