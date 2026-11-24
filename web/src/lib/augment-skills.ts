@@ -30,6 +30,11 @@ export const CHAMPION_SKILLS: Record<string, string[]> = {
   // Ashe isn't pinned: her crit and AP builds max different abilities, and the W split leads both.
   DrMundo: ["E", "Q", "W"],
   Rumble: ["Q", "E", "W"],
+  // Nico 2026-11-24 also chose these four (weaker evidence, kit reason). Vayne isn't pinned: her on-hit and crit
+  // builds max different abilities, and the W split leads both.
+  Khazix: ["W", "Q", "E"],
+  Sona: ["W", "Q", "E"],
+  Smolder: ["Q", "W", "E"],
 };
 
 /**
@@ -52,4 +57,11 @@ export const CHAMPION_SPLITS: Record<string, SkillSplit> = {
   DrMundo: { first: "Q", points: 3, weak: true },
   Ashe: { first: "W", points: 3, weak: true },
   Rumble: { first: "E", points: 3, weak: true },
+  // Nico chose these four too (2026-11-24): about even with the best standard order at level 10 (Kha'Zix +1, Sona +0,
+  // Vayne -1, Smolder -1 points), each with a kit reason (W poke and heal; Q poke then W heals; W true damage vs tanks;
+  // W waveclear and poke).
+  Khazix: { first: "Q", points: 3, weak: true },
+  Sona: { first: "Q", points: 3, weak: true },
+  Vayne: { first: "W", points: 3, weak: true },
+  Smolder: { first: "W", points: 3, weak: true },
 };
