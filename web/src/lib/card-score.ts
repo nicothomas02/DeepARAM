@@ -117,6 +117,11 @@ export function shrunkLeads<T extends { id: number; winRate: number; pickRate: n
 
 /** Share of the most common row's pick rate a row needs to lead a list (FOLLOWED). */
 export const MIN_FOLLOWING = 0.25;
+/** Spell pairs: 5% of the most common pair (Nico 2026-11-24: Gwen showed Flash + Mark, but Ghost + Mark, 6% of the top
+ *  pair's games, won +0.8 pts more on 16.22 and +1.0 on 16.23, on 127k games). Backtest (AramHex spells 16.21-16.23,
+ *  bound rule): the top pair led the champion by +0.52 pts next patch at 5% vs +0.36 at 25% (+0.49 vs +0.36 with the
+ *  live patch thinned to 10%); looser cutoffs gain a little more but let pairs under 2% of games lead. */
+export const SPELL_FOLLOWING = 0.05;
 
 /**
  * The same rows with those that have a real following first (at least MIN_FOLLOWING of the most common row's pick
