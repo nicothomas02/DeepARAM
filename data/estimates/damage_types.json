@@ -1,0 +1,1218 @@
+{
+ "estimated": true,
+ "about": "Share of damage to champions by type, from archived games (all ten players), pooled over patches. depends_on_build: the split varies widely game to game.",
+ "games": 1249,
+ "champions": {
+  "1": {
+   "physical": 0.032,
+   "magic": 0.895,
+   "true": 0.074,
+   "games": 54,
+   "depends_on_build": false
+  },
+  "2": {
+   "physical": 0.699,
+   "magic": 0.014,
+   "true": 0.287,
+   "games": 25,
+   "depends_on_build": false
+  },
+  "3": {
+   "physical": 0.132,
+   "magic": 0.811,
+   "true": 0.057,
+   "games": 89,
+   "depends_on_build": false
+  },
+  "4": {
+   "physical": 0.124,
+   "magic": 0.821,
+   "true": 0.055,
+   "games": 96,
+   "depends_on_build": true
+  },
+  "5": {
+   "physical": 0.697,
+   "magic": 0.259,
+   "true": 0.045,
+   "games": 60,
+   "depends_on_build": false
+  },
+  "6": {
+   "physical": 0.825,
+   "magic": 0.058,
+   "true": 0.116,
+   "games": 33,
+   "depends_on_build": false
+  },
+  "7": {
+   "physical": 0.041,
+   "magic": 0.897,
+   "true": 0.063,
+   "games": 54,
+   "depends_on_build": false
+  },
+  "8": {
+   "physical": 0.034,
+   "magic": 0.93,
+   "true": 0.036,
+   "games": 64,
+   "depends_on_build": false
+  },
+  "9": {
+   "physical": 0.015,
+   "magic": 0.915,
+   "true": 0.069,
+   "games": 52,
+   "depends_on_build": false
+  },
+  "10": {
+   "physical": 0.342,
+   "magic": 0.63,
+   "true": 0.027,
+   "games": 80,
+   "depends_on_build": false
+  },
+  "11": {
+   "physical": 0.712,
+   "magic": 0.034,
+   "true": 0.254,
+   "games": 47,
+   "depends_on_build": false
+  },
+  "12": {
+   "physical": 0.278,
+   "magic": 0.645,
+   "true": 0.077,
+   "games": 62,
+   "depends_on_build": false
+  },
+  "13": {
+   "physical": 0.026,
+   "magic": 0.935,
+   "true": 0.038,
+   "games": 73,
+   "depends_on_build": false
+  },
+  "14": {
+   "physical": 0.634,
+   "magic": 0.279,
+   "true": 0.087,
+   "games": 81,
+   "depends_on_build": true
+  },
+  "15": {
+   "physical": 0.899,
+   "magic": 0.086,
+   "true": 0.016,
+   "games": 103,
+   "depends_on_build": false
+  },
+  "16": {
+   "physical": 0.05,
+   "magic": 0.826,
+   "true": 0.124,
+   "games": 90,
+   "depends_on_build": false
+  },
+  "17": {
+   "physical": 0.094,
+   "magic": 0.834,
+   "true": 0.072,
+   "games": 81,
+   "depends_on_build": false
+  },
+  "18": {
+   "physical": 0.874,
+   "magic": 0.098,
+   "true": 0.028,
+   "games": 89,
+   "depends_on_build": false
+  },
+  "19": {
+   "physical": 0.425,
+   "magic": 0.534,
+   "true": 0.041,
+   "games": 33,
+   "depends_on_build": false
+  },
+  "20": {
+   "physical": 0.095,
+   "magic": 0.831,
+   "true": 0.074,
+   "games": 51,
+   "depends_on_build": false
+  },
+  "21": {
+   "physical": 0.578,
+   "magic": 0.373,
+   "true": 0.049,
+   "games": 129,
+   "depends_on_build": true
+  },
+  "22": {
+   "physical": 0.763,
+   "magic": 0.21,
+   "true": 0.027,
+   "games": 153,
+   "depends_on_build": true
+  },
+  "23": {
+   "physical": 0.922,
+   "magic": 0.033,
+   "true": 0.046,
+   "games": 35,
+   "depends_on_build": false
+  },
+  "24": {
+   "physical": 0.546,
+   "magic": 0.402,
+   "true": 0.051,
+   "games": 49,
+   "depends_on_build": false
+  },
+  "25": {
+   "physical": 0.025,
+   "magic": 0.918,
+   "true": 0.057,
+   "games": 122,
+   "depends_on_build": false
+  },
+  "26": {
+   "physical": 0.044,
+   "magic": 0.886,
+   "true": 0.071,
+   "games": 56,
+   "depends_on_build": false
+  },
+  "27": {
+   "physical": 0.069,
+   "magic": 0.855,
+   "true": 0.075,
+   "games": 106,
+   "depends_on_build": false
+  },
+  "28": {
+   "physical": 0.033,
+   "magic": 0.898,
+   "true": 0.069,
+   "games": 42,
+   "depends_on_build": false
+  },
+  "29": {
+   "physical": 0.754,
+   "magic": 0.085,
+   "true": 0.161,
+   "games": 97,
+   "depends_on_build": true
+  },
+  "30": {
+   "physical": 0.005,
+   "magic": 0.899,
+   "true": 0.096,
+   "games": 95,
+   "depends_on_build": false
+  },
+  "31": {
+   "physical": 0.212,
+   "magic": 0.554,
+   "true": 0.234,
+   "games": 89,
+   "depends_on_build": false
+  },
+  "32": {
+   "physical": 0.114,
+   "magic": 0.727,
+   "true": 0.16,
+   "games": 62,
+   "depends_on_build": false
+  },
+  "33": {
+   "physical": 0.377,
+   "magic": 0.532,
+   "true": 0.091,
+   "games": 31,
+   "depends_on_build": false
+  },
+  "34": {
+   "physical": 0.032,
+   "magic": 0.891,
+   "true": 0.077,
+   "games": 37,
+   "depends_on_build": false
+  },
+  "35": {
+   "physical": 0.407,
+   "magic": 0.499,
+   "true": 0.095,
+   "games": 137,
+   "depends_on_build": true
+  },
+  "36": {
+   "physical": 0.501,
+   "magic": 0.44,
+   "true": 0.058,
+   "games": 89,
+   "depends_on_build": false
+  },
+  "37": {
+   "physical": 0.154,
+   "magic": 0.763,
+   "true": 0.083,
+   "games": 85,
+   "depends_on_build": false
+  },
+  "38": {
+   "physical": 0.104,
+   "magic": 0.838,
+   "true": 0.058,
+   "games": 45,
+   "depends_on_build": false
+  },
+  "39": {
+   "physical": 0.653,
+   "magic": 0.276,
+   "true": 0.07,
+   "games": 73,
+   "depends_on_build": false
+  },
+  "40": {
+   "physical": 0.104,
+   "magic": 0.788,
+   "true": 0.108,
+   "games": 72,
+   "depends_on_build": false
+  },
+  "41": {
+   "physical": 0.718,
+   "magic": 0.149,
+   "true": 0.132,
+   "games": 90,
+   "depends_on_build": true
+  },
+  "42": {
+   "physical": 0.651,
+   "magic": 0.181,
+   "true": 0.168,
+   "games": 60,
+   "depends_on_build": false
+  },
+  "43": {
+   "physical": 0.057,
+   "magic": 0.863,
+   "true": 0.079,
+   "games": 79,
+   "depends_on_build": false
+  },
+  "44": {
+   "physical": 0.373,
+   "magic": 0.532,
+   "true": 0.095,
+   "games": 28,
+   "depends_on_build": false
+  },
+  "45": {
+   "physical": 0.022,
+   "magic": 0.949,
+   "true": 0.029,
+   "games": 75,
+   "depends_on_build": false
+  },
+  "48": {
+   "physical": 0.581,
+   "magic": 0.355,
+   "true": 0.064,
+   "games": 69,
+   "depends_on_build": true
+  },
+  "50": {
+   "physical": 0.07,
+   "magic": 0.86,
+   "true": 0.07,
+   "games": 91,
+   "depends_on_build": false
+  },
+  "51": {
+   "physical": 0.92,
+   "magic": 0.058,
+   "true": 0.022,
+   "games": 131,
+   "depends_on_build": false
+  },
+  "53": {
+   "physical": 0.278,
+   "magic": 0.664,
+   "true": 0.058,
+   "games": 108,
+   "depends_on_build": false
+  },
+  "54": {
+   "physical": 0.269,
+   "magic": 0.639,
+   "true": 0.091,
+   "games": 123,
+   "depends_on_build": true
+  },
+  "55": {
+   "physical": 0.451,
+   "magic": 0.479,
+   "true": 0.07,
+   "games": 120,
+   "depends_on_build": true
+  },
+  "56": {
+   "physical": 0.886,
+   "magic": 0.06,
+   "true": 0.054,
+   "games": 36,
+   "depends_on_build": false
+  },
+  "57": {
+   "physical": 0.18,
+   "magic": 0.739,
+   "true": 0.081,
+   "games": 74,
+   "depends_on_build": false
+  },
+  "58": {
+   "physical": 0.779,
+   "magic": 0.16,
+   "true": 0.061,
+   "games": 43,
+   "depends_on_build": false
+  },
+  "59": {
+   "physical": 0.799,
+   "magic": 0.135,
+   "true": 0.065,
+   "games": 78,
+   "depends_on_build": false
+  },
+  "60": {
+   "physical": 0.056,
+   "magic": 0.886,
+   "true": 0.058,
+   "games": 56,
+   "depends_on_build": false
+  },
+  "61": {
+   "physical": 0.033,
+   "magic": 0.911,
+   "true": 0.056,
+   "games": 88,
+   "depends_on_build": false
+  },
+  "62": {
+   "physical": 0.768,
+   "magic": 0.168,
+   "true": 0.064,
+   "games": 53,
+   "depends_on_build": false
+  },
+  "63": {
+   "physical": 0.022,
+   "magic": 0.896,
+   "true": 0.082,
+   "games": 111,
+   "depends_on_build": false
+  },
+  "64": {
+   "physical": 0.758,
+   "magic": 0.191,
+   "true": 0.051,
+   "games": 78,
+   "depends_on_build": false
+  },
+  "67": {
+   "physical": 0.58,
+   "magic": 0.077,
+   "true": 0.342,
+   "games": 108,
+   "depends_on_build": false
+  },
+  "68": {
+   "physical": 0.035,
+   "magic": 0.883,
+   "true": 0.082,
+   "games": 51,
+   "depends_on_build": false
+  },
+  "69": {
+   "physical": 0.026,
+   "magic": 0.901,
+   "true": 0.073,
+   "games": 44,
+   "depends_on_build": false
+  },
+  "72": {
+   "physical": 0.577,
+   "magic": 0.34,
+   "true": 0.083,
+   "games": 25,
+   "depends_on_build": false
+  },
+  "74": {
+   "physical": 0.018,
+   "magic": 0.911,
+   "true": 0.071,
+   "games": 59,
+   "depends_on_build": false
+  },
+  "75": {
+   "physical": 0.433,
+   "magic": 0.525,
+   "true": 0.042,
+   "games": 57,
+   "depends_on_build": true
+  },
+  "76": {
+   "physical": 0.042,
+   "magic": 0.891,
+   "true": 0.067,
+   "games": 85,
+   "depends_on_build": false
+  },
+  "77": {
+   "physical": 0.233,
+   "magic": 0.693,
+   "true": 0.074,
+   "games": 50,
+   "depends_on_build": true
+  },
+  "78": {
+   "physical": 0.729,
+   "magic": 0.188,
+   "true": 0.082,
+   "games": 54,
+   "depends_on_build": false
+  },
+  "79": {
+   "physical": 0.115,
+   "magic": 0.806,
+   "true": 0.079,
+   "games": 60,
+   "depends_on_build": false
+  },
+  "80": {
+   "physical": 0.9,
+   "magic": 0.049,
+   "true": 0.051,
+   "games": 64,
+   "depends_on_build": false
+  },
+  "81": {
+   "physical": 0.607,
+   "magic": 0.354,
+   "true": 0.039,
+   "games": 128,
+   "depends_on_build": false
+  },
+  "82": {
+   "physical": 0.145,
+   "magic": 0.82,
+   "true": 0.035,
+   "games": 62,
+   "depends_on_build": false
+  },
+  "83": {
+   "physical": 0.706,
+   "magic": 0.242,
+   "true": 0.052,
+   "games": 21,
+   "depends_on_build": false
+  },
+  "84": {
+   "physical": 0.106,
+   "magic": 0.824,
+   "true": 0.069,
+   "games": 69,
+   "depends_on_build": false
+  },
+  "85": {
+   "physical": 0.054,
+   "magic": 0.881,
+   "true": 0.065,
+   "games": 36,
+   "depends_on_build": false
+  },
+  "86": {
+   "physical": 0.709,
+   "magic": 0.071,
+   "true": 0.22,
+   "games": 66,
+   "depends_on_build": false
+  },
+  "89": {
+   "physical": 0.332,
+   "magic": 0.597,
+   "true": 0.071,
+   "games": 69,
+   "depends_on_build": false
+  },
+  "90": {
+   "physical": 0.021,
+   "magic": 0.918,
+   "true": 0.061,
+   "games": 79,
+   "depends_on_build": false
+  },
+  "91": {
+   "physical": 0.887,
+   "magic": 0.009,
+   "true": 0.104,
+   "games": 42,
+   "depends_on_build": false
+  },
+  "92": {
+   "physical": 0.899,
+   "magic": 0.029,
+   "true": 0.072,
+   "games": 58,
+   "depends_on_build": false
+  },
+  "96": {
+   "physical": 0.312,
+   "magic": 0.545,
+   "true": 0.143,
+   "games": 66,
+   "depends_on_build": true
+  },
+  "98": {
+   "physical": 0.52,
+   "magic": 0.412,
+   "true": 0.068,
+   "games": 86,
+   "depends_on_build": false
+  },
+  "99": {
+   "physical": 0.036,
+   "magic": 0.908,
+   "true": 0.056,
+   "games": 109,
+   "depends_on_build": false
+  },
+  "101": {
+   "physical": 0.016,
+   "magic": 0.93,
+   "true": 0.054,
+   "games": 81,
+   "depends_on_build": false
+  },
+  "102": {
+   "physical": 0.345,
+   "magic": 0.559,
+   "true": 0.097,
+   "games": 65,
+   "depends_on_build": true
+  },
+  "103": {
+   "physical": 0.032,
+   "magic": 0.661,
+   "true": 0.306,
+   "games": 119,
+   "depends_on_build": false
+  },
+  "104": {
+   "physical": 0.869,
+   "magic": 0.08,
+   "true": 0.051,
+   "games": 78,
+   "depends_on_build": false
+  },
+  "105": {
+   "physical": 0.174,
+   "magic": 0.784,
+   "true": 0.042,
+   "games": 70,
+   "depends_on_build": false
+  },
+  "106": {
+   "physical": 0.442,
+   "magic": 0.515,
+   "true": 0.043,
+   "games": 62,
+   "depends_on_build": false
+  },
+  "107": {
+   "physical": 0.77,
+   "magic": 0.15,
+   "true": 0.08,
+   "games": 82,
+   "depends_on_build": true
+  },
+  "110": {
+   "physical": 0.655,
+   "magic": 0.311,
+   "true": 0.035,
+   "games": 105,
+   "depends_on_build": true
+  },
+  "111": {
+   "physical": 0.373,
+   "magic": 0.547,
+   "true": 0.08,
+   "games": 95,
+   "depends_on_build": false
+  },
+  "112": {
+   "physical": 0.021,
+   "magic": 0.937,
+   "true": 0.042,
+   "games": 58,
+   "depends_on_build": false
+  },
+  "113": {
+   "physical": 0.569,
+   "magic": 0.305,
+   "true": 0.126,
+   "games": 27,
+   "depends_on_build": false
+  },
+  "114": {
+   "physical": 0.555,
+   "magic": 0.07,
+   "true": 0.375,
+   "games": 39,
+   "depends_on_build": false
+  },
+  "115": {
+   "physical": 0.025,
+   "magic": 0.929,
+   "true": 0.046,
+   "games": 73,
+   "depends_on_build": false
+  },
+  "117": {
+   "physical": 0.179,
+   "magic": 0.723,
+   "true": 0.098,
+   "games": 57,
+   "depends_on_build": false
+  },
+  "119": {
+   "physical": 0.946,
+   "magic": 0.026,
+   "true": 0.028,
+   "games": 72,
+   "depends_on_build": false
+  },
+  "120": {
+   "physical": 0.794,
+   "magic": 0.156,
+   "true": 0.049,
+   "games": 68,
+   "depends_on_build": false
+  },
+  "121": {
+   "physical": 0.879,
+   "magic": 0.062,
+   "true": 0.059,
+   "games": 63,
+   "depends_on_build": false
+  },
+  "122": {
+   "physical": 0.773,
+   "magic": 0.029,
+   "true": 0.197,
+   "games": 68,
+   "depends_on_build": false
+  },
+  "126": {
+   "physical": 0.784,
+   "magic": 0.164,
+   "true": 0.052,
+   "games": 112,
+   "depends_on_build": false
+  },
+  "127": {
+   "physical": 0.026,
+   "magic": 0.919,
+   "true": 0.055,
+   "games": 52,
+   "depends_on_build": false
+  },
+  "131": {
+   "physical": 0.122,
+   "magic": 0.827,
+   "true": 0.051,
+   "games": 46,
+   "depends_on_build": false
+  },
+  "133": {
+   "physical": 0.887,
+   "magic": 0.079,
+   "true": 0.034,
+   "games": 35,
+   "depends_on_build": false
+  },
+  "134": {
+   "physical": 0.02,
+   "magic": 0.88,
+   "true": 0.1,
+   "games": 104,
+   "depends_on_build": false
+  },
+  "136": {
+   "physical": 0.007,
+   "magic": 0.909,
+   "true": 0.084,
+   "games": 121,
+   "depends_on_build": false
+  },
+  "141": {
+   "physical": 0.899,
+   "magic": 0.05,
+   "true": 0.051,
+   "games": 54,
+   "depends_on_build": false
+  },
+  "142": {
+   "physical": 0.06,
+   "magic": 0.767,
+   "true": 0.173,
+   "games": 73,
+   "depends_on_build": false
+  },
+  "143": {
+   "physical": 0.022,
+   "magic": 0.883,
+   "true": 0.095,
+   "games": 75,
+   "depends_on_build": false
+  },
+  "145": {
+   "physical": 0.383,
+   "magic": 0.594,
+   "true": 0.023,
+   "games": 137,
+   "depends_on_build": true
+  },
+  "147": {
+   "physical": 0.051,
+   "magic": 0.881,
+   "true": 0.068,
+   "games": 93,
+   "depends_on_build": false
+  },
+  "150": {
+   "physical": 0.701,
+   "magic": 0.223,
+   "true": 0.076,
+   "games": 54,
+   "depends_on_build": false
+  },
+  "154": {
+   "physical": 0.149,
+   "magic": 0.768,
+   "true": 0.083,
+   "games": 52,
+   "depends_on_build": false
+  },
+  "157": {
+   "physical": 0.831,
+   "magic": 0.108,
+   "true": 0.061,
+   "games": 84,
+   "depends_on_build": false
+  },
+  "161": {
+   "physical": 0.012,
+   "magic": 0.719,
+   "true": 0.269,
+   "games": 67,
+   "depends_on_build": false
+  },
+  "163": {
+   "physical": 0.016,
+   "magic": 0.922,
+   "true": 0.062,
+   "games": 50,
+   "depends_on_build": false
+  },
+  "164": {
+   "physical": 0.651,
+   "magic": 0.058,
+   "true": 0.291,
+   "games": 34,
+   "depends_on_build": false
+  },
+  "166": {
+   "physical": 0.778,
+   "magic": 0.179,
+   "true": 0.043,
+   "games": 76,
+   "depends_on_build": false
+  },
+  "200": {
+   "physical": 0.501,
+   "magic": 0.229,
+   "true": 0.27,
+   "games": 48,
+   "depends_on_build": true
+  },
+  "201": {
+   "physical": 0.307,
+   "magic": 0.597,
+   "true": 0.096,
+   "games": 41,
+   "depends_on_build": false
+  },
+  "202": {
+   "physical": 0.898,
+   "magic": 0.07,
+   "true": 0.032,
+   "games": 139,
+   "depends_on_build": false
+  },
+  "203": {
+   "physical": 0.836,
+   "magic": 0.133,
+   "true": 0.031,
+   "games": 55,
+   "depends_on_build": false
+  },
+  "221": {
+   "physical": 0.709,
+   "magic": 0.263,
+   "true": 0.028,
+   "games": 98,
+   "depends_on_build": false
+  },
+  "222": {
+   "physical": 0.878,
+   "magic": 0.101,
+   "true": 0.021,
+   "games": 121,
+   "depends_on_build": false
+  },
+  "223": {
+   "physical": 0.24,
+   "magic": 0.708,
+   "true": 0.052,
+   "games": 100,
+   "depends_on_build": false
+  },
+  "233": {
+   "physical": 0.786,
+   "magic": 0.148,
+   "true": 0.066,
+   "games": 70,
+   "depends_on_build": false
+  },
+  "234": {
+   "physical": 0.798,
+   "magic": 0.137,
+   "true": 0.065,
+   "games": 56,
+   "depends_on_build": false
+  },
+  "235": {
+   "physical": 0.889,
+   "magic": 0.08,
+   "true": 0.031,
+   "games": 141,
+   "depends_on_build": false
+  },
+  "236": {
+   "physical": 0.822,
+   "magic": 0.146,
+   "true": 0.032,
+   "games": 115,
+   "depends_on_build": false
+  },
+  "238": {
+   "physical": 0.872,
+   "magic": 0.055,
+   "true": 0.073,
+   "games": 74,
+   "depends_on_build": false
+  },
+  "240": {
+   "physical": 0.858,
+   "magic": 0.093,
+   "true": 0.05,
+   "games": 21,
+   "depends_on_build": false
+  },
+  "245": {
+   "physical": 0.101,
+   "magic": 0.846,
+   "true": 0.053,
+   "games": 79,
+   "depends_on_build": false
+  },
+  "246": {
+   "physical": 0.825,
+   "magic": 0.11,
+   "true": 0.064,
+   "games": 96,
+   "depends_on_build": false
+  },
+  "254": {
+   "physical": 0.845,
+   "magic": 0.082,
+   "true": 0.074,
+   "games": 36,
+   "depends_on_build": false
+  },
+  "266": {
+   "physical": 0.856,
+   "magic": 0.096,
+   "true": 0.048,
+   "games": 86,
+   "depends_on_build": false
+  },
+  "267": {
+   "physical": 0.07,
+   "magic": 0.849,
+   "true": 0.08,
+   "games": 113,
+   "depends_on_build": false
+  },
+  "268": {
+   "physical": 0.079,
+   "magic": 0.866,
+   "true": 0.055,
+   "games": 45,
+   "depends_on_build": false
+  },
+  "350": {
+   "physical": 0.014,
+   "magic": 0.807,
+   "true": 0.178,
+   "games": 75,
+   "depends_on_build": false
+  },
+  "360": {
+   "physical": 0.811,
+   "magic": 0.115,
+   "true": 0.075,
+   "games": 69,
+   "depends_on_build": false
+  },
+  "412": {
+   "physical": 0.251,
+   "magic": 0.664,
+   "true": 0.085,
+   "games": 115,
+   "depends_on_build": false
+  },
+  "420": {
+   "physical": 0.907,
+   "magic": 0.045,
+   "true": 0.048,
+   "games": 37,
+   "depends_on_build": false
+  },
+  "421": {
+   "physical": 0.606,
+   "magic": 0.162,
+   "true": 0.231,
+   "games": 22,
+   "depends_on_build": false
+  },
+  "427": {
+   "physical": 0.278,
+   "magic": 0.615,
+   "true": 0.108,
+   "games": 27,
+   "depends_on_build": false
+  },
+  "429": {
+   "physical": 0.792,
+   "magic": 0.18,
+   "true": 0.027,
+   "games": 52,
+   "depends_on_build": false
+  },
+  "432": {
+   "physical": 0.258,
+   "magic": 0.7,
+   "true": 0.042,
+   "games": 44,
+   "depends_on_build": true
+  },
+  "497": {
+   "physical": 0.253,
+   "magic": 0.596,
+   "true": 0.151,
+   "games": 36,
+   "depends_on_build": true
+  },
+  "498": {
+   "physical": 0.92,
+   "magic": 0.052,
+   "true": 0.028,
+   "games": 99,
+   "depends_on_build": false
+  },
+  "516": {
+   "physical": 0.385,
+   "magic": 0.541,
+   "true": 0.073,
+   "games": 35,
+   "depends_on_build": false
+  },
+  "517": {
+   "physical": 0.139,
+   "magic": 0.801,
+   "true": 0.06,
+   "games": 81,
+   "depends_on_build": false
+  },
+  "518": {
+   "physical": 0.058,
+   "magic": 0.885,
+   "true": 0.057,
+   "games": 54,
+   "depends_on_build": false
+  },
+  "523": {
+   "physical": 0.922,
+   "magic": 0.056,
+   "true": 0.022,
+   "games": 55,
+   "depends_on_build": false
+  },
+  "526": {
+   "physical": 0.323,
+   "magic": 0.598,
+   "true": 0.08,
+   "games": 58,
+   "depends_on_build": false
+  },
+  "555": {
+   "physical": 0.83,
+   "magic": 0.017,
+   "true": 0.153,
+   "games": 94,
+   "depends_on_build": false
+  },
+  "711": {
+   "physical": 0.034,
+   "magic": 0.918,
+   "true": 0.047,
+   "games": 41,
+   "depends_on_build": false
+  },
+  "777": {
+   "physical": 0.709,
+   "magic": 0.166,
+   "true": 0.125,
+   "games": 66,
+   "depends_on_build": false
+  },
+  "799": {
+   "physical": 0.933,
+   "magic": 0.034,
+   "true": 0.033,
+   "games": 25,
+   "depends_on_build": false
+  },
+  "800": {
+   "physical": 0.037,
+   "magic": 0.915,
+   "true": 0.048,
+   "games": 106,
+   "depends_on_build": false
+  },
+  "804": {
+   "physical": 0.602,
+   "magic": 0.378,
+   "true": 0.02,
+   "games": 147,
+   "depends_on_build": false
+  },
+  "805": {
+   "physical": 0.064,
+   "magic": 0.857,
+   "true": 0.08,
+   "games": 65,
+   "depends_on_build": false
+  },
+  "875": {
+   "physical": 0.655,
+   "magic": 0.049,
+   "true": 0.296,
+   "games": 105,
+   "depends_on_build": false
+  },
+  "876": {
+   "physical": 0.016,
+   "magic": 0.785,
+   "true": 0.198,
+   "games": 105,
+   "depends_on_build": false
+  },
+  "887": {
+   "physical": 0.131,
+   "magic": 0.736,
+   "true": 0.133,
+   "games": 88,
+   "depends_on_build": false
+  },
+  "888": {
+   "physical": 0.11,
+   "magic": 0.65,
+   "true": 0.239,
+   "games": 56,
+   "depends_on_build": false
+  },
+  "893": {
+   "physical": 0.035,
+   "magic": 0.924,
+   "true": 0.041,
+   "games": 124,
+   "depends_on_build": false
+  },
+  "895": {
+   "physical": 0.938,
+   "magic": 0.013,
+   "true": 0.049,
+   "games": 33,
+   "depends_on_build": false
+  },
+  "897": {
+   "physical": 0.773,
+   "magic": 0.117,
+   "true": 0.11,
+   "games": 27,
+   "depends_on_build": false
+  },
+  "901": {
+   "physical": 0.772,
+   "magic": 0.123,
+   "true": 0.104,
+   "games": 114,
+   "depends_on_build": false
+  },
+  "902": {
+   "physical": 0.077,
+   "magic": 0.846,
+   "true": 0.077,
+   "games": 62,
+   "depends_on_build": false
+  },
+  "904": {
+   "physical": 0.878,
+   "magic": 0.077,
+   "true": 0.045,
+   "games": 57,
+   "depends_on_build": false
+  },
+  "910": {
+   "physical": 0.026,
+   "magic": 0.909,
+   "true": 0.066,
+   "games": 56,
+   "depends_on_build": false
+  },
+  "950": {
+   "physical": 0.889,
+   "magic": 0.03,
+   "true": 0.081,
+   "games": 38,
+   "depends_on_build": false
+  }
+ }
+}

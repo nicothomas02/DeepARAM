@@ -298,3 +298,14 @@ def test_teams():
     for t in d["teams"]:
         assert len(set(t["champions"])) == 5
         assert 0.5 < t["projected_win_rate"] < 1
+
+
+def test_damage_types():
+    """Damage type split per champion: estimated, shares sum to 1, enough games, a minority marked build-dependent."""
+    d = load_json("data/estimates/damage_types.json")
+    assert d["estimated"] is True
+    assert len(d["champions"]) > 150
+    for c in d["champions"].values():
+        assert abs(c["physical"] + c["magic"] + c["true"] - 1) < 0.01
+        assert c["games"] >= 20
+    assert 0 < sum(c["depends_on_build"] for c in d["champions"].values()) < len(d["champions"]) / 4
