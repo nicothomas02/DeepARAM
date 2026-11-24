@@ -21,7 +21,7 @@ import { championAliases, championSummary, champList, type RadarAxis } from "@/l
 import { TfCard, TfPerf, TfStrip, TfTier, TimeframePicker } from "@/components/champion/Timeframe";
 import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
-import { leading, SPELL_FOLLOWING } from "@/lib/card-score";
+import { leading, SPELL_FOLLOWING, SPELL_MIN_GAMES } from "@/lib/card-score";
 import {
   buildOrder,
   championPage,
@@ -577,7 +577,7 @@ export default async function ChampionPage({
   // their most-picked-first order.
   // Real spell pairs (AramHex) lead only with a real following, the same 1/4 rule as builds, so a pair a few percent
   // of players take can't top the card on win rate alone (Ghost + Barrier over Flash on Ahri).
-  const spells = spellsEstimated ? rawSpells : leading(scoreRows(rawSpells, FIT.items, { bound: true }), SPELL_FOLLOWING);
+  const spells = spellsEstimated ? rawSpells : leading(scoreRows(rawSpells, FIT.items, { bound: true }), SPELL_FOLLOWING, SPELL_MIN_GAMES);
   const bestSpells = spells[0];
   const games = fillGames()?.[c.alias];
   const gamesEstimated = fillEstimated();
