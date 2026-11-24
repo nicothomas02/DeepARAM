@@ -201,10 +201,8 @@ describe("build engine", () => {
     expect(p.rules).toContain("ownedReplan");
     expect(ids(p.path)).toEqual(expect.arrayContaining([3003, 3089, 3135]));
     expect([3135, 4645]).toContain(ids(p.next)[0]);
-    // one purely-AP off-path item is enough; one mixed item (Nashor's: AD and AP) isn't
-    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched?.style).toBeTruthy();
-    const k3 = { ...k2, items: { ...k2.items, 3115: ["ad", "ap", "as"] }, recipes: { ...k2.recipes, 3115: ["#3115", 3000, []] } } as Kinds;
-    expect(plan({ champ, kinds: k3, picks: p2, fit, game: game([], { items: [3006, 3115] }), taken: [] }).switched).toBeNull();
+    // one off-path AP item doesn't switch (archive: doubling down after one off-type buy lowers damage share)
+    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
   });
 
   it("an augment whose holders rush an item puts it in the core and makes it Next (augmentRush)", () => {
