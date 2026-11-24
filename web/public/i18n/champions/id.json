@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Sudah punya augment? Tekan + atau seret ke slotmu, dan sisanya diurutkan ulang berdasarkan sinergi.",
  "In the build": "Dalam build",
  "{win} win · {pick} pick": "{win} menang · {pick} dipilih",
- "or": "atau"
+ "or": "atau",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "Seberapa lebih baik augment ini pada champion ini dibanding champion rata-rata (poin DeepScore).",
+ "Fit {n}": "Kecocokan {n}"
 }

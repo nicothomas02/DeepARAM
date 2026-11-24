@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "لديك معززات بالفعل؟ اضغط + أو اسحبها إلى خاناتك، وسيُعاد ترتيب البقية حسب التآزر.",
  "In the build": "ضمن البناء",
  "{win} win · {pick} pick": "{win} فوز · {pick} اختيار",
- "or": "أو"
+ "or": "أو",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "كم يكون هذا التعزيز أفضل على هذا البطل منه على البطل المتوسط (نقاط DeepScore).",
+ "Fit {n}": "الملاءمة {n}"
 }

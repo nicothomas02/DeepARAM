@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Už máš vylepšení? Stiskni + nebo je přetáhni do svých slotů a ostatní se přeřadí podle synergie.",
  "In the build": "V buildu",
  "{win} win · {pick} pick": "{win} výher · {pick} výběr",
- "or": "nebo"
+ "or": "nebo",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "O kolik je tento augment lepší na tomto šampionovi než na průměrném šampionovi (body DeepScore).",
+ "Fit {n}": "Sedí {n}"
 }

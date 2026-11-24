@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.7";
+export const ENGINE_VERSION = "1.3.9";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -52,6 +52,8 @@ export const RULES: Record<string, Rule> = {
   headlinerScreens: { source: "game data", on: true, why: "Used once the app knows the headliner (wiki + Nico 2026-11-24). Maestro: 4 cards a screen, each rerollable once, so 8 chances to see a partner instead of 6. Command Line: screens are only Silver or Gold, so a Prismatic partner only comes from a reroll; the first reroll on a screen draws one tier higher (Silver to Gold, Gold to Prismatic). Debonair: the gold on a card only breaks a tie." },
   heartsteelStickers: { source: "assumption", on: true, why: "HEARTSTEEL stickers add their estimated value to the augment they're on: stats the champion uses, priced at basic-item gold, 0.45 win-rate points per 1,000 gold (Deft/Recursion on builders vs non-builders). Nico approved estimates 2026-11-24." },
   tierOdds: { source: "data", on: true, why: "Combo potential uses the chance each later screen comes at the partner's tier (archive since 16.21, all players, 225 games: e.g. after a Prismatic screen the next is Prismatic only 18% of the time, Gold 43%) and the chance the partner is among the 6 cards a screen can show from the champion's augments left at that tier, instead of a flat 4% per pick. Split-half backtest: predicts the next screen's tier better than tier-blind odds (log loss 1.05-1.07 vs 1.10). Nico approved 2026-11-24." },
+  nearTies: { source: "data", on: true, why: "Cards on offer within the 95% noise band of the best (1.96 x their combined standard error) are shown as 'either is fine'. Engine scorecard on 9,399 archive picks since 16.21 (other players, game state at pick time controlled): a gap outside the band predicts wins (+0.043 log-odds per point, z 5.0); inside it, which side you're on doesn't (above -2.7 vs below -1.3 pts, se 1.7). Nico approved trying it 2026-11-24." },
+  augmentConflicts: { source: "game data", on: true, why: "An augment that can't work with one you took goes last, with the reason (wiki augment text): Back to Basics seals your ultimate, so augments that need your ultimate cast are dead with it; ADAPt and EscAPADe convert opposite ways; you have two summoner spell slots, so Mark augments, Flash augments and augments that replace a spell can't all fit. Nico asked 2026-11-24; the longer list of possible anti-synergies is in research/augment-conflicts for his review." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
   // Design choices Nico hasn't picked yet: kept as they were.
@@ -208,7 +210,40 @@ export type RankedAugment = {
   deep: number;
   /** Feeling lucky: points added for being a rarer pick among near-ties (0 when none). */
   tilt?: number;
+  /** Why it can't work with an augment you took (augmentConflicts); such augments go last. */
+  conflict?: string;
 };
+
+// ---------------------------------------------------------------------------------------------------------------
+// Augment conflicts (wiki augment text), by name so every id of an augment counts
+
+const nameKey = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+/** Augments that only work when you cast your ultimate (or add ultimate haste). */
+export const ULTIMATE_AUGMENTS = new Set(["arcaneaxiom", "canttouchthis", "feymagic", "finalform", "itskillingtime", "jeweledbracelet", "moshmonster", "rise", "stuckinherewithme", "ultimateawakening", "ultimaterecursion", "ultimaterevolution", "ultimateunstoppable"]);
+/** Augments that need the Mark summoner spell, the Flash summoner spell, or replace a summoner spell with their own. */
+export const MARK_AUGMENTS = new Set(["biggestsnowballever", "holysnowball", "pinball", "snowblast", "snowday"]);
+export const FLASH_AUGMENTS = new Set(["flashy", "flash2", "flashbang"]);
+export const SPELL_AUGMENTS = new Set(["bladewaltz", "brassblast", "clowncollege", "getjinxed", "growthspurt", "poltergeist", "spinmerightround", "totentanz"]);
+
+/** Why augment `id` can't work with what you took, or null (augmentConflicts). */
+export function augmentConflict(picks: Picks, taken: number[], id: number): string | null {
+  if (!RULES.augmentConflicts.on) return null;
+  const nm = (x: number) => picks.augments[x]?.[0] ?? "";
+  const me = nameKey(nm(id));
+  if (!me) return null;
+  const mine = taken.map((x) => ({ id: x, k: nameKey(nm(x)) })).filter((x) => x.k);
+  for (const t of mine) {
+    if ((me === "backtobasics" && ULTIMATE_AUGMENTS.has(t.k)) || (t.k === "backtobasics" && ULTIMATE_AUGMENTS.has(me)))
+      return `Back to Basics seals your ultimate, which ${me === "backtobasics" ? nm(t.id) : nm(id)} needs`;
+    if ((me === "adapt" && t.k === "escapade") || (me === "escapade" && t.k === "adapt"))
+      return `${nm(t.id)} converts the other way`;
+  }
+  const keys = [...mine.map((t) => t.k), me];
+  const slots = (keys.some((k) => MARK_AUGMENTS.has(k)) ? 1 : 0) + (keys.some((k) => FLASH_AUGMENTS.has(k)) ? 1 : 0) + keys.filter((k) => SPELL_AUGMENTS.has(k)).length;
+  if (slots > 2 && (MARK_AUGMENTS.has(me) || FLASH_AUGMENTS.has(me) || SPELL_AUGMENTS.has(me)))
+    return "No summoner spell slot left for it after your other spell augments";
+  return null;
+}
 
 /** Feeling lucky's tilt toward rarer options: at most this many points (win-rate points). */
 export const LUCKY_TILT = 0.3;
@@ -370,9 +405,10 @@ export function rankAugments(
         }
       }
       const baseScore = score * 100 + bonus + (RULES.heartsteelStickers.on ? opts.stickers?.[id] ?? 0 : 0);
-      return { id, score: baseScore + potential, boost: est ? baseScore : null, potential, combo, mate, deep } as RankedAugment;
+      const conflict = augmentConflict(picks, taken, id);
+      return { id, score: baseScore + potential, boost: est ? baseScore : null, potential, combo, mate, deep, ...(conflict ? { conflict } : {}) } as RankedAugment;
     })
-    .sort((x, y) => y.score - x.score);
+    .sort((x, y) => Number(!!x.conflict) - Number(!!y.conflict) || y.score - x.score);
   if (!opts.lucky) return ranked;
   return luckyOrder(ranked, (a) => info.get(a.id)?.se ?? null, (a) => info.get(a.id)?.pick ?? null);
 }
@@ -436,6 +472,41 @@ export function stickerValue(member: string, champ: OverlayChamp | null | undefi
     : used.length ? `${STICKERS[member]}: about ${Math.round(gold / 50) * 50} gold of ${used.join(" and ")} you use (estimated)`
     : `${STICKERS[member]}: stats this build doesn't use (estimated)`;
   return { member, gold: Math.round(gold), points: Math.round(points * 100) / 100, parts, why };
+}
+
+/**
+ * Cards on offer that are a near-tie with the best one (nearTies): the score gap is within 1.96 x the combined
+ * standard error of the two real-game scores. Estimates (no standard error) are never called a tie.
+ */
+export function nearTies(picks: Picks, champ: string, offered0: { id: number; score: number; conflict?: string }[]): number[] {
+  const offered = offered0.filter((o) => !o.conflict);
+  if (!RULES.nearTies.on || offered.length < 2) return [];
+  const ck = keyIn(picks.champions, champ);
+  const se = new Map((ck ? picks.champions[ck] : []).map(([id, , , , e = -1]) => [id, e]));
+  const best = offered.reduce((a, b) => (b.score > a.score ? b : a));
+  const eb = se.get(best.id) ?? -1;
+  if (eb < 0) return [];
+  return offered.filter((o) => {
+    const e = se.get(o.id) ?? -1;
+    return o.id !== best.id && e >= 0 && best.score - o.score <= 1.96 * Math.sqrt(e * e + eb * eb);
+  }).map((o) => o.id);
+}
+
+/**
+ * Among the best card and its near-ties, the one to take if you can't decide (Nico 2026-11-24): more combo potential
+ * first (it can grow), else the one fewer players take (more unusual). Null when nothing separates them.
+ */
+export function tieBreak(picks: Picks, champ: string, ids: number[], ranked: RankedAugment[]): { id: number; why: string } | null {
+  if (ids.length < 2) return null;
+  const ck = keyIn(picks.champions, champ);
+  const pickRate = new Map((ck ? picks.champions[ck] : []).map(([id, , , , , pr = -1]) => [id, pr]));
+  const rows = ids.map((id) => ranked.find((a) => a.id === id)).filter((a): a is RankedAugment => !!a);
+  if (rows.length < 2) return null;
+  const pot = [...rows].sort((a, b) => b.potential - a.potential);
+  if (pot[0].potential - pot[1].potential >= 0.05) return { id: pot[0].id, why: "more combo potential" };
+  const rare = rows.filter((a) => (pickRate.get(a.id) ?? -1) >= 0).sort((a, b) => pickRate.get(a.id)! - pickRate.get(b.id)!);
+  if (rare.length >= 2 && pickRate.get(rare[0].id)! < pickRate.get(rare[1].id)! * 0.8) return { id: rare[0].id, why: "fewer players take it" };
+  return null;
 }
 
 export type RerollAdvice = {

@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "¿Ya tienes aumentos? Presiona + o arrástralos a tus espacios y el resto se reordena por sinergia.",
  "In the build": "En la build",
  "{win} win · {pick} pick": "{win} victorias · {pick} elección",
- "or": "o"
+ "or": "o",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "Cuánto mejor es este aumento en este campeón que en el campeón promedio (puntos de DeepScore).",
+ "Fit {n}": "Encaje {n}"
 }

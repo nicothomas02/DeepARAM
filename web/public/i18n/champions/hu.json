@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Már vannak fejlesztéseid? Nyomd meg a + gombot, vagy húzd őket a helyeidre, és a többi szinergia szerint rendeződik át.",
  "In the build": "A buildben",
  "{win} win · {pick} pick": "{win} győzelem · {pick} választás",
- "or": "vagy"
+ "or": "vagy",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "Mennyivel jobb ez a képesség ezen a hősön, mint az átlagos hősön (DeepScore-pont).",
+ "Fit {n}": "Illeszkedés {n}"
 }

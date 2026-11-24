@@ -71,6 +71,7 @@ import {
 import { ITEM_TIERS, rewardItems, type ItemTier } from "@/lib/items";
 import { championAugmentStages, championEstimates } from "@/lib/estimates";
 import { bracketAugmentScores } from "@/lib/bracket-augments";
+import { augmentTiers } from "@/lib/augment-tiers";
 import { augmentScores, byScore, rankedAugments } from "@/lib/champion-augments";
 import { SITUATIONS } from "@/lib/situations";
 import StyleTabs from "@/components/champion/StyleTabs";
@@ -537,6 +538,8 @@ export default async function ChampionPage({
   const scores = augmentScores(c.alias);
   // The augment list by skill bracket, live patch only (lib/bracket-augments.ts); null hides the bracket switch.
   const bracketMaps = bracketAugmentScores(c.alias);
+  // Each augment's Tier List DeepScore across all champions, for the table's "vs all champions" marker.
+  const everywhere = Object.fromEntries(augmentTiers().map((x) => [x.id, x.deepScore]));
   const bracketAugs = bracketMaps
     ? Object.fromEntries(Object.entries(bracketMaps).map(([b, m]) => [b, Object.fromEntries(m!)]))
     : null;
@@ -993,7 +996,7 @@ export default async function ChampionPage({
                 ) : undefined
               }
             >
-              <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} patch={patchName(c.patch)} brackets={bracketAugs ?? undefined} />
+              <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} patch={patchName(c.patch)} brackets={bracketAugs ?? undefined} everywhere={everywhere} />
             </Panel>
           )}
           {/* Augment synergies (Nico, 2026-11-20): pairs worth more than the sum of their parts, from confirmed
