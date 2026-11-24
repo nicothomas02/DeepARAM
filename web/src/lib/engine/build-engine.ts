@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.0";
+export const ENGINE_VERSION = "1.3.1";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -447,7 +447,10 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
     }
     return { ...it, why, proven };
   });
-  return [...out.filter((it) => it.aug && it.why), ...out.filter((it) => !(it.aug && it.why))];
+  // Best item first in each group (Nico 2026-11-24: "sort by best at top"); entries without a DeepScore keep their place
+  // after the scored ones.
+  const best = (list: LitItem[]) => [...list].sort((x, y) => (y.deepScore ?? -Infinity) - (x.deepScore ?? -Infinity));
+  return [...best(out.filter((it) => it.aug && it.why)), ...best(out.filter((it) => !(it.aug && it.why)))];
 }
 
 // ---------------------------------------------------------------------------------------------------------------

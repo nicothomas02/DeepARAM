@@ -13,7 +13,7 @@
     {"a": "biggest_snowball_ever", "b": "holy_snowball", "points": 1, "why": "Snowball augments stack.", "source": "Nico 2026-11-20"},
     {"a": "pinball", "b": "snowday", "points": 1, "why": "Snowball augments stack.", "source": "Nico 2026-11-20"},
     {"a": "echo_cast", "b": "recoil", "points": 1, "why": "Recoil makes the echo even harder to dodge.", "source": "Nico 2026-11-20 (experience)"},
-    {"a": "one_hit_wonder", "b": "purist_caster", "a_first": -1.5, "b_first": 0, "why": "Order matters: with One Hit Wonder taken first, Purist Caster doesn't convert its haste; taken after Purist Caster, it does.", "source": "Nico 2026-11-20"},
+    {"a": "one_hit_wonder", "b": "purist_caster", "a_first": -1.5, "b_first": 0, "why": "Order matters: with One Hit Wonder taken first, Purist - Caster doesn't convert its haste; taken after Purist - Caster, it does.", "source": "Nico 2026-11-20"},
     {"a": "one_hit_wonder", "b": "bread_and_butter", "points": 1, "why": "One Hit Wonder doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.", "source": "Nico 2026-11-20"},
     {"a": "one_hit_wonder", "b": "bread_and_cheese", "points": 1, "why": "One Hit Wonder doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.", "source": "Nico 2026-11-20"},
     {"a": "one_hit_wonder", "b": "bread_and_jam", "points": 1, "why": "One Hit Wonder doesn't convert direct cooldown cuts like this one, so cooldowns stay balanced without diminishing haste.", "source": "Nico 2026-11-20"},

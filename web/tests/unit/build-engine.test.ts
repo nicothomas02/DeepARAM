@@ -16,6 +16,7 @@ import {
   rankAugments,
   rerollAdvice,
   RULES,
+  situational,
   skillUp,
   triggers,
   type Fit,
@@ -79,6 +80,11 @@ describe("build engine", () => {
     for (const [name, r] of Object.entries(RULES)) if (r.on && r.source === "assumption") expect(r.why, name).toMatch(/Nico (decides|approved)/);
     // only the triggers that passed a test
     expect(Object.keys(triggers(kinds, fit, game(["Lux", "Brand", "Annie"]).enemies))).toEqual(["Vs magic damage", "Vs auto attacks"]);
+  });
+
+  it("lists situational items best DeepScore first (Nico 2026-11-24)", () => {
+    const c = { ...champ, situational: [item(3065, { when: "Vs magic damage", deepScore: 40 }), item(3003, { when: "Vs healing", deepScore: 70 }), item(3302, { when: "Vs auto attacks" })] };
+    expect(ids(situational(c, kinds, fit, [], [], new Set()))).toEqual([3003, 3065, 3302]);
   });
 
   it("knows item limits and substitutes", () => {
