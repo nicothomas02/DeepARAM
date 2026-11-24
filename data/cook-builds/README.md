@@ -91,6 +91,14 @@ Tests pass.
 - **Haste goals** (Nico, 2026-11-20). The min-max goal comes first, but even when cooldown speed is the goal,
   plain haste augments (Purist - Caster, Recursion, Infinite Recursion, Eureka, Bread) are usually the weakest pick:
   Overloaded or Archmage on the right champion, or Ethereal Weapon + Mystic Punch, are usually worth more.
+- **Off-meta build, not just playstyle** (Nico, 2026-11-24). The augments and items themselves must differ from what
+  the champion normally goes (a crit Yasuo was rejected: Mystic Punch is one of his most-taken augments). Measure it
+  in `data/cn/builds/<id>.json`: every augment under 2% pick on that champion (or in pool but absent from the data),
+  every item in under 1% of that champion's games except at most one (boots don't count), and no engine that
+  matches the champion's usual identity. Check the numbers while designing; never print them on the card.
+- **Title plays on the kit piece's name** (Nico, 2026-11-24). The title must reference the featured ability's name
+  (Sweeping Blade -> "Sweeping Broom"). **Vary the naming style** from special to special (puns, menu or recipe jokes,
+  fake movie or song titles, sports-commentator lines, deadpan patch notes), not only meme slang.
 - **Mechanics notes** (League wiki + Nico, 2026-11-20). Archmage: each ability cast takes 30% of the *cast*
   ability's *base* (unhasted) cooldown off another, randomly picked ability; summoner spells are never picked. The
   refund ignores haste, so long base cooldowns feed it best. Overloaded: the chosen ability resets whenever a

@@ -1,627 +1,627 @@
 {
-  "id": "yasuo-unc-is-wallmaxxing",
-  "title": "Unc Is Wallmaxxing",
+  "id": "yasuo-sweeping-broom",
+  "title": "Sweeping Broom",
   "champion": "Yasuo",
   "champion_name": "Yasuo",
   "chef": "2026-11-23",
-  "why": "Yasuo stops dashing and stands on business behind Wind Wall, punching its cooldown away until two or three walls are always up and nothing with a projectile gets to play.",
-  "play": "Max Wind Wall first: rank 5 is the shortest cooldown and almost twice as wide as rank 1. Drop a wall, attack whatever is closest from behind it (minions count), press W again the moment it lights up, and never dash in.",
+  "why": "Yasuo seals his own Last Breath and goes full Ability Power, because the little dash he uses to get around was secretly his biggest spell.",
+  "play": "Max Sweeping Blade first, then Steel Tempest. Dash through four minions to warm up, then through every champion once: each one can be dashed again after 6 seconds, exactly as long as a Trusty Weapon stack lasts.",
   "items": [
-    "Navori Flickerblade",
-    "Dusk and Dawn",
-    "Nashor's Tooth",
-    "Trinity Force",
-    "Spear of Shojin",
-    "Ionian Boots of Lucidity"
+    "Rabadon's Deathcap",
+    "Void Staff",
+    "Shadowflame",
+    "Stormsurge",
+    "Riftmaker",
+    "Sorcerer's Shoes"
   ],
   "core": 4,
-  "tagline": "POV: you locked in a ranged champ and unc put up three walls before your first shot landed",
+  "tagline": "He sealed his own ult and grabbed a broom: the dash cleans up the whole team now.",
   "how": [
     [
-      "Wind Wall",
-      "Blocks every enemy projectile for 4 seconds, on a 17-second cooldown at max rank. Yasuo has no mana, so the cooldown is the only price."
+      "Sweeping Blade",
+      "130 magic damage plus 60% of his Ability Power at rank 5, on a 0.1-second cooldown. Every dash adds 25% for 5 seconds, up to 4 times, so a warmed-up dash is 260 plus 120% Ability Power."
     ],
     [
       "Augments",
-      "Mystic Punch takes 1.25 seconds off Wind Wall with every attack, and Double Tap makes every crit apply that twice. Double Tap and Critical Rhythm add up to 50% crit chance, which his passive boosts all the way to 100%, and Critical Rhythm stacks 60% attack speed on top. Scopiest Weapons lets him swing from behind his own wall."
+      "Back To Basics seals Last Breath for 35% more ability damage, and Trusty Weapon, rolled on Sweeping Blade, adds 5% per champion he dashes through: five champions in, each dash scales with 200% of his Ability Power. Mighty Shield turns his Flow shield into Ability Power, and Hand of Baron adds 25% Adaptive Force on top."
     ],
     [
       "Items",
-      "Navori Flickerblade cuts 15% off what is left of the cooldown with every attack. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin and Ionian Boots add 85 haste and enough attack speed that two attacks bring the wall back."
+      "Rabadon's Deathcap is 130 Ability Power and 30% more of all of it, and Shadowflame, Stormsurge and Riftmaker pile on the rest. Void Staff and Sorcerer's Shoes make sure nobody's Magic Resist gets a say."
     ]
   ],
   "champion_icon": "/embed/fun/cook-builds/icons/champions/157.png",
   "augments": [
     {
-      "name": "Mystic Punch",
+      "name": "Back To Basics",
       "rarity": "Prismatic",
       "core": true,
-      "text": "On-Hit reduce the cooldown of your abilities by 1.25 seconds.",
-      "icon": "/embed/fun/cook-builds/icons/augments/mystic-punch.png",
-      "id": 1058
+      "text": "Your Ultimate Ability is sealed. Gain 35% Ability Damage, Healing, Shielding, and 70 Ability Haste.",
+      "icon": "/embed/fun/cook-builds/icons/augments/back-to-basics.png",
+      "id": 1004
     },
     {
-      "name": "Double Tap",
+      "name": "Trusty Weapon",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Striking enemy champions with the chosen ability forges a bond of Friendship.the chosen ability gains temporarily increased damage based on your level of Friendship.",
+      "icon": "/embed/fun/cook-builds/icons/augments/trusty-weapon.png",
+      "id": 2136
+    },
+    {
+      "name": "Mighty Shield",
+      "rarity": "Silver",
+      "core": true,
+      "text": "Gain Adaptive Force for 3 seconds when you gain a Shield (5 seconds Cooldown).",
+      "icon": "/embed/fun/cook-builds/icons/augments/mighty-shield.png",
+      "id": 1314
+    },
+    {
+      "name": "Hand of Baron",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Your Critical Strikes apply On-Hit effects an additional time. Gain Crit chance.",
-      "icon": "/embed/fun/cook-builds/icons/augments/double-tap.png",
-      "id": 2010
-    },
-    {
-      "name": "Critical Rhythm",
-      "rarity": "Gold",
-      "core": true,
-      "text": "Your basic Attack stacks 6% Attack Speed on Critical Strikes up to 10 stacks. Gain 25% Crit chance.",
-      "icon": "/embed/fun/cook-builds/icons/augments/critical-rhythm.png",
-      "id": 1328
-    },
-    {
-      "name": "Scopiest Weapons",
-      "rarity": "Prismatic",
-      "core": true,
-      "text": "Gain Attack Range.",
-      "icon": "/embed/fun/cook-builds/icons/augments/scopiest-weapons.png",
-      "id": 1115
+      "text": "Gain 25% Adaptive Force. Nearby allied minions are greatly empowered.",
+      "icon": "/embed/fun/cook-builds/icons/augments/hand-of-baron.png",
+      "id": 1389
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
   "share_href": "/kitchen/2026-11-23",
-  "share_image": "/embed/fun/cook-builds/share/yasuo-unc-is-wallmaxxing.png",
+  "share_image": "/embed/fun/cook-builds/share/yasuo-sweeping-broom.png",
   "item_ids": [
-    6675,
-    2510,
-    3115,
-    3078,
-    3161,
-    3158
+    3089,
+    3135,
+    4645,
+    4646,
+    4633,
+    3020
   ],
   "i18n": {
     "ar": {
-      "title": "العم بيعمل Wallmaxxing",
-      "why": "ياسو يبطل اندفاعاته ويقف بثبات خلف جدار الرياح، ويلكم وقت التهدئة بعيدًا إلى أن يصير عنده جداران أو ثلاثة دائمًا، ولا شيء له مقذوف يقدر يلعب.",
-      "play": "طوّر جدار الرياح أولًا: الرتبة 5 أقصر تهدئة وأعرض بقرابة الضعف من الرتبة 1. ضع جدارًا، واهجم أقرب هدف من خلفه (الجنود تُحسب)، واضغط W مجددًا لحظة ما يضيء، ولا تندفع للداخل أبدًا.",
-      "tagline": "POV: اخترت بطلًا بعيد المدى والعم نصب ثلاثة جدران قبل ما تنزل أول طلقة",
+      "title": "المكنسة الكاسحة",
+      "why": "ياسو يختم النفس الأخير الخاص به بنفسه ويتحول إلى قوة قدرات كاملة، لأن الاندفاعة الصغيرة التي يتنقل بها كانت سراً أكبر تعويذاته.",
+      "play": "ارفع النصل الكاسح أولاً ثم عاصفة الفولاذ. اندفع عبر أربعة جنود للإحماء، ثم عبر كل بطل مرة واحدة: يمكن الاندفاع عبر كل منهم مجدداً بعد 6 ثوانٍ، وهي بالضبط مدة تراكم السلاح الموثوق.",
+      "tagline": "ختم ألتيميته بنفسه وأمسك مكنسة: الاندفاعة الآن تنظّف الفريق كله.",
       "how": [
         [
-          "جدار الرياح",
-          "يصدّ كل مقذوفات الأعداء لمدة 4 ثوانٍ، بوقت تهدئة 17 ثانية في أعلى رتبة. ياسو ما عنده مانا، فوقت التهدئة هو الثمن الوحيد."
+          "النصل الكاسح",
+          "130 ضرر سحري زائد 60% من قوة قدراته عند الرتبة 5، مع فترة تهدئة 0.1 ثانية. كل اندفاعة تضيف 25% لمدة 5 ثوانٍ، حتى 4 مرات، فتصبح الاندفاعة المُحماة 260 زائد 120% من قوة القدرات."
         ],
         [
           "التعزيزات",
-          "لكمة الغموض تنقص 1.25 ثانية من جدار الرياح مع كل هجمة، وإصابة مزدوجة تجعل كل ضربة حرجة تطبّق ذلك مرتين. إصابة مزدوجة والوتيرة الحرجة تجمعان 50% فرصة ضربة حرجة، وسلبيته ترفعها إلى 100%، والوتيرة الحرجة تضيف فوقها 60% سرعة هجوم. أسلحة القنص الأدق تتيح له الضرب من خلف جداره."
+          "العودة إلى الجذور تختم النفس الأخير مقابل 35% ضرر قدرات إضافي، والسلاح الموثوق، المسحوب على النصل الكاسح، يضيف 5% لكل بطل يندفع عبره: مع خمسة أبطال، تتضاعف كل اندفاعة مع 200% من قوة قدراته. الدرع الجبار يحوّل درع التدفق لديه إلى قوة قدرات، ويد البارون تضيف 25% قوة تكيفية فوق ذلك."
         ],
         [
           "العتاد",
-          "نصال نافوري الخاطفة تقتطع 15% مما تبقى من وقت التهدئة مع كل هجمة. الفجر والغسق وسن ناشور وقوة الثالوث ورمح شوجين وحذاء الوعي الأيوني تمنحه 85 تسريعًا وسرعة هجوم تكفي ليعيد هجومان الجدار."
+          "قبعة موت رابادون تعطي 130 قوة قدرات و30% زيادة على كل شيء، ولهيب الأشباح والمد العاصف وصانع الصدوع يضيفون الباقي. وصولجان الفويد وحذاء المشعوذ يضمنان ألا يكون لمقاومة السحر عند أحد أي رأي."
         ]
       ],
       "augments": [
-        "عند الإصابة، تقلل فترة تهدئة مهاراتك بمقدار 1.25 ثانية.",
-        "تطبّق ضرباتك الحرجة تأثيرات عند الإصابة مرة إضافية. تحصل على فرصة ضربة حرجة.",
-        "يكدّس هجومك الأساسي 6% من سرعة الهجوم عند الضربات الحرجة، حتى 10 تكديسات. تحصل على 25% فرصة ضربة حرجة.",
-        "اكسب مدى هجوم."
+        "قدرتك القصوى مختومة. تكسب 35% ضرر قدرات وشفاء وتدريع و70 تسارع قدرات.",
+        "إصابة أبطال الأعداء بالقدرة المختارة تنسج رابطة صداقة. تكتسب القدرة المختارة ضرراً مرتفعاً مؤقتاً بحسب مستوى صداقتك.",
+        "تكسب القوة التكيفية لمدة 3 ثواني عند كسب درع (وقت التهدئة 5 ثواني).",
+        "تكسب 25% قوة تكيفية. يتم تعزيز الجنود الحلفاء القريبين بشكل كبير."
       ]
     },
     "cs": {
-      "title": "Strejda staví zdi naplno",
-      "why": "Yasuo přestane dashovat a stojí na svém za Větrnou zdí, vypíná její cooldown pěstmi, až jsou stále nahoře dvě nebo tři zdi a nic s projektilem si nezahraje.",
-      "play": "Nejdřív vymaxuj Větrnou zeď: úroveň 5 má nejkratší cooldown a je skoro dvakrát širší než úroveň 1. Postav zeď, útoč na nejbližší cíl zpoza ní (počítají se i miniony), stiskni W znovu ve chvíli, kdy se rozsvítí, a nikdy se do toho nedashuj.",
-      "tagline": "POV: vybral sis střelce na dálku a strejda postavil tři zdi dřív, než ti dopadla první rána",
+      "title": "Zametací koště",
+      "why": "Yasuo zapečetí svůj vlastní Poslední dech a jde naplno na sílu schopností, protože malý dash, kterým se pohybuje, byl tajně jeho největší kouzlo.",
+      "play": "Nejdřív vymaxuj Rozmáchlou čepel, pak Ocelovou bouři. Pro zahřátí proběhni čtyřmi miniony, pak každým šampionem jednou: každého lze znovu proběhnout po 6 sekundách, přesně tak dlouho, jak trvá jeden stack Věrné zbraně.",
+      "tagline": "Sám si zapečetil ultimátku a popadl koště: dash teď vymete celý tým.",
       "how": [
         [
-          "Větrná zeď",
-          "Blokuje všechny nepřátelské projektily po dobu 4 sekund, s cooldownem 17 sekund na nejvyšší úrovni. Yasuo nemá manu, takže cooldown je jediná cena."
+          "Rozmáchlá čepel",
+          "130 magických zranění plus 60 % jeho síly schopností na ranku 5, s odpočtem 0,1 sekundy. Každý dash přidá na 5 sekund 25 %, až 4krát, takže zahřátý dash dá 260 plus 120 % síly schopností."
         ],
         [
           "Augmenty",
-          "Mystický úder ubere Větrné zdi 1,25 sekundy s každým útokem a Dvojitý zásah způsobí, že každý kritický zásah to udělá dvakrát. Dvojitý zásah a Kritický rytmus dohromady dávají 50 % šanci na kritický zásah, kterou jeho pasivka zvedne až na 100 %, a Kritický rytmus k tomu přidá 60 % rychlosti útoku. Nejpřesnější mířidla mu dovolí sekat zpoza vlastní zdi."
+          "Zpět k základům zapečetí Poslední dech za 35 % bonusových zranění schopností a Věrná zbraň, hozená na Rozmáchlou čepel, přidá 5 % za každého šampiona, kterým proběhne: s pěti šampiony ve hře škáluje každý dash z 200 % jeho síly schopností. Mocný štít promění jeho štít z Toku v sílu schopností a Baronova ruka přihodí navrch 25 % adaptivní síly."
         ],
         [
           "Předměty",
-          "Blikavá čepel Navori ubere s každým útokem 15 % ze zbývajícího cooldownu. Soumrak a úsvit, Nashorův tesák, Trojsíla, Oštěp Šódžinu a Ionské boty jasnosti přidají 85 zrychlení a dost rychlosti útoku na to, aby zeď vrátily dva útoky."
+          "Rabadonův smrtící klobouk dává 130 síly schopností a o 30 % víc ze všeho, a Stínový plamen, Nával bouře a Tvůrce Žlebu přihodí zbytek. Hůl Prázdnoty a Kouzelníkovy boty se postarají, aby magická odolnost nikoho neměla slovo."
         ]
       ],
       "augments": [
-        "Při zásahu zkrátí přebíjecí dobu tvých schopností o 1,25 s.",
-        "Tvé kritické zásahy použijí efekty při zásahu ještě jednou. Získáš šanci na kritický zásah.",
-        "Tvůj základní útok při kritických zásazích přidává 6 % rychlosti útoků, až do 10 účinků. Získáš 25% šanci na kritický zásah.",
-        "Získáš dosah útoku."
+        "Tvá ultimátní schopnost je zapečetěna. Získáš 35 % zranění schopností, léčení, štítů a 70 zrychlení schopností.",
+        "Zasažení nepřátelských šampionů vybranou schopností vytvoří pouto přátelství. Vybraná schopnost dočasně získá zvýšené zranění podle tvé úrovně přátelství.",
+        "Získáš Adaptivní sílu na 3 sekundy, když získáš Štít (cooldown 5 sekund).",
+        "Získáš 25 % adaptivní síly. Spojenečtí miniony poblíž jsou výrazně posíleni."
       ]
     },
     "de": {
-      "title": "Opa baut Mauern-Maxxing",
-      "why": "Yasuo hört auf zu dashen und steht hinter Windmauer auf Business, boxt sich die Abklingzeit weg, bis dauerhaft zwei oder drei Mauern stehen und nichts mit einem Projektil mehr mitspielen darf.",
-      "play": "Skille Windmauer zuerst: Rang 5 hat die kürzeste Abklingzeit und ist fast doppelt so breit wie Rang 1. Setz eine Mauer, greif von dahinter das Nächstbeste an (Vasallen zählen), drück W erneut, sobald sie aufleuchtet, und dash niemals rein.",
-      "tagline": "POV: Du hast einen Fernkämpfer gelockt und Opa hat drei Mauern gestellt, bevor dein erster Schuss gelandet ist",
+      "title": "Kehrbesen",
+      "why": "Yasuo versiegelt sein eigenes Windschwert und geht voll auf Fähigkeitsstärke, weil der kleine Dash, mit dem er sich fortbewegt, heimlich sein größter Zauber war.",
+      "play": "Zuerst Sausende Klinge maximieren, dann Stahlsturm. Dash durch vier Vasallen zum Aufwärmen, dann einmal durch jeden Champion: Jeder kann nach 6 Sekunden erneut gedasht werden, genau so lange, wie ein Stapel Bewährte Waffe hält.",
+      "tagline": "Er hat sein eigenes Ult versiegelt und einen Besen geschnappt: Der Dash fegt jetzt das ganze Team weg.",
       "how": [
         [
-          "Windmauer",
-          "Blockt 4 Sekunden lang jedes gegnerische Projektil, bei 17 Sekunden Abklingzeit auf höchstem Rang. Yasuo hat kein Mana, die Abklingzeit ist also der einzige Preis."
+          "Sausende Klinge",
+          "130 magischer Schaden plus 60% seiner Fähigkeitsstärke auf Rang 5, bei 0,1 Sekunden Abklingzeit. Jeder Dash gibt 5 Sekunden lang 25% dazu, bis zu 4-mal, also ist ein aufgewärmter Dash 260 plus 120% Fähigkeitsstärke."
         ],
         [
           "Augments",
-          "Mystischer Schlag nimmt mit jedem Angriff 1,25 Sekunden von Windmauer ab, und Doppeltreffer sorgt dafür, dass jeder kritische Treffer das zweimal macht. Doppeltreffer und Kritischer Rhythmus ergeben zusammen 50 % kritische Trefferchance, die seine Passive bis auf 100 % hochzieht, und Kritischer Rhythmus legt noch 60 % Angriffstempo obendrauf. Mit Bestes Zielfernrohr kann er hinter seiner eigenen Mauer zuschlagen."
+          "Zurück zu den Wurzeln versiegelt Windschwert für 35% mehr Fähigkeitsschaden, und Bewährte Waffe, auf Sausende Klinge gewürfelt, gibt 5% pro Champion, durch den er dasht: Bei fünf Champions skaliert jeder Dash mit 200% seiner Fähigkeitsstärke. Mächtiger Schild macht aus seinem Fluss-Schild Fähigkeitsstärke, und Hand des Barons legt noch 25% Adaptive Kraft obendrauf."
         ],
         [
           "Gegenstände",
-          "Flimmerklinge der Navori nimmt mit jedem Angriff 15 % der übrigen Abklingzeit weg. Tag und Nacht, Nashors Zahn, Stärke der Dreieinigkeit, Speer von Shojin und Ionische Stiefel der Deutlichkeit geben 85 Tempo und genug Angriffstempo, dass zwei Angriffe die Mauer zurückbringen."
+          "Rabadons Todeshaube gibt 130 Fähigkeitsstärke und 30% mehr von allem, und Schattenflamme, Sturmblitz und Kluftformer packen den Rest drauf. Leerenstab und Zaubererschuhe sorgen dafür, dass niemandes Magieresistenz mitreden darf."
         ]
       ],
       "augments": [
-        "Treffereffekt: Verringert die Abklingzeit deiner Fähigkeiten um 1,25 Sekunden.",
-        "Deine kritischen Treffer lösen Treffereffekte ein weiteres Mal aus. Erhalte kritische Trefferchance.",
-        "Dein normaler Angriff stapelt bei kritischen Treffern 6 % Angriffstempo, bis zu 10 Steigerungen. Erhalte 25 % kritische Trefferchance.",
-        "Verleiht Angriffsreichweite."
+        "Deine ultimative Fähigkeit ist versiegelt. Du erhältst 35% Fähigkeitsschaden, Heilung, Schilde und 70 Fähigkeitseile.",
+        "Wenn du gegnerische Champions mit der gewählten Fähigkeit triffst, entsteht ein Band der Freundschaft. Die gewählte Fähigkeit erhält vorübergehend erhöhten Schaden, basierend auf deiner Stufe der Freundschaft.",
+        "Erhalte 3 Sekunden lang Adaptive Kraft, wenn du einen Schild erhältst (5 Sekunden Abklingzeit).",
+        "Du erhältst 25% Adaptive Kraft. Verbündete Vasallen in der Nähe werden stark gestärkt."
       ]
     },
     "el": {
-      "title": "Ο Μπάρμπας Κάνει Wallmaxxing",
-      "why": "Ο Υασούο σταματά να κάνει dash και στέκεται στα ίσα του πίσω από το Τείχος Ανέμου, γροθιάζοντας το cooldown του μέχρι να υπάρχουν πάντα δύο ή τρία τείχη και τίποτα με βλήμα να μην παίζει.",
-      "play": "Μάξαρε πρώτα το Τείχος Ανέμου: ο βαθμός 5 έχει το πιο σύντομο cooldown και είναι σχεδόν διπλάσιος σε πλάτος από τον βαθμό 1. Ρίξε ένα τείχος, χτύπα ό,τι είναι πιο κοντά από πίσω του (οι μινιόν μετράνε), πάτα ξανά W τη στιγμή που ανάβει και μην κάνεις ποτέ dash μέσα.",
-      "tagline": "POV: διάλεξες ranged πρωταθλητή και ο μπάρμπας έστησε τρία τείχη πριν προλάβει να φτάσει η πρώτη σου βολή",
+      "title": "Σκούπα Σάρωσης",
+      "why": "Ο Υασούο σφραγίζει τη δική του Τελευταία Πνοή και πηγαίνει full Δύναμη Ικανότητας, γιατί το μικρό dash που κάνει για να κινείται ήταν κρυφά το μεγαλύτερο ξόρκι του.",
+      "play": "Μάξαρε πρώτα τη Σαρωτική Λεπίδα και μετά την Ατσάλινη Καταιγίδα. Κάνε dash μέσα από τέσσερα minions για ζέσταμα και μετά μέσα από κάθε πρωταθλητή μία φορά: ο καθένας μπορεί να περαστεί ξανά μετά από 6 δευτερόλεπτα, ακριβώς όσο διαρκεί ένα στοίβαγμα Αξιόπιστου Όπλου.",
+      "tagline": "Σφράγισε μόνος του το ult και έπιασε σκούπα: το dash τώρα καθαρίζει όλη την ομάδα.",
       "how": [
         [
-          "Τείχος Ανέμου",
-          "Μπλοκάρει κάθε εχθρικό βλήμα για 4 δευτερόλεπτα, με cooldown 17 δευτερολέπτων στον ανώτατο βαθμό. Ο Υασούο δεν έχει μάνα, οπότε το cooldown είναι το μόνο τίμημα."
+          "Σαρωτική Λεπίδα",
+          "130 μαγική ζημιά συν 60% της Δύναμης Ικανότητάς του στη βαθμίδα 5, με χρόνο επαναφοράς 0,1 δευτερολέπτου. Κάθε dash προσθέτει 25% για 5 δευτερόλεπτα, έως 4 φορές, οπότε ένα ζεσταμένο dash είναι 260 συν 120% Δύναμη Ικανότητας."
         ],
         [
           "Ενισχύσεις",
-          "Η Μυστικιστική Γροθιά κόβει 1,25 δευτερόλεπτα από το Τείχος Ανέμου με κάθε επίθεση, και το Διπλό Άγγιγμα κάνει κάθε κριτικό να το εφαρμόζει δύο φορές. Το Διπλό Άγγιγμα και ο Καίριος Ρυθμός αθροίζουν 50% πιθανότητα κριτικού, που το πασσίβ του ανεβάζει μέχρι και 100%, και ο Καίριος Ρυθμός προσθέτει από πάνω 60% ταχύτητα επίθεσης. Τα Όπλα με Όλες τις Διόπτρες τον αφήνουν να χτυπά πίσω από το δικό του τείχος."
+          "Η Επιστροφή στα Βασικά σφραγίζει την Τελευταία Πνοή για 35% περισσότερη ζημιά ικανοτήτων, και το Αξιόπιστο Όπλο, ριγμένο στη Σαρωτική Λεπίδα, προσθέτει 5% για κάθε πρωταθλητή που διασχίζει: με πέντε πρωταθλητές, κάθε dash κλιμακώνεται με 200% της Δύναμης Ικανότητάς του. Η Πανίσχυρη Ασπίδα μετατρέπει την ασπίδα Ροής του σε Δύναμη Ικανότητας και το Χέρι του Βαρόνου προσθέτει από πάνω 25% Προσαρμοστική Δύναμη."
         ],
         [
           "Αντικείμενα",
-          "Η Τρεμολεπίδα των Ναβόρι κόβει 15% από ό,τι έχει μείνει από το cooldown με κάθε επίθεση. Το Δειλινό και Αυγή, το Δόντι του Νάσορ, η Δύναμη της Τριάδας, το Δόρυ του Σοτζίν και οι Ιόνιες Μπότες της Διαύγειας προσθέτουν 85 επιτάχυνση και αρκετή ταχύτητα επίθεσης ώστε δύο επιθέσεις να φέρνουν πίσω το τείχος."
+          "Το Καπέλο του Ράμπαντον δίνει 130 Δύναμη Ικανότητας και 30% παραπάνω από όλα, και η Φλόγα της Σκιάς, το Ξέσπασμα Καταιγίδας και ο Διχαστής προσθέτουν τα υπόλοιπα. Η Ράβδος του Κενού και τα Παπούτσια Μάγου φροντίζουν να μη λέει κανείς η Αντίσταση Μαγείας του τίποτα."
         ]
       ],
       "augments": [
-        "Κατά το χτύπημα, μειώνει τον χρόνο επαναφόρτισης των ικανοτήτων σου κατά 1,25 δευτερόλεπτα.",
-        "Τα Καίρια Πλήγματά σου εφαρμόζουν τα εφέ κατά το χτύπημα μία επιπλέον φορά. Κερδίζεις πιθανότητα καίριου.",
-        "Η βασική Επίθεσή σου στοιβάζει 6% Ταχύτητα Επίθεσης στα Καίρια Πλήγματα, έως 10 στοίβες. Κερδίζεις 25% πιθανότητα καίριου.",
-        "Κερδίζεις εμβέλεια επίθεσης."
+        "Η απόλυτη ικανότητά σου είναι σφραγισμένη. Αποκτάς 35% Ζημιά Ικανοτήτων, Θεραπεία, Ασπίδες και 70 Επιτάχυνση Ικανοτήτων.",
+        "Όταν χτυπάς εχθρικούς πρωταθλητές με την επιλεγμένη ικανότητα, δημιουργείται δεσμός Φιλίας. Η επιλεγμένη ικανότητα αποκτά προσωρινά αυξημένη ζημιά ανάλογα με το επίπεδο Φιλίας σου.",
+        "Κερδίζεις Προσαρμοστική Δύναμη για 3 δευτερόλεπτα όταν παίρνεις Ασπίδα (5 δευτερόλεπτα Χρόνος Επαναφοράς).",
+        "Αποκτάς 25% Προσαρμοστική Δύναμη. Τα κοντινά συμμαχικά minions ενισχύονται πολύ."
       ]
     },
     "es-MX": {
-      "title": "El Tío Hace Wallmaxxing",
-      "why": "Yasuo deja de hacer dash y se planta firme detrás de Muro de Viento, a puñetazos le quita el tiempo de reutilización hasta que siempre hay dos o tres muros arriba y nada con proyectil puede jugar.",
-      "play": "Sube primero Muro de Viento: el rango 5 tiene la reutilización más corta y es casi el doble de ancho que el rango 1. Pon un muro, ataca a lo más cercano desde atrás (los súbditos cuentan), vuelve a presionar W en cuanto se ilumine y jamás entres con dash.",
-      "tagline": "POV: elegiste un campeón a distancia y el tío puso tres muros antes de que aterrizara tu primer disparo",
+      "title": "Escoba Barredora",
+      "why": "Yasuo sella su propio Último Aliento y se va con todo al poder de habilidad, porque el dash con el que se mueve en realidad era su hechizo más fuerte.",
+      "play": "Sube primero Hoja al Viento y luego Tempestad de Acero. Haz dash por cuatro minions para calentar y luego por cada campeón una vez: cada uno se puede atravesar otra vez a los 6 segundos, justo lo que dura una acumulación de Arma Confiable.",
+      "tagline": "Selló su propia definitiva y agarró una escoba: ahora el dash barre a todo el equipo.",
       "how": [
         [
-          "Muro de Viento",
-          "Bloquea todos los proyectiles enemigos durante 4 segundos, con 17 segundos de reutilización en el rango máximo. Yasuo no tiene maná, así que la reutilización es el único costo."
+          "Hoja al Viento",
+          "130 de daño mágico más 60 % de su poder de habilidad en rango 5, con 0.1 segundos de enfriamiento. Cada dash suma 25 % durante 5 segundos, hasta 4 veces, así que un dash calentado es 260 más 120 % de poder de habilidad."
         ],
         [
           "Aumentos",
-          "Golpe Místico le quita 1.25 segundos a Muro de Viento con cada ataque, y Toque Doble hace que cada crítico lo aplique dos veces. Toque Doble y Ritmo Crítico suman 50% de probabilidad de golpe crítico, que su pasiva sube hasta 100%, y Ritmo Crítico agrega encima 60% de velocidad de ataque. De Más Largo Alcance le permite atacar desde atrás de su propio muro."
+          "De Vuelta a lo Básico sella Último Aliento por 35 % más de daño de habilidad, y Arma Confiable, tirada en Hoja al Viento, suma 5 % por cada campeón que atraviesa: con cinco campeones, cada dash escala con 200 % de su poder de habilidad. Escudo Poderoso convierte su escudo de Flujo en poder de habilidad, y Mano del Barón agrega 25 % de fuerza adaptativa encima."
         ],
         [
           "Objetos",
-          "Cuchilla Rauda de Navori recorta 15% de lo que quede de la reutilización con cada ataque. Ocaso y Alba, Diente de Nashor, Fuerza de la Trinidad, Lanza de Shojin y las Botas Jonias de la Lucidez suman 85 de velocidad y suficiente velocidad de ataque para que dos ataques traigan de vuelta el muro."
+          "Sombrero Mortífero de Rabadon da 130 de poder de habilidad y 30 % más de todo, y Lumbría, Descarga Tormentosa y Agrietador ponen el resto. Báculo del Vacío y Botas del Hechicero se aseguran de que la resistencia mágica de nadie opine."
         ]
       ],
       "augments": [
-        "Al golpear, reduce el enfriamiento de tus habilidades en 1.25 segundos.",
-        "Tus golpes críticos aplican los efectos al impactar una vez más. Obtienes probabilidad de crítico.",
-        "Tu ataque básico acumula 6% de velocidad de ataque con los golpes críticos, hasta 10 acumulaciones. Obtienes 25% de probabilidad de crítico.",
-        "Gana alcance de ataque."
+        "Tu habilidad definitiva está sellada. Obtienes 35 % de daño de habilidad, curación, escudos y 70 de celeridad de habilidad.",
+        "Golpear a campeones enemigos con la habilidad elegida forja un vínculo de amistad. La habilidad elegida gana daño aumentado temporalmente según tu nivel de amistad.",
+        "Obtén fuerza adaptativa durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento).",
+        "Obtienes 25 % de fuerza adaptativa. Los minions aliados cercanos reciben un gran potenciamiento."
       ]
     },
     "es": {
-      "title": "El Abuelo Hace Wallmaxxing",
-      "why": "Yasuo deja de hacer dash y se planta con firmeza tras Muro de viento, a puñetazos le quita la recarga hasta que siempre hay dos o tres muros arriba y nada con proyectil puede jugar.",
-      "play": "Sube primero Muro de viento: el rango 5 tiene la recarga más corta y es casi el doble de ancho que el rango 1. Pon un muro, ataca a lo más cercano desde detrás (los súbditos cuentan), vuelve a pulsar W en cuanto se ilumine y no entres nunca con dash.",
-      "tagline": "POV: has elegido un campeón a distancia y el abuelo ha puesto tres muros antes de que aterrizara tu primer disparo",
+      "title": "Escoba Barredora",
+      "why": "Yasuo sella su propio Último aliento y se pasa a poder de habilidad total, porque el dash con el que se mueve era en secreto su mayor hechizo.",
+      "play": "Sube primero Hoja cortante y luego Tempestad de acero. Haz dash a través de cuatro súbditos para calentar y luego a través de cada campeón una vez: cada uno puede atravesarse de nuevo tras 6 segundos, justo lo que dura una acumulación de Arma de confianza.",
+      "tagline": "Selló su propia definitiva y cogió una escoba: ahora el dash barre a todo el equipo.",
       "how": [
         [
-          "Muro de viento",
-          "Bloquea todos los proyectiles enemigos durante 4 segundos, con 17 segundos de recarga en el rango máximo. Yasuo no tiene maná, así que la recarga es el único precio."
+          "Hoja cortante",
+          "130 de daño mágico más el 60 % de su poder de habilidad en rango 5, con 0,1 segundos de reutilización. Cada dash añade un 25 % durante 5 segundos, hasta 4 veces, así que un dash calentado es 260 más 120 % de poder de habilidad."
         ],
         [
           "Aumentos",
-          "Guantazo místico le quita 1,25 segundos a Muro de viento con cada ataque, y Redoble hace que cada crítico lo aplique dos veces. Redoble y Ritmo crítico suman un 50 % de probabilidad de crítico, que su pasiva sube hasta el 100 %, y Ritmo crítico añade encima un 60 % de velocidad de ataque. Armas telescópicamente telescópicas le dejan atacar desde detrás de su propio muro."
+          "Vuelta a lo básico sella Último aliento para un 35 % más de daño de habilidad, y Arma de confianza, asignada a Hoja cortante, añade un 5 % por cada campeón atravesado: con cinco campeones, cada dash escala con el 200 % de su poder de habilidad. Escudo de fuerza convierte su escudo de Flujo en poder de habilidad, y Mano del Barón suma un 25 % de fuerza adaptable encima."
         ],
         [
           "Objetos",
-          "Filofugaz de Navori recorta un 15 % de lo que quede de la recarga con cada ataque. Amanecer y anochecer, Diente de Nashor, Fuerza de trinidad, Lanza de Shojin y Botas jonias de la lucidez suman 85 de velocidad y la velocidad de ataque justa para que dos ataques traigan el muro de vuelta."
+          "Sombrero mortal de Rabadon da 130 de poder de habilidad y un 30 % más de todo, y Llamasombría, Sobrecarga tormentosa y Creagrietas ponen el resto. Bastón del Vacío y Botas de hechicero se aseguran de que la resistencia mágica de nadie tenga voz ni voto."
         ]
       ],
       "augments": [
-        "Al impactar, reduce el enfriamiento de tus habilidades en 1,25 segundos.",
-        "Tus golpes críticos aplican los efectos al impactar una vez más. Obtienes probabilidad de crítico.",
-        "Tu ataque básico acumula un 6 % de velocidad de ataque con los golpes críticos, hasta 10 acumulaciones. Obtienes un 25 % de probabilidad de crítico.",
-        "Gana alcance de ataque."
+        "Tu habilidad definitiva está sellada. Obtienes un 35 % de daño de habilidad, curación, escudos y 70 de celeridad de habilidad.",
+        "Golpear a campeones enemigos con la habilidad elegida forja un vínculo de amistad. La habilidad elegida obtiene daño aumentado temporalmente según tu nivel de amistad.",
+        "Obtén fuerza adaptable durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento).",
+        "Obtienes un 25 % de fuerza adaptable. Los súbditos aliados cercanos reciben un gran potenciamiento."
       ]
     },
     "fr": {
-      "title": "Tonton fait du Wallmaxxing",
-      "why": "Yasuo arrête de dasher et reste droit dans ses bottes derrière Mur de vent, en lui boxant son délai de récupération jusqu'à ce que deux ou trois murs soient toujours up et que rien avec un projectile ne puisse jouer.",
-      "play": "Monte d'abord Mur de vent : le rang 5 a le délai de récupération le plus court et est presque deux fois plus large que le rang 1. Pose un mur, attaque ce qui est le plus proche depuis derrière (les sbires comptent), appuie de nouveau sur W dès qu'il s'illumine et ne dash jamais dedans.",
-      "tagline": "POV : tu as locké un champion à distance et tonton a posé trois murs avant que ton premier tir n'atterrisse",
+      "title": "Coup de balai",
+      "why": "Yasuo scelle son propre Dernier soupir et passe full puissance magique, parce que le petit dash qui lui sert à se déplacer était en secret son plus gros sort.",
+      "play": "Monte Cercle tranchant en premier, puis Tempête d'acier. Dash à travers quatre sbires pour s'échauffer, puis à travers chaque champion une fois : chacun peut être retraversé après 6 secondes, exactement la durée d'une pile de Compétence préférée.",
+      "tagline": "Il a scellé son propre ult et pris un balai : le dash nettoie toute l'équipe maintenant.",
       "how": [
         [
-          "Mur de vent",
-          "Bloque tous les projectiles ennemis pendant 4 secondes, avec 17 secondes de délai de récupération au rang max. Yasuo n'a pas de mana, donc le délai de récupération est le seul prix."
+          "Cercle tranchant",
+          "130 dégâts magiques plus 60 % de sa puissance magique au rang 5, avec 0,1 seconde de délai de récupération. Chaque dash ajoute 25 % pendant 5 secondes, jusqu'à 4 fois, donc un dash échauffé inflige 260 plus 120 % de puissance magique."
         ],
         [
           "Augments",
-          "Coups accélérants retire 1,25 seconde à Mur de vent à chaque attaque, et Maléfices de zone fait que chaque coup critique l'applique deux fois. Maléfices de zone et Rythme critique donnent ensemble 50 % de chances de coup critique, que sa passive pousse jusqu'à 100 %, et Rythme critique ajoute 60 % de vitesse d'attaque par-dessus. Armes à très grosse lunette lui permet de frapper depuis derrière son propre mur."
+          "Retour aux bases scelle Dernier soupir pour 35 % de dégâts de compétence en plus, et Compétence préférée, tirée sur Cercle tranchant, ajoute 5 % par champion traversé : à cinq champions, chaque dash évolue avec 200 % de sa puissance magique. Puissant bouclier transforme son bouclier de Flux en puissance magique, et Main du baron ajoute 25 % de force adaptative par-dessus."
         ],
         [
           "Objets",
-          "Tremblelame navori retire 15 % de ce qui reste du délai de récupération à chaque attaque. Aube et crépuscule, Dent de Nashor, Force de la trinité, Lance de Shojin et Bottes de lucidité ajoutent 85 d'accélération et assez de vitesse d'attaque pour que deux attaques ramènent le mur."
+          "La Coiffe de Rabadon donne 130 de puissance magique et 30 % de plus sur le total, et Flamme-ombre, Onde orageuse et Créateur de failles font le reste. Le Bâton du vide et les Chaussures de sorcier font en sorte que la résistance magique de personne n'ait son mot à dire."
         ]
       ],
       "augments": [
-        "À l'impact, réduit le délai de récupération de vos compétences de 1,25 seconde.",
-        "Vos coups critiques appliquent les effets à l'impact une fois de plus. Octroie des chances de coup critique.",
-        "Votre attaque de base cumule 6 % de vitesse d'attaque sur les coups critiques, jusqu'à 10 cumuls. Octroie 25 % de chances de coup critique.",
-        "Octroie de la portée d'attaque."
+        "Votre compétence ultime est scellée. Gagnez 35 % de dégâts de compétence, de soins, de boucliers et 70 d’accélération de compétence.",
+        "Toucher des champions ennemis avec la compétence choisie crée un lien d'amitié. La compétence choisie gagne temporairement des dégâts accrus selon votre niveau d'amitié.",
+        "Gagnez de la force adaptative pendant 3 secondes quand vous gagnez un bouclier (5 secondes de délai de récupération).",
+        "Gagnez 25 % de force adaptative. Les sbires alliés proches sont grandement renforcés."
       ]
     },
     "hu": {
-      "title": "Az öreg fal-maxxing közben",
-      "why": "Yasuo abbahagyja a dashelést, és keményen kiáll a Szélfal mögött: az ütésekkel addig tolja le a töltési idejét, amíg két-három fal mindig fent van, és semmi lövedékes nem játszhat.",
-      "play": "Először a Szélfalat maxold: az 5. szinten a legrövidebb a töltési idő, és majdnem kétszer olyan széles, mint az 1. szinten. Rakj le egy falat, üsd a legközelebbit mögüle (a minyonok is számítanak), nyomd újra a W-t, amint felvillan, és soha ne dashelj be.",
-      "tagline": "POV: lockoltál egy távolsági bajnokot, és az öreg három falat húzott fel, mielőtt az első lövésed becsapódott volna",
+      "title": "Söprűs Penge",
+      "why": "Yasuo lepecsételi a saját Utolsó leheletét, és teljes Képességerőre vált, mert a kis iramodás, amivel közlekedik, titokban a legnagyobb varázslata volt.",
+      "play": "Először a Kaszáló pengét maxold, utána az Acélviharet. Iramodj át négy minyonon bemelegítésnek, aztán minden bajnokon egyszer: mindegyiken újra át lehet iramodni 6 másodperc után, pontosan addig, amíg egy Megbízható fegyver töltet tart.",
+      "tagline": "Saját maga pecsételte le az ultiját, és seprűt ragadott: a dash most az egész csapatot kisöpri.",
       "how": [
         [
-          "Szélfal",
-          "4 másodpercig blokkol minden ellenséges lövedéket, max szinten 17 másodperces töltési idővel. Yasuónak nincs manája, így a töltési idő az egyetlen ár."
+          "Kaszáló penge",
+          "130 varázssebzés plusz a Képességerő 60%-a az 5. szinten, 0.1 másodperces várakozási idővel. Minden iramodás 25%-ot ad 5 másodpercig, legfeljebb 4-szer, így egy bemelegedett iramodás 260 plusz 120% Képességerő."
         ],
         [
           "Bővítések",
-          "A Misztikus ütés minden támadással 1,25 másodpercet vesz le a Szélfal töltési idejéből, a Dupla lövés pedig minden krittet kétszer érvényesít. A Dupla lövés és a Kritikus ritmus együtt 50% kritikus esélyt ad, amit a passzívja egészen 100%-ig feltol, a Kritikus ritmus ráadásul 60% támadási sebességet rak rá. A Legtávcsövesebb fegyverek lehetővé teszik, hogy a saját fala mögül csapjon."
+          "A Vissza az alapokhoz lepecsételi az Utolsó leheletet 35%-kal több képességsebzésért, a Megbízható fegyver pedig, a Kaszáló pengére gurítva, 5%-ot ad minden bajnokért, akin átiramodik: öt bajnoknál minden iramodás a Képességerő 200%-ával skálázódik. A Hatalmas pajzs a Flow pajzsát Képességerővé alakítja, a Baron jobbkeze pedig 25% Adaptív erőt dob még hozzá."
         ],
         [
           "Tárgyak",
-          "A Navori villanópenge minden támadással 15%-ot vág le a hátralévő töltési időből. Az Alkony és hajnal, Nashor foga, A háromság hatalma, Shojin lándzsája és az Ioniai fénycipő 85 gyorsítást és annyi támadási sebességet ad, hogy két támadás visszahozza a falat."
+          "Rabadon halálsüvege 130 Képességerő és még 30%-kal több az egészből, az Árnyékláng, a Viharhullám és a Szurdokhasító pedig ráhord a maradékra. Az Üresség botja és a Varázslók cipője gondoskodik róla, hogy senki Varázsellenállásának ne legyen beleszólása."
         ]
       ],
       "augments": [
-        "Találatkor 1,25 másodperccel csökkenti a képességeid töltési idejét.",
-        "A kritikus találataid még egyszer kiváltják a találatkori hatásokat. Kritikus esélyt kapsz.",
-        "Az alaptámadásod kritikus találatkor 6% támadási sebességet halmoz, legfeljebb 10 halomig. 25% kritikus esélyt kapsz.",
-        "Támadási hatótávolságot ad."
+        "A Végső képességed le van pecsételve. Kapsz 35% képességsebzést, gyógyítást, pajzsot és 70 képességgyorsítást.",
+        "Ha az ellenséges bajnokokat eltalálod a kiválasztott képességgel, Barátság köteléke szövődik. A kiválasztott képesség átmenetileg nagyobb sebzést okoz a Barátság szintje alapján.",
+        "Adaptív erőt kapsz 3 másodpercre, amikor Pajzsot szerzel (5 másodperc várakozási idő).",
+        "Kapsz 25% Adaptív erőt. A közeli szövetséges minyonok nagyon megerősödnek."
       ]
     },
     "id": {
-      "title": "Unc Lagi Wallmaxxing",
-      "why": "Yasuo berhenti dash dan stands on business di belakang Wind Wall, memukul cooldown-nya sampai habis sampai dua atau tiga wall selalu aktif dan tidak ada yang punya projectile bisa main.",
-      "play": "Max Wind Wall dulu: rank 5 punya cooldown paling pendek dan hampir dua kali lebih lebar dari rank 1. Pasang wall, serang apa pun yang paling dekat dari belakangnya (minion juga boleh), tekan W lagi begitu menyala, dan jangan pernah dash masuk.",
-      "tagline": "POV: kamu locked in pakai champ ranged dan unc sudah pasang tiga wall sebelum tembakan pertamamu kena",
+      "title": "Sweeping Broom",
+      "why": "Yasuo menyegel Last Breath miliknya sendiri dan full Ability Power, karena dash kecil yang dia pakai buat keliling ternyata diam-diam skill terkuatnya.",
+      "play": "Max Sweeping Blade dulu, baru Steel Tempest. Dash lewati empat minion buat pemanasan, lalu lewati tiap champion sekali: masing-masing bisa di-dash lagi setelah 6 detik, persis selama satu stack Trusty Weapon bertahan.",
+      "tagline": "Dia segel ult-nya sendiri dan ambil sapu: dash-nya sekarang menyapu bersih satu tim.",
       "how": [
         [
-          "Wind Wall",
-          "Memblokir semua projectile musuh selama 4 detik, dengan cooldown 17 detik di rank maksimal. Yasuo tidak punya mana, jadi cooldown satu-satunya harganya."
+          "Sweeping Blade",
+          "130 damage sihir ditambah 60% Ability Power-nya di rank 5, dengan cooldown 0.1 detik. Tiap dash menambah 25% selama 5 detik, sampai 4 kali, jadi dash yang sudah panas itu 260 plus 120% Ability Power."
         ],
         [
           "Augment",
-          "Mystic Punch memotong 1,25 detik dari Wind Wall di setiap serangan, dan Double Tap bikin setiap crit menerapkannya dua kali. Double Tap dan Critical Rhythm menambah total 50% crit chance, yang dinaikkan passive-nya sampai 100%, dan Critical Rhythm menumpuk 60% attack speed di atasnya. Scopiest Weapons bikin dia bisa menebas dari balik wall-nya sendiri."
+          "Back To Basics menyegel Last Breath demi 35% damage skill lebih besar, dan Trusty Weapon, yang di-roll di Sweeping Blade, menambah 5% per champion yang ditembus: lima champion kemudian, tiap dash skala dengan 200% Ability Power-nya. Mighty Shield mengubah shield Flow-nya jadi Ability Power, dan Hand of Baron menambah 25% Adaptive Force lagi."
         ],
         [
           "Item",
-          "Navori Flickerblade memotong 15% dari sisa cooldown di setiap serangan. Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin, dan Ionian Boots menambah 85 haste dan cukup attack speed sampai dua serangan sudah memunculkan wall lagi."
+          "Rabadon's Deathcap itu 130 Ability Power plus 30% lebih banyak dari semuanya, dan Shadowflame, Stormsurge, serta Riftmaker menumpuk sisanya. Void Staff dan Sorcerer's Shoes memastikan Magic Resist siapa pun nggak ikut campur."
         ]
       ],
       "augments": [
-        "On-Hit mengurangi cooldown skill-mu sebesar 1,25 detik.",
-        "Critical Strike-mu menerapkan efek On-Hit sekali lagi. Dapatkan crit chance.",
-        "Basic Attack-mu menumpuk 6% Attack Speed saat Critical Strike, hingga 10 tumpukan. Dapatkan 25% crit chance.",
-        "Dapat Attack Range."
+        "Ultimate Ability kamu tersegel. Dapatkan 35% Ability Damage, Healing, Shielding, dan 70 Ability Haste.",
+        "Menyerang champion musuh dengan skill terpilih membentuk ikatan Friendship. Skill terpilih mendapat damage tambahan sementara berdasarkan level Friendship kamu.",
+        "Dapatkan Adaptive Force selama 3 detik saat kamu mendapat Shield (cooldown 5 detik).",
+        "Dapatkan 25% Adaptive Force. Minion sekutu di sekitar jadi jauh lebih kuat."
       ]
     },
     "it": {
-      "title": "Il vecchio fa wallmaxxing",
-      "why": "Yasuo smette di scattare e stands on business dietro il Muro di vento, prendendo a pugni il suo tempo di ricarica finché due o tre muri sono sempre su e niente che abbia un proiettile può giocare.",
-      "play": "Maxa prima il Muro di vento: il grado 5 ha la ricarica più corta ed è largo quasi il doppio del grado 1. Metti un muro, attacca chi ti è più vicino da dietro (i minion contano), premi di nuovo W appena si illumina e non scattare mai dentro.",
-      "tagline": "POV: hai lockato un campione a distanza e il vecchio ha messo su tre muri prima che il tuo primo colpo arrivasse",
+      "title": "Scopa Spazzante",
+      "why": "Yasuo sigilla il suo stesso Ultimo respiro e passa a Potere abilità totale, perché il piccolo scatto che usa per spostarsi era in segreto il suo incantesimo più forte.",
+      "play": "Porta al massimo prima Colpo di taglio, poi Tempesta d'acciaio. Scatta attraverso quattro minion per scaldarti, poi attraverso ogni campione una volta: ognuno può essere attraversato di nuovo dopo 6 secondi, esattamente quanto dura un accumulo di Arma fidata.",
+      "tagline": "Si è sigillato l'ultimate da solo e ha preso una scopa: ora lo scatto spazza via tutta la squadra.",
       "how": [
         [
-          "Muro di vento",
-          "Blocca ogni proiettile nemico per 4 secondi, con una ricarica di 17 secondi al grado massimo. Yasuo non ha mana, quindi la ricarica è l'unico prezzo."
+          "Colpo di taglio",
+          "130 danni magici più il 60% del suo Potere abilità al rango 5, con un tempo di ricarica di 0.1 secondi. Ogni scatto aggiunge il 25% per 5 secondi, fino a 4 volte, quindi uno scatto a regime fa 260 più il 120% di Potere abilità."
         ],
         [
           "Potenziamenti",
-          "Pugno mistico toglie 1,25 secondi al Muro di vento a ogni attacco, e Doppio colpo fa applicare ogni critico due volte. Doppio colpo e Ritmo critico sommano il 50% di probabilità di critico, che la sua passiva porta fino al 100%, e Ritmo critico ci aggiunge il 60% di velocità d'attacco. Armi ancora più precise gli permettono di menare da dietro il suo stesso muro."
+          "Ritorno alle origini sigilla Ultimo respiro per il 35% di danni abilità in più, e Arma fidata, assegnata a Colpo di taglio, aggiunge il 5% per ogni campione attraversato: cinque campioni dopo, ogni scatto scala con il 200% del suo Potere abilità. Scudo possente trasforma lo scudo Flow in Potere abilità, e Mano del Barone aggiunge un altro 25% di Forza adattiva."
         ],
         [
           "Oggetti",
-          "Lama rotante Navori toglie il 15% della ricarica rimasta a ogni attacco. Crepuscolo e Alba, Dente di Nashor, Virtù della Triade, Lancia di Shojin e Stivali dell'acume di Ionia danno 85 di velocità e abbastanza velocità d'attacco da far tornare il muro in due attacchi."
+          "Copricapo di Rabadon dà 130 Potere abilità e il 30% in più di tutto il resto, e Ombrofiamma, Apice della tempesta e Araldo del Vuoto si occupano del resto. Bastone del Vuoto e Calzari del mago fanno in modo che la Resistenza magica di nessuno abbia voce in capitolo."
         ]
       ],
       "augments": [
-        "Sul colpo, riduce la ricarica delle tue abilità di 1,25 secondi.",
-        "I tuoi colpi critici applicano gli effetti sul colpo un'altra volta. Ottieni probabilità di critico.",
-        "Il tuo attacco base accumula il 6% di velocità d'attacco sui colpi critici, fino a 10 cariche. Ottieni il 25% di probabilità di critico.",
-        "Ottieni gittata d'attacco."
+        "La tua abilità suprema è sigillata. Ottieni il 35% di danni abilità, cure, scudi e 70 di Velocità abilità.",
+        "Colpire i campioni nemici con l'abilità scelta forgia un legame di Amicizia. L'abilità scelta ottiene temporaneamente danni aumentati in base al tuo livello di Amicizia.",
+        "Ottieni forza adattiva per 3 secondi quando ottieni uno scudo (5 secondi di ricarica).",
+        "Ottieni il 25% di Forza adattiva. I minion alleati vicini ricevono un grande potenziamento."
       ]
     },
     "ja": {
-      "title": "おじさん、壁マシマシ",
-      "why": "ヤスオはダッシュをやめて、風殺の壁の後ろでどっしり構え、殴ってクールダウンを削り続ける。常に壁が2〜3枚立つようになり、飛び道具を持つ相手は何もできない。",
-      "play": "まず風殺の壁を最大まで上げよう。ランク5はクールダウンが最短で、幅もランク1のほぼ2倍。壁を置いたら、その後ろから一番近い相手(ミニオンもOK)を攻撃し、光ったらすぐにWをもう一度押す。突っ込みは禁止。",
-      "tagline": "POV: 遠距離チャンピオンをロックインしたら、最初の一発が当たる前におじさんが壁を3枚立てていた",
+      "title": "スウィーピング・ほうき",
+      "why": "ヤスオは自分の鬼哭啾々を封印してフルAPに。移動用のちょっとしたダッシュが、実は最強のスペルだったから。",
+      "play": "まず風薙ぎをマックスにして、次に抜刀。ミニオン4体をダッシュで抜けてウォームアップしたら、あとは各チャンピオンを1回ずつ抜ける。同じ相手にも6秒後にまたダッシュでき、頼れる武器のスタックが続く時間とぴったり同じ。",
+      "tagline": "自分でウルトを封印してほうきを握った：今やダッシュが敵チームを丸ごと掃除する。",
       "how": [
         [
-          "風殺の壁",
-          "敵の飛び道具をすべて4秒間ブロック。最大ランクでクールダウンは17秒。ヤスオはマナを使わないので、代償はクールダウンだけ。"
+          "風薙ぎ",
+          "ランク5で魔法ダメージ130+APの60%、クールダウンは0.1秒。ダッシュするたびに5秒間25%が加算され、最大4回まで。つまり温まったダッシュは260+AP120%。"
         ],
         [
           "オーグメント",
-          "神秘の鉄拳は攻撃のたびに風殺の壁のクールダウンを1.25秒短縮し、ダブルタップはクリティカルのたびにそれを2回適用する。ダブルタップとクリティカルの律動でクリティカル率は合計50%、パッシブでそれが最大100%まで伸び、さらにクリティカルの律動が攻撃速度60%を上乗せする。超改造スコープ装着のおかげで、自分の壁の後ろから斬りつけられる。"
+          "初志貫徹で鬼哭啾々を封印してアビリティダメージ35%アップ。風薙ぎに乗せた頼れる武器は、ダッシュで抜けたチャンピオン1体につき5%を追加し、5体抜いた時点でダッシュ1回ごとにAPの200%で強化される。マイティシールドはフローのシールドをAPに変換し、バロンの牙がさらに適応力25%を上乗せ。"
         ],
         [
           "アイテム",
-          "ナヴォリ フリッカーブレードは攻撃のたびに残りクールダウンの15%を短縮する。黄昏と暁、ナッシャー トゥース、トリニティ フォース、ショウジンの矛、アイオニア ブーツでヘイスト85と十分な攻撃速度が付き、2回の攻撃で壁が戻ってくる。"
+          "ラバドン デスキャップはAP130に加えて全体の30%増。シャドウフレイム、ストームサージ、リフトメーカーが残りを盛る。ヴォイド スタッフとソーサラー シューズで、相手の魔法防御の出番はなし。"
         ]
       ],
       "augments": [
-        "通常攻撃時: スキルのクールダウンを1.25秒短縮する。",
-        "クリティカルが通常攻撃時効果をもう一度発動する。クリティカル率を獲得。",
-        "通常攻撃がクリティカルになると攻撃速度6%をスタック（最大10スタック）。クリティカル率25%を獲得。",
-        "攻撃範囲を獲得。"
+        "アルティメットアビリティが封印される。アビリティダメージ、回復量、シールド量が35%増加し、スキルヘイストが70増加する。",
+        "選択したアビリティで敵チャンピオンにダメージを与えると、友情の絆が生まれる。友情レベルに応じて、選択したアビリティの与ダメージが一時的に増加する。",
+        "シールドを獲得すると3秒間アダプティブフォースを獲得する(クールダウン5秒)。",
+        "適応力が25%増加する。付近の味方ミニオンが大幅に強化される。"
       ]
     },
     "ko": {
-      "title": "아재, 벽맥싱 중",
-      "why": "야스오는 돌진을 멈추고 바람 장막 뒤에서 당당하게 버티며, 쿨타임이 다 닳을 때까지 주먹으로 두들긴다. 그러면 장막 두세 개가 항상 떠 있고, 투사체 가진 놈은 아무것도 못 한다.",
-      "play": "바람 장막부터 마스터하자. 5레벨은 쿨타임이 가장 짧고 폭도 1레벨의 거의 두 배다. 장막을 깔고, 그 뒤에서 제일 가까운 대상(미니언도 OK)을 때리고, 불이 들어오면 바로 W를 다시 누르고, 절대 돌진해 들어가지 말 것.",
-      "tagline": "POV: 원거리 챔피언 락인했는데 첫 공격이 맞기도 전에 아재가 장막을 세 개나 깔았다",
+      "title": "싹쓸이 빗자루",
+      "why": "야스오가 자신의 최후의 숨결을 봉인하고 풀 AP로 갑니다. 이동용으로 쓰던 작은 돌진이 사실 가장 큰 주문이었거든요.",
+      "play": "질풍검을 먼저 마스터하고, 그다음 강철 폭풍. 미니언 네 마리를 뚫으며 몸을 풀고, 챔피언은 한 명씩 한 번씩 뚫으세요. 각 챔피언은 6초 뒤에 다시 뚫을 수 있는데, 믿음직한 무기 중첩이 유지되는 시간과 딱 같습니다.",
+      "tagline": "궁극기를 스스로 봉인하고 빗자루를 들었다: 이제 대시가 적 팀을 통째로 쓸어버린다.",
       "how": [
         [
-          "바람 장막",
-          "적의 모든 투사체를 4초 동안 막는다. 최대 레벨에서 쿨타임은 17초. 야스오는 마나가 없으니 쿨타임이 유일한 대가다."
+          "질풍검",
+          "5랭크에서 마법 피해 130에 AP의 60%, 재사용 대기시간은 0.1초. 돌진할 때마다 5초 동안 25%가 추가되며 최대 4번 중첩되므로, 예열된 돌진은 260에 AP의 120%입니다."
         ],
         [
           "증강",
-          "신비한 주먹은 공격할 때마다 바람 장막의 쿨타임을 1.25초 줄이고, 한 발에 두 놈은 치명타마다 그 효과를 두 번 적용한다. 한 발에 두 놈과 치명적 리듬을 합치면 치명타 확률 50%이고, 패시브가 이를 최대 100%까지 끌어올리며, 치명적 리듬이 공격 속도 60%까지 더해준다. 최상급 조준경 부착 덕분에 자기 장막 뒤에서 칼을 휘두를 수 있다."
+          "기본으로 돌아가기는 최후의 숨결을 봉인하는 대신 스킬 피해량을 35% 높여 주고, 질풍검에 뽑은 믿음직한 무기는 돌진으로 지나간 챔피언 한 명당 5%를 더합니다. 다섯 명째에는 돌진마다 AP의 200%만큼 강해집니다. 강력한 방패는 Flow 보호막을 AP로 바꿔 주고, 남작의 도움이 적응형 능력치 25%를 더해 줍니다."
         ],
         [
           "아이템",
-          "나보리 명멸검은 공격할 때마다 남은 쿨타임의 15%를 깎는다. 황혼과 새벽, 내셔의 이빨, 삼위일체, 쇼진의 창, 아이오니아 장화가 가속 85와 충분한 공격 속도를 줘서 두 번 공격하면 장막이 돌아온다."
+          "라바돈의 죽음모자는 AP 130에 전체 AP의 30%를 더해 주고, 그림자불꽃, 폭풍 쇄도, 균열 생성기가 나머지를 쌓아 줍니다. 공허의 지팡이와 마법사의 신발 덕분에 상대의 마법 저항력은 끼어들 틈이 없습니다."
         ]
       ],
       "augments": [
-        "적중 시 스킬 재사용 대기시간이 1.25초 감소합니다.",
-        "치명타가 적중 시 효과를 한 번 더 적용합니다. 치명타 확률을 얻습니다.",
-        "치명타 시 기본 공격이 공격 속도 6%를 중첩합니다(최대 10회). 치명타 확률 25%를 얻습니다.",
-        "공격 사거리를 얻습니다."
+        "궁극기가 봉인됩니다. 스킬 피해량, 회복량, 보호막량이 35% 증가하고 스킬 가속이 70 증가합니다.",
+        "선택한 스킬로 적 챔피언을 공격하면 우정의 유대가 생깁니다. 우정 단계에 따라 선택한 스킬의 피해량이 일시적으로 증가합니다.",
+        "보호막을 얻으면 3초 동안 적응형 능력치를 얻습니다(재사용 대기시간 5초).",
+        "적응형 능력치가 25% 증가합니다. 근처 아군 미니언이 크게 강화됩니다."
       ]
     },
     "pl": {
-      "title": "Wujek Robi Ściany na Maksa",
-      "why": "Yasuo przestaje dashować i twardo stoi za Ścianą Wichru, tłukąc jej czas odnowienia, aż dwie lub trzy ściany są zawsze w grze, a nic z pociskiem nie ma czego szukać.",
-      "play": "Najpierw maksuj Ścianę Wichru: ranga 5 ma najkrótsze odnowienie i jest prawie dwa razy szersza niż ranga 1. Postaw ścianę, atakuj z jej cienia to, co najbliżej (miniony się liczą), wciśnij W ponownie, gdy tylko się zaświeci, i nigdy nie dashuj do środka.",
-      "tagline": "POV: zlockowałeś bohatera z dystansu, a wujek postawił trzy ściany, zanim doleciał twój pierwszy strzał",
+      "title": "Zamiatająca Miotła",
+      "why": "Yasuo pieczętuje własne Ostatnie Tchnienie i idzie w pełną Moc umiejętności, bo mały zryw, którym się przemieszcza, był po cichu jego największym czarem.",
+      "play": "Najpierw maksuj Zamaszyste Cięcie, potem Nawałnicę Stali. Przemknij przez czterech stronników na rozgrzewkę, a potem przez każdego bohatera raz: przez każdego można przemknąć ponownie po 6 sekundach, dokładnie tyle, ile trwa ładunek Zaufanej Broni.",
+      "tagline": "Sam zapieczętował swoje ult i chwycił miotłę: teraz dash zamiata całą drużynę.",
       "how": [
         [
-          "Ściana Wichru",
-          "Blokuje każdy wrogi pocisk przez 4 sekundy, z odnowieniem 17 sekund na maksymalnej randze. Yasuo nie ma many, więc odnowienie to jedyna cena."
+          "Zamaszyste Cięcie",
+          "130 obrażeń magicznych plus 60% jego Mocy umiejętności na 5. poziomie, z czasem odnowienia 0.1 sekundy. Każdy zryw dodaje 25% na 5 sekund, do 4 razy, więc rozgrzany zryw to 260 plus 120% Mocy umiejętności."
         ],
         [
           "Wzmocnienia",
-          "Mistyczny Cios skraca Ścianę Wichru o 1,25 sekundy przy każdym ataku, a Podwójne Klepnięcie sprawia, że każdy cios krytyczny robi to dwa razy. Podwójne Klepnięcie i Krytyczny Rytm dają razem 50% szansy na cios krytyczny, którą jego bierna podbija aż do 100%, a Krytyczny Rytm dokłada jeszcze 60% prędkości ataku. Najbardziej Snajperskie Uzbrojenie pozwala mu zamachnąć się zza własnej ściany."
+          "Szkoła Podstawowa pieczętuje Ostatnie Tchnienie za 35% więcej obrażeń umiejętności, a Zaufana Broń, wylosowana na Zamaszyste Cięcie, dodaje 5% za każdego bohatera, przez którego przemknie: przy pięciu bohaterach każdy zryw skaluje się z 200% jego Mocy umiejętności. Potężna Tarcza zamienia jego tarczę Flow w Moc umiejętności, a Namiestnik Barona dorzuca 25% Siły adaptacyjnej."
         ],
         [
           "Przedmioty",
-          "Migoczące Ostrze Navori skraca o 15% pozostały czas odnowienia przy każdym ataku. Zmierzch i Brzask, Ząb Nashora, Moc Trójcy, Włócznia Shojin i Ioniańskie Buty Jasności Umysłu dają 85 przyspieszenia i tyle prędkości ataku, że dwa ataki przywracają ścianę."
+          "Zabójczy Kapelusz Rabadona to 130 Mocy umiejętności i 30% więcej z całości, a Płomień Cienia, Przepływ Burzy i Szczelinotwórca dokładają resztę. Kostur Pustki i Obuwie Maga dbają o to, żeby czyjaś Odporność na magię nie miała nic do powiedzenia."
         ]
       ],
       "augments": [
-        "Przy trafieniu skraca czas odnowienia twoich umiejętności o 1,25 sekundy.",
-        "Twoje trafienia krytyczne nakładają efekty przy trafieniu jeszcze raz. Zyskujesz szansę na trafienie krytyczne.",
-        "Twój podstawowy atak kumuluje 6% prędkości ataku przy trafieniach krytycznych, do 10 ładunków. Zyskujesz 25% szansy na trafienie krytyczne.",
-        "Zyskujesz zasięg ataku."
+        "Twoja umiejętność ostateczna jest zapieczętowana. Zyskujesz 35% obrażeń umiejętności, leczenia, tarcz i 70 przyspieszenia umiejętności.",
+        "Trafianie wrogich bohaterów wybraną umiejętnością tworzy więź Przyjaźni. Wybrana umiejętność czasowo zyskuje zwiększone obrażenia zależnie od poziomu Przyjaźni.",
+        "Zyskaj siłę adaptacyjną na 3 sekundy, gdy zyskasz tarczę (5 sekund czasu odnowienia).",
+        "Zyskujesz 25% Siły adaptacyjnej. Pobliscy sojuszniczy stronnicy są znacznie wzmocnieni."
       ]
     },
     "pt-BR": {
-      "title": "Tiozão Fazendo Wallmaxxing",
-      "why": "Yasuo para de avançar e fica firme atrás da Parede de Vento, socando a recarga dela até sempre haver duas ou três paredes de pé e nada com projétil conseguir jogar.",
-      "play": "Maximize a Parede de Vento primeiro: o nível 5 tem a menor recarga e é quase duas vezes mais larga que o nível 1. Solte uma parede, ataque o que estiver mais perto de trás dela (minions contam), aperte W de novo assim que ela acender e nunca avance.",
-      "tagline": "POV: você deu lock num campeão à distância e o tiozão já colocou três paredes antes de o seu primeiro tiro acertar",
+      "title": "Vassoura Varredora",
+      "why": "Yasuo sela o próprio Último Suspiro e vai de Poder de Habilidade total, porque o dashzinho que ele usa pra se locomover era, secretamente, o maior feitiço dele.",
+      "play": "Evolua Espada Ágil primeiro, depois Tempestade de Aço. Dê dash por quatro tropas pra aquecer, depois por cada campeão uma vez: cada um pode levar dash de novo após 6 segundos, exatamente o tempo que um acúmulo de Arma de Confiança dura.",
+      "tagline": "Ele selou a própria ult e pegou uma vassoura: agora o dash varre o time inteiro.",
       "how": [
         [
-          "Parede de Vento",
-          "Bloqueia todo projétil inimigo por 4 segundos, com recarga de 17 segundos no nível máximo. Yasuo não tem mana, então a recarga é o único preço."
+          "Espada Ágil",
+          "130 de dano mágico mais 60% do Poder de Habilidade dele no nível 5, com 0.1 segundo de recarga. Cada dash soma 25% por 5 segundos, até 4 vezes, então um dash aquecido dá 260 mais 120% de Poder de Habilidade."
         ],
         [
           "Aumentos",
-          "Soco Místico tira 1,25 segundo da Parede de Vento a cada ataque, e Enfeitiçamento Coletivo faz cada crítico aplicar isso duas vezes. Enfeitiçamento Coletivo e Ritmo Crítico somam 50% de chance de crítico, que a passiva dele eleva até 100%, e Ritmo Crítico ainda empilha 60% de velocidade de ataque. Armas Extensivas deixam ele bater de trás da própria parede."
+          "Voltando ao Básico sela o Último Suspiro por 35% a mais de dano de habilidade, e Arma de Confiança, sorteada em Espada Ágil, soma 5% por campeão atravessado: com cinco campeões, cada dash escala com 200% do Poder de Habilidade dele. Escudo Poderoso transforma o escudo de Flow em Poder de Habilidade, e Mão do Barão acrescenta 25% de Força Adaptativa."
         ],
         [
           "Itens",
-          "Adaga Oscilante Navori corta 15% da recarga restante a cada ataque. Aurora e Crepúsculo, Dente de Na'Shor, Força da Trindade, Lança de Shojin e Botas Ionianas da Lucidez dão 85 de aceleração e velocidade de ataque suficiente para que dois ataques tragam a parede de volta."
+          "Capuz da Morte de Rabadon são 130 de Poder de Habilidade e 30% a mais de tudo isso, e Chama Sombria, Ápice da Tempestade e Criafendas empilham o resto. Cajado do Vazio e Sapatos do Feiticeiro garantem que a Resistência Mágica de ninguém dê pitaco."
         ]
       ],
       "augments": [
-        "Ao atingir, reduz a recarga das suas habilidades em 1,25 segundo.",
-        "Seus Acertos Críticos aplicam efeitos ao atingir mais uma vez. Receba chance de crítico.",
-        "Seu Ataque básico acumula 6% de velocidade de ataque em Acertos Críticos, até 10 acúmulos. Receba 25% de chance de crítico.",
-        "Ganhe alcance de ataque."
+        "Sua Habilidade Suprema está selada. Ganhe 35% de Dano de Habilidade, Cura, Escudo e 70 de Aceleração de Habilidade.",
+        "Atingir campeões inimigos com a habilidade escolhida forja um laço de Amizade. A habilidade escolhida ganha dano aumentado temporariamente com base no seu nível de Amizade.",
+        "Ganhe Força Adaptativa por 3 segundos ao ganhar um Escudo (5 segundos de recarga).",
+        "Ganhe 25% de Força Adaptativa. Tropas aliadas próximas ficam muito mais fortes."
       ]
     },
     "ro": {
-      "title": "Unc-ul face Wallmaxxing",
-      "why": "Yasuo nu mai face dash-uri și stă ferm în spatele lui Zid de vânt, dând pumni cooldown-ului până când sunt mereu două sau trei ziduri sus și nimic cu proiectile nu mai apucă să se joace.",
-      "play": "Ia Zid de vânt primul la maxim: rangul 5 are cel mai scurt cooldown și e aproape de două ori mai lat decât rangul 1. Pune un zid, atacă ce e mai aproape din spatele lui (și minionii contează), apasă W din nou imediat ce se aprinde și nu intra niciodată cu dash.",
-      "tagline": "POV: ai dat lock-in pe un campion ranged și unc-ul a pus trei ziduri înainte să-ți nimerească prima lovitură",
+      "title": "Mătura Măturătoare",
+      "why": "Yasuo își sigilează singur Ultima răsuflare și merge full Ability Power, pentru că micul dash cu care se plimbă era de fapt cea mai mare vrajă a lui.",
+      "play": "Maximizează întâi Vânt tăios, apoi Furtună de oțel. Dash prin patru minioni ca încălzire, apoi prin fiecare campion o dată: fiecare poate fi traversat din nou după 6 secunde, fix cât ține un stack de Armă de încredere.",
+      "tagline": "Și-a sigilat singur ultimate-ul și a pus mâna pe o mătură: acum dash-ul mătură toată echipa.",
       "how": [
         [
-          "Zid de vânt",
-          "Blochează toate proiectilele inamice timp de 4 secunde, cu cooldown de 17 secunde la rang maxim. Yasuo nu are mană, deci cooldown-ul e singurul preț."
+          "Vânt tăios",
+          "130 de daune magice plus 60% din Puterea Abilităților la rangul 5, cu un cooldown de 0,1 secunde. Fiecare dash adaugă 25% timp de 5 secunde, de până la 4 ori, așa că un dash încălzit dă 260 plus 120% Putere a Abilităților."
         ],
         [
           "Augmentări",
-          "Lovitură mistică scade 1,25 secunde din Zid de vânt la fiecare atac, iar Lovitură dublă face ca fiecare crit să aplice asta de două ori. Lovitură dublă și Ritm critic însumează 50% șansă de crit, pe care pasiva lui o ridică până la 100%, iar Ritm critic mai pune deasupra 60% viteză de atac. Arme cu lunetă imensă îl lasă să lovească din spatele propriului zid."
+          "Înapoi la origini sigilează Ultima răsuflare pentru 35% daune de abilitate în plus, iar Arma de încredere, trasă pe Vânt tăios, adaugă 5% pentru fiecare campion prin care face dash: după cinci campioni, fiecare dash scalează cu 200% din Puterea lui a Abilităților. Scut strașnic își transformă scutul Flow în Putere a Abilităților, iar Mâna Baronului adaugă peste toate 25% Forță adaptivă."
         ],
         [
           "Obiecte",
-          "Tăișul sclipitor din Navori taie 15% din cooldown-ul rămas la fiecare atac. Apus și răsărit, Dintele lui Nashor, Forța treimii, Lancea lui Shojin și Cizme ioniene adaugă 85 haste și destulă viteză de atac cât două atacuri să aducă zidul înapoi."
+          "Pălăria malefică a lui Rabadon e 130 Putere a Abilităților și încă 30% din tot ce ai, iar Flacăra întunericului, Furtună dezlănțuită și Creator de rifturi adaugă restul. Sceptrul Vidului și Cizmele vrăjitorului se asigură că Rezistența Magică a nimănui nu are niciun cuvânt de spus."
         ]
       ],
       "augments": [
-        "La impact, reduce timpul de reîncărcare al abilităților tale cu 1,25 secunde.",
-        "Loviturile tale critice aplică efectele la impact încă o dată. Primești șansă de critic.",
-        "Atacul tău de bază acumulează 6% viteză de atac la loviturile critice, până la 10 cumuluri. Primești 25% șansă de critic.",
-        "Primești rază de atac."
+        "Abilitatea ta supremă este sigilată. Primești 35% Daune de abilitate, Vindecare, Scuturi și 70 Grăbire a abilităților.",
+        "Lovirea campionilor inamici cu abilitatea aleasă creează o legătură de Prietenie. Abilitatea aleasă primește daune crescute temporar, în funcție de nivelul Prieteniei.",
+        "Primești Forță adaptivă timp de 3 secunde când primești un Scut (5 secunde timp de reîncărcare).",
+        "Primești 25% Forță adaptivă. Minionii aliați din apropiere devin mult mai puternici."
       ]
     },
     "ru": {
-      "title": "Дядя ставит стенки на максималках",
-      "why": "Ясуо перестаёт дэшиться и стоит на своём за Стеной ветра, выбивая кулаками её перезарядку, пока два-три барьера не стоят постоянно и ничто со снарядами не может поиграть.",
-      "play": "Сначала качай Стену ветра на максимум: 5-й ранг даёт самую короткую перезарядку и почти вдвое большую ширину, чем 1-й. Поставь стену, бей ближайшую цель из-за неё (миньоны тоже считаются), жми W снова, как только она загорится, и никогда не лети вперёд.",
-      "tagline": "POV: ты залочил дальнобойного чемпиона, а дядя поставил три стены раньше, чем долетел твой первый выстрел",
+      "title": "Метла-сметалка",
+      "why": "Ясуо сам запечатывает свой Последний вздох и уходит в чистую силу умений, ведь маленький рывок, на котором он ездит по карте, тайно был его главным заклинанием.",
+      "play": "Сначала качайте Стремительный клинок, потом Стальную бурю. Для разогрева рвитесь через четырёх миньонов, потом через каждого чемпиона по разу: каждого можно пройти снова через 6 секунд, ровно столько же держится заряд Верного оружия.",
+      "tagline": "Сам запечатал свой ульт и взял метлу: теперь рывок сметает всю команду.",
       "how": [
         [
-          "Стена ветра",
-          "Блокирует все вражеские снаряды на 4 секунды, перезарядка 17 секунд на максимальном ранге. У Ясуо нет маны, так что единственная цена здесь перезарядка."
+          "Стремительный клинок",
+          "130 магического урона плюс 60% силы умений на 5-м ранге при перезарядке 0,1 секунды. Каждый рывок добавляет 25% на 5 секунд, до 4 раз, так что разогретый рывок наносит 260 плюс 120% силы умений."
         ],
         [
           "Аугменты",
-          "Мистический удар сокращает перезарядку Стены ветра на 1,25 секунды с каждой атакой, а Два по цене одного заставляет каждый крит применять это дважды. Два по цене одного и Критический ритм вместе дают 50% шанса крита, который его пассивка поднимает аж до 100%, а Критический ритм сверху добавляет 60% скорости атаки. Точнейший оптический прицел позволяет бить из-за собственной стены."
+          "Возвращение к основам запечатывает Последний вздох ради +35% урона умений, а Верное оружие, выпавшее на Стремительный клинок, добавляет 5% за каждого чемпиона, через которого он рванулся: после пяти чемпионов каждый рывок масштабируется от 200% его силы умений. Могучий щит превращает щит Потока в силу умений, а Длань Барона сверху добавляет 25% адаптивной силы."
         ],
         [
           "Предметы",
-          "Летающий нож Навори срезает 15% от оставшейся перезарядки с каждой атакой. Рассвет и закат, Зуб Нашора, Тройственный Союз, Копье Седзина и Ионийские сапоги просветления дают 85 ускорения и столько скорости атаки, что двух атак хватает, чтобы вернуть стену."
+          "Смертельная шляпа Рабадона даёт 130 силы умений и ещё 30% ко всей остальной, а Сумрачное пламя, Штормовой прилив и Творец разломов добавляют всё остальное. Посох Бездны и Сапоги чародея гарантируют, что чужое сопротивление магии вообще не имеет права голоса."
         ]
       ],
       "augments": [
-        "При попадании сокращает время перезарядки ваших умений на 1,25 сек.",
-        "Ваши критические удары применяют эффекты при попадании ещё раз. Вы получаете шанс критического удара.",
-        "Ваша обычная атака при критических ударах накапливает 6% скорости атаки, до 10 зарядов. Вы получаете 25% шанса критического удара.",
-        "Увеличивает дальность атаки."
+        "Ваше ультимативное умение запечатано. Вы получаете 35% к урону умений, исцелению, щитам и 70 к ускорению умений.",
+        "Нанесение урона вражеским чемпионам выбранным умением скрепляет узы Дружбы. Выбранное умение временно получает повышенный урон в зависимости от вашего уровня Дружбы.",
+        "Получай Адаптивную силу на 3 секунды, когда получаешь Щит (перезарядка 5 секунд).",
+        "Вы получаете 25% адаптивной силы. Находящиеся рядом союзные миньоны значительно усиливаются."
       ]
     },
     "th": {
-      "title": "Unc Is Wallmaxxing",
-      "why": "Yasuo เลิกแดชแล้วยืนหยัดอยู่หลัง Wind Wall ต่อยคูลดาวน์ของมันหายไปเรื่อย ๆ จนมีกำแพงขึ้นอยู่สองถึงสามแผ่นตลอดเวลา และอะไรที่ยิงกระสุนก็เล่นไม่ได้เลย",
-      "play": "อัป Wind Wall ก่อนสุด: แรงก์ 5 คูลดาวน์สั้นที่สุดและกว้างเกือบสองเท่าของแรงก์ 1 วางกำแพง แล้วตีอะไรก็ได้ที่ใกล้สุดจากข้างหลังมัน (มินเนียนก็นับ) กด W ซ้ำทันทีที่ไอคอนสว่าง และอย่าแดชเข้าไปเด็ดขาด",
-      "tagline": "POV: คุณล็อกแชมป์สายยิง แล้วลุงตั้งกำแพงสามแผ่นก่อนที่นัดแรกของคุณจะโดน",
+      "title": "Sweeping Broom",
+      "why": "Yasuo ผนึก Last Breath ของตัวเองแล้วไปเล่น Ability Power เต็มตัว เพราะดาชเล็กๆ ที่เขาใช้เดินทางอยู่ทุกวัน จริงๆ แล้วคือสกิลที่แรงที่สุดของเขามาตลอด",
+      "play": "อัป Sweeping Blade ก่อน แล้วค่อย Steel Tempest ดาชผ่านมินเนียน 4 ตัวเพื่อวอร์มอัป แล้วดาชผ่านแชมเปี้ยนทุกตัวคนละครั้ง ตัวหนึ่งดาชซ้ำได้อีกหลังจาก 6 วินาที ซึ่งนานเท่ากับที่ stack ของ Trusty Weapon อยู่พอดี",
+      "tagline": "ผนึกอัลติตัวเองแล้วคว้าไม้กวาด: ตอนนี้แดชกวาดล้างทั้งทีม",
       "how": [
         [
-          "Wind Wall",
-          "บล็อกกระสุนศัตรูทุกชนิด 4 วินาที คูลดาวน์ 17 วินาทีที่แรงก์สูงสุด Yasuo ไม่มีมานา ดังนั้นคูลดาวน์คือราคาเดียวที่ต้องจ่าย"
+          "Sweeping Blade",
+          "ดาเมจเวท 130 บวก 60% ของ Ability Power ที่แรงก์ 5 คูลดาวน์ 0.1 วินาที ทุกครั้งที่ดาชจะเพิ่ม 25% เป็นเวลา 5 วินาที สูงสุด 4 ครั้ง ดังนั้นดาชที่วอร์มอัปแล้วจะได้ 260 บวก 120% Ability Power"
         ],
         [
           "Augment",
-          "Mystic Punch ลดคูลดาวน์ Wind Wall ลง 1.25 วินาทีทุกครั้งที่โจมตี และ Double Tap ทำให้ทุกคริใช้ผลนั้นสองครั้ง Double Tap กับ Critical Rhythm รวมกันได้โอกาสคริ 50% ซึ่งพาสซีฟของเขาดันขึ้นไปถึง 100% และ Critical Rhythm ยังซ้อนความเร็วโจมตีอีก 60% Scopiest Weapons ทำให้เขาฟันจากหลังกำแพงของตัวเองได้"
+          "Back To Basics ผนึก Last Breath เพื่อเพิ่มดาเมจสกิล 35% ส่วน Trusty Weapon ที่สุ่มได้บน Sweeping Blade จะเพิ่ม 5% ต่อแชมเปี้ยนที่เขาดาชผ่าน ดาชผ่านห้าตัวแล้ว ทุกดาชจะสเกลด้วย 200% ของ Ability Power ของเขา Mighty Shield เปลี่ยนโล่ Flow ให้เป็น Ability Power และ Hand of Baron เพิ่ม Adaptive Force อีก 25% ซ้อนเข้าไป"
         ],
         [
           "ไอเทม",
-          "Navori Flickerblade ตัดคูลดาวน์ที่เหลืออีก 15% ทุกครั้งที่โจมตี Dusk and Dawn, Nashor's Tooth, Trinity Force, Spear of Shojin และ Ionian Boots เพิ่ม 85 haste และความเร็วโจมตีมากพอที่โจมตีสองครั้งก็เรียกกำแพงกลับมา"
+          "Rabadon's Deathcap ให้ Ability Power 130 และเพิ่มอีก 30% ของทั้งหมด ส่วน Shadowflame, Stormsurge และ Riftmaker ช่วยกองที่เหลือ Void Staff กับ Sorcerer's Shoes ทำให้ไม่มีใครมีสิทธิ์พูดเรื่อง Magic Resist"
         ]
       ],
       "augments": [
-        "On-Hit ลดคูลดาวน์สกิลของคุณ 1.25 วินาที",
-        "คริติคอลของคุณใช้เอฟเฟกต์ On-Hit ซ้ำอีกหนึ่งครั้ง ได้รับโอกาสคริ",
-        "การโจมตีปกติของคุณสะสม Attack Speed 6% เมื่อติดคริติคอล สูงสุด 10 สแต็ก ได้รับโอกาสคริ 25%",
-        "ได้ระยะโจมตีเพิ่ม"
+        "สกิลอัลติเมทของคุณถูกผนึก ได้รับ 35% Ability Damage, Healing, Shielding และ 70 Ability Haste",
+        "การโจมตีแชมเปี้ยนศัตรูด้วยสกิลที่เลือกจะสร้างสายสัมพันธ์แห่งมิตรภาพ สกิลที่เลือกจะได้รับดาเมจเพิ่มชั่วคราวตามระดับมิตรภาพของคุณ",
+        "ได้รับ Adaptive Force นาน 3 วินาทีเมื่อคุณได้รับโล่ (คูลดาวน์ 5 วินาที)",
+        "ได้รับ 25% Adaptive Force มินเนียนพันธมิตรที่อยู่ใกล้ๆ แข็งแกร่งขึ้นอย่างมาก"
       ]
     },
     "tr": {
-      "title": "Amca Duvarı Tavan Yaptı",
-      "why": "Yasuo dash atmayı bırakıyor, Rüzgâr Duvarı'nın arkasında dimdik duruyor ve bekleme süresini yumruklayıp eritiyor; sonunda hep iki üç duvar ayakta, mermili hiçbir şey oynayamıyor.",
-      "play": "Önce Rüzgâr Duvarı'nı sonuna kadar yükselt: 5. seviye en kısa bekleme süresine sahip ve 1. seviyeden neredeyse iki kat geniş. Duvarı koy, arkasından en yakındakine saldır (minyonlar da sayılır), yandığı anda tekrar W'ye bas ve asla dalma.",
-      "tagline": "POV: menzilli bir şampiyon kilitledin ve amca ilk atışın isabet etmeden üç duvar dikti",
+      "title": "Süpüren Süpürge",
+      "why": "Yasuo kendi Son Nefes'ini mühürleyip tam Yetenek Gücü'ne geçiyor, çünkü ortalıkta gezmek için kullandığı o küçük atılma aslında en büyük büyüsüymüş.",
+      "play": "Önce Atılgan Kılıç'ı, sonra Çelik Fırtına'yı maksla. Isınmak için dört minyonun içinden atıl, sonra her şampiyonun içinden bir kez: her biri 6 saniye sonra tekrar kullanılabilir, yani tam olarak bir Güvenilir Silah yığınının süresi kadar.",
+      "tagline": "Kendi ultisini mühürledi ve bir süpürge kaptı: artık atılma bütün takımı süpürüyor.",
       "how": [
         [
-          "Rüzgâr Duvarı",
-          "Düşmanın tüm mermilerini 4 saniye boyunca engeller; en yüksek seviyede bekleme süresi 17 saniyedir. Yasuo'nun manası yok, yani tek bedel bekleme süresi."
+          "Atılgan Kılıç",
+          "5. seviyede 130 büyü hasarı artı Yetenek Gücü'nün %60'ı, bekleme süresi 0,1 saniye. Her atılma 5 saniyeliğine %25 ekler, 4 kereye kadar; yani ısınmış bir atılma 260 artı %120 Yetenek Gücü vurur."
         ],
         [
           "Güçlendirmeler",
-          "Mistik Yumruk her saldırıda Rüzgâr Duvarı'ndan 1,25 saniye düşer, Çifte İsabet ise her kritiğin bunu iki kez uygulamasını sağlar. Çifte İsabet ve Kritik Ritim toplam %50 kritik şansı verir, pasifi bunu %100'e kadar çıkarır, Kritik Ritim de üstüne %60 saldırı hızı ekler. En Büyük Dürbünlü Silahlar kendi duvarının arkasından kılıç sallamasını sağlar."
+          "Temeli Sağlam, Son Nefes'i mühürleyip %35 daha fazla yetenek hasarı verir; Atılgan Kılıç'a denk gelen Güvenilir Silah ise içinden geçtiği her şampiyon için %5 ekler: beş şampiyon sonra her atılma Yetenek Gücü'nün %200'üyle ölçeklenir. Kudretli Kalkan Flow kalkanını Yetenek Gücü'ne çevirir, Baron'un Yaveri de üstüne %25 Uyarlanabilir Güç ekler."
         ],
         [
           "Eşyalar",
-          "Navori Tezbıçağı her saldırıda kalan bekleme süresinin %15'ini keser. Gündüz ve Gece, Nashor'un Dişi, Üçlü Kuvvet, Shojin'in Mızrağı ve Ionia Çizmeleri 85 hız ve iki saldırıda duvarı geri getirecek kadar saldırı hızı ekler."
+          "Rabadon'un Şapkası 130 Yetenek Gücü verir ve hepsinin üstüne %30 daha ekler; Gölgealev, Yıldırım Asası ve Vadiyaran da geri kalanını yığar. Hiçlik Değneği ile Sihirbaz Pabuçları da kimsenin Büyü Direnci'nin söz hakkı olmamasını sağlar."
         ]
       ],
       "augments": [
-        "İsabette yeteneklerinin bekleme süresini 1,25 saniye azaltır.",
-        "Kritik vuruşların isabet etkilerini bir kez daha uygular. Kritik ihtimali kazanırsın.",
-        "Temel saldırın kritik vuruşlarda %6 saldırı hızı biriktirir, en fazla 10 yük. %25 kritik ihtimali kazanırsın.",
-        "Saldırı menzili kazan."
+        "Ulti yeteneğin mühürlendi. %35 Yetenek Hasarı, İyileştirme, Kalkan ve 70 Yetenek Hızlandırma kazanırsın.",
+        "Seçilen yetenekle düşman şampiyonlara vurmak bir Dostluk bağı oluşturur. Seçilen yetenek, Dostluk seviyene göre geçici olarak artan hasar kazanır.",
+        "Kalkan kazandığında 3 saniyeliğine Uyarlanabilir Güç kazanırsın (5 saniye Bekleme Süresi).",
+        "%25 Uyarlanabilir Güç kazanırsın. Yakındaki müttefik minyonlar büyük ölçüde güçlenir."
       ]
     },
     "vi": {
-      "title": "Chú Dựng Tường Tối Đa",
-      "why": "Yasuo thôi lướt, đứng vững sau Tường Gió, đấm bay hồi chiêu của nó cho đến khi lúc nào cũng có hai ba bức tường và thứ gì bắn đạn cũng hết đường chơi.",
-      "play": "Tăng tối đa Tường Gió trước: bậc 5 có hồi chiêu ngắn nhất và rộng gần gấp đôi bậc 1. Dựng tường, đánh thứ gần nhất từ phía sau nó (lính cũng tính), bấm W lần nữa ngay khi nó sáng lên, và đừng bao giờ lao vào.",
-      "tagline": "POV: bạn khóa một tướng đánh xa và chú đã dựng ba bức tường trước khi phát bắn đầu tiên của bạn trúng",
+      "title": "Chổi Quét Sạch",
+      "why": "Yasuo tự niêm phong Trăng Trối của mình và chơi full Sức Mạnh Phép Thuật, vì cú lướt nhỏ xíu hắn dùng để di chuyển hóa ra lại là chiêu mạnh nhất của hắn.",
+      "play": "Tối đa Quét Kiếm trước, rồi đến Bão Kiếm. Lướt qua bốn lính để khởi động, sau đó lướt qua mỗi tướng một lần: mỗi tướng có thể bị lướt lại sau 6 giây, đúng bằng thời gian một cộng dồn Vũ Khí Tin Cậy kéo dài.",
+      "tagline": "Tự phong ấn chiêu cuối rồi vớ lấy cây chổi: giờ cú lướt quét sạch cả đội.",
       "how": [
         [
-          "Tường Gió",
-          "Chặn mọi đạn của địch trong 4 giây, hồi chiêu 17 giây ở bậc tối đa. Yasuo không dùng năng lượng, nên hồi chiêu là cái giá duy nhất."
+          "Quét Kiếm",
+          "130 sát thương phép cộng 60% Sức Mạnh Phép Thuật ở cấp 5, với thời gian hồi chiêu 0,1 giây. Mỗi cú lướt cộng thêm 25% trong 5 giây, tối đa 4 lần, nên một cú lướt đã khởi động sẽ gây 260 cộng 120% Sức Mạnh Phép Thuật."
         ],
         [
           "Lõi nâng cấp",
-          "Cú Đấm Thần Bí giảm 1,25 giây hồi chiêu Tường Gió mỗi đòn đánh, còn Bắn Một Được Hai khiến mỗi đòn chí mạng áp dụng điều đó hai lần. Bắn Một Được Hai và Nhịp Điệu Chí Mạng cộng lại cho 50% tỉ lệ chí mạng, nội tại của anh đẩy lên tận 100%, và Nhịp Điệu Chí Mạng còn cộng thêm 60% tốc độ đánh. Lắp Kính Nhắm Cỡ Đại cho phép anh chém từ sau bức tường của chính mình."
+          "Đơn Giản Hóa niêm phong Trăng Trối để tăng 35% sát thương kỹ năng, còn Vũ Khí Tin Cậy, quay trúng Quét Kiếm, cộng thêm 5% cho mỗi tướng hắn lướt qua: lướt qua năm tướng thì mỗi cú lướt tăng theo 200% Sức Mạnh Phép Thuật của hắn. Lá Chắn Hùng Mạnh biến lá chắn Flow thành Sức Mạnh Phép Thuật, còn Baron Chi Viện cộng thêm 25% Sức Mạnh Thích Ứng."
         ],
         [
           "Trang bị",
-          "Đao Chớp Navori cắt 15% hồi chiêu còn lại mỗi đòn đánh. Bình Minh & Hoàng Hôn, Nanh Nashor, Tam Hợp Kiếm, Ngọn Giáo Shojin và Giày Khai Sáng Ionia cộng 85 haste và đủ tốc độ đánh để hai đòn đánh là tường quay lại."
+          "Mũ Phù Thủy Rabadon cho 130 Sức Mạnh Phép Thuật và tăng thêm 30% toàn bộ chỉ số đó, còn Ngọn Lửa Hắc Hóa, Quyền Trượng Bão Tố và Quyền Trượng Ác Thần chất nốt phần còn lại. Trượng Hư Vô và Giày Pháp Sư đảm bảo Kháng Phép của ai cũng chẳng có tiếng nói."
         ]
       ],
       "augments": [
-        "Hiệu ứng trên đòn đánh: giảm 1,25 giây thời gian hồi chiêu của các kỹ năng.",
-        "Đòn chí mạng của bạn áp dụng hiệu ứng trên đòn đánh thêm một lần. Nhận tỉ lệ chí mạng.",
-        "Đòn đánh thường của bạn cộng dồn 6% tốc độ đánh khi chí mạng, tối đa 10 cộng dồn. Nhận 25% tỉ lệ chí mạng.",
-        "Nhận thêm tầm đánh."
+        "Kỹ năng Tối thượng của bạn bị niêm phong. Nhận 35% Sát Thương Kỹ Năng, Hồi Máu, Lá Chắn và 70 Tốc Độ Hồi Chiêu.",
+        "Đánh tướng địch bằng kỹ năng đã chọn sẽ tạo nên mối liên kết Tình Bạn. Kỹ năng đã chọn tạm thời tăng sát thương dựa trên cấp độ Tình Bạn của bạn.",
+        "Nhận Sức Mạnh Thích Ứng trong 3 giây khi bạn nhận Lá Chắn (thời gian hồi 5 giây).",
+        "Nhận 25% Sức Mạnh Thích Ứng. Lính đồng minh gần đó được tăng cường mạnh mẽ."
       ]
     },
     "zh-CN": {
-      "title": "大叔狂拉风墙",
-      "why": "疾风剑豪不再突进,稳稳站在风之障壁后面,一拳一拳把它的冷却打没,直到永远有两三堵墙立着,带弹道的玩意儿一个都别想玩。",
-      "play": "先把风之障壁点满:5 级冷却最短,宽度几乎是 1 级的两倍。放一堵墙,躲在后面打离你最近的东西(小兵也算),墙一亮就立刻再按 W,千万别冲进去。",
-      "tagline": "POV:你锁了个远程英雄,结果大叔在你第一发打出去之前就立了三堵墙",
+      "title": "横扫扫帚",
+      "why": "疾风剑豪亲手封印了自己的狂风绝息斩，全力堆法强，因为他平时用来赶路的那个小位移，其实一直是他最强的技能。",
+      "play": "先升满踏前斩，再升斩钢闪。先穿过四个小兵热身，再穿过每个英雄一次：每个英雄6秒后可以再次被穿过，正好和一层可靠武器的持续时间一样长。",
+      "tagline": "亲手封印了自己的大招，抄起一把扫帚：现在冲刺能把整支队伍扫干净。",
       "how": [
         [
-          "风之障壁",
-          "阻挡所有敌方弹道 4 秒,满级冷却 17 秒。疾风剑豪没有蓝条,所以冷却是唯一的代价。"
+          "踏前斩",
+          "5级时造成130魔法伤害，外加60%法术强度，冷却时间0.1秒。每次位移持续5秒叠加25%，最多4次，所以热身后的一次位移就是260外加120%法术强度。"
         ],
         [
           "海克斯强化",
-          "秘术冲拳每次攻击减少风之障壁 1.25 秒冷却,而双发快射让每次暴击触发两次。双发快射和暴击律动加起来有 50% 暴击率,被他的被动一路拉到 100%,暴击律动还额外叠 60% 攻速。最万用的瞄准镜让他能躲在自己的墙后面挥刀。"
+          "回归基本功封印狂风绝息斩，换取35%额外技能伤害；而在踏前斩上抽到的可靠武器，会让他每穿过一名英雄就多出5%：穿过五名英雄后，每次位移都按他200%的法术强度成长。强力护盾把他的Flow护盾变成法术强度，男爵之手再额外送上25%适应之力。"
         ],
         [
           "装备",
-          "纳沃利烁刃每次攻击削减剩余冷却的 15%。黄昏与黎明、纳什之牙、三相之力、朔极之矛和明朗之靴提供 85 急速和足够的攻速,两下攻击墙就回来了。"
+          "灭世者的死亡之帽提供130法术强度，并让全部法强再提高30%，影焰、风暴狂涌和裂隙制造者负责堆满剩下的。虚空之杖和法师之靴则确保没人的魔法抗性有发言权。"
         ]
       ],
       "augments": [
-        "攻击特效：使你的技能冷却时间减少1.25秒。",
-        "你的暴击会额外再触发一次命中时效果。获得暴击几率。",
-        "你的普通攻击暴击时叠加6%攻击速度，最多10层。获得25%暴击几率。",
-        "获得攻击距离。"
+        "你的终极技能被封印。获得35%技能伤害、治疗效果、护盾效果，以及70技能急速。",
+        "用所选技能击中敌方英雄会缔结友谊的羁绊。所选技能会根据你的友谊等级临时获得额外伤害。",
+        "获得护盾时,获得3秒适应之力(冷却时间5秒)。",
+        "获得25%适应之力。附近的友军小兵得到大幅强化。"
       ]
     },
     "zh-TW": {
-      "title": "大叔狂拉風牆",
-      "why": "犽宿不再突進,穩穩站在風牆後面,一拳一拳把它的冷卻打沒,直到永遠有兩三道牆立著,帶彈道的東西一個都別想玩。",
-      "play": "先把風牆點滿:5 級冷卻最短,寬度幾乎是 1 級的兩倍。放一道牆,躲在後面打離你最近的東西(小兵也算),牆一亮就立刻再按 W,千萬別衝進去。",
-      "tagline": "POV:你鎖了個遠程英雄,結果大叔在你第一發打出去之前就立了三道牆",
+      "title": "橫掃掃把",
+      "why": "犽宿親手封印了自己的奪命氣息，全力堆法強，因為他平常拿來趕路的那個小位移，其實一直都是他最強的技能。",
+      "play": "先點滿刃敵千軍，再點鋼鐵暴雪。先穿過四隻小兵熱身，再穿過每位英雄一次：每位英雄6秒後可以再被穿過，剛好跟一層可靠武器的持續時間一樣長。",
+      "tagline": "親手封印了自己的大招，抄起一把掃把：現在衝刺能把整支隊伍掃乾淨。",
       "how": [
         [
-          "風牆",
-          "阻擋所有敵方彈道 4 秒,滿級冷卻 17 秒。犽宿沒有魔力,所以冷卻是唯一的代價。"
+          "刃敵千軍",
+          "5級時造成130魔法傷害，外加60%法術強度，冷卻時間0.1秒。每次位移持續5秒疊加25%，最多4次，所以熱身後的一次位移就是260外加120%法術強度。"
         ],
         [
           "強化",
-          "祕術拳擊每次攻擊減少風牆 1.25 秒冷卻,而雙重命中讓每次暴擊觸發兩次。雙重命中和暴擊節奏加起來有 50% 暴擊率,被他的被動一路拉到 100%,暴擊節奏還額外疊 60% 攻速。頂狙武器讓他能躲在自己的牆後面揮刀。"
+          "基本功夫封印奪命氣息，換取35%額外技能傷害；而在刃敵千軍上抽到的可靠武器，會讓他每穿過一位英雄就多出5%：穿過五位英雄後，每次位移都按他200%的法術強度成長。巨大盾牌把他的Flow護盾變成法術強度，巴龍之爪再額外送上25%適應之力。"
         ],
         [
           "裝備",
-          "那歐閃刃每次攻擊削減剩餘冷卻的 15%。暮夜與黎明、納什之牙、三相之力、精進之矛和愛歐尼亞之靴提供 85 加速和足夠的攻速,兩下攻擊牆就回來了。"
+          "死亡之帽提供130法術強度，並讓全部法強再提高30%，黯影之炎、雷霆風暴和峽谷製造者負責堆滿剩下的。虛空之杖和法師之靴則確保沒人的魔法防禦有發言權。"
         ]
       ],
       "augments": [
-        "命中特效：使你的技能冷卻時間減少1.25秒。",
-        "你的暴擊會額外再觸發一次命中時效果。獲得暴擊機率。",
-        "你的普通攻擊暴擊時疊加6%攻擊速度，最多10層。獲得25%暴擊機率。",
-        "獲得攻擊距離。"
+        "你的終極技能被封印。獲得35%技能傷害、治療效果、護盾效果，以及70技能加速。",
+        "用所選技能擊中敵方英雄會締結友誼的羈絆。所選技能會根據你的友誼等級暫時獲得額外傷害。",
+        "獲得護盾時,獲得3秒適應之力(冷卻時間5秒)。",
+        "獲得25%適應之力。附近的友軍小兵得到大幅強化。"
       ]
     }
   }
