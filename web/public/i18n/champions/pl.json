@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} wygranych · {pick} wyborów",
  "or": "lub",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "O ile to wzmocnienie jest lepsze na tym bohaterze niż na przeciętnym (punkty DeepScore).",
- "Fit {n}": "Dopasowanie {n}"
+ "Fit {n}": "Dopasowanie {n}",
+ "Patch {patch}": "Patch {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} wyłącza twoją superumiejętność, więc to wzmocnienie nic nie daje.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} potrzebuje trafień krytycznych: dodatkowa szansa na krytyka go uruchamia.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Jego przyspieszenie umiejętności zamienia się też w prędkość ruchu dzięki {1}.",
+ "Its Move Speed feeds the other augment's bonus.": "Jego prędkość ruchu zasila premię drugiego wzmocnienia.",
+ "Its bonus Health becomes Lethality with {1}.": "Jego dodatkowe zdrowie zamienia się w destrukcję dzięki {1}.",
+ "Its burn can critically strike with {1}.": "Jego podpalenie może trafiać krytycznie dzięki {1}.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Jego dodatkowe trafienia nakładają efekty przy trafieniu, więc drugie wzmocnienie działa częściej.",
+ "Its healing also deals damage with {1}.": "Jego leczenie zadaje też obrażenia dzięki {1}.",
+ "More dashes, so the dash effects trigger more often.": "Więcej doskoków, więc efekty doskoków działają częściej.",
+ "The burn it adds also cuts your basic ability cooldowns.": "Dodane podpalenie skraca też czas odnowienia twoich podstawowych umiejętności.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Dwa użycia superumiejętności uruchamiają jej efekt dwa razy.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Twoje umiejętności mogą trafiać krytycznie, a {1} leczy cię z tych trafień.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Twoje umiejętności mogą trafiać krytycznie, więc dodatkowa szansa na krytyka działa też na nie."
 }

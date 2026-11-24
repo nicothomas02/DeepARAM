@@ -5,7 +5,7 @@ import { loadSettings } from "@/lib/settings";
 import { useBracket, type BracketKey } from "@/lib/bracket-pref";
 import { getParam, setParams } from "@/lib/url-state";
 import DataTable, { type Column } from "./DataTable";
-import { champStats, TIER_HELP, type PatchRow } from "@/lib/tiers";
+import { champStats, plusRows, TIER_HELP, type PatchRow } from "@/lib/tiers";
 import Skeleton from "@/components/Skeleton";
 import { tagsByKind, tagStyle, type TagInfo } from "@/lib/tag-info";
 import { useT } from "./I18n";
@@ -209,8 +209,31 @@ export default function ChampionTiers({
         : v < -0.5
           ? t("Early game")
           : t("Even");
+  // "{live}+" (the default, Nico 2026-11-24, like the augment list's switch from #643): the live patch with the patch
+  // before it at half weight per game (RECENT, lib/tiers.ts), except for a champion whose win rate moved by more than
+  // 4 standard errors between them (a big buff or nerf), who keeps the live patch alone. "{live} only" (?pool=0) is
+  // the plain live patch. Only for the live patch, all players, outside Biggest movers (its change column needs one patch).
+  const [plus, setPlus] = useState(true);
+  useEffect(() => {
+    if (getParam("pool") === "0") setPlus(false);
+  }, []);
+  const poolable = one === live && activeBracket === "all" && !!before && have.has(before) && sort !== MOVERS;
+  const pooled = plus && poolable;
   const stats = useMemo(() => {
     if (missing) return [];
+    if (pooled && before) {
+      const used = plusRows(rows, live, before, matches);
+      return champStats(used, new Set([live, before]), matches, true).map((c) => ({
+        ...c,
+        change: null,
+        tier_was: null,
+        games: games?.[c.name] ?? null,
+        archetype: (tags[c.name] ?? []).filter((t) => tagInfo[t]?.kind !== "play").join(","),
+        scaling: scaling[c.name] ?? null,
+        curve: curveLabel(scaling[c.name]),
+        reliance: reliance[c.name] ?? null,
+      }));
+    }
     const bRows = activeBracket !== "all" ? inBracket(rows, one ?? undefined) : null;
     const prevRows = activeBracket !== "all" ? (borrowed ? null : inBracket(rows, before)) : rows;
     const prev =
@@ -254,6 +277,7 @@ export default function ChampionTiers({
     brackets,
     bracketsHere,
     borrowed,
+    pooled,
   ]);
 
   // Archetype filter (?tag=Mage,Poke): a champion shows when it has every picked tag. Tiers and
@@ -362,7 +386,7 @@ export default function ChampionTiers({
     choose(next.size ? next : new Set([live]));
   };
   const showMulti = picked.size > 1;
-  const showChange = !showMulti && Boolean(before);
+  const showChange = !showMulti && Boolean(before) && !pooled;
   const showNext = one === live && stats.some((c) => c.next !== undefined);
   const moversOn = sort === MOVERS && same([live]);
   // The dropdown's own label names the range in use, so phones need only this one control.
@@ -455,6 +479,21 @@ export default function ChampionTiers({
             </div>
           </div>
         </details>
+        {poolable && (
+          <div className="seg" role="group" aria-label={t("Games counted")}>
+            <button
+              type="button"
+              aria-pressed={plus}
+              data-tip={t("Includes similar recent patches, weighted toward this one")}
+              onClick={() => (setPlus(true), setParams({ pool: null }))}
+            >
+              {t("{patch}+", { patch: patchName(live) })}
+            </button>
+            <button type="button" aria-pressed={!plus} onClick={() => (setPlus(false), setParams({ pool: "0" }))}>
+              {t("{patch} only", { patch: patchName(live) })}
+            </button>
+          </div>
+        )}
         {bracketsHere && (
           <label
             className="patch-bracket"
@@ -530,7 +569,9 @@ export default function ChampionTiers({
         </details>
       )}
       <p className="patch-note">
-        {picked.size === 1
+        {pooled
+          ? t("Includes similar recent patches, weighted toward this one")
+          : picked.size === 1
           ? showChange
             ? t(
                 "Patch {patch}, with the change since {before}. Pick patches from the list to add or remove them.",

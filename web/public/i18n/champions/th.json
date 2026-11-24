@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "ชนะ {win} · เลือก {pick}",
  "or": "หรือ",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "ออกเมนต์นี้ดีกว่าบนแชมเปี้ยนนี้มากแค่ไหนเมื่อเทียบกับแชมเปี้ยนทั่วไป (แต้ม DeepScore)",
- "Fit {n}": "ความเข้ากัน {n}"
+ "Fit {n}": "ความเข้ากัน {n}",
+ "Patch {patch}": "แพตช์ {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} ปิดอัลติเมตของคุณ ออคเมนต์นี้จึงไม่มีผล",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} ต้องคริติคอล: โอกาสคริติคอลที่เพิ่มขึ้นทำให้มันทำงาน",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Ability Haste ของมันกลายเป็นความเร็วเคลื่อนที่ด้วย {1}",
+ "Its Move Speed feeds the other augment's bonus.": "ความเร็วเคลื่อนที่ของมันเพิ่มโบนัสของออคเมนต์อีกตัว",
+ "Its bonus Health becomes Lethality with {1}.": "พลังชีวิตโบนัสของมันกลายเป็น Lethality ด้วย {1}",
+ "Its burn can critically strike with {1}.": "การเผาไหม้ของมันคริติคอลได้ด้วย {1}",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "การโจมตีเพิ่มเติมของมันใช้เอฟเฟกต์ On-Hit ออคเมนต์อีกตัวจึงทำงานบ่อยขึ้น",
+ "Its healing also deals damage with {1}.": "การฟื้นฟูของมันสร้างความเสียหายด้วย {1}",
+ "More dashes, so the dash effects trigger more often.": "พุ่งตัวบ่อยขึ้น เอฟเฟกต์การพุ่งตัวจึงทำงานบ่อยขึ้น",
+ "The burn it adds also cuts your basic ability cooldowns.": "การเผาไหม้ที่มันเพิ่มยังลดคูลดาวน์สกิลพื้นฐานของคุณด้วย",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "ใช้อัลติเมตสองครั้งทำให้เอฟเฟกต์อัลติเมตทำงานสองครั้ง",
+ "Your abilities can crit, and {1} heals you from those crits.": "สกิลของคุณคริติคอลได้ และ {1} ฟื้นฟูคุณจากคริติคอลเหล่านั้น",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "สกิลของคุณคริติคอลได้ โอกาสคริติคอลที่เพิ่มขึ้นจึงคุ้มกับสกิลด้วย"
 }

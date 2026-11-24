@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} victorias · {pick} elección",
  "or": "o",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "Cuánto mejor es este aumento en este campeón que en el campeón medio (puntos de DeepScore).",
- "Fit {n}": "Encaje {n}"
+ "Fit {n}": "Encaje {n}",
+ "Patch {patch}": "Parche {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} desactiva tu definitiva, así que este aumento no hace nada.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} necesita críticos: la probabilidad de crítico extra lo activa.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Su aceleración de habilidades también se convierte en velocidad de movimiento con {1}.",
+ "Its Move Speed feeds the other augment's bonus.": "Su velocidad de movimiento alimenta la bonificación del otro aumento.",
+ "Its bonus Health becomes Lethality with {1}.": "Su vida adicional se convierte en letalidad con {1}.",
+ "Its burn can critically strike with {1}.": "Su quemadura puede ser crítica con {1}.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Sus golpes extra aplican efectos al impacto, así que el otro aumento se activa más a menudo.",
+ "Its healing also deals damage with {1}.": "Su curación también inflige daño con {1}.",
+ "More dashes, so the dash effects trigger more often.": "Más desplazamientos, así que los efectos de desplazamiento se activan más a menudo.",
+ "The burn it adds also cuts your basic ability cooldowns.": "La quemadura que añade también reduce el enfriamiento de tus habilidades básicas.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Dos definitivas activan dos veces el efecto de la definitiva.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Tus habilidades pueden ser críticas y {1} te cura con esos críticos.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Tus habilidades pueden ser críticas, así que la probabilidad de crítico extra también les sirve."
 }

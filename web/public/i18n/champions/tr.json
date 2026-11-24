@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} galibiyet · {pick} seçim",
  "or": "veya",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "Bu güçlendirmenin bu şampiyonda ortalama şampiyona göre ne kadar daha iyi olduğu (DeepScore puanı).",
- "Fit {n}": "Uyum {n}"
+ "Fit {n}": "Uyum {n}",
+ "Patch {patch}": "{patch} Yaması",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} ultini kapatır, yani bu güçlendirme hiçbir şey yapmaz.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} kritik vuruş ister: ek kritik ihtimali onu tetikler.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Yetenek hızı, {1} ile hareket hızına da dönüşür.",
+ "Its Move Speed feeds the other augment's bonus.": "Hareket hızı diğer güçlendirmenin bonusunu besler.",
+ "Its bonus Health becomes Lethality with {1}.": "Ek canı, {1} ile ölümcüllüğe dönüşür.",
+ "Its burn can critically strike with {1}.": "Yanması, {1} ile kritik vurabilir.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Ek vuruşları isabet etkilerini uygular, yani diğer güçlendirme daha sık tetiklenir.",
+ "Its healing also deals damage with {1}.": "İyileştirmesi, {1} ile hasar da verir.",
+ "More dashes, so the dash effects trigger more often.": "Daha çok atılma, yani atılma etkileri daha sık tetiklenir.",
+ "The burn it adds also cuts your basic ability cooldowns.": "Eklediği yanma temel yeteneklerinin bekleme sürelerini de kısaltır.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "İki ulti kullanımı ulti etkisini iki kez tetikler.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Yeteneklerin kritik vurabilir ve {1} bu kritiklerden seni iyileştirir.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Yeteneklerin kritik vurabilir, yani ek kritik ihtimali onlara da yarar."
 }

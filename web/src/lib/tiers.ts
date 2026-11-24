@@ -74,7 +74,9 @@ const weighted = (pairs: [number | null, number][]) => {
 };
 
 /** `matches`: estimated matches behind each patch's numbers (lib/sample.ts), to give each champion's `sample`. */
-export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Record<string, number>): ChampStats[] {
+/** `ownDays`: a champion's pick rate counts only the days of the patches it has rows for (the Tier List's "16.23+" view
+ *  leaves out a champion's earlier patch when its win rate moved sharply, ChampionTiers). */
+export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Record<string, number>, ownDays = false): ChampStats[] {
   const picked = rows.filter((r) => patches.has(r.patch));
   const totalDays = [...new Set(picked.map((r) => `${r.patch}:${r.days}`))].reduce((d, k) => d + Number(k.split(":")[1]), 0);
   // Patches newest first, to weigh older ones down.
@@ -102,7 +104,10 @@ export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Rec
       games,
       ...(matches && sw2 > 0 ? { sample: (sw * sw) / sw2 } : {}),
       win_rate: weighted(rs.map((r, i) => [r.win_rate, w[i]]))!,
-      pick_rate: totalDays ? games / totalDays : 0,
+      pick_rate: (() => {
+        const days = ownDays ? rs.reduce((d, r) => d + r.days, 0) : totalDays;
+        return days ? games / days : 0;
+      })(),
       damage: weighted(rs.map((r, i) => [r.damage, w[i]])),
       tank: weighted(rs.map((r, i) => [r.tank, w[i]])),
       kp: weighted(rs.map((r, i) => [r.kp, w[i]])),
@@ -147,4 +152,22 @@ export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Rec
     void games;
     return { ...rest, ...grades[i] };
   });
+}
+
+/** The "{live}+" rows (Nico 2026-11-24, like the augment list's switch from #643): the live patch's rows plus the patch
+ *  before's, except a champion whose win rate moved by more than 4 standard errors between the two (a big buff or nerf),
+ *  who keeps the live patch alone. Pass to champStats with both patches and ownDays, so the earlier patch counts at
+ *  half weight per game (RECENT). */
+export function plusRows(rows: PatchRow[], live: string, before: string, matches?: Record<string, number>): PatchRow[] {
+  const liveRows = new Map(rows.filter((r) => r.patch === live).map((r) => [r.name, r]));
+  const agree = (r: PatchRow) => {
+    const l = liveRows.get(r.name);
+    if (!l) return false;
+    const nL = l.pick_rate * (matches?.[live] ?? 0);
+    const nP = r.pick_rate * (matches?.[before] ?? 0);
+    if (!nL || !nP) return true;
+    const p = (l.win_rate + r.win_rate) / 2;
+    return Math.abs(l.win_rate - r.win_rate) <= 4 * Math.sqrt(p * (1 - p) * (1 / nL + 1 / nP));
+  };
+  return rows.filter((r) => r.patch === live || (r.patch === before && agree(r)));
 }

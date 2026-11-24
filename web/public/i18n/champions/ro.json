@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} victorii · {pick} alegere",
  "or": "sau",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "Cu cât e mai bun acest augment pe acest campion decât pe campionul mediu (puncte DeepScore).",
- "Fit {n}": "Potrivire {n}"
+ "Fit {n}": "Potrivire {n}",
+ "Patch {patch}": "Patch {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} îți dezactivează abilitatea supremă, deci acest augment nu face nimic.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} are nevoie de lovituri critice: șansa de critic în plus îl declanșează.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Accelerarea abilităților devine și viteză de mișcare cu {1}.",
+ "Its Move Speed feeds the other augment's bonus.": "Viteza sa de mișcare alimentează bonusul celuilalt augment.",
+ "Its bonus Health becomes Lethality with {1}.": "Viața bonus devine letalitate cu {1}.",
+ "Its burn can critically strike with {1}.": "Arsura sa poate da lovituri critice cu {1}.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Loviturile în plus aplică efectele la impact, deci celălalt augment se declanșează mai des.",
+ "Its healing also deals damage with {1}.": "Vindecarea sa provoacă și daune cu {1}.",
+ "More dashes, so the dash effects trigger more often.": "Mai multe salturi, deci efectele de salt se declanșează mai des.",
+ "The burn it adds also cuts your basic ability cooldowns.": "Arsura adăugată reduce și timpii de reîncărcare ai abilităților de bază.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Două abilități supreme declanșează efectul de două ori.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Abilitățile tale pot da critic, iar {1} te vindecă din acele critice.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Abilitățile tale pot da critic, deci șansa de critic în plus contează și pentru ele."
 }

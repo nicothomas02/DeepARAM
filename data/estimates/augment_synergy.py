@@ -229,11 +229,19 @@ def main():
     if args.only:
         keep = set(args.only.split(","))
         enemies = [e for e in enemies if e["id"] in keep or e["name"] in keep]
-    enemies = sorted(enemies, key=lambda e: e["id"])[args.shard::args.shards]
     augs = cm.load(os.path.join(cu.SIM, "data", "augments.json"))["augments"]
     upgrades = cm.load(cu.OUT)
+    builds = cm.builds()
+    if not (args.sim or args.full):
+        # Rule pairs need only the champion's augment pool, so every champion with builds gets them, including ones the
+        # Simulator doesn't model yet (Yunara had none, Nico 2026-11-24).
+        have = {str(e["champion_id"]) for e in enemies}
+        enemies = enemies + [{"id": cid, "name": cid, "champion_id": int(cid)} for cid in sorted(builds)
+                             if cid not in have and builds[cid].get("augments", {}).get("all")
+                             and (not args.only or cid in set(args.only.split(",")))]
+    enemies = sorted(enemies, key=lambda e: str(e["id"]))[args.shard::args.shards]
     ctx = {
-        "builds": cm.builds(),
+        "builds": builds,
         "augs": augs,
         "aug_key": {v["id"]: k for k, v in augs.items() if v.get("id")},
         "modeled": {k for k, v in augs.items() if v.get("stats") or v.get("effects")},

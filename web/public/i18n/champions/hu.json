@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} győzelem · {pick} választás",
  "or": "vagy",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "Mennyivel jobb ez a képesség ezen a hősön, mint az átlagos hősön (DeepScore-pont).",
- "Fit {n}": "Illeszkedés {n}"
+ "Fit {n}": "Illeszkedés {n}",
+ "Patch {patch}": "{patch} frissítés",
+ "{1} disables your Ultimate, so this augment does nothing.": "A {1} letiltja a végső képességedet, így ez a kiegészítő semmit sem ér.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "A {1} kritikus találatokat igényel: a plusz kritikus esély indítja be.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "A képességsiettetése a {1}-tel mozgási sebességgé is válik.",
+ "Its Move Speed feeds the other augment's bonus.": "A mozgási sebessége a másik kiegészítő bónuszát növeli.",
+ "Its bonus Health becomes Lethality with {1}.": "A bónusz életereje a {1}-dal halálossággá válik.",
+ "Its burn can critically strike with {1}.": "Az égetése a {1}-vel kritikusat sebezhet.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "A plusz találatai alkalmazzák a találatkori hatásokat, így a másik kiegészítő gyakrabban aktiválódik.",
+ "Its healing also deals damage with {1}.": "A gyógyítása a {1}-szel sebzést is okoz.",
+ "More dashes, so the dash effects trigger more often.": "Több roham, így a roham-hatások gyakrabban aktiválódnak.",
+ "The burn it adds also cuts your basic ability cooldowns.": "A hozzáadott égetés az alapképességeid töltési idejét is csökkenti.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Két végső képesség kétszer indítja el a végső hatást.",
+ "Your abilities can crit, and {1} heals you from those crits.": "A képességeid kritikusat sebezhetnek, és a {1} ezekből gyógyít.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "A képességeid kritikusat sebezhetnek, így a plusz kritikus esély rájuk is számít."
 }

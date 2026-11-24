@@ -3,6 +3,7 @@ import { Mona_Sans } from "next/font/google";
 import Link from "next/link";
 import FeedbackBox from "@/components/FeedbackBox";
 import PageTransitions from "@/components/PageTransitions";
+import NavProgress from "@/components/NavProgress";
 import TiltEffects from "@/components/TiltEffects";
 import SwipeGestures from "@/components/SwipeGestures";
 import PressDown from "@/components/PressDown";
@@ -169,6 +170,7 @@ export default function RootLayout({
           </p>
         </footer>
         <PageTransitions />
+        <NavProgress />
         <TiltEffects />
         <SwipeGestures />
         <HoverPreview />

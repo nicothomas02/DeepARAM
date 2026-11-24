@@ -97,5 +97,9 @@
  "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Jedes Team hat einen Warden, Vanguard oder Juggernaut. Das ist eine Aufbauregel, nicht von den Daten gemessen.",
  "Ranked only by how the champions and their pairs do.": "Nur danach gereiht, wie die Champions und ihre Paare abschneiden.",
  "HEARTSTEEL": "HEARTSTEEL",
- "Headliners": "Headliner"
+ "Headliners": "Headliner",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Nur {patch}",
+ "Includes similar recent patches, weighted toward this one": "Enthält ähnliche letzte Patches, mit dem meisten Gewicht auf diesem",
+ "Games counted": "Gezählte Spiele"
 }

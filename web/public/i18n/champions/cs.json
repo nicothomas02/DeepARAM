@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} výher · {pick} výběr",
  "or": "nebo",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "O kolik je tento augment lepší na tomto šampionovi než na průměrném šampionovi (body DeepScore).",
- "Fit {n}": "Sedí {n}"
+ "Fit {n}": "Sedí {n}",
+ "Patch {patch}": "Patch {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} vypne tvou superschopnost, takže tento augment nic nedělá.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} potřebuje kritické zásahy: další šance na kritický zásah ho spouští.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Jeho zrychlení schopností se s {1} mění i na rychlost pohybu.",
+ "Its Move Speed feeds the other augment's bonus.": "Jeho rychlost pohybu posiluje bonus druhého augmentu.",
+ "Its bonus Health becomes Lethality with {1}.": "Jeho bonusové zdraví se s {1} mění na smrtonosnost.",
+ "Its burn can critically strike with {1}.": "Jeho popálení může s {1} kriticky zasáhnout.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Jeho další zásahy aplikují efekty při zásahu, takže se druhý augment spouští častěji.",
+ "Its healing also deals damage with {1}.": "Jeho léčení s {1} také způsobuje poškození.",
+ "More dashes, so the dash effects trigger more often.": "Víc výpadů, takže se efekty výpadů spouštějí častěji.",
+ "The burn it adds also cuts your basic ability cooldowns.": "Přidané popálení také zkracuje přebíjení tvých základních schopností.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Dvě použití superschopnosti spustí její efekt dvakrát.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Tvoje schopnosti mohou kriticky zasáhnout a {1} tě z těch zásahů léčí.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Tvoje schopnosti mohou kriticky zasáhnout, takže se jim další šance na kritický zásah vyplatí."
 }

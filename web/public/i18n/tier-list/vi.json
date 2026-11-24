@@ -97,5 +97,9 @@
  "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Mỗi đội có một Warden, Vanguard hoặc Juggernaut. Đây là quy tắc đội hình, không phải điều dữ liệu đo được.",
  "Ranked only by how the champions and their pairs do.": "Chỉ xếp theo thành tích của các tướng và các cặp của họ.",
  "HEARTSTEEL": "HEARTSTEEL",
- "Headliners": "Ban Nhạc Chính"
+ "Headliners": "Ban Nhạc Chính",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Chỉ {patch}",
+ "Includes similar recent patches, weighted toward this one": "Gồm các bản cập nhật gần đây tương tự, ưu tiên bản này",
+ "Games counted": "Số trận được tính"
 }

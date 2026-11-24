@@ -97,5 +97,9 @@
  "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "모든 팀에 Warden, Vanguard, Juggernaut 중 하나가 있습니다. 데이터로 측정한 것이 아니라 조합 규칙입니다.",
  "Ranked only by how the champions and their pairs do.": "챔피언과 2인 조합의 성적만으로 순위를 매겼습니다.",
  "HEARTSTEEL": "HEARTSTEEL",
- "Headliners": "헤드라이너"
+ "Headliners": "헤드라이너",
+ "{patch}+": "{patch}+",
+ "{patch} only": "{patch}만",
+ "Includes similar recent patches, weighted toward this one": "비슷한 최근 패치를 포함하며, 이번 패치에 가장 큰 비중",
+ "Games counted": "집계 게임"
 }

@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} victoires · {pick} choix",
  "or": "ou",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "À quel point cet augment est meilleur sur ce champion que sur un champion moyen (points de DeepScore).",
- "Fit {n}": "Affinité {n}"
+ "Fit {n}": "Affinité {n}",
+ "Patch {patch}": "Patch {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} désactive ton ultime, donc cet augment ne sert à rien.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} a besoin de coups critiques : les chances de critique en plus le déclenchent.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Sa hâte de compétence devient aussi de la vitesse de déplacement avec {1}.",
+ "Its Move Speed feeds the other augment's bonus.": "Sa vitesse de déplacement nourrit le bonus de l'autre augment.",
+ "Its bonus Health becomes Lethality with {1}.": "Ses PV bonus deviennent de la létalité avec {1}.",
+ "Its burn can critically strike with {1}.": "Sa brûlure peut infliger des coups critiques avec {1}.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Ses coups en plus appliquent les effets à l'impact, donc l'autre augment se déclenche plus souvent.",
+ "Its healing also deals damage with {1}.": "Ses soins infligent aussi des dégâts avec {1}.",
+ "More dashes, so the dash effects trigger more often.": "Plus de ruées, donc les effets de ruée se déclenchent plus souvent.",
+ "The burn it adds also cuts your basic ability cooldowns.": "La brûlure ajoutée réduit aussi les délais de récupération de tes compétences de base.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Deux ultimes déclenchent deux fois l'effet d'ultime.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Tes compétences peuvent critiquer, et {1} te soigne grâce à ces critiques.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Tes compétences peuvent critiquer, donc les chances de critique en plus comptent aussi pour elles."
 }

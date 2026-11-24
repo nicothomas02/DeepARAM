@@ -17,7 +17,7 @@ import { championBrackets } from "@/lib/brackets";
 import { buildWhy } from "@/lib/why-best";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
-import { championAliases, championSummary, champList, type RadarAxis } from "@/lib/champions";
+import { championAliases, championSummary, champList, livePlus, type RadarAxis } from "@/lib/champions";
 import { TfCard, TfPerf, TfStrip, TfTier, TimeframePicker } from "@/components/champion/Timeframe";
 import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
@@ -68,7 +68,7 @@ import {
   fillSpells,
   type SpellRow,
 } from "@/lib/fill";
-import { ITEM_TIERS, rewardItems, type ItemTier } from "@/lib/items";
+import { ITEM_TIERS, itemTier, rewardItems, type ItemTier } from "@/lib/items";
 import { championAugmentStages, championEstimates } from "@/lib/estimates";
 import { bracketAugmentScores } from "@/lib/bracket-augments";
 import { augmentTiers } from "@/lib/augment-tiers";
@@ -91,8 +91,7 @@ import { augmentBuilds, buildChangers, CHANGES_BUILD } from "@/lib/augment-build
 import AugmentBuildPicker from "@/components/champion/AugmentBuildPicker";
 import { augmentSynergy } from "@/lib/augment-synergy";
 import Synergies from "@/components/Synergies";
-import ExpectedSwitch from "@/components/champion/ExpectedSwitch";
-import { championSynergies, expectedBuilds, expectedKey, fewGames } from "@/lib/synergies";
+import { championSynergies, fewGames } from "@/lib/synergies";
 
 const AUG_NAMES = augmentNames as Record<string, string>;
 /** Archmage (lib/archmage-route.ts). */
@@ -168,10 +167,7 @@ const vsAvg = (key: string, d: number) =>
 // Build lists rank by DeepScore against the champion's other builds in the same list.
 // DeepScore ranks these lists; it rewards a win rate above the champion's own, so the win rate boost sits beside it.
 const SCORED_COLS = ["DeepScore", "Win rate boost", "Win rate", "Pick rate"];
-// With the switch on Adjusted, the default (components/champion/ExpectedSwitch.tsx), a row with few games of its own shows its
-// expected win rate, leaning on the estimate (lib/synergies.ts), labelled "Expected"; the rest show "Real".
-type Expected = { delta: number; expected: boolean };
-function ScoredCells({ r, x }: { r: ItemRow; x?: Expected }) {
+function ScoredCells({ r }: { r: ItemRow }) {
   return (
     <>
       <div className="cp-cell">
@@ -181,31 +177,8 @@ function ScoredCells({ r, x }: { r: ItemRow; x?: Expected }) {
           <b>–</b>
         )}
       </div>
-      {x ? (
-        <div className="cp-cell">
-          <b className={`xp-real ${tone(r.lift) ?? ""}`}>{signed(r.lift)}</b>
-          <b className={`xp-exp ${tone(r.lift + x.delta) ?? ""}`}>{signed(r.lift + (x.expected ? x.delta : 0))}</b>
-          <small>
-            <T ns={NS}>Win rate boost</T>
-          </small>
-        </div>
-      ) : (
-        <Cell value={signed(r.lift)} label="Win rate boost" tone={tone(r.lift)} />
-      )}
-      {x ? (
-        <div className="cp-cell">
-          <b className={`xp-real ${tone(r.lift) ?? ""}`}><WinRate p={r.winRate} n={r.games} /></b>
-          <b className={`xp-exp ${tone(r.lift + x.delta) ?? ""}`}>{pct(r.winRate + (x.expected ? x.delta : 0))}</b>
-          <small className="xp-real">
-            <T ns={NS}>Win rate</T>
-          </small>
-          <small className={x.expected ? "xp-exp xp-tag" : "xp-exp"}>
-            <T ns={NS}>{x.expected ? "Expected" : "Real"}</T>
-          </small>
-        </div>
-      ) : (
-        <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" />
-      )}
+      <Cell value={signed(r.lift)} label="Win rate boost" tone={tone(r.lift)} />
+      <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" />
       <Cell value={pct(r.pickRate)} label="Pick rate" />
     </>
   );
@@ -259,6 +232,10 @@ export const generateStaticParams = () =>
 // real purchase timelines.
 const SHOW_ITEM_TIMING = false;
 const NS = "champions";
+// The most augment synergies the panel shows (Nico 2026-11-24: a few good ones, not dozens).
+const SYNERGY_SHOWN = 6;
+// All items: an item built on the previous patch that this patch doesn't have enough games for yet.
+const EARLIER_HELP = "Built on the previous patch; not enough games on this patch yet, so it has no DeepScore.";
 
 export async function generateMetadata({
   params,
@@ -362,11 +339,10 @@ export default async function ChampionPage({
     (championIds as Record<string, number>)[alias] ?? -1,
   );
   if (!c || !p) notFound();
-  // Neighbours by name, for the arrows (and the [ and ] keys, lib/subtab-nav.ts).
   const all = champList();
-  const at = all.findIndex((x) => x.id === c.alias);
-  const prev = all[(at - 1 + all.length) % all.length];
-  const next = all[(at + 1) % all.length];
+  // The header's default "{live}+" numbers (lib/champions.ts livePlus); "{live} only" shows the live patch's.
+  const plusAll = livePlus().stats;
+  const plus = plusAll.find((x) => x.name === c.alias) ?? null;
   const info = p.itemInfo;
   // Simulator-made panels stay off while the Simulator is a fun tool only (lib/sim-policy.ts).
   const upgrades = SIMULATOR_IN_STATS ? championUpgrades(c.alias) : null;
@@ -390,8 +366,8 @@ export default async function ChampionPage({
           {p.coreFromEarlier && (
             <>
               {" "}
-              <small className="cp-stale-tag" title="From earlier games, in the order players bought them: the newest numbers only list finished builds. Shown while today's builds still use these items.">
-                <T ns={NS}>From earlier games</T>
+              <small className="cp-stale-tag" title="The first items are in the order players bought them on earlier patches: this patch's numbers only list finished builds. Shown while today's builds still use these items.">
+                <T ns={NS}>Estimated</T>
               </small>
             </>
           )}
@@ -563,10 +539,27 @@ export default async function ChampionPage({
     }))
     .sort(byScore(scores));
   const synergyPairs = augmentSynergy(c.alias, augRows.map((a) => a.id));
-  // Confirmed-mechanic pairs that add to each other, strongest first (the Augment synergies panel).
+  // The Augment synergies panel: a short, curated list (Nico 2026-11-24: "don't need as many as 32… realistic, compounding,
+  // not repeated"). Confirmed-mechanic pairs that add to each other, both augments taken by at least a quarter as many of
+  // this champion's players as its median augment, ranked by points times how often the two are picked; one pair per
+  // reason and each augment once, at most SYNERGY_SHOWN. The full list still re-ranks augments once a visitor marks picks.
+  const pickOf = new Map(augRows.map((a) => [a.id, a.pickRate ?? 0]));
+  const picks = [...pickOf.values()].sort((x, y) => x - y);
+  const realistic = (picks[Math.floor(picks.length / 2)] ?? 0) / 4;
+  const pts = (r: (typeof synergyPairs)[number]) => (r.order ? Math.max(...r.order) : r.points);
+  const seenWhy = new Set<string>();
+  const seenAug = new Set<number>();
   const gains = synergyPairs
-    .filter((r) => r.rule && (r.order ? Math.max(...r.order) : r.points) > 0)
-    .sort((x, y) => (y.order ? Math.max(...y.order) : y.points) - (x.order ? Math.max(...x.order) : x.points));
+    .filter((r) => r.rule && pts(r) > 0 && (pickOf.get(r.a) ?? 0) >= realistic && (pickOf.get(r.b) ?? 0) >= realistic)
+    .sort((x, y) => pts(y) * Math.sqrt((pickOf.get(y.a) ?? 0) * (pickOf.get(y.b) ?? 0)) - pts(x) * Math.sqrt((pickOf.get(x.a) ?? 0) * (pickOf.get(x.b) ?? 0)))
+    .filter((r) => {
+      const why = r.why ?? `${r.a}-${r.b}`;
+      if (seenWhy.has(why) || seenAug.has(r.a) || seenAug.has(r.b)) return false;
+      seenWhy.add(why);
+      seenAug.add(r.a).add(r.b);
+      return true;
+    })
+    .slice(0, SYNERGY_SHOWN);
   const interactions = kitInteractions(c.alias, p.augments);
   const bestStart = p.cardStart;
   // Skill orders: real level-ups ranked by DeepScore (lib/skill-orders.ts), best first.
@@ -592,10 +585,9 @@ export default async function ChampionPage({
     ).flatMap((k) => (radar.get(k) ? [radar.get(k)!] : []));
   };
   const perf = perfOf(c.radar);
-  const expected = expectedBuilds((championIds as Record<string, number>)[alias] ?? -1);
   const synergies = championSynergies((championIds as Record<string, number>)[alias] ?? -1);
-  const xp = (fam: "starting" | "boots" | "full_builds" | null, r: ItemRow) => (fam ? expected.get(expectedKey(fam, r.items)) : undefined);
-  // A row holding an item only an augment hands out is hidden under Adjusted and tagged under Raw (ExpectedSwitch).
+  // A row holding an item only an augment hands out is tagged. (The Adjusted / Raw switch left 2026-11-24: no list held
+  // such a row, and its expected win rates moved rows with thousands of games; the lists show the real numbers.)
   const rewards = rewardItems();
   const augItem = (r: ItemRow) => r.items.some((id) => rewards.has(id));
   const augTag = (r: ItemRow) =>
@@ -604,9 +596,21 @@ export default async function ChampionPage({
         <T ns={NS}>Augment item</T>
       </span>
     ) : null;
-  const itemRows = (rows: typeof p.core, sep = false, fam: "starting" | "full_builds" | null = null) =>
+  // The default card's six items in buying order, so the Full builds list reads the same way (inCardOrder).
+  const cardCore = p.builds.length > 1 ? p.builds[0].core : bestCore;
+  const cardOrder = cardCore ? [...buildOrder(cardCore), ...(cardCore.full ?? []).map((r) => r.items[0])] : [];
+  const inCardOrder = (items: number[]) => {
+    // Any boots take the card's boots spot.
+    const bootsAt = cardOrder.findIndex((i) => itemTier(i) === "boots");
+    const at = (i: number) => {
+      const k = bootsAt >= 0 && itemTier(i) === "boots" ? bootsAt : cardOrder.indexOf(i);
+      return k < 0 ? cardOrder.length + items.indexOf(i) : k;
+    };
+    return [...items].sort((x, y) => at(x) - at(y));
+  };
+  const itemRows = (rows: typeof p.core, sep = false) =>
     rows.map((r, i) => (
-      <Row key={i} rank={i + 1} cols={4} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
+      <Row key={i} rank={i + 1} cols={4} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} />}>
         {buildOrder(r).map((id, j) => (
           <span key={j} className="cp-chain">
             {sep && j > 0 && (
@@ -625,9 +629,9 @@ export default async function ChampionPage({
         )}
       </Row>
     ));
-  const singleRows = (rows: typeof p.core, fam: "boots" | null = null) =>
+  const singleRows = (rows: typeof p.core) =>
     rows.map((r, i) => (
-      <Row key={i} rank={i + 1} cols={4} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} x={xp(fam, r)} />}>
+      <Row key={i} rank={i + 1} cols={4} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} />}>
         <ItemIcon id={r.items[0]} info={info} />
         <ItemName id={r.items[0]} info={info} />
         {augTag(r)}
@@ -819,25 +823,11 @@ export default async function ChampionPage({
       />
       {/* The colour sample only needs a few pixels, so it reads the small tile when there is one. */}
       <SplashAccent src={c.splashSmall ?? c.splash} />
-      <section
-        className="champ-hero cp-hero"
-        style={
-          c.splash
-            ? ({
-                "--splash": `url("${c.splash}")`,
-                // Phones get the small tile: the full splash was a quarter of the page's weight (site idea 2026-11-05).
-                ...(c.splashSmall ? { "--splash-small": `url("${c.splashSmall}")` } : {}),
-              } as React.CSSProperties)
-            : undefined
-        }
-      >
-        <nav className="champ-steps" aria-label="Other champions">
-          <Link href={`/champions/${prev.id}`} data-swipe="prev" rel="prev">
-            ‹{" "}
-            <Name kind="champions" id={prev.id}>
-              {prev.name}
-            </Name>
-          </Link>
+      {/* The header's background is a glow in the champion's own colour (SplashAccent), not the splash: the splash
+          repeated the icon beside it (Nico 2026-11-24), and it was the page's heaviest image. */}
+      <section className="champ-hero cp-hero cp-hero-glow">
+        {/* No previous / next champion links (Nico 2026-11-24: alphabetical neighbours aren't useful). */}
+        <div className="champ-steps">
           <span className="eyebrow">
             <Link href="/tier-list">
               <T>Tier List</T>
@@ -847,13 +837,7 @@ export default async function ChampionPage({
               {"Patch {v}"}
             </T>
           </span>
-          <Link href={`/champions/${next.id}`} data-swipe="next" rel="next">
-            <Name kind="champions" id={next.id}>
-              {next.name}
-            </Name>{" "}
-            ›
-          </Link>
-        </nav>
+        </div>
         <div className="cp-title">
           <img
             className="champ-hero-icon"
@@ -880,7 +864,18 @@ export default async function ChampionPage({
             )}
           </div>
           {c.tier && (
-            <TfTier alias={c.alias} patches={c.patches} matches={matches}>
+            <TfTier
+              alias={c.alias}
+              patches={c.patches}
+              matches={matches}
+              plus={
+                plus ? (
+                  <span className={`cp-tier chip tier-${plus.tier.toLowerCase()}`} title="Tier">
+                    {plus.tier}
+                  </span>
+                ) : undefined
+              }
+            >
               <span className={`cp-tier chip tier-${c.tier.toLowerCase()}`} title="Tier">
                 {c.tier}
               </span>
@@ -888,7 +883,32 @@ export default async function ChampionPage({
           )}
         </div>
         {c.winRate !== undefined && (
-          <TfStrip alias={c.alias} patches={c.patches} matches={matches}>
+          <TfStrip
+            alias={c.alias}
+            patches={c.patches}
+            matches={matches}
+            plus={
+              plus ? (
+                <div className="cp-strip">
+                  <Cell
+                    value={<WinRate p={plus.win_rate} n={plus.sample} />}
+                    label="Win rate"
+                    tone={plus.win_rate >= 0.52 ? "up" : plus.win_rate <= 0.48 ? "down" : undefined}
+                  />
+                  <Cell value={pct(plus.pick_rate)} label="Pick rate" />
+                  {plus.total > 0 && <Cell value={`~${plus.total.toLocaleString("en-US")}`} label="Games" />}
+                  <div className="cp-cell">
+                    <b>#{plus.rank}</b>
+                    <small>
+                      <T ns={NS} v={{ n: plusAll.length }}>
+                        {"of {n} by DeepScore"}
+                      </T>
+                    </small>
+                  </div>
+                </div>
+              ) : undefined
+            }
+          >
                 <div className="cp-strip">
                 <Cell
                   value={<WinRate p={c.winRate} n={c.games} />}
@@ -929,10 +949,6 @@ export default async function ChampionPage({
               </div>
           </TfStrip>
         )}
-        {(() => {
-          const br = championBrackets(c.alias, c.patch);
-          return br ? <BracketRates rates={br.rates} borrowed={br.patch !== c.patch ? br.patch : null} /> : null;
-        })()}
         {/* One glance: the core, the best augments and the skill order; the card below has the detail. */}
         {(glanceCore || augRows.length > 0 || glanceSkill || pinnedSkill) && (
           <a className="cp-glance" href="#build" aria-label="Build at a glance">
@@ -1014,6 +1030,12 @@ export default async function ChampionPage({
                 ) : undefined
               }
             >
+              {(() => {
+                const br = championBrackets(c.alias, c.patch);
+                return br ? (
+                  <BracketRates rates={br.rates} borrowed={br.patch !== c.patch ? br.patch : null} active={!!bracketAugs} patch={patchName(c.patch)} />
+                ) : null;
+              })()}
               <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} patch={patchName(c.patch)} brackets={bracketAugs ?? undefined} everywhere={everywhere} />
             </Panel>
           )}
@@ -1062,7 +1084,6 @@ export default async function ChampionPage({
           <h2 className="cp-group" id="builds">
             <T ns={NS}>Items</T>
           </h2>
-          {expected.size > 0 && <ExpectedSwitch />}
           {augBuilds && (
             <Panel
               id="augment-builds"
@@ -1188,7 +1209,7 @@ export default async function ChampionPage({
               <Panel title="Starter items" count={p.starting.length}>
                 <Head what="Starter items" cols={SCORED_COLS} />
                 <ShowMore total={p.starting.length} limit={5}>
-                  {itemRows(p.starting, false, "starting")}
+                  {itemRows(p.starting, false)}
                 </ShowMore>
               </Panel>
             )}
@@ -1196,7 +1217,7 @@ export default async function ChampionPage({
               <Panel title="Boots" count={p.boots.length}>
                 <Head what="Boots" cols={SCORED_COLS} />
                 <ShowMore total={p.boots.length} limit={5}>
-                  {singleRows(p.boots, "boots")}
+                  {singleRows(p.boots)}
                 </ShowMore>
               </Panel>
             )}
@@ -1210,7 +1231,9 @@ export default async function ChampionPage({
             >
               <Head what="Six items" cols={SCORED_COLS} />
               <ShowMore total={p.full.length} limit={5}>
-                {itemRows(p.full, false, "full_builds")}
+                {/* Each build in the card's buying order where they share items (Nico 2026-11-24: the top full build
+                    read differently from the card, though the six items were the same); the rest keep their order. */}
+                {itemRows(p.full.map((r) => ({ ...r, items: inCardOrder(r.items) })), false)}
               </ShowMore>
             </Panel>
           )}
@@ -1218,7 +1241,7 @@ export default async function ChampionPage({
             <Fold titles={["All items"]}>
               <Panel
                 title="All items"
-                count={p.items.length}
+                count={p.items.length + p.earlierItems.length}
                 note={
                   <T ns={NS}>
                     {
@@ -1238,7 +1261,8 @@ export default async function ChampionPage({
                   const list = p.items.filter(
                     (r) => (r.tier ?? "legendary") === tier,
                   );
-                  if (!list.length) return null;
+                  const older = p.earlierItems.filter((r) => (r.tier ?? "legendary") === tier);
+                  if (!list.length && !older.length) return null;
                   return (
                     <section
                       key={tier}
@@ -1247,7 +1271,7 @@ export default async function ChampionPage({
                     >
                       <h4 className="cp-itier-h">
                         <T ns={NS}>{TIER_LABEL[tier]}</T>{" "}
-                        <span>{list.length}</span>
+                        <span>{list.length + older.length}</span>
                       </h4>
                       <div className="cp-strip-x" role="list">
                         {list.map((r) => (
@@ -1272,6 +1296,20 @@ export default async function ChampionPage({
                               />
                             )}
                             <Cell value={signed(r.lift)} label="Win rate boost" tone={tone(r.lift)} />
+                            <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" />
+                            <Cell value={pct(r.pickRate)} label="Pick rate" />
+                          </div>
+                        ))}
+                        {/* Built last patch, not enough games yet on this one: no DeepScore, tagged with its patch. */}
+                        {older.map((r) => (
+                          <div key={`earlier-${r.items[0]}`} className="cp-tile" role="listitem">
+                            <ItemIcon id={r.items[0]} info={info} />
+                            <ItemName id={r.items[0]} info={info} />
+                            <small className="cp-stale-tag" title={EARLIER_HELP}>
+                              <T ns={NS} v={{ patch: p.earlierPatch ? patchName(p.earlierPatch) : "" }}>
+                                {"Patch {patch}"}
+                              </T>
+                            </small>
                             <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" />
                             <Cell value={pct(r.pickRate)} label="Pick rate" />
                           </div>

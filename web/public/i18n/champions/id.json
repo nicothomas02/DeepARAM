@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} menang · {pick} dipilih",
  "or": "atau",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "Seberapa lebih baik augment ini pada champion ini dibanding champion rata-rata (poin DeepScore).",
- "Fit {n}": "Kecocokan {n}"
+ "Fit {n}": "Kecocokan {n}",
+ "Patch {patch}": "Patch {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} menonaktifkan Ultimate-mu, jadi augment ini tidak berguna.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} butuh critical: tambahan crit chance memicunya.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Ability Haste-nya juga jadi Move Speed dengan {1}.",
+ "Its Move Speed feeds the other augment's bonus.": "Move Speed-nya memperkuat bonus augment lain.",
+ "Its bonus Health becomes Lethality with {1}.": "Bonus Health-nya jadi Lethality dengan {1}.",
+ "Its burn can critically strike with {1}.": "Burn-nya bisa critical dengan {1}.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Hit tambahannya menerapkan efek on-hit, jadi augment lain lebih sering terpicu.",
+ "Its healing also deals damage with {1}.": "Healing-nya juga memberi damage dengan {1}.",
+ "More dashes, so the dash effects trigger more often.": "Lebih banyak dash, jadi efek dash lebih sering terpicu.",
+ "The burn it adds also cuts your basic ability cooldowns.": "Burn yang ditambahkannya juga mengurangi cooldown basic ability-mu.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Dua kali Ultimate memicu efek Ultimate dua kali.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Ability-mu bisa critical, dan {1} menyembuhkanmu dari critical itu.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Ability-mu bisa critical, jadi tambahan crit chance juga berguna untuknya."
 }

@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "胜率 {win} · 选取率 {pick}",
  "or": "或",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "该强化在此英雄上比在一般英雄上好多少（DeepScore 分）。",
- "Fit {n}": "契合度 {n}"
+ "Fit {n}": "契合度 {n}",
+ "Patch {patch}": "版本 {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} 会禁用你的终极技能，所以这个强化没有作用。",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} 需要暴击：额外的暴击几率能触发它。",
+ "Its Ability Haste also becomes Move Speed with {1}.": "它的技能急速通过 {1} 也会变成移动速度。",
+ "Its Move Speed feeds the other augment's bonus.": "它的移动速度会提升另一个强化的加成。",
+ "Its bonus Health becomes Lethality with {1}.": "它的额外生命值通过 {1} 变成穿甲。",
+ "Its burn can critically strike with {1}.": "它的灼烧通过 {1} 可以暴击。",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "它的额外命中会触发攻击特效，所以另一个强化触发得更频繁。",
+ "Its healing also deals damage with {1}.": "它的治疗通过 {1} 还会造成伤害。",
+ "More dashes, so the dash effects trigger more often.": "位移更多，所以位移效果触发得更频繁。",
+ "The burn it adds also cuts your basic ability cooldowns.": "它附加的灼烧还会缩短你基础技能的冷却时间。",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "释放两次终极技能会触发两次终极技能效果。",
+ "Your abilities can crit, and {1} heals you from those crits.": "你的技能可以暴击，{1} 会通过这些暴击为你治疗。",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "你的技能可以暴击，所以额外的暴击几率对技能也有用。"
 }

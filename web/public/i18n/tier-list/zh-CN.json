@@ -97,5 +97,9 @@
  "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "每支队伍都有一名 Warden、Vanguard 或 Juggernaut。这是阵容规则，并非数据测得。",
  "Ranked only by how the champions and their pairs do.": "仅按英雄及其两两组合的表现排序。",
  "HEARTSTEEL": "HEARTSTEEL",
- "Headliners": "主打乐队"
+ "Headliners": "主打乐队",
+ "{patch}+": "{patch}+",
+ "{patch} only": "仅 {patch}",
+ "Includes similar recent patches, weighted toward this one": "包含相似的近期版本，以本版本为主",
+ "Games counted": "计入的对局"
 }

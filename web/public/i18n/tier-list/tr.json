@@ -97,5 +97,9 @@
  "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Her takımda bir Warden, Vanguard veya Juggernaut var. Bu bir kadro kuralı, verilerin ölçtüğü bir şey değil.",
  "Ranked only by how the champions and their pairs do.": "Yalnızca şampiyonların ve ikililerinin sonuçlarına göre sıralandı.",
  "HEARTSTEEL": "HEARTSTEEL",
- "Headliners": "Manşet Grupları"
+ "Headliners": "Manşet Grupları",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Yalnızca {patch}",
+ "Includes similar recent patches, weighted toward this one": "Benzer son yamaları da içerir, en çok bu yamaya ağırlık verir",
+ "Games counted": "Sayılan maçlar"
 }

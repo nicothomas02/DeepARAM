@@ -334,5 +334,19 @@
  "{win} win · {pick} pick": "{win} win · {pick} pick",
  "or": "or",
  "How much better this augment is on this champion than on the average champion (DeepScore points).": "How much better this augment is on this champion than on the average champion (DeepScore points).",
- "Fit {n}": "Fit {n}"
+ "Fit {n}": "Fit {n}",
+ "Patch {patch}": "Patch {patch}",
+ "{1} disables your Ultimate, so this augment does nothing.": "{1} disables your Ultimate, so this augment does nothing.",
+ "{1} needs crits: the extra crit chance makes it trigger.": "{1} needs crits: the extra crit chance makes it trigger.",
+ "Its Ability Haste also becomes Move Speed with {1}.": "Its Ability Haste also becomes Move Speed with {1}.",
+ "Its Move Speed feeds the other augment's bonus.": "Its Move Speed feeds the other augment's bonus.",
+ "Its bonus Health becomes Lethality with {1}.": "Its bonus Health becomes Lethality with {1}.",
+ "Its burn can critically strike with {1}.": "Its burn can critically strike with {1}.",
+ "Its extra hits apply on-hit effects, so the other augment triggers more often.": "Its extra hits apply on-hit effects, so the other augment triggers more often.",
+ "Its healing also deals damage with {1}.": "Its healing also deals damage with {1}.",
+ "More dashes, so the dash effects trigger more often.": "More dashes, so the dash effects trigger more often.",
+ "The burn it adds also cuts your basic ability cooldowns.": "The burn it adds also cuts your basic ability cooldowns.",
+ "Two Ultimate casts trigger the Ultimate effect twice.": "Two Ultimate casts trigger the Ultimate effect twice.",
+ "Your abilities can crit, and {1} heals you from those crits.": "Your abilities can crit, and {1} heals you from those crits.",
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Your abilities can crit, so the extra crit chance pays off on them."
 }
