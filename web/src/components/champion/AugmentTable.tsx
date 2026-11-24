@@ -5,6 +5,7 @@ import RowLink from "@/components/RowLink";
 import { PICK_EVENT } from "@/components/champion/AugmentBuildPicker";
 import { useRef, useState, type DragEvent } from "react";
 import { KEPT, useKept } from "@/lib/kept";
+import { useBracket, type BracketKey } from "@/lib/bracket-pref";
 import { Name, useDescription, useNames, useT } from "@/components/I18n";
 import DeepScore from "@/components/DeepScore";
 import { signedPts, tone } from "@/components/champion/Ranked";
@@ -39,12 +40,23 @@ const SLOT_LABEL = ["1st augment", "2nd augment", "3rd augment", "4th augment"];
 // Drag data type for an augment id, from a row or a slot to a slot.
 const DRAG = "application/x-deeparam-augment";
 
+const BRACKET_LABELS: [BracketKey, string][] = [
+  ["all", "All players"],
+  ["casual", "Casual"],
+  ["mid", "Mid"],
+  ["high", "Top 5%"],
+];
+
 export default function AugmentTable({
   rows: givenRows,
   champion,
   synergy = [],
   patch,
+  brackets,
 }: {
+  /** DeepScore per augment for each skill bracket, half bracket and half all players, live patch only
+   *  (lib/bracket-augments.ts); absent when the live patch has no bracket tables, and the bracket switch hides. */
+  brackets?: Partial<Record<"casual" | "mid" | "high", Record<number, number>>>;
   /** The live patch's name ("16.23"), for the "16.23+" / "16.23 only" switch. */
   patch?: string;
   /** The champion's id ("Kayle"), for the "why" lines. */
@@ -99,7 +111,16 @@ export default function AugmentTable({
   // patch's games alone. The switch shows only when the two differ.
   const [thisPatch, setThisPatch] = useKept(false, box, "thisPatch");
   const pooledDiffers = givenRows.some((r) => r.patchScore !== r.deepScore);
-  const allRows = thisPatch && pooledDiffers ? givenRows.map((r) => ({ ...r, deepScore: r.patchScore })) : givenRows;
+  // Skill bracket (Nico 2026-11-24, "Half-and-half, live patch only"): the visitor's bracket re-ranks the list when the
+  // live patch has bracket tables; All players otherwise.
+  const [bracketPref, setBracketPref] = useBracket();
+  const bracketKeys = BRACKET_LABELS.filter(([k]) => k === "all" || brackets?.[k as "casual"]);
+  const bracket = bracketPref !== "all" ? (brackets?.[bracketPref] ?? null) : null;
+  const allRows = bracket
+    ? givenRows.map((r) => ({ ...r, deepScore: bracket[r.id] ?? r.deepScore }))
+    : thisPatch && pooledDiffers
+      ? givenRows.map((r) => ({ ...r, deepScore: r.patchScore }))
+      : givenRows;
   const [took, setTook] = useKept<number[]>([], box, "took");
   const byId = new Map(allRows.map((r) => [r.id, r]));
   const taken = took.filter((id) => byId.has(id));
@@ -315,7 +336,21 @@ export default function AugmentTable({
             ))}
           </div>
         )}
-        {pooledDiffers && (
+        {bracketKeys.length > 1 && (
+          <div className="cp-seg" role="group" aria-label={ts("Skill bracket")}>
+            {bracketKeys.map(([k, label]) => (
+              <button
+                key={k}
+                type="button"
+                aria-pressed={(bracket ? bracketPref : "all") === k}
+                onClick={() => (setBracketPref(k as BracketKey), setPage(0))}
+              >
+                {ts(label)}
+              </button>
+            ))}
+          </div>
+        )}
+        {pooledDiffers && !bracket && (
           <div
             className="cp-seg"
             role="group"
