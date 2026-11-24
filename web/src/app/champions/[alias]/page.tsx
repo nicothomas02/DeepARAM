@@ -541,6 +541,9 @@ export default async function ChampionPage({
       stages: pickStages.get(a.id),
       deepScore: scores.get(a.id),
       patchScore: patchScores.get(a.id),
+      // Points from the champion's augment average (not win rates), for the DeepScore hover.
+      deepEdge: scores.edges?.get(a.id),
+      patchEdge: patchScores.edges?.get(a.id),
       href: augmentHref(a.id) ?? undefined,
       desc: AUG_DESC[String(a.id)],
       changesBuild: changers.has(a.id),

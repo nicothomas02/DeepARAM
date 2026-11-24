@@ -70,6 +70,9 @@ export default function AugmentTable({
     deepScore?: number;
     /** DeepScore on the live patch's games alone; deepScore pools earlier patches where nothing changed. */
     patchScore?: number;
+    /** Lead over the champion's augment average in win-rate points (pooled / live patch only), for the badge hover. */
+    deepEdge?: number;
+    patchEdge?: number;
     winRate?: number;
     lift?: number;
     /** Share of the augment's picks at each of the four augment picks. */
@@ -116,9 +119,9 @@ export default function AugmentTable({
   const [bracketPref] = useBracket();
   const bracket = bracketPref !== "all" ? (brackets?.[bracketPref] ?? null) : null;
   const allRows = bracket
-    ? givenRows.map((r) => ({ ...r, deepScore: bracket[r.id] ?? r.deepScore }))
+    ? givenRows.map((r) => ({ ...r, deepScore: bracket[r.id] ?? r.deepScore, deepEdge: undefined }))
     : thisPatch && pooledDiffers
-      ? givenRows.map((r) => ({ ...r, deepScore: r.patchScore }))
+      ? givenRows.map((r) => ({ ...r, deepScore: r.patchScore, deepEdge: r.patchEdge }))
       : givenRows;
   const [took, setTook] = useKept<number[]>([], box, "took");
   const byId = new Map(allRows.map((r) => [r.id, r]));
@@ -532,6 +535,7 @@ export default function AugmentTable({
                 {a.deepScore !== undefined ? (
                   <DeepScore
                     value={a.deepScore}
+                    edge={a.deepEdge}
                     help={AUGMENT_DEEPSCORE_HELP}
                   />
                 ) : (
