@@ -587,6 +587,8 @@
     const lines = [
       p.switched ? `<div class="cue gold"${p.switched.because ? ` title="For ${esc(p.switched.because)}"` : ""}>⇄ ${esc(p.switched.style)}</div>` : "",
       opts ? `<div class="cue gold">+ ${opts}</div>` : "",
+      // slotFirst: Weapon of Destiny, King Me and Ornn upgrade the first Legendary in slots 1-6.
+      p.slotCue ? `<div class="cue blue" title="${esc(`${p.slotCue.why}${p.slotCue.estimated ? " (estimated pick)" : ""}`)}">${p.slotCue.item.icon ? `<img class="ii" src="${src(p.slotCue.item.icon)}" alt="" data-drop>` : ""} → slot 1</div>` : "",
     ].join("");
     box.innerHTML = `<div class="box${shop ? " now" : ""}">
       ${p.next[0] ? `<div class="nextup"><span class="lb">NEXT</span>${p.next[0].icon ? `<img src="${src(p.next[0].icon)}" alt="" data-drop>` : ""}<span class="nm">${esc(p.next[0].name)}</span></div>` : ""}

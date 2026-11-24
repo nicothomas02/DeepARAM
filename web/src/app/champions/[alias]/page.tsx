@@ -985,8 +985,8 @@ export default async function ChampionPage({
               whole
               tabs={p.builds.map((b) => ({
                 key: b.style,
-                label: ARCH_LABEL[b.style] ?? b.style,
-                share: `${pct(b.share)} · DeepScore ${b.deepScore}`,
+                label: b.niche ? `Niche: ${ARCH_LABEL[b.style] ?? b.style}` : (ARCH_LABEL[b.style] ?? b.style),
+                share: b.niche ? `${pct(b.share)} of games · DeepScore ${b.deepScore} · estimated` : `${pct(b.share)} · DeepScore ${b.deepScore}`,
                 panel: cardTiles(
                   b.start,
                   styleAugs(b.augments),

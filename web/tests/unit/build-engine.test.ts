@@ -18,6 +18,9 @@ import {
   RULES,
   situational,
   skillUp,
+  slotCue,
+  WEAPON_OF_DESTINY,
+  KING_ME,
   startFor,
   fillStart,
   picksLeft,
@@ -148,6 +151,15 @@ describe("build engine", () => {
     expect(ids(on.path)).toContain(3153);
     const off = plan({ champ, kinds, picks, fit, game: game([]), taken: [2018] });
     expect(off.switched).toBeNull();
+  });
+
+  it("switches to a niche build when you take an augment that unlocks it", () => {
+    const niche: Picks = { ...picks, builds: { Ashe: [...picks.builds!.Ashe, ["enchanter", 0.003, [3006], [3065, 3075, 3003], [3302], [4242]]] } };
+    const on = plan({ champ, kinds, picks: niche, fit, game: game([]), taken: [4242] });
+    expect(on.switched?.style).toBe("Enchanter");
+    expect(ids(on.path)).toContain(3065);
+    expect(on.rules).toContain("nicheBuilds");
+    expect(plan({ champ, kinds, picks: niche, fit, game: game([]), taken: [2018] }).switched).toBeNull();
   });
 
   it("Weapon of Destiny moves the champion's best Weapon item first; measured augments move their item up", () => {
@@ -590,5 +602,26 @@ describe("transmuteDraw", () => {
     expect(lost.draw).toBeCloseTo(2 * 0.61 * 7.5 - 3, 5);
     // Holding strong Prismatics instead: a loss.
     expect(at(12317, [500, 501]).draw!).toBeLessThan(0);
+  });
+});
+
+describe("slotFirst", () => {
+  const path = [3006, 3031, 3036, 3094].map((id) => ({ name: `#${id}`, icon: `${id}.png` }));
+  const name = (id: number) => `#${id}`;
+  const g = (o: Partial<Parameters<typeof slotCue>[0]>) => ({ champ: "Ashe", items: [3094, 3031, 3006], ...o });
+
+  it("Weapon of Destiny on offer: move the champion's best Weapon item to slot 1", () => {
+    expect(slotCue(g({ offer: [WEAPON_OF_DESTINY] }), [], path, 3031, kinds, name)).toMatchObject({ item: 3031, estimated: false });
+    // Already first, not on offer, or only one Legendary: nothing to say.
+    expect(slotCue(g({ items: [3031, 3094], offer: [WEAPON_OF_DESTINY] }), [], path, 3031, kinds, name)).toBeNull();
+    expect(slotCue(g({}), [], path, 3031, kinds, name)).toBeNull();
+    expect(slotCue(g({ items: [3094, 3006], offer: [WEAPON_OF_DESTINY] }), [], path, 3094, kinds, name)).toBeNull();
+  });
+
+  it("King Me and an ally Ornn at 13-17: your earliest path item goes to slot 1 (estimated)", () => {
+    expect(slotCue(g({}), [KING_ME], path, null, kinds, name)).toMatchObject({ item: 3031, estimated: true });
+    expect(slotCue(g({ allies: [{ champ: "Ornn", level: 14 }] }), [], path, null, kinds, name)?.item).toBe(3031);
+    expect(slotCue(g({ allies: [{ champ: "Ornn", level: 12 }] }), [], path, null, kinds, name)).toBeNull();
+    expect(slotCue(g({ champ: "Ornn", level: 12 }), [], path, null, kinds, name)?.item).toBe(3031);
   });
 });

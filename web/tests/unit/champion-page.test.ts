@@ -119,13 +119,25 @@ describe("champion card builds by style", () => {
     const p = championPage("Ashe")!;
     const styles = p.builds.map((b) => b.style);
     expect(styles).toEqual(expect.arrayContaining(["crit", "ap"]));
-    const scores = p.builds.map((b) => b.deepScore);
+    // The usual builds best DeepScore first; niche builds (Nico 2026-11-24) after them, never the default.
+    const scores = p.builds.filter((b) => !b.niche).map((b) => b.deepScore);
     expect(scores).toEqual([...scores].sort((a, b) => b - a));
+    const niche = p.builds.findIndex((b) => b.niche);
+    if (niche >= 0) expect(p.builds.slice(niche).every((b) => b.niche)).toBe(true);
+    expect(p.builds[0].niche).toBeFalsy();
     expect(p.builds.filter((b) => b.main)).toHaveLength(1);
     const crit = p.builds.find((b) => b.style === "crit")!;
     expect(crit.core.items.map((i) => i % 10000)).toEqual(expect.arrayContaining([3031]));
     expect(new Set(p.builds.map((b) => b.core.items.join())).size).toBe(p.builds.length);
     for (const b of p.builds) for (const i of b.core.items) expect(p.itemInfo[i]?.name).toBeTruthy();
+  });
+
+  it("adds niche builds after the usual ones: enchanter Orianna (Nico 2026-11-24)", () => {
+    const p = championPage("Orianna")!;
+    const ench = p.builds.find((b) => b.style === "enchanter");
+    expect(ench?.niche).toBe(true);
+    expect(ench!.share).toBeLessThan(0.05);
+    expect(p.builds[0].niche).toBeFalsy();
   });
 
   it("has no build tabs for a one-style champion", () => {

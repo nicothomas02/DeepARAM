@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.16";
+export const ENGINE_VERSION = "1.3.18";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -39,6 +39,7 @@ export const RULES: Record<string, Rule> = {
   augmentItems: { source: "data", on: true, why: "The 30 augment -> item follow patterns confirmed in the archive (data/augment-items.json; 4 added 2026-11-24 from tested outside synergy leads); payoff words only for the two with a measured gain. Nico approved 2026-11-23." },
   whyBest: { source: "data", on: true, why: "One line per item, only from tested reasons: augment trigger, most players build it, kit match (10 items with held-out R2 > 0.2), what it does (estimated). Otherwise none. Nico approved 2026-11-23." },
   luckyTilt: { source: "assumption", on: true, why: "Feeling lucky: among options whose 95% ranges overlap the leader's, rarer picks get up to +0.3 points; never past a clearly better one. Nico approved 2026-11-23." },
+  nicheBuilds: { source: "data", on: true, why: "A niche build (few players build that style on the champion, but at least 2 of its items with 1,000+ games each win clearly more: above the champion's average by 1.96 standard errors, AramHex 16.22-16.23; tank left out) becomes the plan once you take an augment after which players build that style clearly more than the same champion's players without it (archive, all lobbies, z >= 4). Estimated: win rates are correlational. Nico asked 2026-11-24 (enchanter Orianna)." },
   measuredReplan: { source: "data", on: true, why: "Ethereal Weapon switches to the champion's own on-hit build (+25.9 pts on-hit build share). Only measured switches." },
   destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
@@ -58,6 +59,7 @@ export const RULES: Record<string, Rule> = {
   tierOdds: { source: "data", on: true, why: "Combo potential uses the chance each later screen comes at the partner's tier (archive since 16.21, all players, 225 games: e.g. after a Prismatic screen the next is Prismatic only 18% of the time, Gold 43%) and the chance the partner is among the 6 cards a screen can show from the champion's augments left at that tier, instead of a flat 4% per pick. Split-half backtest: predicts the next screen's tier better than tier-blind odds (log loss 1.05-1.07 vs 1.10). Nico approved 2026-11-24." },
   nearTies: { source: "data", on: true, why: "Cards on offer within the 95% noise band of the best (1.96 x their combined standard error) are shown as 'either is fine'. Engine scorecard on 9,399 archive picks since 16.21 (other players, game state at pick time controlled): a gap outside the band predicts wins (+0.043 log-odds per point, z 5.0); inside it, which side you're on doesn't (above -2.7 vs below -1.3 pts, se 1.7). Nico approved trying it 2026-11-24." },
   augmentConflicts: { source: "game data", on: true, why: "An augment that can't work with one you took goes last, with the reason (wiki augment text): Back to Basics seals your ultimate, so augments that need your ultimate cast are dead with it; ADAPt and EscAPADe convert opposite ways; you have two summoner spell slots, so Mark augments, Flash augments and augments that replace a spell can't all fit. Nico asked 2026-11-24; the longer list of possible anti-synergies is in research/augment-conflicts for his review." },
+  slotFirst: { source: "game data", on: true, why: "Weapon of Destiny (when you take it), King Me (when you first enter the enemy gate) and Ornn's Masterwork (his own item at level 13; an ally's when he forges for them at levels 14-17) each upgrade the first eligible Legendary in slots 1-6 (wiki). The cue says which item to move to slot 1: for Weapon of Destiny the champion's best Weapon item (AramHex); for King Me and Ornn, estimated, the earliest item of your build path you own (+1,000 gold of stats goes on your most important item). Weapon of Destiny is only offered on the first two regular screens (archive: 136 of 136 picks outside random draws; never seen on K/DA's or Superfans' extra picks, estimated), so its cue only shows while it is on offer. Nico chose 2026-11-24." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
   // Design choices Nico hasn't picked yet: kept as they were.
@@ -139,7 +141,8 @@ export type Picks = {
   champions: Record<string, [number, number, number?, number?, number?, number?][]>;
   pairs: Record<string, [number, number, number][]>;
   styles: Record<string, string[]>;
-  builds?: Record<string, [string, number, number[], number[], number[]][]>;
+  /** alias -> builds by style: [style, share, boots, core, later, augments that switch to it (niche builds only)] */
+  builds?: Record<string, [string, number, number[], number[], number[], number[]?][]>;
 };
 /** damage-types.json */
 export type Kinds = {
@@ -155,8 +158,12 @@ export type Fit = { champions: Record<string, [number, string[]]> };
 export type Enemy = { champ: string; items: number[] };
 export type GameState = {
   champ: string;
-  /** Item ids as the game reports them. */
+  /** Item ids as the game reports them, in inventory slot order (slots 1-6, then the trinket) where the app sorts them. */
   items: number[];
+  /** Augments on offer right now (the cards on screen). */
+  offer?: number[];
+  /** Your teammates: champion and level (for Ornn's Masterwork upgrades). */
+  allies?: { champ: string; level: number }[];
   enemies?: Enemy[];
   level?: number;
   /** Skill points in Q, W, E, R. */
@@ -810,6 +817,40 @@ export const UPGRADES: Record<number, number[]> = {
   2140: [3074], 2143: [6610], 2157: [6333], 3150: [4646],
 };
 export const WEAPON_OF_DESTINY = 3081;
+export const KING_ME = 1337;
+const ORNN = "ornn";
+
+/**
+ * slotFirst: Weapon of Destiny, King Me and Ornn's Masterwork upgrade the first eligible Legendary in slots 1-6. When the
+ * item you'd want upgraded isn't the first one, say which to move to slot 1. `owned` is in slot order; `path` is the
+ * build path, most important first; `destiny` the champion's best Weapon of Destiny item.
+ */
+export function slotCue(
+  game: GameState,
+  taken: number[],
+  path: Named[],
+  destiny: number | null,
+  k: Kinds | null,
+  augName: (id: number) => string,
+): { item: number; why: string; estimated: boolean } | null {
+  if (!RULES.slotFirst.on || !k) return null;
+  const boots = new Set(k.boots ?? []);
+  const eligible = game.items.map(base).filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !boots.has(i));
+  if (eligible.length < 2) return null;
+  const first = eligible[0];
+  const byPath = path.map((it) => itemId(it.icon)).find((i) => eligible.includes(i)) ?? null;
+  const cue = (target: number | null, why: string, estimated: boolean) =>
+    target !== null && target !== first ? { item: target, why, estimated } : null;
+  if ((game.offer ?? []).includes(WEAPON_OF_DESTINY) && destiny !== null && eligible.includes(destiny))
+    return cue(destiny, `Before taking ${augName(WEAPON_OF_DESTINY)}: it goes on your first Legendary (slots 1-6)`, false);
+  const me = game.champ.toLowerCase() === ORNN;
+  const ornnAlly = (game.allies ?? []).some((a) => a.champ.toLowerCase() === ORNN && a.level >= 13 && a.level <= 17);
+  if ((me && (game.level ?? 0) >= 11 && (game.level ?? 0) < 13) || (!me && ornnAlly))
+    return cue(byPath, me ? "Masterwork at level 13 upgrades your first Legendary (slots 1-6)" : "Ornn's Masterwork upgrades your first Legendary (slots 1-6)", true);
+  if (taken.includes(KING_ME))
+    return cue(byPath, `${augName(KING_ME)} upgrades your first Legendary when you enter the enemy gate`, true);
+  return null;
+}
 /** augment -> item -> [build, early, holders, builders, z build, z early]: build = extra share of holders who finish
  *  the item, early = extra share with it as 1st/2nd legendary, both EB-shrunk (tools/augment_item_shift.py, DeepARAM-PC). */
 export const AUGMENT_SHIFT = (augmentShiftData as { pairs: Record<string, Record<string, number[]>> }).pairs;
@@ -853,7 +894,7 @@ export function classBuild(picks: Picks, k: Kinds, style: string, magic: boolean
   return byCore.length === 3 ? [byCore, rest] : null;
 }
 
-export type BuildPick = { list: Named[]; style: string | null; core: number | null; because?: string; classWide?: boolean };
+export type BuildPick = { list: Named[]; style: string | null; core: number | null; because?: string; classWide?: boolean; niche?: boolean };
 
 /**
  * The build to follow: the champion's usual one or, once the augments you took point to another style (on-hit, AP,
@@ -866,6 +907,10 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
   const styles = ck ? picks.builds![ck] : [];
   const votes: Record<string, number> = {}, because: Record<string, number> = {};
   for (const id of taken) {
+    // Niche builds (nicheBuilds): the champion's own niche style that this augment unlocks.
+    if (RULES.nicheBuilds.on)
+      for (const [st, , , , , triggers] of styles)
+        if (triggers?.includes(id)) { votes[st] = (votes[st] ?? 0) + 3; because[st] = id; }
     const measured = RULES.measuredReplan.on && MEASURED_SWITCHES[id] ? [MEASURED_SWITCHES[id]] : undefined;
     const strong = measured ?? (RULES.augmentReplan.on ? BUILD_CHANGERS[id] : undefined);
     for (const st of strong ?? (RULES.augmentReplan.on ? picks.styles[id] : undefined) ?? []) {
@@ -906,7 +951,8 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
   }
   const why = because[st] ? (picks.augments[because[st]]?.[0] ?? "") : "";
   const sized = list.slice(0, 6);
-  return { list: sized, style: STYLE_NAMES[st] ?? st, core: Math.min(sized.length, (plan[0].length ? 1 : 0) + 3), because: why, classWide: !found };
+  const niche = !!found?.[5]?.length && found[5]!.includes(because[st]);
+  return { list: sized, style: STYLE_NAMES[st] ?? st, core: Math.min(sized.length, (plan[0].length ? 1 : 0) + 3), because: why, classWide: !found, ...(niche ? { niche: true } : {}) };
 }
 
 /**
@@ -1045,6 +1091,8 @@ export type Plan = {
   reasons: ({ text: string; kind: string; estimated?: boolean } | null)[];
   /** Feeling lucky picked a less played build style that wins about as often. */
   luckyStyle: string | null;
+  /** slotFirst: move this owned item to slot 1 before an effect upgrades your first Legendary. */
+  slotCue: { item: Named; why: string; estimated: boolean } | null;
 };
 
 export type PlanInput = {
@@ -1231,7 +1279,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   }
   const baseList = [...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : (champ?.rest ?? []))];
   const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules);
-  if (picked.style) { slotRows = null; applied(RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan"); }
+  if (picked.style) { slotRows = null; applied(picked.niche ? "nicheBuilds" : RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan"); }
   const build = picked.list;
   const coreLen = picked.core ?? (champ?.items ?? []).length;
   const hasBoots = [...owned].some((i) => bootIds.has(i));
@@ -1410,5 +1458,12 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     rules: [...used],
     reasons,
     luckyStyle: alt?.style ?? null,
+    slotCue: (() => {
+      const c = slotCue(game, taken, path, champ?.destiny ? itemId(champ.destiny.icon) : null, k, augName);
+      if (!c) return null;
+      applied("slotFirst");
+      const it = path.find((x) => itemId(x.icon) === c.item) ?? { name: k?.recipes[c.item]?.[0] ?? `#${c.item}`, icon: `${c.item}.png` };
+      return { item: it, why: c.why, estimated: c.estimated };
+    })(),
   };
 }

@@ -452,11 +452,21 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
     };
     let team = row.get("team").and_then(Value::as_str).unwrap_or_default().to_owned();
     let champ = row.get("rawChampionName").and_then(Value::as_str).and_then(champion_alias).unwrap_or_default();
+    // In inventory slot order: Weapon of Destiny, King Me and Ornn's Masterwork upgrade the first Legendary in slots 1-6.
     let items_of = |p: &Value| -> Vec<i64> {
-        p.get("items")
+        let mut rows: Vec<(i64, i64)> = p
+            .get("items")
             .and_then(Value::as_array)
-            .map(|a| a.iter().filter_map(|i| i.get("itemID")?.as_i64()).collect())
-            .unwrap_or_default()
+            .map(|a| {
+                a.iter()
+                    .filter_map(|i| {
+                        Some((i.get("slot").and_then(Value::as_i64).unwrap_or(99), i.get("itemID")?.as_i64()?))
+                    })
+                    .collect()
+            })
+            .unwrap_or_default();
+        rows.sort_by_key(|r| r.0);
+        rows.into_iter().map(|r| r.1).collect()
     };
     let items = items_of(row);
     // The enemy champions and the items they've bought, as the scoreboard shows them (no names), for the item tip.
@@ -466,6 +476,18 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         .map(|p| {
             let champ = p.get("rawChampionName").and_then(Value::as_str).and_then(champion_alias).unwrap_or_default();
             json!({ "champ": champ, "items": items_of(p) })
+        })
+        .collect();
+    // Teammates' champions and levels, for Ornn's Masterwork upgrades (the slot-1 cue).
+    let allies: Vec<Value> = players
+        .iter()
+        .filter(|p| {
+            p.get("team").and_then(Value::as_str).is_some_and(|x| x == team)
+                && !std::ptr::eq(*p as *const Value, row as *const Value)
+        })
+        .map(|p| {
+            let champ = p.get("rawChampionName").and_then(Value::as_str).and_then(champion_alias).unwrap_or_default();
+            json!({ "champ": champ, "level": p.get("level").and_then(Value::as_u64).unwrap_or(0) })
         })
         .collect();
     let skills: Vec<u64> = ["Q", "W", "E", "R"]
@@ -487,6 +509,7 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         "dead": row.get("isDead").and_then(Value::as_bool).unwrap_or(false),
         "items": items,
         "enemies": enemies,
+        "allies": allies,
         "gold": data.get("activePlayer").and_then(|p| p.get("currentGold")?.as_f64()).unwrap_or(0.0),
         // For the stat-cap guard: crit chance, attack speed and ability haste as the game reports them.
         "stats": stats,
