@@ -262,7 +262,6 @@
  "Vs mixed damage": "Chống sát thương hỗn hợp",
  "Vs magic damage": "Chống sát thương phép",
  "Vs physical damage": "Chống sát thương vật lý",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Sau bộ lõi, mua thứ trận đấu cần. Mỗi tình huống dựa trên hiệu ứng của trang bị; ưu tiên món mua cùng bộ lõi này, rồi DeepScore cao nhất.",
  "AD": "AD",
  "Support": "Hỗ trợ",
  "Tied": "Ngang nhau",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Mạnh hơn trên tướng cận chiến.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Pháp Sư Tối Thượng khiến Ưng Tiễn và R hồi chiêu cho nhau. Hãy đạt chừng này Điểm hồi kỹ năng trước (R cấp 3), rồi hoàn thiện lối lên đồ.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Điểm hồi kỹ năng · Ưng Tiễn cấp {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Trang bị đạt {haste} trên {need} Điểm hồi kỹ năng cần thiết."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Trang bị đạt {haste} trên {need} Điểm hồi kỹ năng cần thiết.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Sau bộ lõi, mua thứ trận đấu cần. Mỗi tình huống dựa trên hiệu ứng của trang bị; DeepScore cao nhất ở trên cùng."
 }

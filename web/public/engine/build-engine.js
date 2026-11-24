@@ -336,7 +336,7 @@ var DeepEngine = (() => {
   };
 
   // src/lib/engine/build-engine.ts
-  var ENGINE_VERSION = "1.2.1";
+  var ENGINE_VERSION = "1.2.2";
   var RULES = {
     // Backed by data or the game's own rules: on.
     itemLimits: { source: "game data", on: true, why: "The game's own-only-one groups; never broken in 1,730 public full builds or 1,245 archived games (Immolate and Hydras excepted)." },
@@ -552,7 +552,8 @@ var DeepEngine = (() => {
       }
       return { ...it, why, proven };
     });
-    return [...out.filter((it) => it.aug && it.why), ...out.filter((it) => !(it.aug && it.why))];
+    const best = (list2) => [...list2].sort((x, y) => (y.deepScore ?? -Infinity) - (x.deepScore ?? -Infinity));
+    return [...best(out.filter((it) => it.aug && it.why)), ...best(out.filter((it) => !(it.aug && it.why)))];
   }
   var STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
   var STACKING = /* @__PURE__ */ new Set([6697, 3084, 3070, 3004, 3003, 3119]);

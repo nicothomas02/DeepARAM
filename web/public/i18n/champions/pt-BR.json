@@ -262,7 +262,6 @@
  "Vs mixed damage": "Contra dano misto",
  "Vs magic damage": "Contra dano mágico",
  "Vs physical damage": "Contra dano físico",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Depois da build principal, compre o que a partida pedir. Cada situação vem do efeito do item; primeiro os comprados com esta build, depois o melhor DeepScore.",
  "AD": "AD",
  "Support": "Suporte",
  "Tied": "Empate",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Mais forte em campeões corpo a corpo.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Arquimago faz o Disparo do Falcão e o R recarregarem um ao outro. Consiga primeiro essa Aceleração de Habilidade (R no nível 3) e depois termine a build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} de Aceleração de Habilidade · Disparo do Falcão nível {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Os itens chegam a {haste} dos {need} de Aceleração de Habilidade necessários."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Os itens chegam a {haste} dos {need} de Aceleração de Habilidade necessários.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Depois da build principal, compre o que a partida pedir. Cada situação vem do efeito do item; o melhor DeepScore no topo."
 }

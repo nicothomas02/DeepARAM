@@ -21,7 +21,7 @@
 
 import augmentItemsData from "../../data/augment-items.json";
 
-export const ENGINE_VERSION = "1.2.1";
+export const ENGINE_VERSION = "1.2.2";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -422,7 +422,10 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
     }
     return { ...it, why, proven };
   });
-  return [...out.filter((it) => it.aug && it.why), ...out.filter((it) => !(it.aug && it.why))];
+  // Best item first in each group (Nico 2026-11-24: "sort by best at top"); entries without a DeepScore keep their place
+  // after the scored ones.
+  const best = (list: LitItem[]) => [...list].sort((x, y) => (y.deepScore ?? -Infinity) - (x.deepScore ?? -Infinity));
+  return [...best(out.filter((it) => it.aug && it.why)), ...best(out.filter((it) => !(it.aug && it.why)))];
 }
 
 // ---------------------------------------------------------------------------------------------------------------

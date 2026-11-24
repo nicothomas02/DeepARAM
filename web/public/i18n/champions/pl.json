@@ -262,7 +262,6 @@
  "Vs mixed damage": "Przeciw mieszanym obrażeniom",
  "Vs magic damage": "Przeciw obrażeniom magicznym",
  "Vs physical damage": "Przeciw obrażeniom fizycznym",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Po głównym buildzie kupuj to, czego wymaga gra. Sytuacja wynika z efektu przedmiotu; najpierw te kupowane z tym buildem, potem najlepszy DeepScore.",
  "AD": "AD",
  "Support": "Wsparcie",
  "Tied": "Remis",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Silniejszy na bohaterach walczących wręcz.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Arcymag sprawia, że Sokoli Strzał i R wzajemnie się odnawiają. Najpierw zdobądź tyle przyspieszenia umiejętności (R na poziomie 3), potem dokończ build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} przyspieszenia umiejętności · Sokoli Strzał poziom {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Przedmioty dają {haste} z potrzebnych {need} przyspieszenia umiejętności."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Przedmioty dają {haste} z potrzebnych {need} przyspieszenia umiejętności.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Po głównym buildzie kupuj to, czego wymaga gra. Sytuacja wynika z efektu przedmiotu; najlepszy DeepScore na górze."
 }

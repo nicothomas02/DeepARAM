@@ -262,7 +262,6 @@
  "Vs mixed damage": "Gegen gemischten Schaden",
  "Vs magic damage": "Gegen magischen Schaden",
  "Vs physical damage": "Gegen normalen Schaden",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Nach dem Kern-Build kauft ihr, was das Spiel verlangt. Jede Situation ergibt sich aus dem Effekt des Items; zuerst kommen Items, die mit diesem Kern gekauft werden, dann der beste DeepScore.",
  "AD": "AD",
  "Support": "Support",
  "Tied": "Gleichauf",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Stärker auf Nahkampf-Champions.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Mit Erzmagier laden sich Falkenschuss und R gegenseitig auf. Hol dir zuerst so viel Fähigkeitstempo (R auf Rang 3), dann schließ den Build ab.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Fähigkeitstempo · Falkenschuss Rang {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Die Gegenstände erreichen {haste} von {need} nötigem Fähigkeitstempo."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Die Gegenstände erreichen {haste} von {need} nötigem Fähigkeitstempo.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Nach dem Kern-Build kauft ihr, was das Spiel verlangt. Jede Situation ergibt sich aus dem Effekt des Items; der beste DeepScore steht oben."
 }

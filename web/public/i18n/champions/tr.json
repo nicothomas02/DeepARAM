@@ -262,7 +262,6 @@
  "Vs mixed damage": "Karma hasara karşı",
  "Vs magic damage": "Büyü hasarına karşı",
  "Vs physical damage": "Fiziksel hasara karşı",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Ana dizilimden sonra oyunun gerektirdiğini alın. Durum eşyanın kendi etkisinden gelir; önce bu dizilimle alınanlar, sonra en iyi DeepScore.",
  "AD": "AD",
  "Support": "Destek",
  "Tied": "Berabere",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Yakın dövüş şampiyonlarında daha güçlü.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage, Hawkshot ve R'nin birbirini yenilemesini sağlar. Önce bu kadar yetenek hızı topla (R 3. seviye), sonra dizilimi tamamla.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} yetenek hızı · Hawkshot {rank}. seviye",
- "Items reach {haste} of the {need} Ability Haste needed.": "Eşyalar gereken {need} yetenek hızının {haste} kadarını sağlıyor."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Eşyalar gereken {need} yetenek hızının {haste} kadarını sağlıyor.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Ana dizilimden sonra oyunun gerektirdiğini alın. Durum eşyanın kendi etkisinden gelir; en iyi DeepScore en üstte."
 }

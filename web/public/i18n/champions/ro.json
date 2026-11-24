@@ -262,7 +262,6 @@
  "Vs mixed damage": "Contra daunelor mixte",
  "Vs magic damage": "Contra daunelor magice",
  "Vs physical damage": "Contra daunelor fizice",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "După build-ul de bază, cumpără ce cere meciul. Situația vine din efectul obiectului; întâi cele cumpărate cu acest build, apoi cel mai bun DeepScore.",
  "AD": "AD",
  "Support": "Suport",
  "Tied": "Egalitate",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Mai puternic pe campionii corp la corp.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage face ca Hawkshot și R să se reîncarce reciproc. Strânge mai întâi atâta grabă a abilităților (R la rangul 3), apoi termină build-ul.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} grabă a abilităților · Hawkshot rangul {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Obiectele ajung la {haste} din cele {need} de grabă a abilităților necesare."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Obiectele ajung la {haste} din cele {need} de grabă a abilităților necesare.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "După build-ul de bază, cumpără ce cere meciul. Situația vine din efectul obiectului; cel mai bun DeepScore sus."
 }

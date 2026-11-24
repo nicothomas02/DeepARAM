@@ -262,7 +262,6 @@
  "Vs mixed damage": "Proti smíšenému poškození",
  "Vs magic damage": "Proti magickému poškození",
  "Vs physical damage": "Proti fyzickému poškození",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Po hlavním buildu kupujte, co hra vyžaduje. Situace vychází z efektu předmětu; nejdřív ty kupované s tímto buildem, pak nejlepší DeepScore.",
  "AD": "AD",
  "Support": "Podpora",
  "Tied": "Nerozhodně",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Silnější na šampionech na blízko.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage nechává Hawkshot a R navzájem obnovovat. Nejdřív získej tolik zrychlení schopností (R na úrovni 3), pak dokonči build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} zrychlení schopností · Hawkshot na úrovni {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Předměty dají {haste} z potřebných {need} zrychlení schopností."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Předměty dají {haste} z potřebných {need} zrychlení schopností.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Po hlavním buildu kupujte, co hra vyžaduje. Situace vychází z efektu předmětu; nejlepší DeepScore nahoře."
 }

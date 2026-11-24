@@ -262,7 +262,6 @@
  "Vs mixed damage": "Против смешанного урона",
  "Vs magic damage": "Против магического урона",
  "Vs physical damage": "Против физического урона",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "После основной сборки берите то, что нужно в игре. Ситуация определяется эффектом предмета; сначала предметы, которые берут с этой сборкой, затем лучший DeepScore.",
  "AD": "AD",
  "Support": "Поддержка",
  "Tied": "Наравне",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Сильнее на чемпионах ближнего боя.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "С Архимагом Ястребиный выстрел и R перезаряжают друг друга. Сначала наберите столько ускорения умений (R 3-го уровня), потом завершите сборку.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} ускорения умений · Ястребиный выстрел {rank}-го уровня",
- "Items reach {haste} of the {need} Ability Haste needed.": "Предметы дают {haste} из нужных {need} ускорения умений."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Предметы дают {haste} из нужных {need} ускорения умений.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "После основной сборки берите то, что нужно в игре. Ситуация определяется эффектом предмета; лучший DeepScore сверху."
 }

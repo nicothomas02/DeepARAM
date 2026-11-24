@@ -262,7 +262,6 @@
  "Vs mixed damage": "Contre les dégâts mixtes",
  "Vs magic damage": "Contre les dégâts magiques",
  "Vs physical damage": "Contre les dégâts physiques",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Après le build principal, prenez ce que la partie demande. Chaque situation vient de l'effet de l'objet ; ses options sont d'abord celles achetées avec ce build, puis le meilleur DeepScore.",
  "AD": "AD",
  "Support": "Support",
  "Tied": "Égalité",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Plus fort sur les champions de mêlée.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archimage fait que Tir du faucon et R se rechargent l'un l'autre. Prends d'abord cette accélération de compétence (R au rang 3), puis termine le build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} d'accélération de compétence · Tir du faucon rang {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Les objets atteignent {haste} sur les {need} d'accélération de compétence nécessaires."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Les objets atteignent {haste} sur les {need} d'accélération de compétence nécessaires.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Après le build principal, prenez ce que la partie demande. Chaque situation vient de l'effet de l'objet ; le meilleur DeepScore en haut."
 }

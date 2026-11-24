@@ -262,7 +262,6 @@
  "Vs mixed damage": "ضد الضرر المختلط",
  "Vs magic damage": "ضد الضرر السحري",
  "Vs physical damage": "ضد الضرر الجسدي",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "بعد البناء الأساسي، اشترِ ما تتطلبه المباراة. يأتي كل موقف من تأثير العنصر نفسه؛ أولًا ما يُشترى مع هذا البناء، ثم أفضل DeepScore.",
  "AD": "AD",
  "Support": "دعم",
  "Tied": "متعادل",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "أقوى على أبطال الالتحام.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "يجعل Archmage مهارتي Hawkshot وR تعيدان شحن بعضهما. اجمع هذا القدر من تسريع القدرات أولًا (رتبة R 3)، ثم أكمل البناء.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} تسريع قدرات · رتبة Hawkshot {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "تصل العناصر إلى {haste} من أصل {need} تسريع قدرات مطلوب."
+ "Items reach {haste} of the {need} Ability Haste needed.": "تصل العناصر إلى {haste} من أصل {need} تسريع قدرات مطلوب.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "بعد البناء الأساسي، اشترِ ما تتطلبه المباراة. يأتي كل موقف من تأثير العنصر نفسه؛ أفضل DeepScore في الأعلى."
 }

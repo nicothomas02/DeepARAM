@@ -262,7 +262,6 @@
  "Vs mixed damage": "针对混合伤害",
  "Vs magic damage": "针对魔法伤害",
  "Vs physical damage": "针对物理伤害",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "核心出装后，按对局需要购买。情况由装备本身效果判断；先列出与此核心一起购买的装备，再按 DeepScore 排序。",
  "AD": "AD",
  "Support": "辅助",
  "Tied": "持平",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "近战英雄更强。",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "大法师让鹰击长空和 R 互相缩短冷却。先把技能急速堆到这个数（R 3 级），再补完其余出装。",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} 技能急速 · 鹰击长空 {rank} 级",
- "Items reach {haste} of the {need} Ability Haste needed.": "装备能堆到 {haste}，需要 {need} 技能急速。"
+ "Items reach {haste} of the {need} Ability Haste needed.": "装备能堆到 {haste}，需要 {need} 技能急速。",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "核心出装后，按对局需要购买。情况由装备本身效果判断；DeepScore 最高的排在最上面。"
 }

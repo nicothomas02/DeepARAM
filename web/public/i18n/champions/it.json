@@ -262,7 +262,6 @@
  "Vs mixed damage": "Contro danni misti",
  "Vs magic damage": "Contro danni magici",
  "Vs physical damage": "Contro danni fisici",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Dopo la build principale, compra ciò che serve nella partita. Ogni situazione deriva dall'effetto dell'oggetto; prima quelli comprati con questa build, poi il miglior DeepScore.",
  "AD": "AD",
  "Support": "Supporto",
  "Tied": "Pari",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Più forte sui campioni corpo a corpo.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Arcimago fa sì che Colpo di falco e la R si ricarichino a vicenda. Prendi prima questa velocità abilità (R al rango 3), poi completa la build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} velocità abilità · Colpo di falco rango {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Gli oggetti arrivano a {haste} dei {need} di velocità abilità necessari."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Gli oggetti arrivano a {haste} dei {need} di velocità abilità necessari.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Dopo la build principale, compra ciò che serve nella partita. Ogni situazione deriva dall'effetto dell'oggetto; il miglior DeepScore in alto."
 }

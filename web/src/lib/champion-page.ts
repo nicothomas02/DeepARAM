@@ -410,6 +410,8 @@ export function championPage(alias: string): ChampionPage | null {
   };
   // Augment-triggered swaps for a core (lib/build-plan.ts augmentSwaps): rule-based tips, labelled as such.
   const legendaryPool = single.filter((r) => r.tier === "legendary");
+  // Best item DeepScore first among the augment tips too (Nico 2026-11-24: "sort by best at top").
+  const swapScore = new Map(scoreSingles(legendaryPool).map((r) => [r.items[0], r.deepScore ?? -Infinity]));
   const swapsFor = (c: ItemRow | undefined): AugmentSwap[] =>
     c
       ? augmentSwaps(
@@ -419,7 +421,7 @@ export function championPage(alias: string): ChampionPage | null {
           itemRoles,
           (i) => all.get(i)?.name,
           [...c.items, ...followed(sameStyle(legendaryPool, c.items, itemClasses)).map((r) => r.items[0])].filter((i, k, a) => a.indexOf(i) === k),
-        )
+        ).sort((x, y) => (swapScore.get(y.item) ?? -Infinity) - (swapScore.get(x.item) ?? -Infinity))
       : [];
   const core = withBootsCore.map((c) => {
     const st = scoredStart.find((r) => startFollowed(r) && fits(c)(r)) ?? scoredStart.find(fits(c));
@@ -617,13 +619,15 @@ function afterCore(core: ItemRow, single: ItemRow[], full: ItemRow[], keepClashe
   );
 }
 
-/** Situational items after a core: one row per situation with its best items (lib/situations.ts), the swaps
- *  players make most often first (by the best option's pick rate). */
+/** Situational items after a core: one row per situation with its items (lib/situations.ts, picked from the pool
+ *  bought with this core first), best DeepScore at the top in each row and rows by their best item (Nico 2026-11-24:
+ *  "sort by best at top"). */
 function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[]): SituationRow[] {
   if (!core) return [];
-  return situational(sameStyle(afterCore(core, single, full, true), core.items, itemClasses), itemSituation).sort(
-    (x, y) => y.options[0].pickRate - x.options[0].pickRate,
-  );
+  const ds = (r: ItemRow) => r.deepScore ?? -Infinity;
+  return situational(sameStyle(afterCore(core, single, full, true), core.items, itemClasses), itemSituation)
+    .map((s) => ({ ...s, options: [...s.options].sort((x, y) => ds(y) - ds(x)) }))
+    .sort((x, y) => ds(y.options[0]) - ds(x.options[0]));
 }
 
 // Starting items and boots use the fitted settings, which were backtested on them; builds and single items keep

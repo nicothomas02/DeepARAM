@@ -44,7 +44,9 @@ export type QuickBuild = {
   /** Items to swap in after the core, each with when to buy it ("Vs healing", "With Ethereal Weapon"), as on the
    *  champion page's card, and the build item it replaces when the game won't let you own both (lib/item-limits.ts).
    *  Augment-triggered entries also carry the augment ids and a one-line reason. */
-  situational: (Named & { when: string; why?: string; augments?: number[]; replaces?: Named })[];
+  /** Situation rows best DeepScore first, then augment tips best first (Nico 2026-11-24); each carries its item's
+   *  DeepScore so the apps keep that order. */
+  situational: (Named & { when: string; why?: string; augments?: number[]; replaces?: Named; deepScore?: number | null })[];
   /** Components to rush for the first core item. */
   rush: Named[];
   /** "This augment upgrades this item" (the augment's own effect). Not a buy-order tip: when to buy it is unmeasured. */
@@ -77,6 +79,7 @@ export function quickBuilds(): QuickBuild[] {
     // best item for each situation.
     const named = (i: number | undefined) =>
       i !== undefined && p.itemInfo[i] ? { name: p.itemInfo[i].name, icon: p.itemInfo[i].icon ?? null } : null;
+    const itemScore = new Map(p.items.map((r) => [r.items[0], r.deepScore ?? null]));
     const laterOf = (r: ItemRow) => {
       const n = named(r.items[0]);
       return n ? [{ ...n, deepScore: r.deepScore ?? null }] : [];
@@ -91,11 +94,11 @@ export function quickBuilds(): QuickBuild[] {
       situational: situ.flatMap((s): QuickBuild["situational"] => {
         const id = s.options[0]?.items[0];
         const n = named(id);
-        return n ? [{ ...n, when: SITUATIONS[s.situation] }] : [];
+        return n ? [{ ...n, when: SITUATIONS[s.situation], deepScore: s.options[0].deepScore ?? null }] : [];
       }).concat(augSwaps.flatMap((sw) => {
         const n = named(sw.item);
         const a = p.augments.find((x) => sw.augments.includes(x.id));
-        return n && a ? [{ ...n, when: `With ${a.name}`, why: sw.why, augments: sw.augments }] : [];
+        return n && a ? [{ ...n, when: `With ${a.name}`, why: sw.why, augments: sw.augments, deepScore: itemScore.get(sw.item) ?? null }] : [];
       })).map((s) => {
         // An item the game won't let you own with one of the build's items swaps that one out (Mortal Reminder for
         // Lord Dominik's): name it, so the card and the apps replace it instead of adding a seventh item.

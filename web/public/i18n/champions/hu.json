@@ -262,7 +262,6 @@
  "Vs mixed damage": "Vegyes sebzés ellen",
  "Vs magic damage": "Varázssebzés ellen",
  "Vs physical damage": "Fizikai sebzés ellen",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Az alap build után vedd azt, amit a meccs kíván. A helyzet a tárgy hatásából jön; előbb az ezzel a builddel vett tárgyak, aztán a legjobb DeepScore.",
  "AD": "AD",
  "Support": "Support",
  "Tied": "Holtverseny",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Erősebb közelharci hősökön.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Az Archmage miatt a Hawkshot és az R egymást tölti vissza. Először szerezz ennyi képességsietséget (R 3. szinten), utána fejezd be a buildet.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} képességsietség · Hawkshot {rank}. szint",
- "Items reach {haste} of the {need} Ability Haste needed.": "A tárgyak {haste} képességsietséget adnak a szükséges {need}-ből."
+ "Items reach {haste} of the {need} Ability Haste needed.": "A tárgyak {haste} képességsietséget adnak a szükséges {need}-ből.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Az alap build után vedd azt, amit a meccs kíván. A helyzet a tárgy hatásából jön; a legjobb DeepScore felül."
 }

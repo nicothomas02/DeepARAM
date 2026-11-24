@@ -262,7 +262,6 @@
  "Vs mixed damage": "混合ダメージ対策",
  "Vs magic damage": "魔法ダメージ対策",
  "Vs physical damage": "物理ダメージ対策",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "コアビルドの後は試合に合わせて買いましょう。状況はアイテム自体の効果から判断し、このコアと一緒に買われるものを優先し、次にDeepScore順です。",
  "AD": "AD",
  "Support": "サポート",
  "Tied": "互角",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "近接チャンピオンでより強力。",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "アークメイジでホークショットとRが互いにクールダウンを縮めます。まずこのスキルヘイストを確保し（Rランク3）、それからビルドを仕上げます。",
  "{haste} Ability Haste · Hawkshot rank {rank}": "スキルヘイスト{haste} · ホークショット ランク{rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "アイテムで必要な{need}のうち{haste}のスキルヘイストに届きます。"
+ "Items reach {haste} of the {need} Ability Haste needed.": "アイテムで必要な{need}のうち{haste}のスキルヘイストに届きます。",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "コアビルドの後は試合に合わせて買いましょう。状況はアイテム自体の効果から判断し、DeepScoreが高い順に並べています。"
 }

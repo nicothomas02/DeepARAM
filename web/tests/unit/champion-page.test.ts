@@ -37,7 +37,12 @@ describe("champion page core build", () => {
     expect(p.situational.length).toBeLessThanOrEqual(5);
     const core = new Set(p.core[0].items);
     expect(new Set(p.situational.map((s) => s.situation)).size).toBe(p.situational.length);
+    // Best DeepScore at the top, in each row and across rows (Nico 2026-11-24).
+    const top = p.situational.map((s) => s.options[0].deepScore ?? -Infinity);
+    expect(top).toEqual([...top].sort((a, b) => b - a));
     for (const s of p.situational) {
+      const ds = s.options.map((o) => o.deepScore ?? -Infinity);
+      expect(ds).toEqual([...ds].sort((a, b) => b - a));
       expect(s.options.length).toBeGreaterThan(0);
       for (const o of s.options) {
         expect(o.tier).toBe("legendary");

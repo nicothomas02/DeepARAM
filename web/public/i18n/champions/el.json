@@ -262,7 +262,6 @@
  "Vs mixed damage": "Κατά μικτής ζημιάς",
  "Vs magic damage": "Κατά μαγικής ζημιάς",
  "Vs physical damage": "Κατά φυσικής ζημιάς",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Μετά το βασικό build, αγοράστε ό,τι χρειάζεται το παιχνίδι. Η περίσταση προκύπτει από το εφέ του αντικειμένου· πρώτα όσα αγοράζονται με αυτό το build, μετά το καλύτερο DeepScore.",
  "AD": "AD",
  "Support": "Υποστήριξη",
  "Tied": "Ισοπαλία",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Πιο δυνατό σε πρωταθλητές σώμα με σώμα.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Ο Archmage κάνει το Hawkshot και το R να επαναφορτίζουν το ένα το άλλο. Πάρε πρώτα τόση Ταχύτητα Ικανοτήτων (R στο επίπεδο 3) και μετά ολοκλήρωσε το build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Ταχύτητα Ικανοτήτων · Hawkshot επίπεδο {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Τα αντικείμενα φτάνουν {haste} από τα {need} Ταχύτητας Ικανοτήτων που χρειάζονται."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Τα αντικείμενα φτάνουν {haste} από τα {need} Ταχύτητας Ικανοτήτων που χρειάζονται.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Μετά το βασικό build, αγοράστε ό,τι χρειάζεται το παιχνίδι. Η περίσταση προκύπτει από το εφέ του αντικειμένου· το καλύτερο DeepScore πάνω."
 }

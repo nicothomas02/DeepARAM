@@ -262,7 +262,6 @@
  "Vs mixed damage": "Lawan damage campuran",
  "Vs magic damage": "Lawan magic damage",
  "Vs physical damage": "Lawan physical damage",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "Setelah build inti, beli yang dibutuhkan pertandingan. Situasi berasal dari efek item itu sendiri; yang dibeli bersama build ini didahulukan, lalu DeepScore terbaik.",
  "AD": "AD",
  "Support": "Support",
  "Tied": "Seri",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "Lebih kuat di champion melee.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage membuat Hawkshot dan R saling mengisi ulang. Kumpulkan Ability Haste sebanyak ini dulu (R rank 3), lalu selesaikan build-nya.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Ability Haste · Hawkshot rank {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Item mencapai {haste} dari {need} Ability Haste yang dibutuhkan."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Item mencapai {haste} dari {need} Ability Haste yang dibutuhkan.",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "Setelah build inti, beli yang dibutuhkan pertandingan. Situasi berasal dari efek item itu sendiri; DeepScore terbaik di atas."
 }

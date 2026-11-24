@@ -262,7 +262,6 @@
  "Vs mixed damage": "สู้ดาเมจผสม",
  "Vs magic damage": "สู้ดาเมจเวท",
  "Vs physical damage": "สู้ดาเมจกายภาพ",
- "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore.": "หลังบิลด์หลัก ให้ซื้อสิ่งที่เกมต้องการ สถานการณ์มาจากเอฟเฟกต์ของไอเท็มเอง โดยเรียงไอเท็มที่ซื้อคู่กับบิลด์นี้ก่อน แล้วตาม DeepScore",
  "AD": "AD",
  "Support": "ซัพพอร์ต",
  "Tied": "เสมอกัน",
@@ -312,5 +311,6 @@
  "Stronger on melee champions.": "แรงกว่าบนแชมเปี้ยนระยะประชิด",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage ทำให้ Hawkshot กับ R รีเฟรชกันและกัน เก็บ Ability Haste ให้ถึงค่านี้ก่อน (R เลเวล 3) แล้วค่อยออกของที่เหลือ",
  "{haste} Ability Haste · Hawkshot rank {rank}": "Ability Haste {haste} · Hawkshot เลเวล {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "ไอเท็มให้ Ability Haste {haste} จาก {need} ที่ต้องการ"
+ "Items reach {haste} of the {need} Ability Haste needed.": "ไอเท็มให้ Ability Haste {haste} จาก {need} ที่ต้องการ",
+ "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top.": "หลังบิลด์หลัก ให้ซื้อสิ่งที่เกมต้องการ สถานการณ์มาจากเอฟเฟกต์ของไอเท็มเอง โดย DeepScore ดีที่สุดอยู่บนสุด"
 }
