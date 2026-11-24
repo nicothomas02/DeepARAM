@@ -319,8 +319,8 @@ describe("build engine", () => {
   it("counts a headliner's extra augments as picks left (K/DA, Superfans)", () => {
     expect(picksLeft(0)).toBe(3);
     expect(picksLeft(3)).toBe(0);
-    expect(picksLeft(0, "K/DA")).toBeCloseTo(4.54);
-    expect(picksLeft(3, "kda")).toBeCloseTo(1.54);
+    expect(picksLeft(0, "K/DA")).toBeCloseTo(3.93);
+    expect(picksLeft(3, "kda")).toBeCloseTo(0.93);
     expect(picksLeft(3, "Superfans")).toBeCloseTo(0.29);
     expect(picksLeft(3, "Pentakill")).toBe(0);
   });

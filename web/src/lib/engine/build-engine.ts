@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.4";
+export const ENGINE_VERSION = "1.3.5";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -47,7 +47,7 @@ export const RULES: Record<string, Rule> = {
   augmentStart: { source: "data", on: true, why: "The starting items follow the first augment when its first-screen pickers mostly start something else and it at least doubles that start for the champion (Upgrade Stormsurge: Hextech Alternator; Wooglet's Witchcap: Needlessly Large Rod). From the archive's other players against the same champions' players, estimated. Nico asked for it 2026-11-24." },
   richStart: { source: "data", on: true, why: "With more than the 1,400 starting gold before your first buy (the Debonair headliner pays gold for each augment pick; seen in 16 of 251 archive games since 16.21), the best start above 1,400 that you can afford, by DeepScore. Starts above 1,400 are never the default. Nico asked for it 2026-11-24." },
   goldFill: { source: "assumption", on: true, why: "Gold left after the start (Debonair, Upgrade augments) goes on the parts of the first item, biggest part that fits first; with an augment start, on the item that augment leads to (Upgrade X: X; Wooglet's Witchcap: Rabadon's Deathcap). Real Debonair players mostly keep the gold (137 of 160 in the archive), so no data says which is best. Nico approved it 2026-11-24." },
-  extraAugments: { source: "data", on: true, why: "Headliners that add augment picks count them as picks left for combo potential: K/DA +1.54 (in 49 archive games that look like K/DA, 476 of 490 players took a 5th augment and 280 a 6th), Superfans +0.29 (its 5th augment comes at level 21, which 29% of players reached in the 33 games above level 18). Used once the app knows the headliner; Nico asked 2026-11-24." },
+  extraAugments: { source: "data", on: true, why: "Headliners that add augment picks count them as picks left for combo potential: K/DA +0.93 (it gives a 5th augment, never a 6th (Nico); in 21 archive games that look like K/DA, 196 of 210 players had a 5th. Pentakill's empowerments are recorded as augments (3176 at the start; HEAVY, POWER or THRASH at 18), so they don't count), Superfans +0.29 (its 5th augment comes at level 21, which 29% of players reached in the 33 games above level 18). Used once the app knows the headliner; Nico asked 2026-11-24." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
   // Design choices Nico hasn't picked yet: kept as they were.
@@ -186,7 +186,7 @@ export function itemRules(k: Kinds | null | undefined): ItemRules {
 
 export const COMBO_ODDS = 0.04;
 /** Augment picks a headliner adds, on average per player (owner's archive since 16.21, other players included). */
-export const HEADLINER_EXTRA_PICKS: Record<string, number> = { kda: 1.54, superfans: 0.29 };
+export const HEADLINER_EXTRA_PICKS: Record<string, number> = { kda: 0.93, superfans: 0.29 };
 /** Regular augment screens: the first and levels 7, 11 and 15. */
 export const AUGMENT_SCREENS = 4;
 export const COMBO_CAP = 0.12;
