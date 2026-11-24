@@ -249,6 +249,11 @@ export const dynamicParams = false;
 export const generateStaticParams = () =>
   championAliases().map((alias) => ({ alias }));
 
+// "Usually finished by" stays off (champion review 2026-11-24, G2): data/estimates/build.py times the feed's old 3-item
+// core, not the core shown above it, and runs about 2 minutes early against real lobby timelines (1st/2nd/3rd
+// legendary 2.2/5.7/9.2 min estimated vs 3.8/8.1/11.9 real median). Turn back on once it times the shown core from
+// real purchase timelines.
+const SHOW_ITEM_TIMING = false;
 const NS = "champions";
 
 export async function generateMetadata({
@@ -997,7 +1002,7 @@ export default async function ChampionPage({
                   </small>
                 </p>
               )}
-              {est && est.timing.length > 0 && (
+              {SHOW_ITEM_TIMING && est && est.timing.length > 0 && (
                 <div className="cp-timing">
                   <small>
                     <T ns={NS}>Usually finished by</T>

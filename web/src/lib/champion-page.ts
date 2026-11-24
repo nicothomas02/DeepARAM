@@ -465,7 +465,10 @@ export function championPage(alias: string): ChampionPage | null {
           const ordered = buyingOrder(st ? startFirst(coreIds, st.items, itemParts, standalone) : coreIds, orderRows).items;
           const c0: ItemRow = { ...row, items: ordered, rest: withoutClashes((a.later ?? []).map(known).filter((i) => !ordered.includes(i)), ordered).slice(0, 3) };
           const c: ItemRow = withLater(c0);
-          const start = st ?? (a.starters?.length ? { items: a.starters.map(known), winRate: NaN, pickRate: 0, lift: 0 } : null);
+          // The style's own starters only when they fit its build: the estimate falls back to the champion's most picked
+          // starter of any style (crit Miss Fortune got Fated Ashes + Tear; champion review 2026-11-24, G4).
+          const own: ItemRow | null = a.starters?.length ? { items: a.starters.map(known), winRate: NaN, pickRate: 0, lift: 0 } : null;
+          const start = st ?? (own && fits(row)(own) ? own : null);
           return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false,
             core: c, start, situational: situationalItems(c, single, full), augmentSwaps: swapsFor(c), rush: rushParts(c.items[0], itemRecipe), augments: augs };
         });

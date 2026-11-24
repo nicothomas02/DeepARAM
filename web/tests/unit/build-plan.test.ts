@@ -104,8 +104,20 @@ describe("augmentSwaps", () => {
   });
   it("points Draw Your Sword at Death's Dance even without a following", () => {
     const named = (i: number) => (i === 6333 ? "Death's Dance" : nameOf(i));
-    const out = augmentSwaps([{ id: 1134, name: "Draw Your Sword", pickRate: 0.06 }], [30], pool, rolesOf, named, []);
+    // 3% of this champion's players build Death's Dance: enough to hold the tip's share of the 6% who take the augment.
+    const withDD = [...pool, { items: [6333], pickRate: 0.03, deepScore: 40 }];
+    const out = augmentSwaps([{ id: 1134, name: "Draw Your Sword", pickRate: 0.06 }], [30], withDD, rolesOf, named, []);
     expect(out).toEqual([expect.objectContaining({ augments: [1134], item: 6333 })]);
+  });
+  it("drops an augment item tip this champion's own games can't hold", () => {
+    const named = (i: number) => (i === 6333 ? "Death's Dance" : nameOf(i));
+    const augs = [{ id: 1134, name: "Draw Your Sword", pickRate: 0.06 }];
+    // Not built at all, or built by fewer players than the tip's share of the augment's takers (Aurora + Jeweled
+    // Gauntlet -> Infinity Edge): no tip.
+    expect(augmentSwaps(augs, [30], pool, rolesOf, named, [])).toEqual([]);
+    expect(augmentSwaps(augs, [30], [...pool, { items: [6333], pickRate: 0.001 }], rolesOf, named, [])).toEqual([]);
+    // Mode copies of an item count as the item.
+    expect(augmentSwaps(augs, [30], [...pool, { items: [226333], pickRate: 0.03 }], rolesOf, named, [])).toEqual([expect.objectContaining({ item: 6333 })]);
   });
   it("ignores augments the champion doesn't take", () => {
     expect(augmentSwaps([], [10, 11], pool, rolesOf, nameOf, [10, 11])).toEqual([]);
