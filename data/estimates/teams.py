@@ -103,9 +103,36 @@ def main():
 
     syn = {k: carry * s for k, (s, _) in P.items()}
 
+    # Archetypes (Nico 2026-11-24): pairs no snapshot lists take the average synergy of their two subclasses' listed
+    # pairs (champions/tags.json, first subclass). Checked 16.22 -> 16.23 on 6,466 pairs: predicting a pair's next-patch
+    # synergy from its subclass pair alone erred 2.03 pts^2 vs 2.26 for "no synergy", so it beats the 0 it replaces;
+    # for listed pairs their own synergy x carry-over (1.34) beat every blend with the subclass average (1.35-1.50),
+    # so listed pairs keep their own. Unlisted pairs are rarer than listed ones, which the average can't account for.
+    tags = json.load(open(os.path.join(ROOT, "champions", "tags.json"), encoding="utf-8"))["champions"]
+    ids = json.load(open(os.path.join(ROOT, "web", "src", "data", "champion-ids.json"), encoding="utf-8"))
+    alias = {v: k for k, v in ids.items()}
+
+    def sub(cid):
+        t = tags.get(alias.get(cid, ""), {})
+        return (t.get("subclasses") or t.get("classes") or ["?"])[0]
+
+    acc = {}
+    for (a, b), (s, w) in P.items():
+        k = tuple(sorted((sub(a), sub(b))))
+        acc.setdefault(k, [0.0, 0.0])
+        acc[k][0] += s * w
+        acc[k][1] += w
+    arch = {k: v[0] / v[1] for k, v in acc.items() if v[1] > 0}
+
+    def pair_syn(a, b):
+        k = (min(a, b), max(a, b))
+        if k in syn:
+            return syn[k]
+        return arch.get(tuple(sorted((sub(a), sub(b)))), 0.0)
+
     def score(team):
         e = sum(edge[c] for c in team)
-        s = sum(syn.get((min(a, b), max(a, b)), 0.0) for a, b in itertools.combinations(team, 2))
+        s = sum(pair_syn(a, b) for a, b in itertools.combinations(team, 2))
         return e + s
 
     champs = sorted(edge, key=lambda c: -edge[c])
@@ -140,6 +167,7 @@ def main():
             "synergy_pts": round((inv(sc) - inv(sum(edge[c] for c in team))) * 100, 2),
             "pairs_known": len(known),
             "best_pairs": [[names[a], names[b]] for a, b in best],
+            "subclasses": [sub(c) for c in sorted(team, key=lambda c: -edge[c])],
         }
 
     out = {

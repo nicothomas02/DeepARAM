@@ -49,6 +49,13 @@
      "TwistedFate",
      "MasterYi"
     ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Specialist",
+    "Skirmisher",
+    "Assassin"
    ]
   },
   {
@@ -79,6 +86,13 @@
      "TwistedFate",
      "MasterYi"
     ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Diver",
+    "Skirmisher",
+    "Specialist"
    ]
   },
   {
@@ -109,6 +123,13 @@
      "Fiora",
      "Taliyah"
     ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Burst",
+    "Skirmisher",
+    "Skirmisher",
+    "Battlemage"
    ]
   },
   {
@@ -139,6 +160,50 @@
      "TwistedFate",
      "Fiora"
     ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Skirmisher",
+    "Enchanter",
+    "Marksman"
+   ]
+  },
+  {
+   "champions": [
+    157,
+    4,
+    114,
+    427,
+    246
+   ],
+   "names": [
+    "Yasuo",
+    "TwistedFate",
+    "Fiora",
+    "Ivern",
+    "Qiyana"
+   ],
+   "projected_win_rate": 0.8399,
+   "from_champions": 0.6956,
+   "synergy_pts": 14.44,
+   "pairs_known": 9,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "Qiyana"
+    ],
+    [
+     "Fiora",
+     "Qiyana"
+    ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Burst",
+    "Skirmisher",
+    "Enchanter",
+    "Assassin"
    ]
   },
   {
@@ -169,6 +234,13 @@
      "MasterYi",
      "Morgana"
     ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Catcher",
+    "Skirmisher",
+    "Specialist"
    ]
   },
   {
@@ -199,36 +271,13 @@
      "Syndra",
      "Qiyana"
     ]
-   ]
-  },
-  {
-   "champions": [
-    157,
-    4,
-    114,
-    81,
-    246
    ],
-   "names": [
-    "Yasuo",
-    "TwistedFate",
-    "Fiora",
-    "Ezreal",
-    "Qiyana"
-   ],
-   "projected_win_rate": 0.8391,
-   "from_champions": 0.6532,
-   "synergy_pts": 18.59,
-   "pairs_known": 10,
-   "best_pairs": [
-    [
-     "TwistedFate",
-     "Qiyana"
-    ],
-    [
-     "Ezreal",
-     "Qiyana"
-    ]
+   "subclasses": [
+    "Burst",
+    "Diver",
+    "Skirmisher",
+    "Burst",
+    "Assassin"
    ]
   },
   {
@@ -259,36 +308,13 @@
      "MasterYi",
      "Viktor"
     ]
-   ]
-  },
-  {
-   "champions": [
-    157,
-    4,
-    114,
-    427,
-    80
    ],
-   "names": [
-    "Yasuo",
-    "TwistedFate",
-    "Fiora",
-    "Ivern",
-    "Pantheon"
-   ],
-   "projected_win_rate": 0.8369,
-   "from_champions": 0.7226,
-   "synergy_pts": 11.43,
-   "pairs_known": 10,
-   "best_pairs": [
-    [
-     "TwistedFate",
-     "Pantheon"
-    ],
-    [
-     "TwistedFate",
-     "Fiora"
-    ]
+   "subclasses": [
+    "Burst",
+    "Diver",
+    "Skirmisher",
+    "Enchanter",
+    "Battlemage"
    ]
   },
   {
@@ -319,6 +345,50 @@
      "TwistedFate",
      "MasterYi"
     ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Burst",
+    "Catcher",
+    "Skirmisher",
+    "Assassin"
+   ]
+  },
+  {
+   "champions": [
+    4,
+    114,
+    35,
+    81,
+    246
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "Shaco",
+    "Ezreal",
+    "Qiyana"
+   ],
+   "projected_win_rate": 0.8341,
+   "from_champions": 0.5516,
+   "synergy_pts": 28.25,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "Qiyana"
+    ],
+    [
+     "Ezreal",
+     "Qiyana"
+    ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Assassin",
+    "Marksman",
+    "Assassin"
    ]
   },
   {
@@ -349,6 +419,13 @@
      "XinZhao",
      "Karma"
     ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Burst",
+    "Diver",
+    "Skirmisher",
+    "Enchanter"
    ]
   },
   {
@@ -379,6 +456,13 @@
      "MasterYi",
      "Hwei"
     ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Skirmisher",
+    "Artillery",
+    "Enchanter"
    ]
   },
   {
@@ -409,6 +493,13 @@
      "MasterYi",
      "Teemo"
     ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Diver",
+    "Specialist",
+    "Skirmisher",
+    "Specialist"
    ]
   },
   {
@@ -439,6 +530,13 @@
      "TwistedFate",
      "XinZhao"
     ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Diver",
+    "Enchanter",
+    "Marksman"
    ]
   },
   {
@@ -469,6 +567,13 @@
      "TwistedFate",
      "MasterYi"
     ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Specialist",
+    "Juggernaut",
+    "Specialist"
    ]
   },
   {
@@ -499,26 +604,33 @@
      "Karma",
      "Fiora"
     ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Skirmisher",
+    "Specialist",
+    "Enchanter"
    ]
   },
   {
    "champions": [
+    157,
     4,
-    114,
     11,
-    35,
-    81
+    427,
+    80
    ],
    "names": [
+    "Yasuo",
     "TwistedFate",
-    "Fiora",
     "MasterYi",
-    "Shaco",
-    "Ezreal"
+    "Ivern",
+    "Pantheon"
    ],
-   "projected_win_rate": 0.832,
-   "from_champions": 0.6131,
-   "synergy_pts": 21.89,
+   "projected_win_rate": 0.8305,
+   "from_champions": 0.7049,
+   "synergy_pts": 12.56,
    "pairs_known": 10,
    "best_pairs": [
     [
@@ -526,9 +638,16 @@
      "MasterYi"
     ],
     [
-     "Shaco",
-     "Ezreal"
+     "TwistedFate",
+     "Pantheon"
     ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Burst",
+    "Skirmisher",
+    "Enchanter",
+    "Diver"
    ]
   },
   {
@@ -559,36 +678,13 @@
      "Sona",
      "Qiyana"
     ]
-   ]
-  },
-  {
-   "champions": [
-    157,
-    4,
-    11,
-    427,
-    104
    ],
-   "names": [
-    "Yasuo",
-    "TwistedFate",
-    "MasterYi",
-    "Ivern",
-    "Graves"
-   ],
-   "projected_win_rate": 0.8303,
-   "from_champions": 0.7094,
-   "synergy_pts": 12.1,
-   "pairs_known": 10,
-   "best_pairs": [
-    [
-     "TwistedFate",
-     "MasterYi"
-    ],
-    [
-     "TwistedFate",
-     "Graves"
-    ]
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Enchanter",
+    "Marksman",
+    "Assassin"
    ]
   },
   {
@@ -619,6 +715,50 @@
      "TwistedFate",
      "MasterYi"
     ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Enchanter",
+    "Skirmisher",
+    "Specialist",
+    "Assassin"
+   ]
+  },
+  {
+   "champions": [
+    4,
+    114,
+    5,
+    25,
+    246
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "XinZhao",
+    "Morgana",
+    "Qiyana"
+   ],
+   "projected_win_rate": 0.8302,
+   "from_champions": 0.6794,
+   "synergy_pts": 15.07,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "Qiyana"
+    ],
+    [
+     "Fiora",
+     "Qiyana"
+    ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Diver",
+    "Catcher",
+    "Assassin"
    ]
   }
  ]
