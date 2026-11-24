@@ -143,7 +143,6 @@ class Actor {
     this.events = {};
     this.rootBone = null;
     this.root.traverse((o) => {
-      if (o.isBone && !this.rootBone) this.rootBone = o;
       if (o.isMesh) {
         o.frustumCulled = false;
         const ud = o.material.userData || {};
@@ -151,12 +150,25 @@ class Actor {
       }
       if (o.userData && o.userData.submeshVisibilityEvents) this.events = o.userData.submeshVisibilityEvents;
     });
+    // The skeleton's root: the top bone named Root, else the top bone with the most bones under it. (The first bone
+    // in the file is often a weapon or an effect anchor: Ziggs' bomb, Nautilus' anchor, Zilean's channel point.)
+    const tops = [];
+    this.root.traverse((o) => { if (o.isBone && !(o.parent && o.parent.isBone)) tops.push(o); });
+    const size = (b) => { let n = 0; b.traverse((o) => { if (o.isBone) n++; }); return n; };
+    this.rootBone = tops.find((b) => /^root$/i.test(b.name)) || tops.reduce((a, b) => (size(b) > size(a) ? b : a), tops[0]) || null;
     // In game units at the champion's in-game size, feet on the ground, measured on the
     // visible parts in the idle pose.
     this.pose("idle", 0, true);
     // Some clips carry root motion (Teemo's Q runs forward, Garen's Q starts in the air);
     // the arena places each fighter itself, so the root bone stays where idle has it.
     this.rootRest = this.rootBone ? this.rootBone.position.clone() : null;
+    // Bones beside the root rather than under it (Garen's sword, some champions' weapons and props) carry the
+    // same root motion in their own tracks, so they are held back by as much as the root, or they float off.
+    this.loose = [];
+    if (this.rootBone) {
+      for (const b of tops) if (b !== this.rootBone) this.loose.push(b);
+    }
+    this.movedBy = new Map();     // clip -> names of the loose bones its tracks move
     this.root.updateMatrixWorld(true);
     const box = new THREE.Box3();
     for (const m of this.meshes) if (m.shown) box.union(new THREE.Box3().setFromObject(m.mesh, true));
@@ -263,9 +275,30 @@ class Actor {
     c.action.setEffectiveWeight(w);
     c.action.time = time;
     this.mixer.update(0);
-    if (this.rootRest) this.rootBone.position.copy(this.rootRest);
+    if (this.rootRest) {
+      const d = TMP.drift.copy(this.rootBone.position).sub(this.rootRest);
+      this.rootBone.position.copy(this.rootRest);
+      if (this.loose.length && d.lengthSq() > 0) {
+        const moved = this.moved(c), was = this.prev && this.moved(this.prev.c);
+        for (const b of this.loose) if (moved.has(b.name) || (was && was.has(b.name))) b.position.sub(d);
+      }
+    }
     this.showParts(c.name, c.action.time * 30);
     return c.duration;
+  }
+  // Names of the loose bones (beside the root) whose position a clip animates.
+  moved(c) {
+    let set = this.movedBy.get(c);
+    if (!set) {
+      set = new Set();
+      const names = new Set(this.loose.map((b) => b.name));
+      for (const tr of c.action.getClip().tracks) {
+        const dot = tr.name.lastIndexOf(".");
+        if (tr.name.slice(dot + 1) === "position" && names.has(tr.name.slice(0, dot))) set.add(tr.name.slice(0, dot));
+      }
+      this.movedBy.set(c, set);
+    }
+    return set;
   }
   showParts(clipName, frame) {
     const list = this.events[clipName];
@@ -366,7 +399,7 @@ function loadProps() {
 }
 
 // Scratch objects reused every frame instead of made anew.
-const TMP = { ndc: new THREE.Vector2(), ray: new THREE.Raycaster(), floor: new THREE.Plane(new THREE.Vector3(0, 1, 0), 0),
+const TMP = { drift: new THREE.Vector3(), ndc: new THREE.Vector2(), ray: new THREE.Raycaster(), floor: new THREE.Plane(new THREE.Vector3(0, 1, 0), 0),
   head: new THREE.Vector3(), seen: new Set(), o: new THREE.Vector3(), a: new THREE.Vector3(), b: new THREE.Vector3(), dir: new THREE.Vector3() };
 
 const api = {
