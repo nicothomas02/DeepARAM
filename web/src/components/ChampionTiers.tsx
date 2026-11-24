@@ -5,7 +5,7 @@ import { loadSettings } from "@/lib/settings";
 import { useBracket, type BracketKey } from "@/lib/bracket-pref";
 import { getParam, setParams } from "@/lib/url-state";
 import DataTable, { type Column } from "./DataTable";
-import { champStats, TIER_HELP, type PatchRow } from "@/lib/tiers";
+import { champStats, plusRows, TIER_HELP, type PatchRow } from "@/lib/tiers";
 import Skeleton from "@/components/Skeleton";
 import { tagsByKind, tagStyle, type TagInfo } from "@/lib/tag-info";
 import { useT } from "./I18n";
@@ -222,16 +222,7 @@ export default function ChampionTiers({
   const stats = useMemo(() => {
     if (missing) return [];
     if (pooled && before) {
-      const liveRows = new Map(rows.filter((r) => r.patch === live).map((r) => [r.name, r]));
-      const agree = (r: PatchRow) => {
-        const l = liveRows.get(r.name);
-        const nL = (l?.pick_rate ?? 0) * (matches?.[live] ?? 0);
-        const nP = r.pick_rate * (matches?.[before] ?? 0);
-        if (!l || !nL || !nP) return !!l;
-        const p = (l.win_rate + r.win_rate) / 2;
-        return Math.abs(l.win_rate - r.win_rate) <= 4 * Math.sqrt(p * (1 - p) * (1 / nL + 1 / nP));
-      };
-      const used = rows.filter((r) => r.patch === live || (r.patch === before && agree(r)));
+      const used = plusRows(rows, live, before, matches);
       return champStats(used, new Set([live, before]), matches, true).map((c) => ({
         ...c,
         change: null,

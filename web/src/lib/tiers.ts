@@ -153,3 +153,21 @@ export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Rec
     return { ...rest, ...grades[i] };
   });
 }
+
+/** The "{live}+" rows (Nico 2026-11-24, like the augment list's switch from #643): the live patch's rows plus the patch
+ *  before's, except a champion whose win rate moved by more than 4 standard errors between the two (a big buff or nerf),
+ *  who keeps the live patch alone. Pass to champStats with both patches and ownDays, so the earlier patch counts at
+ *  half weight per game (RECENT). */
+export function plusRows(rows: PatchRow[], live: string, before: string, matches?: Record<string, number>): PatchRow[] {
+  const liveRows = new Map(rows.filter((r) => r.patch === live).map((r) => [r.name, r]));
+  const agree = (r: PatchRow) => {
+    const l = liveRows.get(r.name);
+    if (!l) return false;
+    const nL = l.pick_rate * (matches?.[live] ?? 0);
+    const nP = r.pick_rate * (matches?.[before] ?? 0);
+    if (!nL || !nP) return true;
+    const p = (l.win_rate + r.win_rate) / 2;
+    return Math.abs(l.win_rate - r.win_rate) <= 4 * Math.sqrt(p * (1 - p) * (1 / nL + 1 / nP));
+  };
+  return rows.filter((r) => r.patch === live || (r.patch === before && agree(r)));
+}

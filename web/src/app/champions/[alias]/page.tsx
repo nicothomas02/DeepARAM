@@ -17,7 +17,7 @@ import { championBrackets } from "@/lib/brackets";
 import { buildWhy } from "@/lib/why-best";
 import ChampionShowcase from "@/components/ChampionShowcase";
 import { notFound } from "next/navigation";
-import { championAliases, championSummary, champList, type RadarAxis } from "@/lib/champions";
+import { championAliases, championSummary, champList, livePlus, type RadarAxis } from "@/lib/champions";
 import { TfCard, TfPerf, TfStrip, TfTier, TimeframePicker } from "@/components/champion/Timeframe";
 import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
@@ -340,6 +340,9 @@ export default async function ChampionPage({
   );
   if (!c || !p) notFound();
   const all = champList();
+  // The header's default "{live}+" numbers (lib/champions.ts livePlus); "{live} only" shows the live patch's.
+  const plusAll = livePlus().stats;
+  const plus = plusAll.find((x) => x.name === c.alias) ?? null;
   const info = p.itemInfo;
   // Simulator-made panels stay off while the Simulator is a fun tool only (lib/sim-policy.ts).
   const upgrades = SIMULATOR_IN_STATS ? championUpgrades(c.alias) : null;
@@ -855,7 +858,18 @@ export default async function ChampionPage({
             )}
           </div>
           {c.tier && (
-            <TfTier alias={c.alias} patches={c.patches} matches={matches}>
+            <TfTier
+              alias={c.alias}
+              patches={c.patches}
+              matches={matches}
+              plus={
+                plus ? (
+                  <span className={`cp-tier chip tier-${plus.tier.toLowerCase()}`} title="Tier">
+                    {plus.tier}
+                  </span>
+                ) : undefined
+              }
+            >
               <span className={`cp-tier chip tier-${c.tier.toLowerCase()}`} title="Tier">
                 {c.tier}
               </span>
@@ -863,7 +877,32 @@ export default async function ChampionPage({
           )}
         </div>
         {c.winRate !== undefined && (
-          <TfStrip alias={c.alias} patches={c.patches} matches={matches}>
+          <TfStrip
+            alias={c.alias}
+            patches={c.patches}
+            matches={matches}
+            plus={
+              plus ? (
+                <div className="cp-strip">
+                  <Cell
+                    value={<WinRate p={plus.win_rate} n={plus.sample} />}
+                    label="Win rate"
+                    tone={plus.win_rate >= 0.52 ? "up" : plus.win_rate <= 0.48 ? "down" : undefined}
+                  />
+                  <Cell value={pct(plus.pick_rate)} label="Pick rate" />
+                  {plus.total > 0 && <Cell value={`~${plus.total.toLocaleString("en-US")}`} label="Games" />}
+                  <div className="cp-cell">
+                    <b>#{plus.rank}</b>
+                    <small>
+                      <T ns={NS} v={{ n: plusAll.length }}>
+                        {"of {n} by DeepScore"}
+                      </T>
+                    </small>
+                  </div>
+                </div>
+              ) : undefined
+            }
+          >
                 <div className="cp-strip">
                 <Cell
                   value={<WinRate p={c.winRate} n={c.games} />}

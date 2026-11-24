@@ -20,8 +20,11 @@ import { patchName } from "@/lib/patch-name";
 // from /data/tier-history.json (every champion, so tiers and ranks match the Tier List) and
 // /data/champion-history/<Alias> (builds, saved from 16.20 on). ?tf= in a link: all, p:16.21,16.22 or s:Set 3.
 
-type Pick = { kind: "patch" | "set" | "all"; list: string[] };
-const LIVE: Pick = { kind: "patch", list: [] }; // empty list = the live patch
+type Pick = { kind: "patch" | "set" | "all" | "only"; list: string[] };
+// The default: "{live}+", the live patch with the patch before at half weight (lib/tiers.ts plusRows), drawn by the
+// server (the `plus` views). ONLY: the live patch alone ("{live} only", ?tf=only), also drawn by the server.
+const LIVE: Pick = { kind: "patch", list: [] };
+const ONLY: Pick = { kind: "only", list: [] };
 
 let current: Pick = LIVE;
 const listeners = new Set<() => void>();
@@ -32,14 +35,14 @@ const subscribe = (fn: () => void) => {
 function choose(p: Pick, live?: string) {
   current = p.kind === "patch" && p.list.length === 1 && p.list[0] === live ? LIVE : p;
   const c = current;
-  setParams({ tf: c === LIVE ? null : c.kind === "all" ? "all" : `${c.kind[0]}:${c.list.join(",")}` });
+  setParams({ tf: c === LIVE ? null : c === ONLY ? "only" : c.kind === "all" ? "all" : `${c.kind[0]}:${c.list.join(",")}` });
   listeners.forEach((fn) => fn());
 }
 const usePick = () => useSyncExternalStore(subscribe, () => current, () => LIVE);
 
 /** The patches a pick covers, oldest first (null = the live patch, which the server already drew). */
 function patchesOf(p: Pick, patches: string[]): string[] | null {
-  if (p === LIVE) return null;
+  if (p === LIVE || p === ONLY) return null;
   if (p.kind === "all") return patches;
   if (p.kind === "patch") return patches.filter((x) => p.list.includes(x));
   const sets = new Set(p.list);
@@ -92,13 +95,15 @@ function useRangeStats(alias: string, patches: string[], matches?: Record<string
   }, [picked, rows, alias, matches]);
 }
 
-type Common = { alias: string; patches: string[]; matches?: Record<string, number>; children: ReactNode };
+/** children: the live patch alone (server-drawn); plus: the default "{live}+" view (server-drawn), when there is one. */
+type Common = { alias: string; patches: string[]; matches?: Record<string, number>; children: ReactNode; plus?: ReactNode };
 
 // ---- Controls ----
 
 export function TimeframePicker({ patches, buildPatches }: { patches: string[]; buildPatches: string[] }) {
   const t = useT();
   const tl = useT("tier-list");
+  const tc = useT("champions");
   const pick = usePick();
   const live = patches[patches.length - 1];
   const sets = bySet(patches).reverse();
@@ -106,6 +111,7 @@ export function TimeframePicker({ patches, buildPatches }: { patches: string[]; 
     const v = getParam("tf");
     if (!v) return;
     if (v === "all") return choose({ kind: "all", list: [] }, live);
+    if (v === "only") return choose(ONLY, live);
     const [k, rest] = [v.slice(0, 2), v.slice(2).split(",")];
     if (k === "p:") {
       const list = rest.filter((p) => patches.includes(p));
@@ -129,12 +135,12 @@ export function TimeframePicker({ patches, buildPatches }: { patches: string[]; 
     return () => document.removeEventListener("pointerdown", close);
   }, []);
 
-  const patchList = pick === LIVE ? [live] : pick.kind === "patch" ? pick.list : [];
+  const patchList = pick === LIVE || pick === ONLY ? [live] : pick.kind === "patch" ? pick.list : [];
   const setList = pick.kind === "set" ? pick.list : [];
   const togglePatch = (p: string) => {
     const has = patchList.includes(p);
     const next = has ? patchList.filter((x) => x !== p) : [...patchList, p];
-    choose({ kind: "patch", list: next.length ? next : [live] }, live);
+    choose(next.length ? { kind: "patch", list: next } : LIVE, live);
   };
   const toggleSet = (s: string) => {
     const has = setList.includes(s);
@@ -155,9 +161,9 @@ export function TimeframePicker({ patches, buildPatches }: { patches: string[]; 
       <div className="cp-tf-controls" role="group" aria-label={t("Stats over")}>
         <details className="patch-pick" ref={patchRef} data-on={pick.kind === "patch" || undefined}>
           <summary onClick={() => setRef.current?.removeAttribute("open")}>
-            {pick === LIVE && <span className="cp-tf-live" aria-hidden="true" />}
-            {patchLabel}
-            {pick === LIVE && <span className="cp-tf-live-word">{t("Live")}</span>}
+            {(pick === LIVE || pick === ONLY) && <span className="cp-tf-live" aria-hidden="true" />}
+            {pick === LIVE ? tc("{patch}+", { patch: patchName(live) }) : pick === ONLY ? tc("{patch} only", { patch: patchName(live) }) : patchLabel}
+            {(pick === LIVE || pick === ONLY) && <span className="cp-tf-live-word">{t("Live")}</span>}
           </summary>
           <div className="patch-pick-list">
             {sets.map(({ set, patches: list }) => (
@@ -188,6 +194,16 @@ export function TimeframePicker({ patches, buildPatches }: { patches: string[]; 
             ))}
           </div>
         </details>
+        {(pick === LIVE || pick === ONLY) && (
+          <div className="seg cp-tf-plus" role="group" aria-label={tc("Games counted")}>
+            <button type="button" aria-pressed={pick === LIVE} data-tip={tc("Includes similar recent patches, weighted toward this one")} onClick={() => choose(LIVE, live)}>
+              {tc("{patch}+", { patch: patchName(live) })}
+            </button>
+            <button type="button" aria-pressed={pick === ONLY} onClick={() => choose(ONLY, live)}>
+              {tc("{patch} only", { patch: patchName(live) })}
+            </button>
+          </div>
+        )}
         <button
           type="button"
           className="cp-tf-all"
@@ -224,9 +240,10 @@ const Loading = () => (
 );
 
 /** The tier chip in the header. */
-export function TfTier({ alias, patches, matches, children }: Common) {
+export function TfTier({ alias, patches, matches, children, plus }: Common) {
   const s = useRangeStats(alias, patches, matches);
-  if (!s.picked) return <>{children}</>;
+  const pick = usePick();
+  if (!s.picked) return <>{pick === LIVE && plus !== undefined ? plus : children}</>;
   if (!s.ready || !s.me) return null;
   return (
     <span className={`cp-tier chip tier-${s.me.tier.toLowerCase()}`} title="Tier">
@@ -236,9 +253,10 @@ export function TfTier({ alias, patches, matches, children }: Common) {
 }
 
 /** The header's win rate, pick rate, games and rank. */
-export function TfStrip({ alias, patches, matches, children }: Common) {
+export function TfStrip({ alias, patches, matches, children, plus }: Common) {
   const s = useRangeStats(alias, patches, matches);
-  if (!s.picked) return <>{children}</>;
+  const pick = usePick();
+  if (!s.picked) return <>{pick === LIVE && plus !== undefined ? plus : children}</>;
   if (!s.ready) return <div className="cp-strip">{<Loading />}</div>;
   if (!s.me)
     return (

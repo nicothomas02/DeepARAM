@@ -356,6 +356,11 @@ test("champion header timeframe: live patch by default, then patches, sets or al
   await page.goto("/champions/Ashe");
   const pick = page.locator(".cp-tf-pick");
   await expect(pick.locator(".cp-tf-live")).toHaveCount(1);
+  // "{live}+" by default (the patch before at half weight); "{live} only" is the live patch alone.
+  await expect(pick.locator(".cp-tf-plus button").first()).toHaveAttribute("aria-pressed", "true");
+  await pick.locator(".cp-tf-plus button").nth(1).click();
+  await expect(page).toHaveURL(/tf=only/);
+  await expect(page.locator(".cp-strip").first()).toContainText("since");
   const liveStrip = await page.locator(".cp-strip").first().innerText();
   // All time: rates over every patch, and the card says which patches its builds cover.
   await pick.getByRole("button", { name: "All time" }).click();

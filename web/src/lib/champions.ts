@@ -6,7 +6,7 @@ import { champName, livePatch } from "./highlights";
 import { localAsset } from "./assets";
 import { official } from "./dd-swap";
 import { readRepoCsv, readRepoJson } from "./repo-data";
-import { champStats, type ChampStats, type PatchRow } from "./tiers";
+import { champStats, plusRows, type ChampStats, type PatchRow } from "./tiers";
 import { statRanges, type RangeKey, type StatRange } from "./stat-ranges";
 import { matchesByPatch } from "./sample";
 import { radarFor, type RadarAxis } from "./radar";
@@ -61,6 +61,24 @@ export function liveWithChange() {
     : [];
   cache = { live, patch, prev };
   return cache;
+}
+
+/** Each champion's "{live}+" stats (lib/tiers.ts plusRows), ranked, with its games over the patches used: the champion
+ *  page header's default (Nico 2026-11-24). Null without a previous patch. */
+let plusCache: { stats: (ChampStats & { rank: number; total: number })[] } | null = null;
+export function livePlus() {
+  if (plusCache) return plusCache;
+  const rows = patchRows();
+  const patches = patchList();
+  const live = livePatch();
+  const before = patches.length > 1 ? patches[patches.length - 2] : null;
+  if (!live || !before) return (plusCache = { stats: [] });
+  const m = matchesByPatch();
+  const used = plusRows(rows, live, before, m);
+  const total = new Map<string, number>();
+  for (const r of used) total.set(r.name, (total.get(r.name) ?? 0) + r.pick_rate * (m?.[r.patch] ?? 0));
+  const stats = champStats(used, new Set([live, before]), m, true).map((c, i) => ({ ...c, rank: i + 1, total: Math.round(total.get(c.name) ?? 0) }));
+  return (plusCache = { stats });
 }
 
 /** Biggest win-rate gains and drops since the previous patch. */
