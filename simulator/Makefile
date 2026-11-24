@@ -42,7 +42,7 @@ wasm: $(SRC) $(HDR)
 
 # Browser build of the all-champion simulator for the replay viewer's controls (data embedded in the .wasm).
 # The embedded data files leave out their maintainer notes (tools/strip_notes.py).
-EMBED_DATA = mayhem_rules champions items augments augment_pools cn_enemy_pool combos
+EMBED_DATA = mayhem_rules champions items augments augment_pools cn_enemy_pool combos headliners
 wasm-mayhem: $(CHAMP_SRC) $(CHAMP_HDR)
 	mkdir -p dist dist/embed
 	python3 tools/strip_notes.py dist/embed $(EMBED_DATA:%=data/%.json)

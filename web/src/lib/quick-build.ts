@@ -15,7 +15,7 @@ import { SITUATIONS } from "@/lib/situations";
 
 export const RARITIES = ["prismatic", "gold", "silver"] as const;
 export type Rarity = (typeof RARITIES)[number];
-export type Named = { name: string; icon: string | null };
+export type Named = { name: string; icon: string | null; /** Riot's item or augment id (the Simulator maps builds by it). */ id?: number };
 
 /** Archmage (lib/archmage-route.ts). */
 const ARCHMAGE = 2087;
@@ -88,7 +88,7 @@ export function quickBuilds(): QuickBuild[] {
     // Same picks as the champion page's card: the best core (with boots when the champion buys them), then the
     // best item for each situation.
     const named = (i: number | undefined) =>
-      i !== undefined && p.itemInfo[i] ? { name: p.itemInfo[i].name, icon: p.itemInfo[i].icon ?? null } : null;
+      i !== undefined && p.itemInfo[i] ? { name: p.itemInfo[i].name, icon: p.itemInfo[i].icon ?? null, id: i } : null;
     const itemScore = new Map(p.items.map((r) => [r.items[0], r.deepScore ?? null]));
     const laterOf = (r: ItemRow) => {
       const n = named(r.items[0]);
@@ -139,7 +139,7 @@ export function quickBuilds(): QuickBuild[] {
         list
           .filter((a) => a.rarity === r)
           .slice(0, 3)
-          .map((a) => ({ name: a.name, icon: `/icons/augments/${a.id}.webp`, deepScore: deep.get(a.id) })),
+          .map((a) => ({ name: a.name, icon: `/icons/augments/${a.id}.webp`, id: a.id, deepScore: deep.get(a.id) })),
       ]),
     ) as QuickBuild["augments"];
     };

@@ -51,6 +51,13 @@
   let pbeBest = null, custom = false;
   let picks = null; // five enemies [{id, stats:{hp, armor, mr, damage_share}, items:[], augs:[]}]; the first team_size fight
   const combos = {};  // champion id -> combo the user typed
+  // Mayhem extras on top of the build (data/headliners.json, sent as --extra-augs): the game's headliner
+  // (one per match: K/DA and Superfans add a 5th augment, Superfans and K'Sante's sticker raise the level cap,
+  // Pentakill empowers abilities, HEARTSTEEL puts members' stickers on augment cards), and stat anvils bought
+  // in the shop (750 gold each, one shard picked from each).
+  let headliner = "", anyAugs = false;
+  const empower = [], stickers = [], anvils = [];
+  const MAX_ANVILS = 8;
   const enemyById = new Map();
 
   // ---------- worker ----------
@@ -172,13 +179,35 @@
   }
   function rarityName(r) { return T({ S: "Silver", G: "Gold", P: "Prismatic" }[r] || r.charAt(0).toUpperCase() + r.slice(1)); }
   // The augments a champion can be offered, sorted by name; ones the simulator can't model yet are marked.
-  function augmentsFor(id, keep) {
+  // Only the champion's Mayhem pool unless "Include augments outside its pool" is ticked (any = true); those
+  // outside it are marked. Headliner pieces and stat shards never show here: they have their own rows.
+  function augmentsFor(id, keep, any) {
     const c = meta.champions.find((x) => x.id.toLowerCase() === String(id).toLowerCase());
     const pool = new Set((c && c.augments) || []);
-    for (const k of keep || []) pool.add(k);
-    return meta.augments.filter((a) => !c || pool.has(a.key))
-      .map((a) => a.modeled === false ? { ...a, name: a.name + " " + T("(no effect yet)") } : a)
+    const kept = new Set(keep || []);
+    return meta.augments.filter((a) => !a.headliner && (!c || any || pool.has(a.key) || kept.has(a.key)))
+      .map((a) => {
+        let name = a.name;
+        if (c && !pool.has(a.key)) name += " " + T("(not in its pool)");
+        if (a.modeled === false) name += " " + T("(no effect yet)");
+        return name === a.name ? a : { ...a, name };
+      })
       .sort((a, b) => a.name.localeCompare(b.name));
+  }
+  const headlinerOf = (key) => (meta.headliners || []).find((h) => h.key === key) || null;
+  const augmentSlots = () => (headlinerOf(headliner) || { augment_slots: 4 }).augment_slots;
+  // Highest level the headliner allows (Superfans 21); K'Sante's sticker adds its level when the fight runs.
+  const levelCap = () => (headlinerOf(headliner) || { level_cap: 18 }).level_cap;
+  const SLOT_OF = { heavy: "Q", power: "W", thrash: "E", doom: "R" };
+  const extrasOf = (tag) => meta.augments.filter((a) => a.headliner === tag)
+    .map((a) => ({ ...a, rarity: "", name: SLOT_OF[a.key] ? `${a.name} (${SLOT_OF[a.key]})` : a.name }));
+  // The extras that go with this fight, in --extra-augs order.
+  function extraAugs() {
+    const out = [];
+    if (headliner === "pentakill") out.push(...empower.filter(Boolean));
+    if (headliner === "heartsteel") out.push(...stickers.filter(Boolean));
+    out.push(...anvils.filter(Boolean));
+    return out;
   }
   function fillFromTrace() {
     const box = $("buildBox");
@@ -195,12 +224,26 @@
       const l = document.createElement("span"); l.textContent = label;
       r.append(l, el); box.append(r);
     };
-    row("B", select(boots, bootKey, T("Boots")));
-    for (let i = 0; i < 5; i++) row(String(i + 1), select(legs, legKeys[i], T("Item {n}", { n: i + 1 })));
+    const kind = (el, k) => { el.dataset.kind = k; return el; };
+    // The champion page's card build (the site's shared build engine), when the site serves it.
+    const rec = document.createElement("div"); rec.className = "slot-row rec-row";
+    const recBtn = document.createElement("button"); recBtn.type = "button"; recBtn.className = "linkish";
+    recBtn.textContent = T("Load the recommended build");
+    recBtn.addEventListener("click", loadRecommended);
+    rec.append(document.createElement("span"), recBtn); box.append(rec);
+    row("B", kind(select(boots, bootKey, T("Boots")), "item"));
+    for (let i = 0; i < 5; i++) row(String(i + 1), kind(select(legs, legKeys[i], T("Item {n}", { n: i + 1 })), "item"));
     const sub = document.createElement("div"); sub.className = "sub"; sub.textContent = T("Augments"); box.append(sub);
     const augKeys = build.augments.map((a) => a.key);
-    const augs = augmentsFor(champ.id, augKeys);
-    for (let i = 0; i < 4; i++) row(String(i + 1), select(augs, augKeys[i], T("Augment {n}", { n: i + 1 })));
+    const augs = augmentsFor(champ.id, augKeys, anyAugs);
+    for (let i = 0; i < augmentSlots(); i++) row(String(i + 1), kind(select(augs, augKeys[i], T("Augment {n}", { n: i + 1 })), "aug"));
+    // Only augments the champion can be offered, unless ticked (Nico 2026-11-24).
+    const any = document.createElement("label"); any.className = "slot-row check-row";
+    const anyBox = document.createElement("input"); anyBox.type = "checkbox"; anyBox.checked = anyAugs; anyBox.id = "anyAugs";
+    const anyText = document.createElement("span"); anyText.textContent = T("Include augments outside this champion's pool");
+    any.append(anyBox, anyText); box.append(any);
+    anyBox.addEventListener("change", () => { anyAugs = anyBox.checked; keepBuild(); });
+    renderExtras(box, row);
     renderCombo();
 
     if (!picks) {
@@ -223,10 +266,78 @@
     return (c && c.combo) || "";
   }
   function chosenBuild() {
-    const sels = [...$("buildBox").querySelectorAll("select")];
-    const items = sels.slice(0, 6).map((s) => s.value).filter(Boolean);
-    const augs = sels.slice(6).map((s) => s.value).filter(Boolean);
-    return { items, augs };
+    const vals = (k) => [...$("buildBox").querySelectorAll(`select[data-kind="${k}"]`)].map((s) => s.value).filter(Boolean);
+    return { items: vals("item"), augs: vals("aug") };
+  }
+  // Redraws the build rows (after the headliner or the pool switch changes) keeping what's picked.
+  function keepBuild() {
+    if (!meta || !champ || !trace) return;
+    const b = chosenBuild();
+    trace = { ...trace, build: { items: b.items.map((key) => ({ key })), augments: b.augs.map((key) => ({ key })) } };
+    custom = true;
+    fillFromTrace();
+  }
+  // The champion page's recommended build (/data/sim-builds.json, the shared build engine): items and augments the
+  // simulator models go into the slots and are simulated. Only on the site itself.
+  let recBuilds = null;
+  async function loadRecommended() {
+    if (!recBuilds) recBuilds = fetch("/data/sim-builds.json").then((r) => (r.ok ? r.json() : null)).catch(() => null);
+    const all = await recBuilds;
+    const b = all && all.champions && all.champions[champ.id.toLowerCase()];
+    if (!b) { recBuilds = null; status(T("The recommended build isn't available here.")); return; }
+    const byId = (list, ids) => ids.map((id) => list.find((x) => x.id === id && !x.headliner)).filter(Boolean).map((x) => x.key);
+    const boots = new Set(meta.items.filter((i) => i.slot === "boots").map((i) => i.key));
+    let items = byId(meta.items, b.items);
+    const boot = items.find((k) => boots.has(k));
+    items = [...(boot ? [boot] : []), ...items.filter((k) => !boots.has(k)).slice(0, 5)];
+    const augs = byId(meta.augments, b.augments).slice(0, augmentSlots());
+    if (!items.length) { status(T("The recommended build isn't available here.")); return; }
+    trace = { ...trace, build: { items: items.map((key) => ({ key })), augments: augs.map((key) => ({ key })) } };
+    custom = true;
+    fillFromTrace();
+    run(true);
+  }
+  // Headliner, its pieces (Pentakill empowerments, HEARTSTEEL stickers) and stat anvils, under the augments.
+  function renderExtras(box, row) {
+    const sub = document.createElement("div"); sub.className = "sub"; sub.textContent = T("Mayhem extras"); box.append(sub);
+    const hl = document.createElement("select"); hl.setAttribute("aria-label", T("Headliner"));
+    hl.add(new Option(T("No headliner"), ""));
+    const HL_NOTE = {
+      kda: T("K/DA: a 5th augment"), superfans: T("Superfans: a 5th augment and level cap 21"),
+      pentakill: T("Pentakill: two empowered abilities"), heartsteel: T("HEARTSTEEL: stickers on augment cards"),
+    };
+    for (const h of meta.headliners || []) hl.add(new Option(HL_NOTE[h.key] || h.name, h.key));
+    hl.value = headliner;
+    hl.addEventListener("change", () => {
+      headliner = hl.value;
+      // Levels above the new cap come back down to it.
+      RANGES.level[1] = RANGES.enemy_level[1] = levelCap();
+      for (const k of ["level", "enemy_level"]) if (fieldValues[k] > levelCap()) fieldValues[k] = levelCap();
+      buildFightForm();
+      keepBuild();
+    });
+    row("H", hl);
+    const pieceRows = (tag, list, count, label) => {
+      const opts = extrasOf(tag);
+      for (let i = 0; i < count; i++) {
+        const s = select(opts, list[i], label(i));
+        s.addEventListener("change", () => { list[i] = s.value; });
+        row("+", s);
+      }
+    };
+    const h = headlinerOf(headliner);
+    if (h && h.empowerments) pieceRows("pentakill", empower, h.empowerments, (i) => T("Pentakill empowerment {n}", { n: i + 1 }));
+    if (h && h.stickers) pieceRows("heartsteel", stickers, h.stickers, (i) => T("Sticker {n}", { n: i + 1 }));
+    // Stat anvils bought in the shop: one row per anvil, plus an empty one to add the next.
+    const shards = extrasOf("anvil");
+    const shown = Math.min(MAX_ANVILS, anvils.filter(Boolean).length + 1);
+    anvils.splice(0, anvils.length, ...anvils.filter(Boolean));
+    for (let i = 0; i < shown; i++) {
+      const s = select(shards, anvils[i], T("Stat anvil {n}", { n: i + 1 }));
+      s.options[0].text = i === anvils.length ? T("(add a stat anvil)") : T("(empty)");
+      s.addEventListener("change", () => { anvils[i] = s.value; keepBuild(); });
+      row("A", s);
+    }
   }
 
   // ---------- enemies ----------
@@ -364,7 +475,7 @@
         }
         return wrap;
       };
-      card.append(s, stats, gear("Items", items, pick.items, 6), gear("Augments", augmentsFor(pick.id, pick.augs), pick.augs, 4));
+      card.append(s, stats, gear("Items", items, pick.items, 6), gear("Augments", augmentsFor(pick.id, pick.augs, anyAugs), pick.augs, 4));
       cards.append(card);
       mark();
     });
@@ -520,6 +631,19 @@
       if (new Set(combo).size !== combo.length) throw new Error(T("Use each of Q, W, E and R at most once in the combo."));
       a.push("--combo", combo);
     }
+    // The headliner's level: K'Sante's sticker is one level more, up to its cap of 19.
+    if (headliner === "heartsteel" && stickers.includes("sticker_ksante")) {
+      const s = meta.settings.find((x) => x.key === "level");
+      const lv = fieldValues.level !== undefined ? fieldValues.level : s ? s.default : 18;
+      const at = a.indexOf("--set");
+      const lvl = `level=${Math.min(19, lv + 1)}`;
+      if (at >= 0) a[at + 1] = a[at + 1].split(",").filter((x) => !x.startsWith("level=")).concat(lvl).join(",");
+      else a.push("--set", lvl);
+    }
+    const extra = extraAugs();
+    if (extra.length) a.push("--extra-augs", extra.join(","));
+    if (anyAugs) a.push("--any-augments");
+    if (augmentSlots() !== 4) a.push("--augment-slots", String(augmentSlots()));
     if (withBuild) {
       const b = chosenBuild();
       if (!b.items.length) throw new Error(T("Pick at least one item."));

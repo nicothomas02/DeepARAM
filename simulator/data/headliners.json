@@ -1,0 +1,60 @@
+{
+  "_note": "Headliner pieces and stat shards the simulator can add on top of a build (--extra-augs). Values from the League wiki pages 'ARAM: Mayhem' (headliners) and 'Stat Bonus (ARAM: Mayhem)' (stat shards), read 2026-11-24. They load as augments tagged with 'headliner' (pentakill, heartsteel, anvil), which the build search and the augment slots never offer: the viewer adds them in their own rows. Pentakill's empowerments (HEAVY, POWER, THRASH, DOOM) already live in augments.json; 'tag' marks them.",
+  "tag": {
+    "heavy": "pentakill",
+    "power": "pentakill",
+    "thrash": "pentakill",
+    "doom": "pentakill"
+  },
+  "headliners": {
+    "kda": {"name": "K/DA", "augment_slots": 5, "level_cap": 18, "note": "Collecting all 4 Photocards gives one more augment screen (a 5th augment, never a 6th)."},
+    "superfans": {"name": "Superfans", "augment_slots": 5, "level_cap": 21, "note": "Level cap 21; an extra augment screen at level 21."},
+    "pentakill": {"name": "Pentakill", "augment_slots": 4, "level_cap": 18, "empowerments": 2, "note": "One of HEAVY (Q), POWER (W) or THRASH (E) after the first screen, and at 18 one of the two not taken or DOOM (R)."},
+    "heartsteel": {"name": "HEARTSTEEL", "augment_slots": 4, "level_cap": 18, "stickers": 4, "note": "Augment cards can carry a member's sticker; picking that card gives the member's bonus. How many stickers a game offers is unknown, so up to one per augment."}
+  },
+  "augments": {
+    "sticker_aphelios": {"name": "Aphelios sticker", "headliner": "heartsteel", "stats": {"hp": 110}, "effects": {"shard_ap": 15, "shard_ad": 11}, "confidence": "approx", "note": "Gain 2 Stat Anvils: like Stats!, one Silver damage shard (15 AP or 11 AD) and one Silver Health shard (110), which of the shards is an estimate"},
+    "sticker_ezreal": {"name": "Ezreal sticker", "headliner": "heartsteel", "stats": {"ad_l1": 4, "ad_l18": 72, "ap_l1": 4, "ap_l18": 72}, "confidence": "verified", "note": "4 to 72 bonus AD and AP by level"},
+    "sticker_kayn": {"name": "Kayn sticker", "headliner": "heartsteel", "stats": {"omnivamp": 0.05}, "confidence": "verified"},
+    "sticker_ksante": {"name": "K'Sante sticker", "headliner": "heartsteel", "effects": {"level_up": 1}, "confidence": "verified", "note": "+1 level and level cap 19 (the viewer raises the fight's level)"},
+    "sticker_sett": {"name": "Sett sticker", "headliner": "heartsteel", "stats": {"hp_l1": 30, "hp_l18": 540}, "confidence": "verified", "note": "30 to 540 bonus Health by level"},
+    "sticker_yone": {"name": "Yone sticker", "headliner": "heartsteel", "stats": {"as": 0.4, "ah": 20}, "confidence": "verified"},
+
+    "shard_s_ah": {"name": "Ability Haste shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"ah": 11}},
+    "shard_s_ap": {"name": "Ability Power shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"ap": 15}},
+    "shard_s_armor": {"name": "Armor shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"armor": 12}},
+    "shard_s_ad": {"name": "Attack Damage shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"ad": 11}},
+    "shard_s_as": {"name": "Attack Speed shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"as": 0.11}},
+    "shard_s_crit": {"name": "Critical shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"crit": 0.08}},
+    "shard_s_hp": {"name": "Health shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"hp": 110}},
+    "shard_s_lethality": {"name": "Lethality shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"lethality": 8}},
+    "shard_s_mpen": {"name": "Magic Penetration shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"magic_pen": 8}},
+    "shard_s_mr": {"name": "Magic Resist shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"mr": 14}},
+    "shard_s_might": {"name": "Might shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"ad": 8, "ap": 12}},
+    "shard_s_swift": {"name": "Swiftness shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"as": 0.1, "ah": 8}},
+    "shard_s_resist": {"name": "Unbreakable shard (Silver)", "headliner": "anvil", "rarity": "silver", "stats": {"armor": 10, "mr": 10}},
+
+    "shard_g_ah": {"name": "Ability Haste shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"ah": 35}},
+    "shard_g_ap": {"name": "Ability Power shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"ap": 50}},
+    "shard_g_armor": {"name": "Armor shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"armor": 45}},
+    "shard_g_ad": {"name": "Attack Damage shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"ad": 35}},
+    "shard_g_as": {"name": "Attack Speed shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"as": 0.35}},
+    "shard_g_crit": {"name": "Critical shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"crit": 0.25}},
+    "shard_g_hp": {"name": "Health shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"hp": 375}},
+    "shard_g_lethality": {"name": "Lethality shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"lethality": 20}},
+    "shard_g_mpen": {"name": "Magic Penetration shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"magic_pen": 18}},
+    "shard_g_mr": {"name": "Magic Resist shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"mr": 45}},
+    "shard_g_might": {"name": "Might shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"ad": 25, "ap": 25}},
+    "shard_g_swift": {"name": "Swiftness shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"as": 0.25, "ah": 20}},
+    "shard_g_resist": {"name": "Unbreakable shard (Gold)", "headliner": "anvil", "rarity": "gold", "stats": {"armor": 30, "mr": 30}},
+
+    "shard_p_apen": {"name": "Armor Penetration shard (Prismatic)", "headliner": "anvil", "rarity": "prismatic", "stats": {"armor_pen": 0.175}},
+    "shard_p_critdmg": {"name": "Critical Damage shard (Prismatic)", "headliner": "anvil", "rarity": "prismatic", "stats": {"crit_damage": 0.25}},
+    "shard_p_hp": {"name": "Health and Size shard (Prismatic)", "headliner": "anvil", "rarity": "prismatic", "effects": {"hp_pct": 0.15}},
+    "shard_p_mpen": {"name": "Magic Penetration shard (Prismatic)", "headliner": "anvil", "rarity": "prismatic", "stats": {"magic_pen_pct": 0.175}},
+    "shard_p_ms": {"name": "Move Speed shard (Prismatic)", "headliner": "anvil", "rarity": "prismatic", "effects": {"ms_pct": 0.18}},
+    "shard_p_vamp": {"name": "Omnivamp shard (Prismatic)", "headliner": "anvil", "rarity": "prismatic", "stats": {"omnivamp": 0.2}, "effects": {"omnivamp_ranged_cut": 0.1}, "note": "20% omnivamp, 10% for ranged champions"},
+    "shard_p_hsp": {"name": "Spirit shard (Prismatic)", "headliner": "anvil", "rarity": "prismatic", "effects": {"heal_shield_power": 0.25}},
+    "shard_p_tenacity": {"name": "Tenacity shard (Prismatic)", "headliner": "anvil", "rarity": "prismatic", "effects": {"tenacity": 0.3}}
+  }
+}

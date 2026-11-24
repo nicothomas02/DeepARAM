@@ -30,6 +30,10 @@ Usage: mayhem_sim [options]
   --champ NAME        champion to simulate (name or id, e.g. Ahri, MissFortune, 103)
   --items a,b,...     simulate this build instead of searching for the best one
   --augs a,b,...      augments for --items
+  --any-augments      search and accept every augment, not only the champion's Mayhem pool
+  --extra-augs a,b    headliner pieces or stat shards added to every build (data/headliners.json):
+                      Pentakill's heavy/power/thrash/doom, HEARTSTEEL stickers, stat shards
+  --augment-slots N   augments the search fills (default 4; 5 with K/DA or Superfans)
   --all               find the best build for every champion and compare with
                       real-game damage shares
   --kit NAME          show what the simulator read from a champion's abilities
@@ -307,6 +311,9 @@ int main(int argc, char** argv) {
     std::string rulesPath = MAYHEM_DEFAULT_RULES, gameDir, champName, kitName;
     std::vector<std::string> items, augs;
     bool all = false, asJson = false, list = false, customBuild = false, anyItems = false, smartSearch = false, teamMode = false;
+    bool anyAugments = false;
+    std::vector<std::string> extraAugs;
+    int augmentSlots = 0;
     std::string tracePath, traceDir, combo;
     Metric metric = Metric::Damage;
     Library::Settings settings;
@@ -333,6 +340,13 @@ int main(int argc, char** argv) {
         else if (a == "--augs") augs = splitList(next());
         else if (a == "--all") all = true;
         else if (a == "--any-items") anyItems = true;
+        else if (a == "--any-augments") anyAugments = true;
+        else if (a == "--extra-augs") extraAugs = splitList(next());
+        else if (a == "--augment-slots") {
+            const std::string v = next();
+            try { augmentSlots = std::stoi(v); } catch (...) { augmentSlots = 0; }
+            if (augmentSlots < 1 || augmentSlots > 6) { std::cerr << "--augment-slots must be 1 to 6, got " << v << "\n"; return 2; }
+        }
         else if (a == "--search") {
             const std::string m = next();
             if (m != "quick" && m != "smart") { std::cerr << "--search must be quick or smart, got " << m << "\n"; return 2; }
@@ -388,6 +402,11 @@ int main(int argc, char** argv) {
     }
     if (trials > 0) lib.optimizer.finalTrials = lib.optimizer.smartFinalTrials = trials;
     if (anyItems) lib.optimizer.fittingItemsOnly = false;
+    lib.anyAugments = anyAugments;
+    lib.extraAugments = extraAugs;
+    if (augmentSlots > 0) lib.optimizer.augmentSlots = augmentSlots;
+    for (const auto& x : extraAugs)
+        if (!lib.augments.count(x)) { std::cerr << "error: unknown augment '" << x << "'\n"; return 1; }
     lib.optimizer.smart = smartSearch;
     if (seed >= 0) lib.scenario.seed = static_cast<uint64_t>(seed);
 
@@ -406,10 +425,12 @@ int main(int argc, char** argv) {
             for (const auto& [k, e] : m) {
                 std::string roles;
                 for (size_t i = 0; i < e.roles.size(); ++i) roles += (i ? ", " : "") + jsonStr(e.roles[i]);
+                const std::string extra = (e.group.empty() ? "" : ", \"group\": " + jsonStr(e.group)) +
+                                          (e.headliner.empty() ? "" : ", \"headliner\": " + jsonStr(e.headliner));
                 std::printf("%s{\"key\": %s, \"id\": %d, \"name\": %s, \"slot\": %s, \"rarity\": %s, \"roles\": [%s], \"modeled\": %s%s}",
                             first ? "" : ", ", jsonStr(k).c_str(), e.id, jsonStr(e.name).c_str(), jsonStr(e.slot).c_str(),
                             jsonStr(e.rarity).c_str(), roles.c_str(), e.stats.empty() && e.effects.empty() ? "false" : "true",
-                            e.group.empty() ? "" : (", \"group\": " + jsonStr(e.group)).c_str());
+                            extra.c_str());
                 first = false;
             }
         };
@@ -417,6 +438,13 @@ int main(int argc, char** argv) {
         effects(lib.items);
         std::printf("],\n \"augments\": [");
         effects(lib.augments);
+        std::printf("],\n \"headliners\": [");
+        for (size_t i = 0; i < lib.headliners.size(); ++i) {
+            const auto& h = lib.headliners[i];
+            std::printf("%s{\"key\": %s, \"name\": %s, \"augment_slots\": %d, \"level_cap\": %d, \"empowerments\": %d, \"stickers\": %d}",
+                        i ? ", " : "", jsonStr(h.key).c_str(), jsonStr(h.name).c_str(), h.augmentSlots, h.levelCap,
+                        h.empowerments, h.stickers);
+        }
         const Scenario& sc = lib.scenario;
         const Rules& r = lib.rules;
         const auto dummy = lib.averageEnemy(sc.enemyLevel);

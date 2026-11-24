@@ -288,7 +288,8 @@ describe("build engine", () => {
     expect(gwen?.skills).toEqual(["E", "Q", "W"]);
     expect(gwen?.augmentSkills).toBeUndefined();
     for (const b of (gwen as unknown as { builds: { skills: string[] }[] }).builds) expect(b.skills).toEqual(["E", "Q", "W"]);
-  });
+    // The first overlay build of the run reads every champion's data (about 3 s here, past 5 s on CI runners).
+  }, 30_000);
 
   it("switches the start to the first augment's own (Upgrade Stormsurge: Hextech Alternator on Ahri)", async () => {
     const ahri = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Ahri");

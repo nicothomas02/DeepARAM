@@ -23,6 +23,9 @@ AP_ITEMS = "sorcerers,ludens,rabadons,shadowflame,void_staff,zhonyas"
 DUMMIES = "fixed_target=1,until_death=0,enemy_damage_scale=0,cc_scale=0,dodge_chance=0"
 
 
+# Headliner pieces and stat shards (data/headliners.json) list on top of every patch's augments.
+_HEADLINER_EXTRAS = set(load_json(DATA_DIR / "headliners.json")["augments"])
+
 def summary(out):
     return out["builds"][0]["summary"]
 
@@ -200,12 +203,12 @@ def test_game_data_dir_is_what_gets_loaded(run_json, tmp_path):
     merged["DirOnlyTestAugment"] = {**sample, "name": "Dir Only Test Augment"}
     (tmp_path / "augments.json").write_text(json.dumps({"augments": merged}))
     out = run_json("mayhem_sim", ["--list", "--json", "--game-data", tmp_path])
-    keys = {a["key"] for a in out["augments"]}
+    keys = {a["key"] for a in out["augments"]} - _HEADLINER_EXTRAS
     assert keys == set(merged)
     pbe_only = set(pbe_augs["augments"]) - set(live_augs)
     assert pbe_only <= keys and "DirOnlyTestAugment" in keys
     live = run_json("mayhem_sim", ["--list", "--json"])
-    assert {a["key"] for a in live["augments"]} == set(live_augs)
+    assert {a["key"] for a in live["augments"]} - _HEADLINER_EXTRAS == set(live_augs)
 
 
 
@@ -270,7 +273,7 @@ def test_pbe_list_json_loads(run_sim):
     proc = run_sim("mayhem_sim", ["--list", "--json", "--game-data", "data/pbe"])
     assert proc.returncode == 0, proc.stderr
     out = json.loads(proc.stdout)
-    assert {a["key"] for a in out["augments"]} == set(load_json(PBE_DIR / "augments.json")["augments"])
+    assert {a["key"] for a in out["augments"]} - _HEADLINER_EXTRAS == set(load_json(PBE_DIR / "augments.json")["augments"])
 
 
 def test_pbe_fixed_build_runs(run_sim):

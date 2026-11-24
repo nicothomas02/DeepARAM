@@ -75,6 +75,10 @@ def test_list_champions(list_json, live_data):
 
 def test_list_items_and_augments(list_json, live_data):
     items, augs = list_json["items"], list_json["augments"]
+    # Headliner pieces and stat shards (data/headliners.json) come on top of the patch's augments.
+    extra = set(load_json(DATA_DIR / "headliners.json")["augments"])
+    assert extra <= {a["key"] for a in augs if a.get("headliner")}
+    augs = [a for a in augs if a["key"] not in extra]
     assert {i["key"] for i in items} == set(live_data["items"])
     assert {a["key"] for a in augs} == set(live_data["augments"])
     for entry in items + augs:

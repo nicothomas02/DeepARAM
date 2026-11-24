@@ -177,6 +177,9 @@ struct Effect {
     std::string group;      // items of one group (Last Whisper, Blight, Hydra, Lifeline) can't be bought together
     std::string needsItem;  // augments that only work with an item (Upgrade Infinity Edge): its key
     std::string bind;      // augments on one of your abilities: which kind it picks (any, aoe, missile, cc, buff)
+    // Not a regular augment (data/headliners.json): a headliner's piece (pentakill, heartsteel) or a stat
+    // shard (anvil). Never offered in augment slots or searched; added with --extra-augs.
+    std::string headliner;
     int id = 0;
     double cost = 0;
     std::vector<std::string> roles;
@@ -272,6 +275,13 @@ struct Library {
     std::map<int, std::vector<std::string>> augmentPools;
     // The augments the optimizer searches for a champion: its pool, only those with an effect.
     std::vector<std::string> augmentsFor(const ChampionKit& c, bool modeledOnly = true) const;
+    // --any-augments: every regular augment, not only the champion's pool (headliner pieces never).
+    bool anyAugments = false;
+    // --extra-augs: headliner pieces and stat shards added to every build of the champion simulated.
+    std::vector<std::string> extraAugments;
+    // Headliners (data/headliners.json) for the viewer: key, name, augment slots, level cap, extra rows.
+    struct Headliner { std::string key, name; int augmentSlots = 4, levelCap = 18, empowerments = 0, stickers = 0; };
+    std::vector<Headliner> headliners;
 
     // Settings a user can change (the viewer's controls, or --set key=value), by name:
     // model rules, which shape every champion's kit, and fight settings, applied on top
