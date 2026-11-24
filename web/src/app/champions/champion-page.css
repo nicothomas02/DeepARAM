@@ -1907,9 +1907,10 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
 .cp-game ol.cp-buy-order > li.cp-core-box {
   position: relative;
   padding: 1.15rem 0.45rem 0.3rem;
-  border: 1px solid rgb(var(--gold-rgb) / 0.55);
+  /* Grey, not gold: the core is a suggestion, not a must (Nico 2026-11-24). */
+  border: 1px dashed color-mix(in srgb, var(--muted) 45%, transparent);
   border-radius: 10px;
-  background: rgb(var(--gold-rgb) / 0.06);
+  background: color-mix(in srgb, var(--muted) 6%, transparent);
 }
 .cp-game .cp-core-box > ol.cp-buy-order {
   display: flex;
@@ -1924,7 +1925,7 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--muted);
 }
 .cp-game ol.cp-buy-order > li + li::before {
   content: "›";
