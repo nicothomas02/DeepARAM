@@ -1,6 +1,6 @@
 // Shared by the header's theme switch and the layout's before-paint script.
 export const THEME_KEY = "deeparam-theme";
-export const THEME_COLORS = { light: "#e7ebef", dark: "#090b0f" };
+export const THEME_COLORS = { light: "#dce1e7", dark: "#090b0f" };
 export const THEME_EVENT = "deeparam-theme";
 
 const ORIGINAL = new WeakMap<CSSMediaRule, string>();

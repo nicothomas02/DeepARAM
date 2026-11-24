@@ -17,6 +17,8 @@ export default function SubTabs({
     label: string;
     content: React.ReactNode;
     lazy?: boolean;
+    /** Other ?tab= values that open this tab: views inside it that keep their own links (Headliners). */
+    aliases?: string[];
   }[];
   ns?: string;
 }) {
@@ -32,7 +34,8 @@ export default function SubTabs({
   useEffect(() => {
     const sync = () => {
       const want = new URLSearchParams(location.search).get("tab");
-      setActive(want && tabs.some((t) => t.id === want) ? want : tabs[0]?.id);
+      const hit = want ? tabs.find((t) => t.id === want || t.aliases?.includes(want)) : undefined;
+      setActive(hit?.id ?? tabs[0]?.id);
     };
     sync();
     window.addEventListener("popstate", sync);

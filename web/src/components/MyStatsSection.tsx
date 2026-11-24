@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { ACCOUNT_EVENT, signedIn } from "@/lib/account-sync";
-import Embed from "./Embed";
+import Link from "next/link";
 import { useT } from "./I18n";
 
 // My Stats on the account page (/account#my-stats), under the account cards. Signed in, it shows the stats
@@ -151,23 +151,18 @@ export default function MyStatsSection() {
   }, [inside]);
 
   if (inside === null) return null;
+  // The stats dashboard moved to the desktop apps (Nico, 2026-11-24: "App has taken over my stats"); the section keeps
+  // the one-click connect and a link to the app.
   return (
     <section id="my-stats" className="my-stats">
       <h2>{t("My Stats")}</h2>
       {pair && inside && <ConnectCard pair={pair} onDone={clearPair} />}
-      {inside ? (
-        <>
-          <p className="lede">
-            {t("Import your games with the button below. You need to be connected to the Riot Client: open it on this computer and sign in first. Your games stay on your computer.")}
-          </p>
-          <p className="acct-hint">{t("Sharing your games anonymously from Mayhem Stats builds stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion. It's off unless you turn it on, and never includes names or account ids.")}</p>
-          <Embed src="/embed/dashboard/index.html" title={t("My Stats")} minHeight={420} />
-        </>
+      {pair && !inside ? (
+        <p className="lede">{t("Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.")}</p>
       ) : (
         <p className="lede">
-          {pair
-            ? t("Sign in above to connect Mayhem Stats. You'll be asked to confirm right after.")
-            : t("Sign in above to see your Mayhem games here: win rate, champions, augments and recent matches.")}
+          {t("Your Mayhem games, win rate and matches are in the DeepARAM desktop app now.")}{" "}
+          <Link href="/download">{t("Get the app →")}</Link>
         </p>
       )}
     </section>

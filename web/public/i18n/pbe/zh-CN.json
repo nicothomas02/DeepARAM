@@ -66,5 +66,6 @@
  "outside": "范围外",
  "Patch {patch}": "{patch} 版本",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} 位英雄，误差 {mae} 个百分点（对比 {base}），{in95}% 在范围内",
- "All patches": "所有版本"
+ "All patches": "所有版本",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "{patch} 版本：已保存 1 位英雄的预测。一周对局后给出结果（第 {day} 天，共 {of} 天）。"
 }

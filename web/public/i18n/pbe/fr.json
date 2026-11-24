@@ -66,5 +66,6 @@
  "outside": "hors fourchette",
  "Patch {patch}": "Patch {patch}",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} champions, erreur {mae} pts contre {base}, {in95} % dans la fourchette",
- "All patches": "Tous les patchs"
+ "All patches": "Tous les patchs",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch} : la prévision pour 1 champion est enregistrée. Le bilan arrive après une semaine de parties (jour {day} sur {of})."
 }

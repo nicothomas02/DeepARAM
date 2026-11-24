@@ -60,8 +60,11 @@ const nextConfig: NextConfig = {
       ["/admin/simulator", "/simulator"],
       // The 3D Simulator opens from the owner-only switch on /simulator now.
       ["/account/simulator", "/simulator"],
-      // My Stats moved onto the account page.
-      ["/stats", "/account#my-stats"],
+      // My Stats moved onto the account page, then to the desktop apps (2026-11-24).
+      ["/stats", "/account"],
+      // Research is part of the Methodology page; Region Teams was removed (Nico, 2026-11-24: cut bloat).
+      ["/research", "/methodology#research"],
+      ["/info/region-teams", "/info"],
     ]
       .map(([source, destination]) => ({ source, destination, permanent: true }))
       .concat([

@@ -10,7 +10,7 @@ import type { PatchSchedule } from "@/lib/patch-schedule";
 import PatchCountdown from "@/components/PatchCountdown";
 import { championSplash, championTile } from "@/lib/champions";
 import { FunLists, KitchenPick, TierSnapshot } from "@/components/HomeWidgets";
-import { funLists, powerCurveLists, profileValue, typicalGame } from "@/lib/estimates";
+import { funLists, profileValue } from "@/lib/estimates";
 import { liveWithChange } from "@/lib/champions";
 import championIds from "@/data/champion-ids.json";
 import { KITCHEN } from "@/lib/tabs";
@@ -35,30 +35,19 @@ const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 const topDuos = (n = 5) => [...duoRows()].sort((a, b) => b.delta - a.delta).slice(0, n);
 
 // The number each "Top 10 at" list ranks on, written for its row (FunLists adds the unit): live-patch
-// shares, estimated typical-game numbers, and simulated damage at level 8 → 18 for early and late game.
+// shares and estimated typical-game numbers.
 function funValues(): Record<string, (id: number, alias: string) => string | null> {
   const live = new Map(liveWithChange().live.map((c) => [c.name, c]));
-  const ranks = powerCurveLists().ranks;
   const fmt = (v: number | null | undefined, f: (v: number) => string) => (typeof v === "number" ? f(v) : null);
   const int = (v: number) => Math.round(v).toLocaleString("en-US");
   const one = (v: number) => v.toFixed(1);
-  const curve = (id: number) => {
-    const r = ranks.get(id);
-    return r ? `${Math.round(r.early * 100)}% → ${Math.round(r.late * 100)}%` : null;
-  };
   return {
     damage: (_, a) => fmt(live.get(a)?.damage, pct),
     tank: (_, a) => fmt(live.get(a)?.tank, pct),
     teamplay: (_, a) => fmt(live.get(a)?.kp, pct),
     healing: (id) => fmt(profileValue(id, "heal_per_min"), int),
     crowd_control: (id) => fmt(profileValue(id, "cc_seconds"), one),
-    mitigated: (id) => fmt(profileValue(id, "mitigated_per_min"), int),
-    cs: (id) => fmt(profileValue(id, "cs"), one),
-    pentakills: (id) => fmt(profileValue(id, "pentakills"), (v) => (v > 0 ? Math.round(1 / v).toLocaleString("en-US") : "—")),
     dead: (_, a) => fmt(live.get(a)?.dead, (v) => `${Math.floor(v / 60)}m ${String(Math.round(v % 60)).padStart(2, "0")}s`),
-    towers: (id) => fmt(profileValue(id, "turret_damage"), int),
-    early_game: curve,
-    late_game: curve,
   };
 }
 
@@ -91,7 +80,6 @@ export default function Home() {
   const schedule = readRepoJson<PatchSchedule>("data/patch-schedule.json");
   const last = recapPatches()[0];
   const latest = last ? recap(last) : null;
-  const game = typicalGame();
   const value = funValues();
   // Lists the daily estimates don't carry are ranked here, from the same numbers (most time dead first).
   const live = new Map(liveWithChange().live.map((c) => [c.name, c]));
@@ -105,13 +93,12 @@ export default function Home() {
       .slice(0, 10)
       .map((x) => x.id);
   const extra = {
-    mitigated: topBy((id) => profileValue(id, "mitigated_per_min")),
-    cs: topBy((id) => profileValue(id, "cs")),
-    pentakills: topBy((id) => profileValue(id, "pentakills")),
     dead: topBy((id) => live.get(ALIAS[id])?.dead),
   };
+  // Six lists, the ones a player reads a champion by (Nico, 2026-11-24: trimmed from 12 to cut bloat).
+  const KEEP = new Set(["damage", "tank", "healing", "crowd_control", "teamplay", "dead"]);
   const fun = Object.fromEntries(
-    Object.entries({ ...funLists(), ...extra, early_game: powerCurveLists().early, late_game: powerCurveLists().late }).map(([k, ids]) => [
+    Object.entries({ ...funLists(), ...extra }).filter(([k]) => KEEP.has(k)).map(([k, ids]) => [
       k,
       ids.flatMap((id) => (ALIAS[id] ? [{ id: ALIAS[id], name: NAMES[ALIAS[id]] ?? ALIAS[id], value: value[k]?.(id, ALIAS[id]) ?? null }] : [])),
     ]),
@@ -417,28 +404,6 @@ export default function Home() {
               </span>
             </div>
             <FunLists lists={fun} />
-          </section>
-        )}
-        {game && (
-          // A slim strip: one number doesn't need a card of its own. No blue/red side split: it came from one player's
-          // lobbies only (about 1,000 games, ±3 pts), which reads as a fact about Mayhem (2026-11-23).
-          <section className="card span-all home-typical" data-accent="gold">
-            <h2>
-              <T>A typical game</T>
-              <span className="card-note">
-                <T>Estimated</T>
-              </span>
-            </h2>
-            <div className="stat-row">
-              <div>
-                <b>
-                  <T v={{ n: Math.round(game.minutes) }}>{"{n} min"}</T>
-                </b>
-                <span>
-                  <T>game length</T>
-                </span>
-              </div>
-            </div>
           </section>
         )}
         {builds.length > 0 && (

@@ -206,8 +206,6 @@
  "Recording a game ({champion})": "กำลังบันทึกเกม ({champion})",
  "{n} recorded": "บันทึกแล้ว {n}",
  "Your Mayhem games, in one place.": "เกม ARAM: Mayhem ของคุณ รวมไว้ในที่เดียว",
- "Import your games with the button below. You need to be connected to the Riot Client: open it on this computer and sign in first. Your games stay on your computer.": "นำเข้าเกมของคุณด้วยปุ่มด้านล่าง คุณต้องเชื่อมต่อกับ Riot Client: เปิดบนคอมพิวเตอร์เครื่องนี้และเข้าสู่ระบบก่อน เกมของคุณจะอยู่บนคอมพิวเตอร์ของคุณเท่านั้น",
- "Sign in above to see your Mayhem games here: win rate, champions, augments and recent matches.": "ลงชื่อเข้าใช้ด้านบนเพื่อดูเกม Mayhem ของคุณที่นี่: อัตราชนะ แชมเปี้ยน Augment และแมตช์ล่าสุด",
  "Champions you own": "แชมเปี้ยนที่คุณมี",
  "Save games to my account": "บันทึกเกมลงในบัญชีของฉัน",
  "Off unless you turn it on. When on, each import also saves your games to your deeparam.com account, so My Stats on your account page shows them on any device. Only you can see them. Turning it off removes them from your account.": "ปิดอยู่จนกว่าคุณจะเปิด เมื่อเปิด ทุกครั้งที่นำเข้าจะบันทึกเกมของคุณลงในบัญชี deeparam.com ของคุณด้วย เพื่อให้สถิติของฉันในหน้าบัญชีของคุณแสดงเกมเหล่านั้นบนอุปกรณ์ใดก็ได้ มีเพียงคุณเท่านั้นที่เห็นได้ การปิดจะลบเกมเหล่านั้นออกจากบัญชีของคุณ",
@@ -259,7 +257,6 @@
  "Share my games anonymously to help build stats for everyone": "แชร์เกมของฉันแบบไม่ระบุตัวตนเพื่อช่วยสร้างสถิติให้ทุกคน",
  "Off unless you tick it. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off in Mayhem Stats removes everything you shared.": "ปิดอยู่จนกว่าคุณจะติ๊กเลือก เกมที่แชร์มีแชมเปี้ยน ไอเทม Augments รูน สเปล ผลการแข่งขัน และโกลด์กับค่าประสบการณ์ของผู้เล่นแต่ละคนแบบนาทีต่อนาที ไม่มีชื่อหรือไอดีบัญชีเด็ดขาด การปิดใน Mayhem Stats จะลบทุกอย่างที่คุณเคยแชร์",
  "Mayhem Stats starts sharing your games anonymously. You can turn it off there at any time.": "Mayhem Stats จะเริ่มแชร์เกมของคุณแบบไม่ระบุตัวตน คุณปิดได้ที่นั่นทุกเมื่อ",
- "Sharing your games anonymously from Mayhem Stats builds stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion. It's off unless you turn it on, and never includes names or account ids.": "การแชร์เกมของคุณแบบไม่ระบุตัวตนจาก Mayhem Stats ช่วยสร้างสถิติที่เว็บไซต์ไม่สามารถได้มาด้วยวิธีอื่น: รูน การจับคู่ คู่ Augment และจำนวนเกมจริงของแชมเปี้ยนทุกตัว ฟีเจอร์นี้ปิดอยู่จนกว่าคุณจะเปิด และไม่มีชื่อหรือไอดีบัญชีเด็ดขาด",
  "Shared games build stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion.": "เกมที่แชร์ช่วยสร้างสถิติที่เว็บไซต์ไม่สามารถได้มาด้วยวิธีอื่น: รูน การจับคู่ คู่ Augment และจำนวนเกมจริงของแชมเปี้ยนทุกตัว",
  "1 loss": "แพ้ 1 เกม",
  "1 win": "ชนะ 1 เกม",
@@ -376,5 +373,7 @@
  "{n} quadra kills": "ควอดราคิล {n} ครั้ง",
  "{wr} in your other games": "{wr} ในเกมอื่นของคุณ",
  "1 game together": "เล่นด้วยกัน 1 เกม",
- "{n} games together": "เล่นด้วยกัน {n} เกม"
+ "{n} games together": "เล่นด้วยกัน {n} เกม",
+ "Your Mayhem games, win rate and matches are in the DeepARAM desktop app now.": "เกม Mayhem อัตราชนะ และแมตช์ของคุณย้ายไปอยู่ในแอป DeepARAM บนคอมพิวเตอร์แล้ว",
+ "Get the app →": "ดาวน์โหลดแอป →"
 }

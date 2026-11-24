@@ -66,5 +66,6 @@
  "outside": "außerhalb",
  "Patch {patch}": "Patch {patch}",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} Champions, Abweichung {mae} Pkt. gegenüber {base}, {in95} % im Bereich",
- "All patches": "Alle Patches"
+ "All patches": "Alle Patches",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "Patch {patch}: Die Prognose für 1 Champion ist gespeichert. Die Auswertung folgt nach einer Woche Spiele (Tag {day} von {of})."
 }

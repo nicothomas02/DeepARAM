@@ -57,7 +57,6 @@ jobs:
           # Kept only when the Kitchen tests still pass (new text could need translating first)
           (cd tools/fun/ryze-calculator && python3 build_data.py) \
             && (cd tools/fun/ashe-calculator && python3 build_data.py) \
-            && (cd tools/fun/region-teams && python3 build_data.py) \
             && python3 tools/fun/i18n/build_keys.py \
             && python -m pytest tests/data/test_data_lab_tools.py -q \
             || { echo "::warning::Kitchen tools kept on the old patch"; git checkout -- tools/fun; }

@@ -295,7 +295,6 @@ const SPOTS = [
   { id: "augments", label: "Augments" },
   { id: "combos", label: "Augment synergies" },
   { id: "builds", label: "Items" },
-  { id: "synergies", label: "Win rate boosts" },
   { id: "spells", label: "Spells and skills" },
   { id: "teammates", label: "Teammates" },
   { id: "playstyle", label: "Playstyle" },
@@ -1281,12 +1280,11 @@ export default async function ChampionPage({
 
           {synergies.length > 0 && (
             <>
-              <h2 className="cp-group" id="synergies">
-                <T ns={NS}>Win rate boosts</T>
-              </h2>
-              {/* It repeats the item lists above as points over the usual pick, so Simple view folds it. */}
+              {/* It repeats the item lists above as points over the usual pick, so Simple view folds it. It sits at the end
+                  of Items, with no heading of its own (Nico, 2026-11-24: cut bloat). */}
               <Fold section="synergies" titles={["What fits this champion"]}>
               <Panel
+                id="synergies"
                 title="What fits this champion"
                 note={<T ns={NS}>{"Score: points of win rate over the usual choice. Choices with few games lean on the estimate."}</T>}
               >
@@ -1668,7 +1666,7 @@ export default async function ChampionPage({
           )}
         </div>
 
-        <SectionRail spots={SPOTS.filter((s) => s.id !== "synergies" || synergies.length > 0)} />
+        <SectionRail spots={SPOTS} />
       </div>
     </>
   );

@@ -206,8 +206,6 @@
  "Recording a game ({champion})": "Grabando una partida ({champion})",
  "{n} recorded": "{n} grabadas",
  "Your Mayhem games, in one place.": "Tus partidas de ARAM: Caos, en un solo lugar.",
- "Import your games with the button below. You need to be connected to the Riot Client: open it on this computer and sign in first. Your games stay on your computer.": "Importa tus partidas con el botón de abajo. Necesitas estar conectado al cliente de Riot: ábrelo en esta computadora e inicia sesión primero. Tus partidas se quedan en tu computadora.",
- "Sign in above to see your Mayhem games here: win rate, champions, augments and recent matches.": "Inicia sesión arriba para ver aquí tus partidas de Caos: tasa de victorias, campeones, aumentos y partidas recientes.",
  "Champions you own": "Campeones que tienes",
  "Save games to my account": "Guardar partidas en mi cuenta",
  "Off unless you turn it on. When on, each import also saves your games to your deeparam.com account, so My Stats on your account page shows them on any device. Only you can see them. Turning it off removes them from your account.": "Desactivado a menos que lo actives. Si está activado, cada importación también guarda tus partidas en tu cuenta de deeparam.com, para que Mis estadísticas en la página de tu cuenta las muestre en cualquier dispositivo. Solo tú puedes verlas. Al desactivarlo se eliminan de tu cuenta.",
@@ -259,7 +257,6 @@
  "Share my games anonymously to help build stats for everyone": "Compartir mis partidas de forma anónima para ayudar a crear estadísticas para todos",
  "Off unless you tick it. Shared games carry champions, items, augments, runes, spells, results and each player's gold and experience minute by minute, never names or account ids. Turning it off in Mayhem Stats removes everything you shared.": "Desactivado a menos que lo marques. Las partidas compartidas incluyen campeones, objetos, aumentos, runas, hechizos, resultados y el oro y la experiencia de cada jugador minuto a minuto, nunca nombres ni identificadores de cuenta. Al desactivarlo en Mayhem Stats se elimina todo lo que hayas compartido.",
  "Mayhem Stats starts sharing your games anonymously. You can turn it off there at any time.": "Mayhem Stats comienza a compartir tus partidas de forma anónima. Puedes desactivarlo ahí en cualquier momento.",
- "Sharing your games anonymously from Mayhem Stats builds stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion. It's off unless you turn it on, and never includes names or account ids.": "Compartir tus partidas de forma anónima desde Mayhem Stats crea estadísticas que el sitio no puede obtener de ninguna otra forma: runas, enfrentamientos, parejas de aumentos y conteos reales de partidas de cada campeón. Está desactivado a menos que lo actives y nunca incluye nombres ni identificadores de cuenta.",
  "Shared games build stats the site can't get any other way: runes, matchups, augment pairs and real game counts for every champion.": "Las partidas compartidas crean estadísticas que el sitio no puede obtener de ninguna otra forma: runas, enfrentamientos, parejas de aumentos y conteos reales de partidas de cada campeón.",
  "1 loss": "1 derrota",
  "1 win": "1 victoria",
@@ -376,5 +373,7 @@
  "{n} quadra kills": "{n} quadrakills",
  "{wr} in your other games": "{wr} en tus otras partidas",
  "1 game together": "1 partida juntos",
- "{n} games together": "{n} partidas juntos"
+ "{n} games together": "{n} partidas juntos",
+ "Your Mayhem games, win rate and matches are in the DeepARAM desktop app now.": "Tus partidas de Mayhem, tu tasa de victorias y tus juegos ahora están en la app de escritorio de DeepARAM.",
+ "Get the app →": "Descargar la app →"
 }

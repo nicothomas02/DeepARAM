@@ -1,17 +1,7 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";
-import { pageMeta } from "@/lib/meta";
 import { patchImpactSummary, simulatorValidation } from "@/lib/research";
 
-export const metadata: Metadata = pageMeta(
-  "/research",
-  "Research",
-  "Three questions DeepARAM tested on its own numbers: how much the draft decides, whether patch changes work, and whether the Simulator matches real games.",
-);
-
-// Three case studies (Nico 2026-11-12): question, method, result with its uncertainty, limits. Site rules: no
+// Three case studies (Nico 2026-11-12), on the Methodology page since 2026-11-24 (one page instead of two): question, method, result with its uncertainty, limits. Site rules: no
 // data sources or backend, no augment win rates, no mention of which AI model helped. The win-prediction figures
 // are one fixed run (analysis/win-prediction, 2026-11-06, 1,081 games); the other two read the daily analysis files.
 const NS = "research";
@@ -19,36 +9,39 @@ const NS = "research";
 function Study({ title, q, m, r, l }: { title: React.ReactNode; q: React.ReactNode; m: React.ReactNode; r: React.ReactNode; l: React.ReactNode }) {
   return (
     <article className="card prose">
-      <h2>{title}</h2>
-      <h3>
+      <h3 className="research-q">{title}</h3>
+      <h4>
         <T ns={NS}>Question</T>
-      </h3>
+      </h4>
       <p>{q}</p>
-      <h3>
+      <h4>
         <T ns={NS}>Method</T>
-      </h3>
+      </h4>
       <p>{m}</p>
-      <h3>
+      <h4>
         <T ns={NS}>Result</T>
-      </h3>
+      </h4>
       <p>{r}</p>
-      <h3>
+      <h4>
         <T ns={NS}>Limits</T>
-      </h3>
+      </h4>
       <p>{l}</p>
     </article>
   );
 }
 
-export default function Research() {
+export default function ResearchStudies() {
   const impact = patchImpactSummary();
   const sim = simulatorValidation();
   const f2 = (x: number) => x.toFixed(2);
   return (
-    <>
-      <Intro eyebrow={<T ns={NS}>Research</T>} title={<T ns={NS}>Three questions we tested.</T>}>
+    <section id="research" className="research">
+      <h2 className="research-head">
+        <T ns={NS}>Three questions we tested.</T>
+      </h2>
+      <p className="muted">
         <T ns={NS}>How we test our own numbers: the question, the method, the result with its uncertainty, and the limits.</T>
-      </Intro>
+      </p>
       <Study
         title={<T ns={NS}>How much does the draft decide?</T>}
         q={<T ns={NS}>Once both teams are locked in, how well do the ten champions predict who wins?</T>}
@@ -116,11 +109,6 @@ export default function Research() {
           }
         />
       )}
-      <p>
-        <Link href="/methodology">
-          <T ns={NS}>See the Methodology page for how the numbers are made.</T>
-        </Link>
-      </p>
-    </>
+    </section>
   );
 }

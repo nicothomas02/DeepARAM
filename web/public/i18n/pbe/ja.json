@@ -66,5 +66,6 @@
  "outside": "範囲外",
  "Patch {patch}": "パッチ{patch}",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n}体、誤差{mae}ポイント（比較{base}）、範囲内{in95}%",
- "All patches": "全パッチ"
+ "All patches": "全パッチ",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "パッチ{patch}：1体のチャンピオンの予測を保存済みです。結果は1週間分の試合の後に出ます（{of}日中{day}日目）。"
 }

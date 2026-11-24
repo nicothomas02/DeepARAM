@@ -16,7 +16,6 @@ const PAGES = [
   "/kitchen",
   "/calculators",
   "/calculators?tab=infinite-ashe",
-  "/info/region-teams",
   "/champions/Ahri",
   "/champions/Yunara",
   // Its augment list tags augments that change the build ("Changes your build" inside the row's link).
@@ -29,7 +28,6 @@ const PAGES = [
   "/privacy",
   "/terms",
   "/methodology",
-  "/research",
 ];
 
 // Data-origin and backend names that must never show on a page (site rule), and the mode's internal name.
@@ -89,6 +87,8 @@ test("old addresses redirect to the current tabs", async ({ page }) => {
     ["/tools/fun", "/kitchen"],
     ["/lab", "/kitchen"],
     ["/stats", "/account"],
+    ["/research", "/methodology"],
+    ["/info/region-teams", "/info"],
     ["/status", "/"],
     ["/simulator/infinite-ryze", "/calculators?tab=infinite-ryze"],
     ["/simulator?tab=infinite-ryze", "/calculators?tab=infinite-ryze"],
@@ -289,7 +289,7 @@ test("augment and item pages show the official description under the name, the l
 });
 
 test("champion pages list Synergies and the Adjusted / Raw switch relabels build win rates", async ({ page }) => {
-  // Win rate boosts sit in a fold; its section link opens it.
+  // What fits this champion sits in a fold at the end of Items; its #synergies link opens it.
   await page.goto("/champions/Jinx#synergies");
   const syn = page.locator(".cp-panel .syn");
   await expect(syn.locator(".syn-row").first()).toContainText("pts");
@@ -384,10 +384,10 @@ test("champion header timeframe: live patch by default, then patches, sets or al
 });
 
 test("each Synergies list opens on its best score, and no Simulator-made panel shows on champion pages", async ({ page }) => {
-  await page.goto("/champions/Braum");
+  // "What fits this champion" has no rail link since Win rate boosts left the page (2026-11-24); its #anchor opens the fold.
+  await page.goto("/champions/Braum#synergies");
   // The Simulator is a fun tool only for now (lib/sim-policy.ts): no build picker, Best upgrades or "Changes your build" tag.
   await expect(page.locator("#augment-builds, #upgrades, .cp-changes")).toHaveCount(0);
-  await page.locator('.cp-rail a[href="#synergies"]').click();
   const syn = page.locator(".cp-panel .syn");
   await syn.locator(".syn-sort").filter({ hasText: "Pick rate" }).click();
   await expect(syn.locator(".syn-sort[aria-pressed=true]")).toContainText("Pick rate");

@@ -66,5 +66,6 @@
  "outside": "poza",
  "Patch {patch}": "Łatka {patch}",
  "{n} champions, miss {mae} pts against {base}, {in95}% in range": "{n} bohaterów, błąd {mae} pkt wobec {base}, {in95}% w zakresie",
- "All patches": "Wszystkie łatki"
+ "All patches": "Wszystkie łatki",
+ "Patch {patch}: the forecast for 1 champion is saved. The score comes after a week of games (day {day} of {of}).": "Łatka {patch}: prognoza dla 1 bohatera jest zapisana. Wynik pojawi się po tygodniu gier (dzień {day} z {of})."
 }

@@ -13,9 +13,9 @@ import html.parser, json, os, re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FUN = os.path.dirname(HERE)
-PAGES = ["index.html", "cook-builds/index.html", "region-teams/index.html", "ryze-calculator/index.html",
+PAGES = ["index.html", "cook-builds/index.html", "ryze-calculator/index.html",
          "ashe-calculator/index.html"]
-SCRIPTS = ["index.html", "cook-builds/app.js", "region-teams/app.js", "ryze-calculator/app.js", "ryze-calculator/calc.js",
+SCRIPTS = ["index.html", "cook-builds/app.js", "ryze-calculator/app.js", "ryze-calculator/calc.js",
            "ashe-calculator/app.js"]
 STR = r'"((?:[^"\\]|\\.)*)"'
 
@@ -81,11 +81,6 @@ def main():
         keys += [x for pair in b.get("how", []) for x in pair]
         for a in b["augments"]:
             keys += [a["text"], a["rarity"]]
-    regions = js_data("region-teams/data.js", "REGION_DATA")
-    for r in regions["regions"]:
-        keys.append(r["name"])
-        for c in r["champions"]:
-            keys += c["classes"]
     ryze_data = js_data("ryze-calculator/data.js", "RYZE_DATA")
     keys += [i["text"] for i in ryze_data["items"] if i.get("text")]
     keys += [a["text"] for a in ryze_data["augments"] if a.get("text")] + [a["tier"] for a in ryze_data["augments"]]
