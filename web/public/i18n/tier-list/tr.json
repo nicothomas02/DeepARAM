@@ -70,5 +70,12 @@
  "1st augment": "1. güçlendirme",
  "2nd augment": "2. güçlendirme",
  "3rd augment": "3. güçlendirme",
- "4th augment": "4. güçlendirme"
+ "4th augment": "4. güçlendirme",
+ "All players": "Tüm oyuncular",
+ "Casual": "Gündelik",
+ "Mid": "Orta",
+ "Top 5%": "İlk %5",
+ "Skill bracket": "Beceri seviyesi",
+ "Skill brackets come from a rating built from game results, not official ranks.": "Seviyeler resmi kümelerden değil, maç sonuçlarından hesaplanan bir puandan gelir.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Bu yamada henüz seviye verisi yok, bu yüzden {patch} yamasından alınıyor."
 }

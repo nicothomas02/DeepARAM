@@ -70,5 +70,12 @@
  "1st augment": "التعزيز الأول",
  "2nd augment": "التعزيز الثاني",
  "3rd augment": "التعزيز الثالث",
- "4th augment": "التعزيز الرابع"
+ "4th augment": "التعزيز الرابع",
+ "All players": "كل اللاعبين",
+ "Casual": "عاديون",
+ "Mid": "متوسط",
+ "Top 5%": "أفضل 5%",
+ "Skill bracket": "مستوى المهارة",
+ "Skill brackets come from a rating built from game results, not official ranks.": "تأتي المستويات من تقييم مبني على نتائج المباريات، لا من الرتب الرسمية.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "لا تتوفر بعد أرقام حسب المستوى لهذا التحديث، لذا هي من التحديث {patch}."
 }

@@ -70,5 +70,12 @@
  "1st augment": "第1个强化符文",
  "2nd augment": "第2个强化符文",
  "3rd augment": "第3个强化符文",
- "4th augment": "第4个强化符文"
+ "4th augment": "第4个强化符文",
+ "All players": "所有玩家",
+ "Casual": "休闲",
+ "Mid": "中等",
+ "Top 5%": "前 5%",
+ "Skill bracket": "水平段",
+ "Skill brackets come from a rating built from game results, not official ranks.": "水平段来自根据对局结果计算的评分，而非官方段位。",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "此版本暂无分段数据，因此使用 {patch} 版本的数据。"
 }

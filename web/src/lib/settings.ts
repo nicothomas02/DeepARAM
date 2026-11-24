@@ -27,13 +27,15 @@ export type Settings = {
   text: "standard" | "large" | "larger";
   /** Reopen the Tier List the way it was left. */
   remember: boolean;
+  /** The Tier List's skill bracket; "auto" = All players, or Top 5% for the site owner. */
+  bracket: "auto" | "all" | "casual" | "mid" | "high";
   /** The Tier List's starting patch range. */
   tierRange: "live" | "set" | "last3" | "all";
   /** "simple" hides fine print and expert controls site-wide (html[data-view]); "detailed" shows everything. */
   view: "simple" | "detailed";
 };
 
-export const DEFAULT_SETTINGS: Settings = { motion: "system", sound: true, announcer: "female1", uiSound: false, haptics: true, graphics: "auto", contrast: "standard", colors: "standard", remember: true, text: "standard", tierRange: "live", view: "simple" };
+export const DEFAULT_SETTINGS: Settings = { motion: "system", sound: true, announcer: "female1", uiSound: false, haptics: true, graphics: "auto", contrast: "standard", colors: "standard", remember: true, text: "standard", tierRange: "live", bracket: "auto", view: "simple" };
 
 export function loadSettings(): Settings {
   try {

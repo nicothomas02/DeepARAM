@@ -70,5 +70,12 @@
  "1st augment": "1º potenziamento",
  "2nd augment": "2º potenziamento",
  "3rd augment": "3º potenziamento",
- "4th augment": "4º potenziamento"
+ "4th augment": "4º potenziamento",
+ "All players": "Tutti i giocatori",
+ "Casual": "Occasionali",
+ "Mid": "Medio",
+ "Top 5%": "Top 5%",
+ "Skill bracket": "Livello di abilità",
+ "Skill brackets come from a rating built from game results, not official ranks.": "I livelli derivano da un punteggio basato sui risultati delle partite, non dai ranghi ufficiali.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Questa patch non ha ancora dati per livello, quindi vengono dalla patch {patch}."
 }

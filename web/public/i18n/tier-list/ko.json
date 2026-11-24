@@ -70,5 +70,12 @@
  "1st augment": "1번째 증강",
  "2nd augment": "2번째 증강",
  "3rd augment": "3번째 증강",
- "4th augment": "4번째 증강"
+ "4th augment": "4번째 증강",
+ "All players": "모든 플레이어",
+ "Casual": "캐주얼",
+ "Mid": "중간",
+ "Top 5%": "상위 5%",
+ "Skill bracket": "실력 구간",
+ "Skill brackets come from a rating built from game results, not official ranks.": "실력 구간은 공식 랭크가 아니라 경기 결과로 만든 점수에서 나옵니다.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "이 패치는 아직 구간별 수치가 없어 {patch} 패치 수치를 사용합니다."
 }

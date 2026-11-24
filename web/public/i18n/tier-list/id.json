@@ -70,5 +70,12 @@
  "1st augment": "Augment ke-1",
  "2nd augment": "Augment ke-2",
  "3rd augment": "Augment ke-3",
- "4th augment": "Augment ke-4"
+ "4th augment": "Augment ke-4",
+ "All players": "Semua pemain",
+ "Casual": "Kasual",
+ "Mid": "Menengah",
+ "Top 5%": "Top 5%",
+ "Skill bracket": "Tingkat skill",
+ "Skill brackets come from a rating built from game results, not official ranks.": "Tingkat berasal dari rating berdasarkan hasil pertandingan, bukan rank resmi.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Patch ini belum punya angka per tingkat, jadi diambil dari patch {patch}."
 }

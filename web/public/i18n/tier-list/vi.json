@@ -70,5 +70,12 @@
  "1st augment": "Lõi Nâng Cấp thứ 1",
  "2nd augment": "Lõi Nâng Cấp thứ 2",
  "3rd augment": "Lõi Nâng Cấp thứ 3",
- "4th augment": "Lõi Nâng Cấp thứ 4"
+ "4th augment": "Lõi Nâng Cấp thứ 4",
+ "All players": "Tất cả người chơi",
+ "Casual": "Bình thường",
+ "Mid": "Trung bình",
+ "Top 5%": "Top 5%",
+ "Skill bracket": "Trình độ",
+ "Skill brackets come from a rating built from game results, not official ranks.": "Trình độ dựa trên điểm tính từ kết quả trận đấu, không phải rank chính thức.",
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Bản này chưa có số liệu theo trình độ nên dùng của bản {patch}."
 }

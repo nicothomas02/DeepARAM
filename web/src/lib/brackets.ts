@@ -32,3 +32,23 @@ export function bracketData(): BracketData {
   }
   return out;
 }
+
+/** One champion's [win rate, pick rate] per skill bracket from the newest patch that has brackets (up to `patch`),
+ *  with that patch, or null when none has them. */
+export function championBrackets(alias: string, patch: string | null) {
+  const data = bracketData();
+  const key = (p: string) => p.split(".").map(Number);
+  const newer = (a: string, b: string) => key(a)[0] - key(b)[0] || key(a)[1] - key(b)[1];
+  const p = Object.keys(data)
+    .filter((x) => !patch || newer(x, patch) <= 0)
+    .sort(newer)
+    .reverse()
+    .find((x) => BRACKETS.some((b) => data[x][b]?.champs[alias]));
+  if (!p) return null;
+  const rates: Partial<Record<Bracket, [number, number]>> = {};
+  for (const b of BRACKETS) {
+    const c = data[p][b]?.champs[alias];
+    if (c) rates[b] = c;
+  }
+  return { patch: p, rates };
+}

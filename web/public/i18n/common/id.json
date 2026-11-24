@@ -239,7 +239,7 @@
  "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "Simulator pertarungan lengkap mengadu build dengan kit asli, jadi kamu tahu kenapa sebuah build menang, bukan hanya bahwa ia menang.",
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM dibuat khusus untuk ARAM Mayhem. Peringkatnya berasal dari data science, dan build diuji di simulator pertarungan.",
  "Announcer": "Announcer",
- "Default": "Default",
+ "Default": "Bawaan",
  "Male": "Pria",
  "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Dibuat khusus untuk Mayhem, dengan statistik yang memprediksi, bukan sekadar menghitung, plus simulator pertarungan untuk dimainkan.",
  "A fight simulator to play with": "Simulator pertarungan untuk dimainkan",
@@ -254,5 +254,10 @@
  "No saved builds for these patches.": "Tidak ada build tersimpan untuk patch ini.",
  "Kitchen": "Dapur",
  "Calculators": "Kalkulator",
- "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP and Infinite Ashe's endless R.": "Seberapa jauh loop paling gila di ARAM Mayhem: AP Ryze tanpa batas dan R Ashe yang tak ada habisnya."
+ "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP and Infinite Ashe's endless R.": "Seberapa jauh loop paling gila di ARAM Mayhem: AP Ryze tanpa batas dan R Ashe yang tak ada habisnya.",
+ "All players": "Semua pemain",
+ "Casual": "Kasual",
+ "Mid": "Menengah",
+ "Top 5%": "Top 5%",
+ "Tier List skill bracket": "Tingkat skill Tier List"
 }

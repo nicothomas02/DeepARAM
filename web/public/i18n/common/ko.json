@@ -239,7 +239,7 @@
  "A full combat simulator runs builds against real kits, so you see why a build wins, not just that it did.": "완전한 전투 시뮬레이터가 실제 스킬 구성을 상대로 빌드를 돌려 보므로, 빌드가 이겼다는 사실뿐 아니라 왜 이기는지까지 알 수 있습니다.",
  "DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and builds are tested in a fight simulator.": "DeepARAM은 무작위 총력전: 아수라장 전용 사이트입니다. 순위는 데이터 과학으로 산출하고, 빌드는 전투 시뮬레이터로 검증합니다.",
  "Announcer": "아나운서",
- "Default": "기본",
+ "Default": "기본값",
  "Male": "남성",
  "Built just for Mayhem, with stats that predict instead of just count, and a fight simulator to play with.": "Mayhem만을 위해 만든 사이트. 세기만 하는 대신 예측하는 통계와, 즐길 수 있는 전투 시뮬레이터.",
  "A fight simulator to play with": "즐길 수 있는 전투 시뮬레이터",
@@ -254,5 +254,10 @@
  "No saved builds for these patches.": "이 패치들에 저장된 빌드가 없습니다.",
  "Kitchen": "주방",
  "Calculators": "계산기",
- "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP and Infinite Ashe's endless R.": "ARAM 메이헴의 가장 정신 나간 루프는 어디까지 갈까: 무한 라이즈의 주문력과 무한 애쉬의 끝없는 R."
+ "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP and Infinite Ashe's endless R.": "ARAM 메이헴의 가장 정신 나간 루프는 어디까지 갈까: 무한 라이즈의 주문력과 무한 애쉬의 끝없는 R.",
+ "All players": "모든 플레이어",
+ "Casual": "캐주얼",
+ "Mid": "중간",
+ "Top 5%": "상위 5%",
+ "Tier List skill bracket": "티어 리스트 실력 구간"
 }

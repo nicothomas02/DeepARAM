@@ -123,6 +123,7 @@ export default function SettingsMenu() {
             }}
           />
           <Choice label="Tier List starts on" value={s.tierRange === "last3" ? "set" : s.tierRange} options={[["live", "Live patch"], ["set", "This set"], ["all", "All time"]]} onChange={(tierRange) => set({ tierRange })} />
+          <Choice label="Tier List skill bracket" value={s.bracket} options={[["auto", "Default"], ["all", "All players"], ["casual", "Casual"], ["mid", "Mid"], ["high", "Top 5%"]]} onChange={(bracket) => set({ bracket })} />
           <p className="account-note">
             {t("Saved in this browser.")}{" "}
             <Link
