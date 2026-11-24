@@ -35,6 +35,9 @@
   .num { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; }
   .mates { display: flex; gap: 6px; }
   .mates img { width: 28px; height: 28px; }
+  .teamline { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .teamds { font-size: 30px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
+  .teamds.up { color: var(--good); } .teamds.down { color: var(--bad); }
   .big { font-size: 44px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
   .bar { height: 14px; border-radius: 7px; background: var(--raised); overflow: hidden; margin: 12px 0; }
   .bar span { display: block; height: 100%; }
@@ -356,6 +359,9 @@
       pick(0, []);
     }
     const nowTeam = [...team, ...(mineA ? [mineA] : [])];
+    // Headline team number (Nico 2026-11-24): strength + pair synergy, the only team measure that beat chance out of
+    // sample; composition features (frontline, damage mix, hard CC, marksmen, dive) didn't. Bands: −3 and +6.
+    const teamNow = nowTeam.length >= 5 && nowTeam.every((a) => d.champions[a]) ? teamScore(nowTeam) : null;
     let bestHtml = "";
     if (bestTeam && nowTeam.length >= 5) {
       const ins = bestTeam.t.filter((a) => !nowTeam.includes(a));
@@ -392,7 +398,7 @@
     setView(`
       ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion")}
       ${plan?.spells?.length ? `<div class="spells" title="Summoner spells: they can't change after champion select">${plan.spells.map((sp) => `<img src="${SITE}${sp.icon}" alt="${esc(sp.name)}" title="${esc(sp.name)}">`).join("")}</div>` : ""}
-      ${team.length ? `<h2>Your team</h2><div class="mates">${team.map(icon).join("")}</div>` : ""}
+      ${team.length ? `<h2>Your team</h2><div class="teamline"><div class="mates">${team.map(icon).join("")}</div>${teamNow != null ? `<span class="teamds ${teamNow >= 0.06 ? "up" : teamNow < -0.03 ? "down" : "flat"}" title="Team strength (projected): your five champions' strength plus their ten pair synergies, in points (0 = an average team). Extras like frontline, damage mix or crowd control didn't predict better when tested.">${pts(teamNow)}</span>` : ""}</div>` : ""}
       ${gap ? `<div class="cue gold" title="${esc(gap)}">${esc(gapShort)}</div>` : ""}
       <h2>Your choices, best first</h2>
       ${Object.keys(d.brackets ?? {}).length ? `<div class="filters" title="Skill brackets come from a rating built from game results, not official ranks.${d.bracketPatch && d.bracketPatch !== d.patch ? ` This patch's brackets aren't out yet, so they use patch ${esc(d.bracketPatch)}.` : ""}">${BRACKETS.filter(([b]) => b === "all" || d.brackets[b]).map(([b, l]) => `<button class="chip br${b === bracket ? " on" : ""}" data-b="${b}">${l}</button>`).join("")}</div>` : ""}
