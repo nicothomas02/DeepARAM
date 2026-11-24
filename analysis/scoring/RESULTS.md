@@ -111,3 +111,14 @@ after the switch: with 1,000+ games it led the next patch on 30 of 31 champions 
 every Z (rho 0.938, top-10 lead +5.57 pts): their fit has no pick-rate term (k = 0, s1 ~ 0). Augments per champion:
 top-5 next-patch lead 4.902 (Z=1) / 4.919 (0.25) / 4.890 (0); rho 0.9519 -> 0.9513; thinned to 10%, rho 0.887 ->
 0.872 at Z=0. No change: any gain is within noise and thin data ranks worse.
+
+## One DeepScore rule for every list (2026-11-24)
+
+`consistency.py`: each list scored with the shrunk lead (cores, boots, builds until now), the fitted estimate
+(starters until now) and the bound rule (champions, augments, single items, spell pairs), under the flat 1,000-game
+lead rule, judged on the next patch. Unified on the bound vs each list's old rule (top pick, pts): boots -0.10 ± 0.06
+(thinned: 0.00), cores 0.00 (thinned: -0.05 ± 0.02); rho boots 0.861 -> 0.862 (thinned 0.817 -> 0.825). A half
+penalty (Z = 0.5) everywhere kept 4 more rarely picked leaders on the cards but ranked spells worse on thin data
+(rho 0.764 -> 0.759 -> 0.701 at Z = 0). Nico chose the bound rule everywhere. Starters stay on the estimate
+without the penalty: the bound dropped 16 of the 62 rarely bought starters that lead (Guardian's Orb starts,
+Zeri's Guardian's Blade), against Nico's ask to keep slept-on picks, and there is no starter history to test it.

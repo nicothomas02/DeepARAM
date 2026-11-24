@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
-import { FIT, type Fit } from "./deepscore";
+import { FIT } from "./deepscore";
 import { clashWith, withoutClashes } from "./item-limits";
 import { alongCore, bestRow, buildOrder, canLead, gamesOf, ITEM_FOLLOWING, laterItems, leading, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, realFullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 
@@ -319,7 +319,7 @@ export function championPage(alias: string): ChampionPage | null {
       "champions/modifiers.js",
     )?.[alias] ?? {};
 
-  const boots = scoreItems(rows(b?.items?.boots), FIT.items);
+  const boots = scoreItems(rows(b?.items?.boots));
   const full = scoreItems(rows(b?.items?.full_builds));
   const single = tiered([
     ...rows(b?.items?.other),
@@ -382,7 +382,10 @@ export function championPage(alias: string): ChampionPage | null {
   // buyingOrder), on top of the starting items: a core opens with the item its starter builds into (Cloak + Tome:
   // Rite of Ruin), and a starter's parts build into the first item or the boots, or are standalone starters (Tear,
   // Guardian's Blade). A finished item can't be afforded at the start, so a row holding one is noise.
-  const startRows = scoreItems(rows(b?.items?.starting), FIT.items);
+  // Starters keep the fitted estimate without the bound's small-sample penalty: on starters the bound dropped 16 of
+  // 62 rarely bought starters that lead today (Guardian's Orb starts, Zeri's Guardian's Blade), and Nico wants slept-on
+  // picks kept (2026-11-24). No starter history to backtest either rule on.
+  const startRows: ItemRow[] = scoreRows<ItemRow>(rows(b?.items?.starting), FIT.items);
   const affordable = startRows.filter((r) => !r.items.some((i) => itemTier(i) === "legendary"));
   // A starter needs a real following to lead (same 1/4 rule as builds, Nico 2026-11-21) or enough games of its own
   // (START_MIN_GAMES), so a start bought in a handful of games can't lead on luck.
@@ -464,7 +467,7 @@ export function championPage(alias: string): ChampionPage | null {
   // games, the other styles with all of their style's games.
   const archScores = (() => {
     const others = archetypes.filter((a) => a !== mainArch).map((a) => ({ style: a.style, items: [] as number[], winRate: a.win_rate, pickRate: a.share, lift: a.win_rate - base, games: a.games }));
-    const scored = scoreRows([...core.map((c) => ({ ...c, style: "" })), ...others]);
+    const scored = scoreRows([...core.map((c) => ({ ...c, style: "" })), ...others], FIT.items, { bound: true });
     const mainScore = scored.find((r) => r.style === "" && r.items === core[0]?.items)?.deepScore;
     return archetypes
       .map((a) => ({ style: a.style, deepScore: a === mainArch ? mainScore : scored.find((r) => r.style === a.style)?.deepScore }))
@@ -653,10 +656,12 @@ function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: It
     .sort((x, y) => ds(y.options[0]) - ds(x.options[0]));
 }
 
-// Starting items and boots use the fitted settings, which were backtested on them; builds and single items keep
-// the old prior until their history can be backtested (data/analysis/predictive.py).
-const scoreItems = (list: ItemRow[], fit: Fit | null = null): ItemRow[] => scoreRows(list, fit);
-/** Single items: the Tier List's bound rule (Nico 2026-11-23, lib/card-score.ts scoreRows). */
-const scoreSingles = (list: ItemRow[]): ItemRow[] => scoreRows(list, FIT.items, { bound: true });
+// One DeepScore rule for every list (Nico chose "Same rule everywhere", 2026-11-24): the Tier List's bound rule with
+// the items fit (lib/card-score.ts scoreRows) for boots, cores, six-item builds, build styles and single items, as for
+// augments and spell pairs. Starters are the exception (see startRows). Next-patch backtest (analysis/scoring/consistency.py) against the old
+// shrunk-only rule: boots top pick -0.10 ± 0.06 pts, cores 0.00, ranking equal or better (boots rho 0.861 -> 0.862,
+// thin data 0.817 -> 0.825); rarely picked rows that lead (flat 1,000-game minimum) kept 260 of 261.
+const scoreItems = (list: ItemRow[]): ItemRow[] => scoreRows(list, FIT.items, { bound: true });
+const scoreSingles = scoreItems;
 
 

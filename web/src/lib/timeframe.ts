@@ -95,9 +95,9 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
   // Skill orders don't come from the saved patches: the feed's were one generic list for every champion
   // (champion review, 2026-11-24). The card shows the page's own skill tile (real level-ups), passed to TfCard.
 
-  const boots = scoreRows(lists("boots"), FIT.items);
+  const boots = scoreRows(lists("boots"), FIT.items, { bound: true });
   const full = lists("full_builds");
-  const best = leading(scoreRows(lists("core")), MIN_FOLLOWING)[0] ?? null;
+  const best = leading(scoreRows(lists("core"), FIT.items, { bound: true }), MIN_FOLLOWING)[0] ?? null;
   let coreRow: ItemRow | null = best;
   // A champion that skips boots gets none on the card (lib/card-score.ts skipsBoots).
   const noBoots = skipsBoots(lists("boots"), full, (i) => file.items[i]?.tier === "boots");
