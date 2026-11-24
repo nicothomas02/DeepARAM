@@ -223,6 +223,15 @@
   }
 
 
+  // Set before the game, never during it (no taps in game, Nico 2026-11-24): Feeling lucky, and the patch switch
+  // where pooling earlier patches changes this champion's augment ranking.
+  function gameSettings(ap, me) {
+    const ck = me ? keyIn(ap?.champions, me) : undefined;
+    const pv = ap?.patch ?? "This patch";
+    const patch = ck && ap?.only?.[ck] ? [[false, `${pv}+`], [true, `${pv} only`]].map(([o, l]) => `<button class="chip br pt${o === onlyPatch ? " on" : ""}" data-o="${o ? 1 : 0}" title="${o ? "Ranks augments on this patch's games alone" : "Includes similar recent patches, weighted toward this one"}">${esc(l)}</button>`).join("") : "";
+    return `<h2>For this game</h2><div class="filters"><button class="chip lucky${lucky ? " on" : ""}" title="Ranks augments that can complete a combo much higher, and leans toward less-played augments and builds when they are about as strong">I'm feeling lucky</button>${patch}</div>`;
+  }
+
   window.showPick = async ({ allies, mine, bench }) => {
     lastGame = null;
     lastPick = { allies, mine, bench };
@@ -240,7 +249,7 @@
         <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${[p.base >= 0.01 ? "Strong this patch" : "", p.rec ? `Your record ${p.rec.w}-${p.rec.n - p.rec.w} (${pts(p.rec.nudge)})` : ""].filter(Boolean).join(" · ")}</div><div class="sbar"><span data-style="width:${Math.max(4, Math.min(100, 50 + p.strength * 1000))}%;background:${p.strength >= 0.01 ? "var(--good)" : p.strength <= -0.01 ? "var(--bad)" : "var(--gold)"}"></span></div></div>
         <div class="num">Strength ${pts(p.strength)}</div>
       </div>`).join("");
-    const [builds, k] = await Promise.all([loadBuilds(), loadKinds()]);
+    const [builds, k, ap] = await Promise.all([loadBuilds(), loadKinds(), loadPicks()]);
     // Game plan for the champion you're on: skill order and first three items, one glance before loading in.
     const me = byId[mine];
     const plan = me && builds?.champions?.find((c) => c.id.toLowerCase() === me.toLowerCase());
@@ -268,6 +277,7 @@
       ${Object.keys(d.brackets ?? {}).length ? `<div class="filters" title="Skill brackets come from a rating built from game results, not official ranks.${d.bracketPatch && d.bracketPatch !== d.patch ? ` This patch's brackets aren't out yet, so they use patch ${esc(d.bracketPatch)}.` : ""}">${BRACKETS.filter(([b]) => b === "all" || d.brackets[b]).map(([b, l]) => `<button class="chip br${b === bracket ? " on" : ""}" data-b="${b}">${l}</button>`).join("")}</div>` : ""}
       ${rows || `<p class="note">Waiting for your champion and bench…</p>`}
       ${planHtml}
+      ${gameSettings(ap, me)}
       <p class="note">Strength this patch${bracket !== "all" ? ` for ${esc(BRACKETS.find(([b]) => b === bracket)[1])} players` : ""}, in win-rate points. A guide, not a promise. You make the pick.</p>`);
   };
 
@@ -317,7 +327,8 @@
   };
   const augIco = (id) => `<img class="ii round" src="${SITE}/icons/augments/${id}.webp" alt="" data-drop>`;
   const itemId = (icon) => Number((icon.match(/(\d+)\.png$/) ?? [])[1]) % 10000;
-  let game = null, query = "", rarity = "", reached = {}, offer = [], asked = [];
+  // No taps in game (Nico 2026-11-24: "Mayhem is fast-paced and can't afford it"): nothing here waits on a click.
+  let game = null, reached = {}, offer = [], closedAt = null;
   // Item art lives at the champion build's icon path; mode copies use 22xxxx ids (base ids 404), and an icon that
   // still fails to load just disappears.
   let iconPrefix = "";
@@ -341,8 +352,7 @@
         for (const id of [...offer, ...ids]) if (!kept.includes(id)) rerolled.add(id);
       }
       ids.forEach((id) => seen.add(id));
-      asked = [];
-    } else if (offer.length && !offer.some((id) => taken.includes(id))) asked = offer;
+    } else if (offer.length && game) closedAt = game.t;
     offer = ids;
     return true;
   }
@@ -397,40 +407,26 @@
     if (!d0 || !ck) { box.innerHTML = `<p class="note">No augment ranking for this champion yet.</p>`; return; }
     const d = picksView(d0, ck);
     const pv = d0.patch ?? "This patch";
-    const patchSwitch = d0.only?.[ck] ? `<div class="filters" title="Includes similar recent patches, weighted toward this one">${[[false, `${pv}+`], [true, `${pv} only`]].map(([o, l]) => `<button class="chip br pt${o === onlyPatch ? " on" : ""}" data-o="${o ? 1 : 0}">${esc(l)}</button>`).join("")}</div>` : "";
+    const settings = [lucky ? "Feeling lucky" : "", onlyPatch && d0.only?.[ck] ? `${pv} only` : ""].filter(Boolean);
     const taken = getTaken(game);
     const name = (id) => d.augments[id]?.[0] ?? `#${id}`;
-    const q = query.trim().toLowerCase();
-    const ranked = rankAugments(d, ck, taken).filter((a) => !rarity || d.augments[a.id]?.[1] === rarity);
+    const ranked = rankAugments(d, ck, taken);
     // An offer on screen: its augments side by side in ranking order (highlighted, never picked for you). The rest of
     // the list stays below for when the reading misses a card.
-    const asking = !offer.length && asked.length > 0 && !asked.some((id) => taken.includes(id));
-    const onOffer = (asking ? asked : offer).filter((id) => !taken.includes(id));
+    const onOffer = offer.filter((id) => !taken.includes(id));
     const offered = onOffer.length ? [...ranked.filter((a) => onOffer.includes(a.id)), ...onOffer.filter((id) => !ranked.some((a) => a.id === id)).map((id) => ({ id, boost: null, deep: -1, mate: null, combo: null, potential: 0 }))] : [];
-    const reroll = offered.length >= 2 && !asking ? rerollAdvice(d, rankAugments(d, ck, taken), offered, taken) : "";
-    const shown = q ? ranked.filter((a) => name(a.id).toLowerCase().includes(q)) : ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
+    const reroll = offered.length >= 2 ? rerollAdvice(d, rankAugments(d, ck, taken), offered, taken) : "";
+    const shown = ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
     const row = (a, best) => `
-      <button class="row aug${best ? " best" : ""}" data-id="${a.id}" data-r="${d.augments[a.id]?.[1] ?? ""}"${whatItDoes("augments", Number(a.id)) ? ` title="${esc(whatItDoes("augments", Number(a.id)))}"` : ""}>
+      <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${whatItDoes("augments", Number(a.id)) ? ` title="${esc(whatItDoes("augments", Number(a.id)))}"` : ""}>
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : a.combo !== null && a.potential >= 0.3 ? `Combo potential with ${esc(name(a.combo))} (+${a.potential.toFixed(1)})` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
         <div class="num" title="DeepScore on this champion (ranking adds synergy with what you took)">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `${a.boost !== null ? "<br>" : ""}<small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
-      </button>`;
-    box.innerHTML = `${patchSwitch}
-      ${offered.length ? `<div class="offer${asking ? " ask" : ""}"><div class="why src">${asking ? "Which one did you take? One tap and the rest re-rank around it." : "On offer now, best first for you. Tap the one you take."}</div>${offered.map((a, i) => row(a, i === 0)).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
-      ${taken.length ? `<div class="taken">${taken.map((id) => `<button class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}" data-id="${id}" title="Tap to undo">${augIcon(id)}${esc(name(id))}</button>`).join("")}</div>` : ""}
-      ${shown.map((a, i) => row(a, i === 0 && !q && !offered.length)).join("") || `<p class="note">No augment matches "${esc(query)}".</p>`}
-      <p class="note">Best first for ${esc(label(game.champ))}, by how each does on this champion in real games (DeepScore), plus synergy with what you took and combo potential with partners that can still come. Tap the one you take and the rest re-rank around it. If yours isn't listed, search for it.</p>`;
-    box.querySelectorAll("button[data-id]").forEach((b) => b.addEventListener("click", () => {
-      const id = Number(b.dataset.id), t = getTaken(game);
-      // Taking one of the offered augments ends the pick: the offer goes until the next one is read.
-      if ((offer.includes(id) || asked.includes(id)) && !t.includes(id)) { offer = []; asked = []; }
-      setTaken(game, t.includes(id) ? t.filter((x) => x !== id) : [...t, id]);
-      // The next pick can be any rarity, so a tap clears the search and the rarity filter.
-      query = ""; rarity = ""; const s = document.getElementById("search"); if (s) s.value = "";
-      document.querySelectorAll(".chip.f").forEach((x) => x.classList.toggle("on", x.dataset.r === ""));
-      renderAugments();
-      renderItems();
-    }));
+      </div>`;
+    box.innerHTML = `
+      ${offered.length ? `<div class="offer"><div class="why src">On offer now, best first for you.</div>${offered.map((a, i) => row(a, i === 0)).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
+      ${shown.map((a, i) => row(a, i === 0 && !offered.length)).join("")}
+      <p class="note">Best first for ${esc(label(game.champ))}, by how each does on this champion in real games (DeepScore)${settings.length ? `. Set in champion select: ${esc(settings.join(", "))}` : ""}.</p>`;
   }
 
   const enemyMagic = (k, enemies) => E.enemyMagic(k, enemies);
@@ -523,31 +519,18 @@
         <section><h2>Quick build</h2><div id="quick"></div>
         <h2>Items</h2><div id="items"></div></section>
         <section><h2 id="augHead">Augments</h2>
-        <div class="filters">${["", "prismatic", "gold", "silver"].map((r) => `<button class="chip f${r === rarity ? " on" : ""}" data-r="${r}">${r ? r[0].toUpperCase() + r.slice(1) : "All"}</button>`).join("")}
-          <button class="chip lucky${lucky ? " on" : ""}" title="Ranks augments that can complete a combo much higher, and leans toward less-played augments and builds when they are about as strong">I'm feeling lucky</button></div>
-        <input id="search" type="search" placeholder="Type your augment, then Enter" autocomplete="off">
         <div id="augs"></div></section>
         </div>`);
       renderQuick();
-      document.getElementById("search").addEventListener("input", (e) => { query = e.target.value; renderAugments(); });
-      // Typing a few letters and Enter marks the top match as taken.
-      document.getElementById("search").addEventListener("keydown", (e) => {
-        if (e.key !== "Enter") return;
-        const first = document.querySelector("#augs button.aug");
-        if (first) first.click();
-      });
-      document.querySelectorAll(".chip.f").forEach((b) => b.addEventListener("click", () => {
-        rarity = b.dataset.r;
-        document.querySelectorAll(".chip.f").forEach((x) => x.classList.toggle("on", x === b));
-        renderAugments();
-      }));
       renderAugments();
     }
     // "Augment pick" lights up for 90 seconds after each augment level, and stays lit only while one is untaken.
     if (!prev || prev.champ !== g.champ) { reached = {}; if (!offer.length) resetTrack(); }
     for (const l of AUGMENT_LEVELS) if (l <= g.level && reached[l] === undefined) reached[l] = prev ? g.t : 0;
     const recent = AUGMENT_LEVELS.some((l) => reached[l] !== undefined && g.t - reached[l] < 90);
-    const pickNow = recent && AUGMENT_LEVELS.filter((l) => l <= g.level).length > getTaken(g).length;
+    // Lit while an offer is on screen, or for 90 s after an augment level until the offer that came closes.
+    const lastLevel = Math.max(-1, ...AUGMENT_LEVELS.filter((l) => reached[l] !== undefined).map((l) => reached[l]));
+    const pickNow = offer.length > 0 || (recent && !(closedAt !== null && closedAt >= lastLevel));
     const head0 = document.getElementById("head");
     head0.textContent = `In game · ${clock(g.t)} · Level ${g.level}${g.dead ? " · Dead: shop now" : ""}`;
     head0.classList.toggle("now", !!g.dead);
@@ -570,7 +553,11 @@
 
   // The offer changed (read off the screen the moment it did): re-rank right away instead of at the next update.
   window.showOffer = (ids) => {
-    if (setOffer(ids) && game) renderAugments();
+    if (setOffer(ids) && game) {
+      renderAugments();
+      const h = document.getElementById("augHead");
+      if (h && offer.length) { h.textContent = "Augment pick: best first"; h.classList.add("now"); }
+    }
   };
 
   // Bought anything yet (Poro-Snax, which ARAM hands out, doesn't count)?
@@ -601,6 +588,7 @@
     if (pt) {
       onlyPatch = pt.dataset.o === "1";
       try { localStorage.setItem("patchOnly", onlyPatch ? "1" : "0"); } catch {}
+      document.querySelectorAll(".chip.pt").forEach((x) => x.classList.toggle("on", (x.dataset.o === "1") === onlyPatch));
       renderAugments();
       renderItems();
       return;
@@ -641,7 +629,7 @@
     game = null;
     resetTrack();
     offer = [];
-    asked = [];
+    closedAt = null;
     setView(`${hero(lastChamp, "Game over", "The review shows after games of 5 minutes or more")}`);
   };
 
