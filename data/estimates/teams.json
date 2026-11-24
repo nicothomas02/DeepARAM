@@ -1,0 +1,625 @@
+{
+ "projected": true,
+ "about": "Five-champion teams projected from champion win rates and two-champion synergies (data/estimates/teams.py). No source publishes full-team results.",
+ "snapshot": {
+  "source": "101.qq.com (Tencent, official)",
+  "server": "Tencent",
+  "champion_stat_date": "20261123",
+  "augment_stat_date": "20261123",
+  "fetched_at": "2026-11-24T02:21:20+00:00",
+  "aramhex": {
+   "patch": "16.23",
+   "fields": [
+    "win_rate",
+    "pick_rate"
+   ],
+   "source": "AramHex (github.com/czgreat/aramhex-data), CC BY-NC 4.0"
+  }
+ },
+ "carry_over": 0.954,
+ "carry_over_pairs": 6466,
+ "pair_additivity_pts": 0.12,
+ "pairs": 7238,
+ "teams": [
+  {
+   "champions": [
+    4,
+    114,
+    17,
+    11,
+    246
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "Teemo",
+    "MasterYi",
+    "Qiyana"
+   ],
+   "projected_win_rate": 0.855,
+   "from_champions": 0.665,
+   "synergy_pts": 19.0,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "Qiyana"
+    ],
+    [
+     "TwistedFate",
+     "MasterYi"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    114,
+    5,
+    11,
+    26
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "XinZhao",
+    "MasterYi",
+    "Zilean"
+   ],
+   "projected_win_rate": 0.8521,
+   "from_champions": 0.7185,
+   "synergy_pts": 13.36,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "MasterYi",
+     "Zilean"
+    ],
+    [
+     "TwistedFate",
+     "MasterYi"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    157,
+    4,
+    114,
+    11,
+    163
+   ],
+   "names": [
+    "Yasuo",
+    "TwistedFate",
+    "Fiora",
+    "MasterYi",
+    "Taliyah"
+   ],
+   "projected_win_rate": 0.8443,
+   "from_champions": 0.7238,
+   "synergy_pts": 12.05,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "MasterYi"
+    ],
+    [
+     "Fiora",
+     "Taliyah"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    114,
+    11,
+    427,
+    42
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "MasterYi",
+    "Ivern",
+    "Corki"
+   ],
+   "projected_win_rate": 0.8409,
+   "from_champions": 0.6963,
+   "synergy_pts": 14.46,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "MasterYi"
+    ],
+    [
+     "TwistedFate",
+     "Fiora"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    114,
+    25,
+    11,
+    104
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "Morgana",
+    "MasterYi",
+    "Graves"
+   ],
+   "projected_win_rate": 0.8392,
+   "from_champions": 0.7006,
+   "synergy_pts": 13.86,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "MasterYi"
+    ],
+    [
+     "MasterYi",
+     "Morgana"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    5,
+    11,
+    134,
+    246
+   ],
+   "names": [
+    "TwistedFate",
+    "XinZhao",
+    "MasterYi",
+    "Syndra",
+    "Qiyana"
+   ],
+   "projected_win_rate": 0.8391,
+   "from_champions": 0.6228,
+   "synergy_pts": 21.63,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "Qiyana"
+    ],
+    [
+     "Syndra",
+     "Qiyana"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    157,
+    4,
+    114,
+    81,
+    246
+   ],
+   "names": [
+    "Yasuo",
+    "TwistedFate",
+    "Fiora",
+    "Ezreal",
+    "Qiyana"
+   ],
+   "projected_win_rate": 0.8391,
+   "from_champions": 0.6532,
+   "synergy_pts": 18.59,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "Qiyana"
+    ],
+    [
+     "Ezreal",
+     "Qiyana"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    5,
+    11,
+    427,
+    112
+   ],
+   "names": [
+    "TwistedFate",
+    "XinZhao",
+    "MasterYi",
+    "Ivern",
+    "Viktor"
+   ],
+   "projected_win_rate": 0.8373,
+   "from_champions": 0.6858,
+   "synergy_pts": 15.15,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "MasterYi"
+    ],
+    [
+     "MasterYi",
+     "Viktor"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    157,
+    4,
+    114,
+    427,
+    80
+   ],
+   "names": [
+    "Yasuo",
+    "TwistedFate",
+    "Fiora",
+    "Ivern",
+    "Pantheon"
+   ],
+   "projected_win_rate": 0.8369,
+   "from_champions": 0.7226,
+   "synergy_pts": 11.43,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "Pantheon"
+    ],
+    [
+     "TwistedFate",
+     "Fiora"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    157,
+    4,
+    25,
+    11,
+    246
+   ],
+   "names": [
+    "Yasuo",
+    "TwistedFate",
+    "Morgana",
+    "MasterYi",
+    "Qiyana"
+   ],
+   "projected_win_rate": 0.8347,
+   "from_champions": 0.6918,
+   "synergy_pts": 14.29,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "Qiyana"
+    ],
+    [
+     "TwistedFate",
+     "MasterYi"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    157,
+    4,
+    5,
+    11,
+    43
+   ],
+   "names": [
+    "Yasuo",
+    "TwistedFate",
+    "XinZhao",
+    "MasterYi",
+    "Karma"
+   ],
+   "projected_win_rate": 0.8338,
+   "from_champions": 0.7124,
+   "synergy_pts": 12.13,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "MasterYi"
+    ],
+    [
+     "XinZhao",
+     "Karma"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    114,
+    11,
+    910,
+    350
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "MasterYi",
+    "Hwei",
+    "Yuumi"
+   ],
+   "projected_win_rate": 0.8338,
+   "from_champions": 0.7057,
+   "synergy_pts": 12.81,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "MasterYi"
+    ],
+    [
+     "MasterYi",
+     "Hwei"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    5,
+    17,
+    11,
+    104
+   ],
+   "names": [
+    "TwistedFate",
+    "XinZhao",
+    "Teemo",
+    "MasterYi",
+    "Graves"
+   ],
+   "projected_win_rate": 0.8331,
+   "from_champions": 0.6911,
+   "synergy_pts": 14.2,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "MasterYi"
+    ],
+    [
+     "MasterYi",
+     "Teemo"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    114,
+    5,
+    427,
+    236
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "XinZhao",
+    "Ivern",
+    "Lucian"
+   ],
+   "projected_win_rate": 0.8325,
+   "from_champions": 0.7064,
+   "synergy_pts": 12.61,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "Lucian",
+     "Ivern"
+    ],
+    [
+     "TwistedFate",
+     "XinZhao"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    11,
+    26,
+    36,
+    104
+   ],
+   "names": [
+    "TwistedFate",
+    "MasterYi",
+    "Zilean",
+    "DrMundo",
+    "Graves"
+   ],
+   "projected_win_rate": 0.8322,
+   "from_champions": 0.646,
+   "synergy_pts": 18.62,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "MasterYi",
+     "Zilean"
+    ],
+    [
+     "TwistedFate",
+     "MasterYi"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    114,
+    11,
+    41,
+    43
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "MasterYi",
+    "Gangplank",
+    "Karma"
+   ],
+   "projected_win_rate": 0.832,
+   "from_champions": 0.6385,
+   "synergy_pts": 19.36,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "MasterYi"
+    ],
+    [
+     "Karma",
+     "Fiora"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    114,
+    11,
+    35,
+    81
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "MasterYi",
+    "Shaco",
+    "Ezreal"
+   ],
+   "projected_win_rate": 0.832,
+   "from_champions": 0.6131,
+   "synergy_pts": 21.89,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "MasterYi"
+    ],
+    [
+     "Shaco",
+     "Ezreal"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    114,
+    37,
+    42,
+    246
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "Sona",
+    "Corki",
+    "Qiyana"
+   ],
+   "projected_win_rate": 0.8304,
+   "from_champions": 0.6538,
+   "synergy_pts": 17.66,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "Qiyana"
+    ],
+    [
+     "Sona",
+     "Qiyana"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    157,
+    4,
+    11,
+    427,
+    104
+   ],
+   "names": [
+    "Yasuo",
+    "TwistedFate",
+    "MasterYi",
+    "Ivern",
+    "Graves"
+   ],
+   "projected_win_rate": 0.8303,
+   "from_champions": 0.7094,
+   "synergy_pts": 12.1,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "MasterYi"
+    ],
+    [
+     "TwistedFate",
+     "Graves"
+    ]
+   ]
+  },
+  {
+   "champions": [
+    4,
+    37,
+    11,
+    104,
+    246
+   ],
+   "names": [
+    "TwistedFate",
+    "Sona",
+    "MasterYi",
+    "Graves",
+    "Qiyana"
+   ],
+   "projected_win_rate": 0.8302,
+   "from_champions": 0.6226,
+   "synergy_pts": 20.75,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TwistedFate",
+     "Qiyana"
+    ],
+    [
+     "TwistedFate",
+     "MasterYi"
+    ]
+   ]
+  }
+ ]
+}
