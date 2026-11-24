@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Infinite Ezreal</title>
+  <meta name="description" content="How often can Ezreal fire Mystic Shot in ARAM Mayhem? Set his haste, range and augments and see when Skilled Sniper brings Q back the moment it lands.">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="ezreal.css">
+</head>
+<body>
+  <main>
+    <header class="intro">
+      <img id="ezreal-icon" alt="" width="56" height="56">
+      <div>
+        <p class="eyebrow">ARAM Mayhem</p>
+        <h1>Infinite Ezreal</h1>
+        <p class="muted">Every Mystic Shot that hits takes 1.5 seconds off its own cooldown, and Skilled Sniper takes most of the rest off when it lands from 600 or more units away. Set your haste, range and augments to see when Q is back the moment it lands, and how long your mana keeps up. <span id="patch"></span></p>
+      </div>
+    </header>
+
+    <section class="result" aria-live="polite">
+      <div class="big">
+        <span class="label">Mystic Shots per minute</span>
+        <span id="per-minute" class="value">0</span>
+      </div>
+      <div class="loop">
+        <div class="loop-head">
+          <span class="label">Loop</span>
+          <span id="loop">0%</span>
+        </div>
+        <div class="meter"><div id="gain-bar"></div><div class="meter-mark" title="100% = Q back the moment it lands"></div></div>
+        <p id="loop-note" class="muted small"></p>
+      </div>
+      <svg id="chart" viewBox="0 0 300 80" preserveAspectRatio="none" role="img" aria-label="Mystic Shots per minute by Ability Haste"></svg>
+      <p class="chart-axis muted small"><span>0</span><span>Ability Haste</span><span>500</span></p>
+      <dl id="stats" class="stats"></dl>
+    </section>
+
+    <section>
+      <div class="row-head">
+        <h2>Ability Haste</h2>
+        <input id="haste-num" class="num" type="number" min="0" max="500" step="1" inputmode="numeric" aria-label="Ability Haste">
+      </div>
+      <input id="haste" type="range" min="0" max="500" value="100" aria-label="Ability Haste">
+      <p class="muted small">Copy it from your stats panel: items, runes, stat anvils and haste augments are already in it.</p>
+    </section>
+
+    <section>
+      <div class="row-head">
+        <h2>Distance to the target</h2>
+        <output id="distance-out">1000</output>
+      </div>
+      <input id="distance" type="range" min="100" max="1200" step="50" value="1000" aria-label="Distance to the target">
+      <p class="muted small">Skilled Sniper needs 600 units or more. Mystic Shot reaches 1,200 and flies 2,000 units a second.</p>
+    </section>
+
+    <section>
+      <h2>Skill ranks</h2>
+      <div id="ranks" class="ranks"></div>
+    </section>
+
+    <section>
+      <div class="row-head">
+        <h2>Augments</h2>
+        <span class="muted small">Up to 4</span>
+      </div>
+      <div id="aug-slots" class="slots augs"></div>
+      <div id="aug-picker" class="picker augs"></div>
+    </section>
+
+    <section>
+      <h2>Mana and settings</h2>
+      <div id="options" class="options"></div>
+      <p class="muted small">Mana and regeneration start at level 18 with no items. Copy yours from the stats panel.</p>
+    </section>
+
+    <section>
+      <h2>Other skill orders (same haste and augments)</h2>
+      <p class="muted small">Mystic Shots per minute for each Q rank and distance, with endless mana. Click one to use it.</p>
+      <table id="grid" class="table grid"></table>
+    </section>
+
+    <section class="actions">
+      <button id="preset" type="button">Load the infinite build</button>
+      <button id="reset" type="button" class="ghost">Clear</button>
+      <button id="share" type="button" class="ghost">Copy link</button>
+    </section>
+
+    <footer class="muted small">
+      Ezreal casts Mystic Shot whenever it is ready, then Essence Flux if you cast it, with no time spent walking or
+      aiming, and every shot hits a champion at the distance above. The big number assumes endless mana; the mana rows
+      play the same fight with your pool.
+    </footer>
+  </main>
+
+  <script src="../i18n.js"></script>
+  <script src="data.js"></script>
+  <script src="calc.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
