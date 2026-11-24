@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
-import { AUGMENT_SKILLS, CHAMPION_SKILLS } from "@/lib/augment-skills";
+import { AUGMENT_SKILLS, CHAMPION_SKILLS, CHAMPION_SPLITS } from "@/lib/augment-skills";
 import type { Metadata } from "next";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import { Breadcrumbs } from "@/components/JsonLd";
@@ -574,6 +574,8 @@ export default async function ChampionPage({
   const bestSkill = p.skills[0] ?? null;
   // Nico's per-champion order (lib/augment-skills.ts) replaces the best order on the cards; it has no stats of its own.
   const pinnedSkill = CHAMPION_SKILLS[c.alias] ?? null;
+  // Nico's split (Katarina: Q to 3, then max E), shown before the order.
+  const skillSplit = CHAMPION_SPLITS[c.alias] ?? null;
   const rawSpells = fillSpells(c.alias, c.winRate ?? 0.5);
   const spellsEstimated = rawSpells.some((r) => r.estimated);
   // Spell pairs rank by DeepScore like the build lists. Estimated spells have no win rate, so they keep
@@ -706,6 +708,11 @@ export default async function ChampionPage({
         <h4>
           <T ns={NS}>Best skill order</T>
         </h4>
+        {skillSplit && (
+          <div className="cp-aug-skill">
+            <T ns={NS} v={{ key: skillSplit.first, points: skillSplit.points }}>{"First {key} to {points} points, then:"}</T>
+          </div>
+        )}
         <Keys keys={pinnedSkill ?? skill!.max} />
         {!pinnedSkill && skill && (
           <div className="cp-mini">

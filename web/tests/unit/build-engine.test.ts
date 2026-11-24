@@ -263,6 +263,18 @@ describe("build engine", () => {
     expect(skillUp(["E", "Q", "W"], [2, 2, 1, 1], 7, [], "Ashe", 1)).toBe("Q");
   });
 
+  it("follows a split: Katarina Q to 3, then max E", () => {
+    const split = { first: "Q", points: 3 };
+    const seq: string[] = [];
+    const pts = [0, 0, 0, 0];
+    for (let lv = 1; lv <= 13; lv++) {
+      const k = skillUp(["E", "Q", "W"], pts, lv, [], "Katarina", 5, split);
+      seq.push(k);
+      pts["QWER".indexOf(k)]++;
+    }
+    expect(seq.join("")).toBe("QEWQQREEEERQQ");
+  });
+
   it("switches the skill order once an augment that changes it is taken (Gwen E>Q>W with Ethereal Weapon)", async () => {
     const c: OverlayChamp = { ...champ, skills: ["Q", "E", "W"], augmentSkills: [{ augment: 1029, skills: ["E", "Q", "W"] }] };
     const tip = (taken: number[]) =>
