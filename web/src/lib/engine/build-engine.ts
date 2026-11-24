@@ -68,6 +68,7 @@ export const RULES: Record<string, Rule> = {
   augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share, of the build's damage type unless ADAPt; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
   converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
+  sellMismatch: { source: "data", on: true, why: "One finished item of the other damage type (pure AD on an AP build or the reverse, no ADAPt/EscAPADe): sell it when its 70% sell value plus your gold buys the next path item now. Archive, within champion: one such item in the first three legendaries goes with -2.0 +- 0.3 pts of team damage share (two: -4.3, three: -5.4), win rate flat (+0.1 +- 3.1). Nico 2026-11-24 asked for sell pushback when it's worth it; the 'buys it now' line is estimated." },
   pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
   // Design choices Nico hasn't picked yet: kept as they were.
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
@@ -1306,7 +1307,11 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
         if (drop === undefined) continue;
         build.splice(drop, 1);
       }
-      build.splice(Math.min(Math.max(coreLen - 1, 0), build.length), 0, it);
+      // it takes the last core place you haven't bought and no other augment claimed; that item moves just past the core
+      const claimed = new Set([...rushed, ...converted].map((r) => r.item));
+      const j = [...build.keys()].slice(0, coreLen).reverse().find((x) => !owned.has(itemId(build[x].icon)) && !bootIds.has(itemId(build[x].icon)) && !claimed.has(build[x]));
+      if (j === undefined) build.push(it);
+      else { const [moved] = build.splice(j, 1, it); build.splice(Math.min(coreLen, build.length), 0, moved); }
       converted.push({ item: it, by: a, does: cv.does });
       applied("converterItems");
     }
@@ -1491,7 +1496,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   else if (RULES.hasteMath.on && haste >= 100 && next[0] && has(next[0], "haste"))
     tips.push({ rank: 3, kind: "haste", text: `You have ${Math.round(haste)} ability haste: cooldowns are ${Math.round((haste / (100 + haste)) * 100)}% shorter.` });
   if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
-  for (const t of timing.slice(0, 1)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
+  for (const t of [timing.find((x) => next[0] && x.item === next[0]) ?? timing[0]].filter(Boolean)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
   if (RULES.shopTips.on && k && next.length) {
     const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
     if (slots >= 6) {
@@ -1500,6 +1505,20 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
       if (sell !== undefined && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
         tips.push({ rank: 3, kind: "sell", item: sell, text: `Full build: sell ${k.recipes[sell][0]} for ${next[0].name}.` });
+    }
+  }
+  // Sell pushback (sellMismatch): exactly one finished item of the other damage type than the champion's own build,
+  // and selling it (70%) plus your gold buys the next path item now.
+  if (RULES.sellMismatch.on && k && next[0] && !picked.style && !tips.some((t) => t.kind === "sell")) {
+    const pure = (id: number) => { const t = k.items[String(id)] ?? []; return t.includes("ad") && !t.includes("ap") ? "ad" : t.includes("ap") && !t.includes("ad") ? "ap" : ""; };
+    const own0 = (champ0?.items ?? []).map((it) => pure(itemId(it.icon))).filter(Boolean);
+    const type = own0.length && own0.every((t) => t === own0[0]) ? own0[0] : "";
+    const converts = taken.some((a) => (type === "ap" ? TO_AP : TO_AD).has(a));
+    const off = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i) && type && pure(i) && pure(i) !== type);
+    const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
+    if (type && !converts && off.length === 1 && pure(itemId(next[0].icon)) !== pure(off[0]) && (game.gold ?? 0) + Math.round((k.recipes[off[0]]?.[1] ?? 0) * 0.7) >= cost) {
+      tips.push({ rank: 2, kind: "sell", item: off[0], text: `Sell ${k.recipes[off[0]][0]} for ${next[0].name}: it doesn't fit this build.` });
+      applied("sellMismatch");
     }
   }
   tips.sort((x, y) => x.rank - y.rank);
