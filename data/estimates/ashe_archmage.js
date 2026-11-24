@@ -1,7 +1,7 @@
 // The Ability Haste AP Ashe needs for Archmage's E <-> R loop, for every set of loop augments, R and E rank and
 // Malignance's Ultimate Haste: data/estimates/ashe_archmage.json, read by web/src/lib/archmage-route.ts.
 //
-// Usage: node tools/fun/ashe-calculator/thresholds.js   (after build_data.py; takes a few minutes)
+// Usage: node data/estimates/ashe_archmage.js   (after the calculator's data.js is rebuilt; takes a few seconds)
 //
 // Two readings of Archmage's random target (Nico 2026-11-24 asked to follow AramHex's AP Ashe Archmage guide, whose
 // targets only hold under the first):
@@ -10,8 +10,8 @@
 //   anyAbility: the refund can land on any other ability, Q included (Nico 2026-11-23); W isn't cast either.
 // Mystic Punch is left out: it depends on attack speed.
 global.window = global.window || {};
-require("./data.js");
-const calc = require("./calc.js");
+require("../../tools/fun/ashe-calculator/data.js");
+const calc = require("../../tools/fun/ashe-calculator/calc.js");
 const fs = require("fs");
 const path = require("path");
 
@@ -44,6 +44,6 @@ for (const [rule, onlyOnCooldown] of Object.entries(RULES)) {
   out.rules[rule] = sets;
   console.log(rule, "done");
 }
-const file = path.join(__dirname, "..", "..", "..", "data", "estimates", "ashe_archmage.json");
+const file = path.join(__dirname, "ashe_archmage.json");
 fs.writeFileSync(file, JSON.stringify(out) + "\n");
 console.log("wrote", file);

@@ -35,6 +35,6 @@ The "infinite build" preset: Archmage, Ultimate Awakening, Ultimate Recursion an
 second close the loop from any haste at Hawkshot rank 1 to 3 (30 at rank 5); with Purist - Caster instead of Mystic
 Punch, from 0 at rank 1 and 90 at rank 5. Archmage alone needs about 200 (rank 3 or 5) at R rank 3 (patch 26.23).
 
-`thresholds.js` writes the haste every set of loop augments needs, per R and Hawkshot rank, to
+`data/estimates/ashe_archmage.js` (kept out of this folder so it doesn't ship) writes the haste every set of loop augments needs, per R and Hawkshot rank, to
 data/estimates/ashe_archmage.json for AP Ashe's Archmage build on her champion page and in the apps
 (web/src/lib/archmage-route.ts). Run it after `build_data.py`.

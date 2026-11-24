@@ -3,7 +3,7 @@ import { archmageRoutes } from "@/lib/archmage-route";
 
 // AP Ashe's build (data/estimates/build_archetypes.json): Malignance, Imperial Mandate, Horizon Focus, then
 // Cryptbloom, Rabadon's, Shadowflame, Blackfire Torch, Nashor's Tooth; Ionian Boots. The targets come from
-// data/estimates/ashe_archmage.json (tools/fun/ashe-calculator/thresholds.js, AramHex's rule).
+// data/estimates/ashe_archmage.json (data/estimates/ashe_archmage.js, AramHex's rule).
 const POOL = [3118, 4005, 4628, 3137, 3089, 4645, 2503, 3115];
 const IONIAN = 3158;
 

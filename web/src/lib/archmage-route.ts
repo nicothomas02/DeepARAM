@@ -8,11 +8,11 @@ import { clashes } from "./item-limits";
  * enough Ability Haste the loop never stops. So the build reaches that haste first, with the fewest of the items AP
  * Ashe players build plus Ionian Boots (then the higher DeepScore, then the cheaper), and fills the rest of the build
  * by DeepScore. The haste each set of loop augments needs, per R and E rank, comes from the site's Infinite Ashe
- * calculator (tools/fun/ashe-calculator/thresholds.js -> data/estimates/ashe_archmage.json). Estimated.
+ * calculator (data/estimates/ashe_archmage.js -> ashe_archmage.json). Estimated.
  */
 
 /**
- * Which reading of Archmage's random target the targets use (thresholds.js): "onCooldown" (refunds land only on
+ * Which reading of Archmage's random target the targets use (data/estimates/ashe_archmage.js): "onCooldown" (refunds land only on
  * abilities on cooldown and Volley isn't cast: the guide's) or "anyAbility" (Q can take a refund too: no loop).
  */
 export const ARCHMAGE_RULE: "onCooldown" | "anyAbility" = "onCooldown";
