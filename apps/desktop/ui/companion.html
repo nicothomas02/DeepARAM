@@ -37,6 +37,19 @@
   h2.now { color: var(--accent); }
   input[type=search] { width: 100%; font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line);
     border-radius: 10px; padding: 7px 10px; margin-bottom: 8px; }
+  .why.bad { color: var(--bad); }
+  /* In-game cues (Nico 2026-11-24: icons and pictures, required text larger and coloured). */
+  .cue { font-size: 15px; font-weight: 600; margin-top: 8px; display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+  .cue .ii { width: 20px; height: 20px; vertical-align: middle; margin: 0; }
+  .cue.gold { color: var(--gold); } .cue.blue { color: var(--accent); } .cue.green { color: var(--good); } .cue.red { color: var(--bad); }
+  .cue.sm { font-size: 13px; margin-top: 2px; }
+  .cue .key.inl { font-size: 17px; min-width: 28px; height: 28px; border-radius: 8px; }
+  h2.now { font-size: 16px; }
+  .nextup { display: flex; align-items: center; gap: 10px; color: var(--gold); font-weight: 700; margin: 2px 0 10px; }
+  .nextup img { width: 48px; height: 48px; border-radius: 8px; box-shadow: 0 0 0 2px var(--gold); }
+  .nextup .nm { font-size: 19px; color: var(--fg); }
+  .nextup .lb { font-size: 13px; letter-spacing: .08em; }
+  @media (min-width: 900px) { .cue { font-size: 18px; } .cue .ii { width: 24px; height: 24px; } .nextup img { width: 52px; height: 52px; } .nextup .nm { font-size: 21px; } }
   .taken { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-bottom: 8px; }
   .chip { display: flex; align-items: center; gap: 6px; font: inherit; font-size: 12px; color: var(--muted); cursor: pointer;
     background: var(--raised); border: 1px solid var(--line); border-radius: 999px; padding: 3px 10px 3px 3px; }
@@ -398,10 +411,11 @@
     const a = E.rerollAdvice(d, all, offered, taken, { seen: [...seen], rerolled: [...rerolled], headliner: game?.headliner });
     if (!a) return "";
     const nm = (id) => esc(d.augments[id]?.[0] ?? `#${id}`);
-    const who = `${esc(label(game.champ))}'s ${esc(a.rarity ?? "")} augments`;
+    // In game only a glance (Nico 2026-11-24: a few seconds per alt-tab): the cue, with the reason on hover.
+    const plain = (id) => d.augments[id]?.[0] ?? `#${id}`;
     return a.action === "reroll"
-      ? `<div class="why tip reroll">Reroll ${augIco(a.card)}<b>${nm(a.card)}</b>: ${pct(a.beats)} of ${who} beat ${augIco(a.best)}<b>${nm(a.best)}</b>, worth about +${a.gain.toFixed(1)} on average.</div>`
-      : `<div class="why tip reroll">Keep: ${a.beats ? `only ${pct(a.beats)}` : "none"} of ${who} beat ${augIco(a.best)}<b>${nm(a.best)}</b>, so a reroll is unlikely to help.</div>`;
+      ? `<div class="cue blue" title="${esc(`${pct(a.beats)} of ${label(game.champ)}'s ${a.rarity ?? ""} augments beat ${plain(a.best)}, worth about +${a.gain.toFixed(1)} on average.`)}">↻ Reroll ${augIco(a.card)}${nm(a.card)}</div>`
+      : `<div class="cue green" title="${esc(`${a.beats ? `Only ${pct(a.beats)}` : "None"} of ${label(game.champ)}'s ${a.rarity ?? ""} augments beat ${plain(a.best)}. A reroll is unlikely to help.`)}">✓ Keep</div>`;
   }
 
   async function renderAugments() {
@@ -427,18 +441,27 @@
     // Can't decide between them: more combo potential, else the less common pick (Nico 2026-11-24).
     const tb = ties.length ? E.tieBreak(d, ck, [offered[0].id, ...ties], ranked) : null;
     const shown = ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
-    const row = (a, best) => `
-      <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${whatItDoes("augments", Number(a.id)) ? ` title="${esc(whatItDoes("augments", Number(a.id)))}"` : ""}>
+    // A one-word label at most; the reason and what the augment does are on hover.
+    // [label html, colour, hover]
+    const reason = (a) => a.conflict ? ["⚠ Conflicts", "red", `Conflicts: ${a.conflict}`] : a.mate !== null ? [`+${augIco(a.mate)}${esc(name(a.mate))}`, "green", `Synergy with ${name(a.mate)}`]
+      : a.combo !== null && a.potential >= 0.3 ? [`⚡${augIco(a.combo)}${esc(name(a.combo))}`, "gold", `Combo potential with ${name(a.combo)} (+${a.potential.toFixed(1)})`] : ["", "", ""];
+    const row = (a, best) => {
+      const [tag, tone, why] = reason(a);
+      const pick = tb && tb.id === a.id ? `Can't decide? This one: ${tb.why}` : "";
+      const hover = [why, pick, whatItDoes("augments", Number(a.id))].filter(Boolean).join("\n");
+      return `
+      <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
-        <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.conflict ? `Conflicts: ${esc(a.conflict)}` : a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : a.combo !== null && a.potential >= 0.3 ? `Combo potential with ${esc(name(a.combo))} (+${a.potential.toFixed(1)})` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
+        <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}</div>
         <div class="num" title="DeepScore on this champion (ranking adds synergy with what you took)">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `${a.boost !== null ? "<br>" : ""}<small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </div>`;
+    };
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
     const took = taken.length ? `<div class="taken"><span class="why lbl">You took</span>${taken.map((id) => `<span class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}">${augIcon(id)}${esc(name(id))}</span>`).join("")}</div>` : "";
     box.innerHTML = `${took}
-      ${offered.length ? `<div class="offer"><div class="why src">${ties.length ? `On offer now: the highlighted cards are about equal for you (within noise), so pick either.${tb ? ` Can't decide? ${esc(name(tb.id))}: ${esc(tb.why)}.` : ""}` : "On offer now, best first for you."}</div>${offered.map((a, i) => row(a, i === 0 || ties.includes(a.id))).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
+      ${offered.length ? `<div class="offer">${ties.length ? `<div class="cue gold" title="The highlighted cards are within noise of each other.${tb ? " ★ breaks the tie (hover it)." : ""}">≈ Either${tb ? ` · ${augIco(tb.id)}${esc(name(tb.id))}` : ""}</div>` : ""}${offered.map((a, i) => row(a, i === 0 || ties.includes(a.id))).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
       ${shown.map((a, i) => row(a, i === 0 && !offered.length)).join("")}
-      <p class="note">Best first for ${esc(label(game.champ))}, by how each does on this champion in real games (DeepScore)${settings.length ? `. Set in champion select: ${esc(settings.join(", "))}` : ""}.</p>`;
+      ${settings.length ? `<div class="why" title="Set in champion select">${esc(settings.join(" · "))}</div>` : ""}`;
   }
 
   const enemyMagic = (k, enemies) => E.enemyMagic(k, enemies);
@@ -472,9 +495,18 @@
     const p = E.plan({ champ, kinds: k, picks: picksView(picks, keyIn(picks?.champions, game.champ)), fit: fitData, game, taken: getTaken(game), lucky, why: whyData, profiles: mechData });
     const tipLines = p.tips.filter((t) => t.kind !== "shop");
     const shop = p.tips.find((t) => t.kind === "shop")?.text ?? "";
-    const tipHtml = (t) => t.kind === "skill" ? `Skill point <span class="key inl">${esc(t.text)}</span>`
-      : t.item != null ? `${itemImg(t.item)}${esc(t.text)}` : esc(t.text);
-    const tip = tipLines.slice(0, 2).map((t) => `<div class="why tip">${tipHtml(t)}</div>`).join("");
+    // In game: the action only (a key to level, an item to buy or sell), the sentence on hover. Notes that ask
+    // nothing of you (haste maths, the attack-speed cap) stay out (Nico 2026-11-24: seconds per alt-tab).
+    const ACT = { skill: "Level", buy: "Buy", sell: "Sell", stacking: "First", timing: "Next" };
+    const tipHtml = (t) => t.kind === "skill" ? `⬆ <span class="key inl">${esc(t.text)}</span>`
+      : `${ACT[t.kind]} ${t.item != null ? itemImg(t.item) : ""}${esc(tipItem(t))}`;
+    // The item's name, from the engine's sentence ("Buy B. F. Sword now...", "Full build: sell X for Y.").
+    function tipItem(t) {
+      const m = /^Buy (.+?) now/.exec(t.text) ?? /buys (.+?) now/.exec(t.text) ?? /sell (.+?) for/.exec(t.text) ?? /^(.+?) (?:next|stacks)/.exec(t.text);
+      return m ? m[1] : "";
+    }
+    const tone = (t) => (t.kind === "skill" ? "blue" : "gold");
+    const tip = tipLines.filter((t) => ACT[t.kind]).slice(0, 2).map((t) => `<div class="cue ${tone(t)}" title="${esc(t.text)}">${tipHtml(t)}</div>`).join("");
     if (!p.path.length) { box.innerHTML = `<p class="note">No build for this champion yet.</p>` + tip; return; }
     // One full six-item path (Nico, 2026-11-23): the core, then the 4th/5th/6th picks, as icons labelled with their
     // slot. A real swap (an augment's item, or a counter that passed its test) takes the slot it replaces, with a
@@ -502,20 +534,17 @@
       const lbl = boot ? "Boots" : ord(++n);
       return `${i === p.coreLen ? `<span class="gap"></span>` : ""}<div class="slot${state(it)}${sw ? " sw" : ""}" title="${esc([`${it.name} · ${why}`, does ? "" : whatItDoes("items", itemId(it.icon ?? ""))].filter(Boolean).join("\n"))}"><img src="${src(it.icon ?? "")}" alt="" data-drop><span>${lbl}</span></div>`;
     }).join("");
-    const img = (it) => (it?.icon ? `<img class="ii" src="${src(it.icon)}" alt="" data-drop>` : "");
-    const lower = (t) => esc(String(t ?? "").replace(/\.$/, "").replace(/^./, (c) => c.toLowerCase()));
+    // Swaps already sit in the path (dashed ring, reason on hover). Other options: icons only, reason on hover.
+    const tipImg = (it, why) => (it?.icon ? `<img class="ii" src="${src(it.icon)}" alt="" title="${esc(`${it.name}: ${String(why ?? "").replace(/\.$/, "")}`)}" data-drop>` : "");
+    const opts = [...p.lit, ...p.pointers].map((x) => tipImg(x.item, x.why)).join("");
     const lines = [
-      p.switched ? `<div class="why tip lit">Build switched to <b>${esc(p.switched.style)}</b>${p.switched.because ? ` for ${esc(p.switched.because)}` : ""}.</div>` : "",
-      ...p.swaps.map((x) => `<div class="why tip lit">${img(x.item)}<b>${esc(x.item.name)}</b>${x.replaces ? ` instead of ${img(x.replaces)}${esc(x.replaces.name)}` : ""}: ${lower(x.why)}.</div>`),
-      ...p.lit.map((x) => `<div class="why tip lit">${img(x.item)}<b>${esc(x.item.name)}</b> fits this game: ${lower(x.why)}.</div>`),
-      ...p.pointers.map((x) => `<div class="why tip lit">${img(x.item)}<b>${esc(x.item.name)}</b> is an option: ${lower(x.why)}.</div>`),
+      p.switched ? `<div class="cue gold"${p.switched.because ? ` title="For ${esc(p.switched.because)}"` : ""}>⇄ ${esc(p.switched.style)}</div>` : "",
+      opts ? `<div class="cue gold">+ ${opts}</div>` : "",
     ].join("");
     box.innerHTML = `<div class="box${shop ? " now" : ""}">
-      ${shop ? `<div class="why">${esc(shop)}</div>` : ""}
-      <div class="why lbl">Build${p.next[0] ? ` · next: <b>${esc(p.next[0].name)}</b>` : ""}</div>
+      ${p.next[0] ? `<div class="nextup"><span class="lb">NEXT</span>${p.next[0].icon ? `<img src="${src(p.next[0].icon)}" alt="" data-drop>` : ""}<span class="nm">${esc(p.next[0].name)}</span></div>` : ""}
       <div class="path">${tiles}</div>
       ${lines}
-      ${p.next.length ? "" : `<p class="note">You have the whole build.</p>`}
       ${tip}</div>`;
   }
 
@@ -553,11 +582,11 @@
     const l = g.live;
     const ffHtml = l ? `<div class="live-mini"><span>Chance to win <b data-style="color:${color(l.win)}">${pct(l.win)}</b></span>
         <div class="bar"><span data-style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
-      ${l.surrender ? `<div class="box yes">Surrender: yes. A new game is worth more than this one now.</div>` : ""}` : "";
+      ${l.surrender ? `<div class="box yes" title="A new game is worth more than this one now.">Surrender: yes</div>` : ""}` : "";
     // Redrawn only when it changes, to keep the window's work small during a game.
     if (ff.lastHtml !== ffHtml) { ff.lastHtml = ffHtml; ff.innerHTML = ffHtml; }
     const head = document.getElementById("augHead");
-    head.textContent = waiting ? "Augment waiting: it comes at your next death" : pickNow ? "Augment pick: best first" : "Augments";
+    head.textContent = waiting ? "Augment at your next death" : pickNow ? "Pick now" : "Augments";
     head.classList.toggle("now", pickNow);
     // Only what the item advice reads: attack speed near its cap and ability haste from 100 (in steps of 10), so a
     // buff that ticks attack speed up and down doesn't redraw the items every two seconds.
@@ -573,7 +602,7 @@
     if (setOffer(ids) && game) {
       renderAugments();
       const h = document.getElementById("augHead");
-      if (h && offer.length) { h.textContent = "Augment pick: best first"; h.classList.add("now"); }
+      if (h && offer.length) { h.textContent = "Pick now"; h.classList.add("now"); }
     }
   };
 
