@@ -275,6 +275,18 @@ describe("build engine", () => {
     expect(seq.join("")).toBe("QEWQQREEEERQQ");
   });
 
+  it("follows a W split: Ashe W to 3, then max Q", () => {
+    const split = { first: "W", points: 3, weak: true };
+    const seq: string[] = [];
+    const pts = [0, 0, 0, 0];
+    for (let lv = 1; lv <= 13; lv++) {
+      const k = skillUp(["Q", "W", "E"], pts, lv, [], "Ashe", 5, split);
+      seq.push(k);
+      pts["QWER".indexOf(k)]++;
+    }
+    expect(seq.join("")).toBe("WQEWWRQQQQRWW");
+  });
+
   it("switches the skill order once an augment that changes it is taken (Gwen E>Q>W with Ethereal Weapon)", async () => {
     const c: OverlayChamp = { ...champ, skills: ["Q", "E", "W"], augmentSkills: [{ augment: 1029, skills: ["E", "Q", "W"] }] };
     const tip = (taken: number[]) =>
@@ -485,5 +497,15 @@ describe("HEARTSTEEL stickers (estimated)", () => {
     const p = { augments: {}, champions: { Mage: [[10, 0.01, 50, 1], [11, 0.005, 50, 1]] }, pairs: {}, styles: {} } as unknown as Picks;
     expect(rankAugments(p, "Mage", [])[0].id).toBe(10);
     expect(rankAugments(p, "Mage", [], { stickers: { 11: 1 } })[0].id).toBe(11);
+  });
+});
+
+describe("split skill orders", () => {
+  it("never split into the ability the champion maxes first", async () => {
+    const { CHAMPION_SPLITS, CHAMPION_SKILLS } = await import("@/lib/augment-skills");
+    for (const [champ, split] of Object.entries(CHAMPION_SPLITS)) {
+      const order = CHAMPION_SKILLS[champ];
+      if (order) expect(order[0], champ).not.toBe(split.first);
+    }
   });
 });
