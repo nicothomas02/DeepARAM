@@ -6,7 +6,7 @@ import { AUGMENT_SKILLS, type AugmentSkill } from "./augment-skills";
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
 import type { AugmentSwap } from "@/lib/build-plan";
 import { buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
-import { followed } from "@/lib/card-score";
+import { followed, SPELL_FOLLOWING } from "@/lib/card-score";
 import { FIT } from "@/lib/deepscore";
 import { champList } from "@/lib/champions";
 import { fillSpells } from "@/lib/fill";
@@ -110,7 +110,7 @@ export function quickBuilds(): QuickBuild[] {
       rush: rushIds.flatMap((i) => named(i) ?? []),
     });
     const rawSpells = fillSpells(id, t?.winRate ?? p.winRate ?? 0.5);
-    const spells = (rawSpells.some((r) => r.estimated) ? rawSpells : followed(scoreRows(rawSpells, FIT.items, { bound: true })))[0];
+    const spells = (rawSpells.some((r) => r.estimated) ? rawSpells : followed(scoreRows(rawSpells, FIT.items, { bound: true }), SPELL_FOLLOWING))[0];
 
     const swaps = p.swaps.flatMap((sw) => {
       const item = named(sw.item);
