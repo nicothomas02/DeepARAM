@@ -23,6 +23,8 @@
   .pickn .tm b { font-size: 18px; } .pickn .up { color: var(--good); } .pickn .down { color: var(--bad); } .pickn .flat { color: var(--muted); }
   .row .dice { width: 36px; height: 36px; border-radius: 8px; background: var(--raised); display: grid; place-items: center; font-size: 22px; }
   .row.roll { border-style: dashed; } .row.roll.up { border-color: var(--gold); } .row.roll .tm b.up { color: var(--gold); }
+  .spells { display: flex; align-items: center; gap: 12px; margin: 12px 0 6px; }
+  .spells img { width: 64px; height: 64px; border-radius: 12px; box-shadow: 0 0 0 3px var(--accent); }
   .bestteam { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
   .bestteam img { width: 36px; height: 36px; border-radius: 8px; } .bestteam .in img { box-shadow: 0 0 0 3px var(--good); } .bestteam .out img { opacity: .5; filter: grayscale(1); }
   .bestteam .swap { display: flex; align-items: center; gap: 4px; font-size: 20px; font-weight: 800; color: var(--good); }
@@ -371,6 +373,7 @@
     }
     setView(`
       ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion")}
+      ${plan?.spells?.length ? `<div class="spells" title="Summoner spells: they can't change after champion select">${plan.spells.map((sp) => `<img src="${SITE}${sp.icon}" alt="${esc(sp.name)}" title="${esc(sp.name)}">`).join("")}</div>` : ""}
       ${team.length ? `<h2>Your team</h2><div class="mates">${team.map(icon).join("")}</div>` : ""}
       ${gap ? `<div class="box">${esc(gap)}</div>` : ""}
       <h2>Your choices, best first</h2>
