@@ -42,6 +42,7 @@ var DeepEngine = (() => {
     MARK_AUGMENTS: () => MARK_AUGMENTS,
     MEASURED_SWITCHES: () => MEASURED_SWITCHES,
     MIN_HOLDERS: () => MIN_HOLDERS,
+    PASSED_OVER: () => PASSED_OVER,
     POINTS_PER_1000_GOLD: () => POINTS_PER_1000_GOLD,
     PROVEN: () => PROVEN,
     REROLL_GAIN: () => REROLL_GAIN,
@@ -417,6 +418,8 @@ var DeepEngine = (() => {
 
   // src/lib/engine/build-engine.ts
   var ENGINE_VERSION = "1.3.18";
+  var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
+  var ADAPT = 1205;
   var RULES = {
     // Backed by data or the game's own rules: on.
     itemLimits: { source: "game data", on: true, why: "The game's own-only-one groups; never broken in 1,730 public full builds or 1,245 archived games (Immolate and Hydras excepted)." },
@@ -450,6 +453,8 @@ var DeepEngine = (() => {
     slotFirst: { source: "game data", on: true, why: "Weapon of Destiny (when you take it), King Me (when you first enter the enemy gate) and Ornn's Masterwork (his own item at level 13; an ally's when he forges for them at levels 14-17) each upgrade the first eligible Legendary in slots 1-6 (wiki). The cue says which item to move to slot 1: for Weapon of Destiny the champion's best Weapon item (AramHex); for King Me and Ornn, estimated, the earliest item of your build path you own (+1,000 gold of stats goes on your most important item). Weapon of Destiny is only offered on the first two regular screens (archive: 136 of 136 picks outside random draws; never seen on K/DA's or Superfans' extra picks, estimated), so its cue only shows while it is on offer. Nico chose 2026-11-24." },
     hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
     ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
+    ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). A path item you've passed over with two finished items (bought after it in the path, or off it) moves behind the rest, so Next moves on (2 is estimated: one situational buy out of order keeps the plan); two or more off-path items of one style (class-wide builds over all champions, AramHex) switch the rest of the build to that style, e.g. AP Zeri." },
+    pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
     // Design choices Nico hasn't picked yet: kept as they were.
     rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
     swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
@@ -832,7 +837,9 @@ var DeepEngine = (() => {
   function situational(champ, k, fit, enemies, taken, skip, augName = (id) => `#${id}`) {
     const own = champ?.situational ?? [];
     const prefix = ([...champ?.items ?? [], ...own].find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
-    const extra = RULES.augmentItems.on ? [...AUGMENT_ITEMS].sort((x, y) => y.rate - x.rate).filter((x, n, all) => taken.includes(x.augment) && k.recipes[x.item] && !own.some((it) => itemId(it.icon) === x.item) && !skip.has(x.item) && all.findIndex((y) => y.augment === x.augment && taken.includes(y.augment) && k.recipes[y.item] && !own.some((it) => itemId(it.icon) === y.item) && !skip.has(y.item)) === n).map((x) => ({ name: k.recipes[x.item][0], icon: `${prefix}${22e4 + x.item}.png`, when: `With ${x.augmentName}`, why: augmentItemWhy(x), augments: [x.augment] })) : [];
+    const hasAd = [...champ?.items ?? [], ...champ?.rest ?? [], ...champ?.full ?? []].some((it) => it?.icon && (k.items[String(itemId(it.icon))] ?? []).includes("ad"));
+    const fitsBuild = (id) => hasAd || taken.includes(ADAPT) || !(k.items[String(id)] ?? []).includes("ad");
+    const extra = RULES.augmentItems.on ? [...AUGMENT_ITEMS].sort((x, y) => y.rate - x.rate).filter((x, n, all) => taken.includes(x.augment) && k.recipes[x.item] && !own.some((it) => itemId(it.icon) === x.item) && !skip.has(x.item) && fitsBuild(x.item) && all.findIndex((y) => y.augment === x.augment && taken.includes(y.augment) && k.recipes[y.item] && !own.some((it) => itemId(it.icon) === y.item) && !skip.has(y.item) && fitsBuild(y.item)) === n).map((x) => ({ name: k.recipes[x.item][0], icon: `${prefix}${22e4 + x.item}.png`, when: `With ${x.augmentName}`, why: augmentItemWhy(x), augments: [x.augment] })) : [];
     if (RULES.augmentShift.on && taken.length) {
       const pure = (t2) => t2.includes("ad") && !t2.includes("ap") ? "ad" : t2.includes("ap") && !t2.includes("ad") ? "ap" : "";
       const tags = new Set([...champ?.items ?? [], ...champ?.rest ?? [], ...champ?.full ?? []].map((it) => it?.icon ? pure(k.items[String(itemId(it.icon))] ?? []) : ""));
@@ -978,8 +985,10 @@ var DeepEngine = (() => {
     const rest = pickFree(ids.filter((id) => !byCore.includes(id)).sort((a, b) => score[b] - score[a]), 5, byCore);
     return byCore.length === 3 ? [byCore, rest] : null;
   }
-  function pickBuild(base0, picks, k, champ, taken, owned, rules) {
-    if (!(RULES.augmentReplan.on || RULES.measuredReplan.on) || !taken.length || !k || !picks) return { list: base0, style: null, core: null };
+  var PASSED_OVER = 2;
+  function pickBuild(base0, picks, k, champ, taken, owned, rules, forced = null) {
+    if (!k || !picks) return { list: base0, style: null, core: null };
+    if (!forced && (!(RULES.augmentReplan.on || RULES.measuredReplan.on) || !taken.length)) return { list: base0, style: null, core: null };
     const ck = keyIn(picks.builds, champ);
     const styles = ck ? picks.builds[ck] : [];
     const votes = {}, because = {};
@@ -998,14 +1007,15 @@ var DeepEngine = (() => {
         if (strong) because[st2] = id;
       }
     }
-    const top = Object.entries(votes).sort((x, y) => y[1] - x[1])[0];
+    const top = Object.entries(votes).sort((x, y) => y[1] - x[1])[0] ?? (forced ? [forced.style, 3] : void 0);
     if (!top) return { list: base0, style: null, core: null };
     const [st, n] = top;
+    const byItems = !!forced && st === forced.style && !votes[st];
     if (styles[0]?.[0] === st) return { list: base0, style: null, core: null };
     const found = styles.find(([x]) => x === st);
     let plan2 = found ? [found[2].slice(0, 1), found[3], found[4]] : null;
-    if (!plan2 && n >= 3 && RULES.augmentReplan.on) {
-      const magic = (Object.entries(k.champions).find(([a]) => a.toLowerCase() === champ.toLowerCase())?.[1] ?? 0.5) > 0.5;
+    if (!plan2 && n >= 3 && (RULES.augmentReplan.on || byItems)) {
+      const magic = byItems ? forced.magic : (Object.entries(k.champions).find(([a]) => a.toLowerCase() === champ.toLowerCase())?.[1] ?? 0.5) > 0.5;
       const cb = classBuild(picks, k, st, magic, rules);
       const boots = base0.find((it) => k.boots.includes(itemId(it.icon)));
       if (cb) plan2 = [boots ? [itemId(boots.icon)] : [], cb[0], cb[1]];
@@ -1019,7 +1029,7 @@ var DeepEngine = (() => {
       return { name: k.recipes[b][0], icon: `${prefix}${ICON_ID[id] ? id : fin ? 22e4 + b : b}.png` };
     };
     const fresh = [...plan2[0].slice(0, 1), ...plan2[1], ...plan2[2]].flatMap((id) => mk(id) ?? []);
-    const kept = base0.filter((it) => owned.has(itemId(it.icon)));
+    const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 || k.boots.includes(i)).flatMap((i) => base0.find((it) => itemId(it.icon) === i) ?? mk(i) ?? []) : base0.filter((it) => owned.has(itemId(it.icon)));
     const keptIds = kept.map((it) => itemId(it.icon));
     const list = [...kept];
     for (const it of fresh) {
@@ -1027,7 +1037,7 @@ var DeepEngine = (() => {
       if (keptIds.includes(id) || owned.has(id) || list.some((x) => rules.clash(itemId(x.icon), id))) continue;
       list.push(it);
     }
-    const why = because[st] ? picks.augments[because[st]]?.[0] ?? "" : "";
+    const why = byItems ? forced.because : because[st] ? picks.augments[because[st]]?.[0] ?? "" : "";
     const sized = list.slice(0, 6);
     const niche = !!found?.[5]?.length && found[5].includes(because[st]);
     return { list: sized, style: STYLE_NAMES[st] ?? st, core: Math.min(sized.length, (plan2[0].length ? 1 : 0) + 3), because: why, classWide: !found, ...niche ? { niche: true } : {} };
@@ -1196,6 +1206,28 @@ var DeepEngine = (() => {
     const bootIds = new Set(k?.boots ?? []);
     let slotRows = laterPicks(champ, owned, rules);
     if (slotRows && RULES.itemLimits.on) applied("itemLimits");
+    let forced = null;
+    if (RULES.ownedReplan.on && k && picks) {
+      const listed = new Set([...champ?.items ?? [], ...champ?.rest ?? [], ...(slotRows ?? []).flatMap((r) => [r.it, ...r.alts])].map((it) => itemId(it.icon)));
+      const fin = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i));
+      const off = fin.filter((i) => !listed.has(i));
+      const tag = (i, t) => (k.items[String(i)] ?? []).includes(t);
+      const magicOf = (ids) => ids.filter((i) => tag(i, "ap") && !tag(i, "ad")).length > ids.filter((i) => tag(i, "ad") && !tag(i, "ap")).length;
+      const pathIds = [...listed].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i));
+      if (off.length >= 2 && magicOf(fin) !== magicOf(pathIds)) {
+        const magic = magicOf(fin);
+        const inPath2 = fin.filter((i) => listed.has(i)).length;
+        let best = null;
+        for (const st of [...new Set(Object.values(picks.builds ?? {}).flatMap((b) => b.map((x) => x[0])))]) {
+          const cb = classBuild(picks, k, st, magic, rules);
+          if (!cb) continue;
+          const ids = /* @__PURE__ */ new Set([...cb[0], ...cb[1]]);
+          const hit = fin.filter((i) => ids.has(i)).length;
+          if (off.filter((i) => ids.has(i)).length >= 2 && hit > inPath2 && (!best || hit > best.hit)) best = { st, hit };
+        }
+        if (best) forced = { style: best.st, magic, because: off.slice(0, 2).map((i) => k.recipes[i][0]).join(" + ") };
+      }
+    }
     if (slotRows && k && RULES.ownedOffPath.on) {
       const listed = new Set([...champ?.items ?? [], ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
       const prefix = ((champ?.items ?? []).find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
@@ -1233,18 +1265,45 @@ var DeepEngine = (() => {
         applied("critCap");
       }
     }
-    const baseList = [...champ?.items ?? [], ...slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? []];
-    const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules);
+    if (slotRows && RULES.pathOnce.on) {
+      const seen = new Set((champ?.items ?? []).map((it) => itemId(it.icon)));
+      slotRows = slotRows.flatMap((r) => {
+        const pick = [r.it, ...r.alts].find((x) => !seen.has(itemId(x.icon)) && ![...seen].some((s) => rules.clash(s, itemId(x.icon))));
+        if (!pick) return [];
+        if (pick !== r.it) {
+          applied("pathOnce");
+          r = { ...r, it: pick, alts: [r.it, ...r.alts.filter((x) => x !== pick)].slice(0, 2) };
+        }
+        seen.add(itemId(pick.icon));
+        return [r];
+      });
+    }
+    const baseList = [...champ?.items ?? [], ...slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? []].filter((it, i, a) => a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
+    const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules, forced);
     if (picked.style) {
       slotRows = null;
-      applied(picked.niche ? "nicheBuilds" : RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan");
+      applied(picked.niche ? "nicheBuilds" : forced && picked.because === forced.because ? "ownedReplan" : RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan");
     }
     const build = picked.list;
     const coreLen = picked.core ?? (champ?.items ?? []).length;
-    const hasBoots = [...owned].some((i) => bootIds.has(i));
+    const hasBoots = [...owned].some((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
     const isOwned = (it) => owned.has(itemId(it.icon)) || hasBoots && bootIds.has(itemId(it.icon));
     let next = build.filter((it) => !isOwned(it));
     const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i)).length;
+    if (RULES.ownedReplan.on) {
+      const buildIds = build.map((it) => itemId(it.icon));
+      const fin = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i));
+      const passed = (it) => fin.filter((i) => {
+        const at = buildIds.indexOf(i);
+        return at < 0 || at > build.indexOf(it);
+      }).length >= PASSED_OVER;
+      const started = [...owned].some((i) => TIER1_BOOTS.has(i));
+      const skipped = next.filter((it) => passed(it) && !(started && bootIds.has(itemId(it.icon))));
+      if (skipped.length && skipped.length < next.length) {
+        next = [...next.filter((it) => !skipped.includes(it)), ...skipped];
+        applied("ownedReplan");
+      }
+    }
     const timing = [];
     const augName = (id) => picks?.augments[id]?.[0] ?? `#${id}`;
     const front = (idx, because) => {
@@ -1302,7 +1361,7 @@ var DeepEngine = (() => {
     }
     next = next.slice(0, 2);
     const coreItems = build.slice(0, coreLen);
-    const rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6);
+    const rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
     const path = [...coreItems, ...rest];
     const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
     const slotName = (i) => ord(slotRows?.[i]?.slot ?? first + i);
@@ -1370,7 +1429,7 @@ var DeepEngine = (() => {
     if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
     for (const t of timing.slice(0, 1)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
     if (RULES.shopTips.on && k && next.length) {
-      const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + (hasBoots ? 1 : 0);
+      const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
       if (slots >= 6) {
         const inBuild = new Set(build.map((it) => itemId(it.icon)));
         const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !inBuild.has(i) && !bootIds.has(i));
