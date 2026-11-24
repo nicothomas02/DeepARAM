@@ -23,6 +23,7 @@ import {
   type Kinds,
   type OverlayChamp,
   type Picks,
+  shiftOf,
 } from "@/lib/engine/build-engine";
 import { bundleEngine, ENGINE_OUT } from "../../scripts/build-engine.mjs";
 
@@ -116,12 +117,15 @@ describe("build engine", () => {
     expect(p.swaps.map((s) => [itemId(s.item.icon), s.kind, itemId(s.replaces?.icon)])).toEqual([[3087, "augment", 3046]]);
   });
 
-  it("adds only confirmed augment items: Draw Your Sword -> Death's Dance, not Armored Impact -> Thornmail", () => {
+  it("confirmed augment items keep their measured line; other augments' items come as estimated swaps", () => {
     const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3036)] }, { slot: 5, items: [item(3094)] }] };
     const p = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [1134] });
     const dd = p.swaps.find((s) => itemId(s.item.icon) === 6333);
     expect(dd?.why).toMatch(/With Draw Your Sword, \d+% of players build Death's Dance/);
-    expect(plan({ champ, kinds, picks, fit, game: game([]), taken: [3049] }).swaps.map((s) => itemId(s.item.icon))).not.toContain(3075);
+    // Armored Impact isn't a confirmed pair: Thornmail may come (Nico 2026-11-24: all augments change the build), but
+    // only labeled estimated, never with the confirmed "x% of players build" line
+    const ai = plan({ champ, kinds, picks, fit, game: game([]), taken: [3049] }).swaps.find((s) => itemId(s.item.icon) === 3075);
+    if (ai) expect(ai.why).toMatch(/\(estimated\)$/);
   });
 
   it("switches build only for measured augments (Ethereal Weapon -> on-hit)", () => {
@@ -132,12 +136,16 @@ describe("build engine", () => {
     expect(off.switched).toBeNull();
   });
 
-  it("Weapon of Destiny moves the champion's best Weapon item first; Upgrade X only labels it", () => {
+  it("Weapon of Destiny moves the champion's best Weapon item first; measured augments move their item up", () => {
     const wod = plan({ champ, kinds, picks, fit, game: game([]), taken: [3081] });
     expect(itemId(wod.next[0].icon)).toBe(3036);
+    // Upgrade Infinity Edge: IE is a 1st/2nd legendary for 83% of holders vs 52% without (augmentShift)
     const up = plan({ champ, kinds, picks, fit, game: game([]), taken: [1336] });
-    expect(ids(up.next)).toEqual([3006, 3031]);
-    expect(up.why[1]).toMatch(/upgrades it/);
+    expect(ids(up.next)).toEqual([3031, 3006]);
+    expect(up.timing[0].because).toMatch(/buy this earlier/);
+    expect(up.why[ids(up.path).indexOf(3031)]).toMatch(/upgrades it/);
+    // a pull too small to matter (Ethereal Weapon -> Nashor's, shrunk) moves nothing on its own
+    expect(Math.abs(shiftOf([1029], 3115).early)).toBeLessThan(0.05);
   });
 
   it("puts a finished item you own off the path into the first open later slot", () => {
@@ -242,6 +250,18 @@ describe("build engine", () => {
     const tip = plan({ champ: c, kinds, picks, fit, game: game([], { level: 4, skills: [1, 1, 1, 0] }), taken: [2087, 1349] }).tips.find((t) => t.kind === "skill");
     expect(tip?.text).toBe("W");
     expect(skillUp(["E", "Q", "W"], [2, 2, 1, 1], 7, [], "Ashe", 1)).toBe("Q");
+  });
+
+  it("switches the skill order once an augment that changes it is taken (Gwen E>Q>W with Ethereal Weapon)", async () => {
+    const c: OverlayChamp = { ...champ, skills: ["Q", "E", "W"], augmentSkills: [{ augment: 1029, skills: ["E", "Q", "W"] }] };
+    const tip = (taken: number[]) =>
+      plan({ champ: c, kinds, picks, fit, game: game([], { level: 4, skills: [1, 1, 1, 0] }), taken }).tips.find((t) => t.kind === "skill")?.text;
+    expect(tip([])).toBe("Q");
+    expect(tip([1029])).toBe("E");
+    expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [1029] }).rules).toContain("augmentSkills");
+    // The live overlay carries Gwen's entry.
+    const gwen = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Gwen");
+    expect(gwen?.augmentSkills).toEqual([{ augment: 1029, skills: ["E", "Q", "W"] }]);
   });
 
   it("never plans two items of one limit group, on any champion's real data", async () => {

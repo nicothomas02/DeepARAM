@@ -65,3 +65,24 @@ is the right yardstick; across champions, only the Tier List compares, and it is
   uncertainty is nearly the same for every champion, so bound and estimate rank alike. No change.
 - **Ordered 3-item cores:** merging orders would change the most-played core for 6 of 172 champions; 16.23's cores
   are still 16.22's. Low value, left as is.
+
+## Following threshold sweep (2026-11-24)
+
+Nico (2026-11-24): "give more weight to win rate and less on pick rate". `following_sweep.py` ranks each list on the
+bound rule the cards use and lets only rows with at least SHARE of the top row's games lead, then judges the card's
+top row on the next patch (paired vs SHARE = 0.25, pts, ± 1 SE). Full data / patch thinned to 10%:
+
+| List (champion-patches) | 10% | 5% | 2% | 0% |
+|---|---|---|---|---|
+| Single items (169) | +0.69 / +0.67 | **+0.99 / +0.95** | +1.25 / +1.13 | +2.45 / +1.69 |
+| Boots (43) | +0.22 / +0.22 | **+0.46 / +0.47** | +0.62 / +0.49 | +1.14 / +0.69 |
+| Spell pairs (321) | +0.10 / +0.08 | **+0.16 / +0.14** | +0.21 / +0.16 | +1.74 / -0.02 |
+| Cores (99) | 0 | 0 | 0 | 0 |
+
+- Every list gains as the threshold drops, on full and thin data, because the bound rule already marks small samples
+  down. At 0% spell pairs turn negative on thin data, so some threshold stays.
+- Cores: AramHex lists only a champion's few top cores, so the threshold never changes the pick.
+- Augments have no following rule on the cards (bound only), so they are already "0%".
+- Not testable here: starters (AramHex has no starters; 101 history set START_MIN_GAMES), skill orders (lobby data,
+  one snapshot), six-item builds (one patch).
+- These are next-patch win rates, so still correlation: a rare item's buyers may differ from the rest.

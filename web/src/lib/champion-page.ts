@@ -5,7 +5,7 @@ import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
 import { clashWith, withoutClashes } from "./item-limits";
-import { alongCore, bestRow, buildOrder, followed, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, realFullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
+import { alongCore, bestRow, buildOrder, followed, ITEM_FOLLOWING, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, realFullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
@@ -399,8 +399,21 @@ export function championPage(alias: string): ChampionPage | null {
   // The items after the core, one by one, and split by the slot players buy them in (data/estimates/item_slots.json,
   // purchase order from the owner's archived games, all ten players: the feeds list six-item builds as sets).
   const itemSlots = readRepoJson<{ all: SlotCounts; champions: Record<string, SlotCounts> }>("data/estimates/item_slots.json");
+  // Items only another build style of this champion buys don't fill this style's later slots: with fewer games needed
+  // to lead (ITEM_FOLLOWING), crit Ashe listed AP Ashe's Nashor's Tooth (champion review 2026-11-24).
+  const archStyles = readRepoJson<{ champions: Record<string, Archetype[]> }>("data/estimates/build_archetypes.json")?.champions[String(id)] ?? [];
+  const foreignFor = (items: number[]): Set<number> => {
+    if (archStyles.length < 2) return new Set();
+    const b = (i: number) => i % 10000;
+    const has = (a: Archetype) => (a.core ?? []).filter((i) => items.some((j) => b(j) === b(i))).length;
+    const own = archStyles.reduce((best, a) => (has(a) > has(best) ? a : best));
+    const listed = (a: Archetype) => [...(a.core ?? []), ...(a.later ?? [])].map(b);
+    const mine = new Set(listed(own));
+    return new Set(archStyles.filter((a) => a !== own).flatMap(listed).filter((i) => !mine.has(i)));
+  };
   const withLater = (row: ItemRow): ItemRow => {
-    const pool = afterCore(row, single, full);
+    const away = foreignFor(row.items);
+    const pool = afterCore(row, single, full).filter((r) => !away.has(r.items[0] % 10000));
     const bySlot = slotItems(pool, row, itemClasses, itemSlots?.champions[String(id)], itemSlots?.all);
     const later = laterItems(pool, row, itemClasses);
     const picks = realFullPicks(row, full, single, bySlot ?? undefined, isBoots) ?? fullPicks(row, bySlot ?? undefined, later);
@@ -420,7 +433,7 @@ export function championPage(alias: string): ChampionPage | null {
           legendaryPool,
           itemRoles,
           (i) => all.get(i)?.name,
-          [...c.items, ...followed(sameStyle(legendaryPool, c.items, itemClasses)).map((r) => r.items[0])].filter((i, k, a) => a.indexOf(i) === k),
+          [...c.items, ...followed(sameStyle(legendaryPool, c.items, itemClasses), ITEM_FOLLOWING).map((r) => r.items[0])].filter((i, k, a) => a.indexOf(i) === k),
         ).sort((x, y) => (swapScore.get(y.item) ?? -Infinity) - (swapScore.get(x.item) ?? -Infinity))
       : [];
   const core = withBootsCore.map((c) => {
@@ -567,7 +580,7 @@ function tiered(list: ItemRow[]): ItemRow[] {
 
 /**
  * Each core build with its boots: among the boots bought alongside it in six-item builds with a real following
- * (MIN_FOLLOWING of the most common pairing), the one with the best DeepScore on the boots list, so the most popular
+ * (ITEM_FOLLOWING of the most common pairing), the one with the best DeepScore on the boots list, so the most popular
  * pairing doesn't win on popularity alone (Nico, 2026-11-21: Zeri's card showed Berserker's Greaves over the higher
  * scoring Gluttonous Greaves); the best boots overall when no six-item build has the core. Then
  * when to buy them: the simulated step for that core, else the step the champion's other cores use most with those boots.
@@ -598,7 +611,7 @@ function withBoots(
     const top = Math.max(0, ...share.values());
     const score = (i: number) => scored.find((b) => b.items[0] === i)?.deepScore ?? -1;
     const paired = [...share]
-      .filter(([, s]) => s >= MIN_FOLLOWING * top)
+      .filter(([, s]) => s >= ITEM_FOLLOWING * top)
       .sort((x, y) => score(y[0]) - score(x[0]) || y[1] - x[1])[0]?.[0];
     const boots = paired ?? scored[0]?.items[0];
     if (boots === undefined) return r;

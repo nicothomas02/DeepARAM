@@ -82,6 +82,10 @@ jobs:
       - name: Score how each patch's picks held up on the next (Patches page scorecard)
         continue-on-error: true
         run: python3 data/aramhex/scorecard.py
+      - name: Re-time boots for the new cores (data/estimates/boots_timing.json is keyed by real cores; a stale file failed tests on main, 2026-11-24)
+        run: |
+          make -C simulator mayhem_sim
+          python3 data/estimates/boots_timing.py || echo "::warning::Boots timing not refreshed"
       - name: Refresh the Simulator's augment pools again with AramHex's augment lists
         continue-on-error: true
         run: |
@@ -115,7 +119,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/cn data/stats data/aramhex data/fill/spells_games.json champions/data.js champions/i18n web/public/assets simulator/data/augment_pools.json simulator/data/pbe/augment_pools.json simulator/viewer/replay-data/pbe/augment_pools.json
+          git add data/cn data/stats data/aramhex data/fill/spells_games.json data/estimates/boots_timing.json champions/data.js champions/i18n web/public/assets simulator/data/augment_pools.json simulator/data/pbe/augment_pools.json simulator/viewer/replay-data/pbe/augment_pools.json
           if git diff --cached --quiet; then
             echo "No new data"
           else
