@@ -2,6 +2,7 @@
 import { Name, T } from "@/components/I18n";
 import type { Rated } from "@/lib/champion-page";
 import WinRate from "@/components/WinRate";
+import { DeepScoreInline } from "@/components/DeepScore";
 
 // Champion page building blocks: a panel with a title and row count, a header row, and ranked rows whose
 // numbers sit in fixed columns (value on top, its label below). Rows past the first few hide behind a
@@ -219,7 +220,7 @@ function LaterList({ rows, info }: { rows: LaterRow[]; info: Record<number, { na
           <span className="cp-later-nums">
             {r.deepScore !== undefined && (
               <span>
-                <b>{r.deepScore}</b> <small>DeepScore</small>
+                <DeepScoreInline value={r.deepScore} /> <small>DeepScore</small>
               </span>
             )}
             <span>
@@ -254,7 +255,7 @@ function SlotChip({ r, info, inBuild }: { r: LaterRow; info: Record<number, { na
         )}
         {r.deepScore !== undefined && (
           <span>
-            <b>{r.deepScore}</b> <small>DeepScore</small>
+            <DeepScoreInline value={r.deepScore} /> <small>DeepScore</small>
           </span>
         )}
         {Number.isFinite(r.winRate) && (

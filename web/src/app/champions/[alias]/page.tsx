@@ -172,7 +172,7 @@ function ScoredCells({ r }: { r: ItemRow }) {
     <>
       <div className="cp-cell">
         {r.deepScore !== undefined ? (
-          <DeepScore value={r.deepScore} help={BUILD_DEEPSCORE_HELP} />
+          <DeepScore value={r.deepScore} edge={r.deepEdge} help={BUILD_DEEPSCORE_HELP} />
         ) : (
           <b>–</b>
         )}
@@ -200,7 +200,7 @@ function LateScore({ r }: { r: ItemRow }) {
   return (
     <div className="cp-cell">
       {r.deepScore !== undefined ? (
-        <DeepScore value={r.deepScore} help={ITEM_DEEPSCORE_HELP} />
+        <DeepScore value={r.deepScore} edge={r.deepEdge} help={ITEM_DEEPSCORE_HELP} />
       ) : (
         <b>–</b>
       )}
@@ -1300,6 +1300,7 @@ export default async function ChampionPage({
                             {r.deepScore !== undefined && (
                               <DeepScore
                                 value={r.deepScore}
+                                edge={r.deepEdge}
                                 help={ITEM_DEEPSCORE_HELP}
                               />
                             )}

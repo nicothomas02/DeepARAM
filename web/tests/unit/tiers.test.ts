@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { champStats, type PatchRow } from "@/lib/tiers";
-import { grade, lowerBound, TIER_Z } from "@/lib/deepscore";
+import { grade, lowerBound } from "@/lib/deepscore";
+import { TIER_CUTS, tierOfScore } from "@/lib/deepscore-scale";
 
 const row = (name: string, win_rate: number, pick_rate: number, patch = "16.20", days = 14): PatchRow => ({
   patch, days, name, win_rate, pick_rate, damage: null, tank: null, kp: null, dead: null, augs: "",
@@ -21,7 +22,7 @@ describe("champStats", () => {
     const rows = Array.from({ length: 100 }, (_, i) => row(`C${i}`, 0.4 + i * 0.002, 0.05));
     const out = champStats(rows, new Set(["16.20"]));
     expect(out).toHaveLength(100);
-    const order = TIER_Z.map(([t]) => t);
+    const order = TIER_CUTS.map(([t]) => t);
     // sorted best first: tiers never get better further down, and DeepScore never rises
     out.forEach((c, i) => {
       if (!i) return;
@@ -102,8 +103,18 @@ describe("DeepScore", () => {
       expect(deepScore).toBeGreaterThanOrEqual(0);
       expect(deepScore).toBeLessThanOrEqual(100);
     }
-    expect(grade([0.5, 0.5])[0]).toEqual({ deepScore: 50, tier: "B" });
+    expect(grade([0.5, 0.5])[0]).toEqual({ deepScore: 50, tier: "B", edge: 0 });
     expect(grade([])).toEqual([]);
+  });
+
+  it("gives each value its lead over the list average in win-rate points", () => {
+    const g = grade([0.48, 0.5, 0.52]);
+    expect(g.map((x) => x.edge)).toEqual([-2, 0, 2]);
+  });
+
+  it("cuts tiers on the rounded score, so the badge colour always matches the printed cuts", () => {
+    expect([100, 70, 69, 59, 58, 44, 43, 32, 31, 0].map(tierOfScore)).toEqual(["S", "S", "A", "A", "B", "B", "C", "C", "D", "D"]);
+    for (const { deepScore, tier } of grade([0.4, 0.45, 0.48, 0.5, 0.5, 0.51, 0.53, 0.56, 0.6, 0.7])) expect(tier).toBe(tierOfScore(deepScore));
   });
 });
 

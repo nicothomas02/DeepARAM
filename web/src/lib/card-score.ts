@@ -13,6 +13,8 @@ export type Rated = { winRate: number; pickRate: number; lift: number; games?: n
 export type ItemRow = Rated & {
   items: number[];
   deepScore?: number;
+  /** Lead over the list's average in win-rate points (lib/deepscore.ts grade edge), for the badge's hover. */
+  deepEdge?: number;
   tier?: ItemTier;
   /** Core builds: the boots that go with the core. */
   boots?: number;
@@ -48,7 +50,7 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(
   given: T[],
   fit: Fit | null = null,
   opts: { bound?: boolean } = {},
-): (T & { deepScore?: number })[] {
+): (T & { deepScore?: number; deepEdge?: number })[] {
   if (!given.length) return given;
   // Rows with earlier patches pooled in score on those (Nico 2026-11-23: small samples); the rows returned are the
   // given ones, with their live-patch numbers.
@@ -82,7 +84,7 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(
     });
     const grades = grade(bounds);
     return given
-      .map((r, i) => ({ ...r, deepScore: grades[i].deepScore }))
+      .map((r, i) => ({ ...r, deepScore: grades[i].deepScore, deepEdge: grades[i].edge }))
       .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
   }
   const bounds = list.map((r) =>
@@ -97,7 +99,7 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(
   );
   const grades = grade(bounds);
   return given
-    .map((r, i) => ({ ...r, deepScore: grades[i].deepScore }))
+    .map((r, i) => ({ ...r, deepScore: grades[i].deepScore, deepEdge: grades[i].edge }))
     .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
 }
 
