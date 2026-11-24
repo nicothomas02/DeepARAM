@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { canLead, leading, MIN_GAMES, SPELL_MIN_GAMES } from "@/lib/card-score";
+import { canLead, fewPlayersSpell, leading, MIN_GAMES, SPELL_MIN_GAMES } from "@/lib/card-score";
 
 const row = (pickRate: number, games?: number, pooled?: number) => ({
   pickRate,
@@ -34,4 +34,16 @@ describe("canLead (flat game minimum, Nico 2026-11-24)", () => {
     expect(rows.map(canLead(rows, 0.02, SPELL_MIN_GAMES))).toEqual([true, true, false]);
     expect(rows.map(canLead(rows, 0.02))).toEqual([true, false, false]);
   });
+});
+
+describe("fewPlayersSpell", () => {
+  const row = (ids: number[], pickRate: number, estimated = false) => ({ spells: ids.map((id) => ({ id })), pickRate, estimated });
+  const flashGhost = row([4, 6], 0.6);
+  const ghostBarrier = row([6, 21], 0.001);
+  const ghostMark = row([6, 32], 0.4);
+  const rows = [flashGhost, ghostBarrier, ghostMark];
+  it("tags a rare pair without Flash", () => expect(fewPlayersSpell(ghostBarrier, rows)).toBe(true));
+  it("leaves a popular pair without Flash alone", () => expect(fewPlayersSpell(ghostMark, rows)).toBe(false));
+  it("never tags a Flash pair", () => expect(fewPlayersSpell(row([4, 21], 0.001), rows)).toBe(false));
+  it("skips estimated rows", () => expect(fewPlayersSpell(row([6, 21], 0.001, true), rows)).toBe(false));
 });
