@@ -86,3 +86,28 @@ top row on the next patch (paired vs SHARE = 0.25, pts, ± 1 SE). Full data / pa
 - Not testable here: starters (AramHex has no starters; 101 history set START_MIN_GAMES), skill orders (lobby data,
   one snapshot), six-item builds (one patch).
 - These are next-patch win rates, so still correlation: a rare item's buyers may differ from the rest.
+
+## Flat game minimum vs share rules (2026-11-24)
+
+`following_sweep.py` now also tries flat minimum game counts (FLAT). Paired next-patch lead of the card's top row vs
+25% of the top row's games, pts (full data / thinned to 10%):
+
+| List | 5% / 2% (then live) | 1,000 games | 500 games | 0% |
+|---|---|---|---|---|
+| Items | +0.99 / +0.95 | +2.54 / +1.70 | +2.57 / +1.69 | +2.58 / +1.80 |
+| Boots | +1.09 / +1.08 | +1.57 / +1.24 | +1.57 / +1.34 | |
+| Spell pairs | +0.21 / +0.16 (2%) | +1.00 / +0.17 | | |
+| Cores | | +0.37 / +0.23 | | |
+| Augments (no rule) | | +0.85 / +0.47 | | +0.87 / +0.53 |
+
+Nico chose a flat 1,000-game minimum for items, boots, spell pairs and cores (lib/card-score.ts MIN_GAMES, canLead);
+the share rules stay as a fallback for lists without real game counts. Ghost + Barrier leads 24 champions' spells
+after the switch: with 1,000+ games it led the next patch on 30 of 31 champions (16.21 to 16.22, +4.5 pts) and 28 of
+38 (16.22 to 16.23, +2.9 pts). Correlation, not cause (who picks it matters).
+
+## Tier List: more weight on win rate (2026-11-24)
+
+`tier_weight.py` sweeps the bound rule's penalty Z (1 = today, 0 = shrunk win rate only). Champions: identical at
+every Z (rho 0.938, top-10 lead +5.57 pts): their fit has no pick-rate term (k = 0, s1 ~ 0). Augments per champion:
+top-5 next-patch lead 4.902 (Z=1) / 4.919 (0.25) / 4.890 (0); rho 0.9519 -> 0.9513; thinned to 10%, rho 0.887 ->
+0.872 at Z=0. No change: any gain is within noise and thin data ranks worse.

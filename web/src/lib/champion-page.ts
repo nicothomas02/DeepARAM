@@ -5,7 +5,7 @@ import augmentNames from "@/data/augment-names.json";
 import { liveWithChange } from "./champions";
 import { FIT, type Fit } from "./deepscore";
 import { clashWith, withoutClashes } from "./item-limits";
-import { alongCore, bestRow, buildOrder, followed, ITEM_FOLLOWING, laterItems, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, realFullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
+import { alongCore, bestRow, buildOrder, canLead, gamesOf, ITEM_FOLLOWING, laterItems, leading, MIN_FOLLOWING, scoreRows, sameStyle, situational, skipsBoots, slotItems, fullPicks, realFullPicks, type ItemRow, type Rated, type SlotCounts } from "./card-score";
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
@@ -368,12 +368,14 @@ export function championPage(alias: string): ChampionPage | null {
   const earlierTop = derivedCore ? [...earlierCores()].sort((x, y) => y.pickRate - x.pickRate)[0] : undefined;
   const coreFromEarlier =
     derivedCore && (tearShare >= TEAR_CORE_SHARE || (!!earlierTop && supported(earlierTop.items)));
-  const scoredCore = followed(
+  // A core may lead with MIN_GAMES real games (cores from earlier games, without counts: MIN_FOLLOWING of the top one).
+  const scoredCore = leading(
     // Ranked by their own numbers from those games: today's six-item builds can't say which items came first.
     // Never a core the game won't let you own (Archangel's with Manamune: one Tear item, lib/item-limits.ts).
     scoreItems((coreFromEarlier ? earlierCores().filter((r) => tearShare >= TEAR_CORE_SHARE || supported(r.items)) : rows(b?.items?.core)).filter(
       (r) => withoutClashes(r.items).length === r.items.length,
     )),
+    MIN_FOLLOWING,
   );
   const withBootsCore = noBoots ? scoredCore : withBoots(scoredCore, full, boots, timing, playedSlot ?? undefined);
   // Items in the order players buy them (Nico, 2026-11-20): the feed's cores listed in buying order (lib/build-plan.ts
@@ -433,7 +435,7 @@ export function championPage(alias: string): ChampionPage | null {
           legendaryPool,
           itemRoles,
           (i) => all.get(i)?.name,
-          [...c.items, ...followed(sameStyle(legendaryPool, c.items, itemClasses), ITEM_FOLLOWING).map((r) => r.items[0])].filter((i, k, a) => a.indexOf(i) === k),
+          [...c.items, ...leading(sameStyle(legendaryPool, c.items, itemClasses), ITEM_FOLLOWING).map((r) => r.items[0])].filter((i, k, a) => a.indexOf(i) === k),
         ).sort((x, y) => (swapScore.get(y.item) ?? -Infinity) - (swapScore.get(x.item) ?? -Infinity))
       : [];
   const core = withBootsCore.map((c) => {
@@ -579,8 +581,9 @@ function tiered(list: ItemRow[]): ItemRow[] {
 }
 
 /**
- * Each core build with its boots: among the boots bought alongside it in six-item builds with a real following
- * (ITEM_FOLLOWING of the most common pairing), the one with the best DeepScore on the boots list, so the most popular
+ * Each core build with its boots: among the boots bought alongside it in six-item builds that may lead the boots list
+ * (lib/card-score.ts canLead: MIN_GAMES real games, else ITEM_FOLLOWING of the most common pairing), the one with the
+ * best DeepScore on the boots list, so the most popular
  * pairing doesn't win on popularity alone (Nico, 2026-11-21: Zeri's card showed Berserker's Greaves over the higher
  * scoring Gluttonous Greaves); the best boots overall when no six-item build has the core. Then
  * when to buy them: the simulated step for that core, else the step the champion's other cores use most with those boots.
@@ -610,8 +613,15 @@ function withBoots(
     }
     const top = Math.max(0, ...share.values());
     const score = (i: number) => scored.find((b) => b.items[0] === i)?.deepScore ?? -1;
+    // With real game counts on the boots list, the boots' own games decide (Nico chose a flat minimum, 2026-11-24).
+    const leads = canLead(scored, ITEM_FOLLOWING);
+    const counted = scored.length > 0 && scored.every((b) => (gamesOf(b) ?? 0) > 0);
+    const ok = (i: number, s: number) => {
+      const row = scored.find((b) => b.items[0] === i);
+      return counted ? !!row && leads(row) : s >= ITEM_FOLLOWING * top;
+    };
     const paired = [...share]
-      .filter(([, s]) => s >= ITEM_FOLLOWING * top)
+      .filter(([i, s]) => ok(i, s))
       .sort((x, y) => score(y[0]) - score(x[0]) || y[1] - x[1])[0]?.[0];
     const boots = paired ?? scored[0]?.items[0];
     if (boots === undefined) return r;

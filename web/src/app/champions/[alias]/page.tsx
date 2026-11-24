@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
-import { AUGMENT_SKILLS } from "@/lib/augment-skills";
+import { AUGMENT_SKILLS, CHAMPION_SKILLS } from "@/lib/augment-skills";
 import type { Metadata } from "next";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import { Breadcrumbs } from "@/components/JsonLd";
@@ -21,7 +21,7 @@ import { championAliases, championSummary, champList, type RadarAxis } from "@/l
 import { TfCard, TfPerf, TfStrip, TfTier, TimeframePicker } from "@/components/champion/Timeframe";
 import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
-import { followed, SPELL_FOLLOWING } from "@/lib/card-score";
+import { leading, SPELL_FOLLOWING } from "@/lib/card-score";
 import {
   buildOrder,
   championPage,
@@ -548,13 +548,15 @@ export default async function ChampionPage({
   const bestStart = p.cardStart;
   // Skill orders: real level-ups ranked by DeepScore (lib/skill-orders.ts), best first.
   const bestSkill = p.skills[0] ?? null;
+  // Nico's per-champion order (lib/augment-skills.ts) replaces the best order on the cards; it has no stats of its own.
+  const pinnedSkill = CHAMPION_SKILLS[c.alias] ?? null;
   const rawSpells = fillSpells(c.alias, c.winRate ?? 0.5);
   const spellsEstimated = rawSpells.some((r) => r.estimated);
   // Spell pairs rank by DeepScore like the build lists. Estimated spells have no win rate, so they keep
   // their most-picked-first order.
   // Real spell pairs (AramHex) lead only with a real following, the same 1/4 rule as builds, so a pair a few percent
   // of players take can't top the card on win rate alone (Ghost + Barrier over Flash on Ahri).
-  const spells = spellsEstimated ? rawSpells : followed(scoreRows(rawSpells, FIT.items, { bound: true }), SPELL_FOLLOWING);
+  const spells = spellsEstimated ? rawSpells : leading(scoreRows(rawSpells, FIT.items, { bound: true }), SPELL_FOLLOWING);
   const bestSpells = spells[0];
   const games = fillGames()?.[c.alias];
   const gamesEstimated = fillEstimated();
@@ -675,15 +677,17 @@ export default async function ChampionPage({
     </div>
   );
   const skillTile = (skill: typeof bestSkill) =>
-    skill && (
+    (skill || pinnedSkill) && (
       <div className="cp-best cp-best-skill">
         <h4>
           <T ns={NS}>Best skill order</T>
         </h4>
-        <Keys keys={skill.max} />
-        <div className="cp-mini">
-          <RatedCells r={skill} />
-        </div>
+        <Keys keys={pinnedSkill ?? skill!.max} />
+        {!pinnedSkill && skill && (
+          <div className="cp-mini">
+            <RatedCells r={skill} />
+          </div>
+        )}
         {(AUGMENT_SKILLS[c.alias] ?? []).map((a) => (
           <div key={a.augment} className="cp-aug-skill">
             <img className="cp-icon round" src={`/icons/augments/${a.augment}.webp`} alt="" width={22} height={22} />
@@ -888,7 +892,7 @@ export default async function ChampionPage({
           return br ? <BracketRates rates={br.rates} borrowed={br.patch !== c.patch ? br.patch : null} /> : null;
         })()}
         {/* One glance: the core, the best augments and the skill order; the card below has the detail. */}
-        {(glanceCore || augRows.length > 0 || glanceSkill) && (
+        {(glanceCore || augRows.length > 0 || glanceSkill || pinnedSkill) && (
           <a className="cp-glance" href="#build" aria-label="Build at a glance">
             {glanceCore && (
               <span className="cp-glance-part">
@@ -904,9 +908,9 @@ export default async function ChampionPage({
                 ))}
               </span>
             )}
-            {glanceSkill && (
+            {(pinnedSkill || glanceSkill) && (
               <span className="cp-glance-part">
-                <Keys keys={glanceSkill.max} />
+                <Keys keys={pinnedSkill ?? glanceSkill!.max} />
               </span>
             )}
           </a>

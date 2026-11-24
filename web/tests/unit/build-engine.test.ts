@@ -259,9 +259,12 @@ describe("build engine", () => {
     expect(tip([])).toBe("Q");
     expect(tip([1029])).toBe("E");
     expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [1029] }).rules).toContain("augmentSkills");
-    // The live overlay carries Gwen's entry.
+    // Gwen's live order is E>Q>W in every game (Nico 2026-11-24, lib/augment-skills.ts CHAMPION_SKILLS), in every
+    // build style, so her Ethereal Weapon entry is gone.
     const gwen = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Gwen");
-    expect(gwen?.augmentSkills).toEqual([{ augment: 1029, skills: ["E", "Q", "W"] }]);
+    expect(gwen?.skills).toEqual(["E", "Q", "W"]);
+    expect(gwen?.augmentSkills).toBeUndefined();
+    for (const b of (gwen as unknown as { builds: { skills: string[] }[] }).builds) expect(b.skills).toEqual(["E", "Q", "W"]);
   });
 
   it("never plans two items of one limit group, on any champion's real data", async () => {
