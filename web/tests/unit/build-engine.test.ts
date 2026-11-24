@@ -169,7 +169,8 @@ describe("build engine", () => {
   it("puts a finished item you own off the path into the first open later slot", () => {
     const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3031, 3075] }), taken: [] });
     expect(ids(p.path)).toEqual([3006, 3031, 3046, 3075, 3094, 6333]);
-    expect(ids(p.next)[0]).toBe(3046);
+    // Thornmail took the 3rd item's place: that one moves behind the rest (ownedReplan)
+    expect(ids(p.next)[0]).toBe(3094);
   });
 
   it("plain Boots don't fill the build's boots: the build's boots stay next", () => {
@@ -178,11 +179,16 @@ describe("build engine", () => {
     expect(ids(p.next)).toContain(3006);
   });
 
-  it("off-path buys re-plan: an item passed over twice stops being Next, one out-of-order buy keeps it", () => {
-    expect(ids(plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036] }), taken: [] }).next)[0]).toBe(3031);
-    const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036, 3003] }), taken: [] });
-    expect(ids(p.next)[0]).not.toBe(3031);
+  it("off-path buys re-plan: an item you skip stops being Next; an off-path buy takes one slot, not the whole path", () => {
+    // bought the 4th item first: the 2nd (the one it took the place of) moves behind the rest
+    const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036] }), taken: [] });
+    expect(ids(p.next)[0]).toBe(3046);
+    expect(ids(p.next)).not.toContain(3031);
     expect(p.rules).toContain("ownedReplan");
+    // one off-path buy passes only the first unbought item
+    expect(ids(plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3003] }), taken: [] }).next)[0]).toBe(3046);
+    // nothing bought: the plan as it is
+    expect(ids(plan({ champ, kinds, picks, fit, game: game([]), taken: [] }).next)[0]).toBe(3006);
   });
 
   it("off-path buys of the other damage type switch the rest of the build to that style (AP Zeri)", () => {

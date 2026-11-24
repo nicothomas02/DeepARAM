@@ -63,7 +63,7 @@ export const RULES: Record<string, Rule> = {
   augmentConflicts: { source: "game data", on: true, why: "An augment that can't work with one you took goes last, with the reason (wiki augment text): Back to Basics seals your ultimate, so augments that need your ultimate cast are dead with it; ADAPt and EscAPADe convert opposite ways; you have two summoner spell slots, so Mark augments, Flash augments and augments that replace a spell can't all fit. Nico asked 2026-11-24; the longer list of possible anti-synergies is in research/augment-conflicts for his review." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
-  ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). A path item you've passed over with two finished items (bought after it in the path, or off it) moves behind the rest, so Next moves on (2 is estimated: one situational buy out of order keeps the plan); two or more off-path items of one style (class-wide builds over all champions, AramHex) switch the rest of the build to that style, e.g. AP Zeri." },
+  ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). Owning n finished items means the path's first n should be bought: one of those you skipped (for an item later in the path or off it) moves behind the rest, so Next moves on after the first buy that skips it (replay audit: Next stuck 8+ min with 3,500+ gold in 103 moments); boots too once bought past without starting them; two or more off-path items of one style (class-wide builds over all champions, AramHex) switch the rest of the build to that style, e.g. AP Zeri." },
   augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
   // Design choices Nico hasn't picked yet: kept as they were.
@@ -815,10 +815,6 @@ export function classBuild(picks: Picks, k: Kinds, style: string, magic: boolean
 
 export type BuildPick = { list: Named[]; style: string | null; core: number | null; because?: string; classWide?: boolean };
 
-/** Finished items bought past a path item before it moves behind the rest (ownedReplan). Estimated: 2 so that one
- *  situational buy out of order (Thornmail before the 3rd item) keeps the plan. */
-export const PASSED_OVER = 2;
-
 /**
  * The build to follow: the champion's usual one or, once the augments you took point to another style (on-hit, AP,
  * tank...), that style: the champion's own build of it if players make one, else the class-wide style build. Only
@@ -1154,6 +1150,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const owned = new Set(game.items.map(base));
   const bootIds = new Set(k?.boots ?? []);
   let slotRows = laterPicks(champ, owned, rules);
+  const placedOff = new Set<number>();  // off-path items you own that ownedOffPath put in later slots
   if (slotRows && RULES.itemLimits.on) applied("itemLimits");
   // Off the path (ownedReplan): two or more finished items the path doesn't list, of the other damage type than the
   // path, switch what's left to the class-wide style build that holds the most of what you own.
@@ -1184,6 +1181,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const listed = new Set([...(champ?.items ?? []), ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
     const prefix = ((champ?.items ?? []).find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
     const extra = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !(k.boots ?? []).includes(i) && !listed.has(i));
+    extra.forEach((i) => placedOff.add(i));
     for (const i of extra) {
       const row = slotRows.find((r) => !owned.has(itemId(r.it.icon)));
       if (!row) break;
@@ -1277,10 +1275,16 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   if (RULES.ownedReplan.on) {
     const buildIds = build.map((it) => itemId(it.icon));
     const fin = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i));
-    const passed = (it: Named) => fin.filter((i) => { const at = buildIds.indexOf(i); return at < 0 || at > build.indexOf(it); }).length >= PASSED_OVER;
-    // boots you've started (plain Boots owned) aren't skipped: you're building them
+    // You own n finished items, so the path's first n (boots aside) should be bought: any of those you don't own was
+    // skipped for something else (later in the path or off it) and moves behind the rest. Boots are skipped once you've
+    // bought past their place without starting them (plain Boots owned means you're building them).
+    const n = fin.length;
+    const nonBoot = build.filter((it) => !bootIds.has(itemId(it.icon)));
+    const bootsAt = build.findIndex((it) => bootIds.has(itemId(it.icon)));
+    const beforeBoots = bootsAt < 0 ? 0 : build.slice(0, bootsAt).filter((it) => !bootIds.has(itemId(it.icon))).length;
     const started = [...owned].some((i) => TIER1_BOOTS.has(i));
-    const skipped = next.filter((it) => passed(it) && !(started && bootIds.has(itemId(it.icon))));
+    const passed = (it: Named) => bootIds.has(itemId(it.icon)) ? !started && n > beforeBoots : nonBoot.indexOf(it) < n;
+    const skipped = next.filter(passed);
     if (skipped.length && skipped.length < next.length) { next = [...next.filter((it) => !skipped.includes(it)), ...skipped]; applied("ownedReplan"); }
   }
   const timing: { item: Named; because: string }[] = [];
