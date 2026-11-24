@@ -536,3 +536,17 @@ describe("crit cap (critCap)", () => {
     expect(at("Yasuo", 1).path.map((x) => x.name)).toContain("Infinity Edge");
   });
 });
+
+describe("augments tip a weaker split (splitAugments)", () => {
+  it("maxes the favored ability and keeps the split otherwise", async () => {
+    const { splitFor } = await import("@/lib/engine/build-engine");
+    const weak = { first: "Q", points: 3, weak: true };
+    expect(splitFor(["W", "Q", "E"], weak, []).split).toEqual(weak);
+    expect(splitFor(["W", "Q", "E"], weak, [1103])).toMatchObject({ order: ["Q", "W", "E"], split: undefined, tipped: true });
+    expect(splitFor(["W", "Q", "E"], weak, [3171])).toMatchObject({ order: ["W", "Q", "E"], split: undefined, tipped: true });
+    expect(splitFor(["W", "Q", "E"], weak, [1103, 1150]).split).toEqual(weak);
+    expect(splitFor(["W", "Q", "E"], weak, [1151]).split).toEqual(weak);
+    // Katarina and Kayn's splits aren't weak: augments don't move them.
+    expect(splitFor(["E", "Q", "W"], { first: "Q", points: 3 }, [1103]).tipped).toBe(false);
+  });
+});

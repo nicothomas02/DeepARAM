@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.13";
+export const ENGINE_VERSION = "1.3.14";
 
 // ---------------------------------------------------------------------------------------------------------------
 // Rules and where they come from
@@ -45,6 +45,7 @@ export const RULES: Record<string, Rule> = {
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
   critCap: { source: "game data", on: true, why: "At 100% crit or more (live crit chance), a later slot's crit item gives way to a near-tied option (inside its 95% win-rate band) with better synergy: an item a taken augment pulls in, then a kit match, then a non-crit item, whose stats and passive keep full value (Mayhem turns crit over 100% into 0.75 adaptive force per 1%, wiki). Not Yasuo or Yone: their passive also turns extra crit into AD. Archive: overcap is noise on win rate (-1.7 +- 3.7 pts). Nico approved 2026-11-24 as a tiebreak." },
   skillSplits: { source: "assumption", on: true, why: "Katarina and Kayn put 3 points in Q before maxing E (Katarina) or W (Kayn). Nico approved 2026-11-24 (his pick) after a one-time regular ARAM cross-check: the only two intentional splits that beat the champion's best standard order at levels 10 and 15 (800+ games each). Azir and Soraka (Q to 3, then max W) added by Nico the same day as weaker evidence: they lead at both levels but within luck. Dr. Mundo (Q to 3, then E), Ashe (W to 3, then Q) and Rumble (E to 3, then Q) added by Nico for their kit logic; about even on win rate. Kha'Zix and Sona (Q to 3, then W), Vayne and Smolder (W to 3, then Q) chosen by Nico too: about even, with a kit reason. Shown as estimated; no stats of its own." },
+  splitAugments: { source: "assumption", on: true, why: "For the weaker-evidence splits (close to the standard order), an augment that favors one of the two abilities tips it: Bread and Butter/Jam/Cheese (+100 haste) or Pentakill HEAVY/POWER/THRASH (+20 haste, +10%) on the split's 3-point ability maxes that ability first; on the maxed ability, it's maxed from the start (no split). Kit logic, estimated: no data splits skill orders by augment. Nico approved 2026-11-24 (he asked for it)." },
   augmentSkills: { source: "assumption", on: true, why: "A few champions max another ability first once they take an augment (Gwen: E>Q>W with Ethereal Weapon). Nico approved 2026-11-24 (he asked for it); no source splits skill orders by augment, so it's estimated." },
   augmentStart: { source: "data", on: true, why: "The starting items follow the first augment when its first-screen pickers mostly start something else and it at least doubles that start for the champion (Upgrade Stormsurge: Hextech Alternator; Wooglet's Witchcap: Needlessly Large Rod). From the archive's other players against the same champions' players, estimated. Nico asked for it 2026-11-24." },
   richStart: { source: "data", on: true, why: "With more than the 1,400 starting gold before your first buy (the Debonair headliner pays gold for each augment pick; seen in 16 of 251 archive games since 16.21), the best start above 1,400 that you can afford, by DeepScore. Starts above 1,400 are never the default. Nico asked for it 2026-11-24." },
@@ -1087,6 +1088,22 @@ export const START_GOLD = 1400;
 
 const ord = (n: number) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
 
+/** Augments that favor one basic ability: Bread and Butter / Jam / Cheese (+100 haste on Q / W / E, short and long
+ *  ids) and Pentakill HEAVY / POWER / THRASH (+20 haste and +10% on Q / W / E). Game data (wiki augment list). */
+export const SLOT_AUGMENTS: Record<number, "Q" | "W" | "E"> = { 103: "Q", 1103: "Q", 150: "W", 1150: "W", 151: "E", 1151: "E", 3170: "Q", 3171: "W", 3172: "E" };
+
+/**
+ * A weaker-evidence split tipped by your augments (splitAugments): an augment on the split's 3-point ability maxes it
+ * first; one on the maxed ability maxes that from the start. Both or neither: the split stays.
+ */
+export function splitFor(order: string[] | undefined, split: OverlayChamp["skillSplit"], taken: number[]): { order: string[] | undefined; split: OverlayChamp["skillSplit"]; tipped: boolean } {
+  if (!split?.weak || !RULES.splitAugments.on || !order?.length) return { order, split, tipped: false };
+  const fav = new Set(taken.map((id) => SLOT_AUGMENTS[id]).filter(Boolean));
+  const onFirst = fav.has(split.first as "Q"), onMax = fav.has(order[0] as "Q");
+  if (onFirst === onMax) return { order, split, tipped: false };
+  return { order: onFirst ? [split.first, ...order.filter((x) => x !== split.first)] : order, split: undefined, tipped: true };
+}
+
 /** Champions whose own passive turns crit over 100% into AD (Yasuo, Yone: 0.5 bonus AD per 1%, wiki). */
 export const CRIT_CONVERTERS = new Set(["yasuo", "yone"]);
 
@@ -1288,8 +1305,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Tips, most useful first.
   const tips: Tip[] = [];
   // A split applies to the champion's own order only, not to an augment's or Archmage's.
-  const split = !augSkill && !route ? champ0?.skillSplit : undefined;
-  const point = skillUp(champ?.skills, game.skills ?? [], game.level ?? 0, taken, game.champ, route?.eRank ?? 5, split);
+  const sp = splitFor(champ?.skills, !augSkill && !route ? champ0?.skillSplit : undefined, taken);
+  if (sp.tipped) applied("splitAugments");
+  const point = skillUp(sp.order, game.skills ?? [], game.level ?? 0, taken, game.champ, route?.eRank ?? 5, sp.split);
   if (point) tips.push({ rank: 1, kind: "skill", text: point });
   const shop = game.dead ? "You're dead: a good time to shop." : (game.t ?? 999) < 60 ? "In base: a good time to shop." : "";
   if (shop) tips.push({ rank: 0, kind: "shop", text: shop });
