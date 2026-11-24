@@ -309,3 +309,25 @@ def test_damage_types():
         assert abs(c["physical"] + c["magic"] + c["true"] - 1) < 0.01
         assert c["games"] >= 20
     assert 0 < sum(c["depends_on_build"] for c in d["champions"].values()) < len(d["champions"]) / 4
+
+
+def test_damage_types_by_build():
+    """Build-dependent champions get a split per build style, each summing to 1."""
+    d = load_json("data/estimates/damage_types.json")["champions"]
+    assert sum(len(c.get("by_build", {})) >= 2 for c in d.values() if c["depends_on_build"]) >= 10
+    for c in d.values():
+        for b in (c.get("by_build") or {}).values():
+            assert abs(b["physical"] + b["magic"] + b["true"] - 1) < 0.01 and b["games"] >= 10
+
+
+def test_build_routes():
+    """Purchase order and starters per build: estimated, three items per order, counts within the build's games."""
+    d = load_json("data/estimates/build_routes.json")
+    assert d["estimated"] is True and len(d["champions"]) > 150
+    for builds in d["champions"].values():
+        for b in builds.values():
+            assert b["games"] >= 10
+            for items, n in b["orders"]:
+                assert len(items) == 3 and 0 < n <= b["games"]
+            for items, n in b["starters"]:
+                assert items and 0 < n <= b["games"]
