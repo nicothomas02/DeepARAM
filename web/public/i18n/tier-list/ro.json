@@ -97,5 +97,9 @@
  "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Fiecare echipă are un Warden, Vanguard sau Juggernaut. E o regulă de compoziție, nu ceva măsurat în date.",
  "Ranked only by how the champions and their pairs do.": "Ordonate doar după rezultatele campionilor și ale perechilor lor.",
  "HEARTSTEEL": "HEARTSTEEL",
- "Headliners": "Capi de afiș"
+ "Headliners": "Capi de afiș",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Doar {patch}",
+ "Includes similar recent patches, weighted toward this one": "Include patch-uri recente similare, cu cea mai mare pondere pe acesta",
+ "Games counted": "Meciuri numărate"
 }

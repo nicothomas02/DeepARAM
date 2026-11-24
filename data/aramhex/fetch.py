@@ -138,6 +138,24 @@ def convert(src, ds, prev_hashes):
         if bsp:
             dump(os.path.join(out, "bands", band, "spells.json"),
                  {h: {k: gw(r) for k, r in v.items() if r["games"] >= MIN_SPELL_GAMES} for h, v in bsp.items()})
+        # Bracket item, boots and core tables, saved so items can be tested against all players once two patches have
+        # them (Nico 2026-11-24: "Yes"); not shown until that test beats All players.
+        bit = load(f"bands/{band}/hero_items.json")
+        bden = load(f"bands/{band}/equipment_recommendation_heroes.json")
+        if bit and bden:
+            dump(os.path.join(out, "bands", band, "items.json"), {
+                h: {"all": gw(bden[h]), "items": {i: gw(r) for i, r in v.items() if r["games"] >= MIN_ITEM_GAMES}}
+                for h, v in bit.items() if h in bden})
+        bhold = load(f"bands/{band}/hero_item_holdings.json")
+        beq = load(f"bands/{band}/equipment_heroes.json")
+        if bhold and beq and boots_ids:
+            dump(os.path.join(out, "bands", band, "boots.json"), {
+                h: {"all": gw(beq[h]), "items": {i: gw(r) for i, r in v.items() if i in boots_ids and r["games"] >= MIN_ITEM_GAMES}}
+                for h, v in bhold.items() if h in beq})
+        bcores = load(f"bands/{band}/core_builds.json")
+        if bcores:
+            dump(os.path.join(out, "bands", band, "cores.json"),
+                 {h: [[[int(i) for i in c["items"]], int(c["games"]), int(c["wins"])] for c in v] for h, v in bcores.items()})
         bands.append(band)
     if bands:
         written.append("bands:" + "/".join(bands))

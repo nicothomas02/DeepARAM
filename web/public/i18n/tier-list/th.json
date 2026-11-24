@@ -97,5 +97,9 @@
  "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "ทุกทีมมี Warden, Vanguard หรือ Juggernaut นี่คือกฎการจัดทีม ไม่ใช่สิ่งที่ข้อมูลวัดได้",
  "Ranked only by how the champions and their pairs do.": "จัดอันดับจากผลงานของแชมเปี้ยนและคู่ของพวกเขาเท่านั้น",
  "HEARTSTEEL": "HEARTSTEEL",
- "Headliners": "วงหลัก"
+ "Headliners": "วงหลัก",
+ "{patch}+": "{patch}+",
+ "{patch} only": "เฉพาะ {patch}",
+ "Includes similar recent patches, weighted toward this one": "รวมแพตช์ล่าสุดที่คล้ายกัน โดยให้น้ำหนักกับแพตช์นี้มากที่สุด",
+ "Games counted": "เกมที่นับ"
 }

@@ -97,5 +97,9 @@
  "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Minden csapatban van Warden, Vanguard vagy Juggernaut. Ez összeállítási szabály, nem az adatok mérése.",
  "Ranked only by how the champions and their pairs do.": "Csak a hősök és párosaik eredményei alapján rangsorolva.",
  "HEARTSTEEL": "HEARTSTEEL",
- "Headliners": "Főfellépők"
+ "Headliners": "Főfellépők",
+ "{patch}+": "{patch}+",
+ "{patch} only": "Csak {patch}",
+ "Includes similar recent patches, weighted toward this one": "Hasonló friss patcheket is tartalmaz, a legnagyobb súllyal ezt",
+ "Games counted": "Beszámított meccsek"
 }

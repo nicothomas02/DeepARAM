@@ -74,7 +74,9 @@ const weighted = (pairs: [number | null, number][]) => {
 };
 
 /** `matches`: estimated matches behind each patch's numbers (lib/sample.ts), to give each champion's `sample`. */
-export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Record<string, number>): ChampStats[] {
+/** `ownDays`: a champion's pick rate counts only the days of the patches it has rows for (the Tier List's "16.23+" view
+ *  leaves out a champion's earlier patch when its win rate moved sharply, ChampionTiers). */
+export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Record<string, number>, ownDays = false): ChampStats[] {
   const picked = rows.filter((r) => patches.has(r.patch));
   const totalDays = [...new Set(picked.map((r) => `${r.patch}:${r.days}`))].reduce((d, k) => d + Number(k.split(":")[1]), 0);
   // Patches newest first, to weigh older ones down.
@@ -102,7 +104,10 @@ export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Rec
       games,
       ...(matches && sw2 > 0 ? { sample: (sw * sw) / sw2 } : {}),
       win_rate: weighted(rs.map((r, i) => [r.win_rate, w[i]]))!,
-      pick_rate: totalDays ? games / totalDays : 0,
+      pick_rate: (() => {
+        const days = ownDays ? rs.reduce((d, r) => d + r.days, 0) : totalDays;
+        return days ? games / days : 0;
+      })(),
       damage: weighted(rs.map((r, i) => [r.damage, w[i]])),
       tank: weighted(rs.map((r, i) => [r.tank, w[i]])),
       kp: weighted(rs.map((r, i) => [r.kp, w[i]])),

@@ -339,11 +339,7 @@ export default async function ChampionPage({
     (championIds as Record<string, number>)[alias] ?? -1,
   );
   if (!c || !p) notFound();
-  // Neighbours by name, for the arrows (and the [ and ] keys, lib/subtab-nav.ts).
   const all = champList();
-  const at = all.findIndex((x) => x.id === c.alias);
-  const prev = all[(at - 1 + all.length) % all.length];
-  const next = all[(at + 1) % all.length];
   const info = p.itemInfo;
   // Simulator-made panels stay off while the Simulator is a fun tool only (lib/sim-policy.ts).
   const upgrades = SIMULATOR_IN_STATS ? championUpgrades(c.alias) : null;
@@ -806,25 +802,11 @@ export default async function ChampionPage({
       />
       {/* The colour sample only needs a few pixels, so it reads the small tile when there is one. */}
       <SplashAccent src={c.splashSmall ?? c.splash} />
-      <section
-        className="champ-hero cp-hero"
-        style={
-          c.splash
-            ? ({
-                "--splash": `url("${c.splash}")`,
-                // Phones get the small tile: the full splash was a quarter of the page's weight (site idea 2026-11-05).
-                ...(c.splashSmall ? { "--splash-small": `url("${c.splashSmall}")` } : {}),
-              } as React.CSSProperties)
-            : undefined
-        }
-      >
-        <nav className="champ-steps" aria-label="Other champions">
-          <Link href={`/champions/${prev.id}`} data-swipe="prev" rel="prev">
-            ‹{" "}
-            <Name kind="champions" id={prev.id}>
-              {prev.name}
-            </Name>
-          </Link>
+      {/* The header's background is a glow in the champion's own colour (SplashAccent), not the splash: the splash
+          repeated the icon beside it (Nico 2026-11-24), and it was the page's heaviest image. */}
+      <section className="champ-hero cp-hero cp-hero-glow">
+        {/* No previous / next champion links (Nico 2026-11-24: alphabetical neighbours aren't useful). */}
+        <div className="champ-steps">
           <span className="eyebrow">
             <Link href="/tier-list">
               <T>Tier List</T>
@@ -834,13 +816,7 @@ export default async function ChampionPage({
               {"Patch {v}"}
             </T>
           </span>
-          <Link href={`/champions/${next.id}`} data-swipe="next" rel="next">
-            <Name kind="champions" id={next.id}>
-              {next.name}
-            </Name>{" "}
-            ›
-          </Link>
-        </nav>
+        </div>
         <div className="cp-title">
           <img
             className="champ-hero-icon"
@@ -916,10 +892,6 @@ export default async function ChampionPage({
               </div>
           </TfStrip>
         )}
-        {(() => {
-          const br = championBrackets(c.alias, c.patch);
-          return br ? <BracketRates rates={br.rates} borrowed={br.patch !== c.patch ? br.patch : null} /> : null;
-        })()}
         {/* One glance: the core, the best augments and the skill order; the card below has the detail. */}
         {(glanceCore || augRows.length > 0 || glanceSkill || pinnedSkill) && (
           <a className="cp-glance" href="#build" aria-label="Build at a glance">
@@ -1001,6 +973,12 @@ export default async function ChampionPage({
                 ) : undefined
               }
             >
+              {(() => {
+                const br = championBrackets(c.alias, c.patch);
+                return br ? (
+                  <BracketRates rates={br.rates} borrowed={br.patch !== c.patch ? br.patch : null} active={!!bracketAugs} patch={patchName(c.patch)} />
+                ) : null;
+              })()}
               <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} patch={patchName(c.patch)} brackets={bracketAugs ?? undefined} everywhere={everywhere} />
             </Panel>
           )}

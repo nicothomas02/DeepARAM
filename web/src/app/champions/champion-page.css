@@ -2170,13 +2170,14 @@ button.cp-few-tag:focus::after {
 .cp-why b {
   font-weight: 600;
 }
-/* Win rate per skill bracket under the hero numbers; the visitor's bracket is marked. */
+/* Skill bracket switch above the Augments list (BracketRates), each with the champion's win rate in it. */
 .cp-brackets {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem 0.5rem;
-  margin-top: 0.5rem;
+  margin: 0;
+  padding: 0.75rem 1rem 0;
   font-size: 0.875rem;
 }
 .cp-brackets-h {
@@ -2192,6 +2193,13 @@ button.cp-few-tag:focus::after {
   cursor: pointer;
 }
 .cp-brackets button small {
+  color: var(--muted);
+}
+.cp-brackets button:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+.cp-brackets-note {
   color: var(--muted);
 }
 .cp-brackets button[aria-pressed="true"] {

@@ -5,7 +5,7 @@ import RowLink from "@/components/RowLink";
 import { PICK_EVENT } from "@/components/champion/AugmentBuildPicker";
 import { useRef, useState, type DragEvent } from "react";
 import { KEPT, useKept } from "@/lib/kept";
-import { useBracket, type BracketKey } from "@/lib/bracket-pref";
+import { useBracket } from "@/lib/bracket-pref";
 import { Name, useDescription, useNames, useT } from "@/components/I18n";
 import DeepScore from "@/components/DeepScore";
 import { signedPts, tone } from "@/components/champion/Ranked";
@@ -42,13 +42,6 @@ const DRAG = "application/x-deeparam-augment";
 
 /** Champion fit (DeepScore points) from which the augment table colours it as a clear gap. */
 const VS_ALL_GAP = 15;
-
-const BRACKET_LABELS: [BracketKey, string][] = [
-  ["all", "All players"],
-  ["casual", "Casual"],
-  ["mid", "Mid"],
-  ["high", "Top 5%"],
-];
 
 export default function AugmentTable({
   rows: givenRows,
@@ -120,8 +113,7 @@ export default function AugmentTable({
   const pooledDiffers = givenRows.some((r) => r.patchScore !== r.deepScore);
   // Skill bracket (Nico 2026-11-24, "Half-and-half, live patch only"): the visitor's bracket re-ranks the list when the
   // live patch has bracket tables; All players otherwise.
-  const [bracketPref, setBracketPref] = useBracket();
-  const bracketKeys = BRACKET_LABELS.filter(([k]) => k === "all" || brackets?.[k as "casual"]);
+  const [bracketPref] = useBracket();
   const bracket = bracketPref !== "all" ? (brackets?.[bracketPref] ?? null) : null;
   const allRows = bracket
     ? givenRows.map((r) => ({ ...r, deepScore: bracket[r.id] ?? r.deepScore }))
@@ -343,20 +335,7 @@ export default function AugmentTable({
             ))}
           </div>
         )}
-        {bracketKeys.length > 1 && (
-          <div className="cp-seg" role="group" aria-label={ts("Skill bracket")}>
-            {bracketKeys.map(([k, label]) => (
-              <button
-                key={k}
-                type="button"
-                aria-pressed={(bracket ? bracketPref : "all") === k}
-                onClick={() => (setBracketPref(k as BracketKey), setPage(0))}
-              >
-                {ts(label)}
-              </button>
-            ))}
-          </div>
-        )}
+        {/* The skill bracket switch sits above the list (BracketRates). */}
         {pooledDiffers && !bracket && (
           <div
             className="cp-seg"
