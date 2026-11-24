@@ -2152,3 +2152,6 @@ button.cp-few-tag:focus::after {
 .cp-archmage-fill {
   opacity: 0.55;
 }
+
+/* Skill order once an augment is taken (lib/augment-skills.ts) */
+.cp-aug-skill { display: flex; align-items: center; gap: 6px; margin-top: 6px; font-size: 0.85em; flex-wrap: wrap; }

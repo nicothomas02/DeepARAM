@@ -246,6 +246,18 @@ describe("build engine", () => {
     expect(skillUp(["E", "Q", "W"], [2, 2, 1, 1], 7, [], "Ashe", 1)).toBe("Q");
   });
 
+  it("switches the skill order once an augment that changes it is taken (Gwen E>Q>W with Ethereal Weapon)", async () => {
+    const c: OverlayChamp = { ...champ, skills: ["Q", "E", "W"], augmentSkills: [{ augment: 1029, skills: ["E", "Q", "W"] }] };
+    const tip = (taken: number[]) =>
+      plan({ champ: c, kinds, picks, fit, game: game([], { level: 4, skills: [1, 1, 1, 0] }), taken }).tips.find((t) => t.kind === "skill")?.text;
+    expect(tip([])).toBe("Q");
+    expect(tip([1029])).toBe("E");
+    expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [1029] }).rules).toContain("augmentSkills");
+    // The live overlay carries Gwen's entry.
+    const gwen = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Gwen");
+    expect(gwen?.augmentSkills).toEqual([{ augment: 1029, skills: ["E", "Q", "W"] }]);
+  });
+
   it("never plans two items of one limit group, on any champion's real data", async () => {
     const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsGET().json()) as Kinds;
