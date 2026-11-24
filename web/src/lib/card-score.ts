@@ -124,11 +124,12 @@ export const MIN_FOLLOWING = 0.25;
  * orders and six-item builds keep MIN_FOLLOWING: they have one patch of history, so they can't be backtested yet.
  */
 export const ITEM_FOLLOWING = 0.05;
-/** Spell pairs: 5% of the most common pair (Nico 2026-11-24: Gwen showed Flash + Mark, but Ghost + Mark, 6% of the top
- *  pair's games, won +0.8 pts more on 16.22 and +1.0 on 16.23, on 127k games). Backtest (AramHex spells 16.21-16.23,
- *  bound rule): the top pair led the champion by +0.52 pts next patch at 5% vs +0.36 at 25% (+0.49 vs +0.36 with the
- *  live patch thinned to 10%); looser cutoffs gain a little more but let pairs under 2% of games lead. */
-export const SPELL_FOLLOWING = 0.05;
+/** Spell pairs: 2% of the most common pair (Nico chose 2026-11-24, after 5% the same day: Gwen showed Flash + Mark,
+ *  but Ghost + Mark, 6% of the top pair's games, won +0.8 to +1.0 pts more; Zeri's Flash + Cleanse, 2.2% of her top
+ *  pair, wins about +2 pts more on 16.21, 16.22 and 16.23 with 12-19k games each). Backtest
+ *  (analysis/scoring/following_sweep.py, bound rule): the top pair's next-patch lead vs 25% is +0.21 pts at 2% and
+ *  +0.16 at 5% (thinned to 10%: +0.16 / +0.14); at 0% it falls below 25% on thin data. */
+export const SPELL_FOLLOWING = 0.02;
 
 /**
  * The same rows with those that have a real following first (at least MIN_FOLLOWING of the most common row's pick
