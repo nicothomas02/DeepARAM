@@ -87,7 +87,9 @@
   .why.lbl b { text-transform: none; letter-spacing: 0; }
   .items.lst .why.lbl { margin: 4px 0 -2px; }
   .tip { margin-top: 8px; }
-  .plan { display: flex; justify-content: space-between; align-items: center; }
+  .plan { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
+  .plan .keys { margin-right: auto; } .mates img.nx { box-shadow: 0 0 0 2px var(--gold); }
+  .aug .num.big { font-size: 17px; white-space: nowrap; }
   .plan .keys b { color: var(--accent); }
   .filters { display: flex; gap: 6px; margin-bottom: 8px; }
   .chip.f, .chip.br { padding: 3px 10px; }
@@ -281,7 +283,8 @@
     const plan = me && builds?.champions?.find((c) => c.id.toLowerCase() === me.toLowerCase());
     const planHtml = plan ? `<h2>Plan for ${esc(label(me))}</h2><div class="box plan">
         <span class="keys"${plan.skillSplit ? ` title="${plan.skillSplit.weak ? "Your pick, weaker evidence" : "Your pick, estimated"}"` : ""}>${plan.skillSplit ? `<b>${plan.skillSplit.first}</b> to ${plan.skillSplit.points}, then ` : ""}${(plan.skills ?? []).map((x) => `<b>${x}</b>`).join(" › ")}</span>
-        <span class="mates">${plan.items.slice(0, 3).map((it) => `<img src="${SITE}${it.icon}" alt="" title="${esc(it.name)}">`).join("")}</span></div>` : "";
+        ${plan.start?.length ? `<span class="mates" title="Start">${plan.start.map((it) => `<img src="${SITE}${it.icon}" alt="" title="Start: ${esc(it.name)}">`).join("")}</span><span class="why">›</span>` : ""}
+        <span class="mates">${[...plan.items.map((it) => [it, true]), ...(plan.full ?? []).map((it) => [it, false])].slice(0, 6).map(([it, core]) => `<img${core ? ' class="nx"' : ""} src="${SITE}${it.icon}" alt="" title="${esc(it.name)}${core ? " (core)" : ""}">`).join("")}</span></div>` : "";
     // Team gap: one line, only once the whole team is in and only when something is missing.
     let gap = "", gapShort = "";
     const all = [...team, ...(me ? [me] : [])];
@@ -494,7 +497,7 @@
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
         ${augIcon(a.id)}
         <div><div class="name">${esc(name(a.id))}${pick ? " ★" : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}</div>
-        <div class="num" title="DeepScore on this champion (ranking adds synergy with what you took)">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `${a.boost !== null ? "<br>" : ""}<small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
+        <div class="num${a.deep >= 0 ? ` big ${tierTone(a.deep)}` : ""}" title="DeepScore on this champion${a.boost !== null ? `\nRanking with what you took: ${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)} points` : ""}">${a.deep >= 0 ? deepLabel(a.deep) : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </div>`;
     };
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
