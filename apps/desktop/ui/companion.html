@@ -194,6 +194,20 @@
   let bracket = (() => { try { return localStorage.getItem("bracket") || "all"; } catch { return "all"; } })();
   const strengthOf = (d, id) => (bracket !== "all" ? d.brackets?.[bracket]?.[id] : undefined) ?? d.champions[id][0];
   let lastPick = null;
+  // "Your record" (Nico 2026-11-24, everyone with a published profile, only their own games): the player's record on
+  // each choice, pulled toward 50% by 10 games, nudges its strength. Same formula as the PC app: 0.36 x (shrunk record
+  // - 0.5) win-rate points, from 3 games on. Fitted on one player's 1,017 games (t = 2.0), so it stays small.
+  const REC_COEF = 0.36, REC_MIN = 3;
+  let myRec = null, myRecAt = 0;
+  const loadRecord = async () => {
+    if (myRec && Date.now() - myRecAt < 10 * 60e3) return myRec;
+    const inv = window.__TAURI_INTERNALS__?.invoke;
+    const r = inv ? await inv("my_record").catch(() => null) : null;
+    myRec = new Map((r?.champions ?? []).map(([id, n, w]) => [id, { n, w }]));
+    myRecAt = Date.now();
+    return myRec;
+  };
+  const recNudge = (r) => (r && r.n >= REC_MIN ? REC_COEF * ((r.w + 5) / (r.n + 10) - 0.5) : 0);
   function rank(d, allies, options) {
     const team = allies.filter((a) => d.champions[a]);
     const others = Object.keys(d.champions).filter((id) => !team.includes(id));
@@ -201,8 +215,10 @@
     return options.filter((id) => d.champions[id]).map((id) => {
       const parts = team.map((ally) => ({ ally, boost: pairBoost(d, id, ally) - avg.get(ally) }));
       const fitSum = parts.reduce((s, p) => s + p.boost, 0);
-      const strength = strengthOf(d, id) - 0.5;
-      return { id, strength, fit: fitSum, score: strength, parts };
+      const rec = myRec?.get(d.ids?.[id]);
+      const nudge = recNudge(rec);
+      const strength = strengthOf(d, id) - 0.5 + nudge;
+      return { id, strength, base: strength - nudge, fit: fitSum, score: strength, parts, rec: nudge ? { ...rec, nudge } : null };
     }).sort((a, b) => b.score - a.score);
   }
 
@@ -216,11 +232,12 @@
     const byId = Object.fromEntries(Object.entries(d.ids ?? {}).map(([a, id]) => [id, a]));
     const team = allies.map((id) => byId[id]).filter(Boolean);
     const options = [mine, ...bench].map((id) => byId[id]).filter(Boolean);
+    await loadRecord();
     const ranked = rank(d, team, [...new Set(options)]);
     const rows = ranked.map((p, i) => `
       <div class="row${i === 0 && p.id !== byId[mine] ? " best" : ""}">
         ${icon(p.id)}
-        <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${p.strength >= 0.01 ? "Strong this patch" : ""}</div><div class="sbar"><span data-style="width:${Math.max(4, Math.min(100, 50 + p.strength * 1000))}%;background:${p.strength >= 0.01 ? "var(--good)" : p.strength <= -0.01 ? "var(--bad)" : "var(--gold)"}"></span></div></div>
+        <div><div class="name">${esc(label(p.id))}${p.id === byId[mine] ? " <span class=\"why\">(yours)</span>" : ""}</div><div class="why">${[p.base >= 0.01 ? "Strong this patch" : "", p.rec ? `Your record ${p.rec.w}-${p.rec.n - p.rec.w} (${pts(p.rec.nudge)})` : ""].filter(Boolean).join(" · ")}</div><div class="sbar"><span data-style="width:${Math.max(4, Math.min(100, 50 + p.strength * 1000))}%;background:${p.strength >= 0.01 ? "var(--good)" : p.strength <= -0.01 ? "var(--bad)" : "var(--gold)"}"></span></div></div>
         <div class="num">Strength ${pts(p.strength)}</div>
       </div>`).join("");
     const [builds, k] = await Promise.all([loadBuilds(), loadKinds()]);

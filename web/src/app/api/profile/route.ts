@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { isPairId, pairStatus, startPair } from "@/lib/riot-pair";
 import { cleanProfile, isPlatform, profileByPuuid, profilePath, removeProfile, saveProfile, tokenOwner } from "@/lib/profiles";
 
-// POST /api/profile {action: "publish" | "remove" | "status" | "pair" | "pair-status", token, platform, data?, pair?},
+// POST /api/profile {action: "publish" | "remove" | "status" | "record" | "pair" | "pair-status", token, platform, data?, pair?},
 // sent by the My Stats helper on the player's computer. The token decides whose page it is; see lib/profiles.ts.
 // "pair" starts a one-click connect the player confirms on their account page, and "pair-status" asks how it went
 // (lib/riot-pair.ts).
@@ -43,5 +43,9 @@ export async function POST(req: NextRequest) {
     return json({ published: true, path: profilePath(platform, owner.name, owner.tag) });
   }
   const p = await profileByPuuid(owner.puuid);
+  // "record": the desktop app's "your record" nudge in champion select (Nico 2026-11-24). Only the signed-in player's
+  // own games, as they published them: [champion id, games, wins]. Never anyone else's.
+  if (action === "record")
+    return json(p ? { published: true, champions: p.data.champions.map((c) => [c.id, c.n, c.w]) } : { published: false, champions: [] });
   return json(p ? { published: true, path: profilePath(p.platform, p.name, p.tag), updated: p.updated } : { published: false });
 }

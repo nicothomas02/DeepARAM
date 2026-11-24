@@ -20,6 +20,7 @@ use serde_json::{json, Value};
 use tauri::{menu::CheckMenuItem, AppHandle, Manager, WebviewUrl, WebviewWindowBuilder, Wry};
 
 const GAMES_URL: &str = "https://deeparam.com/api/games";
+const PROFILE_URL: &str = "https://deeparam.com/api/profile";
 /// ARAM Mayhem queues. 2450 also serves Mayhem games but isn't on Riot's public queue list.
 const MAYHEM_QUEUES: [u64; 2] = [2400, 2450];
 const CHECK_EVERY: Duration = Duration::from_secs(90);
@@ -231,7 +232,26 @@ fn remove_all() -> Result<(), ()> {
 }
 
 /// Posts to the site with the client's sign-in token and server, which the site needs to accept the games.
-fn send(lcu: &Lcu, mut body: Value) -> Result<Value, ()> {
+fn send(lcu: &Lcu, body: Value) -> Result<Value, ()> {
+    send_to(lcu, GAMES_URL, body)
+}
+
+/// The signed-in player's own record per champion from their published profile on the site, for champion select's
+/// "your record" nudge: {published, champions: [[champion id, games, wins]]}. The site answers only for the account
+/// the client's token belongs to, so this can never read anyone else's. Nothing without a published profile.
+#[tauri::command]
+pub async fn my_record() -> Value {
+    tauri::async_runtime::spawn_blocking(|| {
+        let lcu = Lcu::find()?;
+        send_to(&lcu, PROFILE_URL, json!({ "action": "record" })).ok()
+    })
+    .await
+    .ok()
+    .flatten()
+    .unwrap_or_else(|| json!({ "published": false, "champions": [] }))
+}
+
+fn send_to(lcu: &Lcu, url: &str, mut body: Value) -> Result<Value, ()> {
     let region = lcu.get("/riotclient/region-locale").unwrap_or(Value::Null);
     let platform = platform_for(region["region"].as_str().unwrap_or("")).ok_or(())?;
     let token = lcu
@@ -244,7 +264,7 @@ fn send(lcu: &Lcu, mut body: Value) -> Result<Value, ()> {
         .ok_or(())?;
     body["token"] = json!(token);
     body["platform"] = json!(platform);
-    ureq::post(GAMES_URL).send_json(&body).map_err(|_| ())?.body_mut().read_json::<Value>().map_err(|_| ())
+    ureq::post(url).send_json(&body).map_err(|_| ())?.body_mut().read_json::<Value>().map_err(|_| ())
 }
 
 /// The game server the site uses for a client region, as the My Stats helper maps it.
