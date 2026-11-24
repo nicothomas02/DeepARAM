@@ -6565,3 +6565,125 @@ html[data-view="detailed"] .wr-ci {
     width: 100%;
   }
 }
+
+/* Tier List > Champions > Full teams (components/FullTeams.tsx): one row per projected team, the five champions, then
+   how much of the team's strength comes from the champions themselves (bar) versus pair synergy. */
+.ft-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+.ft-row {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, auto) minmax(12rem, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem 1rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--r, 10px);
+  background: var(--card, var(--surface));
+}
+.ft-rank {
+  font-weight: 700;
+  color: var(--muted);
+}
+.ft-champs {
+  display: flex;
+  gap: 0.5rem;
+}
+.ft-champ {
+  display: grid;
+  justify-items: center;
+  gap: 0.2rem;
+  width: 4.4rem;
+  color: inherit;
+  text-decoration: none;
+}
+.ft-champ img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+.ft-champ small {
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.ft-split {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+.ft-split small {
+  font-size: 13px;
+  color: var(--muted);
+}
+.ft-bar {
+  display: block;
+  height: 8px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--good, #3ccf8e) 55%, transparent);
+  overflow: hidden;
+}
+.ft-own {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+.ft-tag {
+  font-size: 12px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.1rem 0.5rem;
+}
+@media (max-width: 700px) {
+  .ft-row {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+  .ft-champs {
+    gap: 0.25rem;
+  }
+  .ft-champ {
+    width: auto;
+    flex: 1;
+    min-width: 0;
+  }
+  .ft-split {
+    grid-column: 2;
+  }
+  /* The note above the list already says every team is projected. */
+  .ft-tag {
+    display: none;
+  }
+}
+.ft-more {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--raised);
+  color: var(--fg);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.ft-more:hover {
+  background: var(--hover);
+}
+.ft-lists {
+  display: inline-flex;
+  margin-bottom: 0.4rem;
+}
+.ft-list-note {
+  margin: 0 0 0.6rem;
+  font-size: 13px;
+  color: var(--muted);
+}

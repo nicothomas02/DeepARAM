@@ -86,5 +86,14 @@
  "Your choices (optional)": "Ваши варианты (необязательно)",
  "Your choices, best first": "Ваши варианты, лучшие сначала",
  "Best picks": "Лучшие варианты",
- "Strength {n}": "Сила {n}"
+ "Strength {n}": "Сила {n}",
+ "Full teams": "Полные команды",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Прогноз: ни одна игра не записывает результаты целых команд, поэтому они получены из результатов каждого чемпиона и каждой пары вместе. Считайте их идеями для проверки, а не записями.",
+ "{own}% champions · {syn}% synergy": "{own}% чемпионы · {syn}% синергия",
+ "Best pair: {a} + {b}": "Лучшая пара: {a} + {b}",
+ "Projected": "Прогноз",
+ "Strongest by data": "Сильнейшие по данным",
+ "With a frontline": "С фронтлайном",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "В каждой команде есть Warden, Vanguard или Juggernaut. Это правило состава, а не результат измерений.",
+ "Ranked only by how the champions and their pairs do.": "Порядок только по результатам чемпионов и их пар."
 }

@@ -6,6 +6,8 @@ import { AdvancedProvider } from "@/components/Advanced";
 import ChampionTiers from "@/components/ChampionTiers";
 import ChampionsPanel from "@/components/ChampionsPanel";
 import DuosTable from "@/components/DuosTable";
+import FullTeams from "@/components/FullTeams";
+import { fullTeams } from "@/lib/teams";
 import TeamFit from "@/components/TeamFit";
 import { teamFitVersion } from "@/lib/team-fit";
 import { questPairs } from "@/components/champion/Quests";
@@ -60,6 +62,7 @@ export default function TierListPage() {
   const patches = readRepoCsv("data/cn/history/patches.csv");
   const augments = augmentRows<RawAugment & Record<string, string | number | number[]>>();
   const duos = hasDuos();
+  const teams = fullTeams();
 
   if (!byPatch || !patches?.length) {
     return (
@@ -110,6 +113,7 @@ export default function TierListPage() {
             />
           }
           duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} quests={teamQuests()} /> : undefined}
+          teams={teams.data.length ? <FullTeams data={teams.data} frontline={teams.frontline} /> : undefined}
           team={duos ? <TeamFit version={teamFitVersion()} /> : undefined}
         />
       ),

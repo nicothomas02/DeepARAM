@@ -86,5 +86,14 @@
  "Your choices (optional)": "Le tue scelte (facoltativo)",
  "Your choices, best first": "Le tue scelte, la migliore prima",
  "Best picks": "Scelte migliori",
- "Strength {n}": "Forza {n}"
+ "Strength {n}": "Forza {n}",
+ "Full teams": "Squadre complete",
+ "Projected: no game records whole teams, so these come from how each champion does plus how each pair of them does together. Read them as ideas to try, not records.": "Stimato: nessuna partita registra squadre intere, quindi derivano dai risultati di ogni campione e di ogni coppia insieme. Considerale idee da provare, non dati registrati.",
+ "{own}% champions · {syn}% synergy": "{own}% campioni · {syn}% sinergia",
+ "Best pair: {a} + {b}": "Coppia migliore: {a} + {b}",
+ "Projected": "Stimato",
+ "Strongest by data": "I più forti secondo i dati",
+ "With a frontline": "Con una prima linea",
+ "Each team has a Warden, Vanguard or Juggernaut. That's a design rule, not something the data measured.": "Ogni squadra ha un Warden, Vanguard o Juggernaut. È una regola di composizione, non una misura dei dati.",
+ "Ranked only by how the champions and their pairs do.": "Ordinate solo in base ai risultati dei campioni e delle loro coppie."
 }

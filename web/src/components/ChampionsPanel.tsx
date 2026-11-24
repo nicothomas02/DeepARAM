@@ -4,18 +4,21 @@ import { useEffect, useState } from "react";
 import { getParam, setParams } from "@/lib/url-state";
 import { useT } from "./I18n";
 
-// The Tier List's Champions tab: single champions, Duos (?cview=duos) or Best pick (?cview=team), so the three main
+// The Tier List's Champions tab: single champions, Duos (?cview=duos), Full teams (?cview=teams) or Best pick (?cview=team), so the three main
 // tabs stay Champions, Augments and Items. Duos and Best pick mount the first time they're opened, since they load
 // their own data. Old ?tab=duos links land here.
-type View = "solo" | "duos" | "team";
+type View = "solo" | "duos" | "teams" | "team";
 
 export default function ChampionsPanel({
   solo,
   duos,
+  teams,
   team,
 }: {
   solo: React.ReactNode;
   duos?: React.ReactNode;
+  /** Projected best full teams (lib/teams.ts), ?cview=teams. */
+  teams?: React.ReactNode;
   team?: React.ReactNode;
 }) {
   const t = useT("tier-list");
@@ -26,13 +29,14 @@ export default function ChampionsPanel({
       setParams({ tab: null, cview: "duos" });
       setView("duos");
     } else if (duos && getParam("cview") === "duos") setView("duos");
+    else if (teams && getParam("cview") === "teams") setView("teams");
     else if (team && getParam("cview") === "team") setView("team");
-  }, [duos, team]);
+  }, [duos, teams, team]);
   useEffect(() => {
     if (view !== "solo")
       setOpened((o) => (o.has(view) ? o : new Set(o).add(view)));
   }, [view]);
-  if (!duos && !team) return <>{solo}</>;
+  if (!duos && !teams && !team) return <>{solo}</>;
   const pick = (v: View) => {
     if (v === view) return;
     setView(v);
@@ -49,6 +53,9 @@ export default function ChampionsPanel({
     ["solo", "Champions", solo],
     ...(duos
       ? [["duos", "Duos", duos] as [View, string, React.ReactNode]]
+      : []),
+    ...(teams
+      ? [["teams", "Full teams", teams] as [View, string, React.ReactNode]]
       : []),
     ...(team
       ? [["team", "Best pick", team] as [View, string, React.ReactNode]]
