@@ -402,7 +402,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![companion::companion_fullscreen, sharing::share_choice, sharing::share_status])
+        .invoke_handler(tauri::generate_handler![companion::companion_fullscreen, sharing::share_choice, sharing::share_status, sharing::my_record])
         // Must come first: a second launch focuses the running app instead of opening another.
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| show(app)))
         .plugin(
