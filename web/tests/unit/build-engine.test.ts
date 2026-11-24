@@ -38,6 +38,7 @@ import {
   shiftOf,
   AUGMENT_SHIFT,
   CONVERTERS,
+  LEAN_IN,
   RUSH_Z_BUILD,
   RUSH_Z_EARLY,
   RUSH_LIFT,
@@ -255,6 +256,20 @@ describe("build engine", () => {
     expect(core([1048, 1205]).filter((i) => CONVERTERS["1205"].items.includes(i) || i === 3031)).toHaveLength(2);
     // nothing changes without a converter, and owned items never move
     expect(run([]).rules).not.toContain("converterItems");
+  }, 30_000);
+
+  it("an augment whose number grows with a stat puts an item with that stat and the champion's damage type in the core (leanIn)", async () => {
+    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsGET().json()) as Kinds, p0 = (await picksGET().json()) as Picks;
+    const lich = Object.entries(LEAN_IN).find(([, v]) => v.name === "Lich Brain")!;
+    expect(lich[1].scaling).toBe(true);
+    for (const id of ["Lux", "Ahri"]) {
+      const p = plan({ champ: champs.find((x) => x.id === id)!, kinds: k, picks: p0, fit: null, game: { champ: id, items: [] }, taken: [Number(lich[0])] });
+      expect(p.path.slice(0, p.coreLen).map((x) => itemId(x.icon))).toContain(4633); // Riftmaker: health and AP
+      expect(p.rules).toContain("leanIn");
+    }
+    // pairs that did clearly worse are out of every pull
+    for (const [a, v] of Object.entries(LEAN_IN)) for (const i of v.blocked) expect(AUGMENT_SHIFT[a]?.[String(i)]).toBeUndefined();
   }, 30_000);
 
   it("the path's unbought places follow Next's order (pathOrder)", async () => {

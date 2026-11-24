@@ -22,6 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 import augmentConvertersData from "../../data/augment-converters.json";
+import augmentLeanInData from "../../data/augment-lean-in.json";
 
 export const ENGINE_VERSION = "1.4.0";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
@@ -72,6 +73,7 @@ export const RULES: Record<string, Rule> = {
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
   converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
   sellMismatch: { source: "data", on: true, why: "One finished item of the other damage type (pure AD on an AP build or the reverse, no ADAPt/EscAPADe): sell it when its 70% sell value plus your gold buys the next path item now. Archive, within champion: one such item in the first three legendaries goes with -2.0 +- 0.3 pts of team damage share (two: -4.3, three: -5.4), win rate flat (+0.1 +- 3.1). Nico 2026-11-24 asked for sell pushback when it's worth it; the 'buys it now' line is estimated." },
+  leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: Dual Wield -> Blade of the Ruined King, Critical Healing -> Moonstone) are taken out of every pull. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
   pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
   // Design choices Nico hasn't picked yet: kept as they were.
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
@@ -869,7 +871,17 @@ export function slotCue(
 }
 /** augment -> item -> [build, early, holders, builders, z build, z early]: build = extra share of holders who finish
  *  the item, early = extra share with it as 1st/2nd legendary, both EB-shrunk (tools/augment_item_shift.py, DeepARAM-PC). */
-export const AUGMENT_SHIFT = (augmentShiftData as { pairs: Record<string, Record<string, number[]>> }).pairs;
+/** Lean-in table (data/estimates/augment_lean_in.py): per augment, the items worth building around it (kit stat its text
+ *  scales with + holders build it more, or a measured damage-share gain), whether its own number scales with that stat,
+ *  and pairs where following the pull did clearly worse (z >= 3), which no rule may push. */
+export type LeanIn = { name: string; items: number[]; how: "measured" | "kit" | null; kit: string[]; scaling: boolean; blocked: number[] };
+export const LEAN_IN = (augmentLeanInData as unknown as { pairs: Record<string, LeanIn> }).pairs;
+export const AUGMENT_SHIFT: Record<string, Record<string, number[]>> = Object.fromEntries(
+  Object.entries((augmentShiftData as { pairs: Record<string, Record<string, number[]>> }).pairs).map(([a, m]) => [
+    a,
+    Object.fromEntries(Object.entries(m).filter(([i]) => !(RULES.leanIn.on && LEAN_IN[a]?.blocked.includes(Number(i))))),
+  ]),
+);
 /** Path positions an item moves per 1.0 of shrunk early pull (Wooglet's -> Rabadon's 0.52 moves it ~4 places). */
 export const SHIFT_ORDER_GAIN = 8;
 /** augmentRush gates: build-share z, early-buy z, and build-share lift (21 pairs pass on the 2026-11-24 data). */
@@ -1388,14 +1400,23 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Converters (converterItems): an augment that re-prices a stat (ADAPt, Jeweled Gauntlet, Ethereal Weapon...) puts the
   // item of that kind its holders build most into the core, if it fits the champion's damage type or a taken ADAPt or
   // EscAPADe converts it. Not when the build already switched style for it (Ethereal Weapon's on-hit build).
-  if (RULES.converterItems.on && k && !picked.style) {
+  if ((RULES.converterItems.on || RULES.leanIn.on) && k && !picked.style) {
     const magic = (Object.entries(k.champions).find(([a]) => champKey(a) === champKey(game.champ))?.[1] ?? 0.5) > 0.5;
     const pure = (id: number) => { const t = k.items[String(id)] ?? []; return t.includes("ad") && !t.includes("ap") ? "ad" : t.includes("ap") && !t.includes("ad") ? "ap" : ""; };
     const toAp = taken.some((a) => TO_AP.has(a)), toAd = taken.some((a) => TO_AD.has(a));
     const fitsType = (id: number) => { const p0 = pure(id); return !p0 || (p0 === "ap" ? magic || toAd : !magic || toAp); };
     const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+    const lean = (a: number): Converter | undefined => {
+      const l = RULES.leanIn.on ? LEAN_IN[String(a)] : undefined;
+      if (!l?.scaling || !l.items.length) return undefined;
+      // an item that gives the augment's stat and the champion's damage type first (Lich Brain on a mage: Riftmaker)
+      const own = magic ? "ap" : "ad";
+      const items = [...l.items.filter((i) => pure(i) === own), ...l.items.filter((i) => pure(i) !== own)];
+      const words: Record<string, string> = { Health: "health", Armor: "armor", SpellBlock: "magic resist", AbilityHaste: "ability haste", AttackSpeed: "attack speed", CriticalStrike: "crit", Mana: "mana", ArmorPenetration: "lethality" };
+      return { name: l.name, kind: l.kit.join(", "), champs: null, does: `Scales with ${l.kit.map((t) => words[t]).filter(Boolean).join(" and ") || "it"}`, items, on: true };
+    };
     for (const a of taken) {
-      const cv = CONVERTERS[String(a)];
+      const cv = (RULES.converterItems.on ? CONVERTERS[String(a)] : undefined) ?? lean(a);
       if (!cv?.on || (cv.champs === "ap" && !magic) || (cv.champs === "ad" && magic)) continue;
       const ids = build.map((it) => itemId(it.icon));
       // already building one of its items: nothing to add
@@ -1409,7 +1430,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       if (j === undefined) build.push(it);
       else { const [moved] = build.splice(j, 1, it); build.splice(Math.min(coreLen, build.length), 0, moved); }
       converted.push({ item: it, by: a, does: cv.does });
-      applied("converterItems");
+      applied(CONVERTERS[String(a)] ? "converterItems" : "leanIn");
     }
   }
   // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA

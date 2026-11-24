@@ -36,6 +36,7 @@ var DeepEngine = (() => {
     HEADLINER_EXTRA_PICKS: () => HEADLINER_EXTRA_PICKS,
     HEALERS: () => HEALERS,
     KING_ME: () => KING_ME,
+    LEAN_IN: () => LEAN_IN,
     LUCKY_CAP: () => LUCKY_CAP,
     LUCKY_ODDS: () => LUCKY_ODDS,
     LUCKY_TILT: () => LUCKY_TILT,
@@ -750,6 +751,1754 @@ var DeepEngine = (() => {
     }
   };
 
+  // src/data/augment-lean-in.json
+  var augment_lean_in_default = {
+    about: 'Which augments warrant leaning into: building items that multiply what the augment does (Nico 2026-11-24, e.g.\n"does Lich Brain warrant Riftmaker on a mage?").',
+    pairs: {
+      "1141": {
+        name: "All For You",
+        items: [
+          6617
+        ],
+        how: "measured",
+        kit: [],
+        scaling: false,
+        blocked: []
+      },
+      "141": {
+        name: "All For You",
+        items: [
+          6617
+        ],
+        how: "measured",
+        kit: [],
+        scaling: false,
+        blocked: []
+      },
+      "1002": {
+        name: "Apex Inventor",
+        items: [
+          2502,
+          6692,
+          6610
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2": {
+        name: "Apex Inventor",
+        items: [
+          2502,
+          6692,
+          6610
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "3118": {
+        name: "Arcane Axiom",
+        items: [
+          3165
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2087": {
+        name: "Archmage",
+        items: [
+          6655
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "3049": {
+        name: "Armored Impact",
+        items: [
+          3075,
+          3143,
+          6665
+        ],
+        how: "kit",
+        kit: [
+          "Armor",
+          "OnHit"
+        ],
+        scaling: true,
+        blocked: []
+      },
+      "1329": {
+        name: "Biggest Snowball Ever",
+        items: [
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "3051": {
+        name: "Blue Barrier",
+        items: [
+          2503
+        ],
+        how: "kit",
+        kit: [
+          "Mana"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1103": {
+        name: "Bread And Butter",
+        items: [
+          3118
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "103": {
+        name: "Bread And Butter",
+        items: [
+          3118
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "3088": {
+        name: "CRIMSON COBALT",
+        items: [
+          6655,
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "13": {
+        name: "Celestial Body",
+        items: [
+          3083,
+          3075,
+          2502
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1013": {
+        name: "Celestial Body",
+        items: [
+          3083,
+          3075,
+          2502
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2078": {
+        name: "Chain Reaction",
+        items: [
+          6696
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1018": {
+        name: "Courage of the Colossus",
+        items: [
+          3065,
+          3084
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health"
+        ],
+        scaling: true,
+        blocked: []
+      },
+      "18": {
+        name: "Courage of the Colossus",
+        items: [
+          3065,
+          3084
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health"
+        ],
+        scaling: true,
+        blocked: []
+      },
+      "118": {
+        name: "Critical Healing",
+        items: [
+          6620,
+          3031,
+          3039
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: [
+          6617
+        ]
+      },
+      "1118": {
+        name: "Critical Healing",
+        items: [
+          6620,
+          3031,
+          3039
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: [
+          6617
+        ]
+      },
+      "1328": {
+        name: "Critical Rhythm",
+        items: [
+          3153,
+          3032
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1323": {
+        name: "Cruelty",
+        items: [
+          6653,
+          3118,
+          2503
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "19": {
+        name: "Dashing",
+        items: [
+          6655
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1019": {
+        name: "Dashing",
+        items: [
+          6655
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1020": {
+        name: "Dawnbringer's Resolve",
+        items: [
+          3084,
+          2504,
+          6610
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "20": {
+        name: "Dawnbringer's Resolve",
+        items: [
+          3084,
+          2504,
+          6610
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1022": {
+        name: "Deft",
+        items: [
+          3153
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "22": {
+        name: "Deft",
+        items: [
+          3153
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1025": {
+        name: "Dive Bomber",
+        items: [
+          3075
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "25": {
+        name: "Dive Bomber",
+        items: [
+          3075
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "301": {
+        name: "Divine Intervention",
+        items: [
+          6617
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1301": {
+        name: "Divine Intervention",
+        items: [
+          6617
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "134": {
+        name: "Draw Your Sword",
+        items: [
+          3156
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "Health",
+          "LifeSteal",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1134": {
+        name: "Draw Your Sword",
+        items: [
+          3156
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "Health",
+          "LifeSteal",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1225": {
+        name: "Dual Wield",
+        items: [
+          6672,
+          3085,
+          3124
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: [
+          3153
+        ]
+      },
+      "225": {
+        name: "Dual Wield",
+        items: [
+          6672,
+          3085,
+          3124
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: [
+          3153
+        ]
+      },
+      "2004": {
+        name: "Empowered By The Faithful",
+        items: [
+          6617,
+          2526,
+          6620
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2091": {
+        name: "Endless Decimation",
+        items: [
+          6610,
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1333": {
+        name: "Escape Plan",
+        items: [
+          6333,
+          2517
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1030": {
+        name: "Eureka",
+        items: [
+          3118,
+          3003
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "30": {
+        name: "Eureka",
+        items: [
+          3118,
+          3003
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "194": {
+        name: "Fey Magic",
+        items: [
+          3118
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1194": {
+        name: "Fey Magic",
+        items: [
+          3118
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1344": {
+        name: "Final Form",
+        items: [
+          6610
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health",
+          "LifeSteal",
+          "NonbootsMovement",
+          "SpellVamp"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1036": {
+        name: "Firebrand",
+        items: [
+          3153,
+          3124,
+          3091
+        ],
+        how: "kit",
+        kit: [
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "36": {
+        name: "Firebrand",
+        items: [
+          3153,
+          3124,
+          3091
+        ],
+        how: "kit",
+        kit: [
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2103": {
+        name: "From Downtown",
+        items: [
+          2503,
+          6655,
+          4628
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1335": {
+        name: "Goldrend",
+        items: [
+          6655,
+          4646
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1041": {
+        name: "Goliath",
+        items: [
+          3084,
+          3083,
+          2501
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "41": {
+        name: "Goliath",
+        items: [
+          3084,
+          3083,
+          2501
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1181": {
+        name: "Heavy Hitter",
+        items: [
+          3084,
+          3083,
+          3748
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "181": {
+        name: "Heavy Hitter",
+        items: [
+          3084,
+          3083,
+          3748
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "3132": {
+        name: "Heavy Is The Crown",
+        items: [
+          3032,
+          3087,
+          3115
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1392": {
+        name: "Holy Snowball",
+        items: [
+          6694
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "45": {
+        name: "Infernal Conduit",
+        items: [
+          2503
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1045": {
+        name: "Infernal Conduit",
+        items: [
+          2503
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1388": {
+        name: "Infinite Recursion",
+        items: [
+          3003
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "47": {
+        name: "It's Critical",
+        items: [
+          3031
+        ],
+        how: "kit",
+        kit: [
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1047": {
+        name: "It's Critical",
+        items: [
+          3031
+        ],
+        how: "kit",
+        kit: [
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1211": {
+        name: "It's Killing Time",
+        items: [
+          3118
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "211": {
+        name: "It's Killing Time",
+        items: [
+          3118
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "3123": {
+        name: "Jeweled Bracelet",
+        items: [
+          6676,
+          3036
+        ],
+        how: "kit",
+        kit: [
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "3094": {
+        name: "Lich Brain",
+        items: [
+          3084,
+          4633,
+          3083
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: true,
+        blocked: []
+      },
+      "1051": {
+        name: "Light 'Em Up!",
+        items: [
+          3153,
+          3124,
+          6672
+        ],
+        how: "kit",
+        kit: [
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2096": {
+        name: "Lil' Extra Help",
+        items: [
+          3032,
+          3153,
+          3124
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1133": {
+        name: "Magic Missile",
+        items: [
+          6653
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "133": {
+        name: "Magic Missile",
+        items: [
+          6653
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "54": {
+        name: "Master of Duality",
+        items: [
+          2510,
+          3124,
+          3087
+        ],
+        how: "kit",
+        kit: [
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1054": {
+        name: "Master of Duality",
+        items: [
+          2510,
+          3124,
+          3087
+        ],
+        how: "kit",
+        kit: [
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2133": {
+        name: "Mercy's Strike",
+        items: [
+          3504,
+          6620,
+          3085
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1056": {
+        name: "Mind to Matter",
+        items: [
+          3003,
+          6657,
+          3119
+        ],
+        how: "kit",
+        kit: [
+          "Health",
+          "Mana"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "56": {
+        name: "Mind to Matter",
+        items: [
+          3003,
+          6657,
+          3119
+        ],
+        how: "kit",
+        kit: [
+          "Health",
+          "Mana"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1058": {
+        name: "Mystic Punch",
+        items: [
+          3153,
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "58": {
+        name: "Mystic Punch",
+        items: [
+          3153,
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2043": {
+        name: "Nature is Healing",
+        items: [
+          6699
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1061": {
+        name: "Ok Boomerang",
+        items: [
+          4628
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1332": {
+        name: "Ominous Pact",
+        items: [
+          4633
+        ],
+        how: "kit",
+        kit: [
+          "LifeSteal",
+          "NonbootsMovement",
+          "SpellVamp"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "311": {
+        name: "Overflow",
+        items: [
+          3003,
+          2522,
+          6657
+        ],
+        how: "kit",
+        kit: [
+          "Mana"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1311": {
+        name: "Overflow",
+        items: [
+          3003,
+          2522,
+          6657
+        ],
+        how: "kit",
+        kit: [
+          "Mana"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2123": {
+        name: "Overloaded",
+        items: [
+          3004
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2139": {
+        name: "Porcupine",
+        items: [
+          3075,
+          6665,
+          2504
+        ],
+        how: "kit",
+        kit: [
+          "Armor",
+          "SpellBlock"
+        ],
+        scaling: true,
+        blocked: []
+      },
+      "1324": {
+        name: "Protein Shake",
+        items: [
+          3190,
+          2524,
+          6665
+        ],
+        how: "kit",
+        kit: [
+          "Armor",
+          "SpellBlock"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2100": {
+        name: "Pursuit of Haste",
+        items: [
+          3165
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2077": {
+        name: "Ravenous Bind",
+        items: [
+          3065,
+          2502,
+          3075
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health"
+        ],
+        scaling: true,
+        blocked: []
+      },
+      "1067": {
+        name: "Rejuvenation",
+        items: [
+          2502,
+          3065,
+          3003
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health"
+        ],
+        scaling: true,
+        blocked: []
+      },
+      "3129": {
+        name: "Sap Magic",
+        items: [
+          3084,
+          6665,
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health",
+          "OnHit"
+        ],
+        scaling: true,
+        blocked: []
+      },
+      "1072": {
+        name: "Searing Dawn",
+        items: [
+          3165,
+          3118,
+          4005
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "72": {
+        name: "Searing Dawn",
+        items: [
+          3165,
+          3118,
+          4005
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1113": {
+        name: "Skilled Sniper",
+        items: [
+          6655,
+          3004
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "113": {
+        name: "Skilled Sniper",
+        items: [
+          6655,
+          3004
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2088": {
+        name: "Snowday",
+        items: [
+          6664
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1420": {
+        name: "Sonata",
+        items: [
+          3504,
+          6617
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1076": {
+        name: "Sonic Boom",
+        items: [
+          6617,
+          6620,
+          2524
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "76": {
+        name: "Sonic Boom",
+        items: [
+          6617,
+          6620,
+          2524
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1375": {
+        name: "Soul Eater",
+        items: [
+          3084,
+          6665,
+          4633
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "77": {
+        name: "Soul Siphon",
+        items: [
+          3031,
+          3036,
+          6676
+        ],
+        how: "kit",
+        kit: [
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1077": {
+        name: "Soul Siphon",
+        items: [
+          3031,
+          3036,
+          6676
+        ],
+        how: "kit",
+        kit: [
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2076": {
+        name: "Stay Resolute",
+        items: [
+          3075
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Armor",
+          "SpellBlock"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "3131": {
+        name: "Still Here",
+        items: [
+          3032
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "LifeSteal"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1413": {
+        name: "Stuck In Here With Me",
+        items: [
+          2502
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1353": {
+        name: "Tank Engine",
+        items: [
+          3083,
+          3084,
+          2502
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "313": {
+        name: "Tank Engine",
+        items: [
+          3083,
+          3084,
+          2502
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1080": {
+        name: "Tank It Or Leave It",
+        items: [
+          3031,
+          6676
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "80": {
+        name: "Tank It Or Leave It",
+        items: [
+          3031,
+          6676
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "81": {
+        name: "Tap Dancer",
+        items: [
+          3085,
+          3153,
+          3124
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "NonbootsMovement",
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1081": {
+        name: "Tap Dancer",
+        items: [
+          3085,
+          3153,
+          3124
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "NonbootsMovement",
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "3078": {
+        name: "The Boom and the Bass",
+        items: [
+          3100
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "NonbootsMovement",
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1084": {
+        name: "Thread the Needle",
+        items: [
+          4645,
+          3135
+        ],
+        how: "kit",
+        kit: [
+          "ArmorPenetration",
+          "MagicPenetration"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "84": {
+        name: "Thread the Needle",
+        items: [
+          4645,
+          3135
+        ],
+        how: "kit",
+        kit: [
+          "ArmorPenetration",
+          "MagicPenetration"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1001": {
+        name: "Titan's Resolve",
+        items: [
+          2504,
+          3075,
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "Armor",
+          "SpellBlock"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2083": {
+        name: "Tooth Fairy",
+        items: [
+          4645,
+          4646,
+          6699
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "ArmorPenetration",
+          "Health",
+          "MagicPenetration"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2005": {
+        name: "Triggered Inferno",
+        items: [
+          6333,
+          3053,
+          6699
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "Health",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1415": {
+        name: "Twin Fire",
+        items: [
+          3031
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "87": {
+        name: "Typhoon",
+        items: [
+          3153,
+          3124,
+          6672
+        ],
+        how: "kit",
+        kit: [
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1087": {
+        name: "Typhoon",
+        items: [
+          3153,
+          3124,
+          6672
+        ],
+        how: "kit",
+        kit: [
+          "OnHit"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1349": {
+        name: "Ultimate Awakening",
+        items: [
+          3118,
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1088": {
+        name: "Ultimate Revolution",
+        items: [
+          3118
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "88": {
+        name: "Ultimate Revolution",
+        items: [
+          3118
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1112": {
+        name: "Ultimate Unstoppable",
+        items: [
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "112": {
+        name: "Ultimate Unstoppable",
+        items: [
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1336": {
+        name: "Upgrade Infinity Edge",
+        items: [
+          3031,
+          3036,
+          6676
+        ],
+        how: "kit",
+        kit: [
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2140": {
+        name: "Upgrade Ravenous Hydra",
+        items: [
+          3074,
+          6333
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "LifeSteal"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1996": {
+        name: "Upgrade Sheen",
+        items: [
+          3078,
+          2510,
+          6662
+        ],
+        how: "kit",
+        kit: [
+          "Health"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1092": {
+        name: "Vulnerability",
+        items: [
+          2503
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "92": {
+        name: "Vulnerability",
+        items: [
+          2503
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1005": {
+        name: "Wee Woo Wee Woo",
+        items: [
+          3504
+        ],
+        how: "kit",
+        kit: [
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "1098": {
+        name: "With Haste",
+        items: [
+          4629,
+          3003
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "98": {
+        name: "With Haste",
+        items: [
+          4629,
+          3003
+        ],
+        how: "kit",
+        kit: [
+          "AbilityHaste",
+          "NonbootsMovement"
+        ],
+        scaling: false,
+        blocked: []
+      },
+      "2009": {
+        name: "Zealot",
+        items: [
+          3115,
+          3087
+        ],
+        how: "kit",
+        kit: [
+          "AttackSpeed",
+          "CriticalStrike"
+        ],
+        scaling: false,
+        blocked: []
+      }
+    }
+  };
+
   // src/lib/engine/build-engine.ts
   var ENGINE_VERSION = "1.4.0";
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
@@ -792,6 +2541,7 @@ var DeepEngine = (() => {
     pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
     converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
     sellMismatch: { source: "data", on: true, why: "One finished item of the other damage type (pure AD on an AP build or the reverse, no ADAPt/EscAPADe): sell it when its 70% sell value plus your gold buys the next path item now. Archive, within champion: one such item in the first three legendaries goes with -2.0 +- 0.3 pts of team damage share (two: -4.3, three: -5.4), win rate flat (+0.1 +- 3.1). Nico 2026-11-24 asked for sell pushback when it's worth it; the 'buys it now' line is estimated." },
+    leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: Dual Wield -> Blade of the Ruined King, Critical Healing -> Moonstone) are taken out of every pull. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
     pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
     // Design choices Nico hasn't picked yet: kept as they were.
     rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
@@ -1276,7 +3026,13 @@ var DeepEngine = (() => {
       return cue(byPath, `${augName(KING_ME)} upgrades your first Legendary when you enter the enemy gate`, true);
     return null;
   }
-  var AUGMENT_SHIFT = augment_item_shift_default.pairs;
+  var LEAN_IN = augment_lean_in_default.pairs;
+  var AUGMENT_SHIFT = Object.fromEntries(
+    Object.entries(augment_item_shift_default.pairs).map(([a, m]) => [
+      a,
+      Object.fromEntries(Object.entries(m).filter(([i]) => !(RULES.leanIn.on && LEAN_IN[a]?.blocked.includes(Number(i)))))
+    ])
+  );
   var SHIFT_ORDER_GAIN = 8;
   var RUSH_Z_BUILD = 3;
   var RUSH_Z_EARLY = 2;
@@ -1659,7 +3415,7 @@ var DeepEngine = (() => {
         applied("augmentRush");
       }
     }
-    if (RULES.converterItems.on && k && !picked.style) {
+    if ((RULES.converterItems.on || RULES.leanIn.on) && k && !picked.style) {
       const magic = (Object.entries(k.champions).find(([a]) => champKey(a) === champKey(game.champ))?.[1] ?? 0.5) > 0.5;
       const pure = (id) => {
         const t = k.items[String(id)] ?? [];
@@ -1671,8 +3427,16 @@ var DeepEngine = (() => {
         return !p0 || (p0 === "ap" ? magic || toAd : !magic || toAp);
       };
       const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+      const lean = (a) => {
+        const l = RULES.leanIn.on ? LEAN_IN[String(a)] : void 0;
+        if (!l?.scaling || !l.items.length) return void 0;
+        const own = magic ? "ap" : "ad";
+        const items = [...l.items.filter((i) => pure(i) === own), ...l.items.filter((i) => pure(i) !== own)];
+        const words = { Health: "health", Armor: "armor", SpellBlock: "magic resist", AbilityHaste: "ability haste", AttackSpeed: "attack speed", CriticalStrike: "crit", Mana: "mana", ArmorPenetration: "lethality" };
+        return { name: l.name, kind: l.kit.join(", "), champs: null, does: `Scales with ${l.kit.map((t) => words[t]).filter(Boolean).join(" and ") || "it"}`, items, on: true };
+      };
       for (const a of taken) {
-        const cv = CONVERTERS[String(a)];
+        const cv = (RULES.converterItems.on ? CONVERTERS[String(a)] : void 0) ?? lean(a);
         if (!cv?.on || cv.champs === "ap" && !magic || cv.champs === "ad" && magic) continue;
         const ids = build.map((it2) => itemId(it2.icon));
         if (cv.items.some((i) => ids.includes(i) || owned.has(i))) continue;
@@ -1687,7 +3451,7 @@ var DeepEngine = (() => {
           build.splice(Math.min(coreLen, build.length), 0, moved);
         }
         converted.push({ item: it, by: a, does: cv.does });
-        applied("converterItems");
+        applied(CONVERTERS[String(a)] ? "converterItems" : "leanIn");
       }
     }
     const hasBoots = [...owned].some((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
