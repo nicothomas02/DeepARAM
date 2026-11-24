@@ -40,6 +40,9 @@ const SLOT_LABEL = ["1st augment", "2nd augment", "3rd augment", "4th augment"];
 // Drag data type for an augment id, from a row or a slot to a slot.
 const DRAG = "application/x-deeparam-augment";
 
+/** Champion fit (DeepScore points) from which the augment table colours it as a clear gap. */
+const VS_ALL_GAP = 15;
+
 const BRACKET_LABELS: [BracketKey, string][] = [
   ["all", "All players"],
   ["casual", "Casual"],
@@ -53,7 +56,11 @@ export default function AugmentTable({
   synergy = [],
   patch,
   brackets,
+  everywhere,
 }: {
+  /** Each augment's Tier List DeepScore across all champions, for its Champion fit: this champion's DeepScore minus
+   *  that one, so an augment that works on this champion in particular stands out (Nico, 2026-11-24). */
+  everywhere?: Record<number, number>;
   /** DeepScore per augment for each skill bracket, half bracket and half all players, live patch only
    *  (lib/bracket-augments.ts); absent when the live patch has no bracket tables, and the bracket switch hides. */
   brackets?: Partial<Record<"casual" | "mid" | "high", Record<number, number>>>;
@@ -551,6 +558,21 @@ export default function AugmentTable({
                 ) : (
                   <b>–</b>
                 )}
+                {(() => {
+                  // Champion fit (Nico, 2026-11-24): this champion's DeepScore minus the augment's DeepScore across
+                  // all champions, both 0-100, so augments that work on this champion in particular stand out.
+                  const all = everywhere?.[a.id];
+                  if (a.deepScore === undefined || all === undefined) return null;
+                  const d = Math.round(a.deepScore - all);
+                  return (
+                    <small
+                      className={`cp-vs ${d >= VS_ALL_GAP ? "up" : d <= -VS_ALL_GAP ? "down" : ""}`}
+                      title={t("How much better this augment is on this champion than on the average champion (DeepScore points).")}
+                    >
+                      {t("Fit {n}", { n: d > 0 ? `+${d}` : d < 0 ? `−${-d}` : "0" })}
+                    </small>
+                  );
+                })()}
               </div>
               {est && (
                 <div className="cp-cell">

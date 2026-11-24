@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Έχεις ήδη ενισχύσεις; Πάτα + ή σύρε τις στις θέσεις σου και οι υπόλοιπες θα ανακαταταχθούν βάσει συνέργειας.",
  "In the build": "Στο build",
  "{win} win · {pick} pick": "{win} νίκες · {pick} επιλογή",
- "or": "ή"
+ "or": "ή",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "Πόσο καλύτερο είναι αυτό το augment σε αυτόν τον champion από τον μέσο champion (πόντοι DeepScore).",
+ "Fit {n}": "Ταίριασμα {n}"
 }

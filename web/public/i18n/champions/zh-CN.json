@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "已经有强化符文了？点击 + 或拖入你的栏位，其余的会按协同重新排序。",
  "In the build": "出装内",
  "{win} win · {pick} pick": "胜率 {win} · 选取率 {pick}",
- "or": "或"
+ "or": "或",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "该强化在此英雄上比在一般英雄上好多少（DeepScore 分）。",
+ "Fit {n}": "契合度 {n}"
 }

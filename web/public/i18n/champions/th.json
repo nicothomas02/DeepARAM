@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "มีออกเมนต์แล้ว? กด + หรือลากเข้าช่อง แล้วที่เหลือจะจัดอันดับใหม่ตามซินเนอร์จี",
  "In the build": "อยู่ในบิลด์",
  "{win} win · {pick} pick": "ชนะ {win} · เลือก {pick}",
- "or": "หรือ"
+ "or": "หรือ",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "ออกเมนต์นี้ดีกว่าบนแชมเปี้ยนนี้มากแค่ไหนเมื่อเทียบกับแชมเปี้ยนทั่วไป (แต้ม DeepScore)",
+ "Fit {n}": "ความเข้ากัน {n}"
 }

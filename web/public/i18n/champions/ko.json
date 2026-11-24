@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "이미 증강이 있나요? +를 누르거나 슬롯으로 끌어오면 나머지가 시너지 순으로 다시 정렬됩니다.",
  "In the build": "빌드에 포함",
  "{win} win · {pick} pick": "승률 {win} · 선택률 {pick}",
- "or": "또는"
+ "or": "또는",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "이 증강이 평균 챔피언보다 이 챔피언에게 얼마나 더 좋은지(DeepScore 점수).",
+ "Fit {n}": "궁합 {n}"
 }

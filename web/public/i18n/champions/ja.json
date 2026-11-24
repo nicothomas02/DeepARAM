@@ -332,5 +332,7 @@
  "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "すでにオーグメントがありますか？+を押すかスロットにドラッグすると、残りがシナジー順に並び替わります。",
  "In the build": "ビルドに含む",
  "{win} win · {pick} pick": "勝率 {win} · 採用率 {pick}",
- "or": "または"
+ "or": "または",
+ "How much better this augment is on this champion than on the average champion (DeepScore points).": "このオーグメントが平均的なチャンピオンよりこのチャンピオンでどれだけ優れているか（DeepScoreポイント）。",
+ "Fit {n}": "相性 {n}"
 }
