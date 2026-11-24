@@ -68,7 +68,7 @@ import {
   fillSpells,
   type SpellRow,
 } from "@/lib/fill";
-import { ITEM_TIERS, rewardItems, type ItemTier } from "@/lib/items";
+import { ITEM_TIERS, itemTier, rewardItems, type ItemTier } from "@/lib/items";
 import { championAugmentStages, championEstimates } from "@/lib/estimates";
 import { bracketAugmentScores } from "@/lib/bracket-augments";
 import { augmentTiers } from "@/lib/augment-tiers";
@@ -593,6 +593,18 @@ export default async function ChampionPage({
         <T ns={NS}>Augment item</T>
       </span>
     ) : null;
+  // The default card's six items in buying order, so the Full builds list reads the same way (inCardOrder).
+  const cardCore = p.builds.length > 1 ? p.builds[0].core : bestCore;
+  const cardOrder = cardCore ? [...buildOrder(cardCore), ...(cardCore.full ?? []).map((r) => r.items[0])] : [];
+  const inCardOrder = (items: number[]) => {
+    // Any boots take the card's boots spot.
+    const bootsAt = cardOrder.findIndex((i) => itemTier(i) === "boots");
+    const at = (i: number) => {
+      const k = bootsAt >= 0 && itemTier(i) === "boots" ? bootsAt : cardOrder.indexOf(i);
+      return k < 0 ? cardOrder.length + items.indexOf(i) : k;
+    };
+    return [...items].sort((x, y) => at(x) - at(y));
+  };
   const itemRows = (rows: typeof p.core, sep = false) =>
     rows.map((r, i) => (
       <Row key={i} rank={i + 1} cols={4} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} />}>
@@ -1174,7 +1186,9 @@ export default async function ChampionPage({
             >
               <Head what="Six items" cols={SCORED_COLS} />
               <ShowMore total={p.full.length} limit={5}>
-                {itemRows(p.full, false)}
+                {/* Each build in the card's buying order where they share items (Nico 2026-11-24: the top full build
+                    read differently from the card, though the six items were the same); the rest keep their order. */}
+                {itemRows(p.full.map((r) => ({ ...r, items: inCardOrder(r.items) })), false)}
               </ShowMore>
             </Panel>
           )}
