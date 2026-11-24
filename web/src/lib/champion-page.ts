@@ -403,12 +403,29 @@ export function championPage(alias: string): ChampionPage | null {
   // Guardian's Blade). A finished item can't be afforded at the start, so a row holding one is noise.
   // Starters on the same bound rule, scored on their pooled numbers where earlier patches agree (data/aramhex/merge.py
   // pool_starts), as augments and spell pairs are: a rarely bought start with a steady lead keeps it (Nico 2026-11-24).
-  const startRows = scoreItems(rows(b?.items?.starting));
+  // Boot starts (Nico 2026-11-24: "Allow boots to be purchased for starting items"): the feed lists five starts and
+  // boots almost never make it, though Dagger + Berserker's Greaves is the archive's most common Yasuo, Kayle, Yone and
+  // Vayne start. A boot start the feed lacks comes from the archived lobbies (data/estimates/boot_starts.py), estimated:
+  // its win rate is the champion's plus its lead over the same champion's archive average, with the archive's games,
+  // so DeepScore ranks it on the same footing.
+  const feedStarts = rows(b?.items?.starting);
+  const bootStarts = readRepoJson<{ champions: Record<string, { players: number; wins: number; starts: [number[], number, number][] }> }>(
+    "data/estimates/boot_starts.json",
+  )?.champions[String(id)];
+  const sameSet = (x: number[], y: number[]) => x.length === y.length && [...x].sort().every((v, i) => v === [...y].sort()[i]);
+  const archiveBootRows: ItemRow[] = (bootStarts?.starts ?? [])
+    .filter(([its]) => its.every((i) => all.has(i)) && !feedStarts.some((r) => sameSet(r.items, its)))
+    .map(([its, n, w]) => {
+      const lead = w / n - bootStarts!.wins / bootStarts!.players;
+      return { items: its, winRate: base + lead, pickRate: n / bootStarts!.players, lift: lead, games: n, estimated: true };
+    });
+  const startRows = scoreItems([...feedStarts, ...archiveBootRows]);
   const affordable = startRows.filter((r) => !r.items.some((i) => itemTier(i) === "legendary"));
   // A starter needs a real following to lead (same 1/4 rule as builds, Nico 2026-11-21) or enough games of its own
   // (START_MIN_GAMES), so a start bought in a handful of games can't lead on luck.
   const startPool = affordable.length ? affordable : startRows;
-  const startTop = Math.max(0, ...startPool.map((r) => r.pickRate));
+  // The archive's share isn't the feed's pick rate, so an estimated boot start neither sets nor needs the feed's bar.
+  const startTop = Math.max(0, ...startPool.filter((r) => !r.estimated).map((r) => r.pickRate));
   // A start an Upgrade augment on the first screen could account for (Ahri's Hextech Alternator with Upgrade
   // Stormsurge) never leads, and comes last: the default start mustn't come from an augment rush (Nico 2026-11-24).
   // A start that costs more than the starting gold needs extra gold at the start: the Debonair headliner (gold for
@@ -417,7 +434,9 @@ export function championPage(alias: string): ChampionPage | null {
   const startCost = (r: ItemRow) => r.items.reduce((sum, i) => sum + (itemRecipe(i)?.price ?? 0), 0);
   const overBudget = (r: ItemRow) => startCost(r) > STARTING_GOLD;
   const offDefault = (r: ItemRow) => !!r.augment || overBudget(r);
-  const startFollowed = (r: ItemRow) => !offDefault(r) && (r.pickRate >= MIN_FOLLOWING * startTop || (r.games ?? 0) >= START_MIN_GAMES);
+  // An estimated boot start counts as followed when at least 1 in 4 of the champion's archived players starts with it.
+  const startFollowed = (r: ItemRow) =>
+    !offDefault(r) && (r.estimated ? r.pickRate >= MIN_FOLLOWING : r.pickRate >= MIN_FOLLOWING * startTop || (r.games ?? 0) >= START_MIN_GAMES);
   const scoredStart = [
     ...startPool.filter(startFollowed),
     ...startPool.filter((r) => !startFollowed(r) && !offDefault(r)),

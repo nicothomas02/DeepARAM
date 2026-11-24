@@ -28,6 +28,8 @@ export type ItemRow = Rated & {
   full?: ItemRow[];
   /** Starting items: the augment whose first-screen picks explain most of the start's games (it never leads the card). */
   augment?: number;
+  /** Starting items: a boot start from the archived lobbies (data/estimates/boot_starts.json), not from the stats feed. */
+  estimated?: boolean;
 };
 
 /** A row's items in the order they're bought: the boots go in at bootsAt (after the core when it isn't known). */

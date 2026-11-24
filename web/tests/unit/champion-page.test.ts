@@ -164,3 +164,16 @@ describe("card boots", () => {
     }
   });
 });
+
+describe("boot starts (Nico 2026-11-24: allow boots as starting items)", () => {
+  it("lists the archive's boot start the feed lacks, estimated, ranked by DeepScore", () => {
+    const p = championPage("Yasuo")!;
+    const boot = p.starting.find((r) => r.items.includes(3006));
+    expect(boot?.estimated).toBe(true);
+    expect(boot?.deepScore).toBeTypeOf("number");
+    // A feed start that already holds boots isn't doubled (Kalista: Dagger + Berserker's Greaves).
+    const k = championPage("Kalista")!.starting.filter((r) => r.items.includes(3006) && r.items.includes(1042));
+    expect(k.length).toBe(1);
+    expect(k[0].estimated).toBeUndefined();
+  }, 120000);
+});

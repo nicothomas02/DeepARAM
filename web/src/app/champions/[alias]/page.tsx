@@ -619,6 +619,11 @@ export default async function ChampionPage({
           </span>
         ))}
         {augTag(r)}
+        {r.estimated && (
+          <small className="cp-stale-tag" title="From fewer games than the rest of the list">
+            <T ns={NS}>Estimated</T>
+          </small>
+        )}
       </Row>
     ));
   const singleRows = (rows: typeof p.core, fam: "boots" | null = null) =>
@@ -751,7 +756,8 @@ export default async function ChampionPage({
                 ))}
               </div>
               <div className="cp-mini">
-                {Number.isFinite(start.winRate) ? <RatedCells r={start} /> : <small className="cp-stale-tag"><T ns={NS}>Estimated</T></small>}
+                {Number.isFinite(start.winRate) && <RatedCells r={start} />}
+                {(!Number.isFinite(start.winRate) || start.estimated) && <small className="cp-stale-tag"><T ns={NS}>Estimated</T></small>}
               </div>
             </div>
           )}
