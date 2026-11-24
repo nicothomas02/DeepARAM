@@ -38,6 +38,12 @@ matching deeparam.com page, so every site update reaches the app without a new r
 
 Shared code (tabs, web view, offline copies, patch checks) lives in `apps/shared/DeepARAMKit` so the iPad and Mac apps use the same pieces.
 
+## TestFlight without a Mac
+
+`.github/workflows/ios-testflight.yml` (Actions > "iPhone app to TestFlight" > Run workflow) archives the app on
+GitHub's Mac runners and uploads it to TestFlight, signed with an App Store Connect API key. The secrets it needs are
+listed at the top of the file. It never submits to the App Store.
+
 ## Run it
 
 Needs Xcode 16 or newer.
