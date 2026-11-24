@@ -32,6 +32,7 @@ var DeepEngine = (() => {
     LUCKY_CAP: () => LUCKY_CAP,
     LUCKY_ODDS: () => LUCKY_ODDS,
     LUCKY_TILT: () => LUCKY_TILT,
+    MEASURED_FIRST: () => MEASURED_FIRST,
     MEASURED_SWITCHES: () => MEASURED_SWITCHES,
     MIN_HOLDERS: () => MIN_HOLDERS,
     PROVEN: () => PROVEN,
@@ -358,7 +359,8 @@ var DeepEngine = (() => {
     swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
     shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
     // No evidence either way: off until a test passes (Nico 2026-11-23, apply defaults).
-    upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off until tested." },
+    upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off until tested; the tested ones are in measuredFirst." },
+    measuredFirst: { source: "data", on: true, why: "Augments after which players buy an item as their 1st or 2nd legendary far more often than the same champion's players without it (10-player archive lobbies, z >= 4 over 2,932 pairs): it moves up to next when it's in your path. Tested 2026-11-24." },
     augmentReplan: { source: "assumption", on: false, why: "Other augments switch the build style (style tags, the other 3-vote build changers, the class-wide fallback build). Off until measured like Draw Your Sword -> Death's Dance." },
     countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
     stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
@@ -581,6 +583,7 @@ var DeepEngine = (() => {
     3150: [4646]
   };
   var WEAPON_OF_DESTINY = 3081;
+  var MEASURED_FIRST = { 1156: [3089, 3157], 1336: [3031], 1318: [3157], 2140: [3074] };
   function classBuild(picks, k, style, magic, rules) {
     const score = {}, core = {};
     for (const builds of Object.values(picks.builds ?? {}))
@@ -801,6 +804,15 @@ var DeepEngine = (() => {
           applied("upgradeNext");
         }
       }
+    if (RULES.measuredFirst.on)
+      for (const a of taken)
+        for (const id of [...MEASURED_FIRST[a] ?? []].reverse()) {
+          const idx = next.findIndex((it) => itemId(it.icon) === id);
+          if (idx > 0 && !timing.some((t) => t.item === next[idx])) {
+            front(idx, `${augName(a)}: most players buy it early`);
+            applied("measuredFirst");
+          }
+        }
     const stack = RULES.stackingFirst.on && !finished && !timing.length ? next.findIndex((it) => STACKING.has(itemId(it.icon))) : -1;
     if (stack > 0) {
       next = [next[stack], ...next.filter((_, i) => i !== stack)];

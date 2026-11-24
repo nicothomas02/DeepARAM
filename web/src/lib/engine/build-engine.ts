@@ -49,7 +49,8 @@ export const RULES: Record<string, Rule> = {
   swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
   shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
   // No evidence either way: off until a test passes (Nico 2026-11-23, apply defaults).
-  upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off until tested." },
+  upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off until tested; the tested ones are in measuredFirst." },
+  measuredFirst: { source: "data", on: true, why: "Augments after which players buy an item as their 1st or 2nd legendary far more often than the same champion's players without it (10-player archive lobbies, z >= 4 over 2,932 pairs): it moves up to next when it's in your path. Tested 2026-11-24." },
   augmentReplan: { source: "assumption", on: false, why: "Other augments switch the build style (style tags, the other 3-vote build changers, the class-wide fallback build). Off until measured like Draw Your Sword -> Death's Dance." },
   countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
   stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
@@ -458,6 +459,15 @@ export const UPGRADES: Record<number, number[]> = {
   2140: [3074], 2143: [6610], 2157: [6333], 3150: [4646],
 };
 export const WEAPON_OF_DESTINY = 3081;
+/**
+ * Measured augment -> buy-it-early items (DeepARAM-PC tools/augment_timing.py, 2026-11-24): among players who built
+ * the item, the share with it as their 1st or 2nd legendary, holders vs the same champion's players without the
+ * augment. Only z >= 4 (2,932 pairs tested). Wooglet's Witchcap -> Rabadon's 76% vs 16% (n 274, z 28), Zhonya's 61% vs
+ * 24% (n 238, z 14); Upgrade Infinity Edge -> IE 83% vs 52% (n 563, z 16); Upgrade Zhonya's -> Zhonya's 49% vs 29%
+ * (n 215, z 6.7); Upgrade Ravenous Hydra -> Hydra 100% vs 54% (n 22, z 4.5). Ethereal Weapon moves nothing (Nashor's
+ * 63% vs 60%). Weapon of Destiny has its own rule (destinyFirst).
+ */
+export const MEASURED_FIRST: Record<number, number[]> = { 1156: [3089, 3157], 1336: [3031], 1318: [3157], 2140: [3074] };
 
 /** A style build for a champion with none of that style: the style's usual items over all champions. */
 export function classBuild(picks: Picks, k: Kinds, style: string, magic: boolean, rules: ItemRules): [number[], number[]] | null {
@@ -756,6 +766,12 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const idx = next.findIndex((it) => family.includes(itemId(it.icon)));
       if (idx >= 0 && !timing.some((t) => t.item === next[idx])) { front(idx, `${augName(a)} upgrades it`); applied("upgradeNext"); }
     }
+  if (RULES.measuredFirst.on)
+    for (const a of taken)
+      for (const id of [...(MEASURED_FIRST[a] ?? [])].reverse()) {  // reversed, so the first listed ends up first
+        const idx = next.findIndex((it) => itemId(it.icon) === id);
+        if (idx > 0 && !timing.some((t) => t.item === next[idx])) { front(idx, `${augName(a)}: most players buy it early`); applied("measuredFirst"); }
+      }
   const stack = RULES.stackingFirst.on && !finished && !timing.length ? next.findIndex((it) => STACKING.has(itemId(it.icon))) : -1;
   if (stack > 0) { next = [next[stack], ...next.filter((_, i) => i !== stack)]; applied("stackingFirst"); }
   const [, aspd = 0, haste = 0] = game.stats ?? [];

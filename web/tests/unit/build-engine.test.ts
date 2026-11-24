@@ -22,6 +22,7 @@ import {
   type Kinds,
   type OverlayChamp,
   type Picks,
+  MEASURED_FIRST,
 } from "@/lib/engine/build-engine";
 import { bundleEngine, ENGINE_OUT } from "../../scripts/build-engine.mjs";
 
@@ -126,12 +127,16 @@ describe("build engine", () => {
     expect(off.switched).toBeNull();
   });
 
-  it("Weapon of Destiny moves the champion's best Weapon item first; Upgrade X only labels it", () => {
+  it("Weapon of Destiny moves the champion's best Weapon item first; measured augments move their item up", () => {
     const wod = plan({ champ, kinds, picks, fit, game: game([]), taken: [3081] });
     expect(itemId(wod.next[0].icon)).toBe(3036);
+    // Upgrade Infinity Edge: IE is a 1st/2nd legendary for 83% of holders vs 52% without (measuredFirst)
     const up = plan({ champ, kinds, picks, fit, game: game([]), taken: [1336] });
-    expect(ids(up.next)).toEqual([3006, 3031]);
-    expect(up.why[1]).toMatch(/upgrades it/);
+    expect(ids(up.next)).toEqual([3031, 3006]);
+    expect(up.timing[0].because).toMatch(/buy it early/);
+    expect(up.why[ids(up.path).indexOf(3031)]).toMatch(/upgrades it/);
+    // an augment with no measured timing (Ethereal Weapon -> Nashor's 63% vs 60%) leaves the order alone
+    expect(MEASURED_FIRST[1029]).toBeUndefined();
   });
 
   it("puts a finished item you own off the path into the first open later slot", () => {
