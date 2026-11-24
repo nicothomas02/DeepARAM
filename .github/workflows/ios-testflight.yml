@@ -39,7 +39,7 @@ jobs:
           [ -n "$P8" ] || missing="$missing ASC_KEY_P8"
           if [ -n "$missing" ]; then echo "::error::Add these repository secrets first:$missing"; exit 1; fi
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Use the newest Xcode
         run: sudo xcode-select -s "$(ls -d /Applications/Xcode_16*.app | sort -V | tail -1)" && xcodebuild -version
