@@ -18,6 +18,7 @@ import {
   RULES,
   situational,
   skillUp,
+  startFor,
   triggers,
   type Fit,
   type Kinds,
@@ -265,6 +266,19 @@ describe("build engine", () => {
     expect(gwen?.skills).toEqual(["E", "Q", "W"]);
     expect(gwen?.augmentSkills).toBeUndefined();
     for (const b of (gwen as unknown as { builds: { skills: string[] }[] }).builds) expect(b.skills).toEqual(["E", "Q", "W"]);
+  });
+
+  it("switches the start to the first augment's own (Upgrade Stormsurge: Hextech Alternator on Ahri)", async () => {
+    const ahri = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Ahri");
+    const storm = ahri?.augmentStarts?.find((a) => a.augment === 3150);
+    expect(storm?.start.map((s) => s.name)).toContain("Hextech Alternator");
+    expect(startFor(ahri, [3150]).start.map((s) => s.name)).toContain("Hextech Alternator");
+    expect(startFor(ahri, [3150]).augment).toBe(3150);
+    // Only the first augment: taken later, the start is already bought.
+    expect(startFor(ahri, [1030, 3150]).augment).toBeNull();
+    expect(startFor(ahri, []).start).toEqual(ahri?.start);
+    // Eureka: Ahri's players start Lost Chapter anyway, so it doesn't change her start.
+    expect(ahri?.augmentStarts?.some((a) => a.augment === 1030)).toBe(false);
   });
 
   it("never plans two items of one limit group, on any champion's real data", async () => {

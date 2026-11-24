@@ -66,6 +66,8 @@ export type QuickBuild = {
   };
   /** Skill max orders once an augment is taken (lib/augment-skills.ts, Nico's calls). The build engine follows them. */
   augmentSkills?: AugmentSkill[];
+  /** The start once an augment is taken first (Upgrade Stormsurge: Hextech Alternator), estimated. The engine's startFor. */
+  augmentStarts?: { augment: number; start: Named[] }[];
   builds: (Pick<QuickBuild, "skills" | "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number; nearBest: boolean })[];
 };
 
@@ -162,6 +164,10 @@ export function quickBuilds(): QuickBuild[] {
           routes: apArch.archmage!.map((r) => ({ ...r, items: r.items.flatMap((i) => named(i) ?? []) })),
         }
       : null;
+    const augStarts = p.augmentStarts.flatMap((a) => {
+      const start = a.items.flatMap((i) => named(i) ?? []);
+      return start.length ? [{ augment: a.augment, start }] : [];
+    });
     const first = builds[0] ?? { ...pieces(p.core[0], p.cardStart, p.situational, p.rush, p.augmentSwaps), augments: augsOf() };
     const { start, items, rest, full, later, laterSlots, situational, rush, augments } = first;
     return [
@@ -186,6 +192,7 @@ export function quickBuilds(): QuickBuild[] {
         builds,
         ...(arch ? { archmage: arch } : {}),
         ...(AUGMENT_SKILLS[id] ? { augmentSkills: AUGMENT_SKILLS[id] } : {}),
+        ...(augStarts.length ? { augmentStarts: augStarts } : {}),
       },
     ];
   });

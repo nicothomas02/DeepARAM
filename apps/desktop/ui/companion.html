@@ -358,6 +358,7 @@
   }
   function setTaken(g, ids) {
     try { localStorage.setItem("taken", JSON.stringify({ champ: g.champ, start: Date.now() / 1000 - g.t, ids })); } catch {}
+    renderQuick();
   }
 
   // DeepScore tier, as on the site: 50 is average, S from 70, A 59, B 44, C 32, D below.
@@ -579,10 +580,12 @@
     if (!c) { box.innerHTML = `<p class="note">No quick build for this champion yet.</p>`; return; }
     const b = (c.builds ?? []).length > 1 ? { ...c, ...c.builds[0] } : c;
     const src = (u) => (u?.startsWith("http") ? u : SITE + (u ?? ""));
+    // The first augment can change the start (Upgrade Stormsurge: Hextech Alternator), as the engine says.
+    const st = E.startFor ? E.startFor(b, getTaken(game)) : { start: b.start ?? [], augment: null };
     box.innerHTML = `<div class="quick">
       <div class="keys">${(b.skills ?? []).map((k, i) => `${i ? `<span class="why">›</span>` : ""}<span class="key">${esc(k)}</span>`).join("")}</div>
       ${(b.spells ?? []).map((sp) => `<span class="spell"><img src="${src(sp.icon)}" alt="">${esc(sp.name)}</span>`).join("")}
-      ${(b.start ?? []).length ? `<span class="spell">Start ${b.start.map((it) => `<img src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</span>` : ""}
+      ${st.start.length ? `<span class="spell"${st.augment ? ` title="Changed by your first augment"` : ""}>Start ${st.start.map((it) => `<img src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</span>` : ""}
     </div>`;
   }
 
