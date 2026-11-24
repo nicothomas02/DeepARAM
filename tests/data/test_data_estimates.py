@@ -287,3 +287,14 @@ def test_build_archetypes_split_ashe_into_ap_and_crit():
         assert rows == sorted(rows, key=lambda a: -a["share"])
         for a in rows:
             assert a["style"] in data["styles"] and a["core"] and a["augments_estimated"]
+
+
+def test_teams():
+    """Projected best full teams: five different champions each, labelled projected, carry-over measured in [0, 1]."""
+    d = load_json("data/estimates/teams.json")
+    assert d["projected"] is True
+    assert 0 <= d["carry_over"] <= 1 and d["carry_over_pairs"] > 1000
+    assert len(d["teams"]) >= 10
+    for t in d["teams"]:
+        assert len(set(t["champions"])) == 5
+        assert 0.5 < t["projected_win_rate"] < 1
