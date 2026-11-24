@@ -25,6 +25,8 @@
   Cache-Control: public, max-age=300, s-maxage=3600, stale-while-revalidate=86400
 /data/team-fit.json
   Access-Control-Allow-Origin: *
+/data/duos.json
+  Access-Control-Allow-Origin: *
 /data/augment-picks.json
   Access-Control-Allow-Origin: *
 /data/overlay.json
