@@ -1,0 +1,20 @@
+{
+ "Champion": "Hős",
+ "Best sticker": "Legjobb matrica",
+ "The sticker worth the most to this champion's usual build.": "Az a matrica, amely a legtöbbet ér ennek a hősnek a szokásos buildjében.",
+ "Value": "Érték",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Becslés: nagyjából hány győzelmi arány pontot ér a matrica bónusza ezen a hősön, a statisztikái aranyban számolva, és csak ott, ahol a szokásos build használja őket.",
+ "Runner-up": "Második",
+ "Runner-up value": "A második értéke",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "Egy HEARTSTEEL játékban a képességlapokon lehet matrica a hat HEARTSTEEL tag egyikétől, mindegyik saját bónusszal. Semmilyen játékadat nem rögzíti a matricákat, ezért minden érték becsült: a bónusz statisztikái aranyban számolva, csak ott, ahol a hős szokásos buildje használja őket.",
+ "pts on average": "pont átlagosan",
+ "Best for {n} champions": "{n} hősnek a legjobb",
+ "Find a champion": "Hős keresése",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Az 1. szinten választott matricára becsülve. A szintenkénti bónuszok (Ezreal, Sett) egy későbbi képességnél kicsit kevesebbet érnek.",
+ "2 Stat Anvils": "2 statisztika-üllő",
+ "+4 AD and +4 AP per level": "+4 AD és +4 AP szintenként",
+ "+5% omnivamp": "+5% mindenvámpírság",
+ "+1 level and +1 level cap": "+1 szint és +1 maximális szint",
+ "+30 health per level": "+30 életerő szintenként",
+ "+40% attack speed and +20 ability haste": "+40% támadási sebesség és +20 képességgyorsítás"
+}

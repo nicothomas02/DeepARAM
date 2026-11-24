@@ -1,0 +1,20 @@
+{
+ "Champion": "Šampion",
+ "Best sticker": "Nejlepší samolepka",
+ "The sticker worth the most to this champion's usual build.": "Samolepka, která má pro obvyklý build tohoto šampiona největší cenu.",
+ "Value": "Hodnota",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Odhad: zhruba kolik bodů míry výher má bonus samolepky na tomto šampionovi, ze statistik převedených na zlato a započítaných jen tam, kde je obvyklý build využívá.",
+ "Runner-up": "Druhá",
+ "Runner-up value": "Hodnota druhé",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "Ve hře HEARTSTEEL mohou karty augmentů nést samolepku jednoho ze šesti členů HEARTSTEEL, každá s vlastním bonusem. Žádná data ze her samolepky nezaznamenávají, takže každá hodnota zde je odhad: statistiky bonusu převedené na zlato, započítané jen tam, kde je obvyklý build šampiona využívá.",
+ "pts on average": "b. v průměru",
+ "Best for {n} champions": "Nejlepší pro {n} šampionů",
+ "Find a champion": "Najít šampiona",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Odhad pro samolepku vzatou na úrovni 1. Bonusy za úroveň (Ezreal, Sett) mají na pozdějším augmentu o něco menší cenu.",
+ "2 Stat Anvils": "2 kovadliny statistik",
+ "+4 AD and +4 AP per level": "+4 AD a +4 AP za úroveň",
+ "+5% omnivamp": "+5 % omnivampirismu",
+ "+1 level and +1 level cap": "+1 úroveň a +1 maximální úroveň",
+ "+30 health per level": "+30 zdraví za úroveň",
+ "+40% attack speed and +20 ability haste": "+40 % rychlosti útoku a +20 zrychlení schopností"
+}

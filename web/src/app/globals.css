@@ -6687,3 +6687,43 @@ html[data-view="detailed"] .wr-ci {
   font-size: 13px;
   color: var(--muted);
 }
+
+/* Tier List > HEARTSTEEL (components/Heartsteel.tsx): the six stickers ranked on their own, as cards above the table. */
+.hs-stickers {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+  gap: 0.6rem;
+}
+.hs-stickers li {
+  display: grid;
+  grid-template-columns: auto 44px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--r, 10px);
+  background: var(--card, var(--surface));
+}
+.hs-stickers img {
+  border-radius: 8px;
+}
+.hs-rank {
+  font-weight: 700;
+  color: var(--muted);
+}
+.hs-what,
+.hs-nums {
+  display: grid;
+  gap: 0.1rem;
+  min-width: 0;
+}
+.hs-nums {
+  text-align: right;
+}
+.hs-what small,
+.hs-nums small {
+  font-size: 13px;
+  color: var(--muted);
+}

@@ -1,0 +1,20 @@
+{
+ "Champion": "Champion",
+ "Best sticker": "Stiker terbaik",
+ "The sticker worth the most to this champion's usual build.": "Stiker yang paling bernilai untuk build biasa champion ini.",
+ "Value": "Nilai",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Perkiraan: kira-kira berapa poin win rate nilai bonus stiker pada champion ini, dari stat-nya yang dihargai dalam gold dan dihitung hanya jika build biasanya memakainya.",
+ "Runner-up": "Kedua",
+ "Runner-up value": "Nilai kedua",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "Dalam game HEARTSTEEL, kartu augment bisa membawa stiker dari salah satu dari enam anggota HEARTSTEEL, masing-masing dengan bonusnya sendiri. Tidak ada data game yang mencatat stiker, jadi setiap nilai di sini adalah perkiraan: stat bonus dihargai dalam gold, dihitung hanya jika build biasa champion memakainya.",
+ "pts on average": "poin rata-rata",
+ "Best for {n} champions": "Terbaik untuk {n} champion",
+ "Find a champion": "Cari champion",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Perkiraan untuk stiker yang diambil di level 1. Bonus per level (Ezreal, Sett) bernilai sedikit lebih rendah pada augment yang lebih akhir.",
+ "2 Stat Anvils": "2 Stat Anvil",
+ "+4 AD and +4 AP per level": "+4 AD dan +4 AP per level",
+ "+5% omnivamp": "+5% omnivamp",
+ "+1 level and +1 level cap": "+1 level dan +1 batas level",
+ "+30 health per level": "+30 health per level",
+ "+40% attack speed and +20 ability haste": "+40% attack speed dan +20 ability haste"
+}

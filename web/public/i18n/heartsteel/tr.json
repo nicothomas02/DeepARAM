@@ -1,0 +1,20 @@
+{
+ "Champion": "Şampiyon",
+ "Best sticker": "En iyi çıkartma",
+ "The sticker worth the most to this champion's usual build.": "Bu şampiyonun olağan dizilimi için en değerli çıkartma.",
+ "Value": "Değer",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Tahmini: çıkartmanın bonusunun bu şampiyonda yaklaşık kaç galibiyet oranı puanı ettiği; istatistikleri altına çevrilip yalnızca olağan dizilimin kullandığı yerde sayılarak.",
+ "Runner-up": "İkinci",
+ "Runner-up value": "İkincinin değeri",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "Bir HEARTSTEEL oyununda güçlendirme kartlarında altı HEARTSTEEL üyesinden birinin çıkartması olabilir, her birinin kendi bonusu vardır. Hiçbir oyun verisi çıkartmaları kaydetmez, bu yüzden buradaki her değer tahminidir: bonusun istatistikleri altına çevrilir ve yalnızca şampiyonun olağan diziliminin kullandığı yerde sayılır.",
+ "pts on average": "ortalama puan",
+ "Best for {n} champions": "{n} şampiyon için en iyisi",
+ "Find a champion": "Şampiyon bul",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "1. seviyede alınan bir çıkartma için tahmin. Seviye başı bonuslar (Ezreal, Sett) daha sonraki bir güçlendirmede biraz daha az değerlidir.",
+ "2 Stat Anvils": "2 istatistik örsü",
+ "+4 AD and +4 AP per level": "Seviye başına +4 SG ve +4 YG",
+ "+5% omnivamp": "%5 her şeyi emme",
+ "+1 level and +1 level cap": "+1 seviye ve +1 seviye sınırı",
+ "+30 health per level": "Seviye başına +30 can",
+ "+40% attack speed and +20 ability haste": "%40 saldırı hızı ve +20 yetenek hızı"
+}

@@ -1,0 +1,20 @@
+{
+ "Champion": "Campione",
+ "Best sticker": "Sticker migliore",
+ "The sticker worth the most to this champion's usual build.": "Lo sticker che vale di più per la build abituale di questo campione.",
+ "Value": "Valore",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Stimato: circa quanti punti di percentuale di vittoria vale il bonus dello sticker su questo campione, dalle sue statistiche convertite in oro e contate solo dove la build abituale le usa.",
+ "Runner-up": "Secondo",
+ "Runner-up value": "Valore del secondo",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "In una partita HEARTSTEEL, le carte potenziamento possono avere uno sticker di uno dei sei membri degli HEARTSTEEL, ognuno con il proprio bonus. Nessun dato di partita registra gli sticker, quindi ogni valore qui è stimato: le statistiche del bonus convertite in oro, contate solo dove la build abituale del campione le usa.",
+ "pts on average": "pt in media",
+ "Best for {n} champions": "Il migliore per {n} campioni",
+ "Find a champion": "Cerca un campione",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Stimato per uno sticker preso al livello 1. I bonus per livello (Ezreal, Sett) valgono un po' meno su un potenziamento successivo.",
+ "2 Stat Anvils": "2 incudini delle statistiche",
+ "+4 AD and +4 AP per level": "+4 AD e +4 AP per livello",
+ "+5% omnivamp": "+5% di omnivampirismo",
+ "+1 level and +1 level cap": "+1 livello e +1 livello massimo",
+ "+30 health per level": "+30 salute per livello",
+ "+40% attack speed and +20 ability haste": "+40% velocità d'attacco e +20 velocità abilità"
+}

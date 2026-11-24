@@ -1,0 +1,20 @@
+{
+ "Champion": "英雄",
+ "Best sticker": "最佳貼紙",
+ "The sticker worth the most to this champion's usual build.": "對該英雄常用出裝最有價值的貼紙。",
+ "Value": "價值",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "估算：貼紙獎勵在該英雄上大約相當於多少勝率百分點，依屬性換算金幣，且只計算常用出裝會用到的屬性。",
+ "Runner-up": "次選",
+ "Runner-up value": "次選價值",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "在 HEARTSTEEL 對局中，強化卡牌可能帶有六位 HEARTSTEEL 成員之一的貼紙，各自提供不同獎勵。沒有對局資料記錄貼紙，因此這裡的每個數值都是估算：獎勵屬性換算成金幣，只計算該英雄常用出裝會用到的部分。",
+ "pts on average": "平均點數",
+ "Best for {n} champions": "{n} 位英雄的最佳選擇",
+ "Find a champion": "搜尋英雄",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "依 1 等選取的貼紙估算。依等級成長的獎勵（伊澤瑞爾、賽特）在較晚的強化中價值略低。",
+ "2 Stat Anvils": "2 個屬性鐵砧",
+ "+4 AD and +4 AP per level": "每級 +4 攻擊力與 +4 魔法攻擊",
+ "+5% omnivamp": "+5% 全能吸血",
+ "+1 level and +1 level cap": "+1 等級與 +1 等級上限",
+ "+30 health per level": "每級 +30 生命值",
+ "+40% attack speed and +20 ability haste": "+40% 攻擊速度與 +20 技能急速"
+}

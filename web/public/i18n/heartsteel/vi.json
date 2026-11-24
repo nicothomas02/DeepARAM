@@ -1,0 +1,20 @@
+{
+ "Champion": "Tướng",
+ "Best sticker": "Nhãn dán tốt nhất",
+ "The sticker worth the most to this champion's usual build.": "Nhãn dán đáng giá nhất với lối lên đồ thường dùng của tướng này.",
+ "Value": "Giá trị",
+ "Estimated: about how many win-rate points the sticker's bonus is worth on this champion, from its stats priced in gold and counted only where the usual build uses them.": "Ước tính: phần thưởng của nhãn dán đáng khoảng bao nhiêu điểm tỉ lệ thắng trên tướng này, từ chỉ số quy ra vàng và chỉ tính khi lối lên đồ thường dùng có dùng tới.",
+ "Runner-up": "Thứ hai",
+ "Runner-up value": "Giá trị thứ hai",
+ "In a HEARTSTEEL game, augment cards can carry a sticker from one of the six HEARTSTEEL members, each adding its own bonus. No game data records stickers, so every value here is estimated: the bonus's stats priced in gold, counted only where the champion's usual build uses them.": "Trong trận HEARTSTEEL, thẻ lõi nâng cấp có thể mang nhãn dán của một trong sáu thành viên HEARTSTEEL, mỗi nhãn có phần thưởng riêng. Không dữ liệu trận nào ghi lại nhãn dán, nên mọi giá trị ở đây đều là ước tính: chỉ số của phần thưởng quy ra vàng, chỉ tính khi lối lên đồ thường dùng của tướng có dùng tới.",
+ "pts on average": "điểm trung bình",
+ "Best for {n} champions": "Tốt nhất cho {n} tướng",
+ "Find a champion": "Tìm tướng",
+ "Estimated for a sticker taken at level 1. Per-level bonuses (Ezreal, Sett) are worth a little less on a later augment.": "Ước tính cho nhãn dán lấy ở cấp 1. Phần thưởng theo cấp (Ezreal, Sett) đáng giá ít hơn một chút ở lõi nâng cấp sau.",
+ "2 Stat Anvils": "2 Đe Chỉ Số",
+ "+4 AD and +4 AP per level": "+4 SMCK và +4 SMPT mỗi cấp",
+ "+5% omnivamp": "+5% hút máu toàn phần",
+ "+1 level and +1 level cap": "+1 cấp và +1 giới hạn cấp",
+ "+30 health per level": "+30 máu mỗi cấp",
+ "+40% attack speed and +20 ability haste": "+40% tốc độ đánh và +20 điểm hồi kỹ năng"
+}

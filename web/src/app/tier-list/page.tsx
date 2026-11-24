@@ -7,6 +7,8 @@ import ChampionTiers from "@/components/ChampionTiers";
 import ChampionsPanel from "@/components/ChampionsPanel";
 import DuosTable from "@/components/DuosTable";
 import FullTeams from "@/components/FullTeams";
+import Heartsteel from "@/components/Heartsteel";
+import { heartsteel } from "@/lib/heartsteel";
 import { fullTeams } from "@/lib/teams";
 import TeamFit from "@/components/TeamFit";
 import { teamFitVersion } from "@/lib/team-fit";
@@ -292,6 +294,13 @@ export default function TierListPage() {
   const penta = pentakill();
   if (penta.length) {
     tabs.push({ id: "pentakill", label: "Pentakill", lazy: true, content: <Pentakill rows={penta} /> });
+  }
+
+  // Which HEARTSTEEL sticker is worth most to each champion, estimated by the shared build engine (lib/heartsteel.ts):
+  // no game data records stickers (Nico, 2026-11-24).
+  const hs = heartsteel();
+  if (hs.champions.length) {
+    tabs.push({ id: "heartsteel", label: "HEARTSTEEL", lazy: true, content: <Heartsteel champions={hs.champions} stickers={hs.stickers} /> });
   }
 
   return (
