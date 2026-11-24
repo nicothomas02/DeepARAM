@@ -39,6 +39,11 @@ import { archmageRoutes, ASHE, type ArchmageRoute } from "./archmage-route";
 const IDS = championIds as Record<string, number>;
 const AUGS = augmentNames as Record<string, string>;
 
+/** The first-item start fallback needs this many archive players rushing the item, and this many on the start itself
+ *  (chosen lines, flagged to Nico 2026-11-24). */
+const MIN_FIRST_ITEM_PLAYERS = 20;
+const MIN_FIRST_ITEM_START = 5;
+
 /** A pair only counts as a teammate once it shows up in at least this share of games. */
 export const MIN_PAIR_PICK = 0.008;
 
@@ -50,6 +55,8 @@ type Builds = {
   items?: Partial<
     Record<"starting" | "boots" | "core" | "other" | "full_builds", Raw[]>
   >;
+  /** augment id -> the start its first-screen pickers switch to (data/aramhex/merge.py mark_augment_starts). */
+  augment_starts?: Record<string, number[]>;
   skills?: {
     max_order: string[];
     pick_rate: number;
@@ -190,6 +197,9 @@ export type ChampionPage = {
   swaps: { augment: number; item: number }[];
   /** Items to swap in once you take certain augments (Upgrade augments, build-changing ones), for the main core. */
   augmentSwaps: AugmentSwap[];
+  /** The start players who take an augment first switch to (Upgrade Stormsurge: Hextech Alternator), estimated from
+   *  the archive (data/aramhex/merge.py mark_augment_starts); the apps switch to it once that augment is the first. */
+  augmentStarts: { augment: number; items: number[] }[];
   augments: AugmentRow[];
   mates: Mate[];
   styles: Style[];
@@ -468,6 +478,23 @@ export function championPage(alias: string): ChampionPage | null {
   const base10k = (i: number) => i % 10000;
   const archetypes = readRepoJson<{ champions: Record<string, Archetype[]> }>("data/estimates/build_archetypes.json")?.champions[String(id)] ?? [];
   const known = (i: number) => (all.has(i) ? i : ([...all.keys()].find((k) => base10k(k) === base10k(i)) ?? i));
+  // A build no listed start fits (the feeds list starts per champion, not per build: AP Amumu, crit Shaco) takes the
+  // most common start of players whose first Legendary is the build's first item, when it fits (estimated;
+  // data/estimates/first_item_starts.py, Nico 2026-11-24: "find solutions for missing/empty data").
+  const firstItemStarts = readRepoJson<{ items: Record<string, { players: number; starts: [number[], number][] }> }>("data/estimates/first_item_starts.json")?.items ?? {};
+  const estimatedStart = (row: ItemRow): ItemRow | null => {
+    const first = row.items.find((i) => itemTier(i) === "legendary");
+    const e = first === undefined ? undefined : firstItemStarts[String(base10k(first))];
+    if (!e || e.players < MIN_FIRST_ITEM_PLAYERS) return null;
+    for (const [items, n] of e.starts) {
+      const r: ItemRow = { items: items.map(known), winRate: NaN, pickRate: 0, lift: 0 };
+      // Every item goes into the build: players who rush Trinity Force are mostly other champions, and Ezreal's Tear
+      // isn't Gnar's start.
+      if (n >= MIN_FIRST_ITEM_START && starterFits(r.items, withBootsOf(row, [...row.items, ...(row.rest ?? [])]), itemParts, (i) => itemTier(i) === "consumable")) return r;
+    }
+    return null;
+  };
+  const cardStart = page0Start ?? (core[0] ? estimatedStart(core[0]) : null);
   const overlap = (a: number[], b: number[]) => a.filter((i) => b.some((j) => base10k(j) === base10k(i))).length;
   const mainArch = core[0] && archetypes.length > 1
     ? archetypes.reduce((best, a) => (overlap(a.core ?? [], core[0].items) > overlap(best.core ?? [], core[0].items) ? a : best))
@@ -490,7 +517,7 @@ export function championPage(alias: string): ChampionPage | null {
           const augs = Object.values(a.augments ?? {}).flat();
           if (a === mainArch)
             return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: true,
-              core: core[0], start: page0Start, situational: situationalItems(core[0], single, full), augmentSwaps: swapsFor(core[0]), rush: rushParts(core[0].items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
+              core: core[0], start: cardStart, situational: situationalItems(core[0], single, full), augmentSwaps: swapsFor(core[0]), rush: rushParts(core[0].items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
           const coreIds = (a.core ?? []).map(known);
           // A style whose core already holds boots (Bel'Veth: Gluttonous Greaves) gets no second pair.
           const coreHasBoots = coreIds.some((i) => itemTier(i) === "boots");
@@ -503,7 +530,9 @@ export function championPage(alias: string): ChampionPage | null {
           // The style's own starters only when they fit its build: the estimate falls back to the champion's most picked
           // starter of any style (crit Miss Fortune got Fated Ashes + Tear; champion review 2026-11-24, G4).
           const own: ItemRow | null = a.starters?.length ? { items: a.starters.map(known), winRate: NaN, pickRate: 0, lift: 0 } : null;
-          const start = st ?? (own && fits(row)(own) ? own : null);
+          // The style's own starters only when no augment drives them (Armored Impact's Chain Vest on tank Volibear).
+          const driven = (r: ItemRow) => starting.some((x) => x.augment && x.items.length === r.items.length && x.items.every((i) => r.items.includes(i)));
+          const start = st ?? (own && fits(row)(own) && !driven(own) ? own : null) ?? estimatedStart({ ...row, items: ordered });
           return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false,
             core: c, start, situational: situationalItems(c, single, full), augmentSwaps: swapsFor(c), rush: rushParts(c.items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
         });
@@ -521,7 +550,7 @@ export function championPage(alias: string): ChampionPage | null {
     skills,
     starting,
     // The card shows a starter only when one fits its core; the full list below keeps every row.
-    cardStart: page0Start,
+    cardStart,
     boots: noBoots ? [] : boots,
     core,
     full,
@@ -537,6 +566,7 @@ export function championPage(alias: string): ChampionPage | null {
         .flatMap((i) => (all.get(i) ? [{ id: i, name: all.get(i)!.name }] : [])),
     ),
     augmentSwaps: swapsFor(core[0]),
+    augmentStarts: Object.entries(b?.augment_starts ?? {}).map(([a, items]) => ({ augment: Number(a), items })),
     augments,
     mates,
     styles,

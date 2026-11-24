@@ -286,31 +286,45 @@ def mark_augment_starts(rows, augs, est):
         r.pop("augment", None)
         r.pop("augment_share", None)
     if not est:
-        return
+        return {}
     groups = {}
     for r in rows:
         k = start_set(r["items"])
         if k and r.get("games"):
             groups.setdefault(k, []).append(r)
+    # rises[aid][k]: (share of first-pickers starting with all of k's items above the same champions' other players,
+    # first-pickers with it); only rises whose 95% lower bound clears the others' rate.
+    rises = {}
+    for aid, a in (est.get("augments") or {}).items():
+        if int(aid) not in augs:
+            continue
+        n = a["first_pickers"]
+        for k in groups:
+            hit = sum(h for s, h, _ in a["starts"] if set(k) <= set(s))
+            rest = sum(x for s, _, x in a["starts"] if set(k) <= set(s)) / n
+            if wilson_low(hit, n) > rest:
+                rises.setdefault(int(aid), {})[k] = (hit / n - rest, hit)
     for k, rs in groups.items():
         g = sum(r["games"] for r in rs)
-        extra = {}
-        for aid, a in (est.get("augments") or {}).items():
-            mine = augs.get(int(aid))
-            if not mine:
-                continue
-            n = a["first_pickers"]
-            hit = sum(h for s, h, _ in a["starts"] if set(k) <= set(s))
-            exp = sum(x for s, _, x in a["starts"] if set(k) <= set(s))
-            rest = exp / n
-            if wilson_low(hit, n) <= rest:
-                continue
-            extra[int(aid)] = mine["games"] * a["first_share"] * (hit / n - rest)
+        extra = {aid: augs[aid]["games"] * est["augments"][str(aid)]["first_share"] * ks[k][0] for aid, ks in rises.items() if k in ks}
         e = sum(extra.values())
         if e / g >= AUGMENT_START_SHARE:
             for r in rs:
                 r["augment"] = max(extra, key=extra.get)
                 r["augment_share"] = round(min(1.0, e / g), 2)
+    # The start each augment leads to when taken first (the apps switch to it): the champion's start with the biggest
+    # rise, when players who take that augment first start it more often than any other start (its first-pickers'
+    # most common start, counted in the archive) and the rise at least matches how often the champion's players start
+    # it overall (the augment at least doubles it: Upgrade Stormsurge and Alternator on Ahri, not Eureka and Lost
+    # Chapter, which her players start anyway; a chosen line, flagged to Nico 2026-11-24).
+    out = {}
+    for aid, ks in rises.items():
+        k = max(ks, key=lambda x: ks[x][0])
+        starts = est["augments"][str(aid)]["starts"]
+        other = max([h for s, h, _ in starts if not set(k) <= set(s)], default=0)
+        if ks[k][1] >= other and ks[k][0] >= sum(r["pick_rate"] for r in groups[k]):
+            out[str(aid)] = max(groups[k], key=lambda r: r["games"])["items"]
+    return out
 
 
 def pool_starts(rows, g_all, cid, hist):
@@ -381,7 +395,12 @@ def merge_builds(check, live):
         it = b.setdefault("items", {})
         if it.get("starting"):
             pool_starts(it["starting"], g_all, cid, starts_hist)
-            mark_augment_starts(it["starting"], {r["id"]: r for r in (b.get("augments") or {}).get("all", [])}, a_starts)
+            by_aug = mark_augment_starts(it["starting"], {r["id"]: r for r in (b.get("augments") or {}).get("all", [])}, a_starts)
+            it.pop("augment_starts", None)
+            if by_aug:
+                b["augment_starts"] = by_aug
+            else:
+                b.pop("augment_starts", None)
         bt = boots.get(cid)
         if bt and bt["items"]:
             den = bt["all"][0]
