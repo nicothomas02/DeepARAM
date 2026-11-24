@@ -38,6 +38,7 @@ import { archmageRoutes, ASHE, type ArchmageRoute } from "./archmage-route";
 
 const IDS = championIds as Record<string, number>;
 const AUGS = augmentNames as Record<string, string>;
+const RABADONS = 3089;
 
 /** Every player's gold at 0:00 in the owner's archive (1,245 games, all patches). */
 export const STARTING_GOLD = 1400;
@@ -202,7 +203,7 @@ export type ChampionPage = {
   augmentSwaps: AugmentSwap[];
   /** The start players who take an augment first switch to (Upgrade Stormsurge: Hextech Alternator), estimated from
    *  the archive (data/aramhex/merge.py mark_augment_starts); the apps switch to it once that augment is the first. */
-  augmentStarts: { augment: number; items: number[] }[];
+  augmentStarts: { augment: number; items: number[]; toward: number | null }[];
   /** Starts above the starting gold (Debonair, Upgrade augments' gold), best first, with their cost. */
   richStarts: { items: number[]; cost: number }[];
   augments: AugmentRow[];
@@ -555,6 +556,23 @@ export function championPage(alias: string): ChampionPage | null {
       .map((r) => ({ ...r, items: r.items.map(known) }));
     for (const b of builds) if (b.style === "ap") b.archmage = routes;
   }
+  // With extra gold the apps spend the rest on the parts of the item an augment start leads to (Nico chose
+  // 2026-11-24): Upgrade X -> X; Wooglet's Witchcap -> Rabadon's Deathcap (its quest needs it, and it holds the
+  // Needlessly Large Rod players start); else the first item of the champion's builds that the start builds into.
+  const norm = (x: string) => x.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const legendaries = [...all.values()].filter((it) => it.id < 10000 && itemTier(it.id) === "legendary");
+  const towardOf = (aug: number, start: number[]): number | null => {
+    const name = AUGS[String(aug)] ?? "";
+    const up = /^Upgrade:?\s+(.+)$/i.exec(name);
+    const want = up ? norm(up[1]) : "";
+    const hit = want ? legendaries.find((it) => norm(it.name) === want) ?? legendaries.find((it) => norm(it.name).startsWith(want) || norm(it.name).endsWith(want)) : undefined;
+    if (hit) return hit.id;
+    if (/wooglet/i.test(name)) return RABADONS;
+    const need = start.filter((i) => !standalone(i));
+    if (!need.length) return null;
+    const pool = [...(core[0]?.items ?? []), ...builds.flatMap((x) => x.core.items)].filter((i) => !isBoots(i));
+    return pool.find((x) => need.every((n) => itemParts(x).includes(n))) ?? null;
+  };
   const page = {
     builds,
     winRate: base,
@@ -582,7 +600,7 @@ export function championPage(alias: string): ChampionPage | null {
     richStarts: [...startPool.filter((r) => !r.augment && overBudget(r))]
       .sort((x, y) => Number(core[0] ? fits(core[0])(y) : 0) - Number(core[0] ? fits(core[0])(x) : 0) || (y.deepScore ?? 0) - (x.deepScore ?? 0))
       .map((r) => ({ items: r.items, cost: startCost(r) })),
-    augmentStarts: Object.entries(b?.augment_starts ?? {}).map(([a, items]) => ({ augment: Number(a), items })),
+    augmentStarts: Object.entries(b?.augment_starts ?? {}).map(([a, items]) => ({ augment: Number(a), items, toward: towardOf(Number(a), items) })),
     augments,
     mates,
     styles,

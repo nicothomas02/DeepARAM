@@ -67,7 +67,8 @@ export type QuickBuild = {
   /** Skill max orders once an augment is taken (lib/augment-skills.ts, Nico's calls). The build engine follows them. */
   augmentSkills?: AugmentSkill[];
   /** The start once an augment is taken first (Upgrade Stormsurge: Hextech Alternator), estimated. The engine's startFor. */
-  augmentStarts?: { augment: number; start: Named[] }[];
+  /** toward = the item to spend extra gold on with that augment (Upgrade X: X), when there is one. */
+  augmentStarts?: { augment: number; start: Named[]; toward?: number }[];
   /** Starts above the starting gold, best first: the engine's startFor takes the first you can afford (Debonair). */
   richStarts?: { start: Named[]; cost: number }[];
   builds: (Pick<QuickBuild, "skills" | "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number; nearBest: boolean })[];
@@ -168,7 +169,7 @@ export function quickBuilds(): QuickBuild[] {
       : null;
     const augStarts = p.augmentStarts.flatMap((a) => {
       const start = a.items.flatMap((i) => named(i) ?? []);
-      return start.length ? [{ augment: a.augment, start }] : [];
+      return start.length ? [{ augment: a.augment, start, ...(a.toward ? { toward: a.toward } : {}) }] : [];
     });
     const rich = p.richStarts.slice(0, 3).flatMap((r) => {
       const start = r.items.flatMap((i) => named(i) ?? []);
