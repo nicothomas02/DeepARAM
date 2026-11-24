@@ -424,17 +424,19 @@
     const reroll = offered.length >= 2 ? rerollAdvice(d, ranked, offered, taken) : "";
     // Cards within noise of the best: highlighted too, "either is fine".
     const ties = offered.length >= 2 && offered.every((a) => typeof a.score === "number") ? E.nearTies(d, ck, offered) : [];
+    // Can't decide between them: more combo potential, else the less common pick (Nico 2026-11-24).
+    const tb = ties.length ? E.tieBreak(d, ck, [offered[0].id, ...ties], ranked) : null;
     const shown = ranked.filter((a) => !onOffer.includes(a.id)).slice(0, offered.length ? 5 : 8);
     const row = (a, best) => `
       <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${whatItDoes("augments", Number(a.id)) ? ` title="${esc(whatItDoes("augments", Number(a.id)))}"` : ""}>
         ${augIcon(a.id)}
-        <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : a.combo !== null && a.potential >= 0.3 ? `Combo potential with ${esc(name(a.combo))} (+${a.potential.toFixed(1)})` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
+        <div><div class="name">${esc(name(a.id))}</div><div class="why">${a.conflict ? `Conflicts: ${esc(a.conflict)}` : a.mate !== null ? `Synergy with ${esc(name(a.mate))}` : a.combo !== null && a.potential >= 0.3 ? `Combo potential with ${esc(name(a.combo))} (+${a.potential.toFixed(1)})` : esc((d.augments[a.id]?.[1] ?? "").replace(/^./, (c) => c.toUpperCase()))}</div></div>
         <div class="num" title="DeepScore on this champion (ranking adds synergy with what you took)">${a.boost !== null ? `<b>${a.boost >= 0 ? "+" : ""}${a.boost.toFixed(1)}</b>` : ""}${a.deep >= 0 ? `${a.boost !== null ? "<br>" : ""}<small>${deepLabel(a.deep)}</small>` : a.boost === null && ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>
       </div>`;
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
     const took = taken.length ? `<div class="taken"><span class="why lbl">You took</span>${taken.map((id) => `<span class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}">${augIcon(id)}${esc(name(id))}</span>`).join("")}</div>` : "";
     box.innerHTML = `${took}
-      ${offered.length ? `<div class="offer"><div class="why src">${ties.length ? "On offer now: the highlighted cards are about equal for you (within noise), so pick either." : "On offer now, best first for you."}</div>${offered.map((a, i) => row(a, i === 0 || ties.includes(a.id))).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
+      ${offered.length ? `<div class="offer"><div class="why src">${ties.length ? `On offer now: the highlighted cards are about equal for you (within noise), so pick either.${tb ? ` Can't decide? ${esc(name(tb.id))}: ${esc(tb.why)}.` : ""}` : "On offer now, best first for you."}</div>${offered.map((a, i) => row(a, i === 0 || ties.includes(a.id))).join("")}${reroll}</div><h2>Other augments</h2>` : ""}
       ${shown.map((a, i) => row(a, i === 0 && !offered.length)).join("")}
       <p class="note">Best first for ${esc(label(game.champ))}, by how each does on this champion in real games (DeepScore)${settings.length ? `. Set in champion select: ${esc(settings.join(", "))}` : ""}.</p>`;
   }

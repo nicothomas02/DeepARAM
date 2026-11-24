@@ -24,6 +24,8 @@ import {
   partnerPicks,
   partnerOdds,
   nearTies,
+  augmentConflict,
+  tieBreak,
   TIER_ODDS,
   triggers,
   type Fit,
@@ -363,6 +365,27 @@ describe("build engine", () => {
     expect(partnerOdds(0, "prismatic", 60, { headliner: "Command Line" })).toBe(0);
     expect(partnerOdds(0, "gold", 60, { headliner: "Command Line" })).toBeGreaterThan(partnerOdds(0, "gold", 60));
     expect(partnerOdds(0, "gold", 60, { headliner: "Maestro" })).toBeGreaterThan(partnerOdds(0, "gold", 60));
+  });
+
+  it("puts augments that can't work with what you took last, with the reason (wiki)", () => {
+    const aug = { ...picks.augments, "1004": ["Back To Basics", "prismatic"], "1349": ["Ultimate Awakening", "prismatic"], "1205": ["ADAPt", "silver"], "1206": ["EscAPADe", "silver"],
+      "2088": ["Snowday", "silver"], "1006": ["Blade Waltz", "prismatic"], "3004": ["Get Jinxed", "gold"], "1401": ["Growth Spurt", "gold"] } as Picks["augments"];
+    const p: Picks = { ...picks, augments: aug, champions: { Ashe: [[1349, 0.2], [1206, 0.1], [1401, 0.05], [100, 0.01]] }, pairs: {} };
+    expect(augmentConflict(p, [1004], 1349)).toMatch(/Back to Basics/);
+    expect(augmentConflict(p, [1349], 1004)).toMatch(/Ultimate Awakening/);
+    expect(augmentConflict(p, [1205], 1206)).toMatch(/ADAPt/);
+    expect(augmentConflict(p, [2088, 1006], 1401)).toMatch(/summoner spell/);
+    expect(augmentConflict(p, [1006], 1401)).toBeNull();
+    const r = rankAugments(p, "Ashe", [1004, 1205]);
+    expect(r.map((a) => a.id).slice(-2)).toEqual([1349, 1206]);
+    expect(r[r.length - 1].conflict).toBeTruthy();
+  });
+
+  it("breaks a near-tie by combo potential, else the less common pick", () => {
+    const ranked = [{ id: 1, score: 5, boost: 5, potential: 0, combo: null, mate: null, deep: 50 }, { id: 2, score: 4.8, boost: 4.7, potential: 0.1, combo: 9, mate: null, deep: 50 }];
+    const p: Picks = { ...picks, champions: { Ashe: [[1, 0.05, 50, 1, 0.5, 0.2], [2, 0.047, 50, 1, 0.5, 0.05]] } };
+    expect(tieBreak(p, "Ashe", [1, 2], ranked)).toEqual({ id: 2, why: "more combo potential" });
+    expect(tieBreak(p, "Ashe", [1, 2], ranked.map((a) => ({ ...a, potential: 0 })))).toEqual({ id: 2, why: "fewer players take it" });
   });
 
   it("calls cards within noise of the best a near-tie (engine scorecard)", () => {
