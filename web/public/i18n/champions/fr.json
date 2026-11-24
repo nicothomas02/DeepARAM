@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Plus fort sur les champions de mêlée.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archimage fait que Tir du faucon et R se rechargent l'un l'autre. Prends d'abord cette accélération de compétence (R au rang 3), puis termine le build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} d'accélération de compétence · Tir du faucon rang {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Les objets atteignent {haste} sur les {need} d'accélération de compétence nécessaires."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Les objets atteignent {haste} sur les {need} d'accélération de compétence nécessaires.",
+ "Your augments": "Tes augments",
+ "Drag an augment here, or press + on it.": "Glisse un augment ici ou appuie sur + dessus.",
+ "Drag another augment here to replace it.": "Glisse un autre augment ici pour le remplacer.",
+ "Recent patches": "Patchs récents",
+ "This patch only": "Ce patch seulement",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Aucune synergie connue avec {names} sur ce champion pour l'instant, donc les autres sont classés selon leur seul bonus.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Tu as déjà des augments ? Appuie sur + ou glisse-les dans tes emplacements, et les autres sont reclassés selon la synergie."
 }

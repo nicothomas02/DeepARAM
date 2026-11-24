@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Mạnh hơn trên tướng cận chiến.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Pháp Sư Tối Thượng khiến Ưng Tiễn và R hồi chiêu cho nhau. Hãy đạt chừng này Điểm hồi kỹ năng trước (R cấp 3), rồi hoàn thiện lối lên đồ.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Điểm hồi kỹ năng · Ưng Tiễn cấp {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Trang bị đạt {haste} trên {need} Điểm hồi kỹ năng cần thiết."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Trang bị đạt {haste} trên {need} Điểm hồi kỹ năng cần thiết.",
+ "Your augments": "Lõi nâng cấp của bạn",
+ "Drag an augment here, or press + on it.": "Kéo một lõi nâng cấp vào đây, hoặc nhấn + trên nó.",
+ "Drag another augment here to replace it.": "Kéo lõi nâng cấp khác vào đây để thay thế.",
+ "Recent patches": "Các bản gần đây",
+ "This patch only": "Chỉ bản này",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Chưa có cộng hưởng đã biết với {names} ở tướng này, nên phần còn lại chỉ xếp theo mức tăng của chính nó.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Đã có lõi nâng cấp? Nhấn + hoặc kéo vào ô của bạn, phần còn lại sẽ xếp lại theo cộng hưởng."
 }

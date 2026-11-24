@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Πιο δυνατό σε πρωταθλητές σώμα με σώμα.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Ο Archmage κάνει το Hawkshot και το R να επαναφορτίζουν το ένα το άλλο. Πάρε πρώτα τόση Ταχύτητα Ικανοτήτων (R στο επίπεδο 3) και μετά ολοκλήρωσε το build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Ταχύτητα Ικανοτήτων · Hawkshot επίπεδο {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Τα αντικείμενα φτάνουν {haste} από τα {need} Ταχύτητας Ικανοτήτων που χρειάζονται."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Τα αντικείμενα φτάνουν {haste} από τα {need} Ταχύτητας Ικανοτήτων που χρειάζονται.",
+ "Your augments": "Οι ενισχύσεις σου",
+ "Drag an augment here, or press + on it.": "Σύρε μια ενίσχυση εδώ ή πάτα + πάνω της.",
+ "Drag another augment here to replace it.": "Σύρε άλλη ενίσχυση εδώ για να την αντικαταστήσεις.",
+ "Recent patches": "Πρόσφατα patch",
+ "This patch only": "Μόνο αυτό το patch",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Δεν υπάρχει ακόμη γνωστή συνέργεια με {names} σε αυτόν τον ήρωα, οπότε οι υπόλοιπες κατατάσσονται μόνο με βάση την ώθησή τους.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Έχεις ήδη ενισχύσεις; Πάτα + ή σύρε τις στις θέσεις σου και οι υπόλοιπες θα ανακαταταχθούν βάσει συνέργειας."
 }

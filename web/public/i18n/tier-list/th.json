@@ -77,5 +77,14 @@
  "Top 5%": "ท็อป 5%",
  "Skill bracket": "ระดับฝีมือ",
  "Skill brackets come from a rating built from game results, not official ranks.": "ระดับมาจากคะแนนที่คำนวณจากผลการแข่งขัน ไม่ใช่แรงก์ทางการ",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "แพตช์นี้ยังไม่มีตัวเลขตามระดับ จึงใช้ของแพตช์ {patch}"
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "แพตช์นี้ยังไม่มีตัวเลขตามระดับ จึงใช้ของแพตช์ {patch}",
+ "Best pick": "ตัวเลือกที่ดีที่สุด",
+ "Loading…": "กำลังโหลด…",
+ "Strong this patch": "แข็งแกร่งในแพตช์นี้",
+ "Remove": "ลบ",
+ "Your team": "ทีมของคุณ",
+ "Your choices (optional)": "ตัวเลือกของคุณ (ไม่บังคับ)",
+ "Your choices, best first": "ตัวเลือกของคุณ ดีที่สุดก่อน",
+ "Best picks": "ตัวเลือกที่ดีที่สุด",
+ "Strength {n}": "ความแข็งแกร่ง {n}"
 }

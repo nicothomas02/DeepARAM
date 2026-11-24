@@ -165,5 +165,7 @@
  "{n} healing": "{n} gyógyítás",
  "{n} damage blocked": "{n} blokkolt sebzés",
  "{n} crowd control": "{n} irányításgátlás",
- "{n} deaths per 10 minutes": "{n} halál 10 percenként"
+ "{n} deaths per 10 minutes": "{n} halál 10 percenként",
+ "Fewer columns": "Kevesebb oszlop",
+ "More columns ({n})": "Több oszlop ({n})"
 }

@@ -165,5 +165,7 @@
  "{n} healing": "{n} شفاء",
  "{n} damage blocked": "{n} ضرر محجوب",
  "{n} crowd control": "{n} تحكم بالحشود",
- "{n} deaths per 10 minutes": "{n} وفيات كل 10 دقائق"
+ "{n} deaths per 10 minutes": "{n} وفيات كل 10 دقائق",
+ "Fewer columns": "أعمدة أقل",
+ "More columns ({n})": "أعمدة أكثر ({n})"
 }

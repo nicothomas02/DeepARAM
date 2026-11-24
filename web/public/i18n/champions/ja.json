@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "近接チャンピオンでより強力。",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "アークメイジでホークショットとRが互いにクールダウンを縮めます。まずこのスキルヘイストを確保し（Rランク3）、それからビルドを仕上げます。",
  "{haste} Ability Haste · Hawkshot rank {rank}": "スキルヘイスト{haste} · ホークショット ランク{rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "アイテムで必要な{need}のうち{haste}のスキルヘイストに届きます。"
+ "Items reach {haste} of the {need} Ability Haste needed.": "アイテムで必要な{need}のうち{haste}のスキルヘイストに届きます。",
+ "Your augments": "あなたのオーグメント",
+ "Drag an augment here, or press + on it.": "ここにオーグメントをドラッグするか、+を押してください。",
+ "Drag another augment here to replace it.": "別のオーグメントをここにドラッグすると入れ替わります。",
+ "Recent patches": "最近のパッチ",
+ "This patch only": "今パッチのみ",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "このチャンピオンでは{names}との既知のシナジーがまだないため、残りは単体の強さだけで並びます。",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "すでにオーグメントがありますか？+を押すかスロットにドラッグすると、残りがシナジー順に並び替わります。"
 }

@@ -165,5 +165,7 @@
  "{n} healing": "{n} vindecare",
  "{n} damage blocked": "{n} daune blocate",
  "{n} crowd control": "{n} control",
- "{n} deaths per 10 minutes": "{n} morți la 10 minute"
+ "{n} deaths per 10 minutes": "{n} morți la 10 minute",
+ "Fewer columns": "Mai puține coloane",
+ "More columns ({n})": "Mai multe coloane ({n})"
 }

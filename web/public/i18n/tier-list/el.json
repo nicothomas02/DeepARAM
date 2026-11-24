@@ -77,5 +77,14 @@
  "Top 5%": "Top 5%",
  "Skill bracket": "Επίπεδο δεξιοτήτων",
  "Skill brackets come from a rating built from game results, not official ranks.": "Τα επίπεδα βγαίνουν από βαθμολογία βάσει αποτελεσμάτων αγώνων, όχι από επίσημες κατατάξεις.",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Αυτό το patch δεν έχει ακόμη αριθμούς ανά επίπεδο, οπότε προέρχονται από το patch {patch}."
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Αυτό το patch δεν έχει ακόμη αριθμούς ανά επίπεδο, οπότε προέρχονται από το patch {patch}.",
+ "Best pick": "Καλύτερη επιλογή",
+ "Loading…": "Φόρτωση…",
+ "Strong this patch": "Δυνατός σε αυτό το patch",
+ "Remove": "Αφαίρεση",
+ "Your team": "Η ομάδα σου",
+ "Your choices (optional)": "Οι επιλογές σου (προαιρετικά)",
+ "Your choices, best first": "Οι επιλογές σου, η καλύτερη πρώτη",
+ "Best picks": "Καλύτερες επιλογές",
+ "Strength {n}": "Δύναμη {n}"
 }

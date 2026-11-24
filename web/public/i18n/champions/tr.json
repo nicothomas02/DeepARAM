@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Yakın dövüş şampiyonlarında daha güçlü.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage, Hawkshot ve R'nin birbirini yenilemesini sağlar. Önce bu kadar yetenek hızı topla (R 3. seviye), sonra dizilimi tamamla.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} yetenek hızı · Hawkshot {rank}. seviye",
- "Items reach {haste} of the {need} Ability Haste needed.": "Eşyalar gereken {need} yetenek hızının {haste} kadarını sağlıyor."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Eşyalar gereken {need} yetenek hızının {haste} kadarını sağlıyor.",
+ "Your augments": "Güçlendirmelerin",
+ "Drag an augment here, or press + on it.": "Bir güçlendirmeyi buraya sürükle ya da üzerindeki +'ya bas.",
+ "Drag another augment here to replace it.": "Değiştirmek için başka bir güçlendirmeyi buraya sürükle.",
+ "Recent patches": "Son yamalar",
+ "This patch only": "Yalnızca bu yama",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Bu şampiyonda {names} ile bilinen bir sinerji henüz yok, bu yüzden diğerleri yalnızca kendi katkılarına göre sıralanıyor.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Zaten güçlendirmelerin var mı? +'ya bas ya da yuvalarına sürükle, diğerleri sinerjiye göre yeniden sıralansın."
 }

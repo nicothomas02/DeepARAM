@@ -165,5 +165,7 @@
  "{n} healing": "{n} cura",
  "{n} damage blocked": "{n} dano bloqueado",
  "{n} crowd control": "{n} controle de grupo",
- "{n} deaths per 10 minutes": "{n} mortes a cada 10 minutos"
+ "{n} deaths per 10 minutes": "{n} mortes a cada 10 minutos",
+ "Fewer columns": "Menos colunas",
+ "More columns ({n})": "Mais colunas ({n})"
 }

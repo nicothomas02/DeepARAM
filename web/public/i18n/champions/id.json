@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Lebih kuat di champion melee.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Archmage membuat Hawkshot dan R saling mengisi ulang. Kumpulkan Ability Haste sebanyak ini dulu (R rank 3), lalu selesaikan build-nya.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} Ability Haste · Hawkshot rank {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Item mencapai {haste} dari {need} Ability Haste yang dibutuhkan."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Item mencapai {haste} dari {need} Ability Haste yang dibutuhkan.",
+ "Your augments": "Augment-mu",
+ "Drag an augment here, or press + on it.": "Seret augment ke sini, atau tekan + padanya.",
+ "Drag another augment here to replace it.": "Seret augment lain ke sini untuk menggantinya.",
+ "Recent patches": "Patch terbaru",
+ "This patch only": "Hanya patch ini",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Belum ada sinergi yang diketahui dengan {names} untuk champion ini, jadi sisanya diurutkan berdasarkan dorongannya saja.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Sudah punya augment? Tekan + atau seret ke slotmu, dan sisanya diurutkan ulang berdasarkan sinergi."
 }

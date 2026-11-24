@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Silniejszy na bohaterach walczących wręcz.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "Arcymag sprawia, że Sokoli Strzał i R wzajemnie się odnawiają. Najpierw zdobądź tyle przyspieszenia umiejętności (R na poziomie 3), potem dokończ build.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} przyspieszenia umiejętności · Sokoli Strzał poziom {rank}",
- "Items reach {haste} of the {need} Ability Haste needed.": "Przedmioty dają {haste} z potrzebnych {need} przyspieszenia umiejętności."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Przedmioty dają {haste} z potrzebnych {need} przyspieszenia umiejętności.",
+ "Your augments": "Twoje wzmocnienia",
+ "Drag an augment here, or press + on it.": "Przeciągnij tu wzmocnienie albo naciśnij na nim +.",
+ "Drag another augment here to replace it.": "Przeciągnij tu inne wzmocnienie, aby je zastąpić.",
+ "Recent patches": "Ostatnie patche",
+ "This patch only": "Tylko ten patch",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Nie znamy jeszcze synergii z {names} u tego bohatera, więc pozostałe są ułożone tylko według ich przewagi.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Masz już wzmocnienia? Naciśnij + albo przeciągnij je do slotów, a pozostałe ułożą się według synergii."
 }

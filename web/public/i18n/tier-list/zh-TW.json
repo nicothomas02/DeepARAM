@@ -77,5 +77,14 @@
  "Top 5%": "前 5%",
  "Skill bracket": "水準段",
  "Skill brackets come from a rating built from game results, not official ranks.": "水準段來自依對局結果計算的評分，而非官方牌位。",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "此版本尚無分段資料，因此使用 {patch} 版本的資料。"
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "此版本尚無分段資料，因此使用 {patch} 版本的資料。",
+ "Best pick": "最佳選擇",
+ "Loading…": "載入中…",
+ "Strong this patch": "本版本強勢",
+ "Remove": "移除",
+ "Your team": "你的隊伍",
+ "Your choices (optional)": "你的候選（選填）",
+ "Your choices, best first": "你的候選，最佳在前",
+ "Best picks": "最佳選擇",
+ "Strength {n}": "強度 {n}"
 }

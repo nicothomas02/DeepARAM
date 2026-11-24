@@ -77,5 +77,14 @@
  "Top 5%": "上位5%",
  "Skill bracket": "スキル帯",
  "Skill brackets come from a rating built from game results, not official ranks.": "スキル帯は公式ランクではなく、試合結果から算出したレーティングに基づきます。",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "このパッチにはまだスキル帯別の数値がないため、パッチ{patch}のものを使っています。"
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "このパッチにはまだスキル帯別の数値がないため、パッチ{patch}のものを使っています。",
+ "Best pick": "ベストピック",
+ "Loading…": "読み込み中…",
+ "Strong this patch": "今パッチで強い",
+ "Remove": "削除",
+ "Your team": "あなたのチーム",
+ "Your choices (optional)": "あなたの候補（任意）",
+ "Your choices, best first": "あなたの候補（良い順）",
+ "Best picks": "ベストピック",
+ "Strength {n}": "強さ {n}"
 }

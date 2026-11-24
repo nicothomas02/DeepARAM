@@ -312,5 +312,12 @@
  "Stronger on melee champions.": "Сильнее на чемпионах ближнего боя.",
  "Archmage makes Hawkshot and R refresh each other. Get this much Ability Haste first (R rank 3), then finish the build.": "С Архимагом Ястребиный выстрел и R перезаряжают друг друга. Сначала наберите столько ускорения умений (R 3-го уровня), потом завершите сборку.",
  "{haste} Ability Haste · Hawkshot rank {rank}": "{haste} ускорения умений · Ястребиный выстрел {rank}-го уровня",
- "Items reach {haste} of the {need} Ability Haste needed.": "Предметы дают {haste} из нужных {need} ускорения умений."
+ "Items reach {haste} of the {need} Ability Haste needed.": "Предметы дают {haste} из нужных {need} ускорения умений.",
+ "Your augments": "Ваши усилители",
+ "Drag an augment here, or press + on it.": "Перетащите сюда усилитель или нажмите на нём +.",
+ "Drag another augment here to replace it.": "Перетащите сюда другой усилитель, чтобы заменить.",
+ "Recent patches": "Последние патчи",
+ "This patch only": "Только этот патч",
+ "No known synergy with {names} on this champion yet, so the rest rank by their boost alone.": "Пока нет известной синергии с {names} у этого чемпиона, поэтому остальные ранжируются только по собственному приросту.",
+ "Already have augments? Press + or drag them into your slots, and the rest re-rank by synergy.": "Уже есть усилители? Нажмите + или перетащите их в ячейки, и остальные перестроятся по синергии."
 }

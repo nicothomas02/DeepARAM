@@ -77,5 +77,14 @@
  "Top 5%": "İlk %5",
  "Skill bracket": "Beceri seviyesi",
  "Skill brackets come from a rating built from game results, not official ranks.": "Seviyeler resmi kümelerden değil, maç sonuçlarından hesaplanan bir puandan gelir.",
- "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Bu yamada henüz seviye verisi yok, bu yüzden {patch} yamasından alınıyor."
+ "This patch has no skill bracket numbers yet, so they come from patch {patch}.": "Bu yamada henüz seviye verisi yok, bu yüzden {patch} yamasından alınıyor.",
+ "Best pick": "En iyi seçim",
+ "Loading…": "Yükleniyor…",
+ "Strong this patch": "Bu yamada güçlü",
+ "Remove": "Kaldır",
+ "Your team": "Takımın",
+ "Your choices (optional)": "Seçeneklerin (isteğe bağlı)",
+ "Your choices, best first": "Seçeneklerin, en iyisi önce",
+ "Best picks": "En iyi seçimler",
+ "Strength {n}": "Güç {n}"
 }
