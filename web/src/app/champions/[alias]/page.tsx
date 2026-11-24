@@ -1092,7 +1092,7 @@ export default async function ChampionPage({
               note={
                 <T ns={NS}>
                   {
-                    "After the core, swap in what the game calls for. Each situation comes from the item's own effect; its options are the ones bought with this core first, then best DeepScore."
+                    "After the core, swap in what the game calls for. Each situation comes from the item's own effect; best DeepScore at the top."
                   }
                 </T>
               }

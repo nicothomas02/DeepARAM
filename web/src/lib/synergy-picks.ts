@@ -76,3 +76,13 @@ export function comboPotential(
   }
   return out;
 }
+
+/** A pair's "why" (English, data/estimates/augment_synergy_rules.json) as a translatable template: each augment
+ *  name in it becomes {1}, {2} in order of appearance, so the sentence translates once and the names fill in in the
+ *  page's language. `names`: [English name, id] of the two augments. */
+export function synergyWhyTemplate(why: string, names: [string, number][]): { key: string; ids: number[] } {
+  const found = names.filter(([n]) => n && why.includes(n)).sort((x, y) => why.indexOf(x[0]) - why.indexOf(y[0]));
+  let key = why;
+  found.forEach(([n], i) => (key = key.split(n).join(`{${i + 1}}`)));
+  return { key, ids: found.map(([, id]) => id) };
+}
