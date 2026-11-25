@@ -938,8 +938,7 @@
   const restyle = (el) => { el.style.cssText = el.dataset.style; el.removeAttribute("data-style"); };
   // Hover cards (Nico 2026-11-25, as the site): pointing at an item or augment icon for a moment shows its name, its
   // stats and the official description, with the app's reason for it, if any. Hover only: nothing shows unless you point.
-  let descs = null, prevs = null, hvT = 0, hvEl = null, hvTitled = null, hvTitle = "";
-  const loadDescs = () => descs ?? (descs = fetch(`${SITE}/data/descriptions.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
+  let prevs = null, hvT = 0, hvEl = null, hvTitled = null, hvTitle = "";
   const loadPrevs = () => prevs ?? (prevs = fetch(`${SITE}/data/previews.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
   const slugOf = (n) => n.toLowerCase().replace(/['’.]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   const hoverCard = document.createElement("div");
@@ -952,18 +951,19 @@
     hvEl = null;
   };
   async function showCard(img, kind, id, x, y) {
-    const [ds, pv, pk, kd] = await Promise.all([loadDescs(), loadPrevs(), loadPicks(), loadKinds()]);
+    const [pv, pk, kd] = await Promise.all([loadPrevs(), loadPicks(), loadKinds()]);
     if (hvEl !== img) return;
     const name = kind === "items" ? kd?.recipes?.[id]?.[0] : pk?.augments?.[id]?.[0] ?? PENTA[id];
     if (!name) return;
-    const desc = ds?.[kind]?.[id] ?? (kind === "augments" && id < 1000 ? ds?.augments?.[id + 1000] : "") ?? "";
-    // Gold, stats and who builds it (items) or who it suits (augments). Never a win or pick rate.
-    const lines = pv?.[`/${kind}/${slugOf(name)}`]?.lines ?? [];
+    // The site's hover data (previews.json): gold, stats and who builds it (items) or who it suits (augments), and the
+    // official description. Never a win or pick rate.
+    const pe = pv?.[`/${kind}/${slugOf(name)}`] ?? (kind === "augments" ? pv?.[`icon:/icons/augments/${id}.webp`] : null);
+    const lines = pe?.lines ?? [], desc = pe?.desc ?? "";
     hvTitled = img.closest("[title]");
     hvTitle = hvTitled?.title ?? "";
     if (hvTitled) hvTitled.title = "";
     const reason = hvTitle.startsWith(`${name} · `) ? hvTitle.slice(name.length + 3) : hvTitle.startsWith(`${name}: `) ? hvTitle.slice(name.length + 2) : hvTitle === name ? "" : hvTitle;
-    hoverCard.innerHTML = `<div class="hn">${esc(name)}</div>${reason ? `<div class="hr">${esc(reason)}</div>` : ""}${lines.length ? `<div class="hl">${lines.map(esc).join(" · ")}</div>` : ""}${desc ? `<div class="hd">${esc(desc)}</div>` : ""}`;
+    hoverCard.innerHTML = `<div class="hn">${esc(name)}</div>${reason ? `<div class="hr">${esc(reason)}</div>` : ""}${lines.length ? `<div class="hl">${lines.map(esc).join(" · ")}</div>` : ""}${desc ? `<div class="hd">${esc(desc).replace(/§(.+?)§/g, "<b>$1</b>")}</div>` : ""}`;
     if (!hoverCard.isConnected) document.body.append(hoverCard);
     hoverCard.hidden = false;
     const r = hoverCard.getBoundingClientRect(), W = innerWidth, H = innerHeight;
