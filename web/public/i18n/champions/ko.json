@@ -348,5 +348,7 @@
  "The burn it adds also cuts your basic ability cooldowns.": "추가된 화상이 기본 스킬 재사용 대기시간도 줄여 줍니다.",
  "Two Ultimate casts trigger the Ultimate effect twice.": "궁극기를 두 번 쓰면 궁극기 효과가 두 번 발동합니다.",
  "Your abilities can crit, and {1} heals you from those crits.": "스킬이 치명타로 적중하고, {1}이 그 치명타로 회복시켜 줍니다.",
- "Your abilities can crit, so the extra crit chance pays off on them.": "스킬이 치명타로 적중하므로 추가 치명타 확률이 스킬에도 효과가 있습니다."
+ "Your abilities can crit, so the extra crit chance pays off on them.": "스킬이 치명타로 적중하므로 추가 치명타 확률이 스킬에도 효과가 있습니다.",
+ "Avoid": "비추천",
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D 티어: 지난 패치들에서 이 정도로 낮은 스펠 조합은 다음 패치에서도 이 챔피언의 다른 조합보다 훨씬 덜 이겼습니다."
 }

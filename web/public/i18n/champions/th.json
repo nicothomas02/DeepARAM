@@ -348,5 +348,7 @@
  "The burn it adds also cuts your basic ability cooldowns.": "การเผาไหม้ที่มันเพิ่มยังลดคูลดาวน์สกิลพื้นฐานของคุณด้วย",
  "Two Ultimate casts trigger the Ultimate effect twice.": "ใช้อัลติเมตสองครั้งทำให้เอฟเฟกต์อัลติเมตทำงานสองครั้ง",
  "Your abilities can crit, and {1} heals you from those crits.": "สกิลของคุณคริติคอลได้ และ {1} ฟื้นฟูคุณจากคริติคอลเหล่านั้น",
- "Your abilities can crit, so the extra crit chance pays off on them.": "สกิลของคุณคริติคอลได้ โอกาสคริติคอลที่เพิ่มขึ้นจึงคุ้มกับสกิลด้วย"
+ "Your abilities can crit, so the extra crit chance pays off on them.": "สกิลของคุณคริติคอลได้ โอกาสคริติคอลที่เพิ่มขึ้นจึงคุ้มกับสกิลด้วย",
+ "Avoid": "เลี่ยง",
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "ระดับ D: ในแพตช์ก่อน ๆ คู่สเปลล์ที่ต่ำขนาดนี้ชนะน้อยกว่าคู่อื่นของแชมเปี้ยนนี้มากในแพตช์ถัดไปด้วย"
 }

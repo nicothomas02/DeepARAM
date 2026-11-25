@@ -348,5 +348,7 @@
  "The burn it adds also cuts your basic ability cooldowns.": "La quemadura que agrega también reduce el enfriamiento de tus habilidades básicas.",
  "Two Ultimate casts trigger the Ultimate effect twice.": "Dos definitivas activan dos veces el efecto de la definitiva.",
  "Your abilities can crit, and {1} heals you from those crits.": "Tus habilidades pueden ser críticas y {1} te cura con esos críticos.",
- "Your abilities can crit, so the extra crit chance pays off on them.": "Tus habilidades pueden ser críticas, así que la probabilidad de crítico extra también les sirve."
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Tus habilidades pueden ser críticas, así que la probabilidad de crítico extra también les sirve.",
+ "Avoid": "Evitar",
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Nivel D: en parches anteriores, las parejas de hechizos así de bajas ganaron mucho menos que las demás parejas de este campeón también en el parche siguiente."
 }

@@ -348,5 +348,7 @@
  "The burn it adds also cuts your basic ability cooldowns.": "Το κάψιμο που προσθέτει μειώνει και τον χρόνο αναμονής των βασικών ικανοτήτων σου.",
  "Two Ultimate casts trigger the Ultimate effect twice.": "Δύο χρήσεις ultimate ενεργοποιούν δύο φορές το εφέ της.",
  "Your abilities can crit, and {1} heals you from those crits.": "Οι ικανότητές σου μπορούν να κάνουν κρίσιμο, και το {1} σε θεραπεύει από αυτά.",
- "Your abilities can crit, so the extra crit chance pays off on them.": "Οι ικανότητές σου μπορούν να κάνουν κρίσιμο, οπότε η επιπλέον πιθανότητα κρίσιμου μετράει και γι' αυτές."
+ "Your abilities can crit, so the extra crit chance pays off on them.": "Οι ικανότητές σου μπορούν να κάνουν κρίσιμο, οπότε η επιπλέον πιθανότητα κρίσιμου μετράει και γι' αυτές.",
+ "Avoid": "Απόφυγε",
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Tier D: σε προηγούμενα patch, τόσο χαμηλά ζεύγη ξορκιών κέρδιζαν πολύ λιγότερο από τα άλλα ζεύγη αυτού του champion και στο επόμενο patch."
 }
