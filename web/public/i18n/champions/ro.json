@@ -350,5 +350,6 @@
  "Your abilities can crit, and {1} heals you from those crits.": "Abilitățile tale pot da critic, iar {1} te vindecă din acele critice.",
  "Your abilities can crit, so the extra crit chance pays off on them.": "Abilitățile tale pot da critic, deci șansa de critic în plus contează și pentru ele.",
  "Avoid": "Evită",
- "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Tier D: în patch-urile trecute, perechile de vrăji atât de slabe au câștigat mult mai puțin decât celelalte perechi ale acestui campion și în patch-ul următor."
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Tier D: în patch-urile trecute, perechile de vrăji atât de slabe au câștigat mult mai puțin decât celelalte perechi ale acestui campion și în patch-ul următor.",
+ "Couldn't load this list.": "Lista nu a putut fi încărcată."
 }

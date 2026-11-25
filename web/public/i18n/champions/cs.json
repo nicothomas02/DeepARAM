@@ -350,5 +350,6 @@
  "Your abilities can crit, and {1} heals you from those crits.": "Tvoje schopnosti mohou kriticky zasáhnout a {1} tě z těch zásahů léčí.",
  "Your abilities can crit, so the extra crit chance pays off on them.": "Tvoje schopnosti mohou kriticky zasáhnout, takže se jim další šance na kritický zásah vyplatí.",
  "Avoid": "Vyhnout se",
- "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Tier D: v minulých patchích tak slabé dvojice kouzel vyhrávaly výrazně méně než ostatní dvojice tohoto šampiona i v dalším patchi."
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Tier D: v minulých patchích tak slabé dvojice kouzel vyhrávaly výrazně méně než ostatní dvojice tohoto šampiona i v dalším patchi.",
+ "Couldn't load this list.": "Tento seznam se nepodařilo načíst."
 }

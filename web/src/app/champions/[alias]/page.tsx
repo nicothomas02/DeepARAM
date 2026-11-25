@@ -59,6 +59,8 @@ import {
   tone,
 } from "@/components/champion/Ranked";
 import ShowMore from "@/components/champion/ShowMore";
+import { LazyItems, LazyMates } from "@/components/champion/LazyLists";
+import { MATES_FIRST } from "@/lib/champion-lists";
 import SimTag from "@/components/champion/SimTag";
 import Quests from "@/components/champion/Quests";
 import AugmentTable from "@/components/champion/AugmentTable";
@@ -73,14 +75,14 @@ import {
   fillSpells,
   type SpellRow,
 } from "@/lib/fill";
-import { ITEM_TIERS, itemTier, rewardItems, type ItemTier } from "@/lib/items";
+import { itemTier, rewardItems } from "@/lib/items";
 import { championAugmentStages, championEstimates } from "@/lib/estimates";
 import { bracketAugmentScores } from "@/lib/bracket-augments";
 import { augmentTiers } from "@/lib/augment-tiers";
 import { augmentScores, byScore, rankedAugments } from "@/lib/champion-augments";
 import { SITUATIONS } from "@/lib/situations";
 import StyleTabs from "@/components/champion/StyleTabs";
-import { ITEM_CHANGERS, tiedWith } from "@/lib/build-plan";
+import { tiedWith } from "@/lib/build-plan";
 import { clashWith } from "@/lib/item-limits";
 import championIds from "@/data/champion-ids.json";
 import augmentNames from "@/data/augment-names.json";
@@ -212,16 +214,6 @@ function LateScore({ r }: { r: ItemRow }) {
     </div>
   );
 }
-
-const TIER_LABEL: Record<ItemTier, string> = {
-  legendary: "Legendary",
-  boots: "Boots",
-  epic: "Epic",
-  basic: "Basic",
-  starter: "Starter",
-  consumable: "Consumables",
-  reward: "From augments",
-};
 
 // One page per champion, so each can be found in search. Laid out like a stat site's champion page: a header
 // with the headline numbers, then a summary card (best build, skill order), ranked tables in the middle and
@@ -1281,75 +1273,8 @@ export default async function ChampionPage({
                   </T>
                 }
               >
-                {ITEM_TIERS.map((tier) => {
-                  // Legendaries that score above the card's weakest full-build pick but that few players build
-                  // (under a quarter of the most built one): say why they aren't in the build (Nico 2026-11-23).
-                  const legend = p.items.filter((r) => (r.tier ?? "legendary") === "legendary");
-                  const topPick = Math.max(0, ...legend.map((r) => r.pickRate));
-                  const fullFloor = Math.min(...(p.core[0]?.full ?? []).map((r) => r.deepScore ?? 0));
-                  const fewPlayers = (r: ItemRow) =>
-                    tier === "legendary" && r.pickRate < 0.25 * topPick && (r.deepScore ?? 0) > fullFloor;
-                  const list = p.items.filter(
-                    (r) => (r.tier ?? "legendary") === tier,
-                  );
-                  const older = p.earlierItems.filter((r) => (r.tier ?? "legendary") === tier);
-                  if (!list.length && !older.length) return null;
-                  return (
-                    <section
-                      key={tier}
-                      className="cp-itier"
-                      aria-label={TIER_LABEL[tier]}
-                    >
-                      <h4 className="cp-itier-h">
-                        <T ns={NS}>{TIER_LABEL[tier]}</T>{" "}
-                        <span>{list.length + older.length}</span>
-                      </h4>
-                      <div className="cp-strip-x" role="list">
-                        {list.map((r) => (
-                          <div
-                            key={r.items[0]}
-                            className="cp-tile"
-                            role="listitem"
-                          >
-                            <ItemIcon id={r.items[0]} info={info} />
-                            <ItemName id={r.items[0]} info={info} />
-                            {fewPlayers(r) && (
-                              <FewPlayers augment={(() => {
-                                const c = ITEM_CHANGERS.find((x) => x.item === r.items[0] && p.augments.some((a) => x.ids.includes(a.id)));
-                                const id = c && p.augments.find((a) => c.ids.includes(a.id))?.id;
-                                return id ? AUG_NAMES[id] : undefined;
-                              })()} />
-                            )}
-                            {r.deepScore !== undefined && (
-                              <DeepScore
-                                value={r.deepScore}
-                                edge={r.deepEdge}
-                                help={ITEM_DEEPSCORE_HELP}
-                              />
-                            )}
-                            <Cell value={signed(r.lift)} label="Win rate boost" tone={tone(r.lift)} />
-                            <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" />
-                            <Cell value={pct(r.pickRate)} label="Pick rate" />
-                          </div>
-                        ))}
-                        {/* Built last patch, not enough games yet on this one: no DeepScore, tagged with its patch. */}
-                        {older.map((r) => (
-                          <div key={`earlier-${r.items[0]}`} className="cp-tile" role="listitem">
-                            <ItemIcon id={r.items[0]} info={info} />
-                            <ItemName id={r.items[0]} info={info} />
-                            <small className="cp-stale-tag" title={EARLIER_HELP}>
-                              <T ns={NS} v={{ patch: p.earlierPatch ? patchName(p.earlierPatch) : "" }}>
-                                {"Patch {patch}"}
-                              </T>
-                            </small>
-                            <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" />
-                            <Cell value={pct(r.pickRate)} label="Pick rate" />
-                          </div>
-                        ))}
-                      </div>
-                    </section>
-                  );
-                })}
+                {/* Loaded when the panel comes near the screen: about a quarter of the page's elements (lib/champion-lists.ts). */}
+                <LazyItems alias={alias} help={ITEM_DEEPSCORE_HELP} earlierHelp={EARLIER_HELP} />
               </Panel>
             </Fold>
           )}
@@ -1462,8 +1387,12 @@ export default async function ChampionPage({
               }
             >
               <Head what="Teammate" cols={["Win rate boost", "Pick rate"]} />
-              <ShowMore total={p.mates.length}>
-                {p.mates.map((m, i) => (
+              {/* The page renders the first rows; the rest load on "Show all" (lib/champion-lists.ts). */}
+              <ShowMore
+                total={p.mates.length}
+                rest={p.mates.length > MATES_FIRST && <LazyMates alias={alias} start={MATES_FIRST} />}
+              >
+                {p.mates.slice(0, MATES_FIRST).map((m, i) => (
                   <Row
                     key={m.id}
                     rank={i + 1}

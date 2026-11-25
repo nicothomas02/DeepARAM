@@ -13,10 +13,13 @@ export default function ShowMore({
   total,
   limit = 8,
   children,
+  rest,
 }: {
   total: number;
   limit?: 5 | 8 | 10 | null;
   children: React.ReactNode;
+  /** Rows the page doesn't render itself, mounted only once the list is opened (LazyLists.tsx). */
+  rest?: React.ReactNode;
 }) {
   const box = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useKept(false, box);
@@ -29,6 +32,7 @@ export default function ShowMore({
     <>
       <div className={cls.join(" ")} ref={box} {...KEPT}>
         {children}
+        {open && rest}
       </div>
       {total > SIMPLE_LIMIT && (
         <button

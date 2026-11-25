@@ -2303,3 +2303,32 @@ button.cp-avoid-tag {
   background: rgb(var(--bad-rgb) / 16%);
   color: var(--bad);
 }
+
+/* LazyLists.tsx: the line that holds a long list's place while it loads, or offers a retry. */
+.cp-lazy {
+  margin: 0.4rem 0;
+  padding: 0.6rem 0.75rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.cp-lazy[aria-busy="true"] {
+  animation: cp-lazy-pulse 1.2s ease-in-out infinite;
+}
+@keyframes cp-lazy-pulse {
+  50% {
+    opacity: 0.45;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cp-lazy[aria-busy="true"] {
+    animation: none;
+  }
+}
+.cp-lazy-retry {
+  border: 0;
+  background: none;
+  color: var(--accent, inherit);
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+}
