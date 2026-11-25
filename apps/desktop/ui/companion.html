@@ -412,7 +412,7 @@
       gapShort = magic > 0.75 ? "Low physical damage" : "";
     }
     setView(`
-      ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion")}
+      ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion", "", true)}
       ${planHtml}
       ${team.length ? `<h2>Your team</h2><div class="teamline"><div class="mates">${team.map(icon).join("")}</div>${teamNow != null ? `<span class="teamds ${teamNow >= 0.06 ? "up" : teamNow < -0.03 ? "down" : "flat"}" title="Team edge (projected): your five champions' strength plus their ten pair synergies, in win-rate points (0 = an average team). Extras like frontline, damage mix or crowd control didn't predict better when tested.">${pts(teamNow)}</span>` : ""}</div>` : ""}
       ${gap ? `<div class="cue gold" title="${esc(gap)}">${ico("warn")} ${esc(gapShort)}</div>` : ""}
