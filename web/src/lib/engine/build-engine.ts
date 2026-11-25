@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.4";
+export const ENGINE_VERSION = "1.4.6";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -225,6 +225,16 @@ const base = (id: number) => id % 10000;
 export const TRANSFORMED_FROM: Record<number, number> = { 3040: 3003, 3042: 3004, 3121: 3119, 2530: 2526, 3160: 3154 };
 /** The id an inventory item counts as for "do you own it": the base id, a transformed item as its source. */
 export const ownedId = (id: number) => TRANSFORMED_FROM[base(id)] ?? base(id);
+const TRANSFORMED_NAMES: Record<number, string> = { 3040: "Seraph's Embrace", 3042: "Muramana", 3121: "Fimbulwinter", 2530: "Diadem of Songs", 3160: "Feral Flare" };
+/** A path item shown in the form you hold (Nico 2026-11-25, Ryze replay): Archangel's Staff in the path shows as
+ *  Seraph's Embrace once it turned, and a path that names Fimbulwinter shows Winter's Approach while that's what you have. */
+export function heldForm(it: Named, items: number[], k: Kinds | null): Named {
+  const id = itemId(it.icon);
+  const held = items.map(base).find((x) => x !== id && ownedId(x) === ownedId(id));
+  if (held === undefined) return it;
+  const name = k?.recipes[held]?.[0] ?? TRANSFORMED_NAMES[held];
+  return name ? { ...it, name, icon: it.icon ? it.icon.replace(/(\d*?)(\d{4})\.png$/, (_m, pre) => `${pre}${held}.png`) : it.icon } : it;
+}
 /** What you own, held as the items you bought (ownedId). has() maps its argument the same way, so a path that names
  *  either form (the site's builds list Diadem of Songs and Fimbulwinter, not their sources) finds it, and iterating
  *  never counts one inventory item twice. */
@@ -1891,7 +1901,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     return list;
   })();
   return {
-    path,
+    path: path.map((it) => heldForm(it, game.items, k)),
     coreLen: coreItems.length,
     next,
     why,
