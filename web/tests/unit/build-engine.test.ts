@@ -369,6 +369,22 @@ describe("build engine", () => {
     expect(vow(["Lux", "Brand"], ["Leona", "Ornn"])).toEqual([]); // no one to pledge to
   });
 
+  it("a style vote that can't make a plan doesn't block a niche build; owned boots and items stay in the new build", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const go = (id: string, items: number[], taken: number[]) => plan({ champ: champs.find((x) => x.id === id)!, kinds: k, picks: p0, fit: null, game: { champ: id, items }, taken });
+    // replay: Ethereal Weapon's on-hit vote (Akshan has no on-hit build) used to block escAPADe's AP niche build
+    const ak = go("Akshan", [3153, 3006, 2510], [1029, 1206, 1027]);
+    expect(ak.switched?.style).toBe("AP");
+    expect(ak.rules).toContain("nicheBuilds");
+    // replay: Senna with Windspeaker's Blessing holding Ionian Boots, Ardent Censer and Staff of Flowing Water
+    const se = go("Senna", [3070, 4011, 3158, 3504, 6616, 3114], [2104, 1029, 2010, 1095]);
+    expect(se.switched?.style).toBe("Enchanter");
+    const p = se.path.map((x) => itemId(x.icon));
+    for (const i of [3158, 3504, 6616]) expect(p).toContain(i);
+    expect(p.filter((i) => k.boots.includes(i))).toEqual([3158]);
+  }, 30_000);
+
   it("the path's unbought places follow Next's order (pathOrder)", async () => {
     const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
