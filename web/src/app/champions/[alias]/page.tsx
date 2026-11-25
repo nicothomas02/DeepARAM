@@ -41,7 +41,8 @@ import {
 } from "@/lib/champion-tags";
 import PlaystyleBars from "@/components/champion/PlaystyleBars";
 import { pageMeta } from "@/lib/meta";
-import { Name, T } from "@/components/I18n";
+import { LocalDate, Name, T } from "@/components/I18n";
+import { detailDate } from "@/lib/highlights";
 import {
   Cell,
   Head,
@@ -591,6 +592,7 @@ export default async function ChampionPage({
   const pinnedSkill = CHAMPION_SKILLS[c.alias] ?? null;
   // Nico's split (Katarina: Q to 3, then max E), shown before the order.
   const skillSplit = CHAMPION_SPLITS[c.alias] ?? null;
+  const detail = detailDate();
   const rawSpells = fillSpells(c.alias, c.winRate ?? 0.5);
   const spellsEstimated = rawSpells.some((r) => r.estimated);
   // Spell pairs rank by DeepScore like the build lists. Estimated spells have no win rate, so they keep
@@ -859,6 +861,12 @@ export default async function ChampionPage({
             <T ns={NS} v={{ v: patchName(c.patch) }}>
               {"Patch {v}"}
             </T>
+            {detail && (
+              <>
+                {" · "}
+                <T>Builds and augments from games up to</T> <LocalDate iso={detail.toISOString()} />
+              </>
+            )}
           </span>
         </div>
         <div className="cp-title">

@@ -44,10 +44,16 @@ export function topItems(n = 6) {
     .slice(0, n);
 }
 
+const ymd = (d?: string) => (d && d.length === 8 ? new Date(`${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6)}T00:00:00Z`) : null);
+
 export function statsDate() {
-  const meta = readRepoJson<{ meta: { champion_stat_date?: string } }>("data/cn/champions.json")?.meta;
-  const d = meta?.champion_stat_date;
-  return d && d.length === 8 ? new Date(`${d.slice(0, 4)}-${d.slice(4, 6)}-${d.slice(6)}T00:00:00Z`) : null;
+  return ymd(readRepoJson<{ meta: { champion_stat_date?: string } }>("data/cn/champions.json")?.meta?.champion_stat_date);
+}
+
+/** The last day of games behind augments, items, builds and spells, only when it is 2+ days older than the champion
+ *  numbers (data/aramhex/merge.py mark_detail_date), so the site can say builds lag behind. */
+export function detailDate() {
+  return ymd(readRepoJson<{ meta: { detail_date?: string } }>("data/cn/champions.json")?.meta?.detail_date);
 }
 
 /** The live patch the current stats cover, like "16.20". PBE data stays on the PBE tab. */

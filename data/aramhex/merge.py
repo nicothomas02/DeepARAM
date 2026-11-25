@@ -21,6 +21,7 @@ Usage: python3 data/aramhex/merge.py [--check]   (--check: report what would cha
 """
 
 import argparse
+import datetime as dt
 import csv
 import io
 import json
@@ -79,7 +80,7 @@ def rate(g, w):
 
 # ---------------------------------------------------------------- champion history (every patch AramHex has)
 
-def merge_history(check):
+def merge_history(check, skip=()):
     path = os.path.join(HIST, "by_patch.csv")
     with open(path, encoding="utf-8", newline="") as f:
         text = f.read()
@@ -87,7 +88,7 @@ def merge_history(check):
     cols = list(rows[0]) if rows else []
     done = set()
     for patch in {r["patch"] for r in rows}:
-        real = ah.champion_rates(patch)
+        real = ah.champion_rates(patch) if patch not in skip else None
         if not real:
             continue
         done.add(patch)
@@ -110,6 +111,8 @@ def merge_history(check):
     jpath = os.path.join(HIST, "by_patch.json")
     site = read_json(jpath)
     for patch, champs in site["champions"].items():
+        if patch in skip:
+            continue
         real = ah.champion_rates(patch)
         days = next((p["days"] for p in site["patches"] if p["patch"] == patch), None)
         for c in champs:
@@ -122,6 +125,28 @@ def merge_history(check):
                        "avg_*": "101.qq.com"}
     write_json(jpath, site, check, compact=True)
     return done
+
+
+def stale_days(live):
+    """Days between the end of AramHex's live-patch snapshot and 101's latest day (0 when unknown).
+
+    AramHex sometimes publishes only a patch's first day (16.23: Nov 19-20) while 101 keeps adding days. On 16.23 the
+    two agree on the same day (per-champion sd 0.25 pts, mostly noise) and drift apart as 101 adds days (0.71 pts by
+    Nov 23), and later days predict the rest of a patch better (research/pooling/launch-backtest-2026-11-25.md). So
+    when the snapshot is STALE_DAYS or more behind, champion win and pick rates stay on 101's current numbers; augments,
+    items, builds and spells stay on AramHex (101 has no full tables for them)."""
+    try:
+        snap = ah.load(live, "meta").get("snapshot_at", "")[:10]
+        cn = read_json(os.path.join(CN, "champions.json"))["meta"].get("champion_stat_date", "")
+        a = dt.date.fromisoformat(snap)
+        b = dt.date(int(cn[:4]), int(cn[4:6]), int(cn[6:8]))
+    except Exception:
+        return 0
+    # The snapshot ends at 08:00 Beijing time, so its last full day is the day before.
+    return max(0, (b - (a - dt.timedelta(1))).days)
+
+
+STALE_DAYS = 2
 
 
 def vkey(p):
@@ -481,6 +506,21 @@ def merge_spells(check, live):
     write_json(SPELLS, out, check)
 
 
+def mark_detail_date(check, live, stale):
+    """champions.json meta.detail_date: the last day of games behind augments, items, builds and spells when it is
+    STALE_DAYS or more before the champion numbers' day, so the site can say so; removed otherwise."""
+    path = os.path.join(CN, "champions.json")
+    d = read_json(path)
+    if stale >= STALE_DAYS:
+        snap = dt.date.fromisoformat(ah.load(live, "meta")["snapshot_at"][:10]) - dt.timedelta(1)
+        d["meta"]["detail_date"] = snap.strftime("%Y%m%d")
+        d["meta"]["aramhex"] = {"patch": live, "fields": [], "source": ah.SOURCE,
+                                "note": f"snapshot {stale} days behind; champion rates from 101"}
+    else:
+        d["meta"].pop("detail_date", None)
+    write_json(path, d, check)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true")
@@ -488,11 +528,17 @@ def main():
     if not ah.patches():
         print("no AramHex data (run data/aramhex/fetch.py first)")
         return 0
-    done = merge_history(a.check)
-    merge_games(a.check, done)
     live = ah.live_patch()
+    stale = stale_days(live) if live and ah.has(live, "heroes") else 0
+    keep101 = stale >= STALE_DAYS
+    done = merge_history(a.check, skip={live} if keep101 else set())
+    merge_games(a.check, done)
     if live and ah.has(live, "heroes"):
-        merge_live_champions(a.check, live)
+        if keep101:
+            print(f"live patch {live}: AramHex snapshot is {stale} days behind 101, champion win/pick rates stay on 101")
+        else:
+            merge_live_champions(a.check, live)
+        mark_detail_date(a.check, live, stale)
         merge_live_augments(a.check, live)
         nb = merge_builds(a.check, live)
         merge_spells(a.check, live)
