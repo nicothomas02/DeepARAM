@@ -34,16 +34,21 @@ pub(crate) const MAYHEM_MODE: &str = "KIWI";
 /// How often to look for a game, and how often to ask the game for its state during one.
 const CHECK_EVERY: Duration = Duration::from_secs(5);
 const CHECK_IN_GAME: Duration = Duration::from_secs(2);
-/// How often the screen is read while an augment offer may be up.
-const SCAN_EVERY: Duration = Duration::from_millis(1000);
+/// How often the screen is read while an augment offer may be up: every 0.3 s with League in front (PC app
+/// 1.26.31); otherwise there's nothing to read, and the next read comes as soon as League is back in front.
+const SCAN_EVERY: Duration = Duration::from_millis(300);
+const FRONT_POLL: Duration = Duration::from_millis(100);
+const AWAY_WAIT: Duration = Duration::from_millis(1000);
 /// The first augment is picked in the game's first seconds...
 pub const START_FOR: f64 = 90.0;
 /// ...and one more at each of these levels (Mayhem: 1, 7, 11 and 15, from Nico).
 pub const AUGMENT_LEVELS: &[u64] = &[1, 7, 11, 15];
 /// How long after an augment level the screen is read for the offer (longer while an offer stays up).
 pub const SCAN_FOR: f64 = 60.0;
-/// Reads in a row without the offer before it counts as picked.
+/// Reads in a row without the offer before it counts as picked, and how long it must have been missing: a reroll's
+/// card flip can hide a card for a moment, which isn't a pick (PC app 1.26.31).
 const GONE_AFTER: u32 = 2;
+const GONE_FOR: Duration = Duration::from_millis(1500);
 /// How often the mouse is checked while an offer is up (only then), to see which card the player clicks.
 const CLICK_EVERY: Duration = Duration::from_millis(40);
 /// A click on a card counts as the pick only if the cards closed within this long of it.
@@ -79,6 +84,8 @@ pub struct State {
     clicked: Option<(i64, Instant)>,
     /// Reads in a row that found no offer after one was up.
     gone: u32,
+    /// When the offer was first missed, for GONE_FOR.
+    gone_since: Option<Instant>,
     names: Option<Vec<(i64, String)>>,
     /// After-game review: this game's samples, champion strengths and the game's result.
     samples: Vec<Sample>,
@@ -178,6 +185,7 @@ fn start(app: &AppHandle, agent: &ureq::Agent) -> bool {
         s.pending.clear();
         s.taken.clear();
         s.gone = 0;
+        s.gone_since = None;
         s.samples.clear();
         s.next_sample = 0.0;
         s.result = None;
@@ -345,6 +353,7 @@ fn read_offer(s: &mut State, cards: Vec<(i64, f64)>, game_time: f64) -> (Option<
     let found: Vec<i64> = cards.iter().map(|(id, _)| *id).collect();
     if found.len() >= 2 {
         s.gone = 0;
+        s.gone_since = None;
         s.saw_offer = true;
         // Still up (the player is thinking it over or rerolled): keep reading.
         s.scan_until = s.scan_until.max(game_time + 10.0);
@@ -353,7 +362,10 @@ fn read_offer(s: &mut State, cards: Vec<(i64, f64)>, game_time: f64) -> (Option<
             s.pending.clear();
             return (None, None);
         }
-        if s.pending != found {
+        // A full row of evenly spaced cards (three, or Maestro's four) counts after one read (PC app 1.26.31); a
+        // pair of names still needs two reads in a row that agree.
+        let full = cards.len() >= 3 && augscan::evenly_spaced(&cards);
+        if !full && s.pending != found {
             s.pending = found;
             return (None, None);
         }
@@ -369,9 +381,11 @@ fn read_offer(s: &mut State, cards: Vec<(i64, f64)>, game_time: f64) -> (Option<
         return (None, None);
     }
     s.gone += 1;
-    if s.gone < GONE_AFTER {
+    let since = *s.gone_since.get_or_insert_with(Instant::now);
+    if s.gone < GONE_AFTER || since.elapsed() < GONE_FOR {
         return (None, None);
     }
+    s.gone_since = None;
     // Picked: stop reading until the next augment level.
     let picked = close_offer(s);
     s.scan_until = 0.0;
@@ -478,7 +492,15 @@ pub fn watch(app: AppHandle) {
             if read && scan_on(&app) {
                 let now = game_time + last_check.map_or(0.0, |at| at.elapsed().as_secs_f64());
                 scan(&app, now);
-                thread::sleep(SCAN_EVERY);
+                if augscan::league_in_front() {
+                    thread::sleep(SCAN_EVERY);
+                } else {
+                    // Away from League: read again the moment it's back in front.
+                    let away = Instant::now();
+                    while away.elapsed() < AWAY_WAIT && !augscan::league_in_front() {
+                        thread::sleep(FRONT_POLL);
+                    }
+                }
             } else {
                 thread::sleep(if in_game { CHECK_IN_GAME } else { CHECK_EVERY });
             }
@@ -518,19 +540,24 @@ mod tests {
     }
 
     #[test]
-    fn an_offer_needs_two_matching_reads_and_never_shows_taken_augments() {
+    fn an_offer_needs_two_matching_reads_unless_the_row_is_full_and_even() {
         let mut s = State { first_done: true, taken: vec![9], ..Default::default() };
-        let cards = |ids: &[i64]| ids.iter().enumerate().map(|(i, id)| (*id, 100.0 * i as f64)).collect::<Vec<_>>();
-        assert_eq!(read_offer(&mut s, cards(&[1, 2, 3]), 10.0), (None, None)); // first read: waits
-        assert_eq!(read_offer(&mut s, cards(&[1, 2, 3]), 11.0), (Some(vec![1, 2, 3]), None));
-        // A taken augment named elsewhere on screen doesn't count, so a reroll needs two reads too.
-        assert_eq!(read_offer(&mut s, cards(&[1, 2, 3, 9]), 12.0), (None, None));
-        assert_eq!(read_offer(&mut s, cards(&[1, 4, 3]), 13.0), (None, None));
-        assert_eq!(read_offer(&mut s, cards(&[1, 4, 3]), 14.0), (Some(vec![1, 4, 3]), None));
-        // Two reads with nothing: closed. A recent click on a card makes it the pick, never offered again.
+        // Unevenly spaced (a stray name), so two reads in a row must agree.
+        let uneven = |ids: &[i64]| ids.iter().zip([100.0, 160.0, 700.0]).map(|(id, x)| (*id, x)).collect::<Vec<_>>();
+        assert_eq!(read_offer(&mut s, uneven(&[1, 2, 3]), 10.0), (None, None)); // first read: waits
+        assert_eq!(read_offer(&mut s, uneven(&[1, 2, 3]), 11.0), (Some(vec![1, 2, 3]), None));
+        // A full, evenly spaced row counts after one read (PC app 1.26.31); a taken augment named elsewhere doesn't
+        // count as a card.
+        let even = |ids: &[i64]| ids.iter().enumerate().map(|(i, id)| (*id, 100.0 + 400.0 * i as f64)).collect::<Vec<_>>();
+        assert_eq!(read_offer(&mut s, even(&[1, 4, 3]), 12.0), (Some(vec![1, 4, 3]), None));
+        // A reroll's flip: two misses inside 1.5 s aren't a close.
         s.clicked = Some((4, Instant::now()));
-        assert_eq!(read_offer(&mut s, vec![], 15.0), (None, None));
-        assert_eq!(read_offer(&mut s, vec![], 16.0), (Some(vec![]), Some(4)));
+        assert_eq!(read_offer(&mut s, vec![], 13.0), (None, None));
+        assert_eq!(read_offer(&mut s, vec![], 13.3), (None, None));
+        assert!(!s.offer.is_empty());
+        // Missing for 1.5 s and two reads: closed, and the recent click on a card is the pick, never offered again.
+        s.gone_since = Some(Instant::now() - Duration::from_secs(2));
+        assert_eq!(read_offer(&mut s, vec![], 15.0), (Some(vec![]), Some(4)));
         assert!(s.taken.contains(&4));
     }
 
