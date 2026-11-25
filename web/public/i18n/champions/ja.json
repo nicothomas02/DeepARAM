@@ -351,5 +351,9 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "スキルがクリティカルするため、追加のクリティカル率がスキルにも活きます。",
  "Avoid": "非推奨",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "ティア D：過去のパッチでは、ここまで低いスペルの組み合わせは次のパッチでもこのチャンピオンの他の組み合わせより大きく勝率が劣りました。",
- "Couldn't load this list.": "このリストを読み込めませんでした。"
+ "Couldn't load this list.": "このリストを読み込めませんでした。",
+ "Its extra hits apply on-hit effects, so the other augment stacks faster.": "追加ヒットが通常攻撃時効果を発動するため、もう一方のオーグメントのスタックが速く溜まります。",
+ "Its extra hits apply on-hit effects, so they carry the other augment's on-hit damage too.": "追加ヒットが通常攻撃時効果を発動するため、もう一方のオーグメントの通常攻撃時ダメージも乗ります。",
+ "Ability hits apply on-hit effects, so the other augment stacks faster.": "スキルのヒットが通常攻撃時効果を発動するため、もう一方のオーグメントのスタックが速く溜まります。",
+ "Its movement speed widens the gap {1} turns into damage.": "移動速度が上がり、{1}がダメージに変える速度差が広がります。"
 }
