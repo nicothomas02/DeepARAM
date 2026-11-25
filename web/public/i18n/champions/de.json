@@ -368,5 +368,7 @@
  "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name} hat keinen Sprint, also bewegen Geist und das Tempo von Heilen {name} zwischen den Fässern und aus Kämpfen.",
  "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "Es gewann {pts} Pkt. mehr als {name}s Durchschnitt in den letzten {n} Patches, aber nur {pct} der Spieler nehmen es, also kann ein Teil davon an den Spielern liegen, die es wählen.",
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Auf den letzten Patches etwa gleichauf mit dem üblichen Blitz-Paar (unter 1 Pkt.), also passt beides. Nur {pct} der Spieler nehmen dieses Paar.",
- "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Nur {pct} der Spieler nehmen dieses Paar und sein Vorsprung schwankt von Patch zu Patch, also sieh es als nah am üblichen Blitz-Paar."
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Nur {pct} der Spieler nehmen dieses Paar und sein Vorsprung schwankt von Patch zu Patch, also sieh es als nah am üblichen Blitz-Paar.",
+ "It belongs to the {build} build: pick that tab on the card.": "Es gehört zum Build {build}: Wähle diesen Tab auf der Karte.",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Es ist auf dieser Karte ein situativer Kauf ({situation}), daher lassen es die meisten Spieler in anderen Spielen weg."
 }

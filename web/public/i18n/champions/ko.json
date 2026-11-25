@@ -361,5 +361,7 @@
  "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name}에게는 돌진이 없어서 유체화와 회복의 이동 속도로 {name}은(는) 화약통 사이를 오가고 싸움에서 빠져나옵니다.",
  "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "최근 {n}개 패치에서 {name} 평균보다 {pts}점 더 이겼지만 플레이어의 {pct}만 고르므로, 일부는 고르는 사람의 차이일 수 있습니다.",
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "최근 패치에서 흔한 점멸 조합과 거의 같으므로(1점 미만 차이) 어느 쪽이든 괜찮습니다. 이 조합은 플레이어의 {pct}만 고릅니다.",
- "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "이 조합은 플레이어의 {pct}만 고르고 우위가 패치마다 달라지므로, 흔한 점멸 조합과 비슷하다고 보세요."
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "이 조합은 플레이어의 {pct}만 고르고 우위가 패치마다 달라지므로, 흔한 점멸 조합과 비슷하다고 보세요.",
+ "It belongs to the {build} build: pick that tab on the card.": "{build} 빌드에 속합니다. 카드에서 해당 탭을 고르세요.",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "이 카드에서는 상황에 따른 선택({situation})이라 다른 게임에서는 대부분의 플레이어가 사지 않습니다."
 }

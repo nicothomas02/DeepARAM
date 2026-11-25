@@ -141,7 +141,7 @@ export function LazyItems({ alias, help, earlierHelp }: { alias: string; help: s
                 <div key={r.id} className="cp-tile" role="listitem">
                   <ItemIcon id={r.id} info={data.info} />
                   <ItemName id={r.id} info={data.info} />
-                  {r.few && <FewPlayers augment={r.few.augment} />}
+                  {r.few && <FewPlayers augment={r.few.augment} build={r.few.build} situation={r.few.situation} />}
                   {r.deepScore !== undefined && <DeepScore value={r.deepScore} edge={r.deepEdge} help={help} />}
                   <Cell value={signed(r.lift)} label="Win rate boost" tone={tone(r.lift)} />
                   <Cell value={<WinRate p={r.winRate} n={r.games} />} label="Win rate" />

@@ -368,5 +368,7 @@
  "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name}にはダッシュがないので、ゴーストとヒールの移動速度で{name}は樽の間を動き、戦闘から抜けます。",
  "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "直近{n}パッチで{name}の平均より{pts}ポイント多く勝ちましたが、選ぶのはプレイヤーの{pct}だけなので、その一部は選ぶ人の違いかもしれません。",
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "直近のパッチでは定番のフラッシュの組み合わせとほぼ互角（差1ポイント未満）なので、どちらでも大丈夫です。この組み合わせを選ぶのはプレイヤーの{pct}だけです。",
- "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "この組み合わせを選ぶのはプレイヤーの{pct}だけで、優位はパッチごとに変わるので、定番のフラッシュの組み合わせとほぼ同じと考えてください。"
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "この組み合わせを選ぶのはプレイヤーの{pct}だけで、優位はパッチごとに変わるので、定番のフラッシュの組み合わせとほぼ同じと考えてください。",
+ "It belongs to the {build} build: pick that tab on the card.": "{build}ビルドの一部です。カードでそのタブを選んでください。",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "このカードでは状況に応じた選択（{situation}）なので、ほかの試合ではほとんどのプレイヤーが買いません。"
 }
