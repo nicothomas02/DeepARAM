@@ -196,6 +196,18 @@ describe("build engine", () => {
     expect(off.switched).toBeNull();
   });
 
+  it("levels like the switched build's own players (styleSkills)", () => {
+    const c: OverlayChamp = { ...champ, skills: ["Q", "W", "E"], builds: [{ style: "crit", share: 0.9, skills: ["Q", "W", "E"] }, { style: "onhit", share: 0.1, skills: ["W", "Q", "E"] }] };
+    const on = plan({ champ: c, kinds, picks, fit, game: game([], { level: 4, skills: [1, 1, 1, 0] }), taken: [1029] });
+    expect(on.switched?.style).toBe("On-hit");
+    expect(on.skills).toEqual(["W", "Q", "E"]);
+    expect(on.rules).toContain("styleSkills");
+    expect(on.tips.find((t) => t.kind === "skill")?.text).toBe("W");
+    const off = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] });
+    expect(off.skills).toEqual(["Q", "W", "E"]);
+    expect(off.rules).not.toContain("styleSkills");
+  });
+
   it("switches to a niche build when you take an augment that unlocks it", () => {
     const niche: Picks = { ...picks, builds: { Ashe: [...picks.builds!.Ashe, ["enchanter", 0.003, [3006], [3065, 3075, 3003], [3302], [4242]]] } };
     const on = plan({ champ, kinds, picks: niche, fit, game: game([]), taken: [4242] });

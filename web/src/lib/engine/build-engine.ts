@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.2";
+export const ENGINE_VERSION = "1.4.3";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -58,6 +58,7 @@ export const RULES: Record<string, Rule> = {
   skillSplits: { source: "assumption", on: true, why: "Katarina and Kayn put 3 points in Q before maxing E (Katarina) or W (Kayn). Nico approved 2026-11-24 (his pick) after a one-time regular ARAM cross-check: the only two intentional splits that beat the champion's best standard order at levels 10 and 15 (800+ games each). Azir and Soraka (Q to 3, then max W) added by Nico the same day as weaker evidence: they lead at both levels but within luck. Dr. Mundo (Q to 3, then E), Ashe (W to 3, then Q) and Rumble (E to 3, then Q) added by Nico for their kit logic; about even on win rate. Kha'Zix and Sona (Q to 3, then W), Vayne and Smolder (W to 3, then Q) chosen by Nico too: about even, with a kit reason. Shown as estimated; no stats of its own." },
   splitAugments: { source: "assumption", on: true, why: "For the weaker-evidence splits (close to the standard order), an augment that favors one of the two abilities tips it: Bread and Butter/Jam/Cheese (+100 haste) or Pentakill HEAVY/POWER/THRASH (+20 haste, +10%) on the split's 3-point ability maxes that ability first; on the maxed ability, it's maxed from the start (no split). Kit logic, estimated: no data splits skill orders by augment. Nico approved 2026-11-24 (he asked for it)." },
   augmentSkills: { source: "assumption", on: true, why: "A few champions max another ability first once they take an augment (Gwen: E>Q>W with Ethereal Weapon). Nico approved 2026-11-24 (he asked for it); no source splits skill orders by augment, so it's estimated." },
+  styleSkills: { source: "data", on: true, why: "When the build switches to another style (an augment, your items or a niche build), the skill max order switches to that build's own, from the same players' games the site's build toggle shows (15 champions differ, e.g. Miss Fortune AP E>W>Q vs crit Q>W>E). An augment's own order and the Archmage route still come first." },
   augmentStart: { source: "data", on: true, why: "The starting items follow the first augment when its first-screen pickers mostly start something else and it at least doubles that start for the champion (Upgrade Stormsurge: Hextech Alternator; Wooglet's Witchcap: Needlessly Large Rod). From the archive's other players against the same champions' players, estimated. Nico asked for it 2026-11-24." },
   richStart: { source: "data", on: true, why: "With more than the 1,400 starting gold before your first buy (the Debonair headliner pays gold for each augment pick; seen in 16 of 251 archive games since 16.21), the best start above 1,400 that you can afford, by DeepScore. Starts above 1,400 are never the default. Nico asked for it 2026-11-24." },
   goldFill: { source: "assumption", on: true, why: "Gold left after the start (Debonair, Upgrade augments) goes on the parts of the first item, biggest part that fits first; with an augment start, on the item that augment leads to (Upgrade X: X; Wooglet's Witchcap: Rabadon's Deathcap). Real Debonair players mostly keep the gold (137 of 160 in the archive), so no data says which is best. Nico approved it 2026-11-24." },
@@ -1259,6 +1260,9 @@ export type Plan = {
   reasons: ({ text: string; kind: string; estimated?: boolean } | null)[];
   /** Feeling lucky picked a less played build style that wins about as often. */
   luckyStyle: string | null;
+  /** The max order for the build this plan follows (augment, Archmage route or switched style), and its split. */
+  skills?: string[];
+  skillSplit?: OverlayChamp["skillSplit"];
   /** slotFirst: move this owned item to slot 1 before an effect upgrades your first Legendary. */
   slotCue: { item: Named; why: string; estimated: boolean } | null;
   /** Items and augments whose value grows with enemy armor, magic resist or health, checked against this game. */
@@ -1789,7 +1793,11 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Tips, most useful first.
   const tips: Tip[] = [];
   // A split applies to the champion's own order only, not to an augment's or Archmage's.
-  const sp = splitFor(champ?.skills, !augSkill && !route ? champ0?.skillSplit : undefined, taken);
+  // styleSkills: a switched build (augment replan, owned items, niche) levels like that build's own players do (the
+  // per-build max order the site shows when its build toggle switches); an augment's or Archmage's order still wins.
+  const styleOrder = RULES.styleSkills.on && picked.style && !augSkill && !route ? champ0?.builds?.find((b) => (STYLE_NAMES[b.style] ?? b.style) === picked.style)?.skills : undefined;
+  if (styleOrder?.length && styleOrder.join() !== (champ?.skills ?? []).join()) applied("styleSkills");
+  const sp = splitFor(styleOrder?.length ? styleOrder : champ?.skills, !augSkill && !route && !styleOrder?.length ? champ0?.skillSplit : undefined, taken);
   if (sp.tipped) applied("splitAugments");
   const point = skillUp(sp.order, game.skills ?? [], game.level ?? 0, taken, game.champ, route?.eRank ?? 5, sp.split);
   if (point) tips.push({ rank: 1, kind: "skill", text: point });
@@ -1887,6 +1895,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     rules: [...used],
     reasons,
     luckyStyle: alt?.style ?? null,
+    skills: sp.order,
+    skillSplit: sp.split,
     breakpoints: bp,
     slotCue: (() => {
       const c = slotCue(game, taken, path, champ?.destiny ? itemId(champ.destiny.icon) : null, k, augName);
