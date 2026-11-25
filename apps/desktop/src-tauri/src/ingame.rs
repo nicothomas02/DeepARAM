@@ -341,6 +341,7 @@ fn scan(app: &AppHandle, game_time: f64) {
 /// them), and a new offer counts only once two reads in a row agree on it (PC app 1.26.3).
 fn read_offer(s: &mut State, cards: Vec<(i64, f64)>, game_time: f64) -> (Option<Vec<i64>>, Option<i64>) {
     let cards: Vec<(i64, f64)> = cards.into_iter().filter(|(id, _)| !s.taken.contains(id)).collect();
+    let cards = augscan::check_four(cards);
     let found: Vec<i64> = cards.iter().map(|(id, _)| *id).collect();
     if found.len() >= 2 {
         s.gone = 0;

@@ -170,7 +170,13 @@
   .tile { display: grid; justify-items: center; gap: 4px; text-align: center; font-size: 11px; line-height: 1.2; }
   .tile img { width: 40px; height: 40px; border-radius: 8px; }
   .tile.aug img { border-radius: 50%; }
-  .chg { display: flex; align-items: center; gap: 8px; } .chg img { width: 36px; height: 36px; border-radius: 6px; } .chg .d { margin-left: auto; font-size: 18px; font-weight: 700; }
+  .bigs { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 10px; }
+  .bigs img { width: 56px; height: 56px; border-radius: 10px; }
+  .bigs .big.aug img { width: 56px; height: 56px; border-radius: 50%; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 999px; background: var(--raised); font-size: 13px; }
+  .chip .up { color: var(--good); } .chip .down { color: var(--bad); } .chip .down svg { transform: rotate(180deg); }
+  .chg { display: flex; align-items: center; gap: 8px; } .chg img { width: 48px; height: 48px; border-radius: 8px; } .chg .d { margin-left: auto; font-size: 18px; font-weight: 700; }
   .chg .d.up, .chg .ok { color: var(--good); } .chg .d.down { color: var(--bad); }
   .deadshop { display: flex; gap: 6px; padding: 6px; margin-bottom: 6px; border: 2px solid var(--good); border-radius: 10px; } .deadshop img { width: 44px; height: 44px; border-radius: 6px; }
   .ii { width: 18px; height: 18px; border-radius: 4px; vertical-align: -4px; margin-right: 3px; }
@@ -1030,9 +1036,11 @@
     const traced = (points ?? []).length >= 2;
     turns = turns ?? [];
     const verdict = result === "Win" ? "Victory" : result === "Lose" ? "Defeat" : "Game over";
-    const turnRows = turns.map((t) => `
-      <div class="box"><span class="${t.after >= t.before ? "up" : "down"}">${t.after >= t.before ? "▲" : "▼"}</span> ${clock(t.from)}–${clock(t.to)}: ${pct(t.before)} → <b data-style="color:${color(t.after)}">${pct(t.after)}</b>
-        <span class="why">${t.kills >= 0 ? "+" : "−"}${Math.abs(t.kills)} kills${t.towers ? `, ${t.towers > 0 ? "+" : "−"}${Math.abs(t.towers)} towers` : ""}</span></div>`).join("");
+    // Review redesign (PC app 1.26.26): short chips, the sentence on hover.
+    const turnRows = turns.map((t) => {
+      const tip = `${clock(t.from)}–${clock(t.to)}: chance to win ${pct(t.before)} → ${pct(t.after)}. ${t.kills >= 0 ? "+" : "−"}${Math.abs(t.kills)} kills${t.towers ? `, ${t.towers > 0 ? "+" : "−"}${Math.abs(t.towers)} towers` : ""} (estimated).`;
+      return `<span class="chip" title="${esc(tip)}"><span class="${t.after >= t.before ? "up" : "down"}">${ico("up")}</span> ${clock(t.from)} <b data-style="color:${color(t.after)}">${pct(t.after)}</b></span>`;
+    }).join("");
     // The surrender call: the chance stayed under the line for a full minute (Nico approved the full-minute hold,
     // 2026-11-23).
     const ff = ffFrom != null
@@ -1040,12 +1048,13 @@
       : `<div class="box">${ico("check")} Never worth it</div>`;
     setView(`
       ${hero(lastChamp, `<span class="${result === "Win" ? "ink" : ""}">${verdict}</span>`, "Game review")}
+      <div id="recap"></div>
       <div id="changed"></div>
       ${traced ? `<h2 title="Predicted, not measured: an estimate from kills, towers, levels and team strength.">Chance to win</h2>
       ${chart(points, ffFrom)}` : ""}
-      ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
+      ${turnRows ? `<h2>Turning points</h2><div class="chips">${turnRows}</div>` : ""}
       ${traced ? `<h2>Surrender</h2>${ff}` : ""}
-      <div id="recap"></div><div id="invite"></div>`);
+      <div id="invite"></div>`);
     reviewPoints = points ?? [];
     renderRecap();
     if (result === "Win") inviteToShare();
@@ -1118,20 +1127,18 @@
     const src = (u) => (u.startsWith("http") ? u : SITE + u);
     const items = g.items.filter((i) => (k?.recipes[i % 10000]?.[1] ?? 0) >= 1000);
     const itemRow = prefix && items.length
-      ? `<div class="tiles">${items.map((i) => `<div class="tile"><img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" alt="" data-drop>${esc(k?.recipes[i % 10000]?.[0] ?? `#${i}`)}</div>`).join("")}</div>`
+      ? `<div class="bigs">${items.map((i) => `<img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" data-alt="${src(prefix + (i % 10000) + ".png")}" alt="${esc(k?.recipes[i % 10000]?.[0] ?? "")}" title="${esc(k?.recipes[i % 10000]?.[0] ?? `#${i}`)}" data-drop>`).join("")}</div>`
       : "";
     const augs = g.taken.length
-      ? `<div class="tiles">${g.taken.map((id) => `<div class="tile aug" data-r="${p?.augments?.[id]?.[1] ?? ""}">${augIcon(id)}${esc(p?.augments?.[id]?.[0] ?? `#${id}`)}</div>`).join("")}</div>`
+      ? `<div class="bigs">${g.taken.map((id) => `<span class="big aug" data-r="${p?.augments?.[id]?.[1] ?? ""}" title="${esc(p?.augments?.[id]?.[0] ?? `#${id}`)}">${augIcon(id)}</span>`).join("")}</div>`
       : "";
     const magic = k ? enemyMagic(k, g.enemies ?? []) : null;
-    const dmg = magic === null ? "" : `<div class="why">${esc(damageLine(k, g))}</div><div class="mates" data-style="margin-top:6px">${(g.enemies ?? []).filter((e) => e.champ).map((e) => icon(e.champ)).join("")}</div>${splitBar(magic)}`;
+    const dmg = magic === null ? "" : `<div class="mates" title="${esc(damageLine(k, g))}">${(g.enemies ?? []).filter((e) => e.champ).map((e) => icon(e.champ)).join("")}</div>${splitBar(magic)}`;
     const ch = document.getElementById("changed");
     if (ch) ch.innerHTML = whatChanged(k, p, (i) => prefix ? `<img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" data-alt="${src(prefix + (i % 10000) + ".png")}" alt="" data-drop>` : "");
     if (!itemRow && !augs && !dmg) return;
-    box.innerHTML = `<h2>Your build</h2>
-      ${augs ? `<div class="box"><div class="why">Augments you took</div>${augs}</div>` : ""}
-      ${itemRow ? `<div class="box"><div class="why">Items at the end</div>${itemRow}</div>` : ""}
-      ${dmg ? `<div class="box">${dmg}</div>` : ""}`;
+    box.innerHTML = `${augs || itemRow ? `<h2>Your build</h2>${augs}${itemRow}` : ""}
+      ${dmg ? `<h2 title="What the enemy team hit you with (estimated from their champions and items)">Enemy damage</h2><div class="box">${dmg}</div>` : ""}`;
   }
 </script>
 </body>

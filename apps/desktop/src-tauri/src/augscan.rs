@@ -114,6 +114,31 @@ pub fn match_offer_at(lines: &[Line], names: &[(i64, String)]) -> Vec<(i64, f64)
     cards
 }
 
+/// Whether cards sit evenly across the screen: the widest gap between neighbours is at most 1.15 times the narrowest.
+fn evenly_spaced(cards: &[(i64, f64)]) -> bool {
+    let gaps: Vec<f64> = cards.windows(2).map(|p| (p[1].1 - p[0].1).abs()).collect();
+    let (lo, hi) = gaps.iter().fold((f64::MAX, 0.0f64), |(lo, hi), g| (lo.min(*g), hi.max(*g)));
+    lo > 0.0 && hi <= lo * 1.15
+}
+
+/// Four cards are a real offer only when they're evenly spaced, as Maestro's four are (PC app 1.26.26): text
+/// beside the cards can read as a fourth. Uneven fours keep the three that are evenly spaced, if one set is;
+/// otherwise the read counts as no offer.
+pub fn check_four(cards: Vec<(i64, f64)>) -> Vec<(i64, f64)> {
+    if cards.len() != 4 || evenly_spaced(&cards) {
+        return cards;
+    }
+    let threes: Vec<Vec<(i64, f64)>> = (0..4)
+        .map(|skip| cards.iter().enumerate().filter(|(i, _)| *i != skip).map(|(_, c)| *c).collect::<Vec<_>>())
+        .filter(|three| evenly_spaced(three))
+        .collect();
+    if threes.len() == 1 {
+        threes.into_iter().next().unwrap()
+    } else {
+        Vec::new()
+    }
+}
+
 /// The card a click across at `x` landed on: the nearest card centre, if the click is within half the gap between
 /// cards of it (a click between or beside the cards, or on the reroll button's row below, is none of them).
 pub fn card_at(cards: &[(i64, f64)], x: f64) -> Option<i64> {
@@ -428,6 +453,18 @@ mod tests {
 
     fn line(text: &str, x: f64, y: f64) -> Line {
         Line { text: text.into(), x, y, w: 180.0, h: 24.0 }
+    }
+
+    #[test]
+    fn four_cards_must_be_evenly_spaced() {
+        let even = vec![(1, 100.0), (2, 400.0), (3, 700.0), (4, 1000.0)];
+        assert_eq!(check_four(even.clone()), even);
+        // A stray fourth beside three even cards: the three stay.
+        assert_eq!(check_four(vec![(9, 0.0), (1, 400.0), (2, 700.0), (3, 1000.0)]), vec![(1, 400.0), (2, 700.0), (3, 1000.0)]);
+        // No even set: no offer.
+        assert!(check_four(vec![(1, 100.0), (2, 150.0), (3, 700.0), (4, 1000.0)]).is_empty());
+        // Three cards are never touched.
+        assert_eq!(check_four(vec![(1, 100.0), (2, 150.0), (3, 900.0)]).len(), 3);
     }
 
     #[test]
