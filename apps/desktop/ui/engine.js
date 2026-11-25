@@ -47,6 +47,7 @@ var DeepEngine = (() => {
     MARK_AUGMENTS: () => MARK_AUGMENTS,
     MEASURED_SWITCHES: () => MEASURED_SWITCHES,
     MIN_HOLDERS: () => MIN_HOLDERS,
+    OwnedItems: () => OwnedItems,
     PCT_HEALTH: () => PCT_HEALTH,
     POINTS_PER_1000_GOLD: () => POINTS_PER_1000_GOLD,
     PROVEN: () => PROVEN,
@@ -71,6 +72,7 @@ var DeepEngine = (() => {
     STYLE_NAMES: () => STYLE_NAMES,
     SUSTAIN_ITEMS: () => SUSTAIN_ITEMS,
     TIER_ODDS: () => TIER_ODDS,
+    TRANSFORMED_FROM: () => TRANSFORMED_FROM,
     TRANSMUTE: () => TRANSMUTE,
     ULTIMATE_AUGMENTS: () => ULTIMATE_AUGMENTS,
     UPGRADES: () => UPGRADES,
@@ -93,6 +95,7 @@ var DeepEngine = (() => {
     luckyOrder: () => luckyOrder,
     mustHave: () => mustHave,
     nearTies: () => nearTies,
+    ownedId: () => ownedId,
     partnerOdds: () => partnerOdds,
     partnerPicks: () => partnerPicks,
     pickBuild: () => pickBuild,
@@ -2726,6 +2729,16 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     return ICON_ID[n] ?? n % 1e4;
   };
   var base = (id) => id % 1e4;
+  var TRANSFORMED_FROM = { 3040: 3003, 3042: 3004, 3121: 3119, 2530: 2526, 3160: 3154 };
+  var ownedId = (id) => TRANSFORMED_FROM[base(id)] ?? base(id);
+  var OwnedItems = class extends Set {
+    constructor(items = []) {
+      super([...items].map(ownedId));
+    }
+    has(id) {
+      return super.has(ownedId(id));
+    }
+  };
   var champKey = (s) => s.toLowerCase().replace(/[^a-z]/g, "");
   function itemRules(k) {
     const groups = /* @__PURE__ */ new Map();
@@ -3193,10 +3206,10 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   function slotCue(game, taken, path, destiny, k, augName) {
     if (!RULES.slotFirst.on || !k) return null;
     const boots = new Set(k.boots ?? []);
-    const eligible = game.items.map(base).filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !boots.has(i));
+    const eligible = game.items.map(ownedId).filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !boots.has(i));
     if (eligible.length < 2) return null;
     const first = eligible[0];
-    const byPath = path.map((it) => itemId(it.icon)).find((i) => eligible.includes(i)) ?? null;
+    const byPath = path.map((it) => ownedId(itemId(it.icon))).find((i) => eligible.includes(i)) ?? null;
     const cue = (target, why, estimated) => target !== null && target !== first ? { item: target, why, estimated } : null;
     if ((game.offer ?? []).includes(WEAPON_OF_DESTINY) && destiny !== null && eligible.includes(destiny))
       return cue(destiny, `Before taking ${augName(WEAPON_OF_DESTINY)}: it goes on your first Legendary (slots 1-6)`, false);
@@ -3317,7 +3330,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       return { name: k.recipes[b][0], icon: `${prefix}${ICON_ID[id] ? id : fin ? 22e4 + b : b}.png` };
     };
     const fresh = [...plan2[0].slice(0, 1), ...plan2[1], ...plan2[2]].flatMap((id) => mk(id) ?? []);
-    const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 || k.boots.includes(i)).flatMap((i) => base0.find((it) => itemId(it.icon) === i) ?? mk(i) ?? []) : [...base0.filter((it) => owned.has(itemId(it.icon))), ...[...owned].filter((i) => k.boots.includes(i) && !base0.some((it) => itemId(it.icon) === i)).flatMap((i) => mk(i) ?? [])];
+    const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 || k.boots.includes(i)).flatMap((i) => base0.find((it) => ownedId(itemId(it.icon)) === i) ?? mk(i) ?? []) : [...base0.filter((it) => owned.has(itemId(it.icon))), ...[...owned].filter((i) => k.boots.includes(i) && !base0.some((it) => itemId(it.icon) === i)).flatMap((i) => mk(i) ?? [])];
     const keptIds = kept.map((it) => itemId(it.icon));
     const list = [...kept];
     const hasBoots = keptIds.some((i) => k.boots.includes(i));
@@ -3547,7 +3560,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     const used = /* @__PURE__ */ new Set();
     const applied = (r) => used.add(r);
     shiftTableFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
-    const alt = lucky && !game.items.some((i) => (k?.recipes[base(i)]?.[1] ?? 0) >= 2e3) ? luckyBuild(champ0) : null;
+    const alt = lucky && !game.items.some((i) => (k?.recipes[ownedId(i)]?.[1] ?? 0) >= 2e3) ? luckyBuild(champ0) : null;
     if (alt) applied("luckyTilt");
     const champ1 = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
     const arch = RULES.archmageRoute.on && champ0?.archmage && taken.includes(champ0.archmage.augment) ? champ0.archmage : null;
@@ -3557,7 +3570,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     const augSkill = RULES.augmentSkills.on ? champ0?.augmentSkills?.find((a) => taken.includes(a.augment)) : void 0;
     if (augSkill) applied("augmentSkills");
     const champ = augSkill && champ2 ? { ...champ2, skills: augSkill.skills } : champ2;
-    const owned = new Set(game.items.map(base));
+    const owned = new OwnedItems(game.items);
     const bootIds = new Set(k?.boots ?? []);
     let slotRows = laterPicks(champ, owned, rules);
     const placedOff = /* @__PURE__ */ new Set();
@@ -3925,7 +3938,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
     for (const t of [timing.find((x) => next[0] && x.item === next[0]) ?? timing[0]].filter(Boolean)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
     if (RULES.shopTips.on && k && next.length) {
-      const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
+      const slots = game.items.filter((i) => (k.recipes[ownedId(i)]?.[1] ?? 0) > 0 && !bootIds.has(ownedId(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
       const bootUpgrade = bootIds.has(itemId(next[0].icon)) && [...owned].some((i) => bootIds.has(i));
       if (slots >= 6 && !bootUpgrade) {
         const inBuild = new Set(build.map((it) => itemId(it.icon)));
