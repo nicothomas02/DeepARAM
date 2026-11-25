@@ -536,7 +536,7 @@
   };
   const ico = (n, cls = "i") => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${SVG[n]}</svg>`;
   // Pentakill's empowerments come as augment ids the ranking data doesn't name (Nico 2026-11-24: not "#3172").
-  const PENTA = { 3170: "HEAVY", 3171: "POWER", 3172: "THRASH", 3173: "DOOM", 3176: "Pentakill" };
+  const PENTA = { 3170: "HEAVY · Q", 3171: "POWER · W", 3172: "THRASH · E", 3173: "DOOM · R", 3176: "Pentakill" };
 
   // DeepScore tier, as on the site: 50 is average, S from 70, A 59, B 44, C 32, D below.
   const deepTier = (x) => { const ds = Math.round(x); return ds >= 70 ? "S" : ds >= 59 ? "A" : ds >= 44 ? "B" : ds >= 32 ? "C" : "D"; };
@@ -605,7 +605,7 @@
     // Can't decide between them: more combo potential, else the less common pick (Nico 2026-11-24).
     const tb = ties.length ? E.tieBreak(d, ck, [offered[0].id, ...ties], ranked) : null;
     // Best augments: collapsed by default, without the cards already shown this game (they can't come back).
-    const shown = ranked.filter((a) => !onOffer.includes(a.id) && !seen.has(a.id)).slice(0, 8);
+    const shown = ranked.filter((a) => !onOffer.includes(a.id) && !seen.has(a.id) && !PENTA[a.id]).slice(0, 8);
     // A one-word label at most; the reason and what the augment does are on hover.
     // [label html, colour, hover]
     const reason = (a) => a.conflict ? [`${ico("warn")} Conflicts`, "red", `Conflicts: ${a.conflict}`] : a.mate !== null ? [`${ico("plus")}${augIco(a.mate)}${esc(name(a.mate))}`, "green", `Synergy with ${name(a.mate)}`]
@@ -682,8 +682,18 @@
     const shop = p.tips.find((t) => t.kind === "shop")?.text ?? "";
     // In game: the action only (a key to level, an item to buy or sell), the sentence on hover. Notes that ask
     // nothing of you (haste maths, the attack-speed cap) stay out (Nico 2026-11-24: seconds per alt-tab).
-    const ACT = { skill: "Level", buy: "Buy", sell: "Sell", stacking: "First", timing: "Next" };
+    // As PC 1.26.18: a word and an icon; timing and stacking tips are gone (the item being built carries its reason on
+    // hover). A skill point only when an augment changed the max order, a split is still owed, or Back to Basics skips R.
+    const augOrder = (p.rules ?? []).some((r) => r === "augmentSkills" || r === "archmageRoute");
+    const split = !augOrder ? champ?.skillSplit : null;
+    const si = split ? ({ Q: 0, W: 1, E: 2 }[split.first] ?? -1) : -1;
+    const inSplit = si >= 0 && (game.skills ?? [])[si] < split.points;
+    const skillCue = augOrder || inSplit || getTaken(game).some((id) => id === 1004 || id === 4);
+    const nextId0 = p.next[0] ? itemId(p.next[0].icon) : -1;
+    const ACT = { skill: "Level", buy: "Buy", sell: "Sell", cap: "AS cap" };
     const tipHtml = (t) => t.kind === "skill" ? `${ico("up")} <span class="key inl">${esc(t.text)}</span>`
+      : t.kind === "buy" && t.item === nextId0 ? "Buy now"
+      : t.kind === "cap" ? `${ico("warn")} AS cap`
       : `${ACT[t.kind]} ${t.item != null && itemImg(t.item) ? itemImg(t.item) : esc(tipItem(t))}`;
     // The item's name, from the engine's sentence ("Buy B. F. Sword now...", "Full build: sell X for Y.").
     function tipItem(t) {
@@ -691,7 +701,7 @@
       return m ? m[1] : "";
     }
     const tone = (t) => (t.kind === "skill" ? "blue" : "gold");
-    const tip = tipLines.filter((t) => ACT[t.kind]).slice(0, 2).map((t) => `<div class="cue ${tone(t)}" title="${esc(t.text)}">${tipHtml(t)}</div>`).join("");
+    const tip = tipLines.filter((t) => ACT[t.kind] && (t.kind !== "skill" || skillCue)).slice(0, 2).map((t) => `<div class="cue ${tone(t)}" title="${esc(t.text)}">${tipHtml(t)}</div>`).join("");
     if (!p.path.length) { box.innerHTML = `<p class="note">No build for this champion yet.</p>` + tip; return; }
     // One full six-item path (Nico, 2026-11-23): the core, then the 4th/5th/6th picks, as icons labelled with their
     // slot. A real swap (an augment's item, or a counter that passed its test) takes the slot it replaces, with a
@@ -706,7 +716,7 @@
       const sw = p.swaps.find((x) => x.replaces && itemId(x.replaces.icon) === itemId(it.icon));
       // The hover: the engine's tested "why it's best" line (Nico approved 2026-11-23) when there is one, else the slot reason.
       const r = p.reasons?.[i];
-      return sw ? { it: { ...sw.item, icon: sw.item.icon ?? it.icon }, why: `${sw.why} Replaces ${it.name}.`, sw: true, does: false }
+      return sw ? { it: { ...sw.item, icon: sw.item.icon ?? it.icon }, why: `${sw.why}\nInstead of ${it.name}`, sw: true, does: false }
         : { it, why: r?.text ?? p.why[i] ?? "", sw: false, does: r?.kind === "does" };
     }).map((x, i) => ({ ...x, core: i < p.coreLen })).filter(({ it }) => { const k = itemId(it.icon ?? "") % 10000; if (seenIds.has(k)) return false; seenIds.add(k); return true; });
     const state = (it) => {
@@ -737,10 +747,18 @@
     const tiles = `${coreT ? `<div class="corebox"><span class="lbl">Core</span>${coreT}</div>` : ""}${restT}`;
     // Swaps already sit in the path (dashed ring, reason on hover). Other options: icons only, reason on hover.
     const tipImg = (it, why) => (it?.icon ? `<img class="ii" src="${src(it.icon)}" alt="" title="${esc(`${it.name}: ${String(why ?? "").replace(/\.$/, "")}`)}" data-drop>` : "");
-    const opts = [...p.lit, ...p.pointers].map((x) => tipImg(x.item, x.why)).join("");
+    // Extras: never an item already in the path, nor one that only replaces something you own (no item twice on screen).
+    const inPath = new Set(shown.map((x) => itemId(x.it.icon ?? "") % 10000));
+    const ownedNames = new Set((k?.recipes ? game.items.map((i) => k.recipes[i % 10000]?.[0]) : []).filter(Boolean));
+    const opts = p.pointers.filter((x) => x.item?.icon && !inPath.has(itemId(x.item.icon) % 10000) && !(x.replaces?.name && ownedNames.has(x.replaces.name)))
+      .map((x) => tipImg(x.item, `${x.why ?? ""}${x.replaces?.name ? ` (instead of ${x.replaces.name})` : ""}`)).join("");
+    // Breakpoints (engine 1.4.0+): a stat threshold you've just passed, as an icon, an arrow and the stat.
+    const bpIcon = (b) => b.kind === "augment" ? augIco(b.id) : itemImg(b.id);
+    const bps = (p.breakpoints ?? []).filter((b) => b.passed).slice(0, 2).map((b) => `<div class="cue green" title="${esc(`${b.why} (estimated, simulator math)`)}">${bpIcon(b)} ${ico("up")} ${b.stat === "mr" ? "MR" : b.stat === "hp" ? "HP" : "Armor"}</div>`).join("");
     const lines = [
       p.switched ? `<div class="cue gold"${p.switched.because ? ` title="For ${esc(p.switched.because)}"` : ""}>${ico("swap")} ${esc(p.switched.style)}</div>` : "",
-      opts ? `<div class="cue gold">+ ${opts}</div>` : "",
+      opts ? `<div class="cue gold">${ico("plus")} ${opts}</div>` : "",
+      bps,
       // slotFirst: Weapon of Destiny, King Me and Ornn upgrade the first Legendary in slots 1-6.
       p.slotCue ? `<div class="cue blue" title="${esc(`${p.slotCue.why}${p.slotCue.estimated ? " (estimated pick)" : ""}`)}">${p.slotCue.item.icon ? `<img class="ii" src="${src(p.slotCue.item.icon)}" alt="" data-drop>` : ""} → slot 1</div>` : "",
     ].join("");
