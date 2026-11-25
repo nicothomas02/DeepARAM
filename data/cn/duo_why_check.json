@@ -144,45 +144,45 @@
   },
   "16.23": {
    "unlabelled": {
-    "pairs": 6068,
-    "mean": 0.35
+    "pairs": 6059,
+    "mean": 0.34
    },
    "rules": {
     "Knock-ups set up Yasuo's ultimate.": {
      "pairs": 34,
      "mean": 0.27,
      "positive": 0.559,
-     "z_vs_unlabelled": -0.49
+     "z_vs_unlabelled": -0.47
     },
     "Heals and shields keep the carry fighting.": {
      "pairs": 341,
      "mean": 0.77,
      "positive": 0.765,
-     "z_vs_unlabelled": 6.13
+     "z_vs_unlabelled": 6.15
     },
     "Hooks and traps catch targets for burst.": {
-     "pairs": 233,
-     "mean": 0.21,
-     "positive": 0.67,
-     "z_vs_unlabelled": -1.95
+     "pairs": 234,
+     "mean": 0.2,
+     "positive": 0.641,
+     "z_vs_unlabelled": -2.08
     },
     "Engage locks enemies down for burst damage.": {
-     "pairs": 270,
-     "mean": 0.69,
-     "positive": 0.844,
-     "z_vs_unlabelled": 7.28
+     "pairs": 267,
+     "mean": 0.7,
+     "positive": 0.858,
+     "z_vs_unlabelled": 7.62
     },
     "A frontline peels for the carry.": {
-     "pairs": 246,
-     "mean": 1.25,
-     "positive": 0.931,
-     "z_vs_unlabelled": 14.82
+     "pairs": 251,
+     "mean": 1.24,
+     "positive": 0.92,
+     "z_vs_unlabelled": 14.98
     },
     "Crowd control groups enemies for area damage.": {
-     "pairs": 46,
-     "mean": 0.17,
-     "positive": 0.478,
-     "z_vs_unlabelled": -1.14
+     "pairs": 47,
+     "mean": 0.21,
+     "positive": 0.532,
+     "z_vs_unlabelled": -0.83
     }
    }
   }
