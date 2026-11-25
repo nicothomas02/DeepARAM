@@ -100,6 +100,7 @@ var DeepEngine = (() => {
     rankAugments: () => rankAugments,
     rerollAdvice: () => rerollAdvice,
     shiftOf: () => shiftOf,
+    shiftTableFor: () => shiftTableFor,
     situational: () => situational,
     skillUp: () => skillUp,
     slotCue: () => slotCue,
@@ -108,7 +109,6 @@ var DeepEngine = (() => {
     stickerValue: () => stickerValue,
     tieBreak: () => tieBreak,
     triggers: () => triggers,
-    useShiftFor: () => useShiftFor,
     whyBest: () => whyBest
   });
 
@@ -3207,7 +3207,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   var SHIFT_VS_FRONT = dropPairs((a, i) => RULES.leanIn.on && !!LEAN_IN[a]?.blocked.includes(i));
   var SHIFT_VS_SQUISHY = dropPairs((a, i) => RULES.leanIn.on && (!!LEAN_IN[a]?.blocked.includes(i) || !!LEAN_IN[a]?.blockedVsSquishy?.includes(i)));
   var AUGMENT_SHIFT = SHIFT_VS_SQUISHY;
-  function useShiftFor(frontliners) {
+  function shiftTableFor(frontliners) {
     AUGMENT_SHIFT = frontliners >= 2 ? SHIFT_VS_FRONT : SHIFT_VS_SQUISHY;
   }
   var SHIFT_ORDER_GAIN = 8;
@@ -3530,7 +3530,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     const rules = itemRules(k);
     const used = /* @__PURE__ */ new Set();
     const applied = (r) => used.add(r);
-    useShiftFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
+    shiftTableFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
     const alt = lucky && !game.items.some((i) => (k?.recipes[base(i)]?.[1] ?? 0) >= 2e3) ? luckyBuild(champ0) : null;
     if (alt) applied("luckyTilt");
     const champ1 = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
@@ -3642,7 +3642,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
         const pathAd = build.filter((x) => (k.items[String(itemId(x.icon))] ?? []).includes("ad") && !(k.items[String(itemId(x.icon))] ?? []).includes("ap")).length;
         const wrongType = t.includes("ap") && !t.includes("ad") && pathAd > pathAp || t.includes("ad") && !t.includes("ap") && pathAp > pathAd;
         if (wrongType && !taken.includes(ADAPT)) continue;
-        let at = build.findIndex((it2) => itemId(it2.icon) === id);
+        const at = build.findIndex((it2) => itemId(it2.icon) === id);
         const it = at >= 0 ? build[at] : { name: k.recipes[top[0]][0], icon: `${prefix}${22e4 + id}.png` };
         if (at >= 0) build.splice(at, 1);
         const clash = build.findIndex((x) => rules.clash(itemId(x.icon), id) && !owned.has(itemId(x.icon)));
@@ -3802,19 +3802,21 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     }
     rest = path.slice(coreItems.length);
     if (RULES.pathOrder.on) {
-      const open0 = path.map((it, i) => isOwned(it) || bootIds.has(itemId(it.icon)) ? -1 : i).filter((i) => i >= 0);
+      const fixed = (it) => isOwned(it) || bootIds.has(itemId(it.icon));
+      const open0 = path.map((it, i) => fixed(it) ? -1 : i).filter((i) => i >= 0);
       const at = (it) => order.get(itemId(it.icon)) ?? Infinity;
       const sorted = open0.map((i) => path[i]).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+      const mustIn = taken.length ? path.filter((it) => must.has(itemId(it.icon)) && !isOwned(it)) : [];
       if (sorted.some((it, n) => it !== path[open0[n]])) {
         open0.forEach((i, n) => {
           path[i] = sorted[n];
         });
-        coreItems = path.slice(0, coreItems.length);
-        rest = path.slice(coreItems.length);
         applied("pathOrder");
       }
+      coreItems = path.slice(0, Math.max(coreItems.length, ...mustIn.map((it) => path.indexOf(it) + 1)));
+      rest = path.slice(coreItems.length);
       const fromPath = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
-      if (fromPath.length) next = fromPath.slice(0, 2);
+      next = fromPath.slice(0, 2);
     }
     const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
     const slotName = (i) => ord(slotRows?.[i]?.slot ?? first + i);
@@ -3834,13 +3836,10 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       const allies = arch2(game.champ).some((a) => VOW_OWNERS.has(a)) && front2 >= 2 ? game.allies ?? [] : [];
       const ally = allies.find((a) => PCT_HEALTH.has(champKey(a.champ))) ?? allies.find((a) => arch2(a.champ).includes("Marksman"));
       const prefix = (path.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
-      if (ally) all.unshift({
-        name: k.recipes[KNIGHTS_VOW][0],
-        icon: `${prefix}${22e4 + KNIGHTS_VOW}.png`,
-        when: "Pledge",
-        kit: true,
-        why: `Pledge to ${ally.champ}: you heal 12% of their damage, and they hit ${front2} frontliners hard.`
-      });
+      const why2 = `Pledge to ${ally?.champ}: you heal 12% of their damage, and they hit ${front2} frontliners hard.`;
+      const own = all.find((x) => itemId(x.icon) === KNIGHTS_VOW);
+      if (ally && own && !own.why) Object.assign(own, { why: why2, kit: true });
+      else if (ally && !own) all.unshift({ name: k.recipes[KNIGHTS_VOW][0], icon: `${prefix}${22e4 + KNIGHTS_VOW}.png`, when: "Pledge", kit: true, why: why2 });
     }
     const reason = (it) => all.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
     const lit = path.map((it) => ({ item: it, why: reason(it)?.why ?? "" })).filter((x) => x.why);
@@ -3979,7 +3978,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     })();
     return {
       path,
-      coreLen,
+      coreLen: coreItems.length,
       next,
       why,
       lit,

@@ -930,7 +930,7 @@ const SHIFT_VS_SQUISHY = dropPairs((a, i) => RULES.leanIn.on && (!!LEAN_IN[a]?.b
 /** The pulls in use: plan() picks the set for this game's enemy frontline before anything reads it. */
 export let AUGMENT_SHIFT: Record<string, Record<string, number[]>> = SHIFT_VS_SQUISHY;
 /** Enemy frontliners (Warden/Vanguard/Juggernaut) for the pull set. */
-export function useShiftFor(frontliners: number) {
+export function shiftTableFor(frontliners: number) {
   AUGMENT_SHIFT = frontliners >= 2 ? SHIFT_VS_FRONT : SHIFT_VS_SQUISHY;
 }
 /** Path positions an item moves per 1.0 of shrunk early pull (Wooglet's -> Rabadon's 0.52 moves it ~4 places). */
@@ -1372,7 +1372,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const rules = itemRules(k);
   const used = new Set<string>();
   const applied = (r: string) => used.add(r);
-  useShiftFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
+  shiftTableFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
   const alt = lucky && !game.items.some((i) => (k?.recipes[base(i)]?.[1] ?? 0) >= 2000) ? luckyBuild(champ0) : null;
   if (alt) applied("luckyTilt");
   const champ1: OverlayChamp | undefined = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
@@ -1502,7 +1502,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const pathAd = build.filter((x) => (k.items[String(itemId(x.icon))] ?? []).includes("ad") && !(k.items[String(itemId(x.icon))] ?? []).includes("ap")).length;
       const wrongType = (t.includes("ap") && !t.includes("ad") && pathAd > pathAp) || (t.includes("ad") && !t.includes("ap") && pathAp > pathAd);
       if (wrongType && !taken.includes(ADAPT)) continue;
-      let at = build.findIndex((it) => itemId(it.icon) === id);
+      const at = build.findIndex((it) => itemId(it.icon) === id);
       const it: Named = at >= 0 ? build[at] : { name: k.recipes[top[0]][0], icon: `${prefix}${220000 + id}.png` };
       if (at >= 0) build.splice(at, 1);
       // it takes the last core place you haven't bought (or the one it can't be built with); boots keep theirs
@@ -1664,18 +1664,23 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // among the open places, so an augment's pull or rush shows in the path, not only in Next.
   if (RULES.pathOrder.on) {
     // boots keep their place: their Next timing moves with what you buy, which would make the path flicker
-    const open0 = path.map((it, i) => (isOwned(it) || bootIds.has(itemId(it.icon)) ? -1 : i)).filter((i) => i >= 0);
+    const fixed = (it: Named) => isOwned(it) || bootIds.has(itemId(it.icon));
+    const open0 = path.map((it, i) => (fixed(it) ? -1 : i)).filter((i) => i >= 0);
     const at = (it: Named) => order.get(itemId(it.icon)) ?? Infinity;
     const sorted = open0.map((i) => path[i]).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+    // with an augment, must-have items you haven't bought stay core (mustCore): when its rush or pull sorts ahead of
+    // them, or its build put them after the core, the core grows to hold them (no augment: the site card's core)
+    const mustIn = taken.length ? path.filter((it) => must.has(itemId(it.icon)) && !isOwned(it)) : [];
     if (sorted.some((it, n) => it !== path[open0[n]])) {
       open0.forEach((i, n) => { path[i] = sorted[n]; });
-      coreItems = path.slice(0, coreItems.length);
-      rest = path.slice(coreItems.length);
       applied("pathOrder");
     }
+    coreItems = path.slice(0, Math.max(coreItems.length, ...mustIn.map((it) => path.indexOf(it) + 1)));
+    rest = path.slice(coreItems.length);
     // Next is the path's first unbought items, so it never names an item the path doesn't show
     const fromPath = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
-    if (fromPath.length) next = fromPath.slice(0, 2);
+    // (empty when you own the whole path: an item the path can't fit isn't Next; full-build advice takes over)
+    next = fromPath.slice(0, 2);
   }
   const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
   const slotName = (i: number) => ord(slotRows?.[i]?.slot ?? first + i);
@@ -1696,8 +1701,11 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const allies = arch(game.champ).some((a) => VOW_OWNERS.has(a)) && front >= 2 ? game.allies ?? [] : [];
     const ally = allies.find((a) => PCT_HEALTH.has(champKey(a.champ))) ?? allies.find((a) => arch(a.champ).includes("Marksman"));
     const prefix = (path.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
-    if (ally) all.unshift({ name: k.recipes[KNIGHTS_VOW][0], icon: `${prefix}${220000 + KNIGHTS_VOW}.png`, when: "Pledge", kit: true,
-      why: `Pledge to ${ally.champ}: you heal 12% of their damage, and they hit ${front} frontliners hard.` });
+    const why = `Pledge to ${ally?.champ}: you heal 12% of their damage, and they hit ${front} frontliners hard.`;
+    // the champion's own Knight's Vow entry, if it has one, takes the pledge reason unless another rule already lit it
+    const own = all.find((x) => itemId(x.icon) === KNIGHTS_VOW);
+    if (ally && own && !own.why) Object.assign(own, { why, kit: true });
+    else if (ally && !own) all.unshift({ name: k.recipes[KNIGHTS_VOW][0], icon: `${prefix}${220000 + KNIGHTS_VOW}.png`, when: "Pledge", kit: true, why });
   }
   const reason = (it: Named) => all.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
   const lit = path.map((it) => ({ item: it, why: reason(it)?.why ?? "" })).filter((x) => x.why);
@@ -1852,7 +1860,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   })();
   return {
     path,
-    coreLen,
+    coreLen: coreItems.length,
     next,
     why,
     lit,
