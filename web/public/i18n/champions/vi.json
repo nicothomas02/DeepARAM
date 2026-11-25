@@ -361,5 +361,7 @@
  "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name} không có lướt, nên Tốc Hành và tốc độ từ Hồi Máu đưa {name} đi giữa các thùng thuốc súng và ra khỏi giao tranh.",
  "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "Nó thắng hơn trung bình của {name} {pts} điểm trong {n} bản cập nhật gần nhất, nhưng chỉ {pct} người chơi chọn, nên một phần có thể do ai chọn nó.",
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Ở các bản gần đây gần ngang với cặp Tốc Biến thường dùng (chênh dưới 1 điểm), nên chọn cái nào cũng được. Chỉ {pct} người chơi chọn cặp này.",
- "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Chỉ {pct} người chơi chọn cặp này và lợi thế của nó thay đổi theo từng bản, nên hãy coi nó gần như cặp Tốc Biến thường dùng."
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Chỉ {pct} người chơi chọn cặp này và lợi thế của nó thay đổi theo từng bản, nên hãy coi nó gần như cặp Tốc Biến thường dùng.",
+ "It belongs to the {build} build: pick that tab on the card.": "Nó thuộc lối lên đồ {build}: chọn tab đó trên thẻ.",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Trên thẻ này đây là món tùy tình huống ({situation}), nên đa số người chơi bỏ qua nó ở các trận khác."
 }

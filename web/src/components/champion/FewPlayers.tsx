@@ -1,6 +1,7 @@
 "use client";
 
 import { useNames, useT } from "@/components/I18n";
+import { SITUATIONS, type Situation } from "@/lib/situations";
 
 /** Why a high-scoring item isn't in the card's build: few players buy it (Nico 2026-11-23). Tap or hover for the
  *  reason, like the DeepScore badge. */
@@ -32,6 +33,10 @@ export const SPELL_TIE =
 export const SPELL_MIXED =
   "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.";
 
+/** What the page already shows that explains a tagged item (lib/champion-lists.ts, 2026-11-25). */
+export const FEW_BUILD = "It belongs to the {build} build: pick that tab on the card.";
+export const FEW_SITUATION = "It is a situational pick on this card ({situation}), so most players skip it in other games.";
+
 export type SpellWhy = { verdict: "holds" | "tie" | "mixed"; template: string | null; key: string; ability: string; edge: number | null; patches: number };
 
 /** `augment`: the augment most of its buyers take (lib/build-plan.ts ITEM_CHANGERS), named in the reason.
@@ -39,11 +44,17 @@ export type SpellWhy = { verdict: "holds" | "tie" | "mixed"; template: string | 
  *  name): the champion's own reason for that pair. */
 export default function FewPlayers({
   augment,
+  build,
+  situation,
   spellPickRate,
   spellWhy,
   champion,
 }: {
   augment?: string;
+  /** Another build tab on the card that holds the item ("Niche: Enchanter"). */
+  build?: string;
+  /** The card's situational list holds the item. */
+  situation?: Situation;
   spellPickRate?: number;
   spellWhy?: SpellWhy | null;
   champion?: { alias: string; name: string };
@@ -62,7 +73,16 @@ export default function FewPlayers({
     else if (spellWhy?.verdict === "tie") why = t(SPELL_TIE, { pct });
     else if (spellWhy?.verdict === "mixed") why = t(SPELL_MIXED, { pct });
     else why = t(FEW_PLAYERS_SPELL_WHY, { pct });
-  } else why = augment ? `${t(FEW_PLAYERS_WHY)} ${t("Mostly built with {augment}.", { augment })}` : t(FEW_PLAYERS_WHY);
+  } else {
+    const extra = augment
+      ? t("Mostly built with {augment}.", { augment })
+      : build
+        ? t(FEW_BUILD, { build: t(build) })
+        : situation
+          ? t(FEW_SITUATION, { situation: t(SITUATIONS[situation]) })
+          : "";
+    why = extra ? `${t(FEW_PLAYERS_WHY)} ${extra}` : t(FEW_PLAYERS_WHY);
+  }
   return (
     <button type="button" className="aug-item-tag cp-few-tag" data-tip={why} aria-description={why}>
       {t("Few players")}

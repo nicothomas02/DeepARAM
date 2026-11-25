@@ -26,6 +26,7 @@ import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
 import { fewPlayersSpell, leading, SPELL_FOLLOWING, SPELL_MIN_GAMES } from "@/lib/card-score";
 import { rareSpellWhy } from "@/lib/rare-spells";
+import { buildLabel } from "@/lib/build-labels";
 import {
   buildOrder,
   championPage,
@@ -200,7 +201,6 @@ const BOOTS_WHEN: Record<number, string> = {
   3: "Boots after the 3rd item",
 };
 // Build styles from data/estimates/build_archetypes.json (the card's build tabs).
-const ARCH_LABEL: Record<string, string> = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "Fighter", tank: "Tank", enchanter: "Enchanter" };
 const BOOTS_HELP =
   "Boots are placed where players usually buy them, unless another point clearly wins more games.";
 // The slots after the core are narrow: win rate sits under the item's name, DeepScore on the right.
@@ -1012,7 +1012,7 @@ export default async function ChampionPage({
               whole
               tabs={p.builds.map((b) => ({
                 key: b.style,
-                label: b.niche ? `Niche: ${ARCH_LABEL[b.style] ?? b.style}` : (ARCH_LABEL[b.style] ?? b.style),
+                label: buildLabel(b.style, b.niche),
                 share: b.niche ? `${pct(b.share)} of games · DeepScore ${b.deepScore} · estimated` : `${pct(b.share)} · DeepScore ${b.deepScore}`,
                 panel: cardTiles(
                   b.start,
