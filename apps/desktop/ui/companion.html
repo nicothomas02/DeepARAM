@@ -484,7 +484,9 @@
   // Item art lives at the champion build's icon path; mode copies use 22xxxx ids (base ids 404), and an icon that
   // still fails to load just disappears.
   let iconPrefix = "";
-  const itemImg = (id, cls = "ii") => iconPrefix ? `<img class="${cls}" src="${(iconPrefix.startsWith("http") ? "" : SITE) + iconPrefix + (id < 10000 ? 220000 + id : id)}.png" alt="" data-drop>` : "";
+  // Finished items have Mayhem art (220000 + id); parts only the plain id: try one, fall back to the other (data-alt).
+  const itemImg = (id, cls = "ii") => { if (!iconPrefix) return ""; const b = (iconPrefix.startsWith("http") ? "" : SITE) + iconPrefix, m = id < 10000 ? 220000 + id : id, plain = m % 10000;
+    return `<img class="${cls}" src="${b}${m}.png" data-alt="${b}${plain}.png" alt="" data-drop>`; };
   // The enemy team's physical/magic split as a bar, with their portraits: reads at a glance, no text to parse.
   function splitBar(magic) {
     const m = Math.round(magic * 100);
