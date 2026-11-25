@@ -275,6 +275,14 @@ def wilson_low(k, n, z=1.96):
     return (p + z * z / (2 * n) - z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n))) / (1 + z * z / n)
 
 
+def augment_start_drops():
+    path = os.path.join(ROOT, "data", "estimates", "start_switch_check.json")
+    if not os.path.exists(path):
+        return set()
+    with open(path, encoding="utf-8") as f:
+        return {int(a) for a, v in json.load(f).get("augments", {}).items() if v.get("verdict") == "drop"}
+
+
 def mark_augment_starts(rows, augs, est):
     """Estimates how many of each starting row's games come from the champion's first-screen picks of an augment that
     makes players buy that start (data/estimates/augment_starts.py: Upgrade Stormsurge -> Hextech Alternator, Ethereal
@@ -320,8 +328,13 @@ def mark_augment_starts(rows, augs, est):
     # most common start, counted in the archive) and the rise at least matches how often the champion's players start
     # it overall (the augment at least doubles it: Upgrade Stormsurge and Alternator on Ahri, not Eureka and Lost
     # Chapter, which her players start anyway; a chosen line, flagged to Nico 2026-11-24).
+    # Switches re-tested on leading indicators as the archive grows (data/estimates/start_switch_check.py, Nico
+    # approved 2026-11-25): an augment whose followers fall clearly behind those who kept the usual start is dropped.
     out = {}
+    dropped = augment_start_drops()
     for aid, ks in rises.items():
+        if aid in dropped:
+            continue
         k = max(ks, key=lambda x: ks[x][0])
         starts = est["augments"][str(aid)]["starts"]
         other = max([h for s, h, _ in starts if not set(k) <= set(s)], default=0)

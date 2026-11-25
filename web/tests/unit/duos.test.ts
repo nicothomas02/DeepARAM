@@ -23,6 +23,13 @@ describe("duo pairs", () => {
     }
   });
 
+  it("keeps faded why-it-works rules off and gives no line to a pair that doesn't win together", () => {
+    const check = readRepoJson<{ verdict: Record<string, string> }>("data/cn/duo_why_check.json");
+    const faded = Object.entries(check?.verdict ?? {}).filter(([, v]) => v === "faded").map(([k]) => k);
+    expect(rows.some((r) => r.why)).toBe(true);
+    for (const r of rows) if (r.why) expect(faded).not.toContain(r.why);
+  });
+
   it("finds pairs that beat what their own win rates predict, and pairs that fall short", () => {
     expect(rows.some((r) => r.delta > 0.02)).toBe(true);
     expect(rows.some((r) => r.delta < -0.02)).toBe(true);
