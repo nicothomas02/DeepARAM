@@ -168,7 +168,20 @@ pub fn game_window() -> Option<(i32, i32, i32, i32)> {
     None
 }
 
-/// Reads the text in the card area of League's window. None when there's no game window to read.
+/// Whether League's game window is the one in front (PC app 1.26.24). Cards are read, and clicks counted, only
+/// then, so another window over the game (the companion, a browser) is never read as cards or taken as a pick.
+#[cfg(windows)]
+pub fn league_in_front() -> bool {
+    win::league_in_front()
+}
+
+#[cfg(not(windows))]
+pub fn league_in_front() -> bool {
+    true
+}
+
+/// Reads the text in the card area of League's window. None when there's no game window to read, or another
+/// window is in front of it.
 pub fn read_screen() -> Option<Vec<Line>> {
     #[cfg(debug_assertions)]
     if let Some(lines) = fake_screen() {
@@ -232,7 +245,7 @@ mod win {
             System::WinRT::{RoInitialize, RO_INIT_MULTITHREADED},
             UI::{
                 Input::KeyboardAndMouse::{GetAsyncKeyState, VK_LBUTTON},
-                WindowsAndMessaging::{FindWindowW, GetClientRect, GetCursorPos, IsIconic},
+                WindowsAndMessaging::{FindWindowW, GetClientRect, GetCursorPos, GetForegroundWindow, IsIconic},
             },
         },
     };
@@ -259,6 +272,12 @@ mod win {
                 return None;
             }
             (r.right > 0 && r.bottom > 0).then_some((at.x, at.y, r.right, r.bottom))
+        }
+    }
+
+    pub fn league_in_front() -> bool {
+        unsafe {
+            FindWindowW(None, w!("League of Legends (TM) Client")).is_ok_and(|h| GetForegroundWindow() == h)
         }
     }
 
@@ -334,6 +353,9 @@ mod win {
     }
 
     pub fn read_screen() -> Option<Vec<Line>> {
+        if !league_in_front() {
+            return None;
+        }
         let (gx, gy, gw, gh) = game_window()?;
         let (x, y, w, h) = card_area(gx, gy, gw, gh);
         if w < 64 || h < 64 {

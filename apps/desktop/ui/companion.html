@@ -519,14 +519,20 @@
 
   // What you took, kept per game (your champion plus when the game started) so a reopened window remembers.
   function readTaken() { try { return JSON.parse(localStorage.getItem("taken") ?? "null"); } catch { return null; } }
+  // The list for the game in progress is also held here, so it never resets mid-game when the game clock and the
+  // wall clock drift apart (PC app 1.26.24). It's let go when the game ends or the champion changes.
+  let takenNow = null;
   function getTaken(g) {
+    if (takenNow && takenNow.champ === g.champ) return takenNow.ids;
     const s = readTaken(), start = Date.now() / 1000 - g.t;
     const mine = s && s.champ === g.champ && Math.abs(s.start - start) < 300 ? s.ids : [];
+    if (mine.length) takenNow = { champ: g.champ, ids: mine };
     return mine;
   }
   function setTaken(g, ids) {
     const had = getTaken(g);
     for (const id of ids) if (!had.includes(id) && calls.length < 60) { calls.push({ t: Math.round(g.t ?? 0), kind: "aug", got: id, app: appCall }); appCall = null; }
+    takenNow = { champ: g.champ, ids };
     try { localStorage.setItem("taken", JSON.stringify({ champ: g.champ, start: Date.now() / 1000 - g.t, ids })); } catch {}
     renderQuick();
   }
@@ -1000,6 +1006,7 @@
 
   window.showOver = () => {
     game = null;
+    takenNow = null;
     resetTrack();
     offer = [];
     closedAt = null;
@@ -1018,6 +1025,10 @@
 
   window.showReview = ({ points, turns, ffFrom, result }) => {
     game = null;
+    takenNow = null;
+    // A section shows only when it has something in it (PC app 1.26.24): no chart, no surrender call, without a trace.
+    const traced = (points ?? []).length >= 2;
+    turns = turns ?? [];
     const verdict = result === "Win" ? "Victory" : result === "Lose" ? "Defeat" : "Game over";
     const turnRows = turns.map((t) => `
       <div class="box"><span class="${t.after >= t.before ? "up" : "down"}">${t.after >= t.before ? "▲" : "▼"}</span> ${clock(t.from)}–${clock(t.to)}: ${pct(t.before)} → <b data-style="color:${color(t.after)}">${pct(t.after)}</b>
@@ -1030,10 +1041,10 @@
     setView(`
       ${hero(lastChamp, `<span class="${result === "Win" ? "ink" : ""}">${verdict}</span>`, "Game review")}
       <div id="changed"></div>
-      <h2 title="Predicted, not measured: an estimate from kills, towers, levels and team strength.">Chance to win</h2>
-      ${chart(points, ffFrom)}
+      ${traced ? `<h2 title="Predicted, not measured: an estimate from kills, towers, levels and team strength.">Chance to win</h2>
+      ${chart(points, ffFrom)}` : ""}
       ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
-      <h2>Surrender</h2>${ff}
+      ${traced ? `<h2>Surrender</h2>${ff}` : ""}
       <div id="recap"></div><div id="invite"></div>`);
     reviewPoints = points ?? [];
     renderRecap();
