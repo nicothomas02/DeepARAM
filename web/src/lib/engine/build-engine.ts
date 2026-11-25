@@ -21,10 +21,16 @@
 
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
+import augmentConvertersData from "../../data/augment-converters.json";
+import augmentLeanInData from "../../data/augment-lean-in.json";
+import breakpointData from "../../data/breakpoints.json";
+import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.3.19";
+export const ENGINE_VERSION = "1.4.0";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
+/** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
+const STAT_BONUS = 220000;
 /** ADAPt: converts bonus AD into AP, so AD items can fit an AP build. */
 const ADAPT = 1205;
 
@@ -69,6 +75,17 @@ export const RULES: Record<string, Rule> = {
   ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). Owning n finished items means the path's first n should be bought: one of those you skipped (for an item later in the path or off it) moves behind the rest, so Next moves on after the first buy that skips it (replay audit: Next stuck 8+ min with 3,500+ gold in 103 moments); boots too once bought past without starting them; two off-path items of the other damage type (one gets the sellMismatch tip: doubling down after one off-type buy lowers team damage share, archive) switch the rest of the build to the class-wide style build (AramHex, all champions) holding most of what you own, e.g. AP Zeri." },
   augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share, of the build's damage type unless ADAPt; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
+  converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
+  sellMismatch: { source: "data", on: true, why: "One finished item of the other damage type (pure AD on an AP build or the reverse, no ADAPt/EscAPADe): sell it when its 70% sell value plus your gold buys the next path item now. Archive, within champion: one such item in the first three legendaries goes with -2.0 +- 0.3 pts of team damage share (two: -4.3, three: -5.4), win rate flat (+0.1 +- 3.1). Nico 2026-11-24 asked for sell pushback when it's worth it; the 'buys it now' line is estimated." },
+  leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: tested only on champions that normally build the item, so it isn't forcing it on champions that can't use it: Dual Wield -> Blade of the Ruined King, Magic Missile -> Shadowflame; a loss on win rate alone needs 20+ matched holders, which cleared Critical Healing -> Moonstone) lose the augment's push, only vs 0-1 enemy frontliners where the loss isn't seen vs 2+ (BotRK is best vs high health, Nico 2026-11-24); the item stays wherever the champion's own build has it. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
+  ccCounters: { source: "kit rule", on: true, why: "3+ enemies built to lock you down (Catcher/Vanguard) light up tenacity and cleanse items (Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn) as a swap. Nico 2026-11-20: Mayhem has more CC than SR; 2026-11-24 approved enemy-aware swaps when damage mix or CC clearly calls for it. Untestable so far (match data has no CC-received stat; 3+ engage -> QSS had 5 buyers), so estimated." },
+  vowPartner: { source: "kit rule", on: true, why: "Knight's Vow heals its owner for 12% of the damage the pledged (Worthy) ally deals to champions (item text, Data Dragon 16.23), so on a frontliner or enchanter, with 2+ enemy frontliners (Warden/Vanguard/Juggernaut) and an ally whose kit hits max health (Vayne, Kog'Maw, Varus...) or a marksman, it lights up as a swap: pledge to that ally. Archive, within champion: each enemy frontliner adds +1.1 +- 0.3 pts of team damage share for max-health kits and +0.7 +- 0.2 for marksmen (assassins -0.8, artillery -0.7), so the heal grows with exactly that matchup. The heal itself isn't measured (estimated). Nico 2026-11-24 asked for unconventional mechanism ideas; his example (Knight's Vow on the max-health champion itself) doesn't work: the item heals its owner from the ally's damage, not the damage dealer." },
+  headlinerItems: { source: "kit rule", on: true, why: "La Ilusion (a dying ally drops a candle that shields whoever picks it up) lights the champion's own 'Vs shields' item; Cafe Cuties (health relics heal 20% more missing health) lights its 'Vs healing' item. Pointers only (hover), never a swap: anti-heal and anti-shield items showed no clear effect in normal games, and these headliners leave no trace in match data to test (research/headliners). Nico's ideas 2026-11-24; estimated, used once the app knows the headliner." },
+  mustCore: { source: "data", on: true, why: "A core item most of the champion's players still hold at game end (50%+, AramHex 16.22-16.23, the same bar as 'built by most players') is a must-have: augment rushes, converters and lean-in items take a flexible core place instead, or go right after the core when every core item is a must-have (Aphelios: Collector, Infinity Edge, LDR; Irelia: Blade of the Ruined King and Death's Dance). Nico 2026-11-25: some champions need one item, others a demanding core. Hold rates are behavior, not proof of value." },
+  breakpoints: { source: "kit rule", on: true, why: "Penetration and %-health items and augments (Thread the Needle, Lord Dominik's, Mortal Reminder, Serylda's, Black Cleaver, Void Staff, Cryptbloom; Blade of the Ruined King, Liandry's, Demonic Embrace) light up when this game's enemies are unusually tanky: their armor, magic resist or health (champion base stats at their level plus their items, Data Dragon) is above a typical team's with the same item counts by more than the archive's mean + 1 SD at game end (about the top 16% of games: armor x1.17, MR x1.20, health x1.10). Only items the champion's data lists and the damage type fits; Thread the Needle when it's in the champion's pool. Plain resist/health math (simulator rule: simple calculations only), never changes rankings. Nico 2026-11-25 asked for it; estimated (enemy stat augments aren't seen)." },
+  allyAugments: { source: "kit rule", on: true, why: "Augments that act through teammates (wiki text: Empowered By The Faithful and Searing Dawn trigger on allies' hits; Sonic Boom, Windspeaker's Blessing, Empyrean Promise, Spirit Bomb and Wee Woo Wee Woo fire around allies in the fight) break a near-tie when 2+ allies fit (damage dealers, or melee fighters and tanks). Tiebreak only, never past a clearly better card. Archive, within champion: holders' win with vs without such a team -16 to +26 pts, all within noise (8 augments, 10-148 holders), so nothing contradicts it and nothing confirms it (estimated). Nico 2026-11-24 approved ally-aware augments." },
+  fullBuildShop: { source: "kit rule", on: true, why: "With six finished items and the build done: Stat Bonus (750 gold, permanent stat, level 9+) when you can afford it, else the elixir of your damage type (Sorcery for AP, Wrath for AD, Iron for tanks: 500 gold, 3 minutes) when 500-749 gold sits unspent. Permanent beats temporary for 250 more gold; the elixir only spends gold that would idle. Item text (Data Dragon 16.23); estimated, no archive data on consumables. Nico 2026-11-24 asked for elixir and anvil advice." },
+  pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
   // Design choices Nico hasn't picked yet: kept as they were.
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
   swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
@@ -83,7 +100,7 @@ export const RULES: Record<string, Rule> = {
   selfHealWeight: { source: "assumption", on: false, why: "Count self-healers more for Vs healing. Off until tested." },
   wikiModifiers: { source: "assumption", on: false, why: "Weight enemies by the wiki's Mayhem healing/shielding modifiers. Off until tested." },
   itemDamageMix: { source: "assumption", on: false, why: "Enemy damage lean pulled toward their AP/AD items. Off until tested: the lean is the champions' own." },
-  resistAugmentSwaps: { source: "assumption", on: false, why: "Fortified/Mystic Guard/Steadfaster push resist swaps first. Off: no data yet." },
+  resistAugmentSwaps: { source: "kit rule", on: true, why: "Fortified (+25% bonus armor), Mystic Guard (+25% bonus MR) and Steadfaster Presence (+16-32% bonus resists) multiply resist items (26.23 patch notes), so a lit armor/MR swap of that kind comes first. Nico 2026-11-24: kit rules on unless data contradicts (no archive data on these 26.23 augments yet)." },
   // Removed: % penetration when 2+ enemies stack the resist failed its test (the gain is smaller when they stack).
 };
 
@@ -162,7 +179,7 @@ export type Kinds = {
 };
 /** team-fit.json */
 export type Fit = { champions: Record<string, [number, string[]]> };
-export type Enemy = { champ: string; items: number[] };
+export type Enemy = { champ: string; items: number[]; /** Champion level, when the app reads it (breakpoints). */ level?: number };
 export type GameState = {
   champ: string;
   /** Item ids as the game reports them, in inventory slot order (slots 1-6, then the trinket) where the app sorts them. */
@@ -181,6 +198,8 @@ export type GameState = {
   t?: number;
   /** [crit chance (0 to 1), attack speed, ability haste] as the live game reports them, when the app reads them. */
   stats?: number[];
+  /** This game's headliner, once the app knows it ("La Ilusion", "Cafe Cuties"...). */
+  headliner?: string;
 };
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -575,7 +594,21 @@ export function nearTies(picks: Picks, champ: string, offered0: { id: number; sc
  * Among the best card and its near-ties, the one to take if you can't decide (Nico 2026-11-24): more combo potential
  * first (it can grow), else the one fewer players take (more unusual). Null when nothing separates them.
  */
-export function tieBreak(picks: Picks, champ: string, ids: number[], ranked: RankedAugment[]): { id: number; why: string } | null {
+/** Augments that act through teammates (wiki text) and the allies they need (allyAugments). "carry": the ally's own
+ *  hits trigger it (Empowered By The Faithful, Searing Dawn); "melee": it fires around allies in the fight (Sonic Boom,
+ *  Windspeaker's Blessing, Empyrean Promise, Spirit Bomb, Wee Woo Wee Woo). */
+export const ALLY_AUGMENTS: Record<number, "carry" | "melee"> = { 2004: "carry", 1072: "carry", 72: "carry", 1076: "melee", 76: "melee", 1331: "melee", 1095: "melee", 95: "melee", 2104: "melee", 1005: "melee" };
+const CARRY_ARCH = new Set(["Marksman", "Burst", "Artillery", "Battlemage", "Assassin"]);
+const MELEE_ARCH = new Set(["Vanguard", "Warden", "Juggernaut", "Diver", "Skirmisher", "Assassin"]);
+/** Whether this team gives an ally augment what it needs: 2+ allies of that kind. */
+export function allyFit(aug: number, allies: string[], fit: Fit | null): boolean {
+  const need = RULES.allyAugments.on ? ALLY_AUGMENTS[aug] : undefined;
+  if (!need || !fit) return false;
+  const set = need === "carry" ? CARRY_ARCH : MELEE_ARCH;
+  return allies.filter((c) => (fit.champions[keyIn(fit.champions, c) ?? ""]?.[1] ?? []).some((a) => set.has(a))).length >= 2;
+}
+
+export function tieBreak(picks: Picks, champ: string, ids: number[], ranked: RankedAugment[], team?: { allies: string[]; fit: Fit | null }): { id: number; why: string } | null {
   if (ids.length < 2) return null;
   const ck = keyIn(picks.champions, champ);
   const pickRate = new Map((ck ? picks.champions[ck] : []).map(([id, , , , , pr = -1]) => [id, pr]));
@@ -583,6 +616,9 @@ export function tieBreak(picks: Picks, champ: string, ids: number[], ranked: Ran
   if (rows.length < 2) return null;
   const pot = [...rows].sort((a, b) => b.potential - a.potential);
   if (pot[0].potential - pot[1].potential >= 0.05) return { id: pot[0].id, why: "more combo potential" };
+  // an augment that works through teammates, when this team has the teammates for it (allyAugments)
+  const helps = team ? rows.filter((a) => allyFit(a.id, team.allies, team.fit)) : [];
+  if (helps.length === 1) return { id: helps[0].id, why: "your team suits it" };
   const rare = rows.filter((a) => (pickRate.get(a.id) ?? -1) >= 0).sort((a, b) => pickRate.get(a.id)! - pickRate.get(b.id)!);
   if (rare.length >= 2 && pickRate.get(rare[0].id)! < pickRate.get(rare[1].id)! * 0.8) return { id: rare[0].id, why: "fewer players take it" };
   return null;
@@ -712,6 +748,7 @@ export function triggers(k: Kinds, fit: Fit | null, enemies: Enemy[]): Record<st
     "Vs magic damage": magic !== null && magic >= 0.65 ? `Enemy damage is about ${pct(magic)} magic.` : "",
     // Armor cut the share of physical damage taken vs 2+ marksmen (-7 ± 3 pts, placebo -2 ± 1).
     "Vs auto attacks": marksmen >= 2 ? n(marksmen, "are marksmen") : "",
+    "Vs heavy crowd control": RULES.ccCounters.on && count(CATCH) >= 3 ? n(count(CATCH), "lock you down") : "",
   };
   if (!RULES.countTriggers.on) return proven;
   return {
@@ -727,7 +764,16 @@ export function triggers(k: Kinds, fit: Fit | null, enemies: Enemy[]): Record<st
   };
 }
 
-export type LitItem = Situational & { why: string; aug?: boolean; proven?: boolean };
+export type LitItem = Situational & { why: string; aug?: boolean; proven?: boolean; kit?: boolean };
+/** Knight's Vow: you heal 12% of the damage your Worthy ally deals to champions (vowPartner). */
+const KNIGHTS_VOW = 3109;
+/** Champions whose abilities deal damage from the target's maximum health (ability text, Data Dragon 16.23). */
+export const PCT_HEALTH = new Set(["aatrox", "kogmaw", "reksai", "sett", "shen", "sion", "varus", "vayne", "warwick", "zac"]);
+const VOW_OWNERS = new Set(["Warden", "Vanguard", "Juggernaut", "Enchanter", "Catcher"]);
+/** Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn. */
+export const CC_ITEMS = new Set([3111, 3140, 3139, 6035]);
+/** Fortified, Mystic Guard, Steadfaster Presence: what each multiplies. */
+export const RESIST_AUGMENTS: Record<number, string[]> = { 3265: ["armor"], 3264: ["mr"], 3263: ["armor", "mr"] };
 
 /**
  * The champion's situational items checked against this game: each gets the reason it applies now ("" when it
@@ -781,6 +827,9 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
     const id = itemId(it.icon);
     let why = t[it.when ?? ""] || "";
     let proven = false;
+    // tenacity and cleanse items answer heavy CC (ccCounters), whatever situation the item is filed under
+    const kit = RULES.ccCounters.on && !!t["Vs heavy crowd control"] && (CC_ITEMS.has(id) || it.when === "Vs heavy crowd control");
+    if (kit) why = t["Vs heavy crowd control"];
     if (RULES.provenCounters.on) {
       for (const p of PROVEN) {
         const fitsItem = p.items === "armor" ? armor(id) : p.items.includes(id);
@@ -788,7 +837,7 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
         if (p.when === it.when || p.items === "armor") { why = t[p.when]; proven = true; }
       }
     }
-    return { ...it, why, proven };
+    return { ...it, why, proven, kit };
   });
   // Best item first in each group (Nico 2026-11-24: "sort by best at top"); entries without a DeepScore keep their place
   // after the scored ones.
@@ -865,13 +914,37 @@ export function slotCue(
 }
 /** augment -> item -> [build, early, holders, builders, z build, z early]: build = extra share of holders who finish
  *  the item, early = extra share with it as 1st/2nd legendary, both EB-shrunk (tools/augment_item_shift.py, DeepARAM-PC). */
-export const AUGMENT_SHIFT = (augmentShiftData as { pairs: Record<string, Record<string, number[]>> }).pairs;
+/** Lean-in table (data/estimates/augment_lean_in.py): per augment, the items worth building around it (kit stat its text
+ *  scales with + holders build it more, or a measured damage-share gain), whether its own number scales with that stat,
+ *  and pairs where following the pull did clearly worse (z >= 3), which no rule may push. */
+export type LeanIn = { name: string; items: number[]; how: "measured" | "kit" | null; kit: string[]; scaling: boolean; blocked: number[]; blockedVsSquishy?: number[] };
+export const LEAN_IN = (augmentLeanInData as unknown as { pairs: Record<string, LeanIn> }).pairs;
+const SHIFT_ALL = (augmentShiftData as { pairs: Record<string, Record<string, number[]>> }).pairs;
+const dropPairs = (drop: (a: string, i: number) => boolean): Record<string, Record<string, number[]>> =>
+  Object.fromEntries(Object.entries(SHIFT_ALL).map(([a, m]) => [a, Object.fromEntries(Object.entries(m).filter(([i]) => !drop(a, Number(i))))]));
+/** Augment pulls the engine follows against 2+ enemy frontliners: pairs that did clearly worse are out. */
+const SHIFT_VS_FRONT = dropPairs((a, i) => RULES.leanIn.on && !!LEAN_IN[a]?.blocked.includes(i));
+/** Against squishier teams also without pairs that did worse there and aren't contradicted vs 2+ frontliners
+ *  (Dual Wield -> BotRK: Nico 2026-11-24, BotRK is best vs high health). */
+const SHIFT_VS_SQUISHY = dropPairs((a, i) => RULES.leanIn.on && (!!LEAN_IN[a]?.blocked.includes(i) || !!LEAN_IN[a]?.blockedVsSquishy?.includes(i)));
+/** The pulls in use: plan() picks the set for this game's enemy frontline before anything reads it. */
+export let AUGMENT_SHIFT: Record<string, Record<string, number[]>> = SHIFT_VS_SQUISHY;
+/** Enemy frontliners (Warden/Vanguard/Juggernaut) for the pull set. */
+export function shiftTableFor(frontliners: number) {
+  AUGMENT_SHIFT = frontliners >= 2 ? SHIFT_VS_FRONT : SHIFT_VS_SQUISHY;
+}
 /** Path positions an item moves per 1.0 of shrunk early pull (Wooglet's -> Rabadon's 0.52 moves it ~4 places). */
 export const SHIFT_ORDER_GAIN = 8;
 /** augmentRush gates: build-share z, early-buy z, and build-share lift (21 pairs pass on the 2026-11-24 data). */
 export const RUSH_Z_BUILD = 3, RUSH_Z_EARLY = 2, RUSH_LIFT = 0.15;
 /** Shrunk build pull before an item outside your path becomes a swap (10 points more holders build it). */
 export const SHIFT_SWAP_MIN = 0.1;
+/** Converter augments (data/estimates/augment_converters.py): the kind of item the augment re-prices and the items of
+ *  that kind its holders build most; `on` is false if archive players following it did clearly worse. */
+export type Converter = { name: string; kind: string; champs: "ap" | "ad" | null; does: string; items: number[]; on: boolean };
+export const CONVERTERS = (augmentConvertersData as unknown as { pairs: Record<string, Converter> }).pairs;
+/** ADAPt (AD -> AP) and EscAPADe (AP -> AD), both id generations. */
+const TO_AP = new Set([1205, 205]), TO_AD = new Set([1206, 206]);
 /** Measured enough to drop "(estimated)": z >= 4 with 50+ holders. */
 const shiftSure = (v: number[] | undefined, at: 0 | 1) => !!v && Math.abs(v[4 + at]) >= 4 && v[2 + at] >= 50;
 /** Sum of the taken augments' pulls on an item: [build, early, the augment pulling hardest early, sure]. */
@@ -1079,10 +1152,75 @@ export function luckyBuild(champ: OverlayChamp | undefined): NonNullable<Overlay
   return near.sort((a, b) => a.share - b.share)[0] ?? null;
 }
 
+/** Must-have items per champion (mustCore, data/estimates/core_strictness.py): held at game end by 50%+ of players. */
+export const CORE_STRICTNESS = (coreStrictnessData as unknown as { champions: Record<string, { must: number[]; hold: Record<string, number> }> }).champions;
+export function mustHave(champ: string): Set<number> {
+  if (!RULES.mustCore.on) return new Set();
+  const key = keyIn(CORE_STRICTNESS, champ) ?? Object.keys(CORE_STRICTNESS).find((c) => champKey(c) === champKey(champ));
+  return new Set(key ? CORE_STRICTNESS[key].must : []);
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Breakpoints (breakpoints): penetration and %-health picks are worth more against an unusually tanky enemy team
+
+type BreakpointData = { champions: Record<string, number[]>; items: Record<string, number[]>; finished: number[]; avgChampion: number[]; refItems: number[][]; cut: Record<string, number> };
+const BP = breakpointData as unknown as BreakpointData;
+const BP_FINISHED = new Set(BP.finished);
+export type Breakpoint = { id: number; kind: "item" | "augment"; stat: "armor" | "mr" | "hp"; passed: boolean; value: number; threshold: number; why: string; estimated: true };
+/** Item -> the enemy stat it answers and the damage type it's for. */
+const BP_ITEMS: [number, "armor" | "mr" | "hp", "ad" | "ap"][] = [
+  [3036, "armor", "ad"], [3033, "armor", "ad"], [6694, "armor", "ad"], [3071, "armor", "ad"], [3135, "mr", "ap"], [3137, "mr", "ap"],
+  [3153, "hp", "ad"], [3036, "hp", "ad"], [6653, "hp", "ap"], [4637, "hp", "ap"],
+];
+/** Thread the Needle: 18% armor and magic penetration (wiki). */
+const THREAD_THE_NEEDLE = [1084, 84];
+const growStat = (base: number, per: number, lvl: number) => base + per * (lvl - 1) * (0.7025 + 0.0175 * (lvl - 1));
+
+/** The enemy team's average [health, armor, MR] and a typical team's at the same levels and item counts. */
+export function enemyStats(enemies: Enemy[], level = 18): { got: number[]; usual: number[] } | null {
+  const list = enemies.filter((e) => e.champ && BP.champions[champKey(e.champ)]);
+  if (!list.length) return null;
+  const got = [0, 0, 0], usual = [0, 0, 0];
+  for (const e of list) {
+    const c = BP.champions[champKey(e.champ)], lvl = e.level ?? level;
+    const own = e.items.reduce((t, i) => t.map((x, j) => x + (BP.items[String(base(i))]?.[j] ?? 0)), [0, 0, 0]);
+    const n = Math.min(6, e.items.filter((i) => BP_FINISHED.has(base(i))).length);
+    for (let j = 0; j < 3; j++) {
+      got[j] += (growStat(c[j], c[j + 3], lvl) + own[j]) / list.length;
+      usual[j] += (growStat(BP.avgChampion[j], BP.avgChampion[j + 3], lvl) + BP.refItems[n][j]) / list.length;
+    }
+  }
+  return { got, usual };
+}
+
+/** Breakpoint picks for this champion in this game: passed when the enemy stat clears the tanky-game cut. */
+export function breakpoints(enemies: Enemy[], level: number, magic: boolean, known: Set<number>, pool: Set<number>): Breakpoint[] {
+  if (!RULES.breakpoints.on) return [];
+  const st = enemyStats(enemies, level);
+  if (!st) return [];
+  const idx = { hp: 0, armor: 1, mr: 2 } as const;
+  const words = { hp: "health", armor: "armor", mr: "magic resist" } as const;
+  const check = (stat: "armor" | "mr" | "hp") => {
+    const value = Math.round(st.got[idx[stat]]), threshold = Math.round(st.usual[idx[stat]] * BP.cut[stat]);
+    return { value, threshold, passed: value >= threshold, why: `Enemy ${words[stat]} about ${value} (tanky from ${threshold}, usual ${Math.round(st.usual[idx[stat]])})` };
+  };
+  const out: Breakpoint[] = [];
+  for (const [id, stat, type] of BP_ITEMS) {
+    if ((type === "ap") !== magic || !known.has(id)) continue;
+    const c = check(stat);
+    const prev = out.find((b) => b.id === id);
+    if (prev) { if (!prev.passed && c.passed) Object.assign(prev, { stat, ...c }); continue; }
+    out.push({ id, kind: "item", stat, ...c, estimated: true });
+  }
+  const ttn = THREAD_THE_NEEDLE.find((a) => pool.has(a));
+  if (ttn !== undefined) out.push({ id: ttn, kind: "augment", stat: magic ? "mr" : "armor", ...check(magic ? "mr" : "armor"), estimated: true });
+  return out;
+}
+
 // ---------------------------------------------------------------------------------------------------------------
 // The plan
 
-export type Swap = { item: Named; replaces: Named | null; at: number; why: string; kind: "augment" | "proven" };
+export type Swap = { item: Named; replaces: Named | null; at: number; why: string; kind: "augment" | "proven" | "kit" };
 export type Tip = { rank: number; kind: string; text: string; item?: number };
 export type Plan = {
   /** The whole path in buying order: core, then the 4th/5th/6th picks. */
@@ -1112,6 +1250,8 @@ export type Plan = {
   luckyStyle: string | null;
   /** slotFirst: move this owned item to slot 1 before an effect upgrades your first Legendary. */
   slotCue: { item: Named; why: string; estimated: boolean } | null;
+  /** Items and augments whose value grows with enemy armor, magic resist or health, checked against this game. */
+  breakpoints: Breakpoint[];
 };
 
 export type PlanInput = {
@@ -1232,6 +1372,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const rules = itemRules(k);
   const used = new Set<string>();
   const applied = (r: string) => used.add(r);
+  shiftTableFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
   const alt = lucky && !game.items.some((i) => (k?.recipes[base(i)]?.[1] ?? 0) >= 2000) ? luckyBuild(champ0) : null;
   if (alt) applied("luckyTilt");
   const champ1: OverlayChamp | undefined = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
@@ -1344,6 +1485,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // lobbies: build z >= 3, early z >= 2, +15 pts build share, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's
   // -> Zhonya's) puts that item in the core and makes it Next. Smaller pulls only nudge the order (augmentShift).
   const rushed: { item: Named; by: number }[] = [];
+  const converted: { item: Named; by: number; does: string }[] = [];
+  const must = mustHave(game.champ);
   if (RULES.augmentRush.on && k) {
     const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
     for (const a of taken) {
@@ -1359,7 +1502,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const pathAd = build.filter((x) => (k.items[String(itemId(x.icon))] ?? []).includes("ad") && !(k.items[String(itemId(x.icon))] ?? []).includes("ap")).length;
       const wrongType = (t.includes("ap") && !t.includes("ad") && pathAd > pathAp) || (t.includes("ad") && !t.includes("ap") && pathAp > pathAd);
       if (wrongType && !taken.includes(ADAPT)) continue;
-      let at = build.findIndex((it) => itemId(it.icon) === id);
+      const at = build.findIndex((it) => itemId(it.icon) === id);
       const it: Named = at >= 0 ? build[at] : { name: k.recipes[top[0]][0], icon: `${prefix}${220000 + id}.png` };
       if (at >= 0) build.splice(at, 1);
       // it takes the last core place you haven't bought (or the one it can't be built with); boots keep theirs
@@ -1369,12 +1512,53 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
         const drop = [...build.keys()].reverse().find((j) => !owned.has(itemId(build[j].icon)) && !bootIds.has(itemId(build[j].icon)));
         if (drop !== undefined) build.splice(drop, 1);
       }
-      build.splice(Math.min(Math.max(coreLen - 1, 0), build.length), 0, it);
+      // a must-have core item keeps its core place (mustCore): the rush takes the last flexible one, or goes right after
+      const flex = [...build.keys()].slice(0, coreLen).reverse().find((j) => !must.has(itemId(build[j].icon)) && !owned.has(itemId(build[j].icon)) && !bootIds.has(itemId(build[j].icon)));
+      const pos = flex !== undefined ? flex : must.size && build.slice(0, coreLen).some((x) => must.has(itemId(x.icon))) ? coreLen : coreLen - 1;
+      if (flex === undefined && pos === coreLen) applied("mustCore");
+      build.splice(Math.min(Math.max(pos, 0), build.length), 0, it);
       rushed.push({ item: it, by: a });
       applied("augmentRush");
     }
     // the path then follows this re-planned list, not the per-slot picks (they'd list the rushed item twice)
     if (rushed.length) slotRows = null;
+  }
+  // Converters (converterItems): an augment that re-prices a stat (ADAPt, Jeweled Gauntlet, Ethereal Weapon...) puts the
+  // item of that kind its holders build most into the core, if it fits the champion's damage type or a taken ADAPt or
+  // EscAPADe converts it. Not when the build already switched style for it (Ethereal Weapon's on-hit build).
+  if ((RULES.converterItems.on || RULES.leanIn.on) && k && !picked.style) {
+    const magic = (Object.entries(k.champions).find(([a]) => champKey(a) === champKey(game.champ))?.[1] ?? 0.5) > 0.5;
+    const pure = (id: number) => { const t = k.items[String(id)] ?? []; return t.includes("ad") && !t.includes("ap") ? "ad" : t.includes("ap") && !t.includes("ad") ? "ap" : ""; };
+    const toAp = taken.some((a) => TO_AP.has(a)), toAd = taken.some((a) => TO_AD.has(a));
+    const fitsType = (id: number) => { const p0 = pure(id); return !p0 || (p0 === "ap" ? magic || toAd : !magic || toAp); };
+    const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+    const lean = (a: number): Converter | undefined => {
+      const l = RULES.leanIn.on ? LEAN_IN[String(a)] : undefined;
+      if (!l?.scaling || !l.items.length) return undefined;
+      // an item that gives the augment's stat and the champion's damage type first (Lich Brain on a mage: Riftmaker)
+      const own = magic ? "ap" : "ad";
+      const items = [...l.items.filter((i) => pure(i) === own), ...l.items.filter((i) => pure(i) !== own)];
+      const words: Record<string, string> = { Health: "health", Armor: "armor", SpellBlock: "magic resist", AbilityHaste: "ability haste", AttackSpeed: "attack speed", CriticalStrike: "crit", Mana: "mana", ArmorPenetration: "lethality" };
+      return { name: l.name, kind: l.kit.join(", "), champs: null, does: `Scales with ${l.kit.map((t) => words[t]).filter(Boolean).join(" and ") || "it"}`, items, on: true };
+    };
+    for (const a of taken) {
+      const cv = (RULES.converterItems.on ? CONVERTERS[String(a)] : undefined) ?? lean(a);
+      if (!cv?.on || (cv.champs === "ap" && !magic) || (cv.champs === "ad" && magic)) continue;
+      const ids = build.map((it) => itemId(it.icon));
+      // already building one of its items: nothing to add
+      if (cv.items.some((i) => ids.includes(i) || owned.has(i))) continue;
+      const id = cv.items.find((i) => k.recipes[i] && fitsType(i) && ![...owned, ...ids].some((o) => rules.clash(o, i)));
+      if (id === undefined) continue;
+      const it: Named = { name: k.recipes[id][0], icon: `${prefix}${220000 + id}.png` };
+      // it takes the last core place you haven't bought and no other augment claimed; that item moves just past the core
+      const claimed = new Set([...rushed, ...converted].map((r) => r.item));
+      const j = [...build.keys()].slice(0, coreLen).reverse().find((x) => !owned.has(itemId(build[x].icon)) && !bootIds.has(itemId(build[x].icon)) && !claimed.has(build[x]) && !must.has(itemId(build[x].icon)));
+      if (j === undefined && build.slice(0, coreLen).some((x) => must.has(itemId(x.icon)))) { build.splice(Math.min(coreLen, build.length), 0, it); applied("mustCore"); }
+      else if (j === undefined) build.push(it);
+      else { const [moved] = build.splice(j, 1, it); build.splice(Math.min(coreLen, build.length), 0, moved); }
+      converted.push({ item: it, by: a, does: cv.does });
+      applied(CONVERTERS[String(a)] ? "converterItems" : "leanIn");
+    }
   }
   // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA
   // 2026-11-24: "Build done" with plain Boots while the build's Sorcerer's Shoes were still owed).
@@ -1395,9 +1579,15 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const bootsAt = build.findIndex((it) => bootIds.has(itemId(it.icon)));
     const beforeBoots = bootsAt < 0 ? 0 : build.slice(0, bootsAt).filter((it) => !bootIds.has(itemId(it.icon))).length;
     const started = [...owned].some((i) => TIER1_BOOTS.has(i));
-    const passed = (it: Named) => bootIds.has(itemId(it.icon)) ? !started && n > beforeBoots : nonBoot.indexOf(it) < n;
+    // Started boots count as passed once you've bought two legendaries past their place without upgrading them (keeping
+    // basic boots isn't worse: archive +3.7 +- 2.5 pts vs upgraded, BOOTS test 2026-11-24).
+    const passed = (it: Named) => bootIds.has(itemId(it.icon)) ? (started ? n > beforeBoots + 1 : n > beforeBoots) : nonBoot.indexOf(it) < n;
     const skipped = next.filter(passed);
-    if (skipped.length && skipped.length < next.length) { next = [...next.filter((it) => !skipped.includes(it)), ...skipped]; applied("ownedReplan"); }
+    // passed boots always go behind passed legendaries, even when everything left was passed (replay QA: Janna's Ionian
+    // Boots stayed Next 5:00-15:00 at 3,000+ gold)
+    const order0 = [...skipped.filter((it) => !bootIds.has(itemId(it.icon))), ...skipped.filter((it) => bootIds.has(itemId(it.icon)))];
+    if (skipped.length && skipped.length < next.length) { next = [...next.filter((it) => !skipped.includes(it)), ...order0]; applied("ownedReplan"); }
+    else if (skipped.length && order0.some((it, i) => it !== next[i])) { next = order0; applied("ownedReplan"); }
   }
   const timing: { item: Named; because: string }[] = [];
   const augName = (id: number) => picks?.augments[id]?.[0] ?? `#${id}`;
@@ -1411,6 +1601,10 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   if (RULES.destinyFirst.on && taken.includes(WEAPON_OF_DESTINY) && !finished && champ?.destiny) {
     const idx = next.findIndex((it) => itemId(it.icon) === itemId(champ.destiny!.icon));
     if (idx >= 0) { front(idx, `${augName(WEAPON_OF_DESTINY)}: your first legendary becomes the Weapon`); applied("destinyFirst"); }
+  }
+  for (const c of [...converted].reverse()) {
+    const idx = next.findIndex((it) => itemId(it.icon) === itemId(c.item.icon));
+    if (idx >= 0 && !timing.some((t) => t.item === next[idx])) front(idx, `${augName(c.by)}: ${c.does.replace(/\.$/, "").toLowerCase()}`);
   }
   for (const r of [...rushed].reverse()) {
     const idx = next.findIndex((it) => itemId(it.icon) === itemId(r.item.icon));
@@ -1447,12 +1641,47 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const has = (it: Named, kind: string) => (k?.items[String(itemId(it.icon))] ?? []).includes(kind);
   const nearCap = RULES.attackSpeedNudge.on && aspd >= 4.5;
   if (nearCap) { next = [...next.filter((it) => !has(it, "as")), ...next.filter((it) => has(it, "as"))]; applied("attackSpeedNudge"); }
+  const order = new Map(next.map((it, i) => [itemId(it.icon), i]));
   next = next.slice(0, 2);
 
   // Path: the core, then the 4th/5th/6th picks (or the rest of the build).
-  const coreItems = build.slice(0, coreLen);
-  const rest = (slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6)).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
-  const path = [...coreItems, ...rest];
+  let coreItems = build.slice(0, coreLen);
+  let rest = (slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6)).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
+  // Core items an augment pushed out of the core (augmentRush, converterItems) stay in the path right after the core
+  // rather than vanishing; the path keeps six items, dropping unbought ones from the end, never one you own.
+  const inPath0 = new Set([...coreItems, ...rest].map((it) => itemId(it.icon)));
+  // ...and so do items an augment added right after a core of must-haves (mustCore)
+  const pushed = [...(champ?.items ?? []), ...[...rushed, ...converted].map((r) => r.item)]
+    .filter((it, i, a) => !inPath0.has(itemId(it.icon)) && !isOwned(it) && build.some((b) => itemId(b.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
+  const path = [...coreItems, ...pushed, ...rest];
+  while (path.length > 6) {
+    const j = [...path.keys()].reverse().find((x) => x >= coreItems.length && !isOwned(path[x]));
+    if (j === undefined) break;
+    path.splice(j, 1);
+  }
+  rest = path.slice(coreItems.length);
+  // The path's unbought places follow Next's order (pathOrder): owned items keep their places, the rest are re-sorted
+  // among the open places, so an augment's pull or rush shows in the path, not only in Next.
+  if (RULES.pathOrder.on) {
+    // boots keep their place: their Next timing moves with what you buy, which would make the path flicker
+    const fixed = (it: Named) => isOwned(it) || bootIds.has(itemId(it.icon));
+    const open0 = path.map((it, i) => (fixed(it) ? -1 : i)).filter((i) => i >= 0);
+    const at = (it: Named) => order.get(itemId(it.icon)) ?? Infinity;
+    const sorted = open0.map((i) => path[i]).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+    // with an augment, must-have items you haven't bought stay core (mustCore): when its rush or pull sorts ahead of
+    // them, or its build put them after the core, the core grows to hold them (no augment: the site card's core)
+    const mustIn = taken.length ? path.filter((it) => must.has(itemId(it.icon)) && !isOwned(it)) : [];
+    if (sorted.some((it, n) => it !== path[open0[n]])) {
+      open0.forEach((i, n) => { path[i] = sorted[n]; });
+      applied("pathOrder");
+    }
+    coreItems = path.slice(0, Math.max(coreItems.length, ...mustIn.map((it) => path.indexOf(it) + 1)));
+    rest = path.slice(coreItems.length);
+    // Next is the path's first unbought items, so it never names an item the path doesn't show
+    const fromPath = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+    // (empty when you own the whole path: an item the path can't fit isn't Next; full-build advice takes over)
+    next = fromPath.slice(0, 2);
+  }
   const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
   const slotName = (i: number) => ord(slotRows?.[i]?.slot ?? first + i);
 
@@ -1460,6 +1689,24 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // pointers.
   const inPath = new Set(path.map((it) => itemId(it.icon)));
   const all = k ? situational(champ, k, fit, game.enemies ?? [], taken, owned, augName) : [];
+  // Headliners that feed one situation (headlinerItems): candle shields (La Ilusion) and stronger health relics (Cafe
+  // Cuties) light the champion's own anti-shield / anti-heal pick as a pointer, never a swap.
+  const hlWhy: Record<string, [string, string]> = { lailusion: ["Vs shields", "La Ilusion: candles shield the enemy team."], cafecuties: ["Vs healing", "Cafe Cuties: health relics heal more."] };
+  const hl = RULES.headlinerItems.on ? hlWhy[headlinerKey(game.headliner)] : undefined;
+  if (hl) for (const it of all) if (it.when === hl[0] && !it.why) { it.why = hl[1]; applied("headlinerItems"); }
+  // Knight's Vow (vowPartner): a frontliner or enchanter heals off an ally who shreds the enemy's frontline
+  if (RULES.vowPartner.on && k?.recipes[KNIGHTS_VOW] && !inPath.has(KNIGHTS_VOW) && !owned.has(KNIGHTS_VOW)) {
+    const arch = (c: string) => fit?.champions?.[keyIn(fit.champions, c) ?? ""]?.[1] ?? [];
+    const front = (game.enemies ?? []).filter((e) => arch(e.champ).some((a) => TANKY.has(a))).length;
+    const allies = arch(game.champ).some((a) => VOW_OWNERS.has(a)) && front >= 2 ? game.allies ?? [] : [];
+    const ally = allies.find((a) => PCT_HEALTH.has(champKey(a.champ))) ?? allies.find((a) => arch(a.champ).includes("Marksman"));
+    const prefix = (path.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+    const why = `Pledge to ${ally?.champ}: you heal 12% of their damage, and they hit ${front} frontliners hard.`;
+    // the champion's own Knight's Vow entry, if it has one, takes the pledge reason unless another rule already lit it
+    const own = all.find((x) => itemId(x.icon) === KNIGHTS_VOW);
+    if (ally && own && !own.why) Object.assign(own, { why, kit: true });
+    else if (ally && !own) all.unshift({ name: k.recipes[KNIGHTS_VOW][0], icon: `${prefix}${220000 + KNIGHTS_VOW}.png`, when: "Pledge", kit: true, why });
+  }
   const reason = (it: Named) => all.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
   const lit = path.map((it) => ({ item: it, why: reason(it)?.why ?? "" })).filter((x) => x.why);
   const open = rest.filter((it) => !isOwned(it) && it !== next[0]);
@@ -1480,7 +1727,12 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const swaps: Swap[] = [];
   const pointers: Plan["pointers"] = [];
   const claimed = new Set<Named>();
-  for (const it of all.filter((x) => x.why && !inPath.has(itemId(x.icon)))) {
+  // a resist-multiplying augment you took puts lit swaps of that resist first (resistAugmentSwaps)
+  const resists = RULES.resistAugmentSwaps.on ? taken.flatMap((a) => RESIST_AUGMENTS[a] ?? []) : [];
+  const boosted = (x: LitItem) => resists.some((r) => (k?.items[String(itemId(x.icon))] ?? []).includes(r));
+  const candidates = all.filter((x) => x.why && !inPath.has(itemId(x.icon)));
+  if (resists.length && candidates.some(boosted)) applied("resistAugmentSwaps");
+  for (const it of [...candidates.filter((x) => x.why && boosted(x)), ...candidates.filter((x) => !boosted(x))]) {
     const id = itemId(it.icon);
     // never alongside an item you own that it can't be owned with
     const ownedClash = [...owned].find((o) => rules.clash(o, id));
@@ -1489,11 +1741,12 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     if (ownedClash !== undefined && !path.some((p) => itemId(p.icon) === ownedClash && !isOwned(p))) {
       continue;
     }
-    if ((it.aug || it.proven) && swaps.length < 2) {
+    if ((it.aug || it.proven || it.kit) && swaps.length < 2) {
       const r = target(id, claimed);
       if (r) claimed.add(r);
-      swaps.push({ item: it, replaces: r, at: r ? rest.indexOf(r) : -1, why: it.why, kind: it.aug ? "augment" : "proven" });
+      swaps.push({ item: it, replaces: r, at: r ? rest.indexOf(r) : -1, why: it.why, kind: it.aug ? "augment" : it.proven ? "proven" : "kit" });
       if (it.proven) applied("provenCounters");
+      if (it.kit && !it.proven) applied(id === KNIGHTS_VOW ? "vowPartner" : "ccCounters");
     } else if (pointers.length < 1) {
       pointers.push({ item: it, why: it.why, replaces: target(id, claimed) });
     }
@@ -1539,7 +1792,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   else if (RULES.hasteMath.on && haste >= 100 && next[0] && has(next[0], "haste"))
     tips.push({ rank: 3, kind: "haste", text: `You have ${Math.round(haste)} ability haste: cooldowns are ${Math.round((haste / (100 + haste)) * 100)}% shorter.` });
   if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
-  for (const t of timing.slice(0, 1)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
+  for (const t of [timing.find((x) => next[0] && x.item === next[0]) ?? timing[0]].filter(Boolean)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
   if (RULES.shopTips.on && k && next.length) {
     const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
     // upgrading boots you started takes no new slot: never sell for them (Neeko / Kai'Sa: sell a legendary for Sorcerer's Shoes)
@@ -1552,6 +1805,40 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
         tips.push({ rank: 3, kind: "sell", item: sell, text: `Full build: sell ${k.recipes[sell][0]} for ${next[0].name}.` });
     }
   }
+  // Full build (fullBuildShop): spend idle gold on a permanent Stat Bonus, else your damage type's elixir.
+  if (RULES.fullBuildShop.on && k && shop && !next.length) {
+    const fullSlots = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i)).length >= 5;
+    const gold = game.gold ?? 0;
+    if (fullSlots && gold >= 750 && (game.level ?? 0) >= 9) {
+      tips.push({ rank: 2, kind: "anvil", item: STAT_BONUS, text: "Build done: buy a Stat Bonus (permanent stat)." });
+      applied("fullBuildShop");
+    } else if (fullSlots && gold >= 500) {
+      const magic = (Object.entries(k.champions).find(([a]) => champKey(a) === champKey(game.champ))?.[1] ?? 0.5) > 0.5;
+      const tank = build.filter((it) => { const t = k.items[String(itemId(it.icon))] ?? []; return (t.includes("armor") || t.includes("mr")) && !t.includes("ad") && !t.includes("ap"); }).length >= 3;
+      const elixir = tank ? 2138 : magic ? 2139 : 2140;
+      tips.push({ rank: 2, kind: "elixir", item: elixir, text: `Build done: buy ${k.recipes[elixir]?.[0] ?? "an elixir"} (3 minutes).` });
+      applied("fullBuildShop");
+    }
+  }
+  // Sell pushback (sellMismatch): exactly one finished item of the other damage type than the champion's own build,
+  // and selling it (70%) plus your gold buys the next path item now.
+  if (RULES.sellMismatch.on && k && next[0] && !picked.style && !tips.some((t) => t.kind === "sell")) {
+    const pure = (id: number) => { const t = k.items[String(id)] ?? []; return t.includes("ad") && !t.includes("ap") ? "ad" : t.includes("ap") && !t.includes("ad") ? "ap" : ""; };
+    // the champion's type only when every build style's core agrees (Volibear's Riftmaker builds make him neither)
+    const cores = [champ0?.items ?? [], ...(champ0?.builds ?? []).map((b) => b.items ?? [])];
+    const own0 = cores.flat().map((it) => pure(itemId(it.icon))).filter(Boolean);
+    const type = own0.length && own0.every((t) => t === own0[0]) ? own0[0] : "";
+    // and never an item the champion's own data lists anywhere (Statikk Shiv on Teemo)
+    const lists = [champ0, ...(champ0?.builds ?? [])].flatMap((b) => [...(b?.items ?? []), ...(b?.rest ?? []), ...(b?.full ?? []), ...(b?.later ?? []), ...(b?.laterSlots ?? []).flatMap((x) => x.items)]);
+    const known = new Set(lists.map((it) => itemId(it.icon)));
+    const converts = taken.some((a) => (type === "ap" ? TO_AP : TO_AD).has(a));
+    const off = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i) && type && pure(i) && pure(i) !== type && !known.has(i));
+    const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
+    if (type && !converts && off.length === 1 && pure(itemId(next[0].icon)) !== pure(off[0]) && (game.gold ?? 0) + Math.round((k.recipes[off[0]]?.[1] ?? 0) * 0.7) >= cost) {
+      tips.push({ rank: 2, kind: "sell", item: off[0], text: `Sell ${k.recipes[off[0]][0]} for ${next[0].name}: it doesn't fit this build.` });
+      applied("sellMismatch");
+    }
+  }
   tips.sort((x, y) => x.rank - y.rank);
 
   const reasons = path.map((it) => {
@@ -1560,9 +1847,20 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     return r;
   });
   const baseNext = baseList.find((it) => !isOwned(it)) ?? null;
+  const bp = (() => {
+    if (!k) return [];
+    const magic = (Object.entries(k.champions).find(([a]) => champKey(a) === champKey(game.champ))?.[1] ?? 0.5) > 0.5;
+    const known = new Set([...(champ0?.items ?? []), ...(champ0?.rest ?? []), ...(champ0?.full ?? []), ...(champ0?.situational ?? []),
+      ...(champ0?.laterSlots ?? []).flatMap((r) => r.items), ...path].map((it) => itemId(it.icon)));
+    const ck = picks ? keyIn(picks.champions, game.champ) : undefined;
+    const pool = new Set((ck && picks ? picks.champions[ck] : []).map((r) => r[0]));
+    const list = breakpoints(game.enemies ?? [], game.level ?? 18, magic, known, pool);
+    if (list.some((b) => b.passed)) applied("breakpoints");
+    return list;
+  })();
   return {
     path,
-    coreLen,
+    coreLen: coreItems.length,
     next,
     why,
     lit,
@@ -1578,6 +1876,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     rules: [...used],
     reasons,
     luckyStyle: alt?.style ?? null,
+    breakpoints: bp,
     slotCue: (() => {
       const c = slotCue(game, taken, path, champ?.destiny ? itemId(champ.destiny.icon) : null, k, augName);
       if (!c) return null;

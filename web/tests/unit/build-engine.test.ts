@@ -5,6 +5,11 @@ import { describe, expect, it } from "vitest";
 import { GET as overlayGET } from "@/app/data/overlay.json/route";
 import { GET as kindsGET } from "@/app/data/damage-types.json/route";
 import { GET as picksGET } from "@/app/data/augment-picks.json/route";
+
+// The real data feeds are built once per file: rebuilding them in every test made the file run 70 s on CI, long enough
+// for the vitest worker to time out reporting results.
+const once = (get: () => Response) => { let p: Promise<unknown> | null = null; return () => (p ??= get().json()); };
+const overlayJSON = once(overlayGET), kindsJSON = once(kindsGET), picksJSON = once(picksGET);
 import {
   itemId,
   itemRules,
@@ -36,7 +41,11 @@ import {
   type OverlayChamp,
   type Picks,
   shiftOf,
+  breakpoints,
+  mustHave,
   AUGMENT_SHIFT,
+  CONVERTERS,
+  LEAN_IN,
   RUSH_Z_BUILD,
   RUSH_Z_EARLY,
   RUSH_LIFT,
@@ -93,11 +102,41 @@ describe("build engine", () => {
   });
 
   it("keeps assumption rules off (Nico 2026-11-23: apply defaults, then test)", () => {
-    for (const r of ["upgradeNext", "augmentReplan", "countTriggers", "stackingFirst", "attackSpeedNudge", "selfHealWeight", "wikiModifiers", "resistAugmentSwaps"])
+    for (const r of ["upgradeNext", "augmentReplan", "countTriggers", "stackingFirst", "attackSpeedNudge", "selfHealWeight", "wikiModifiers"])
       expect(RULES[r].on, r).toBe(false);
     for (const [name, r] of Object.entries(RULES)) if (r.on && r.source === "assumption") expect(r.why, name).toMatch(/Nico (decides|approved)/);
     // only the triggers that passed a test
-    expect(Object.keys(triggers(kinds, fit, game(["Lux", "Brand", "Annie"]).enemies))).toEqual(["Vs magic damage", "Vs auto attacks"]);
+    expect(Object.keys(triggers(kinds, fit, game(["Lux", "Brand", "Annie"]).enemies))).toEqual(["Vs magic damage", "Vs auto attacks", "Vs heavy crowd control"]);
+  });
+
+  it("3+ enemies built to lock you down make a tenacity or cleanse item a swap (ccCounters)", () => {
+    const f: Fit = { champions: { ...fit.champions, Leona: [0, ["Vanguard"]], Nautilus: [0, ["Vanguard"]], Blitzcrank: [0, ["Catcher"]] } };
+    const c = { ...champ, situational: [...champ.situational!, item(3140, { when: "Vs healing" })] };
+    const cc = plan({ champ: c, kinds, picks, fit: f, game: game(["Leona", "Nautilus", "Blitzcrank"]), taken: [] });
+    expect(cc.swaps.map((s) => [itemId(s.item.icon), s.kind])).toEqual([[3140, "kit"]]);
+    expect(cc.rules).toContain("ccCounters");
+    // two catchers aren't heavy crowd control
+    expect(plan({ champ: c, kinds, picks, fit: f, game: game(["Leona", "Nautilus", "Jinx"]), taken: [] }).swaps).toEqual([]);
+  });
+
+  it("a resist-multiplying augment puts the swap of that resist first (resistAugmentSwaps)", () => {
+    const f: Fit = { champions: { ...fit.champions, Leona: [0, ["Vanguard"]], Nautilus: [0, ["Vanguard"]], Blitzcrank: [0, ["Catcher"]] } };
+    const k2 = { ...kinds, items: { ...kinds.items, "3140": ["mr"], "3302": ["armor"] } };
+    const c = { ...champ, situational: [item(3140, { when: "Vs heavy crowd control" }), item(3302, { when: "Vs auto attacks" })] };
+    const swaps = (taken: number[]) => plan({ champ: c, kinds: k2, picks, fit: f, game: game(["Leona", "Nautilus", "Blitzcrank", "Jinx", "Ashe"]), taken }).swaps.map((s) => itemId(s.item.icon));
+    expect(swaps([])).toEqual([3140, 3302]);
+    expect(swaps([3265])).toEqual([3302, 3140]); // Fortified: armor first
+  });
+
+  it("at full build, spends idle gold on a Stat Bonus, else the elixir of your damage type (fullBuildShop)", () => {
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, "2138": ["Elixir of Iron", 500, []], "2139": ["Elixir of Sorcery", 500, []], "2140": ["Elixir of Wrath", 500, []] } } as Kinds;
+    const full = [3006, 3031, 3046, 3036, 3094, 6333];
+    const shop = (gold: number, level: number, items = full) => plan({ champ, kinds: k2, picks, fit, game: { champ: "Ashe", items, gold, level, dead: true }, taken: [] }).tips.filter((t) => t.kind === "anvil" || t.kind === "elixir").map((t) => t.item);
+    expect(shop(800, 12)).toEqual([220000]);
+    expect(shop(800, 8)).toEqual([2140]); // Stat Bonus needs level 9; Ashe is AD
+    expect(shop(600, 12)).toEqual([2140]);
+    expect(shop(400, 12)).toEqual([]);
+    expect(shop(800, 12, full.slice(0, 4))).toEqual([]); // build not done
   });
 
   it("lists situational items best DeepScore first (Nico 2026-11-24)", () => {
@@ -180,15 +219,27 @@ describe("build engine", () => {
 
   it("puts a finished item you own off the path into the first open later slot", () => {
     const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3031, 3075] }), taken: [] });
-    expect(ids(p.path)).toEqual([3006, 3031, 3046, 3075, 3094, 6333]);
+    // owned items keep their places; the open ones follow Next's order (pathOrder), so the skipped 3rd item is last
+    expect(ids(p.path)).toEqual([3006, 3031, 3094, 3075, 6333, 3046]);
     // Thornmail took the 3rd item's place: that one moves behind the rest (ownedReplan)
     expect(ids(p.next)[0]).toBe(3094);
   });
 
   it("plain Boots don't fill the build's boots: the build's boots stay next", () => {
     const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
-    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3046] }), taken: [] });
+    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031] }), taken: [] });
     expect(ids(p.next)).toContain(3006);
+    // two legendaries bought past them without the upgrade: the boots move behind (replay QA), still in the path
+    const p2 = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3046] }), taken: [] });
+    expect(ids(p2.next)).not.toContain(3006);
+    expect(ids(p2.path)).toContain(3006);
+  });
+
+  it("passed boots go behind passed legendaries even when everything left was passed (Janna's Ionian Boots)", () => {
+    const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
+    // owns the 1st, 5th and 6th items: the 2nd (boots), 3rd and 4th were all passed
+    const p = plan({ champ: { ...champ, items: [item(3031), item(3006), item(3046)] }, kinds: k2, picks, fit, game: game([], { items: [3031, 3094, 6333] }), taken: [] });
+    expect(ids(p.next)[0]).not.toBe(3006);
   });
 
   it("off-path buys re-plan: an item you skip stops being Next; an off-path buy takes one slot, not the whole path", () => {
@@ -237,6 +288,109 @@ describe("build engine", () => {
     expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets), 1205] }).path)).toContain(3157);
   });
 
+  it("a converter augment puts the item it re-prices into the core, if the damage type fits (converterItems)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const ori = champs.find((x) => x.id === "Orianna")!;
+    const run = (taken: number[], items: number[] = []) => plan({ champ: ori, kinds: k, picks: p0, fit: null, game: { champ: "Orianna", items }, taken });
+    // the core plus the place right after it (mustCore: a converter item goes there when every core item is a must-have)
+    const core = (taken: number[]) => { const p = run(taken); return p.path.slice(0, p.coreLen + 2).map((x) => itemId(x.icon)); };
+    // ADAPt: AD items turn into AP, so the AD item ADAPt holders build most joins Orianna's core
+    expect(core([1205]).some((i) => CONVERTERS["1205"].items.includes(i))).toBe(true);
+    expect(run([1205]).rules).toContain("converterItems");
+    // Jeweled Gauntlet alone: Infinity Edge is an AD item, wasted on an AP build without ADAPt
+    expect(core([1048])).not.toContain(3031);
+    expect(core([1048, 1205])).toEqual(expect.arrayContaining([3031]));
+    // both converter items stay in the core
+    expect(core([1048, 1205]).filter((i) => CONVERTERS["1205"].items.includes(i) || i === 3031)).toHaveLength(2);
+    // nothing changes without a converter, and owned items never move
+    expect(run([]).rules).not.toContain("converterItems");
+  }, 30_000);
+
+  it("an augment whose number grows with a stat puts an item with that stat and the champion's damage type in the core (leanIn)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const lich = Object.entries(LEAN_IN).find(([, v]) => v.name === "Lich Brain")!;
+    expect(lich[1].scaling).toBe(true);
+    for (const id of ["Lux", "Ahri"]) {
+      const p = plan({ champ: champs.find((x) => x.id === id)!, kinds: k, picks: p0, fit: null, game: { champ: id, items: [] }, taken: [Number(lich[0])] });
+      // Riftmaker (health and AP) in the core, or right after it when the core is all must-haves (mustCore)
+      expect(p.path.slice(0, p.coreLen + 1).map((x) => itemId(x.icon))).toContain(4633);
+      expect(p.rules).toContain("leanIn");
+    }
+    // pairs that did clearly worse are out of every pull
+    for (const [a, v] of Object.entries(LEAN_IN)) for (const i of v.blocked) expect(AUGMENT_SHIFT[a]?.[String(i)]).toBeUndefined();
+  }, 30_000);
+
+  it("a pair that did worse only vs squishy teams keeps its pull vs 2+ enemy frontliners (Dual Wield -> BotRK)", () => {
+    const dw = Object.entries(LEAN_IN).find(([a, v]) => v.name === "Dual Wield" && v.blockedVsSquishy?.includes(3153) && a === "1225")!;
+    expect(dw).toBeDefined();
+    const f: Fit = { champions: { ...fit.champions, Leona: [0, ["Vanguard"]], Ornn: [0, ["Vanguard"]] } };
+    plan({ champ, kinds, picks, fit: f, game: game(["Lux", "Brand"]), taken: [] });
+    expect(AUGMENT_SHIFT[dw[0]]?.["3153"]).toBeUndefined();
+    plan({ champ, kinds, picks, fit: f, game: game(["Leona", "Ornn"]), taken: [] });
+    expect(AUGMENT_SHIFT[dw[0]]?.["3153"]).toBeDefined();
+  });
+
+  it("a headliner that feeds one situation lights that item as a pointer, not a swap (headlinerItems)", () => {
+    const p = plan({ champ, kinds, picks, fit, game: game([], { headliner: "Cafe Cuties" }), taken: [] });
+    expect(p.pointers.map((x) => itemId(x.item.icon))).toEqual([3003]);
+    expect(p.swaps).toEqual([]);
+    expect(plan({ champ, kinds, picks, fit, game: game([]), taken: [] }).pointers).toEqual([]);
+  });
+
+  it("an augment's item takes a flexible core place, never a must-have one (mustCore)", () => {
+    const must = mustHave("Aphelios");
+    expect([...must]).toEqual(expect.arrayContaining([6676, 3031]));
+    expect(mustHave("Irelia").has(3153)).toBe(true);
+  });
+
+  it("lights penetration and %-health picks when the enemy team is unusually tanky (breakpoints)", () => {
+    const squishy = ["Lux", "Jinx", "Ahri", "Zed", "Ezreal"].map((c) => ({ champ: c, items: [3089, 3031], level: 14 }));
+    const tanky = ["Ornn", "Malphite", "Rammus", "Sion", "Leona"].map((c) => ({ champ: c, items: [3075, 3143, 3110], level: 14 }));
+    const known = new Set([3036, 3153, 3135]);
+    const ad = (e: typeof squishy) => breakpoints(e, 14, false, known, new Set([1084]));
+    expect(ad(squishy).filter((b) => b.passed)).toEqual([]);
+    const lit = ad(tanky).filter((b) => b.passed).map((b) => [b.id, b.stat]);
+    expect(lit).toEqual(expect.arrayContaining([[3036, "armor"], [1084, "armor"]]));
+    expect(ad(tanky).some((b) => b.id === 3135)).toBe(false); // Void Staff is for AP champions
+    // the plan carries them
+    const p = plan({ champ: { ...champ, situational: [...champ.situational!, item(3036)] }, kinds, picks, fit, game: { ...game([]), enemies: tanky }, taken: [] });
+    expect(p.breakpoints.some((b) => b.id === 3036 && b.passed)).toBe(true);
+  });
+
+  it("a frontliner pledges Knight's Vow to an ally who shreds 2+ enemy frontliners (vowPartner)", () => {
+    const f: Fit = { champions: { ...fit.champions, Braum: [0, ["Warden"]], Leona: [0, ["Vanguard"]], Ornn: [0, ["Vanguard"]], Vayne: [0, ["Marksman"]] } };
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, "3109": ["Knight's Vow", 2300, []] } } as Kinds;
+    const vow = (allies: string[], enemies: string[]) =>
+      plan({ champ: { ...champ, id: "Braum" }, kinds: k2, picks, fit: f, game: { ...game(enemies), champ: "Braum", allies: allies.map((c) => ({ champ: c, level: 10 })) }, taken: [] }).swaps.filter((s) => itemId(s.item.icon) === 3109);
+    expect(vow(["Lux", "Vayne"], ["Leona", "Ornn"])).toEqual([expect.objectContaining({ kind: "kit", why: expect.stringContaining("Vayne") })]);
+    expect(vow(["Lux", "Vayne"], ["Leona", "Lux"])).toEqual([]); // one frontliner
+    expect(vow(["Lux", "Brand"], ["Leona", "Ornn"])).toEqual([]); // no one to pledge to
+  });
+
+  it("the path's unbought places follow Next's order (pathOrder)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    for (const [id, aug] of [["Ahri", 3150], ["Lux", 2018], ["Orianna", 1205]] as const) {
+      const p = plan({ champ: champs.find((x) => x.id === id)!, kinds: k, picks: p0, fit: null, game: { champ: id, items: [] }, taken: [aug] });
+      expect(itemId(p.path[0].icon)).toBe(itemId(p.next[0].icon));
+      expect(new Set(p.path.map((x) => itemId(x.icon))).size).toBe(p.path.length);
+    }
+  }, 30_000);
+
+  it("pushes back with a sell tip on one item of the other damage type, when selling buys the next item (sellMismatch)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const ori = champs.find((x) => x.id === "Orianna")!;
+    const sell = (items: number[], gold: number, taken: number[] = []) =>
+      plan({ champ: ori, kinds: k, picks: p0, fit: null, game: { champ: "Orianna", items, gold, t: 30 }, taken }).tips.filter((t) => t.kind === "sell");
+    expect(sell([3020, 3031], 3000)).toEqual([expect.objectContaining({ item: 3031 })]);
+    expect(sell([3020, 3031], 0)).toHaveLength(0); // 70% of Infinity Edge alone doesn't buy the next legendary
+    expect(sell([3031], 3000, [1205])).toHaveLength(0); // ADAPt turns its AD into AP
+    expect(sell([3089], 3000)).toHaveLength(0); // on-type item
+  }, 30_000);
+
   it("a rushed item that a later slot also lists shows once (Kai'Sa / Orianna with Upgrade Stormsurge)", () => {
     const [aug, id] = Object.entries(AUGMENT_SHIFT).flatMap(([a, m]) => Object.entries(m).filter(([, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT).map(([i]) => [Number(a), Number(i)]))[0];
     const k2 = { ...kinds, recipes: { ...kinds.recipes, [String(id)]: [`#${id}`, 3000, []] } } as Kinds;
@@ -249,7 +403,8 @@ describe("build engine", () => {
   it("never says sell a legendary to upgrade boots you started", () => {
     const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
     const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3036, 3094, 6333, 3075], gold: 5000, dead: true }), taken: [] });
-    expect(p.tips.some((t) => t.kind === "sell")).toBe(false);
+    // a sell tip may free a slot for a legendary (Thornmail for #3046), never for the boots upgrade
+    expect(p.tips.some((t) => t.kind === "sell" && t.text.includes("#3006"))).toBe(false);
   });
 
   it("never shows an item twice in the path", () => {
@@ -390,7 +545,7 @@ describe("build engine", () => {
     expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [1029] }).rules).toContain("augmentSkills");
     // Gwen's live order is E>Q>W in every game (Nico 2026-11-24, lib/augment-skills.ts CHAMPION_SKILLS), in every
     // build style, so her Ethereal Weapon entry is gone.
-    const gwen = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Gwen");
+    const gwen = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Gwen");
     expect(gwen?.skills).toEqual(["E", "Q", "W"]);
     expect(gwen?.augmentSkills).toBeUndefined();
     for (const b of (gwen as unknown as { builds: { skills: string[] }[] }).builds) expect(b.skills).toEqual(["E", "Q", "W"]);
@@ -398,7 +553,7 @@ describe("build engine", () => {
   }, 30_000);
 
   it("switches the start to the first augment's own (Upgrade Stormsurge: Hextech Alternator on Ahri)", async () => {
-    const ahri = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Ahri");
+    const ahri = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Ahri");
     const storm = ahri?.augmentStarts?.find((a) => a.augment === 3150);
     expect(storm?.start.map((s) => s.name)).toContain("Hextech Alternator");
     expect(startFor(ahri, [3150]).start.map((s) => s.name)).toContain("Hextech Alternator");
@@ -420,8 +575,8 @@ describe("build engine", () => {
   });
 
   it("spends extra gold on the first item's parts, or on the item the first augment leads to", async () => {
-    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
-    const k = (await kindsGET().json()) as Kinds;
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds;
     const names = (c: OverlayChamp | undefined, taken: number[], gold?: number) => startFor(c, taken, gold, k).start.map((s) => s.name);
     const ahri = champs.find((x) => x.id === "Ahri");
     // Normal gold: nothing changes.
@@ -507,6 +662,14 @@ describe("build engine", () => {
     expect(tieBreak(p, "Ashe", [1, 2], ranked.map((a) => ({ ...a, potential: 0 })))).toEqual({ id: 2, why: "fewer players take it" });
   });
 
+  it("an augment that works through teammates breaks a near-tie when the team has them (allyAugments)", () => {
+    const ranked = [{ id: 1, score: 5, boost: 5, potential: 0, combo: null, mate: null, deep: 50 }, { id: 1076, score: 4.9, boost: 4.9, potential: 0, combo: null, mate: null, deep: 50 }];
+    const p: Picks = { ...picks, champions: { Ashe: [[1, 0.05, 50, 1, 0.5, 0.05], [1076, 0.049, 50, 1, 0.5, 0.2]] } };
+    const f: Fit = { champions: { Leona: [0, ["Vanguard"]], Darius: [0, ["Juggernaut"]], Lux: [0, ["Burst"]], Jinx: [0, ["Marksman"]] } };
+    expect(tieBreak(p, "Ashe", [1, 1076], ranked, { allies: ["Leona", "Darius", "Lux"], fit: f })).toEqual({ id: 1076, why: "your team suits it" }); // Sonic Boom, 2 melee
+    expect(tieBreak(p, "Ashe", [1, 1076], ranked, { allies: ["Leona", "Jinx", "Lux"], fit: f })).toEqual({ id: 1, why: "fewer players take it" });
+  });
+
   it("calls cards within noise of the best a near-tie (engine scorecard)", () => {
     const p: Picks = { ...picks, champions: { Ashe: [[1, 0.05, 50, 1, 0.5], [2, 0.045, 50, 1, 0.5], [3, 0.03, 50, 1, 0.5], [4, 0.049, 50, 0, -1]] } };
     // 5.0 vs 4.5 points, standard error 0.5 each: band 1.39, a tie; 3.0 is not; an estimate is never a tie.
@@ -545,9 +708,9 @@ describe("build engine", () => {
   });
 
   it("never plans two items of one limit group, on any champion's real data", async () => {
-    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
-    const k = (await kindsGET().json()) as Kinds;
-    const pk = (await picksGET().json()) as Picks;
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds;
+    const pk = (await picksJSON()) as Picks;
     const rules = itemRules(k);
     const bad: string[] = [];
     for (const c of champs)

@@ -1,0 +1,329 @@
+{
+ "about": "Converter augments: augments whose own text changes what a stat is worth (ADAPt turns bonus AD into AP, Jeweled\nGauntlet lets abilities crit, Ethereal Weapon makes abilities apply on-hit...). The kit logic says which kind of item\nthe augment makes worth buying; real lobbies say which of those items its holders actually buy.",
+ "pairs": {
+  "1029": {
+   "name": "Ethereal Weapon",
+   "kind": "OnHit",
+   "champs": null,
+   "does": "Your abilities apply on-hit effects.",
+   "items": [
+    3115,
+    3100,
+    3153,
+    2510
+   ],
+   "on": true,
+   "test": {
+    "holders": 628,
+    "damageShare": [
+     2.4,
+     1.3,
+     48
+    ],
+    "win": [
+     -9.2,
+     10.6,
+     48
+    ]
+   }
+  },
+  "29": {
+   "name": "Ethereal Weapon",
+   "kind": "OnHit",
+   "champs": null,
+   "does": "Your abilities apply on-hit effects.",
+   "items": [
+    3115,
+    3100,
+    3153,
+    2510
+   ],
+   "on": true,
+   "test": {
+    "holders": 628,
+    "damageShare": [
+     2.4,
+     1.3,
+     48
+    ],
+    "win": [
+     -9.2,
+     10.6,
+     48
+    ]
+   }
+  },
+  "1048": {
+   "name": "Jeweled Gauntlet",
+   "kind": "CriticalStrike",
+   "champs": "ap",
+   "does": "Your abilities can critically strike.",
+   "items": [
+    3031
+   ],
+   "on": true,
+   "test": {
+    "holders": 284,
+    "damageShare": [
+     3.3,
+     1.6,
+     21
+    ],
+    "win": [
+     -7.5,
+     15.0,
+     21
+    ]
+   }
+  },
+  "48": {
+   "name": "Jeweled Gauntlet",
+   "kind": "CriticalStrike",
+   "champs": "ap",
+   "does": "Your abilities can critically strike.",
+   "items": [
+    3031
+   ],
+   "on": true,
+   "test": {
+    "holders": 284,
+    "damageShare": [
+     3.3,
+     1.6,
+     21
+    ],
+    "win": [
+     -7.5,
+     15.0,
+     21
+    ]
+   }
+  },
+  "1205": {
+   "name": "ADAPt",
+   "kind": "Damage",
+   "champs": "ap",
+   "does": "Bonus attack damage converts into ability power.",
+   "items": [
+    3004,
+    3146
+   ],
+   "on": true,
+   "test": {
+    "holders": 294,
+    "damageShare": [
+     0.3,
+     1.8,
+     16
+    ],
+    "win": [
+     -16.8,
+     18.8,
+     16
+    ]
+   }
+  },
+  "205": {
+   "name": "ADAPt",
+   "kind": "Damage",
+   "champs": "ap",
+   "does": "Bonus attack damage converts into ability power.",
+   "items": [
+    3004,
+    3146
+   ],
+   "on": true,
+   "test": {
+    "holders": 294,
+    "damageShare": [
+     0.3,
+     1.8,
+     16
+    ],
+    "win": [
+     -16.8,
+     18.8,
+     16
+    ]
+   }
+  },
+  "1206": {
+   "name": "EscAPADe",
+   "kind": "SpellDamage",
+   "champs": "ad",
+   "does": "Ability power converts into bonus attack damage.",
+   "items": [
+    3146
+   ],
+   "on": true,
+   "test": {
+    "holders": 254,
+    "damageShare": [
+     1.5,
+     1.5,
+     34
+    ],
+    "win": [
+     -10.6,
+     12.7,
+     34
+    ]
+   }
+  },
+  "206": {
+   "name": "EscAPADe",
+   "kind": "SpellDamage",
+   "champs": "ad",
+   "does": "Ability power converts into bonus attack damage.",
+   "items": [
+    3146
+   ],
+   "on": true,
+   "test": {
+    "holders": 254,
+    "damageShare": [
+     1.5,
+     1.5,
+     34
+    ],
+    "win": [
+     -10.6,
+     12.7,
+     34
+    ]
+   }
+  },
+  "2018": {
+   "name": "Purist - Caster",
+   "kind": "AttackSpeed",
+   "champs": "ap",
+   "does": "Bonus attack speed converts into ability haste.",
+   "items": [
+    3115
+   ],
+   "on": true,
+   "test": {
+    "holders": 140,
+    "damageShare": [
+     -1.5,
+     2.8,
+     4
+    ],
+    "win": [
+     -38.6,
+     33.1,
+     4
+    ]
+   }
+  },
+  "3059": {
+   "name": "No Mana, No Problem",
+   "kind": "Mana",
+   "champs": null,
+   "does": "Mana from items converts into ability power.",
+   "items": [
+    3003,
+    6657
+   ],
+   "on": true,
+   "test": {
+    "holders": 35,
+    "damageShare": null,
+    "win": null
+   }
+  },
+  "3018": {
+   "name": "Big Shot",
+   "kind": "CriticalStrike",
+   "champs": "ad",
+   "does": "Attack speed converts into critical strike damage.",
+   "items": [
+    3031,
+    3032,
+    3046,
+    3095
+   ],
+   "on": true,
+   "test": {
+    "holders": 58,
+    "damageShare": null,
+    "win": null
+   }
+  },
+  "3063": {
+   "name": "Gift of the Drowned",
+   "kind": "Health",
+   "champs": "ad",
+   "does": "Bonus health converts into lethality.",
+   "items": [],
+   "on": true,
+   "test": {
+    "holders": 19,
+    "damageShare": null,
+    "win": null
+   }
+  },
+  "2010": {
+   "name": "Double Tap",
+   "kind": "OnHit",
+   "champs": "ad",
+   "does": "Critical strikes apply on-hit effects twice.",
+   "items": [
+    3153,
+    6672,
+    3085
+   ],
+   "on": true,
+   "test": {
+    "holders": 299,
+    "damageShare": [
+     0.8,
+     1.4,
+     48
+    ],
+    "win": [
+     -0.3,
+     9.6,
+     48
+    ]
+   }
+  },
+  "2016": {
+   "name": "Juiced",
+   "kind": "Mana",
+   "champs": "ad",
+   "does": "Basic attacks deal bonus damage from maximum mana.",
+   "items": [
+    3004,
+    3003
+   ],
+   "on": true,
+   "test": {
+    "holders": 58,
+    "damageShare": [
+     4.8,
+     5.7,
+     2
+    ],
+    "win": [
+     -66.7,
+     51.0,
+     2
+    ]
+   }
+  },
+  "3058": {
+   "name": "Tickle Monster",
+   "kind": "AttackSpeed",
+   "champs": "ad",
+   "does": "Bonus attack damage converts into attack speed.",
+   "items": [],
+   "on": true,
+   "test": {
+    "holders": 11,
+    "damageShare": null,
+    "win": null
+   }
+  }
+ }
+}
