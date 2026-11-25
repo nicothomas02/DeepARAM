@@ -883,3 +883,12 @@ describe("slotFirst", () => {
     expect(slotCue(g({ champ: "Ornn", level: 12 }), [], path, null, kinds, name)?.item).toBe(3031);
   });
 });
+
+describe("itemId", () => {
+  it("names the game's id when the icon file is another mode's copy", () => {
+    // Overlord's Bloodmail's only image is Arena's 447111: an owned Bloodmail (2501) must not be offered again
+    expect(itemId("/assets/dd/16.23.1/img/item/447111.png")).toBe(2501);
+    expect(itemId("/assets/dd/16.23.1/img/item/667666.png")).toBe(6676);
+    expect(itemId("/assets/dd/16.23.1/img/item/223084.png")).toBe(3084);
+  });
+});

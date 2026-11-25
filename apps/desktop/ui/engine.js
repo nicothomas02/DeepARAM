@@ -2717,7 +2717,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     // Removed: % penetration when 2+ enemies stack the resist failed its test (the gain is smaller when they stack).
   };
   var keyIn = (obj, champ) => obj && champ ? Object.keys(obj).find((k) => k.toLowerCase() === champ.toLowerCase()) : void 0;
-  var ICON_ID = { 667666: 6676 };
+  var ICON_ID = { 667666: 6676, 447111: 2501, 663060: 3131, 667109: 6035, 447104: 4402, 773348: 3364 };
   var itemId = (icon) => {
     const n = Number((String(icon ?? "").match(/(\d+)\.png$/) ?? [])[1]);
     return ICON_ID[n] ?? n % 1e4;
