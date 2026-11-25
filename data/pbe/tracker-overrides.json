@@ -4,12 +4,5 @@
  "Base Mana 480 → 455, resource stat 28 → 38": "mixed",
  "E root 1.5s → 0.8–1s, up to 1.6–2.2s": "mixed",
  "Mayhem only, W: 80 shield at every rank → 80/140/200/260/320 shield": "buff",
- "champion:K'Sante": "buff",
- "Snowball size when thrown: 100% → 20%, growing to full as it flies": "nerf",
- "Snowball speed when thrown: 100% → 40%, speeding up as it flies": "nerf",
- "Bonus damage: full → 50% to 100%, more the farther it flies": "nerf",
- "Stun: none → 0.25 to 1 second, longer the farther it flies": "buff",
- "Knockback: none → 50 to 120 units, more the farther it flies": "buff",
- "Knock-up: 0.75 seconds → none": "nerf",
- "Slow: 20% for 2 seconds → none": "nerf"
+ "champion:K'Sante": "buff"
 }
