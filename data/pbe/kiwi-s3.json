@@ -2,7 +2,7 @@
   "meta": {
     "mode": "ARAM: Mayhem",
     "label": "Patch 26.24",
-    "dataAsOf": "2026-11-24",
+    "dataAsOf": "2026-11-25",
     "caveat": "PBE content can change before release.",
     "augmentPool": {
       "live": 243,
@@ -19,11 +19,12 @@
       "Update 2026-11-20 (patch 26.24): Surge Field returns to the augment pool.",
       "Update 2026-11-21 (patch 26.24): Biggest Snowball Ever now starts small and slow, grows as it flies, and gains a stun and a knockback.",
       "Update 2026-11-24 (patch 26.24): Biggest Snowball Ever's stun goes up to 1 second, its damage now grows with distance, and it no longer slows or knocks up. Surge Field's Ability Haste now applies to basic abilities only, and you can recast it to teleport back to the zone.",
+      "Update 2026-11-25 (patch 26.24): Biggest Snowball Ever's changes were undone, so it works the same as on live again.",
       "Ability values are listed for ranks 1-5 (basic abilities) or 1-3 (ultimates)."
     ],
     "builds": {
-      "pbe": "16.24.8412701",
-      "live": "16.23.8413489"
+      "pbe": "16.24.8416789",
+      "live": "16.23.8418428"
     }
   },
   "fame": {
@@ -49,51 +50,7 @@
       }
     ],
     "removed": [],
-    "changed": [
-      {
-        "name": "Biggest Snowball Ever",
-        "changes": [
-          {
-            "stat": "Snowball size when thrown",
-            "live": "100%",
-            "pbe": "20%, growing to full as it flies"
-          },
-          {
-            "stat": "Snowball speed when thrown",
-            "live": "100%",
-            "pbe": "40%, speeding up as it flies"
-          },
-          {
-            "stat": "Bonus damage",
-            "live": "full",
-            "pbe": "50% to 100%, more the farther it flies"
-          },
-          {
-            "stat": "Stun",
-            "live": "none",
-            "pbe": "0.25 to 1 second, longer the farther it flies"
-          },
-          {
-            "stat": "Knockback",
-            "live": "none",
-            "pbe": "50 to 120 units, more the farther it flies"
-          },
-          {
-            "stat": "Knock-up",
-            "live": "0.75 seconds",
-            "pbe": "none"
-          },
-          {
-            "stat": "Slow",
-            "live": "20% for 2 seconds",
-            "pbe": "none"
-          }
-        ],
-        "direction": "mixed",
-        "tier": "prismatic",
-        "icon": "/assets/augments/pbe/biggestsnowballever_large.png"
-      }
-    ]
+    "changed": []
   },
   "championOverrides": [],
   "headliners": {
