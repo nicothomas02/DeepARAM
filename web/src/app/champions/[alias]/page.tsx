@@ -172,7 +172,7 @@ function ScoredCells({ r }: { r: ItemRow }) {
     <>
       <div className="cp-cell">
         {r.deepScore !== undefined ? (
-          <DeepScore value={r.deepScore} help={BUILD_DEEPSCORE_HELP} />
+          <DeepScore value={r.deepScore} edge={r.deepEdge} help={BUILD_DEEPSCORE_HELP} />
         ) : (
           <b>–</b>
         )}
@@ -200,7 +200,7 @@ function LateScore({ r }: { r: ItemRow }) {
   return (
     <div className="cp-cell">
       {r.deepScore !== undefined ? (
-        <DeepScore value={r.deepScore} help={ITEM_DEEPSCORE_HELP} />
+        <DeepScore value={r.deepScore} edge={r.deepEdge} help={ITEM_DEEPSCORE_HELP} />
       ) : (
         <b>–</b>
       )}
@@ -541,6 +541,9 @@ export default async function ChampionPage({
       stages: pickStages.get(a.id),
       deepScore: scores.get(a.id),
       patchScore: patchScores.get(a.id),
+      // Points from the champion's augment average (not win rates), for the DeepScore hover.
+      deepEdge: scores.edges?.get(a.id),
+      patchEdge: patchScores.edges?.get(a.id),
       href: augmentHref(a.id) ?? undefined,
       desc: AUG_DESC[String(a.id)],
       changesBuild: changers.has(a.id),
@@ -1300,6 +1303,7 @@ export default async function ChampionPage({
                             {r.deepScore !== undefined && (
                               <DeepScore
                                 value={r.deepScore}
+                                edge={r.deepEdge}
                                 help={ITEM_DEEPSCORE_HELP}
                               />
                             )}
