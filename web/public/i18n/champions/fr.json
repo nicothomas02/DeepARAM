@@ -351,5 +351,9 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "Tes compétences peuvent critiquer, donc les chances de critique en plus comptent aussi pour elles.",
  "Avoid": "Éviter",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Rang D : sur les patchs passés, les paires de sorts aussi basses ont gagné bien moins que les autres paires de ce champion au patch suivant aussi.",
- "Couldn't load this list.": "Impossible de charger cette liste."
+ "Couldn't load this list.": "Impossible de charger cette liste.",
+ "Its extra hits apply on-hit effects, so the other augment stacks faster.": "Ses coups en plus appliquent les effets à l'impact, donc l'autre augment se cumule plus vite.",
+ "Its extra hits apply on-hit effects, so they carry the other augment's on-hit damage too.": "Ses coups en plus appliquent les effets à l'impact, donc ils portent aussi les dégâts à l'impact de l'autre augment.",
+ "Ability hits apply on-hit effects, so the other augment stacks faster.": "Les coups de compétence appliquent les effets à l'impact, donc l'autre augment se cumule plus vite.",
+ "Its movement speed widens the gap {1} turns into damage.": "Sa vitesse de déplacement creuse l'écart que {1} transforme en dégâts."
 }

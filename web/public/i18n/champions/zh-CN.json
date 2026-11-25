@@ -351,5 +351,9 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "你的技能可以暴击，所以额外的暴击几率对技能也有用。",
  "Avoid": "避免",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D 梯队：在过去的版本中，这么低的召唤师技能组合在下个版本也明显比该英雄的其他组合赢得少。",
- "Couldn't load this list.": "无法加载此列表。"
+ "Couldn't load this list.": "无法加载此列表。",
+ "Its extra hits apply on-hit effects, so the other augment stacks faster.": "它的额外命中会触发攻击特效，所以另一个强化叠层更快。",
+ "Its extra hits apply on-hit effects, so they carry the other augment's on-hit damage too.": "它的额外命中会触发攻击特效，所以也会附带另一个强化的攻击特效伤害。",
+ "Ability hits apply on-hit effects, so the other augment stacks faster.": "技能命中会触发攻击特效，所以另一个强化叠层更快。",
+ "Its movement speed widens the gap {1} turns into damage.": "它的移动速度拉大了{1}转化为伤害的速度差。"
 }
