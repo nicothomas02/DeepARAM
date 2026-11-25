@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.0";
+export const ENGINE_VERSION = "1.4.1";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -208,8 +208,10 @@ export type GameState = {
 /** The champion's key in a data file, whatever its capitals (the game says "FiddleSticks"). */
 export const keyIn = (obj: object | undefined | null, champ: string | undefined) =>
   obj && champ ? Object.keys(obj).find((k) => k.toLowerCase() === champ.toLowerCase()) : undefined;
-// The Collector's icon is 667666 while the game reports 6676.
-const ICON_ID: Record<number, number> = { 667666: 6676 };
+// Icons whose file is another mode's copy of the item (the client shares one image across ids): the id the game
+// reports. The Collector's icon is 667666 while the game reports 6676; Overlord's Bloodmail shows Arena's 447111
+// (base 7111, not 2501), so an owned Bloodmail stayed Next (PC replay, Dr. Mundo 2026-08-09).
+const ICON_ID: Record<number, number> = { 667666: 6676, 447111: 2501, 663060: 3131, 667109: 6035, 447104: 4402, 773348: 3364 };
 /** The base item id of an item icon (Mayhem copies 223031 -> 3031). */
 export const itemId = (icon: string | null | undefined) => {
   const n = Number((String(icon ?? "").match(/(\d+)\.png$/) ?? [])[1]);
