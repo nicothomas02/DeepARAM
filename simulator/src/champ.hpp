@@ -88,6 +88,8 @@ struct Ability {
     double readyDelay = 0;      // seconds before its cooldown starts, untouched by haste and refunds (TF W's card cycling)
     double missingMax = 0;      // > 0: the missing-Health bonus stops growing at this share missing (Veigar R)
     double soloMult = 1;        // damage x this when the cast hits only one enemy (Karthus Q on a lone target)
+    double split = 0;           // > 0: the cast's damage (as written for a lone target) is shared by the enemies it
+                                // hits, split x as much in all when it hits two or more (Ahri W's three fires)
     double missingAmp = 0;      // damage x (1 + this x the target's missing share of Health) (Jhin R)          // mana or energy restored when it hits its target (Zed's shadows hitting it too)          // seconds the caster takes no damage from the cast on (Pantheon E's shield)  // its hit on the first target applies on-hit effects (Bel'Veth Q)  // the cooldown isn't reduced by ability haste (a resource or stack build-up time)
     // Damage scaled by how far it flew: x1 up to rangeFrom, rising to rangeMax at rangeTo (Nidalee Q).
     double rangeFrom = 0, rangeTo = 0, rangeMax = 1;

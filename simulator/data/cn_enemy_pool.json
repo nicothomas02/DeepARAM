@@ -47,8 +47,8 @@
  },
  "team": {
   "size": 5,
-  "cc_rate_per_point": 0.01317,
-  "average_cc_rating": 1.898
+  "cc_rate_per_point": 0.01322,
+  "average_cc_rating": 1.892
  },
  "yunara": {
   "damage_taken_share": 0.1588,
@@ -5733,6 +5733,39 @@
      "heavy_hitter",
      "goliath",
      "siphon"
+    ]
+   }
+  },
+  {
+   "id": "Yunara",
+   "champion_id": 804,
+   "name": "Yunara",
+   "name_cn": "不破之誓",
+   "role": "marksman",
+   "weight": 0.0679,
+   "hp": 3110,
+   "armor": 99.8,
+   "mr": 51.7,
+   "cc": 1,
+   "phys_share": 1.0,
+   "damage_share": 0.2309,
+   "damage_taken_share": 0.1588,
+   "avg_death_time": 296.7281,
+   "win_rate": 0.5267,
+   "build": {
+    "items": [
+     "berserkers",
+     "infinity_edge",
+     "yuntal",
+     "lord_dominiks",
+     "runaans",
+     "botrk"
+    ],
+    "augments": [
+     "upgrade_infinity_edge",
+     "soul_siphon",
+     "still_here",
+     "dual_wield"
     ]
    }
   }

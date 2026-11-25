@@ -1299,8 +1299,9 @@
    "hit_mults": {
     "MultiFireDamage": 4
    },
-   "why": "Fox-Fire: all three fires hit a lone target; the two follow-up fires each deal the reduced amount",
-   "spinning": true
+   "why": "Fox-Fire: all three fires hit a lone target; the two follow-up fires each deal the reduced amount; in a teamfight the three fires spread over nearby enemies: the game's RepeatDamageMod 0.4 makes a lone target take 1.8 fires' worth, two enemies 2.4 and three 3.0, so the cast deals about 1.5x the lone-target total in all, shared among the enemies hit (split).",
+   "spinning": true,
+   "split": 1.5
   },
   "R": {
    "hit_mults": {
@@ -1447,7 +1448,8 @@
    "hit_mults": {
     "TotalDamage": 3
    },
-   "why": "Pale Cascade has three orbs that each hit a nearby target"
+   "why": "Pale Cascade has three orbs that each hit a nearby target; each orb bursts on the first enemy it touches, so with several enemies near, the three orbs are shared among them, not three on each (split).",
+   "split": 1
   },
   "R": {
    "hit_mults": {
@@ -1646,8 +1648,13 @@
    "hit_mults": {
     "AdditionalDamage": 6
    },
-   "why": "Rend adds AdditionalDamage per extra spear (several per cycle at her attack speed); 6 at the 0.5 secondary weight is about 3 extra spears, conservative; Rend needs spears in the target (1 per attack): the counted 1 + ~3 extra spears means 4 attacks on the target since the last Rend",
-   "after_attacks": 4
+   "why": "Rend adds AdditionalDamage per extra spear (several per cycle at her attack speed); 6 at the 0.5 secondary weight is about 3 extra spears, conservative; Rend needs spears in the target (1 per attack): the counted 1 + ~3 extra spears means 4 attacks on the target since the last Rend; Rend only hurts enemies holding spears, which her attacks put in her target, so it hits that one target (Rend range 1100).",
+   "after_attacks": 4,
+   "geometry": {
+    "shape": "single",
+    "range": 1100,
+    "on_self": false
+   }
   }
  },
  "Karma": {
@@ -2319,8 +2326,13 @@
    "hit_mults": {
     "MaxMagicDamage": 2
    },
-   "why": "Max numbers are base + 6 stacks; count them once at full weight; Expunge's damage is per Deadly Venom stack (1 per attack, max 6): cast once 6 attacks have hit the target, not at 0 stacks",
-   "after_attacks": 6
+   "why": "Max numbers are base + 6 stacks; count them once at full weight; Expunge's damage is per Deadly Venom stack (1 per attack, max 6): cast once 6 attacks have hit the target, not at 0 stacks; Expunge only hurts enemies holding Deadly Venom stacks, which his attacks put on his target, so it hits that one target (Expunge range 1200).",
+   "after_attacks": 6,
+   "geometry": {
+    "shape": "single",
+    "range": 1200,
+    "on_self": false
+   }
   }
  },
  "Udyr": {
@@ -2865,7 +2877,8 @@
    "hit_mults": {
     "TotalDamage": 3
    },
-   "why": "Pyroclasm bounces up to 5 times between Brand and enemies; against one enemy it bounces back and forth, hitting them 3 times"
+   "why": "Pyroclasm bounces up to 5 times between Brand and enemies; against one enemy it bounces back and forth, hitting them 3 times; with two or more enemies near, the five bounces spread over them: 5 hits in all against 3 on a lone target, shared among the enemies hit (split).",
+   "split": 1.667
   }
  },
  "DrMundo": {

@@ -251,6 +251,7 @@ ChampionKit loadChampion(const json::Value& c, const Rules& rules) {
         ab.invuln = a["invuln"].asNumber(0);
         ab.refund = a["refund"].asNumber(0);
         ab.soloMult = a["solo_mult"].asNumber(1);
+        ab.split = std::max(0.0, a["split"].asNumber(0));
         ab.missingAmp = a["missing_amp"].asNumber(0);
         ab.missingMax = a["missing_max"].asNumber(0);
         ab.missingIsolated = a["missing_isolated"].asBool(false);
@@ -2470,7 +2471,10 @@ private:
         if (!a.heal.empty()) heal(scaled(a.heal) * slotHsp);
         // Tripleshot, Spell Split: the ability also hits a few more enemies near the target, for less.
         std::vector<std::pair<Enemy*, double>> targets;
-        for (Enemy* e : shot.hits) targets.push_back({e, 1.0});
+        // Abilities whose projectiles share themselves out (Ahri's fires, Brand's bounces) deal the same
+        // damage in all however many enemies stand near: each target gets its part, not the whole.
+        const double share = a.split > 0 && shot.hits.size() > 1 ? a.split / static_cast<double>(shot.hits.size()) : 1.0;
+        for (Enemy* e : shot.hits) targets.push_back({e, share});
         if (extraTargets > 0 && shot.primaryHit) {
             int left = static_cast<int>(extraTargets + 0.5);
             for (Enemy* o : near(shot.hits.front()->pos, 500, shot.hits.front())) {
