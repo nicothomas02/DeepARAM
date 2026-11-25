@@ -74,6 +74,9 @@ jobs:
           TODAY: ${{ inputs.today && '1' || '' }}
       - name: Save the live patch's duo synergies (for the Duos tab's hold check)
         run: python3 data/cn/partner_history.py
+      - name: Re-test the Duos tab's "why it works" rules on the newest patch (faded rules are skipped)
+        continue-on-error: true
+        run: python3 data/cn/duo_why_check.py
       - name: Estimate how many games the stats come from (confidence intervals)
         continue-on-error: true
         run: python3 data/stats/games.py

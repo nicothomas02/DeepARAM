@@ -2,6 +2,7 @@
 // spells, boots, core and situational items, and the top augments as ranked on the page. Feeds /data/watch.json (Apple Watch)
 // and /data/overlay.json (the desktop app's in-game overlay).
 import { clashWith } from "./item-limits";
+import { readRepoJson } from "./repo-data";
 import { AUGMENT_SKILLS, CHAMPION_SKILLS, CHAMPION_SPLITS, type AugmentSkill, type SkillSplit } from "./augment-skills";
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
 import type { AugmentSwap } from "@/lib/build-plan";
@@ -12,6 +13,16 @@ import { champList } from "@/lib/champions";
 import { fillSpells } from "@/lib/fill";
 import { liveTiers } from "@/lib/highlights";
 import { SITUATIONS } from "@/lib/situations";
+
+// Split cues re-tested on Mayhem games as the archive grows (data/estimates/split_check.py, Nico approved
+// 2026-11-25): a split whose players fall clearly behind the same champion's players who max from the start is dropped.
+let splitDrops: Set<string> | null = null;
+const droppedSplits = () =>
+  (splitDrops ??= new Set(
+    Object.entries(readRepoJson<{ champions: Record<string, { verdict: string }> }>("data/estimates/split_check.json")?.champions ?? {})
+      .filter(([, v]) => v.verdict === "drop")
+      .map(([k]) => k),
+  ));
 
 export const RARITIES = ["prismatic", "gold", "silver"] as const;
 export type Rarity = (typeof RARITIES)[number];
@@ -215,7 +226,7 @@ export function quickBuilds(): QuickBuild[] {
         builds,
         ...(arch ? { archmage: arch } : {}),
         ...(AUGMENT_SKILLS[id] ? { augmentSkills: AUGMENT_SKILLS[id] } : {}),
-        ...(CHAMPION_SPLITS[id] ? { skillSplit: CHAMPION_SPLITS[id] } : {}),
+        ...(CHAMPION_SPLITS[id] && !droppedSplits().has(id) ? { skillSplit: CHAMPION_SPLITS[id] } : {}),
         ...(augStarts.length ? { augmentStarts: augStarts } : {}),
         ...(rich.length ? { richStarts: rich } : {}),
       },

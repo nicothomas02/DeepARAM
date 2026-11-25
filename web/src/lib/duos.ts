@@ -132,10 +132,17 @@ function sameDayRates(statDate: string | undefined): Map<number, number> {
 
 // "Why it works": one line from the two kits (champions/tags.json: subclasses, playstyles, crowd control), the
 // first rule that fits. Our own reading of the tags, so it is labelled estimated on the page.
+// Re-tested on each saved patch (data/cn/duo_why_check.py, Nico approved 2026-11-25): a rule whose pairs no longer
+// beat the pairs no rule labels on the newest patch has faded and is skipped, so the next rule that fits speaks
+// instead. On 16.23 that dropped Yasuo + knock-ups, hooks and traps + burst, and crowd control + area damage (none
+// beat unlabelled pairs on 16.20-16.23); heals and shields, engage + burst and frontline + carry hold (z 6 to 15).
 type TagChamp = { classes?: string[]; subclasses?: string[]; playstyles?: string[]; cc?: Record<string, string>; hardCC?: boolean };
+type WhyCheck = { verdict?: Record<string, string> };
 let tagChamps: Record<string, TagChamp> | null = null;
+let faded: Set<string> | null = null;
 export function duoWhy(x: string, y: string): string {
   tagChamps ??= readRepoJson<{ champions: Record<string, TagChamp> }>("champions/tags.json")?.champions ?? {};
+  faded ??= new Set(Object.entries(readRepoJson<WhyCheck>("data/cn/duo_why_check.json")?.verdict ?? {}).filter(([, v]) => v === "faded").map(([k]) => k));
   const t = (c: string) => {
     const d = tagChamps![c] ?? {};
     return new Set([...(d.classes ?? []), ...(d.subclasses ?? []), ...(d.playstyles ?? [])]);
@@ -145,13 +152,15 @@ export function duoWhy(x: string, y: string): string {
   const [A, B] = [t(x), t(y)];
   const either = (f: (p: Set<string>, q: Set<string>, pc: string, qc: string) => boolean) => f(A, B, x, y) || f(B, A, y, x);
   const has = (s: Set<string>, ...k: string[]) => k.some((v) => s.has(v));
-  if (either((_p, _q, pc, qc) => pc === "Yasuo" && airborne(qc))) return "Knock-ups set up Yasuo's ultimate.";
-  if (either((p, q) => has(p, "Enchanter", "Ally Protection") && has(q, "Hypercarry", "Marksman"))) return "Heals and shields keep the carry fighting.";
-  if (either((p, q) => has(p, "Catcher") && has(q, "Burst", "Assassin", "Artillery"))) return "Hooks and traps catch targets for burst.";
-  if (either((p, q, pc) => has(p, "Initiator", "Vanguard") && hard(pc) && has(q, "Burst", "Assassin", "Artillery"))) return "Engage locks enemies down for burst damage.";
-  if (either((p, q) => has(p, "Warden", "Tank") && has(q, "Marksman", "Hypercarry"))) return "A frontline peels for the carry.";
-  if (A.has("AoE") && B.has("AoE") && (hard(x) || hard(y))) return "Crowd control groups enemies for area damage.";
-  return "";
+  const rules: [string, () => boolean][] = [
+    ["Knock-ups set up Yasuo's ultimate.", () => either((_p, _q, pc, qc) => pc === "Yasuo" && airborne(qc))],
+    ["Heals and shields keep the carry fighting.", () => either((p, q) => has(p, "Enchanter", "Ally Protection") && has(q, "Hypercarry", "Marksman"))],
+    ["Hooks and traps catch targets for burst.", () => either((p, q) => has(p, "Catcher") && has(q, "Burst", "Assassin", "Artillery"))],
+    ["Engage locks enemies down for burst damage.", () => either((p, q, pc) => has(p, "Initiator", "Vanguard") && hard(pc) && has(q, "Burst", "Assassin", "Artillery"))],
+    ["A frontline peels for the carry.", () => either((p, q) => has(p, "Warden", "Tank") && has(q, "Marksman", "Hypercarry"))],
+    ["Crowd control groups enemies for area damage.", () => A.has("AoE") && B.has("AoE") && (hard(x) || hard(y))],
+  ];
+  return rules.find(([text, fits]) => !faded!.has(text) && fits())?.[0] ?? "";
 }
 
 // The solo win rate a pair is compared with: 101's same-day rate, else champions.json's.
@@ -209,7 +218,8 @@ function build() {
         // Marked when neither champion can lock an enemy down (lib/cc.ts).
         noCC: pairLacksHardCC(x, y) ? "No hard CC" : "",
         games: matches ? Math.round((solo.get(first)?.pick_rate ?? 0) * withMate(first, second) * matches) : null,
-        why: duoWhy(x, y),
+        // A pair whose own boost isn't above zero on this patch gets no "why it works" line.
+        why: measured > 0 ? duoWhy(x, y) : "",
         held: held?.n ?? 0,
       });
       weight.push((solo.get(first)?.pick_rate ?? 0) * withMate(first, second));
