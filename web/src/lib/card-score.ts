@@ -25,7 +25,8 @@ export type ItemRow = Rated & {
   /** Core builds: the single items to buy after the core, one by one with their own numbers (laterItems). */
   later?: ItemRow[];
   /** The same items split by the slot they're bought in (4th, 5th, 6th legendary), when purchase order is known. */
-  slots?: { slot: number; items: ItemRow[] }[];
+  /** `home`: the items whose most common slot this is (each item shows in one slot). */
+  slots?: { slot: number; items: ItemRow[]; home?: number[] }[];
   /** The card's full build after the core: one pick per slot, so core, boots and picks make six items. */
   full?: ItemRow[];
   /** Starting items: the augment whose first-screen picks explain most of the start's games (it never leads the card). */
@@ -312,7 +313,7 @@ export function slotItems<T extends ItemRow>(
   champ: SlotCounts | undefined,
   all: SlotCounts | undefined,
   per = PER_SLOT,
-): { slot: number; items: T[] }[] | null {
+): { slot: number; items: T[]; home: number[] }[] | null {
   const first = core.items.length + 1;
   const slots = Array.from({ length: Math.max(0, 7 - first) }, (_, k) => first + k);
   if (!slots.length || !all) return null;
@@ -344,7 +345,16 @@ export function slotItems<T extends ItemRow>(
       .sort((x, y) => shares.get(y.items[0])![k] - shares.get(x.items[0])![k]);
     o.items = [...o.items, ...rest.slice(0, per - o.items.length)].sort((x, y) => cands.indexOf(x) - cands.indexOf(y));
   });
-  return out;
+  // Each item's home: the listed slot where the largest share of its buyers buy it (the earlier on a tie), so the card
+  // can show an option once instead of in every slot it's listed in (Nico 2026-11-24: "don't show item in path twice").
+  const homeOf = new Map<number, number>();
+  out.forEach((o, k) =>
+    o.items.forEach((r) => {
+      const h = homeOf.get(r.items[0]);
+      if (h === undefined || shares.get(r.items[0])![k] > shares.get(r.items[0])![h]) homeOf.set(r.items[0], k);
+    }),
+  );
+  return out.map((o, k) => ({ ...o, home: o.items.filter((r) => homeOf.get(r.items[0]) === k).map((r) => r.items[0]) }));
 }
 
 /**

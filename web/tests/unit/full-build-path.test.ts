@@ -20,4 +20,14 @@ describe("full build path", () => {
     }
     expect(paths).toBeGreaterThan(150);
   }, 300000);
+
+  it("shows each slot option once, in one slot", () => {
+    for (const alias of Object.keys(ids).filter((k) => !k.includes("_"))) {
+      const p = championPage(alias);
+      for (const core of [p?.core[0], ...(p?.builds ?? []).map((b) => b.core)]) {
+        const homes = (core?.slots ?? []).flatMap((s) => s.home ?? []);
+        expect(new Set(homes).size, alias).toBe(homes.length);
+      }
+    }
+  }, 300000);
 });

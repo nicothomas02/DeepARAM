@@ -283,7 +283,8 @@ export function LaterItems({
   inBuild = [],
 }: {
   rows: LaterRow[];
-  slots?: { slot: number; items: LaterRow[] }[];
+  /** `home`: the options shown in this slot (each option once, in its most common slot). */
+  slots?: { slot: number; items: LaterRow[]; home?: number[] }[];
   info: Record<number, { name: string; icon?: string }>;
   /** "Other options" when the card already shows a full build with each slot's pick. */
   title?: string;
@@ -293,16 +294,18 @@ export function LaterItems({
   const built = new Set(inBuild.map((r) => r.items[0]));
   const placed = new Set<number>();
   const ds = (r: LaterRow) => r.deepScore ?? -Infinity;
-  const bySlot = (slots ?? [])
-    .filter((s) => SLOT_NAMES[s.slot])
+  const shown = (slots ?? []).filter((s) => SLOT_NAMES[s.slot]);
+  const bySlot = shown
     .map((s) => {
       // The build's pick for this slot: the first of its picks bought in this slot, each placed once.
       const pick = inBuild.find((b) => !placed.has(b.items[0]) && s.items.some((r) => r.items[0] === b.items[0]));
       if (pick) placed.add(pick.items[0]);
-      const options = s.items.filter((r) => !built.has(r.items[0])).sort((x, y) => ds(y) - ds(x));
+      const options = s.items
+        .filter((r) => !built.has(r.items[0]) && (!s.home || s.home.includes(r.items[0])))
+        .sort((x, y) => ds(y) - ds(x));
       return { slot: s.slot, pick, options };
     })
-    .filter((s) => s.options.length > 0);
+    .filter((s) => s.options.length > 0 || s.pick);
   return (
     <div className="cp-best cp-best-wide cp-best-later">
       <h4>
