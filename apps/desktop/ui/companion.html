@@ -703,6 +703,10 @@
     if (champ?.items?.[0]?.icon) iconPrefix = champ.items[0].icon.replace(/\d+\.png$/, "");
     renderFoes(k);
     const p = E.plan({ champ, kinds: k, picks: picksView(picks, keyIn(picks?.champions, game.champ)), fit: fitData, game, taken: getTaken(game), lucky, why: whyData, profiles: mechData });
+    // Engine 1.4.3 (site #733): the plan carries the skill order and split of the build it actually follows (a
+    // switched build has its own); the Quick bar follows it (as PC 1.26.27). Older engines leave them out.
+    const sk = JSON.stringify([p.skills, p.skillSplit]);
+    if (p.skills && sk !== planSkillsKey) { planSkills = { skills: p.skills, skillSplit: p.skillSplit ?? null }; planSkillsKey = sk; renderQuick(); }
     const tipLines = p.tips.filter((t) => t.kind !== "shop");
     const shop = p.tips.find((t) => t.kind === "shop")?.text ?? "";
     // In game: the action only (a key to level, an item to buy or sell), the sentence on hover. Notes that ask
@@ -710,7 +714,7 @@
     // As PC 1.26.18: a word and an icon; timing and stacking tips are gone (the item being built carries its reason on
     // hover). A skill point only when an augment changed the max order, a split is still owed, or Back to Basics skips R.
     const augOrder = (p.rules ?? []).some((r) => r === "augmentSkills" || r === "archmageRoute");
-    const split = !augOrder ? champ?.skillSplit : null;
+    const split = !augOrder ? (planSkills ? planSkills.skillSplit : champ?.skillSplit) : null;
     const si = split ? ({ Q: 0, W: 1, E: 2 }[split.first] ?? -1) : -1;
     const inSplit = si >= 0 && (game.skills ?? [])[si] < split.points;
     const skillCue = augOrder || inSplit || getTaken(game).some((id) => id === 1004 || id === 4);
@@ -892,13 +896,15 @@
   const bought = (g) => (g.items ?? []).some((i) => i % 10000 !== 2052);
 
   // The champion's quick build, as on the site's card: skill order and spells (the items are just above, live).
+  let planSkills = null, planSkillsKey = "";
   async function renderQuick() {
     const box = document.getElementById("quick");
     if (!box || !game) return;
     const d = await loadBuilds();
     const c = d?.champions?.find((x) => x.id.toLowerCase() === game.champ.toLowerCase());
     if (!c) { box.innerHTML = `<p class="note">No quick build for this champion yet.</p>`; return; }
-    const b = (c.builds ?? []).length > 1 ? { ...c, ...c.builds[0] } : c;
+    const b0 = (c.builds ?? []).length > 1 ? { ...c, ...c.builds[0] } : c;
+    const b = planSkills ? { ...b0, ...planSkills } : b0;
     const src = (u) => (u?.startsWith("http") ? u : SITE + (u ?? ""));
     // The first augment can change the start (Upgrade Stormsurge: Hextech Alternator), as the engine says.
     // With extra gold (Debonair, Upgrade augments) the rest goes on the first item's parts (engine goldFill).
@@ -1012,7 +1018,7 @@
 
   window.showOver = () => {
     game = null;
-    takenNow = null;
+    takenNow = null; planSkills = null; planSkillsKey = "";
     resetTrack();
     offer = [];
     closedAt = null;
@@ -1031,7 +1037,7 @@
 
   window.showReview = ({ points, turns, ffFrom, result }) => {
     game = null;
-    takenNow = null;
+    takenNow = null; planSkills = null; planSkillsKey = "";
     // A section shows only when it has something in it (PC app 1.26.24): no chart, no surrender call, without a trace.
     const traced = (points ?? []).length >= 2;
     turns = turns ?? [];
