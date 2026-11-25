@@ -383,13 +383,12 @@ describe("build engine", () => {
     const ad = (e: typeof squishy) => breakpoints(e, 14, false, known, new Set([1084]));
     expect(ad(squishy).filter((b) => b.passed)).toEqual([]);
     const lit = ad(tanky).filter((b) => b.passed).map((b) => [b.id, b.stat]);
-    expect(lit).toEqual(expect.arrayContaining([[3036, "armor"], [1084, "armor"]]));
+    expect(lit).toEqual(expect.arrayContaining([[3036, "armor"]]));
+    expect(ad(tanky).some((b) => b.id === 1084)).toBe(false); // augments stay off until data shows a clear edge (Nico 2026-11-25)
     expect(ad(tanky).some((b) => b.id === 3135)).toBe(false); // Void Staff is for AP champions
-    // Firebrand (2% max health per on-hit) lights vs a high-health team when it's in the pool
+    // Firebrand isn't lit either, even vs a high-health team
     const beefy = ["Ornn", "Malphite", "Sion", "ChoGath", "Leona"].map((c) => ({ champ: c, items: [3083, 3084, 2502], level: 14 }));
-    const fb = (e: typeof squishy) => breakpoints(e, 14, false, known, new Set([1036])).find((b) => b.id === 1036);
-    expect(fb(beefy)).toEqual(expect.objectContaining({ kind: "augment", stat: "hp", passed: true }));
-    expect(fb(squishy)?.passed).toBe(false);
+    expect(breakpoints(beefy, 14, false, known, new Set([1036])).some((b) => b.id === 1036)).toBe(false);
     // the plan carries them
     const p = plan({ champ: { ...champ, situational: [...champ.situational!, item(3036)] }, kinds, picks, fit, game: { ...game([]), enemies: tanky }, taken: [] });
     expect(p.breakpoints.some((b) => b.id === 3036 && b.passed)).toBe(true);

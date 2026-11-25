@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.5";
+export const ENGINE_VERSION = "1.4.6";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -83,7 +83,7 @@ export const RULES: Record<string, Rule> = {
   vowPartner: { source: "kit rule", on: true, why: "Knight's Vow heals its owner for 12% of the damage the pledged (Worthy) ally deals to champions (item text, Data Dragon 16.23), so on a frontliner or enchanter, with 2+ enemy frontliners (Warden/Vanguard/Juggernaut) and an ally whose kit hits max health (Vayne, Kog'Maw, Varus...) or a marksman, it lights up as a swap: pledge to that ally. Archive, within champion: each enemy frontliner adds +1.1 +- 0.3 pts of team damage share for max-health kits and +0.7 +- 0.2 for marksmen (assassins -0.8, artillery -0.7), so the heal grows with exactly that matchup. The heal itself isn't measured (estimated). Nico 2026-11-24 asked for unconventional mechanism ideas; his example (Knight's Vow on the max-health champion itself) doesn't work: the item heals its owner from the ally's damage, not the damage dealer." },
   headlinerItems: { source: "kit rule", on: true, why: "La Ilusion (a dying ally drops a candle that shields whoever picks it up) lights the champion's own 'Vs shields' item; Cafe Cuties (health relics heal 20% more missing health) lights its 'Vs healing' item. Pointers only (hover), never a swap: anti-heal and anti-shield items showed no clear effect in normal games, and these headliners leave no trace in match data to test (research/headliners). Nico's ideas 2026-11-24; estimated, used once the app knows the headliner." },
   mustCore: { source: "data", on: true, why: "A core item most of the champion's players still hold at game end (50%+, AramHex 16.22-16.23, the same bar as 'built by most players') is a must-have: augment rushes, converters and lean-in items take a flexible core place instead, or go right after the core when every core item is a must-have (Aphelios: Collector, Infinity Edge, LDR; Irelia: Blade of the Ruined King and Death's Dance). Nico 2026-11-25: some champions need one item, others a demanding core. Hold rates are behavior, not proof of value." },
-  breakpoints: { source: "kit rule", on: true, why: "Penetration and %-health items and augments (Thread the Needle, Firebrand, Lord Dominik's, Mortal Reminder, Serylda's, Black Cleaver, Void Staff, Cryptbloom; Blade of the Ruined King, Liandry's, Demonic Embrace) light up when this game's enemies are unusually tanky: their armor, magic resist or health (champion base stats at their level plus their items, Data Dragon) is above a typical team's with the same item counts by more than the archive's mean + 1 SD at game end (about the top 16% of games: armor x1.17, MR x1.20, health x1.10). Only items the champion's data lists and the damage type fits; Thread the Needle and Firebrand (2% max health per on-hit, added 2026-11-25 at Nico's ask; archive: Firebrand's damage-share lift +1.4 +/- 0.8 pts vs high-health teams, -0.2 +/- 1.1 vs low) when in the champion's pool. Plain resist/health math (simulator rule: simple calculations only), never changes rankings. Nico 2026-11-25 asked for it; estimated (enemy stat augments aren't seen)." },
+  breakpoints: { source: "kit rule", on: true, why: "Penetration and %-health items (Lord Dominik's, Mortal Reminder, Serylda's, Black Cleaver, Void Staff, Cryptbloom; Blade of the Ruined King, Liandry's, Demonic Embrace) light up when this game's enemies are unusually tanky: their armor, magic resist or health (champion base stats at their level plus their items, Data Dragon) is above a typical team's with the same item counts by more than the archive's mean + 1 SD at game end (about the top 16% of games: armor x1.17, MR x1.20, health x1.10). Only items the champion's data lists and the damage type fits. Augments (Thread the Needle, Firebrand) are NOT lit: Nico 2026-11-25, only once data and simulations show a clear edge over the other augments on offer (Firebrand's archive lift vs high-health teams was +1.4 +/- 0.8 pts, not significant). Plain resist/health math (simulator rule: simple calculations only), never changes rankings. Nico 2026-11-25 asked for it; estimated (enemy stat augments aren't seen)." },
   allyAugments: { source: "kit rule", on: true, why: "Augments that act through teammates (wiki text: Empowered By The Faithful and Searing Dawn trigger on allies' hits; Sonic Boom, Windspeaker's Blessing, Empyrean Promise, Spirit Bomb and Wee Woo Wee Woo fire around allies in the fight) break a near-tie when 2+ allies fit (damage dealers, or melee fighters and tanks). Tiebreak only, never past a clearly better card. Archive, within champion: holders' win with vs without such a team -16 to +26 pts, all within noise (8 augments, 10-148 holders), so nothing contradicts it and nothing confirms it (estimated). Nico 2026-11-24 approved ally-aware augments." },
   fullBuildShop: { source: "kit rule", on: true, why: "With six finished items and the build done: Stat Bonus (750 gold, permanent stat, level 9+) when you can afford it, else the elixir of your damage type (Sorcery for AP, Wrath for AD, Iron for tanks: 500 gold, 3 minutes) when 500-749 gold sits unspent. Permanent beats temporary for 250 more gold; the elixir only spends gold that would idle. Item text (Data Dragon 16.23); estimated, no archive data on consumables. Nico 2026-11-24 asked for elixir and anvil advice." },
   pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
@@ -1205,11 +1205,6 @@ const BP_ITEMS: [number, "armor" | "mr" | "hp", "ad" | "ap"][] = [
   [3036, "armor", "ad"], [3033, "armor", "ad"], [6694, "armor", "ad"], [3071, "armor", "ad"], [3135, "mr", "ap"], [3137, "mr", "ap"],
   [3153, "hp", "ad"], [3036, "hp", "ad"], [6653, "hp", "ap"], [4637, "hp", "ap"],
 ];
-/** Thread the Needle: 18% armor and magic penetration (wiki). */
-const THREAD_THE_NEEDLE = [1084, 84];
-/** Firebrand: each on-hit burns 2% of the target's maximum health over 5 s, stacking without limit (wiki), so it is
- *  worth more vs high-health teams (Nico 2026-11-25). */
-const FIREBRAND = [1036, 36];
 const growStat = (base: number, per: number, lvl: number) => base + per * (lvl - 1) * (0.7025 + 0.0175 * (lvl - 1));
 
 /** The enemy team's average [health, armor, MR] and a typical team's at the same levels and item counts. */
@@ -1230,7 +1225,7 @@ export function enemyStats(enemies: Enemy[], level = 18): { got: number[]; usual
 }
 
 /** Breakpoint picks for this champion in this game: passed when the enemy stat clears the tanky-game cut. */
-export function breakpoints(enemies: Enemy[], level: number, magic: boolean, known: Set<number>, pool: Set<number>): Breakpoint[] {
+export function breakpoints(enemies: Enemy[], level: number, magic: boolean, known: Set<number>, _pool: Set<number> = new Set()): Breakpoint[] {
   if (!RULES.breakpoints.on) return [];
   const st = enemyStats(enemies, level);
   if (!st) return [];
@@ -1248,10 +1243,7 @@ export function breakpoints(enemies: Enemy[], level: number, magic: boolean, kno
     if (prev) { if (!prev.passed && c.passed) Object.assign(prev, { stat, ...c }); continue; }
     out.push({ id, kind: "item", stat, ...c, estimated: true });
   }
-  const ttn = THREAD_THE_NEEDLE.find((a) => pool.has(a));
-  if (ttn !== undefined) out.push({ id: ttn, kind: "augment", stat: magic ? "mr" : "armor", ...check(magic ? "mr" : "armor"), estimated: true });
-  const fb = FIREBRAND.find((a) => pool.has(a));
-  if (fb !== undefined) out.push({ id: fb, kind: "augment", stat: "hp", ...check("hp"), estimated: true });
+  // Augment breakpoints (Thread the Needle, Firebrand) stay off until data and simulations show a clear edge (Nico 2026-11-25).
   return out;
 }
 
