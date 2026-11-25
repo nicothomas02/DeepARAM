@@ -204,12 +204,16 @@ describe("build engine", () => {
     for (const seraph of [3040, 223040, 773040]) {
       const after = plan({ champ: c, kinds, picks, fit, game: game([], { items: [seraph] }), taken: [] });
       expect(itemId(after.next[0]?.icon)).not.toBe(3003);
+      // the path shows the form you hold
+      expect(after.path.map((it) => it.name)).toContain("Seraph's Embrace");
+      expect(ids(after.path)).toContain(3040);
     }
     // the site's builds name the transformed item (Diadem of Songs, Fimbulwinter): owning either form fills it
     const d: OverlayChamp = { ...champ, items: [item(2530), item(3031), item(3046)] };
     const k2 = { ...kinds, recipes: { ...kinds.recipes, "2530": ["Diadem of Songs", 2250, []], "2526": ["Whispering Circlet", 2250, []] } } as Kinds;
     expect(itemId(plan({ champ: d, kinds: k2, picks, fit, game: game([]), taken: [] }).next[0]?.icon)).toBe(2530);
     for (const have of [2530, 2526, 222530]) expect(itemId(plan({ champ: d, kinds: k2, picks, fit, game: game([], { items: [have] }), taken: [] }).next[0]?.icon)).not.toBe(2530);
+    expect(plan({ champ: d, kinds: k2, picks, fit, game: game([], { items: [2526] }), taken: [] }).path.map((it) => it.name)).toContain("Whispering Circlet");
     expect(ownedId(3042)).toBe(3004);
     expect(ownedId(223121)).toBe(3119);
     expect(ownedId(2530)).toBe(2526);
