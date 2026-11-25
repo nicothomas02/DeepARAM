@@ -45,5 +45,5 @@ describe("item limits", () => {
         }
       }
     expect(bad).toEqual([]);
-  });
+  }, 30_000); // walks every champion's build cards: ~2.5 s locally, over 5 s on a busy CI runner
 });
