@@ -1444,6 +1444,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       rushed.push({ item: it, by: a });
       applied("augmentRush");
     }
+    // the path then follows this re-planned list, not the per-slot picks (they'd list the rushed item twice)
+    if (rushed.length) slotRows = null;
   }
   // Converters (converterItems): an augment that re-prices a stat (ADAPt, Jeweled Gauntlet, Ethereal Weapon...) puts the
   // item of that kind its holders build most into the core, if it fits the champion's damage type or a taken ADAPt or
@@ -1700,7 +1702,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   for (const t of [timing.find((x) => next[0] && x.item === next[0]) ?? timing[0]].filter(Boolean)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
   if (RULES.shopTips.on && k && next.length) {
     const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
-    if (slots >= 6) {
+    // upgrading boots you started takes no new slot: never sell for them (Neeko / Kai'Sa: sell a legendary for Sorcerer's Shoes)
+    const bootUpgrade = bootIds.has(itemId(next[0].icon)) && [...owned].some((i) => bootIds.has(i));
+    if (slots >= 6 && !bootUpgrade) {
       const inBuild = new Set(build.map((it) => itemId(it.icon)));
       const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !inBuild.has(i) && !bootIds.has(i));
       const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;

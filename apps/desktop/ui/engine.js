@@ -3576,6 +3576,7 @@ var DeepEngine = (() => {
         rushed.push({ item: it, by: a });
         applied("augmentRush");
       }
+      if (rushed.length) slotRows = null;
     }
     if ((RULES.converterItems.on || RULES.leanIn.on) && k && !picked.style) {
       const magic = (Object.entries(k.champions).find(([a]) => champKey(a) === champKey(game.champ))?.[1] ?? 0.5) > 0.5;
@@ -3819,7 +3820,8 @@ var DeepEngine = (() => {
     for (const t of [timing.find((x) => next[0] && x.item === next[0]) ?? timing[0]].filter(Boolean)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
     if (RULES.shopTips.on && k && next.length) {
       const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
-      if (slots >= 6) {
+      const bootUpgrade = bootIds.has(itemId(next[0].icon)) && [...owned].some((i) => bootIds.has(i));
+      if (slots >= 6 && !bootUpgrade) {
         const inBuild = new Set(build.map((it) => itemId(it.icon)));
         const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !inBuild.has(i) && !bootIds.has(i));
         const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;

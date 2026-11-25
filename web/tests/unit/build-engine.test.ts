@@ -351,6 +351,21 @@ describe("build engine", () => {
     expect(sell([3089], 3000)).toHaveLength(0); // on-type item
   }, 30_000);
 
+  it("a rushed item that a later slot also lists shows once (Kai'Sa / Orianna with Upgrade Stormsurge)", () => {
+    const [aug, id] = Object.entries(AUGMENT_SHIFT).flatMap(([a, m]) => Object.entries(m).filter(([, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT).map(([i]) => [Number(a), Number(i)]))[0];
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, [String(id)]: [`#${id}`, 3000, []] } } as Kinds;
+    const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3036)] }, { slot: 5, items: [item(id)] }, { slot: 6, items: [item(6333)] }] };
+    const p = plan({ champ: c, kinds: k2, picks, fit, game: game([], { items: [3006] }), taken: [aug] });
+    expect(new Set(ids(p.path)).size).toBe(p.path.length);
+    expect(ids(p.path.slice(0, p.coreLen))).toContain(id);
+  });
+
+  it("never says sell a legendary to upgrade boots you started", () => {
+    const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
+    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3036, 3094, 6333, 3075], gold: 5000, dead: true }), taken: [] });
+    expect(p.tips.some((t) => t.kind === "sell")).toBe(false);
+  });
+
   it("never shows an item twice in the path", () => {
     const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3036)] }, { slot: 5, items: [item(3036), item(3094)] }, { slot: 6, items: [item(3031), item(6333)] }] };
     const p = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] });
