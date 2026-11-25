@@ -61,6 +61,7 @@ import AugmentTable from "@/components/champion/AugmentTable";
 import SectionRail from "@/components/champion/SectionRail";
 import Fold from "@/components/champion/Fold";
 import HowRankings from "@/components/HowRankings";
+import coreStrictness from "@/data/core-strictness.json";
 import { BaseStatsTable, MayhemChanges } from "@/components/champion/Details";
 import {
   fillEstimated,
@@ -379,11 +380,16 @@ export default async function ChampionPage({
               <T ns={NS}>Core items</T>
             </small>
             <ol className="cp-buy-order">
-              {buildOrder(core).map((id) => (
-                <li key={id}>
-                  <ItemIcon id={id} info={info} named />
-                </li>
-              ))}
+              {buildOrder(core).map((id) => {
+                // A core item most players skip is flexible (mustCore, data/estimates/core_strictness.py, Nico 2026-11-25)
+                const cs = (coreStrictness as { champions: Record<string, { must: number[]; hold: Record<string, number> }> }).champions[c.alias];
+                const flex = !!cs && id !== core.boots && !cs.must.includes(id % 10000);
+                return (
+                  <li key={id} className={flex ? "cp-core-flex" : undefined} title={flex ? (cs.hold[String(id % 10000)] ? `Flexible: about ${Math.round(cs.hold[String(id % 10000)] * 100)}% of players finish it` : "Flexible: few players finish it") : undefined}>
+                    <ItemIcon id={id} info={info} named />
+                  </li>
+                );
+              })}
             </ol>
           </li>
           {/* The full build (Nico, 2026-11-23): the core, then the best pick for each slot after it. */}

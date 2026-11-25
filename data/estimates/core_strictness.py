@@ -34,7 +34,7 @@ def main():
         rows = sorted(((g / G, i, w / g - (W - w) / (G - g) if G > g else 0) for i, (g, w) in held[c].items() if g >= 200), reverse=True)
         must = [i for s, i, _ in rows if s >= MUST]
         sizes[len(must)] += 1
-        out[champs[c]] = {"must": must, "hold": {str(i): round(s, 2) for s, i, _ in rows[:6]}}
+        out[champs[c]] = {"must": must, "hold": {str(i): round(s, 2) for s, i, _ in rows if s >= 0.05}}
     json.dump({"about": __doc__.split("\n\n")[0], "patches": PATCHES, "champions": out}, open(os.path.join(ROOT, "web/src/data/core-strictness.json"), "w"), separators=(",", ":"))
     print("must-have items per champion:", sorted(sizes.items()))
 

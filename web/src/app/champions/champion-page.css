@@ -1912,6 +1912,10 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   border-radius: 10px;
   background: color-mix(in srgb, var(--muted) 6%, transparent);
 }
+/* A core item most players skip: flexible, augments and buys may replace it (mustCore). */
+.cp-game .cp-core-box li.cp-core-flex {
+  opacity: 0.62;
+}
 .cp-game .cp-core-box > ol.cp-buy-order {
   display: flex;
   flex-wrap: wrap;
