@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.4";
+export const ENGINE_VERSION = "1.4.5";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
