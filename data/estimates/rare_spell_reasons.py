@@ -120,6 +120,16 @@ def edge(cid, ids):
     return per, num / g_all * 100, math.sqrt(var) / g_all * 100
 
 
+def pick_share(cid, ids):
+    """Share of the champion's games with this pair on the newest patch that has it (the apps show it as {pct})."""
+    key = "+".join(str(i) for i in sorted(ids))
+    for p in reversed(PATCHES):
+        pairs = load(p).get(cid)
+        if pairs and key in pairs:
+            return round(pairs[key][0] / sum(v[0] for v in pairs.values()), 5)
+    return None
+
+
 def usual_flash(cid):
     """The champion's most played pair with Flash over the patches, as spell ids."""
     games = {}
@@ -156,6 +166,7 @@ def main():
             "se": round(se, 1) if se is not None else None,
             "patches": per,
             "usual": usual_flash(str(ids[alias])),
+            "pick": pick_share(str(ids[alias]), pair),
         }
     meta = {
         "source": "AramHex real games, all MMR bands, " + ", ".join(PATCHES),
