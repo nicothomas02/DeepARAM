@@ -39,7 +39,7 @@ use crate::{
     Store, SITE,
 };
 
-const LABEL: &str = "companion";
+pub(crate) const LABEL: &str = "companion";
 const POLL: Duration = Duration::from_secs(3);
 const IDLE: Duration = Duration::from_secs(15);
 const LIVE_EVERY: Duration = Duration::from_secs(5);

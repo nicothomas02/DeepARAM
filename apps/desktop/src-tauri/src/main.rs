@@ -190,6 +190,18 @@ fn show(app: &AppHandle) {
     }
 }
 
+/// Starting DeepARAM again, or clicking its tray icon, brings back the window already in use (PC app 1.26.24): the
+/// companion while it's open (champion select or a game), the main window otherwise, so only one window opens.
+fn show_one(app: &AppHandle) {
+    if let Some(win) = app.get_webview_window(companion::LABEL) {
+        let _ = win.unminimize();
+        let _ = win.show();
+        let _ = win.set_focus();
+        return;
+    }
+    show(app);
+}
+
 fn go(app: &AppHandle, path: &str) {
     if let (Some(win), Ok(url)) = (main_window(app), Url::parse(&format!("{SITE}{path}"))) {
         let _ = win.navigate(url);
@@ -455,7 +467,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
         })
         .on_tray_icon_event(|tray, event| {
             if let TrayIconEvent::Click { button: MouseButton::Left, button_state: MouseButtonState::Up, .. } = event {
-                show(tray.app_handle());
+                show_one(tray.app_handle());
             }
         })
         .build(app)?;
@@ -471,7 +483,7 @@ fn main() {
             sharing::my_record
         ])
         // Must come first: a second launch focuses the running app instead of opening another.
-        .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| show(app)))
+        .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| show_one(app)))
         .plugin(
             tauri_plugin_window_state::Builder::default()
                 .with_state_flags(StateFlags::all() & !StateFlags::VISIBLE)

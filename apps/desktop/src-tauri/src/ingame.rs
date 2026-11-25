@@ -407,7 +407,8 @@ fn watch_clicks(app: AppHandle) {
                 continue;
             }
             if let Some((down, x, y)) = augscan::mouse() {
-                if down && !was_down {
+                // Only a click on League itself counts: a click in a window over the game isn't a pick.
+                if down && !was_down && augscan::league_in_front() {
                     let on_cards = augscan::game_window().is_some_and(|(gx, gy, gw, gh)| {
                         let (ax, ay, aw, ah) = augscan::card_area(gx, gy, gw, gh);
                         x >= ax && x < ax + aw && y >= ay && y < ay + ah
