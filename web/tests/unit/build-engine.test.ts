@@ -369,6 +369,22 @@ describe("build engine", () => {
     expect(vow(["Lux", "Brand"], ["Leona", "Ornn"])).toEqual([]); // no one to pledge to
   });
 
+  it("a style vote that can't make a plan doesn't block a niche build; owned boots and items stay in the new build", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const go = (id: string, items: number[], taken: number[]) => plan({ champ: champs.find((x) => x.id === id)!, kinds: k, picks: p0, fit: null, game: { champ: id, items }, taken });
+    // replay: Ethereal Weapon's on-hit vote (Akshan has no on-hit build) used to block escAPADe's AP niche build
+    const ak = go("Akshan", [3153, 3006, 2510], [1029, 1206, 1027]);
+    expect(ak.switched?.style).toBe("AP");
+    expect(ak.rules).toContain("nicheBuilds");
+    // replay: Senna with Windspeaker's Blessing holding Ionian Boots, Ardent Censer and Staff of Flowing Water
+    const se = go("Senna", [3070, 4011, 3158, 3504, 6616, 3114], [2104, 1029, 2010, 1095]);
+    expect(se.switched?.style).toBe("Enchanter");
+    const p = se.path.map((x) => itemId(x.icon));
+    for (const i of [3158, 3504, 6616]) expect(p).toContain(i);
+    expect(p.filter((i) => k.boots.includes(i))).toEqual([3158]);
+  }, 30_000);
+
   it("the path's unbought places follow Next's order (pathOrder)", async () => {
     const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
@@ -865,5 +881,14 @@ describe("slotFirst", () => {
     expect(slotCue(g({ allies: [{ champ: "Ornn", level: 14 }] }), [], path, null, kinds, name)?.item).toBe(3031);
     expect(slotCue(g({ allies: [{ champ: "Ornn", level: 12 }] }), [], path, null, kinds, name)).toBeNull();
     expect(slotCue(g({ champ: "Ornn", level: 12 }), [], path, null, kinds, name)?.item).toBe(3031);
+  });
+});
+
+describe("itemId", () => {
+  it("names the game's id when the icon file is another mode's copy", () => {
+    // Overlord's Bloodmail's only image is Arena's 447111: an owned Bloodmail (2501) must not be offered again
+    expect(itemId("/assets/dd/16.23.1/img/item/447111.png")).toBe(2501);
+    expect(itemId("/assets/dd/16.23.1/img/item/667666.png")).toBe(6676);
+    expect(itemId("/assets/dd/16.23.1/img/item/223084.png")).toBe(3084);
   });
 });

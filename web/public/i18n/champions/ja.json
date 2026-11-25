@@ -350,5 +350,6 @@
  "Your abilities can crit, and {1} heals you from those crits.": "スキルがクリティカルし、{1}がそのクリティカルで回復させます。",
  "Your abilities can crit, so the extra crit chance pays off on them.": "スキルがクリティカルするため、追加のクリティカル率がスキルにも活きます。",
  "Avoid": "非推奨",
- "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "ティア D：過去のパッチでは、ここまで低いスペルの組み合わせは次のパッチでもこのチャンピオンの他の組み合わせより大きく勝率が劣りました。"
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "ティア D：過去のパッチでは、ここまで低いスペルの組み合わせは次のパッチでもこのチャンピオンの他の組み合わせより大きく勝率が劣りました。",
+ "Couldn't load this list.": "このリストを読み込めませんでした。"
 }

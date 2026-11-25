@@ -350,5 +350,6 @@
  "Your abilities can crit, and {1} heals you from those crits.": "Твои умения могут наносить крит, а {1} лечит тебя от этих критов.",
  "Your abilities can crit, so the extra crit chance pays off on them.": "Твои умения могут наносить крит, так что дополнительный шанс крита работает и для них.",
  "Avoid": "Избегать",
- "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Тир D: в прошлых патчах такие слабые пары заклинаний и в следующем патче выигрывали заметно реже других пар этого чемпиона."
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Тир D: в прошлых патчах такие слабые пары заклинаний и в следующем патче выигрывали заметно реже других пар этого чемпиона.",
+ "Couldn't load this list.": "Не удалось загрузить этот список."
 }

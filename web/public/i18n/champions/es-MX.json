@@ -350,5 +350,6 @@
  "Your abilities can crit, and {1} heals you from those crits.": "Tus habilidades pueden ser críticas y {1} te cura con esos críticos.",
  "Your abilities can crit, so the extra crit chance pays off on them.": "Tus habilidades pueden ser críticas, así que la probabilidad de crítico extra también les sirve.",
  "Avoid": "Evitar",
- "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Nivel D: en parches anteriores, las parejas de hechizos así de bajas ganaron mucho menos que las demás parejas de este campeón también en el parche siguiente."
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Nivel D: en parches anteriores, las parejas de hechizos así de bajas ganaron mucho menos que las demás parejas de este campeón también en el parche siguiente.",
+ "Couldn't load this list.": "No se pudo cargar esta lista."
 }

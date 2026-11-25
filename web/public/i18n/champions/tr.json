@@ -350,5 +350,6 @@
  "Your abilities can crit, and {1} heals you from those crits.": "Yeteneklerin kritik vurabilir ve {1} bu kritiklerden seni iyileştirir.",
  "Your abilities can crit, so the extra crit chance pays off on them.": "Yeteneklerin kritik vurabilir, yani ek kritik ihtimali onlara da yarar.",
  "Avoid": "Kaçın",
- "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D kademesi: geçmiş yamalarda bu kadar düşük büyü çiftleri sonraki yamada da bu şampiyonun diğer çiftlerinden çok daha az kazandı."
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D kademesi: geçmiş yamalarda bu kadar düşük büyü çiftleri sonraki yamada da bu şampiyonun diğer çiftlerinden çok daha az kazandı.",
+ "Couldn't load this list.": "Bu liste yüklenemedi."
 }

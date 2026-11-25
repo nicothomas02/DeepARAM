@@ -2,8 +2,9 @@ import Link from "next/link";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import RowLink from "@/components/RowLink";
 import { text } from "@/lib/content";
-import { chefsSpecial, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps, topItems } from "@/lib/highlights";
+import { chefsSpecial, detailDate, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps, topItems } from "@/lib/highlights";
 import { duoRows } from "@/lib/duos";
+import { bestPairs } from "@/lib/duo-pick";
 import { recap, recapPatches } from "@/lib/patches";
 import { readRepoJson } from "@/lib/repo-data";
 import type { PatchSchedule } from "@/lib/patch-schedule";
@@ -30,9 +31,9 @@ const Icon = ({ src }: { src: string }) => <img className="icon" src={src} alt="
 
 const pct = (v: number) => `${(v * 100).toFixed(1)}%`;
 
-// The pairs that help each other most on the live patch: the Duos tab's order, by win rate boost (synergy
-// adjusted for how often a pair is played, lib/duos.ts).
-const topDuos = (n = 5) => [...duoRows()].sort((a, b) => b.delta - a.delta).slice(0, n);
+// The pairs that help each other most on the live patch, by win rate boost (synergy adjusted for how often a pair is
+// played, lib/duos.ts), each champion once (lib/duo-pick.ts), as the Duos tab's default view.
+const topDuos = (n = 5) => bestPairs(duoRows(), n);
 
 // The number each "Top 10 at" list ranks on, written for its row (FunLists adds the unit): live-patch
 // shares and estimated typical-game numbers.
@@ -75,6 +76,7 @@ export default function Home() {
   const builds = special ? [] : kitchenBuilds();
   const n = counts();
   const date = statsDate();
+  const detail = detailDate();
   const duos = topDuos();
   const dps = topDps();
   const schedule = readRepoJson<PatchSchedule>("data/patch-schedule.json");
@@ -119,6 +121,12 @@ export default function Home() {
             <>
               {" · "}
               <T>Last updated</T> <LocalDate iso={date.toISOString()} />
+            </>
+          )}
+          {detail && (
+            <>
+              {" · "}
+              <T>Builds and augments from games up to</T> <LocalDate iso={detail.toISOString()} />
             </>
           )}
         </p>
