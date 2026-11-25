@@ -355,5 +355,8 @@
  "Its extra hits apply on-hit effects, so the other augment stacks faster.": "追加ヒットが通常攻撃時効果を発動するため、もう一方のオーグメントのスタックが速く溜まります。",
  "Its extra hits apply on-hit effects, so they carry the other augment's on-hit damage too.": "追加ヒットが通常攻撃時効果を発動するため、もう一方のオーグメントの通常攻撃時ダメージも乗ります。",
  "Ability hits apply on-hit effects, so the other augment stacks faster.": "スキルのヒットが通常攻撃時効果を発動するため、もう一方のオーグメントのスタックが速く溜まります。",
- "Its movement speed widens the gap {1} turns into damage.": "移動速度が上がり、{1}がダメージに変える速度差が広がります。"
+ "Its movement speed widens the gap {1} turns into damage.": "移動速度が上がり、{1}がダメージに変える速度差が広がります。",
+ "Its stronger heals and shields feed the other augment, which scales with them.": "強化された回復とシールドが、それに比例するもう一方のオーグメントを強化します。",
+ "Its shields trigger the other augment.": "そのシールドがもう一方のオーグメントを発動させます。",
+ "Its extra casts empower more of the other augment's attacks.": "追加の詠唱で、もう一方のオーグメントの強化攻撃が増えます。"
 }
