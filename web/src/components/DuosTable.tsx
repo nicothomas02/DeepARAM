@@ -7,9 +7,12 @@ import { LoadError } from "@/components/EmptyState";
 import RowLink from "@/components/RowLink";
 import { useNames, useT } from "./I18n";
 import { getParam, setParams } from "@/lib/url-state";
+import { bestPairs } from "@/lib/duo-pick";
 import type { TagInfo } from "@/lib/tag-info";
 
 // Duos, under the Tier List's Champions tab (ChampionsPanel, ?cview=duos): about 7,000 pairs (lib/duos.ts), so they load from /data/duos.json when first opened, not with the page.
+// The default view, "Best pairs", shows each champion once, in its best pair still free (lib/duo-pick.ts, Nico
+// 2026-11-25); "All pairs" (?dview=all) lists every pair.
 // Both lists start sorted by Win rate boost, the synergy adjusted for how often a pair is played (lib/duos.ts).
 // "Archetypes" pools the same pairs by subclass (Enchanter + Enchanter); those few rows ship with the page (?dview=arch).
 
@@ -69,11 +72,15 @@ export default function DuosTable({
 }) {
   const [rows, setRows] = useState<Row[] | null>(null);
   const [failed, setFailed] = useState(false);
-  const [arch, setArch] = useState(false);
+  const [mode, setMode] = useState<"best" | "all" | "arch">("best");
+  const arch = mode === "arch";
   const t = useT("tier-list");
   const tq = useT("quests");
   const names = useNames();
-  useEffect(() => setArch(getParam("dview") === "arch"), []);
+  useEffect(() => {
+    const v = getParam("dview");
+    setMode(v === "arch" || v === "all" ? v : "best");
+  }, []);
   useEffect(() => {
     fetch(`/data/duos.json?v=${version}`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
@@ -83,14 +90,20 @@ export default function DuosTable({
   const view = (
     <div className="duos-bar">
       <div className="seg" role="group" aria-label={t("Duos")}>
-        {(["Pairs", "Archetypes"] as const).map((l, i) => (
+        {(
+          [
+            ["best", "Best pairs"],
+            ["all", "All pairs"],
+            ["arch", "Archetypes"],
+          ] as const
+        ).map(([m, l]) => (
           <button
-            key={l}
+            key={m}
             type="button"
-            aria-pressed={arch === (i === 1)}
+            aria-pressed={mode === m}
             onClick={() => {
-              setArch(i === 1);
-              setParams({ dview: i === 1 ? "arch" : null, sort: null });
+              setMode(m);
+              setParams({ dview: m === "best" ? null : m, sort: null });
             }}
           >
             {t(l)}
@@ -120,7 +133,7 @@ export default function DuosTable({
     <>
       {view}
       <DataTable
-        key="champions"
+        key={mode}
         columns={[champion("a", "Champion"), champion("b", "With"), PAIR_DELTA, PICK, WHY]}
         advancedColumns={[
           champion("a", "Champion"),
@@ -131,7 +144,7 @@ export default function DuosTable({
           ...(rows.some((r) => r.noCC) ? [CC] : []),
           { key: "roles", label: "Roles", format: "text", sortable: false },
         ]}
-        rows={rows.map((r) => ({ ...r, ...(r.noCC ? { noCC: t(String(r.noCC)) } : {}), why: r.why ? t(String(r.why)) : "" }))}
+        rows={(mode === "best" ? bestPairs(rows as (Row & { a: string; b: string; delta: number })[]) : rows).map((r) => ({ ...r, ...(r.noCC ? { noCC: t(String(r.noCC)) } : {}), why: r.why ? t(String(r.why)) : "" }))}
         initialSort={{ key: "delta", desc: true }}
         searchKey="pair"
         searchLabel="Find a champion"

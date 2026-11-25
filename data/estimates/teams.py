@@ -22,6 +22,7 @@ Writes data/estimates/teams.json. Usage: python3 data/estimates/teams.py [--befo
 """
 
 import argparse
+import csv
 import itertools
 import json
 import math
@@ -54,9 +55,26 @@ def inv(x):
     return 1 / (1 + math.exp(-x))
 
 
+def same_day_rates(snapshot):
+    """101's own champion win rates on the day of its teammate numbers (data/cn/history/daily), as the Duos tab uses
+    (web/src/lib/duos.ts duoSoloRate). champions.json can carry AramHex's rates (data/aramhex/merge.py), and measuring a
+    101 pair rate against AramHex solo rates mixed two sources ~0.7 pts apart per champion: on 2026-11-23 that put
+    Qiyana (+TF, +Master Yi) at the top of the Full teams. Empty when that day isn't saved."""
+    day = str((snapshot.get("meta") or {}).get("champion_stat_date") or "")
+    if len(day) != 8:
+        return {}
+    iso = f"{day[:4]}-{day[4:6]}-{day[6:]}"
+    path = os.path.join(ROOT, "data", "cn", "history", "daily", f"{iso[:7]}.csv")
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        return {int(r["champion_id"]): float(r["win_rate"]) for r in csv.DictReader(f) if r["date"] == iso}
+
+
 def pairs(snapshot):
     """{(a, b): (synergy in log-odds, pair pick weight)} with a < b, averaging the two directions when both list it."""
     wr = {c["champion_id"]: c["win_rate"] for c in snapshot["champions"]}
+    wr.update(same_day_rates(snapshot))
     pick = {c["champion_id"]: c["pick_rate"] for c in snapshot["champions"]}
     acc = {}
     for c in snapshot["champions"]:
