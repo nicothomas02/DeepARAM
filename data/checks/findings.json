@@ -1,9 +1,9 @@
 {
  "patch": "16.23",
- "built": "2026-11-24",
+ "built": "2026-11-25",
  "checks": {
   "loops": 3,
-  "gap": 48,
+  "gap": 42,
   "sim": 13,
   "wasted": 0,
   "kitchen": 43
@@ -37,8 +37,8 @@
    ],
    "theory": "The Simulator puts Berserker's Greaves in Corki's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Corki's builds with Berserker's Greaves win 4.5 points less often than their builds without it.",
-   "gap": -0.0448,
-   "share": 0.0325,
+   "gap": -0.0453,
+   "share": 0.032,
    "status": "trap"
   },
   {
@@ -53,26 +53,9 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.3 points less often than their builds without it.",
-   "gap": -0.0432,
-   "share": 0.0489,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Lucian-berserkers",
-   "kind": "sim",
-   "title": "Berserker's Greaves on Lucian",
-   "champions": [
-    "Lucian"
-   ],
-   "augments": [],
-   "items": [
-    3006
-   ],
-   "theory": "The Simulator puts Berserker's Greaves in Lucian's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lucian's builds with Berserker's Greaves win 6.2 points less often than their builds without it.",
-   "gap": -0.0624,
-   "share": 0.0308,
+   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.4 points less often than their builds without it.",
+   "gap": -0.0443,
+   "share": 0.0486,
    "status": "trap"
   },
   {
@@ -87,8 +70,8 @@
     3071
    ],
    "theory": "The Simulator puts Black Cleaver in Riven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Riven's builds with Black Cleaver win 3.2 points less often than their builds without it.",
-   "gap": -0.0325,
+   "practice": "In real games, Riven's builds with Black Cleaver win 3.1 points less often than their builds without it.",
+   "gap": -0.0309,
    "share": 0.033,
    "status": "trap"
   },
@@ -105,8 +88,8 @@
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Caitlyn's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Caitlyn's builds with Blade of The Ruined King win 3.2 points less often than their builds without it.",
-   "gap": -0.0318,
-   "share": 0.0601,
+   "gap": -0.0324,
+   "share": 0.0597,
    "status": "trap"
   },
   {
@@ -121,9 +104,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Sivir's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Sivir's builds with Blade of The Ruined King win 3.0 points less often than their builds without it.",
-   "gap": -0.0304,
-   "share": 0.1101,
+   "practice": "In real games, Sivir's builds with Blade of The Ruined King win 3.1 points less often than their builds without it.",
+   "gap": -0.0305,
+   "share": 0.1098,
    "status": "trap"
   },
   {
@@ -138,9 +121,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Xin Zhao's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Xin Zhao's builds with Blade of The Ruined King win 3.7 points less often than their builds without it.",
-   "gap": -0.0367,
-   "share": 0.0316,
+   "practice": "In real games, Xin Zhao's builds with Blade of The Ruined King win 3.6 points less often than their builds without it.",
+   "gap": -0.0362,
+   "share": 0.032,
    "status": "trap"
   },
   {
@@ -155,9 +138,9 @@
     3089
    ],
    "theory": "The Simulator puts Rabadon's Deathcap in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 9.8 points less often than their builds without it.",
-   "gap": -0.0984,
-   "share": 0.0978,
+   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.3 points less often than their builds without it.",
+   "gap": -0.1032,
+   "share": 0.0977,
    "status": "trap"
   },
   {
@@ -172,9 +155,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 8.0 points less often than their builds without it.",
-   "gap": -0.0797,
-   "share": 0.0344,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 7.8 points less often than their builds without it.",
+   "gap": -0.0783,
+   "share": 0.0343,
    "status": "trap"
   },
   {
@@ -191,7 +174,7 @@
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Talon's builds with Serylda's Grudge win 3.8 points less often than their builds without it.",
    "gap": -0.0384,
-   "share": 0.0564,
+   "share": 0.056,
    "status": "trap"
   },
   {
@@ -207,8 +190,25 @@
    ],
    "theory": "The Simulator puts Serylda's Grudge in Zed's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Zed's builds with Serylda's Grudge win 4.9 points less often than their builds without it.",
-   "gap": -0.0487,
-   "share": 0.0718,
+   "gap": -0.0486,
+   "share": 0.0716,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Gwen-sorcerers",
+   "kind": "sim",
+   "title": "Sorcerer's Shoes on Gwen",
+   "champions": [
+    "Gwen"
+   ],
+   "augments": [],
+   "items": [
+    3020
+   ],
+   "theory": "The Simulator puts Sorcerer's Shoes in Gwen's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 3.1 points less often than their builds without it.",
+   "gap": -0.031,
+   "share": 0.0365,
    "status": "trap"
   },
   {
@@ -223,9 +223,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 8.0 points less often than their builds without it.",
-   "gap": -0.0798,
-   "share": 0.0563,
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 8.2 points less often than their builds without it.",
+   "gap": -0.0817,
+   "share": 0.0561,
    "status": "trap"
   },
   {
@@ -240,9 +240,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Xerath's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Xerath's builds with Sorcerer's Shoes win 3.3 points less often than their builds without it.",
-   "gap": -0.0327,
-   "share": 0.2016,
+   "practice": "In real games, Xerath's builds with Sorcerer's Shoes win 3.0 points less often than their builds without it.",
+   "gap": -0.0305,
+   "share": 0.2012,
    "status": "trap"
   }
  ],
@@ -375,21 +375,6 @@
    "items": [],
    "theory": "With Haste turns Ability Haste into Move Speed, Tap Dancer turns Move Speed into Attack Speed, and Purist - Caster turns Attack Speed into Ability Haste. On paper each one keeps raising the other, so Ability Haste grows without end.",
    "test": "Take Purist - Caster and Tap Dancer and With Haste, then open your stats after each item. If Ability Haste keeps climbing on its own, it's a bug worth reporting. If it settles after one step, it's a trap.",
-   "status": "to_test"
-  },
-  {
-   "id": "gap-Aatrox",
-   "kind": "gap",
-   "title": "Aatrox never gets POWER",
-   "champions": [
-    "Aatrox"
-   ],
-   "augments": [
-    3171
-   ],
-   "items": [],
-   "theory": "At least 95% of champions get POWER, but Aatrox has never been seen taking it, even though Aatrox is picked often.",
-   "test": "Play Aatrox and watch your augment choices. If it never shows up, Riot has left it out for Aatrox. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -586,21 +571,6 @@
    "status": "to_test"
   },
   {
-   "id": "gap-Gwen",
-   "kind": "gap",
-   "title": "Gwen never gets Bread And Jam",
-   "champions": [
-    "Gwen"
-   ],
-   "augments": [
-    1150
-   ],
-   "items": [],
-   "theory": "At least 92% of champions get Bread And Jam, but Gwen has never been seen taking it, even though Gwen is picked often.",
-   "test": "Play Gwen and watch your augment choices. If it never shows up, Riot has left it out for Gwen. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
    "id": "gap-Jayce",
    "kind": "gap",
    "title": "Jayce never gets Ultimate Awakening and 6 more",
@@ -683,21 +653,6 @@
    "items": [],
    "theory": "At least 93% of champions get With Haste, but Katarina has never been seen taking it, even though Katarina is picked often.",
    "test": "Play Katarina and watch your augment choices. If it never shows up, Riot has left it out for Katarina. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
-   "id": "gap-Kayn",
-   "kind": "gap",
-   "title": "Kayn never gets THRASH",
-   "champions": [
-    "Kayn"
-   ],
-   "augments": [
-    3172
-   ],
-   "items": [],
-   "theory": "At least 95% of champions get THRASH, but Kayn has never been seen taking it, even though Kayn is picked often.",
-   "test": "Play Kayn and watch your augment choices. If it never shows up, Riot has left it out for Kayn. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -821,17 +776,16 @@
   {
    "id": "gap-Rengar",
    "kind": "gap",
-   "title": "Rengar never gets THRASH and 1 more",
+   "title": "Rengar never gets Get Jinxed",
    "champions": [
     "Rengar"
    ],
    "augments": [
-    3172,
     3004
    ],
    "items": [],
-   "theory": "At least 93% of champions get THRASH and Get Jinxed, but Rengar has never been seen taking them, even though Rengar is picked often.",
-   "test": "Play Rengar and watch your augment choices. If they never show up, Riot has left them out for Rengar. If that doesn't look like it's on purpose, it's worth reporting.",
+   "theory": "At least 93% of champions get Get Jinxed, but Rengar has never been seen taking it, even though Rengar is picked often.",
+   "test": "Play Rengar and watch your augment choices. If it never shows up, Riot has left it out for Rengar. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -850,21 +804,6 @@
    "items": [],
    "theory": "At least 90% of champions get Heavy Is The Crown, Can't Touch This, The Boom and the Bass and Arcane Axiom, but Ryze has never been seen taking them, even though Ryze is picked often.",
    "test": "Play Ryze and watch your augment choices. If they never show up, Riot has left them out for Ryze. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
-   "id": "gap-Senna",
-   "kind": "gap",
-   "title": "Senna never gets THRASH",
-   "champions": [
-    "Senna"
-   ],
-   "augments": [
-    3172
-   ],
-   "items": [],
-   "theory": "At least 95% of champions get THRASH, but Senna has never been seen taking it, even though Senna is picked often.",
-   "test": "Play Senna and watch your augment choices. If it never shows up, Riot has left it out for Senna. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -926,25 +865,6 @@
    "items": [],
    "theory": "At least 93% of champions get Get Jinxed, but Syndra has never been seen taking it, even though Syndra is picked often.",
    "test": "Play Syndra and watch your augment choices. If it never shows up, Riot has left it out for Syndra. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
-   "id": "gap-Talon",
-   "kind": "gap",
-   "title": "Talon never gets Bread and Cheese and 4 more",
-   "champions": [
-    "Talon"
-   ],
-   "augments": [
-    1151,
-    3172,
-    1028,
-    1058,
-    3116
-   ],
-   "items": [],
-   "theory": "At least 91% of champions get Bread and Cheese, THRASH, Erosion, Mystic Punch and Take'em Down Down Down, but Talon has never been seen taking them, even though Talon is picked often.",
-   "test": "Play Talon and watch your augment choices. If they never show up, Riot has left them out for Talon. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
@@ -1061,22 +981,6 @@
    "items": [],
    "theory": "At least 92% of champions get Twin Fire, Erosion, Back To Basics, With Haste and Bread And Jam, but Vayne has never been seen taking them, even though Vayne is picked often.",
    "test": "Play Vayne and watch your augment choices. If they never show up, Riot has left them out for Vayne. If that doesn't look like it's on purpose, it's worth reporting.",
-   "status": "to_test"
-  },
-  {
-   "id": "gap-Viego",
-   "kind": "gap",
-   "title": "Viego never gets Weapon of Destiny and 1 more",
-   "champions": [
-    "Viego"
-   ],
-   "augments": [
-    3081,
-    1098
-   ],
-   "items": [],
-   "theory": "At least 93% of champions get Weapon of Destiny and With Haste, but Viego has never been seen taking them, even though Viego is picked often.",
-   "test": "Play Viego and watch your augment choices. If they never show up, Riot has left them out for Viego. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
