@@ -115,7 +115,7 @@ pub fn match_offer_at(lines: &[Line], names: &[(i64, String)]) -> Vec<(i64, f64)
 }
 
 /// Whether cards sit evenly across the screen: the widest gap between neighbours is at most 1.15 times the narrowest.
-fn evenly_spaced(cards: &[(i64, f64)]) -> bool {
+pub fn evenly_spaced(cards: &[(i64, f64)]) -> bool {
     let gaps: Vec<f64> = cards.windows(2).map(|p| (p[1].1 - p[0].1).abs()).collect();
     let (lo, hi) = gaps.iter().fold((f64::MAX, 0.0f64), |(lo, hi), g| (lo.min(*g), hi.max(*g)));
     lo > 0.0 && hi <= lo * 1.15
