@@ -88,6 +88,7 @@ var DeepEngine = (() => {
     enemyStats: () => enemyStats,
     fillStart: () => fillStart,
     headlinerKey: () => headlinerKey,
+    heldForm: () => heldForm,
     itemId: () => itemId,
     itemRules: () => itemRules,
     keyIn: () => keyIn,
@@ -2744,6 +2745,14 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   var base = (id) => id % 1e4;
   var TRANSFORMED_FROM = { 3040: 3003, 3042: 3004, 3121: 3119, 2530: 2526, 3160: 3154 };
   var ownedId = (id) => TRANSFORMED_FROM[base(id)] ?? base(id);
+  var TRANSFORMED_NAMES = { 3040: "Seraph's Embrace", 3042: "Muramana", 3121: "Fimbulwinter", 2530: "Diadem of Songs", 3160: "Feral Flare" };
+  function heldForm(it, items, k) {
+    const id = itemId(it.icon);
+    const held = items.map(base).find((x) => x !== id && ownedId(x) === ownedId(id));
+    if (held === void 0) return it;
+    const name = k?.recipes[held]?.[0] ?? TRANSFORMED_NAMES[held];
+    return name ? { ...it, name, icon: it.icon ? it.icon.replace(/(\d*?)(\d{4})\.png$/, (_m, pre) => `${pre}${held}.png`) : it.icon } : it;
+  }
   var OwnedItems = class extends Set {
     constructor(items = []) {
       super([...items].map(ownedId));
@@ -4042,7 +4051,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       return list;
     })();
     return {
-      path,
+      path: path.map((it) => heldForm(it, game.items, k)),
       coreLen: coreItems.length,
       next,
       why,
