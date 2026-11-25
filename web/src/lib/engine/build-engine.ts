@@ -78,6 +78,8 @@ export const RULES: Record<string, Rule> = {
   leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: tested only on champions that normally build the item, so it isn't forcing it on champions that can't use it: Dual Wield -> Blade of the Ruined King, Magic Missile -> Shadowflame; a loss on win rate alone needs 20+ matched holders, which cleared Critical Healing -> Moonstone) lose the augment's push, only vs 0-1 enemy frontliners where the loss isn't seen vs 2+ (BotRK is best vs high health, Nico 2026-11-24); the item stays wherever the champion's own build has it. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
   ccCounters: { source: "kit rule", on: true, why: "3+ enemies built to lock you down (Catcher/Vanguard) light up tenacity and cleanse items (Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn) as a swap. Nico 2026-11-20: Mayhem has more CC than SR; 2026-11-24 approved enemy-aware swaps when damage mix or CC clearly calls for it. Untestable so far (match data has no CC-received stat; 3+ engage -> QSS had 5 buyers), so estimated." },
   vowPartner: { source: "kit rule", on: true, why: "Knight's Vow heals its owner for 12% of the damage the pledged (Worthy) ally deals to champions (item text, Data Dragon 16.23), so on a frontliner or enchanter, with 2+ enemy frontliners (Warden/Vanguard/Juggernaut) and an ally whose kit hits max health (Vayne, Kog'Maw, Varus...) or a marksman, it lights up as a swap: pledge to that ally. Archive, within champion: each enemy frontliner adds +1.1 +- 0.3 pts of team damage share for max-health kits and +0.7 +- 0.2 for marksmen (assassins -0.8, artillery -0.7), so the heal grows with exactly that matchup. The heal itself isn't measured (estimated). Nico 2026-11-24 asked for unconventional mechanism ideas; his example (Knight's Vow on the max-health champion itself) doesn't work: the item heals its owner from the ally's damage, not the damage dealer." },
+  headlinerItems: { source: "kit rule", on: true, why: "La Ilusion (a dying ally drops a candle that shields whoever picks it up) lights the champion's own 'Vs shields' item; Cafe Cuties (health relics heal 20% more missing health) lights its 'Vs healing' item. Pointers only (hover), never a swap: anti-heal and anti-shield items showed no clear effect in normal games, and these headliners leave no trace in match data to test (research/headliners). Nico's ideas 2026-11-24; estimated, used once the app knows the headliner." },
+  allyAugments: { source: "kit rule", on: true, why: "Augments that act through teammates (wiki text: Empowered By The Faithful and Searing Dawn trigger on allies' hits; Sonic Boom, Windspeaker's Blessing, Empyrean Promise, Spirit Bomb and Wee Woo Wee Woo fire around allies in the fight) break a near-tie when 2+ allies fit (damage dealers, or melee fighters and tanks). Tiebreak only, never past a clearly better card. Archive, within champion: holders' win with vs without such a team -16 to +26 pts, all within noise (8 augments, 10-148 holders), so nothing contradicts it and nothing confirms it (estimated). Nico 2026-11-24 approved ally-aware augments." },
   fullBuildShop: { source: "kit rule", on: true, why: "With six finished items and the build done: Stat Bonus (750 gold, permanent stat, level 9+) when you can afford it, else the elixir of your damage type (Sorcery for AP, Wrath for AD, Iron for tanks: 500 gold, 3 minutes) when 500-749 gold sits unspent. Permanent beats temporary for 250 more gold; the elixir only spends gold that would idle. Item text (Data Dragon 16.23); estimated, no archive data on consumables. Nico 2026-11-24 asked for elixir and anvil advice." },
   pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
   // Design choices Nico hasn't picked yet: kept as they were.
@@ -192,6 +194,8 @@ export type GameState = {
   t?: number;
   /** [crit chance (0 to 1), attack speed, ability haste] as the live game reports them, when the app reads them. */
   stats?: number[];
+  /** This game's headliner, once the app knows it ("La Ilusion", "Cafe Cuties"...). */
+  headliner?: string;
 };
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -586,7 +590,21 @@ export function nearTies(picks: Picks, champ: string, offered0: { id: number; sc
  * Among the best card and its near-ties, the one to take if you can't decide (Nico 2026-11-24): more combo potential
  * first (it can grow), else the one fewer players take (more unusual). Null when nothing separates them.
  */
-export function tieBreak(picks: Picks, champ: string, ids: number[], ranked: RankedAugment[]): { id: number; why: string } | null {
+/** Augments that act through teammates (wiki text) and the allies they need (allyAugments). "carry": the ally's own
+ *  hits trigger it (Empowered By The Faithful, Searing Dawn); "melee": it fires around allies in the fight (Sonic Boom,
+ *  Windspeaker's Blessing, Empyrean Promise, Spirit Bomb, Wee Woo Wee Woo). */
+export const ALLY_AUGMENTS: Record<number, "carry" | "melee"> = { 2004: "carry", 1072: "carry", 72: "carry", 1076: "melee", 76: "melee", 1331: "melee", 1095: "melee", 95: "melee", 2104: "melee", 1005: "melee" };
+const CARRY_ARCH = new Set(["Marksman", "Burst", "Artillery", "Battlemage", "Assassin"]);
+const MELEE_ARCH = new Set(["Vanguard", "Warden", "Juggernaut", "Diver", "Skirmisher", "Assassin"]);
+/** Whether this team gives an ally augment what it needs: 2+ allies of that kind. */
+export function allyFit(aug: number, allies: string[], fit: Fit | null): boolean {
+  const need = RULES.allyAugments.on ? ALLY_AUGMENTS[aug] : undefined;
+  if (!need || !fit) return false;
+  const set = need === "carry" ? CARRY_ARCH : MELEE_ARCH;
+  return allies.filter((c) => (fit.champions[keyIn(fit.champions, c) ?? ""]?.[1] ?? []).some((a) => set.has(a))).length >= 2;
+}
+
+export function tieBreak(picks: Picks, champ: string, ids: number[], ranked: RankedAugment[], team?: { allies: string[]; fit: Fit | null }): { id: number; why: string } | null {
   if (ids.length < 2) return null;
   const ck = keyIn(picks.champions, champ);
   const pickRate = new Map((ck ? picks.champions[ck] : []).map(([id, , , , , pr = -1]) => [id, pr]));
@@ -594,6 +612,9 @@ export function tieBreak(picks: Picks, champ: string, ids: number[], ranked: Ran
   if (rows.length < 2) return null;
   const pot = [...rows].sort((a, b) => b.potential - a.potential);
   if (pot[0].potential - pot[1].potential >= 0.05) return { id: pot[0].id, why: "more combo potential" };
+  // an augment that works through teammates, when this team has the teammates for it (allyAugments)
+  const helps = team ? rows.filter((a) => allyFit(a.id, team.allies, team.fit)) : [];
+  if (helps.length === 1) return { id: helps[0].id, why: "your team suits it" };
   const rare = rows.filter((a) => (pickRate.get(a.id) ?? -1) >= 0).sort((a, b) => pickRate.get(a.id)! - pickRate.get(b.id)!);
   if (rare.length >= 2 && pickRate.get(rare[0].id)! < pickRate.get(rare[1].id)! * 0.8) return { id: rare[0].id, why: "fewer players take it" };
   return null;
@@ -1576,6 +1597,11 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // pointers.
   const inPath = new Set(path.map((it) => itemId(it.icon)));
   const all = k ? situational(champ, k, fit, game.enemies ?? [], taken, owned, augName) : [];
+  // Headliners that feed one situation (headlinerItems): candle shields (La Ilusion) and stronger health relics (Cafe
+  // Cuties) light the champion's own anti-shield / anti-heal pick as a pointer, never a swap.
+  const hlWhy: Record<string, [string, string]> = { lailusion: ["Vs shields", "La Ilusion: candles shield the enemy team."], cafecuties: ["Vs healing", "Cafe Cuties: health relics heal more."] };
+  const hl = RULES.headlinerItems.on ? hlWhy[headlinerKey(game.headliner)] : undefined;
+  if (hl) for (const it of all) if (it.when === hl[0] && !it.why) { it.why = hl[1]; applied("headlinerItems"); }
   // Knight's Vow (vowPartner): a frontliner or enchanter heals off an ally who shreds the enemy's frontline
   if (RULES.vowPartner.on && k?.recipes[KNIGHTS_VOW] && !inPath.has(KNIGHTS_VOW) && !owned.has(KNIGHTS_VOW)) {
     const arch = (c: string) => fit?.champions?.[keyIn(fit.champions, c) ?? ""]?.[1] ?? [];

@@ -312,6 +312,13 @@ describe("build engine", () => {
     expect(AUGMENT_SHIFT[dw[0]]?.["3153"]).toBeDefined();
   });
 
+  it("a headliner that feeds one situation lights that item as a pointer, not a swap (headlinerItems)", () => {
+    const p = plan({ champ, kinds, picks, fit, game: game([], { headliner: "Cafe Cuties" }), taken: [] });
+    expect(p.pointers.map((x) => itemId(x.item.icon))).toEqual([3003]);
+    expect(p.swaps).toEqual([]);
+    expect(plan({ champ, kinds, picks, fit, game: game([]), taken: [] }).pointers).toEqual([]);
+  });
+
   it("a frontliner pledges Knight's Vow to an ally who shreds 2+ enemy frontliners (vowPartner)", () => {
     const f: Fit = { champions: { ...fit.champions, Braum: [0, ["Warden"]], Leona: [0, ["Vanguard"]], Ornn: [0, ["Vanguard"]], Vayne: [0, ["Marksman"]] } };
     const k2 = { ...kinds, recipes: { ...kinds.recipes, "3109": ["Knight's Vow", 2300, []] } } as Kinds;
@@ -597,6 +604,14 @@ describe("build engine", () => {
     const p: Picks = { ...picks, champions: { Ashe: [[1, 0.05, 50, 1, 0.5, 0.2], [2, 0.047, 50, 1, 0.5, 0.05]] } };
     expect(tieBreak(p, "Ashe", [1, 2], ranked)).toEqual({ id: 2, why: "more combo potential" });
     expect(tieBreak(p, "Ashe", [1, 2], ranked.map((a) => ({ ...a, potential: 0 })))).toEqual({ id: 2, why: "fewer players take it" });
+  });
+
+  it("an augment that works through teammates breaks a near-tie when the team has them (allyAugments)", () => {
+    const ranked = [{ id: 1, score: 5, boost: 5, potential: 0, combo: null, mate: null, deep: 50 }, { id: 1076, score: 4.9, boost: 4.9, potential: 0, combo: null, mate: null, deep: 50 }];
+    const p: Picks = { ...picks, champions: { Ashe: [[1, 0.05, 50, 1, 0.5, 0.05], [1076, 0.049, 50, 1, 0.5, 0.2]] } };
+    const f: Fit = { champions: { Leona: [0, ["Vanguard"]], Darius: [0, ["Juggernaut"]], Lux: [0, ["Burst"]], Jinx: [0, ["Marksman"]] } };
+    expect(tieBreak(p, "Ashe", [1, 1076], ranked, { allies: ["Leona", "Darius", "Lux"], fit: f })).toEqual({ id: 1076, why: "your team suits it" }); // Sonic Boom, 2 melee
+    expect(tieBreak(p, "Ashe", [1, 1076], ranked, { allies: ["Leona", "Jinx", "Lux"], fit: f })).toEqual({ id: 1, why: "fewer players take it" });
   });
 
   it("calls cards within noise of the best a near-tie (engine scorecard)", () => {
