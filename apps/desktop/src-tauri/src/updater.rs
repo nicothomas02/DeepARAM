@@ -35,12 +35,13 @@ pub fn newer(tag: &str, running: &str) -> bool {
     matches!((version(tag), version(running)), (Some(t), Some(r)) if t > r)
 }
 
-/// Updating is safe only with League closed (no client found) or the client in its lobby. A client that runs but
-/// doesn't answer counts as busy.
+/// Installing is safe whenever League is idle (PC app 1.26.28): closed (no client found), in the lobby, in queue or
+/// on the end-of-game screen. Never from the ready check through champion select and the game. A client that runs
+/// but doesn't answer counts as busy.
 pub fn quiet_phase(phase: &Result<Option<String>, ()>) -> bool {
     match phase {
         Ok(None) => true,
-        Ok(Some(p)) => matches!(p.as_str(), "None" | "Lobby"),
+        Ok(Some(p)) => matches!(p.as_str(), "None" | "Lobby" | "Matchmaking" | "PreEndOfGame" | "WaitingForStats" | "EndOfGame"),
         Err(()) => false,
     }
 }
@@ -82,14 +83,29 @@ fn now() -> u64 {
     std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map(|d| d.as_secs()).unwrap_or(0)
 }
 
-/// Checks every 15 minutes while the app runs (Windows only: the public app's installer is Windows').
+/// How often a downloaded update looks for a moment to install.
+#[cfg(windows)]
+const INSTALL_POLL: Duration = Duration::from_secs(20);
+
+/// A verified update on disk, waiting for League to be idle: (tag, install script).
+#[cfg(windows)]
+static READY: std::sync::Mutex<Option<(String, std::path::PathBuf)>> = std::sync::Mutex::new(None);
+
+/// Looks for a new version every 15 minutes and downloads it whenever one is out, even during a game (PC app
+/// 1.26.28). It installs and restarts on its own the first moment League is idle (see quiet_phase): no clicks.
+/// Windows only: the public app's installer is Windows'.
 #[cfg(windows)]
 pub fn watch(app: AppHandle) {
     std::thread::spawn(move || {
         std::thread::sleep(FIRST_CHECK_AFTER);
+        let mut last: Option<std::time::Instant> = None;
         loop {
-            check(&app);
-            std::thread::sleep(CHECK_EVERY);
+            if last.is_none_or(|at| at.elapsed() >= CHECK_EVERY) {
+                last = Some(std::time::Instant::now());
+                download(&app);
+            }
+            install_when_idle(&app);
+            std::thread::sleep(INSTALL_POLL);
         }
     });
 }
@@ -105,16 +121,19 @@ fn quiet(app: &AppHandle) -> bool {
 }
 
 #[cfg(windows)]
-fn check(app: &AppHandle) {
+fn download(app: &AppHandle) {
     use sha2::{Digest, Sha256};
 
-    if !crate::auto_update_on(app) || !quiet(app) {
+    if !crate::auto_update_on(app) {
         return;
     }
     let running = app.package_info().version.to_string();
     let Some(release) = get(LATEST).and_then(|mut r| r.body_mut().read_json::<Value>().ok()) else { return };
     let Some(tag) = release.get("tag_name").and_then(Value::as_str).map(str::to_owned) else { return };
     if !newer(&tag, &running) || crate::update_tried_recently(app, &tag, now()) {
+        return;
+    }
+    if READY.lock().unwrap().as_ref().is_some_and(|(t, _)| *t == tag) {
         return;
     }
     let fetch = |u: &str| get(u)?.body_mut().read_to_string().ok();
@@ -135,11 +154,21 @@ fn check(app: &AppHandle) {
     let written = std::fs::create_dir_all(&dir).and_then(|_| std::fs::write(&setup, &bytes)).and_then(|_| {
         std::fs::write(&cmd, script(&setup.to_string_lossy(), &exe.to_string_lossy(), crate::HIDDEN_ARG))
     });
-    // The download took a while: League may have moved on to champion select since.
-    if written.is_err() || !quiet(app) {
+    if written.is_ok() {
+        *READY.lock().unwrap() = Some((tag, cmd));
+    }
+}
+
+/// Installs a downloaded update once League is idle: the app quits, the installer runs silently and the new version
+/// starts again in the tray.
+#[cfg(windows)]
+fn install_when_idle(app: &AppHandle) {
+    let Some((tag, cmd)) = READY.lock().unwrap().clone() else { return };
+    if !crate::auto_update_on(app) || !quiet(app) || !cmd.exists() {
         return;
     }
     crate::note_update_tried(app, &tag, now());
+    *READY.lock().unwrap() = None;
     use std::os::windows::process::CommandExt;
     const CREATE_NO_WINDOW: u32 = 0x0800_0000;
     let started =
@@ -166,11 +195,14 @@ mod tests {
     }
 
     #[test]
-    fn updates_only_with_league_closed_or_in_the_lobby() {
+    fn installs_only_while_league_is_idle() {
         assert!(quiet_phase(&Ok(None)));
         assert!(quiet_phase(&Ok(Some("Lobby".into()))));
         assert!(quiet_phase(&Ok(Some("None".into()))));
-        for busy in ["Matchmaking", "ReadyCheck", "ChampSelect", "GameStart", "InProgress", "Reconnect", "EndOfGame"] {
+        for idle in ["Matchmaking", "PreEndOfGame", "WaitingForStats", "EndOfGame"] {
+            assert!(quiet_phase(&Ok(Some(idle.into()))), "{idle}");
+        }
+        for busy in ["ReadyCheck", "ChampSelect", "GameStart", "InProgress", "Reconnect"] {
             assert!(!quiet_phase(&Ok(Some(busy.into()))), "{busy}");
         }
         assert!(!quiet_phase(&Err(())));

@@ -78,7 +78,7 @@ pub fn match_offer(lines: &[Line], names: &[(i64, String)]) -> Vec<i64> {
 /// The augments on offer, left to right, each with its card's centre across (in the lines' pixels). A title can
 /// wrap onto two lines ("Courage of the / Colossus"), so two lines stacked on the same card are tried together first.
 pub fn match_offer_at(lines: &[Line], names: &[(i64, String)]) -> Vec<(i64, f64)> {
-    let mut found: Vec<(f64, i64)> = Vec::new();
+    let mut found: Vec<(f64, f64, f64, i64)> = Vec::new(); // centre across, top, line height, augment
     let mut used = vec![false; lines.len()];
     for (i, a) in lines.iter().enumerate() {
         for (j, b) in lines.iter().enumerate() {
@@ -89,7 +89,7 @@ pub fn match_offer_at(lines: &[Line], names: &[(i64, String)]) -> Vec<(i64, f64)
             let gap = b.y - (a.y + a.h);
             if (ca - cb).abs() < a.w.max(b.w) / 2.0 && gap > -a.h * 0.3 && gap < a.h * 1.2 {
                 if let Some(id) = best_name(&norm(&format!("{} {}", a.text, b.text)), names) {
-                    found.push((ca.min(cb), id));
+                    found.push((ca.min(cb), a.y.min(b.y), a.h.max(b.h), id));
                     used[i] = true;
                     used[j] = true;
                 }
@@ -99,13 +99,13 @@ pub fn match_offer_at(lines: &[Line], names: &[(i64, String)]) -> Vec<(i64, f64)
     for (i, l) in lines.iter().enumerate() {
         if !used[i] {
             if let Some(id) = best_name(&norm(&l.text), names) {
-                found.push((l.x + l.w / 2.0, id));
+                found.push((l.x + l.w / 2.0, l.y, l.h, id));
             }
         }
     }
-    found.sort_by(|a, b| a.0.total_cmp(&b.0));
+    let found = one_row(found);
     let mut cards: Vec<(i64, f64)> = Vec::new();
-    for (x, id) in found {
+    for (x, _, _, id) in found {
         if !cards.iter().any(|(c, _)| *c == id) {
             cards.push((id, x));
         }
@@ -137,6 +137,21 @@ pub fn check_four(cards: Vec<(i64, f64)>) -> Vec<(i64, f64)> {
     } else {
         Vec::new()
     }
+}
+
+/// Card titles sit side by side on one row (PC app 1.26.28): only the names in the biggest row are kept, so a list
+/// read off another window (the companion, a browser, a chat app), stacked one name under another, is dropped.
+/// Names count as one row when their tops are within a line height of each other. Left to right on return.
+fn one_row(found: Vec<(f64, f64, f64, i64)>) -> Vec<(f64, f64, f64, i64)> {
+    let mut best: Vec<(f64, f64, f64, i64)> = Vec::new();
+    for a in &found {
+        let row: Vec<_> = found.iter().filter(|b| (b.1 - a.1).abs() <= a.2.max(b.2)).copied().collect();
+        if row.len() > best.len() {
+            best = row;
+        }
+    }
+    best.sort_by(|a, b| a.0.total_cmp(&b.0));
+    best
 }
 
 /// The card a click across at `x` landed on: the nearest card centre, if the click is within half the gap between
@@ -453,6 +468,22 @@ mod tests {
 
     fn line(text: &str, x: f64, y: f64) -> Line {
         Line { text: text.into(), x, y, w: 180.0, h: 24.0 }
+    }
+
+    #[test]
+    fn a_list_from_another_window_is_dropped() {
+        // Three real cards on one row, plus a list of names stacked down the side (the companion, Chrome, Discord).
+        let lines = vec![
+            line("Can't Touch This", 100.0, 200.0),
+            line("Ethereal Weapon", 500.0, 205.0),
+            line("Mystic Punch", 900.0, 198.0),
+            line("Deft", 1300.0, 400.0),
+            line("Blunt Force", 1300.0, 440.0),
+        ];
+        assert_eq!(match_offer(&lines, &names()), vec![1011, 1100, 1101]);
+        // A list alone never makes an offer of more than one name.
+        let list = vec![line("Deft", 1300.0, 400.0), line("Blunt Force", 1300.0, 440.0), line("Mystic Punch", 1300.0, 480.0)];
+        assert!(match_offer(&list, &names()).len() <= 1);
     }
 
     #[test]

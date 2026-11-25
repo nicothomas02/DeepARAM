@@ -192,7 +192,22 @@ fn show(app: &AppHandle) {
 
 /// Starting DeepARAM again, or clicking its tray icon, brings back the window already in use (PC app 1.26.24): the
 /// companion while it's open (champion select or a game), the main window otherwise, so only one window opens.
+///
+/// A launch grace period (PC app 1.26.28): for the first seconds after DeepARAM starts, while it's still loading and
+/// may be about to open the companion, a second launch only brings forward a window that's already showing; it
+/// never un-hides the main window, so two windows can't end up open.
 fn show_one(app: &AppHandle) {
+    let loading = STARTED.get().is_none_or(|at| at.elapsed() < LAUNCH_GRACE);
+    if loading {
+        for label in [companion::LABEL, "main"] {
+            if let Some(win) = app.get_webview_window(label).filter(|w| w.is_visible().unwrap_or(false)) {
+                let _ = win.unminimize();
+                let _ = win.set_focus();
+                return;
+            }
+        }
+        return;
+    }
     if let Some(win) = app.get_webview_window(companion::LABEL) {
         let _ = win.unminimize();
         let _ = win.show();
@@ -474,7 +489,12 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     Ok(())
 }
 
+/// When DeepARAM started, for the launch grace period.
+static STARTED: std::sync::OnceLock<std::time::Instant> = std::sync::OnceLock::new();
+const LAUNCH_GRACE: Duration = Duration::from_secs(20);
+
 fn main() {
+    let _ = STARTED.set(std::time::Instant::now());
     tauri::Builder::default()
         .invoke_handler(tauri::generate_handler![
             companion::companion_fullscreen,
