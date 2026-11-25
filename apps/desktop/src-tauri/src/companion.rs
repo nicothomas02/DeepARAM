@@ -271,6 +271,10 @@ fn send(app: &AppHandle, script: String) {
         })
         .build();
     if let Ok(win) = built {
+        // One DeepARAM window at a time: the companion takes over from the main window, which stays in the tray.
+        if let Some(main) = app.get_webview_window("main") {
+            let _ = main.hide();
+        }
         // Straight to the second monitor, from champion select on, so it's never in front of League.
         if second_screen_on(app) {
             to_second_screen(app);
