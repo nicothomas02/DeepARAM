@@ -1,4 +1,4 @@
-"""The Lab (tools/fun/): Infinite Ryze, Infinite Ashe, Infinite Zilean and Cook Builds generated data.js (tools/fun/*/build_data.py via tools/fun/cdragon.py)."""
+"""The Lab (tools/fun/): Infinite Ryze, Infinite Ashe, Infinite Zilean, Infinite Karma, Infinite Graves and Cook Builds generated data.js (tools/fun/*/build_data.py via tools/fun/cdragon.py)."""
 import glob
 import json
 import math
@@ -15,6 +15,8 @@ TOOLS = {
     "ryze-calculator": "RYZE_DATA",
     "ashe-calculator": "ASHE_DATA",
     "zilean-calculator": "ZILEAN_DATA",
+    "karma-calculator": "KARMA_DATA",
+    "graves-calculator": "GRAVES_DATA",
 }
 GAME_TOOLS = sorted(t for t in TOOLS if t != "cook-builds")
 
@@ -218,3 +220,75 @@ def test_zilean_calculator_math():
     assert r_cd["need"] is None
 
 
+
+
+# Infinite Karma and Infinite Graves: tools/fun/karma-calculator/calc.js and tools/fun/graves-calculator/calc.js.
+def _node(tool, var, calc_expr, builds):
+    import shutil, subprocess
+    node = shutil.which("node")
+    if not node:
+        pytest.skip("node not installed")
+    script = (
+        f"global.window = global; require('./tools/fun/{tool}/data.js');"
+        f"const C = require('./tools/fun/{tool}/calc.js'); const D = window.{var};"
+        f"const out = JSON.parse(process.argv[1]).map((b) => ({calc_expr}));"
+        "console.log(JSON.stringify(out));"
+    )
+    res = subprocess.run([node, "-e", script, json.dumps(builds)], cwd=REPO, capture_output=True, text=True, check=True)
+    return json.loads(res.stdout)
+
+
+KARMA = {"qRank": 5, "wRank": 1, "eRank": 1, "rRank": 4, "haste": 100, "qTargets": 2, "flareTargets": 2, "tetherHolds": True}
+KARMA_FULL = ["ARAM_Archmage", "UltimateAwakening", "ARAM_MysticPunch", "ARAM_EtherealWeapon"]
+
+
+def test_karma_calculator_math():
+    plain, no_ethereal, three, full = _node(
+        "karma-calculator", "KARMA_DATA", "({ ...C.compute(D, b, { runs: 20 }), need: C.threshold(D, b) })", [
+            {**KARMA, "augments": []},
+            {**KARMA, "qTargets": 3, "flareTargets": 3, "augments": ["ARAM_Archmage", "UltimateAwakening", "ARAM_MysticPunch"]},
+            {**KARMA, "qTargets": 3, "flareTargets": 3, "augments": ["ARAM_Archmage", "ARAM_MysticPunch", "ARAM_EtherealWeapon"]},
+            {**KARMA, "qTargets": 3, "flareTargets": 3, "augments": KARMA_FULL},
+        ])
+    # Gathering Fire: 4 s off Mantra per enemy hit per damage instance. Q hits once, Soulflare twice, W twice (cast and
+    # tether end).
+    assert plain["cutPerQ"] == pytest.approx(8) and plain["cutPerRQ"] == pytest.approx(16) and plain["cutPerW"] == pytest.approx(8)
+    assert plain["cooldowns"]["R"] == pytest.approx(17, abs=0.01)    # rank 4 Mantra (34 s) at 100 haste
+    assert plain["loop"] < 0.9 and plain["perMinute"] > 0
+    # Mystic Punch needs Ethereal Weapon (or basic attacks): without it, the loop needs more haste.
+    assert no_ethereal["need"] is None or no_ethereal["need"] > full["need"] + 20
+    # Archmage, Ultimate Awakening, Mystic Punch and Ethereal Weapon with three enemies hit: every Q and W empowered,
+    # one per 0.25 s cast, from about 80 Ability Haste. Without Ultimate Awakening it needs far more.
+    assert full["loop"] >= 0.99 and full["perMinute"] == pytest.approx(240, abs=2)
+    assert 60 <= full["need"] <= 100
+    assert three["loop"] < full["loop"] and (three["need"] is None or three["need"] > full["need"])
+    # Mana stops it within seconds at level 18 with no items.
+    assert full["withMana"]["runsOut"] and full["withMana"]["lastsFor"] < 15
+
+
+GRAVES = {"qRank": 1, "wRank": 1, "eRank": 5, "rRank": 3, "haste": 50, "attackSpeed": 1.2, "crit": 0, "pellets": 4, "targets": 1}
+
+
+def test_graves_calculator_math():
+    slow, capped = _node("graves-calculator", "GRAVES_DATA", "C.reloadTime(D.champion.attack, b)", [0.475, 0.475 + 1.5 * 0.49])
+    # Reloading both shells: 2.08 s with no bonus attack speed, the level-18 cap (1 / 0.891 s) at 150% bonus.
+    assert slow == pytest.approx(2.08) and capped == pytest.approx(1 / 0.891, abs=0.001)
+
+    plain, punch, purist, preset = _node(
+        "graves-calculator", "GRAVES_DATA",
+        "({ ...C.compute(D, b, { runs: 20 }), need: C.threshold(D, b), haste: C.setup(D, b).haste })", [
+            {**GRAVES, "augments": []},
+            {**GRAVES, "augments": ["ARAM_MysticPunch"]},
+            {**GRAVES, "augments": ["ARAM_MysticPunch", "ARAM_Purist_Caster"]},
+            {**GRAVES, "attackSpeed": 1.5, "augments": ["ARAM_MysticPunch", "ARAM_Purist_Caster", "ARAM_BreadAndCheese"]},
+        ])
+    # Quickdraw already adds shots over plain shoot-shoot-reload, but Graves still reloads most of the time.
+    assert plain["perMinute"] > plain["plainShotsPerMinute"] and plain["loop"] < 0.5
+    # Each shot: 4 pellets x 0.5 s off Quickdraw, plus Mystic Punch's 1.25 s per enemy hit.
+    assert punch["cutPerShot"] == pytest.approx(3.25)
+    # Purist - Caster turns bonus attack speed into haste (0.65 per 1%): 1.2 AS is 148% bonus, about 96 haste more.
+    assert purist["haste"] == pytest.approx(50 + 0.65 * (1.2 - 0.475) / 0.49 * 100, abs=0.01)
+    assert purist["loop"] >= 0.99 and purist["plainShotsPerMinute"] < plain["plainShotsPerMinute"]
+    # The page's preset: Quickdraw back after every shot, a dash and a shot every 0.4 s.
+    assert preset["loop"] >= 0.99 and preset["perMinute"] == pytest.approx(150, abs=2)
+    assert preset["withMana"]["runsOut"]

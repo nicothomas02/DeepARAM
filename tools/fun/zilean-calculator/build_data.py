@@ -31,7 +31,7 @@ def main():
         dv = {d["name"]: d["values"][1] for d in sp.get("DataValues", []) if d.get("values")}
         cast = 0.0 if key in INSTANT else (sp.get("mCastTime") or sp.get("spellCastTime") or 0.25)
         spells[key] = {"name": summary[key]["name"], "icon": g.asset_url(summary[key]["abilityIconPath"]),
-                       "cooldown": sp["cooldownTime"][1:6], "mana": sp["mana"][1:6], "castTime": round(cast, 3)}
+                       "cooldown": sp["cooldownTime"][1:6], "mana": sp["mana"][0:5], "castTime": round(cast, 3)}
         if key == "W":
             spells[key]["reduction"] = dv.get("CooldownReduction", 10.0)
     par = b["Characters/Zilean/CharacterRecords/Root"]["primaryAbilityResource"]

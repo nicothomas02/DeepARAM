@@ -24,7 +24,7 @@ export const sections = [
   {
     href: "/calculators",
     label: text("tab./calculators.label", "Calculators"),
-    body: text("tab./calculators.body", "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP, Infinite Ashe's endless R and Infinite Zilean's nonstop Time Bombs."),
+    body: text("tab./calculators.body", "How far ARAM Mayhem's wildest loops go: Infinite Ryze's AP, Infinite Ashe's endless R, Infinite Zilean's nonstop Time Bombs, Infinite Karma's endless Mantra and Infinite Graves' reload-free shotgun."),
     pr: 0,
   },
   {
