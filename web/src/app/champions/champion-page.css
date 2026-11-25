@@ -2149,14 +2149,17 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
 }
 
 /* "Few players" on a high-scoring legendary that the build leaves out; tap or hover for why. */
-button.cp-few-tag {
+button.cp-few-tag,
+button.cp-avoid-tag {
   position: relative;
   border: 0;
   cursor: help;
   font-family: inherit;
 }
 button.cp-few-tag:hover::after,
-button.cp-few-tag:focus::after {
+button.cp-few-tag:focus::after,
+button.cp-avoid-tag:hover::after,
+button.cp-avoid-tag:focus::after {
   content: attr(data-tip);
   position: absolute;
   top: calc(100% + 6px);
@@ -2269,4 +2272,10 @@ button.cp-few-tag:focus::after {
   .cp-game ol.cp-buy-order > li + li::before {
     margin: 0 0.1rem;
   }
+}
+
+/* "Avoid" on D-tier spell pairs (AvoidTag.tsx): red, like a loss. */
+button.cp-avoid-tag {
+  background: rgb(var(--bad-rgb) / 16%);
+  color: var(--bad);
 }
