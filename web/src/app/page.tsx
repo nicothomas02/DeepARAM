@@ -2,7 +2,7 @@ import Link from "next/link";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import RowLink from "@/components/RowLink";
 import { text } from "@/lib/content";
-import { chefsSpecial, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps, topItems } from "@/lib/highlights";
+import { chefsSpecial, detailDate, statsDate, counts, kitchenBuilds, livePatch, liveTiers, topAugments, topDps, topItems } from "@/lib/highlights";
 import { duoRows } from "@/lib/duos";
 import { recap, recapPatches } from "@/lib/patches";
 import { readRepoJson } from "@/lib/repo-data";
@@ -75,6 +75,7 @@ export default function Home() {
   const builds = special ? [] : kitchenBuilds();
   const n = counts();
   const date = statsDate();
+  const detail = detailDate();
   const duos = topDuos();
   const dps = topDps();
   const schedule = readRepoJson<PatchSchedule>("data/patch-schedule.json");
@@ -119,6 +120,12 @@ export default function Home() {
             <>
               {" · "}
               <T>Last updated</T> <LocalDate iso={date.toISOString()} />
+            </>
+          )}
+          {detail && (
+            <>
+              {" · "}
+              <T>Builds and augments from games up to</T> <LocalDate iso={detail.toISOString()} />
             </>
           )}
         </p>
