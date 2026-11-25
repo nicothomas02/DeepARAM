@@ -2438,6 +2438,14 @@ html[data-device="mobile"] .site-header-inner {
   accent-color: var(--accent);
 }
 
+/* Narrow screens (a split iPhone Duo is ~320px): two patches per row so the picker stays on screen. */
+@media (max-width: 360px) {
+  .patch-pick-list,
+  .patch-pick-set {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
 /* Patches grouped by Mayhem set: the set's own box picks or clears all of its patches. */
 .patch-pick-set {
   display: grid;
