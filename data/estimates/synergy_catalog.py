@@ -7,7 +7,8 @@ For every chain pair not yet in augment_synergy_rules.json this prints the archi
 (both - first only) - (second only - neither), on team damage share and win), so a pair can be added when its
 mechanics hold and neither metric leans worse by 2 SE.
 
-Run: python3 data/estimates/synergy_catalog.py <archive-players.json> <archive-damage.json> [--json out.json]
+Run: python3 data/estimates/synergy_catalog.py <archive-players.json> <archive-damage.json> [--json out.json] [--items items-out.json]
+(--items: the same chains between augments and the finished items in synergy_catalog_items.json, both directions.)
 """
 import collections, json, math, os, re, sys
 
@@ -79,6 +80,25 @@ def candidates(cat, key, have):
     return out
 
 
+def item_candidates(cat):
+    """Augment x item chains both ways (item gives -> augment uses, augment gives -> item uses), same CHAINS/ONLY/SKIP."""
+    items = json.load(open(os.path.join(ROOT, "data/estimates/synergy_catalog_items.json")))["items"]
+    tips = {(p["augment"], p["item"]) for p in json.load(open(os.path.join(ROOT, "web/src/data/augment-items.json")))["pairs"]}
+    names = json.load(open(os.path.join(ROOT, "web/src/data/augment-names.json")))
+    aid = {}
+    for i, n in names.items():
+        aid.setdefault(n, int(i))
+    out = []
+    for g, u, why in CHAINS:
+        for iid, it in items.items():
+            for a, ea in cat.items():
+                if g in it["gives"] and u in ea.get("uses", []) and a not in SKIP.get(g, ()):
+                    out.append({"chain": f"{g} -> {u}", "dir": "item feeds augment", "item": int(iid), "itemName": it["name"], "a": a, "tip": (aid.get(a), int(iid)) in tips})
+                if g in ea.get("gives", []) and u in it["uses"] and (g not in ONLY or a in ONLY[g]):
+                    out.append({"chain": f"{g} -> {u}", "dir": "augment feeds item", "item": int(iid), "itemName": it["name"], "a": a, "tip": (aid.get(a), int(iid)) in tips})
+    return out
+
+
 def tester(players, damage):
     names = json.load(open(os.path.join(ROOT, "web/src/data/augment-names.json")))
     ids = collections.defaultdict(set)
@@ -112,8 +132,11 @@ def tester(players, damage):
             var += w * w * sum(v(x) for x in g.values()); den += w
         return (round(100 * num / den, 1), round(100 * math.sqrt(var) / den, 1), int(den)) if den else None
 
+    for p in P:
+        p["aug"] = p["aug"] | {-i for i in p["items_in_order"]}  # built items ride along as negative ids
+
     def test(a, b):
-        A, B = ids[a], ids[b]
+        A, B = ids[a], ({-b} if isinstance(b, int) else ids[b])
         return {"both": sum(1 for p in P if p["aug"] & A and p["aug"] & B), "share": inter(A, B, "share"), "win": inter(A, B, "win")}
     return test
 
@@ -130,6 +153,15 @@ def main(argv):
         print(f"| {c['chain']} | {c['a']} + {c['b']} | {c['both']} | {f(c['share'])} | {f(c['win'])} |{' worse' if c['worse'] else ''}")
     if "--json" in argv:
         json.dump(cands, open(argv[argv.index("--json") + 1], "w"), indent=1)
+    if "--items" in argv:
+        ic = item_candidates(cat)
+        print("\n| Chain | Direction | Augment + item | Games with both | Damage share (pts) | Win (pts) | Already a tip |\n|---|---|---|---|---|---|---|")
+        for c in ic:
+            c.update(test(c["a"], c["item"]))
+            c["worse"] = any(r and r[2] >= 5 and r[0] + 2 * r[1] < 0 for r in (c["share"], c["win"]))
+            c["better"] = any(r and r[2] >= 5 and r[0] - 2 * r[1] > 0 for r in (c["share"], c["win"]))
+            print(f"| {c['chain']} | {c['dir']} | {c['a']} + {c['itemName']} | {c['both']} | {f(c['share'])} | {f(c['win'])} | {'yes' if c['tip'] else 'no'} |")
+        json.dump(ic, open(argv[argv.index("--items") + 1], "w"), indent=1)
 
 
 if __name__ == "__main__":
