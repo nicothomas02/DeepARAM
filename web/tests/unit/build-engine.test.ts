@@ -36,6 +36,7 @@ import {
   type OverlayChamp,
   type Picks,
   shiftOf,
+  breakpoints,
   AUGMENT_SHIFT,
   CONVERTERS,
   LEAN_IN,
@@ -317,6 +318,20 @@ describe("build engine", () => {
     expect(p.pointers.map((x) => itemId(x.item.icon))).toEqual([3003]);
     expect(p.swaps).toEqual([]);
     expect(plan({ champ, kinds, picks, fit, game: game([]), taken: [] }).pointers).toEqual([]);
+  });
+
+  it("lights penetration and %-health picks when the enemy team is unusually tanky (breakpoints)", () => {
+    const squishy = ["Lux", "Jinx", "Ahri", "Zed", "Ezreal"].map((c) => ({ champ: c, items: [3089, 3031], level: 14 }));
+    const tanky = ["Ornn", "Malphite", "Rammus", "Sion", "Leona"].map((c) => ({ champ: c, items: [3075, 3143, 3110], level: 14 }));
+    const known = new Set([3036, 3153, 3135]);
+    const ad = (e: typeof squishy) => breakpoints(e, 14, false, known, new Set([1084]));
+    expect(ad(squishy).filter((b) => b.passed)).toEqual([]);
+    const lit = ad(tanky).filter((b) => b.passed).map((b) => [b.id, b.stat]);
+    expect(lit).toEqual(expect.arrayContaining([[3036, "armor"], [1084, "armor"]]));
+    expect(ad(tanky).some((b) => b.id === 3135)).toBe(false); // Void Staff is for AP champions
+    // the plan carries them
+    const p = plan({ champ: { ...champ, situational: [...champ.situational!, item(3036)] }, kinds, picks, fit, game: { ...game([]), enemies: tanky }, taken: [] });
+    expect(p.breakpoints.some((b) => b.id === 3036 && b.passed)).toBe(true);
   });
 
   it("a frontliner pledges Knight's Vow to an ally who shreds 2+ enemy frontliners (vowPartner)", () => {

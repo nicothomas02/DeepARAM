@@ -23,6 +23,7 @@ import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 import augmentConvertersData from "../../data/augment-converters.json";
 import augmentLeanInData from "../../data/augment-lean-in.json";
+import breakpointData from "../../data/breakpoints.json";
 
 export const ENGINE_VERSION = "1.4.0";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
@@ -79,6 +80,7 @@ export const RULES: Record<string, Rule> = {
   ccCounters: { source: "kit rule", on: true, why: "3+ enemies built to lock you down (Catcher/Vanguard) light up tenacity and cleanse items (Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn) as a swap. Nico 2026-11-20: Mayhem has more CC than SR; 2026-11-24 approved enemy-aware swaps when damage mix or CC clearly calls for it. Untestable so far (match data has no CC-received stat; 3+ engage -> QSS had 5 buyers), so estimated." },
   vowPartner: { source: "kit rule", on: true, why: "Knight's Vow heals its owner for 12% of the damage the pledged (Worthy) ally deals to champions (item text, Data Dragon 16.23), so on a frontliner or enchanter, with 2+ enemy frontliners (Warden/Vanguard/Juggernaut) and an ally whose kit hits max health (Vayne, Kog'Maw, Varus...) or a marksman, it lights up as a swap: pledge to that ally. Archive, within champion: each enemy frontliner adds +1.1 +- 0.3 pts of team damage share for max-health kits and +0.7 +- 0.2 for marksmen (assassins -0.8, artillery -0.7), so the heal grows with exactly that matchup. The heal itself isn't measured (estimated). Nico 2026-11-24 asked for unconventional mechanism ideas; his example (Knight's Vow on the max-health champion itself) doesn't work: the item heals its owner from the ally's damage, not the damage dealer." },
   headlinerItems: { source: "kit rule", on: true, why: "La Ilusion (a dying ally drops a candle that shields whoever picks it up) lights the champion's own 'Vs shields' item; Cafe Cuties (health relics heal 20% more missing health) lights its 'Vs healing' item. Pointers only (hover), never a swap: anti-heal and anti-shield items showed no clear effect in normal games, and these headliners leave no trace in match data to test (research/headliners). Nico's ideas 2026-11-24; estimated, used once the app knows the headliner." },
+  breakpoints: { source: "kit rule", on: true, why: "Penetration and %-health items and augments (Thread the Needle, Lord Dominik's, Mortal Reminder, Serylda's, Black Cleaver, Void Staff, Cryptbloom; Blade of the Ruined King, Liandry's, Demonic Embrace) light up when this game's enemies are unusually tanky: their armor, magic resist or health (champion base stats at their level plus their items, Data Dragon) is above a typical team's with the same item counts by more than the archive's mean + 1 SD at game end (about the top 16% of games: armor x1.17, MR x1.20, health x1.10). Only items the champion's data lists and the damage type fits; Thread the Needle when it's in the champion's pool. Plain resist/health math (simulator rule: simple calculations only), never changes rankings. Nico 2026-11-25 asked for it; estimated (enemy stat augments aren't seen)." },
   allyAugments: { source: "kit rule", on: true, why: "Augments that act through teammates (wiki text: Empowered By The Faithful and Searing Dawn trigger on allies' hits; Sonic Boom, Windspeaker's Blessing, Empyrean Promise, Spirit Bomb and Wee Woo Wee Woo fire around allies in the fight) break a near-tie when 2+ allies fit (damage dealers, or melee fighters and tanks). Tiebreak only, never past a clearly better card. Archive, within champion: holders' win with vs without such a team -16 to +26 pts, all within noise (8 augments, 10-148 holders), so nothing contradicts it and nothing confirms it (estimated). Nico 2026-11-24 approved ally-aware augments." },
   fullBuildShop: { source: "kit rule", on: true, why: "With six finished items and the build done: Stat Bonus (750 gold, permanent stat, level 9+) when you can afford it, else the elixir of your damage type (Sorcery for AP, Wrath for AD, Iron for tanks: 500 gold, 3 minutes) when 500-749 gold sits unspent. Permanent beats temporary for 250 more gold; the elixir only spends gold that would idle. Item text (Data Dragon 16.23); estimated, no archive data on consumables. Nico 2026-11-24 asked for elixir and anvil advice." },
   pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
@@ -175,7 +177,7 @@ export type Kinds = {
 };
 /** team-fit.json */
 export type Fit = { champions: Record<string, [number, string[]]> };
-export type Enemy = { champ: string; items: number[] };
+export type Enemy = { champ: string; items: number[]; /** Champion level, when the app reads it (breakpoints). */ level?: number };
 export type GameState = {
   champ: string;
   /** Item ids as the game reports them, in inventory slot order (slots 1-6, then the trinket) where the app sorts them. */
@@ -1149,6 +1151,63 @@ export function luckyBuild(champ: OverlayChamp | undefined): NonNullable<Overlay
 }
 
 // ---------------------------------------------------------------------------------------------------------------
+// Breakpoints (breakpoints): penetration and %-health picks are worth more against an unusually tanky enemy team
+
+type BreakpointData = { champions: Record<string, number[]>; items: Record<string, number[]>; finished: number[]; avgChampion: number[]; refItems: number[][]; cut: Record<string, number> };
+const BP = breakpointData as unknown as BreakpointData;
+const BP_FINISHED = new Set(BP.finished);
+export type Breakpoint = { id: number; kind: "item" | "augment"; stat: "armor" | "mr" | "hp"; passed: boolean; value: number; threshold: number; why: string; estimated: true };
+/** Item -> the enemy stat it answers and the damage type it's for. */
+const BP_ITEMS: [number, "armor" | "mr" | "hp", "ad" | "ap"][] = [
+  [3036, "armor", "ad"], [3033, "armor", "ad"], [6694, "armor", "ad"], [3071, "armor", "ad"], [3135, "mr", "ap"], [3137, "mr", "ap"],
+  [3153, "hp", "ad"], [3036, "hp", "ad"], [6653, "hp", "ap"], [4637, "hp", "ap"],
+];
+/** Thread the Needle: 18% armor and magic penetration (wiki). */
+const THREAD_THE_NEEDLE = [1084, 84];
+const growStat = (base: number, per: number, lvl: number) => base + per * (lvl - 1) * (0.7025 + 0.0175 * (lvl - 1));
+
+/** The enemy team's average [health, armor, MR] and a typical team's at the same levels and item counts. */
+export function enemyStats(enemies: Enemy[], level = 18): { got: number[]; usual: number[] } | null {
+  const list = enemies.filter((e) => e.champ && BP.champions[champKey(e.champ)]);
+  if (!list.length) return null;
+  const got = [0, 0, 0], usual = [0, 0, 0];
+  for (const e of list) {
+    const c = BP.champions[champKey(e.champ)], lvl = e.level ?? level;
+    const own = e.items.reduce((t, i) => t.map((x, j) => x + (BP.items[String(base(i))]?.[j] ?? 0)), [0, 0, 0]);
+    const n = Math.min(6, e.items.filter((i) => BP_FINISHED.has(base(i))).length);
+    for (let j = 0; j < 3; j++) {
+      got[j] += (growStat(c[j], c[j + 3], lvl) + own[j]) / list.length;
+      usual[j] += (growStat(BP.avgChampion[j], BP.avgChampion[j + 3], lvl) + BP.refItems[n][j]) / list.length;
+    }
+  }
+  return { got, usual };
+}
+
+/** Breakpoint picks for this champion in this game: passed when the enemy stat clears the tanky-game cut. */
+export function breakpoints(enemies: Enemy[], level: number, magic: boolean, known: Set<number>, pool: Set<number>): Breakpoint[] {
+  if (!RULES.breakpoints.on) return [];
+  const st = enemyStats(enemies, level);
+  if (!st) return [];
+  const idx = { hp: 0, armor: 1, mr: 2 } as const;
+  const words = { hp: "health", armor: "armor", mr: "magic resist" } as const;
+  const check = (stat: "armor" | "mr" | "hp") => {
+    const value = Math.round(st.got[idx[stat]]), threshold = Math.round(st.usual[idx[stat]] * BP.cut[stat]);
+    return { value, threshold, passed: value >= threshold, why: `Enemy ${words[stat]} about ${value} (tanky from ${threshold}, usual ${Math.round(st.usual[idx[stat]])})` };
+  };
+  const out: Breakpoint[] = [];
+  for (const [id, stat, type] of BP_ITEMS) {
+    if ((type === "ap") !== magic || !known.has(id)) continue;
+    const c = check(stat);
+    const prev = out.find((b) => b.id === id);
+    if (prev) { if (!prev.passed && c.passed) Object.assign(prev, { stat, ...c }); continue; }
+    out.push({ id, kind: "item", stat, ...c, estimated: true });
+  }
+  const ttn = THREAD_THE_NEEDLE.find((a) => pool.has(a));
+  if (ttn !== undefined) out.push({ id: ttn, kind: "augment", stat: magic ? "mr" : "armor", ...check(magic ? "mr" : "armor"), estimated: true });
+  return out;
+}
+
+// ---------------------------------------------------------------------------------------------------------------
 // The plan
 
 export type Swap = { item: Named; replaces: Named | null; at: number; why: string; kind: "augment" | "proven" | "kit" };
@@ -1181,6 +1240,8 @@ export type Plan = {
   luckyStyle: string | null;
   /** slotFirst: move this owned item to slot 1 before an effect upgrades your first Legendary. */
   slotCue: { item: Named; why: string; estimated: boolean } | null;
+  /** Items and augments whose value grows with enemy armor, magic resist or health, checked against this game. */
+  breakpoints: Breakpoint[];
 };
 
 export type PlanInput = {
@@ -1754,6 +1815,17 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     return r;
   });
   const baseNext = baseList.find((it) => !isOwned(it)) ?? null;
+  const bp = (() => {
+    if (!k) return [];
+    const magic = (Object.entries(k.champions).find(([a]) => champKey(a) === champKey(game.champ))?.[1] ?? 0.5) > 0.5;
+    const known = new Set([...(champ0?.items ?? []), ...(champ0?.rest ?? []), ...(champ0?.full ?? []), ...(champ0?.situational ?? []),
+      ...(champ0?.laterSlots ?? []).flatMap((r) => r.items), ...path].map((it) => itemId(it.icon)));
+    const ck = picks ? keyIn(picks.champions, game.champ) : undefined;
+    const pool = new Set((ck && picks ? picks.champions[ck] : []).map((r) => r[0]));
+    const list = breakpoints(game.enemies ?? [], game.level ?? 18, magic, known, pool);
+    if (list.some((b) => b.passed)) applied("breakpoints");
+    return list;
+  })();
   return {
     path,
     coreLen,
@@ -1772,6 +1844,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     rules: [...used],
     reasons,
     luckyStyle: alt?.style ?? null,
+    breakpoints: bp,
     slotCue: (() => {
       const c = slotCue(game, taken, path, champ?.destiny ? itemId(champ.destiny.icon) : null, k, augName);
       if (!c) return null;
