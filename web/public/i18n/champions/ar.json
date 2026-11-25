@@ -348,5 +348,7 @@
  "The burn it adds also cuts your basic ability cooldowns.": "الحرق الذي يضيفه يقلّل أيضًا فترات تبريد قدراتك الأساسية.",
  "Two Ultimate casts trigger the Ultimate effect twice.": "استخدامان للقدرة القصوى يفعّلان تأثيرها مرتين.",
  "Your abilities can crit, and {1} heals you from those crits.": "يمكن لقدراتك أن تكون ضربات حرجة، و{1} يعالجك منها.",
- "Your abilities can crit, so the extra crit chance pays off on them.": "يمكن لقدراتك أن تكون ضربات حرجة، لذا تفيدها فرصة الضربة الحرجة الإضافية أيضًا."
+ "Your abilities can crit, so the extra crit chance pays off on them.": "يمكن لقدراتك أن تكون ضربات حرجة، لذا تفيدها فرصة الضربة الحرجة الإضافية أيضًا.",
+ "Avoid": "تجنّب",
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "المستوى D: في التحديثات السابقة، فازت أزواج التعاويذ بهذا الانخفاض أقل بكثير من أزواج هذا البطل الأخرى في التحديث التالي أيضًا."
 }

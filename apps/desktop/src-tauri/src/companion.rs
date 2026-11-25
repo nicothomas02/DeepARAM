@@ -513,7 +513,7 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         .filter(|p| p.get("team").and_then(Value::as_str).is_some_and(|x| x != team))
         .map(|p| {
             let champ = p.get("rawChampionName").and_then(Value::as_str).and_then(champion_alias).unwrap_or_default();
-            json!({ "champ": champ, "items": items_of(p) })
+            json!({ "champ": champ, "items": items_of(p), "level": p.get("level").and_then(Value::as_u64).unwrap_or(0) })
         })
         .collect();
     // Teammates' champions and levels, for Ornn's Masterwork upgrades (the slot-1 cue).

@@ -11,6 +11,9 @@ import WinRate, { Sampled } from "@/components/WinRate";
 import DeepScore from "@/components/DeepScore";
 import { BUILD_DEEPSCORE_HELP, FIT, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
 import FewPlayers from "@/components/champion/FewPlayers";
+import AvoidTag from "@/components/champion/AvoidTag";
+import { tierOfScore } from "@/lib/deepscore-scale";
+
 import BuildWhy from "@/components/champion/BuildWhy";
 import BracketRates from "@/components/champion/BracketRates";
 import { championBrackets } from "@/lib/brackets";
@@ -278,6 +281,9 @@ const SPOTS = [
   { id: "performance", label: "Stats" },
   { id: "details", label: "More details" },
 ];
+
+/** D tier on the DeepScore scale; spell pairs there get the Avoid tag (AvoidTag.tsx). */
+const isDTier = (ds?: number) => ds !== undefined && tierOfScore(ds) === "D";
 
 function Spells({ r }: { r: SpellRow }) {
   return (
@@ -1374,6 +1380,7 @@ export default async function ChampionPage({
                     >
                       <Spells r={r} />
                       {fewPlayersSpell(r, spells) && <FewPlayers spellPickRate={r.pickRate} />}
+                      {!r.estimated && isDTier((r as { deepScore?: number }).deepScore) && <AvoidTag />}
                     </Row>
                   ))}
                 </ShowMore>
