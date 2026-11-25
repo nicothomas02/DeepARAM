@@ -37,6 +37,7 @@ import {
   type Picks,
   shiftOf,
   breakpoints,
+  mustHave,
   AUGMENT_SHIFT,
   CONVERTERS,
   LEAN_IN,
@@ -221,8 +222,19 @@ describe("build engine", () => {
 
   it("plain Boots don't fill the build's boots: the build's boots stay next", () => {
     const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
-    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3046] }), taken: [] });
+    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031] }), taken: [] });
     expect(ids(p.next)).toContain(3006);
+    // two legendaries bought past them without the upgrade: the boots move behind (replay QA), still in the path
+    const p2 = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3046] }), taken: [] });
+    expect(ids(p2.next)).not.toContain(3006);
+    expect(ids(p2.path)).toContain(3006);
+  });
+
+  it("passed boots go behind passed legendaries even when everything left was passed (Janna's Ionian Boots)", () => {
+    const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
+    // owns the 1st, 5th and 6th items: the 2nd (boots), 3rd and 4th were all passed
+    const p = plan({ champ: { ...champ, items: [item(3031), item(3006), item(3046)] }, kinds: k2, picks, fit, game: game([], { items: [3031, 3094, 6333] }), taken: [] });
+    expect(ids(p.next)[0]).not.toBe(3006);
   });
 
   it("off-path buys re-plan: an item you skip stops being Next; an off-path buy takes one slot, not the whole path", () => {
@@ -276,7 +288,8 @@ describe("build engine", () => {
     const k = (await kindsGET().json()) as Kinds, p0 = (await picksGET().json()) as Picks;
     const ori = champs.find((x) => x.id === "Orianna")!;
     const run = (taken: number[], items: number[] = []) => plan({ champ: ori, kinds: k, picks: p0, fit: null, game: { champ: "Orianna", items }, taken });
-    const core = (taken: number[]) => { const p = run(taken); return p.path.slice(0, p.coreLen).map((x) => itemId(x.icon)); };
+    // the core plus the place right after it (mustCore: a converter item goes there when every core item is a must-have)
+    const core = (taken: number[]) => { const p = run(taken); return p.path.slice(0, p.coreLen + 2).map((x) => itemId(x.icon)); };
     // ADAPt: AD items turn into AP, so the AD item ADAPt holders build most joins Orianna's core
     expect(core([1205]).some((i) => CONVERTERS["1205"].items.includes(i))).toBe(true);
     expect(run([1205]).rules).toContain("converterItems");
@@ -296,7 +309,8 @@ describe("build engine", () => {
     expect(lich[1].scaling).toBe(true);
     for (const id of ["Lux", "Ahri"]) {
       const p = plan({ champ: champs.find((x) => x.id === id)!, kinds: k, picks: p0, fit: null, game: { champ: id, items: [] }, taken: [Number(lich[0])] });
-      expect(p.path.slice(0, p.coreLen).map((x) => itemId(x.icon))).toContain(4633); // Riftmaker: health and AP
+      // Riftmaker (health and AP) in the core, or right after it when the core is all must-haves (mustCore)
+      expect(p.path.slice(0, p.coreLen + 1).map((x) => itemId(x.icon))).toContain(4633);
       expect(p.rules).toContain("leanIn");
     }
     // pairs that did clearly worse are out of every pull
@@ -318,6 +332,12 @@ describe("build engine", () => {
     expect(p.pointers.map((x) => itemId(x.item.icon))).toEqual([3003]);
     expect(p.swaps).toEqual([]);
     expect(plan({ champ, kinds, picks, fit, game: game([]), taken: [] }).pointers).toEqual([]);
+  });
+
+  it("an augment's item takes a flexible core place, never a must-have one (mustCore)", () => {
+    const must = mustHave("Aphelios");
+    expect([...must]).toEqual(expect.arrayContaining([6676, 3031]));
+    expect(mustHave("Irelia").has(3153)).toBe(true);
   });
 
   it("lights penetration and %-health picks when the enemy team is unusually tanky (breakpoints)", () => {
@@ -378,7 +398,8 @@ describe("build engine", () => {
   it("never says sell a legendary to upgrade boots you started", () => {
     const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
     const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3036, 3094, 6333, 3075], gold: 5000, dead: true }), taken: [] });
-    expect(p.tips.some((t) => t.kind === "sell")).toBe(false);
+    // a sell tip may free a slot for a legendary (Thornmail for #3046), never for the boots upgrade
+    expect(p.tips.some((t) => t.kind === "sell" && t.text.includes("#3006"))).toBe(false);
   });
 
   it("never shows an item twice in the path", () => {

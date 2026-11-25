@@ -24,6 +24,7 @@ import augmentShiftData from "../../data/augment-item-shift.json";
 import augmentConvertersData from "../../data/augment-converters.json";
 import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
+import coreStrictnessData from "../../data/core-strictness.json";
 
 export const ENGINE_VERSION = "1.4.0";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
@@ -80,6 +81,7 @@ export const RULES: Record<string, Rule> = {
   ccCounters: { source: "kit rule", on: true, why: "3+ enemies built to lock you down (Catcher/Vanguard) light up tenacity and cleanse items (Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn) as a swap. Nico 2026-11-20: Mayhem has more CC than SR; 2026-11-24 approved enemy-aware swaps when damage mix or CC clearly calls for it. Untestable so far (match data has no CC-received stat; 3+ engage -> QSS had 5 buyers), so estimated." },
   vowPartner: { source: "kit rule", on: true, why: "Knight's Vow heals its owner for 12% of the damage the pledged (Worthy) ally deals to champions (item text, Data Dragon 16.23), so on a frontliner or enchanter, with 2+ enemy frontliners (Warden/Vanguard/Juggernaut) and an ally whose kit hits max health (Vayne, Kog'Maw, Varus...) or a marksman, it lights up as a swap: pledge to that ally. Archive, within champion: each enemy frontliner adds +1.1 +- 0.3 pts of team damage share for max-health kits and +0.7 +- 0.2 for marksmen (assassins -0.8, artillery -0.7), so the heal grows with exactly that matchup. The heal itself isn't measured (estimated). Nico 2026-11-24 asked for unconventional mechanism ideas; his example (Knight's Vow on the max-health champion itself) doesn't work: the item heals its owner from the ally's damage, not the damage dealer." },
   headlinerItems: { source: "kit rule", on: true, why: "La Ilusion (a dying ally drops a candle that shields whoever picks it up) lights the champion's own 'Vs shields' item; Cafe Cuties (health relics heal 20% more missing health) lights its 'Vs healing' item. Pointers only (hover), never a swap: anti-heal and anti-shield items showed no clear effect in normal games, and these headliners leave no trace in match data to test (research/headliners). Nico's ideas 2026-11-24; estimated, used once the app knows the headliner." },
+  mustCore: { source: "data", on: true, why: "A core item most of the champion's players still hold at game end (50%+, AramHex 16.22-16.23, the same bar as 'built by most players') is a must-have: augment rushes, converters and lean-in items take a flexible core place instead, or go right after the core when every core item is a must-have (Aphelios: Collector, Infinity Edge, LDR; Irelia: Blade of the Ruined King and Death's Dance). Nico 2026-11-25: some champions need one item, others a demanding core. Hold rates are behavior, not proof of value." },
   breakpoints: { source: "kit rule", on: true, why: "Penetration and %-health items and augments (Thread the Needle, Lord Dominik's, Mortal Reminder, Serylda's, Black Cleaver, Void Staff, Cryptbloom; Blade of the Ruined King, Liandry's, Demonic Embrace) light up when this game's enemies are unusually tanky: their armor, magic resist or health (champion base stats at their level plus their items, Data Dragon) is above a typical team's with the same item counts by more than the archive's mean + 1 SD at game end (about the top 16% of games: armor x1.17, MR x1.20, health x1.10). Only items the champion's data lists and the damage type fits; Thread the Needle when it's in the champion's pool. Plain resist/health math (simulator rule: simple calculations only), never changes rankings. Nico 2026-11-25 asked for it; estimated (enemy stat augments aren't seen)." },
   allyAugments: { source: "kit rule", on: true, why: "Augments that act through teammates (wiki text: Empowered By The Faithful and Searing Dawn trigger on allies' hits; Sonic Boom, Windspeaker's Blessing, Empyrean Promise, Spirit Bomb and Wee Woo Wee Woo fire around allies in the fight) break a near-tie when 2+ allies fit (damage dealers, or melee fighters and tanks). Tiebreak only, never past a clearly better card. Archive, within champion: holders' win with vs without such a team -16 to +26 pts, all within noise (8 augments, 10-148 holders), so nothing contradicts it and nothing confirms it (estimated). Nico 2026-11-24 approved ally-aware augments." },
   fullBuildShop: { source: "kit rule", on: true, why: "With six finished items and the build done: Stat Bonus (750 gold, permanent stat, level 9+) when you can afford it, else the elixir of your damage type (Sorcery for AP, Wrath for AD, Iron for tanks: 500 gold, 3 minutes) when 500-749 gold sits unspent. Permanent beats temporary for 250 more gold; the elixir only spends gold that would idle. Item text (Data Dragon 16.23); estimated, no archive data on consumables. Nico 2026-11-24 asked for elixir and anvil advice." },
@@ -1150,6 +1152,14 @@ export function luckyBuild(champ: OverlayChamp | undefined): NonNullable<Overlay
   return near.sort((a, b) => a.share - b.share)[0] ?? null;
 }
 
+/** Must-have items per champion (mustCore, data/estimates/core_strictness.py): held at game end by 50%+ of players. */
+export const CORE_STRICTNESS = (coreStrictnessData as unknown as { champions: Record<string, { must: number[]; hold: Record<string, number> }> }).champions;
+export function mustHave(champ: string): Set<number> {
+  if (!RULES.mustCore.on) return new Set();
+  const key = keyIn(CORE_STRICTNESS, champ) ?? Object.keys(CORE_STRICTNESS).find((c) => champKey(c) === champKey(champ));
+  return new Set(key ? CORE_STRICTNESS[key].must : []);
+}
+
 // ---------------------------------------------------------------------------------------------------------------
 // Breakpoints (breakpoints): penetration and %-health picks are worth more against an unusually tanky enemy team
 
@@ -1476,6 +1486,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // -> Zhonya's) puts that item in the core and makes it Next. Smaller pulls only nudge the order (augmentShift).
   const rushed: { item: Named; by: number }[] = [];
   const converted: { item: Named; by: number; does: string }[] = [];
+  const must = mustHave(game.champ);
   if (RULES.augmentRush.on && k) {
     const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
     for (const a of taken) {
@@ -1501,7 +1512,11 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
         const drop = [...build.keys()].reverse().find((j) => !owned.has(itemId(build[j].icon)) && !bootIds.has(itemId(build[j].icon)));
         if (drop !== undefined) build.splice(drop, 1);
       }
-      build.splice(Math.min(Math.max(coreLen - 1, 0), build.length), 0, it);
+      // a must-have core item keeps its core place (mustCore): the rush takes the last flexible one, or goes right after
+      const flex = [...build.keys()].slice(0, coreLen).reverse().find((j) => !must.has(itemId(build[j].icon)) && !owned.has(itemId(build[j].icon)) && !bootIds.has(itemId(build[j].icon)));
+      const pos = flex !== undefined ? flex : must.size && build.slice(0, coreLen).some((x) => must.has(itemId(x.icon))) ? coreLen : coreLen - 1;
+      if (flex === undefined && pos === coreLen) applied("mustCore");
+      build.splice(Math.min(Math.max(pos, 0), build.length), 0, it);
       rushed.push({ item: it, by: a });
       applied("augmentRush");
     }
@@ -1537,8 +1552,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const it: Named = { name: k.recipes[id][0], icon: `${prefix}${220000 + id}.png` };
       // it takes the last core place you haven't bought and no other augment claimed; that item moves just past the core
       const claimed = new Set([...rushed, ...converted].map((r) => r.item));
-      const j = [...build.keys()].slice(0, coreLen).reverse().find((x) => !owned.has(itemId(build[x].icon)) && !bootIds.has(itemId(build[x].icon)) && !claimed.has(build[x]));
-      if (j === undefined) build.push(it);
+      const j = [...build.keys()].slice(0, coreLen).reverse().find((x) => !owned.has(itemId(build[x].icon)) && !bootIds.has(itemId(build[x].icon)) && !claimed.has(build[x]) && !must.has(itemId(build[x].icon)));
+      if (j === undefined && build.slice(0, coreLen).some((x) => must.has(itemId(x.icon)))) { build.splice(Math.min(coreLen, build.length), 0, it); applied("mustCore"); }
+      else if (j === undefined) build.push(it);
       else { const [moved] = build.splice(j, 1, it); build.splice(Math.min(coreLen, build.length), 0, moved); }
       converted.push({ item: it, by: a, does: cv.does });
       applied(CONVERTERS[String(a)] ? "converterItems" : "leanIn");
@@ -1563,9 +1579,15 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const bootsAt = build.findIndex((it) => bootIds.has(itemId(it.icon)));
     const beforeBoots = bootsAt < 0 ? 0 : build.slice(0, bootsAt).filter((it) => !bootIds.has(itemId(it.icon))).length;
     const started = [...owned].some((i) => TIER1_BOOTS.has(i));
-    const passed = (it: Named) => bootIds.has(itemId(it.icon)) ? !started && n > beforeBoots : nonBoot.indexOf(it) < n;
+    // Started boots count as passed once you've bought two legendaries past their place without upgrading them (keeping
+    // basic boots isn't worse: archive +3.7 +- 2.5 pts vs upgraded, BOOTS test 2026-11-24).
+    const passed = (it: Named) => bootIds.has(itemId(it.icon)) ? (started ? n > beforeBoots + 1 : n > beforeBoots) : nonBoot.indexOf(it) < n;
     const skipped = next.filter(passed);
-    if (skipped.length && skipped.length < next.length) { next = [...next.filter((it) => !skipped.includes(it)), ...skipped]; applied("ownedReplan"); }
+    // passed boots always go behind passed legendaries, even when everything left was passed (replay QA: Janna's Ionian
+    // Boots stayed Next 5:00-15:00 at 3,000+ gold)
+    const order0 = [...skipped.filter((it) => !bootIds.has(itemId(it.icon))), ...skipped.filter((it) => bootIds.has(itemId(it.icon)))];
+    if (skipped.length && skipped.length < next.length) { next = [...next.filter((it) => !skipped.includes(it)), ...order0]; applied("ownedReplan"); }
+    else if (skipped.length && order0.some((it, i) => it !== next[i])) { next = order0; applied("ownedReplan"); }
   }
   const timing: { item: Named; because: string }[] = [];
   const augName = (id: number) => picks?.augments[id]?.[0] ?? `#${id}`;
@@ -1628,7 +1650,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Core items an augment pushed out of the core (augmentRush, converterItems) stay in the path right after the core
   // rather than vanishing; the path keeps six items, dropping unbought ones from the end, never one you own.
   const inPath0 = new Set([...coreItems, ...rest].map((it) => itemId(it.icon)));
-  const pushed = (champ?.items ?? []).filter((it) => !inPath0.has(itemId(it.icon)) && !isOwned(it) && build.some((b) => itemId(b.icon) === itemId(it.icon)));
+  // ...and so do items an augment added right after a core of must-haves (mustCore)
+  const pushed = [...(champ?.items ?? []), ...[...rushed, ...converted].map((r) => r.item)]
+    .filter((it, i, a) => !inPath0.has(itemId(it.icon)) && !isOwned(it) && build.some((b) => itemId(b.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
   const path = [...coreItems, ...pushed, ...rest];
   while (path.length > 6) {
     const j = [...path.keys()].reverse().find((x) => x >= coreItems.length && !isOwned(path[x]));
