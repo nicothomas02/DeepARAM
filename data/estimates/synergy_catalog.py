@@ -23,6 +23,8 @@ CHAINS = [
     ("haste_stat", "haste_stat", "Its Ability Haste feeds the other augment, which scales with Ability Haste."),
     ("casts", "casts", "Its extra casts empower more of the other augment's attacks."),
     ("ult_haste", "ult_casts", "More Ultimate casts trigger the other augment more often."),
+    ("summoner_haste", "summoner_casts", "Its summoner spell haste brings the other augment's summoner spell back sooner."),
+    ("flash_casts", "flash_casts", "More Flash charges set off more Flashbang explosions."),
     ("move_speed", "move_speed", "Its Move Speed feeds the other augment's bonus."),
     ("dash", "dash", "More dashes, so the dash effects trigger more often."),
     ("stealth", "stealth", "Leaving stealth triggers the other augment."),
@@ -44,18 +46,22 @@ CHAINS = [
 # Shrink Ray only refreshes a debuff, so more attacks or extra on-hit hits add little
 ONLY = {"casts": {"Archmage", "Ultimate Awakening", "Mystic Punch", "Skilled Sniper", "Overloaded"}}
 SKIP = {"onhit": {"CRIMSON COBALT", "Sap Magic"}, "attack_speed": {"CRIMSON COBALT", "Sap Magic", "Shrink Ray"}}
+# giver x consumer pairs a chain leaves out: these consumers already count ability hits, so Ethereal Weapon adds nothing
+SKIP_PAIR = {("Ethereal Weapon", "Take'em Down Down Down"), ("Ethereal Weapon", "Hellbent")}
 # reasons already written (and translated) for these consumers
 WHY = {"Circle of Death": "Its healing also deals damage with Circle of Death.",
        "With Haste": "Its Ability Haste also becomes Move Speed with With Haste.",
        "Don't Blink": "Its movement speed widens the gap Don't Blink turns into damage.",
        "Gift of the Drowned": "Its bonus Health becomes Lethality with Gift of the Drowned."}
+WHY[("slow", "Don't Blink")] = "Its slow widens the move speed gap Don't Blink turns into damage."
 WHY.update({("casts", b): "Its extra casts trigger the other augment more often." for b in ("Archmage", "Double Time", "Master of Duality", "Overloaded")})
 
 
 def load():
     cat = json.load(open(os.path.join(ROOT, "data/estimates/synergy_catalog_augments.json")))["augments"]
     sim = json.load(open(os.path.join(ROOT, "simulator/data/augments.json")))["augments"]
-    norm = lambda s: re.sub(r"[^a-z0-9]", "", s.lower())
+    # the simulator drops the "Quest: " / "Pentakill: " prefixes the wiki names carry
+    norm = lambda s: re.sub(r"[^a-z0-9]", "", re.sub(r"^(Quest|Pentakill): ", "", s).lower())
     by = {norm(v["name"]): k for k, v in sim.items()}
     key = {n: by[norm(n)] for n in cat if norm(n) in by}  # augments the simulator has no key for can't carry a rule
     rules = json.load(open(os.path.join(ROOT, "data/estimates/augment_synergy_rules.json")))["pairs"]
@@ -70,7 +76,7 @@ def candidates(cat, key, have):
             if g not in ea.get("gives", []) or (g in ONLY and a not in ONLY[g]):
                 continue
             for b, eb in cat.items():
-                if a == b or u not in eb.get("uses", []) or a not in key or b not in key or b in SKIP.get(g, ()):
+                if a == b or u not in eb.get("uses", []) or a not in key or b not in key or b in SKIP.get(g, ()) or (a, b) in SKIP_PAIR:
                     continue
                 p = frozenset((key[a], key[b]))
                 if p in have or p in seen:

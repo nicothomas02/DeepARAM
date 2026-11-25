@@ -671,6 +671,42 @@
     "P"
    ],
    "text": "He explodes on death anyway, so this adds a second big blast."
+  },
+  {
+   "champion": "Zoe",
+   "augment": 1329,
+   "keys": [
+    "W"
+   ],
+   "text": "Her W fires its bolts on every summoner spell cast, and Mark then Dash is two casts.",
+   "confirmed": false
+  },
+  {
+   "champion": "Zoe",
+   "augment": 1358,
+   "keys": [
+    "W"
+   ],
+   "text": "Her W fires its bolts on every summoner spell cast, and ricochets bring Mark back sooner.",
+   "confirmed": false
+  },
+  {
+   "champion": "Zoe",
+   "augment": 2088,
+   "keys": [
+    "W"
+   ],
+   "text": "Her W fires its bolts on every summoner spell cast, and the faster Mark means more casts.",
+   "confirmed": false
+  },
+  {
+   "champion": "Zoe",
+   "augment": 1116,
+   "keys": [
+    "W"
+   ],
+   "text": "Her W fires its bolts on every summoner spell cast, so three Flash charges mean three volleys.",
+   "confirmed": false
   }
  ]
 }

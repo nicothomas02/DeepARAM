@@ -370,5 +370,12 @@
  "Its immobilize triggers the other augment.": "Seine Bewegungsunfähigkeit löst das andere Augment aus.",
  "Its slow gets {1}'s extra slow.": "Seine Verlangsamung bekommt die zusätzliche Verlangsamung von {1}.",
  "Leaving stealth triggers the other augment.": "Das Verlassen der Tarnung löst das andere Augment aus.",
- "More Ultimate casts trigger the other augment more often.": "Mehr Ultimate-Einsätze lösen das andere Augment öfter aus."
+ "More Ultimate casts trigger the other augment more often.": "Mehr Ultimate-Einsätze lösen das andere Augment öfter aus.",
+ "Its ability hits trigger the other augment's next-attack effect, so it works without attacking.": "Seine Fähigkeitstreffer lösen den Nächster-Angriff-Effekt der anderen Augmentierung aus, ganz ohne Angriff.",
+ "EscAPADe turns its AP into bonus AD, so it pays off on an AD build.": "EscAPADe wandelt seine AP in Bonus-AD um, also lohnt es sich bei einem AD-Build.",
+ "{1} turns its bonus AD into more AP, so it pays off on an AP build.": "{1} wandelt seinen Bonus-AD in mehr AP um, also lohnt es sich bei einem AP-Build.",
+ "Both spend your bonus AD: {1} turns it into attack speed, {2} into AP.": "Beide verbrauchen deinen Bonus-AD: {1} macht Angriffstempo daraus, {2} AP.",
+ "Its slow widens the move speed gap {1} turns into damage.": "Seine Verlangsamung vergrößert den Lauftempo-Abstand, den {1} in Schaden umwandelt.",
+ "Its summoner spell haste brings the other augment's summoner spell back sooner.": "Sein Beschwörerzauber-Tempo bringt den Beschwörerzauber der anderen Augmentierung schneller zurück.",
+ "More Flash charges set off more {1} explosions.": "Mehr Blitz-Ladungen lösen mehr {1}-Explosionen aus."
 }

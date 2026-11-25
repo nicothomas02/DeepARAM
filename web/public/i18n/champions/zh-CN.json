@@ -370,5 +370,12 @@
  "Its immobilize triggers the other augment.": "它的禁锢触发另一个强化。",
  "Its slow gets {1}'s extra slow.": "它的减速获得{1}的额外减速。",
  "Leaving stealth triggers the other augment.": "脱离隐身会触发另一个强化。",
- "More Ultimate casts trigger the other augment more often.": "更多次大招施放让另一个强化更常触发。"
+ "More Ultimate casts trigger the other augment more often.": "更多次大招施放让另一个强化更常触发。",
+ "Its ability hits trigger the other augment's next-attack effect, so it works without attacking.": "技能命中即可触发另一个强化的“下次普攻”效果，无需普攻。",
+ "EscAPADe turns its AP into bonus AD, so it pays off on an AD build.": "EscAPADe会把它给的法强转成额外攻击力，所以在攻击力出装上有收益。",
+ "{1} turns its bonus AD into more AP, so it pays off on an AP build.": "{1}会把它给的额外攻击力转成更多法强，所以在法强出装上有收益。",
+ "Both spend your bonus AD: {1} turns it into attack speed, {2} into AP.": "两者都会消耗你的额外攻击力：{1}转成攻速，{2}转成法强。",
+ "Its slow widens the move speed gap {1} turns into damage.": "它的减速拉大移速差，{1}会把这个差距转成伤害。",
+ "Its summoner spell haste brings the other augment's summoner spell back sooner.": "它的召唤师技能急速让另一个强化的召唤师技能更快转好。",
+ "More Flash charges set off more {1} explosions.": "更多闪现充能会触发更多次{1}爆炸。"
 }

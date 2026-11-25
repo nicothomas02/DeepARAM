@@ -370,5 +370,12 @@
  "Its immobilize triggers the other augment.": "行動不能効果がもう一方のオーグメントを発動させる。",
  "Its slow gets {1}'s extra slow.": "スロウに{1}の追加スロウが乗る。",
  "Leaving stealth triggers the other augment.": "ステルス解除でもう一方のオーグメントが発動する。",
- "More Ultimate casts trigger the other augment more often.": "アルティメットの使用回数が増え、もう一方のオーグメントがより頻繁に発動する。"
+ "More Ultimate casts trigger the other augment more often.": "アルティメットの使用回数が増え、もう一方のオーグメントがより頻繁に発動する。",
+ "Its ability hits trigger the other augment's next-attack effect, so it works without attacking.": "スキルの命中でもう一方のオーグメントの「次の通常攻撃」効果が発動し、通常攻撃なしで機能する。",
+ "EscAPADe turns its AP into bonus AD, so it pays off on an AD build.": "EscAPADeがその魔力を増加攻撃力に変えるので、AD構成で活きる。",
+ "{1} turns its bonus AD into more AP, so it pays off on an AP build.": "{1}がその増加攻撃力をより多くの魔力に変えるので、AP構成で活きる。",
+ "Both spend your bonus AD: {1} turns it into attack speed, {2} into AP.": "どちらも増加攻撃力を使う：{1}は攻撃速度に、{2}は魔力に変える。",
+ "Its slow widens the move speed gap {1} turns into damage.": "そのスロウで移動速度の差が広がり、{1}がそれをダメージに変える。",
+ "Its summoner spell haste brings the other augment's summoner spell back sooner.": "サモナースペルヘイストで、もう一方のオーグメントのサモナースペルが早く戻る。",
+ "More Flash charges set off more {1} explosions.": "フラッシュのチャージが増え、{1}の爆発も増える。"
 }
