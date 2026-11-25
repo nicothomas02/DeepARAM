@@ -1,4 +1,4 @@
-"""Collects every English string The Kitchen, Infinite Ryze, Infinite Ashe, Infinite Zilean and Region Teams show and writes i18n/en.json (key = value), the list each
+"""Collects every English string The Kitchen, Infinite Ryze, Infinite Ashe, Infinite Zilean, Infinite Karma, Infinite Graves and Region Teams show and writes i18n/en.json (key = value), the list each
 language file translates. Run after changing any Lab page, script or data:
 
     python3 tools/fun/i18n/build_keys.py
@@ -14,9 +14,11 @@ import html.parser, json, os, re
 HERE = os.path.dirname(os.path.abspath(__file__))
 FUN = os.path.dirname(HERE)
 PAGES = ["index.html", "cook-builds/index.html", "ryze-calculator/index.html",
-         "ashe-calculator/index.html", "zilean-calculator/index.html"]
+         "ashe-calculator/index.html", "zilean-calculator/index.html",
+         "karma-calculator/index.html", "graves-calculator/index.html"]
 SCRIPTS = ["index.html", "cook-builds/app.js", "ryze-calculator/app.js", "ryze-calculator/calc.js",
-           "ashe-calculator/app.js", "zilean-calculator/app.js"]
+           "ashe-calculator/app.js", "zilean-calculator/app.js",
+           "karma-calculator/app.js", "graves-calculator/app.js"]
 STR = r'"((?:[^"\\]|\\.)*)"'
 
 
@@ -96,6 +98,13 @@ def main():
     keys += [unescape(m) for m in re.findall(r'^\s+\w+: ' + STR + r',$', zilean, re.M)]           # augment lines
     zilean_data = js_data("zilean-calculator/data.js", "ZILEAN_DATA")
     keys += [s["name"] for s in zilean_data["champion"]["spells"].values()] + [a["tier"] for a in zilean_data["augments"]]
+
+    for folder, var in (("karma-calculator", "KARMA_DATA"), ("graves-calculator", "GRAVES_DATA")):
+        app = open(os.path.join(FUN, folder, "app.js"), encoding="utf-8").read()
+        keys += [unescape(m) for m in re.findall(r'\[' + STR + r', (?:fmt|T\(|need|m\.)', app)]      # stats rows
+        keys += [unescape(m) for m in re.findall(r'^\s+\w+: ' + STR + r',$', app, re.M)]              # augment lines
+        d = js_data(f"{folder}/data.js", var)
+        keys += [s["name"] for s in d["champion"]["spells"].values()] + [a["tier"] for a in d["augments"]]
 
 
     seen, out = set(), {}

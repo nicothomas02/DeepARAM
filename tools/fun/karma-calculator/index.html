@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Infinite Karma</title>
+  <meta name="description" content="How often can Karma empower Inner Flame and Focused Resolve with Mantra in ARAM Mayhem? Set her haste, skill ranks, augments and hits and see when Gathering Fire makes Mantra endless.">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="karma.css">
+</head>
+<body>
+  <main>
+    <header class="intro">
+      <img id="karma-icon" alt="" width="56" height="56">
+      <div>
+        <p class="eyebrow">ARAM Mayhem</p>
+        <h1>Infinite Karma</h1>
+        <p class="muted">Every enemy Karma's abilities hit takes 4 seconds off Mantra. Add Mystic Punch through Ethereal Weapon, Archmage and Ultimate Awakening and every Inner Flame can be a Soulflare. Set your haste, skill ranks, augments and how many enemies you hit to see when that happens, and how long your mana keeps up. <span id="patch"></span></p>
+      </div>
+    </header>
+
+    <section class="result" aria-live="polite">
+      <div class="big">
+        <span class="label">Empowered casts per minute</span>
+        <span id="per-minute" class="value">0</span>
+      </div>
+      <div class="loop">
+        <div class="loop-head">
+          <span class="label">Loop</span>
+          <span id="loop">0%</span>
+        </div>
+        <div class="meter"><div id="gain-bar"></div><div class="meter-mark" title="100% = every Q and W empowered"></div></div>
+        <p id="loop-note" class="muted small"></p>
+      </div>
+      <svg id="chart" viewBox="0 0 300 80" preserveAspectRatio="none" role="img" aria-label="Empowered casts per minute by Ability Haste"></svg>
+      <p class="chart-axis muted small"><span>0</span><span>Ability Haste</span><span>500</span></p>
+      <dl id="stats" class="stats"></dl>
+    </section>
+
+    <section>
+      <div class="row-head">
+        <h2>Ability Haste</h2>
+        <input id="haste-num" class="num" type="number" min="0" max="500" step="1" inputmode="numeric" aria-label="Ability Haste">
+      </div>
+      <input id="haste" type="range" min="0" max="500" value="100" aria-label="Ability Haste">
+      <p class="muted small">Copy it from your stats panel: items, runes, stat anvils and haste augments are already in it.</p>
+    </section>
+
+    <section>
+      <h2>Skill ranks</h2>
+      <div id="ranks" class="ranks"></div>
+    </section>
+
+    <section>
+      <div class="row-head">
+        <h2>Augments</h2>
+        <span class="muted small">Up to 4</span>
+      </div>
+      <div id="aug-slots" class="slots augs"></div>
+      <div id="aug-picker" class="picker augs"></div>
+    </section>
+
+    <section>
+      <h2>Hits, mana and settings</h2>
+      <div id="options" class="options"></div>
+      <p class="muted small">Mana and regeneration start at level 18 with no items. Copy yours from the stats panel.</p>
+    </section>
+
+    <section>
+      <h2>Skill order and enemies hit (same haste and augments)</h2>
+      <p class="muted small">Empowered casts per minute for each ability maxed first and each number of enemies Inner Flame and Soulflare hit, with endless mana. Click one to use it.</p>
+      <table id="grid" class="table grid"></table>
+    </section>
+
+    <section class="actions">
+      <button id="preset" type="button">Load the infinite build</button>
+      <button id="reset" type="button" class="ghost">Clear</button>
+      <button id="share" type="button" class="ghost">Copy link</button>
+    </section>
+
+    <footer class="muted small">
+      Karma casts Mantra whenever it is up and Inner Flame or Focused Resolve is ready, then the empowered spell, then
+      whichever of Q and W is ready, with no time spent walking or aiming. Every Inner Flame hits the same number of
+      enemies. The big number assumes endless mana; the mana rows play the same fight with your pool.
+    </footer>
+  </main>
+
+  <script src="../i18n.js"></script>
+  <script src="data.js"></script>
+  <script src="calc.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/* Infinite Graves: the parts the shared Kitchen styles don't have. */
+.num {
+  width: 6.5rem; height: 34px; padding: 0 0.6rem; border: 1px solid var(--line); border-radius: var(--r-sm);
+  background: var(--surface); color: inherit; font: 14px var(--mono); font-variant-numeric: tabular-nums;
+}
+.chart-axis { grid-column: 1 / -1; display: flex; justify-content: space-between; margin-top: -1rem; font-family: var(--mono); }
+#chart line.now { stroke: var(--fg); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+#chart line.cap { stroke: var(--a-line); }
+
+.ranks { display: grid; gap: 0.6rem; }
+.rank-row { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.rank-row img { width: 32px; height: 32px; border-radius: 6px; flex: none; }
+.rank-row .name { min-width: 13.5rem; font-size: 14px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: var(--r-sm); overflow: hidden; }
+.seg button {
+  min-width: 36px; height: 32px; border: 0; border-left: 1px solid var(--line); background: var(--surface); color: inherit;
+  font: 500 14px var(--mono); cursor: pointer;
+}
+.seg button:first-child { border-left: 0; }
+.seg button:hover { background: var(--a-soft); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+
+.pick .desc { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+.picker.augs { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
+
+.grid td, .grid th { text-align: center !important; }
+.grid td:first-child, .grid th:first-child { text-align: left !important; font-family: var(--sans); }
+.grid button {
+  width: 100%; min-height: 34px; border: 1px solid transparent; border-radius: var(--r-sm); background: none; color: inherit;
+  font: 500 14px var(--mono); cursor: pointer;
+}
+.grid button:hover { background: var(--a-soft); border-color: var(--a-line); }
+.grid button.on { border-color: var(--accent); background: var(--accent-soft); }
+.grid button.full { color: var(--a-ink); font-weight: 700; }
+
+@media (max-width: 600px) {
+  .rank-row { display: grid; grid-template-columns: 32px 1fr; gap: 0.4rem 0.75rem; }
+  .rank-row .name { min-width: 0; }
+  .rank-row .seg { grid-column: 2; justify-self: start; }
+}
