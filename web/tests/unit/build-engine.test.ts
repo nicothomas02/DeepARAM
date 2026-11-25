@@ -5,6 +5,11 @@ import { describe, expect, it } from "vitest";
 import { GET as overlayGET } from "@/app/data/overlay.json/route";
 import { GET as kindsGET } from "@/app/data/damage-types.json/route";
 import { GET as picksGET } from "@/app/data/augment-picks.json/route";
+
+// The real data feeds are built once per file: rebuilding them in every test made the file run 70 s on CI, long enough
+// for the vitest worker to time out reporting results.
+const once = (get: () => Response) => { let p: Promise<unknown> | null = null; return () => (p ??= get().json()); };
+const overlayJSON = once(overlayGET), kindsJSON = once(kindsGET), picksJSON = once(picksGET);
 import {
   itemId,
   itemRules,
@@ -284,8 +289,8 @@ describe("build engine", () => {
   });
 
   it("a converter augment puts the item it re-prices into the core, if the damage type fits (converterItems)", async () => {
-    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
-    const k = (await kindsGET().json()) as Kinds, p0 = (await picksGET().json()) as Picks;
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
     const ori = champs.find((x) => x.id === "Orianna")!;
     const run = (taken: number[], items: number[] = []) => plan({ champ: ori, kinds: k, picks: p0, fit: null, game: { champ: "Orianna", items }, taken });
     // the core plus the place right after it (mustCore: a converter item goes there when every core item is a must-have)
@@ -303,8 +308,8 @@ describe("build engine", () => {
   }, 30_000);
 
   it("an augment whose number grows with a stat puts an item with that stat and the champion's damage type in the core (leanIn)", async () => {
-    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
-    const k = (await kindsGET().json()) as Kinds, p0 = (await picksGET().json()) as Picks;
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
     const lich = Object.entries(LEAN_IN).find(([, v]) => v.name === "Lich Brain")!;
     expect(lich[1].scaling).toBe(true);
     for (const id of ["Lux", "Ahri"]) {
@@ -365,8 +370,8 @@ describe("build engine", () => {
   });
 
   it("the path's unbought places follow Next's order (pathOrder)", async () => {
-    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
-    const k = (await kindsGET().json()) as Kinds, p0 = (await picksGET().json()) as Picks;
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
     for (const [id, aug] of [["Ahri", 3150], ["Lux", 2018], ["Orianna", 1205]] as const) {
       const p = plan({ champ: champs.find((x) => x.id === id)!, kinds: k, picks: p0, fit: null, game: { champ: id, items: [] }, taken: [aug] });
       expect(itemId(p.path[0].icon)).toBe(itemId(p.next[0].icon));
@@ -375,8 +380,8 @@ describe("build engine", () => {
   }, 30_000);
 
   it("pushes back with a sell tip on one item of the other damage type, when selling buys the next item (sellMismatch)", async () => {
-    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
-    const k = (await kindsGET().json()) as Kinds, p0 = (await picksGET().json()) as Picks;
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
     const ori = champs.find((x) => x.id === "Orianna")!;
     const sell = (items: number[], gold: number, taken: number[] = []) =>
       plan({ champ: ori, kinds: k, picks: p0, fit: null, game: { champ: "Orianna", items, gold, t: 30 }, taken }).tips.filter((t) => t.kind === "sell");
@@ -540,7 +545,7 @@ describe("build engine", () => {
     expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [1029] }).rules).toContain("augmentSkills");
     // Gwen's live order is E>Q>W in every game (Nico 2026-11-24, lib/augment-skills.ts CHAMPION_SKILLS), in every
     // build style, so her Ethereal Weapon entry is gone.
-    const gwen = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Gwen");
+    const gwen = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Gwen");
     expect(gwen?.skills).toEqual(["E", "Q", "W"]);
     expect(gwen?.augmentSkills).toBeUndefined();
     for (const b of (gwen as unknown as { builds: { skills: string[] }[] }).builds) expect(b.skills).toEqual(["E", "Q", "W"]);
@@ -548,7 +553,7 @@ describe("build engine", () => {
   }, 30_000);
 
   it("switches the start to the first augment's own (Upgrade Stormsurge: Hextech Alternator on Ahri)", async () => {
-    const ahri = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Ahri");
+    const ahri = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions.find((x) => x.id === "Ahri");
     const storm = ahri?.augmentStarts?.find((a) => a.augment === 3150);
     expect(storm?.start.map((s) => s.name)).toContain("Hextech Alternator");
     expect(startFor(ahri, [3150]).start.map((s) => s.name)).toContain("Hextech Alternator");
@@ -570,8 +575,8 @@ describe("build engine", () => {
   });
 
   it("spends extra gold on the first item's parts, or on the item the first augment leads to", async () => {
-    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
-    const k = (await kindsGET().json()) as Kinds;
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds;
     const names = (c: OverlayChamp | undefined, taken: number[], gold?: number) => startFor(c, taken, gold, k).start.map((s) => s.name);
     const ahri = champs.find((x) => x.id === "Ahri");
     // Normal gold: nothing changes.
@@ -703,9 +708,9 @@ describe("build engine", () => {
   });
 
   it("never plans two items of one limit group, on any champion's real data", async () => {
-    const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
-    const k = (await kindsGET().json()) as Kinds;
-    const pk = (await picksGET().json()) as Picks;
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds;
+    const pk = (await picksJSON()) as Picks;
     const rules = itemRules(k);
     const bad: string[] = [];
     for (const c of champs)
