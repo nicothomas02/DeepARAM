@@ -358,5 +358,17 @@
  "Its movement speed widens the gap {1} turns into damage.": "移動速度が上がり、{1}がダメージに変える速度差が広がります。",
  "Its stronger heals and shields feed the other augment, which scales with them.": "強化された回復とシールドが、それに比例するもう一方のオーグメントを強化します。",
  "Its shields trigger the other augment.": "そのシールドがもう一方のオーグメントを発動させます。",
- "Its extra casts empower more of the other augment's attacks.": "追加の詠唱で、もう一方のオーグメントの強化攻撃が増えます。"
+ "Its extra casts empower more of the other augment's attacks.": "追加の詠唱で、もう一方のオーグメントの強化攻撃が増えます。",
+ "It heals or shields more allies, so the other augment triggers more often.": "より多くの味方を回復・シールドするので、もう一方のオーグメントがより頻繁に発動する。",
+ "Its Ability Haste feeds the other augment, which scales with Ability Haste.": "スキルヘイストがもう一方のオーグメントを強化する（スキルヘイストで伸びる）。",
+ "Its attack range lets more attacks land from far enough for the other augment.": "射程が伸びるので、もう一方のオーグメントに必要な距離から当たる通常攻撃が増える。",
+ "Its bonus Armor feeds the other augment, which scales with it.": "増加物理防御がもう一方のオーグメントを強化する（物理防御で伸びる）。",
+ "Its bonus Health feeds the other augment, which scales with Health.": "増加体力がもう一方のオーグメントを強化する（体力で伸びる）。",
+ "Its bonus Magic Resist feeds the other augment, which scales with it.": "増加魔法防御がもう一方のオーグメントを強化する（魔法防御で伸びる）。",
+ "Its extra casts trigger the other augment more often.": "スキル使用回数が増えるので、もう一方のオーグメントがより頻繁に発動する。",
+ "Its healing feeds the other augment, which triggers on heals.": "回復がもう一方のオーグメントを発動させる（回復で発動）。",
+ "Its immobilize triggers the other augment.": "行動不能効果がもう一方のオーグメントを発動させる。",
+ "Its slow gets {1}'s extra slow.": "スロウに{1}の追加スロウが乗る。",
+ "Leaving stealth triggers the other augment.": "ステルス解除でもう一方のオーグメントが発動する。",
+ "More Ultimate casts trigger the other augment more often.": "アルティメットの使用回数が増え、もう一方のオーグメントがより頻繁に発動する。"
 }

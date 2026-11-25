@@ -358,5 +358,17 @@
  "Its movement speed widens the gap {1} turns into damage.": "Sein Lauftempo vergrößert den Abstand, den {1} in Schaden umwandelt.",
  "Its stronger heals and shields feed the other augment, which scales with them.": "Seine stärkeren Heilungen und Schilde speisen das andere Augment, das mit ihnen skaliert.",
  "Its shields trigger the other augment.": "Seine Schilde lösen das andere Augment aus.",
- "Its extra casts empower more of the other augment's attacks.": "Seine zusätzlichen Zauber verstärken mehr Angriffe des anderen Augments."
+ "Its extra casts empower more of the other augment's attacks.": "Seine zusätzlichen Zauber verstärken mehr Angriffe des anderen Augments.",
+ "It heals or shields more allies, so the other augment triggers more often.": "Es heilt oder schützt mehr Verbündete, daher löst das andere Augment öfter aus.",
+ "Its Ability Haste feeds the other augment, which scales with Ability Haste.": "Seine Fähigkeitstempo verstärkt das andere Augment, das mit Fähigkeitstempo skaliert.",
+ "Its attack range lets more attacks land from far enough for the other augment.": "Seine Angriffsreichweite lässt mehr Angriffe aus genug Entfernung treffen, um das andere Augment auszulösen.",
+ "Its bonus Armor feeds the other augment, which scales with it.": "Seine Bonusrüstung verstärkt das andere Augment, das damit skaliert.",
+ "Its bonus Health feeds the other augment, which scales with Health.": "Sein Bonusleben verstärkt das andere Augment, das mit Leben skaliert.",
+ "Its bonus Magic Resist feeds the other augment, which scales with it.": "Seine Bonus-Magieresistenz verstärkt das andere Augment, das damit skaliert.",
+ "Its extra casts trigger the other augment more often.": "Seine zusätzlichen Zauber lösen das andere Augment öfter aus.",
+ "Its healing feeds the other augment, which triggers on heals.": "Seine Heilung verstärkt das andere Augment, das bei Heilung auslöst.",
+ "Its immobilize triggers the other augment.": "Seine Bewegungsunfähigkeit löst das andere Augment aus.",
+ "Its slow gets {1}'s extra slow.": "Seine Verlangsamung bekommt die zusätzliche Verlangsamung von {1}.",
+ "Leaving stealth triggers the other augment.": "Das Verlassen der Tarnung löst das andere Augment aus.",
+ "More Ultimate casts trigger the other augment more often.": "Mehr Ultimate-Einsätze lösen das andere Augment öfter aus."
 }

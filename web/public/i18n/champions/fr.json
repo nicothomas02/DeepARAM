@@ -358,5 +358,17 @@
  "Its movement speed widens the gap {1} turns into damage.": "Sa vitesse de déplacement creuse l'écart que {1} transforme en dégâts.",
  "Its stronger heals and shields feed the other augment, which scales with them.": "Ses soins et boucliers renforcés nourrissent l'autre augment, qui en dépend.",
  "Its shields trigger the other augment.": "Ses boucliers déclenchent l'autre augment.",
- "Its extra casts empower more of the other augment's attacks.": "Ses lancers en plus renforcent davantage d'attaques de l'autre augment."
+ "Its extra casts empower more of the other augment's attacks.": "Ses lancers en plus renforcent davantage d'attaques de l'autre augment.",
+ "It heals or shields more allies, so the other augment triggers more often.": "Il soigne ou protège plus d'alliés, donc l'autre augment se déclenche plus souvent.",
+ "Its Ability Haste feeds the other augment, which scales with Ability Haste.": "Sa hâte de compétence alimente l'autre augment, qui évolue avec la hâte de compétence.",
+ "Its attack range lets more attacks land from far enough for the other augment.": "Sa portée d'attaque permet à plus d'attaques de toucher d'assez loin pour l'autre augment.",
+ "Its bonus Armor feeds the other augment, which scales with it.": "Son armure bonus alimente l'autre augment, qui évolue avec elle.",
+ "Its bonus Health feeds the other augment, which scales with Health.": "Ses PV bonus alimentent l'autre augment, qui évolue avec les PV.",
+ "Its bonus Magic Resist feeds the other augment, which scales with it.": "Sa résistance magique bonus alimente l'autre augment, qui évolue avec elle.",
+ "Its extra casts trigger the other augment more often.": "Ses lancers en plus déclenchent l'autre augment plus souvent.",
+ "Its healing feeds the other augment, which triggers on heals.": "Ses soins alimentent l'autre augment, qui se déclenche sur les soins.",
+ "Its immobilize triggers the other augment.": "Son immobilisation déclenche l'autre augment.",
+ "Its slow gets {1}'s extra slow.": "Son ralentissement profite du ralentissement en plus de {1}.",
+ "Leaving stealth triggers the other augment.": "Sortir du camouflage déclenche l'autre augment.",
+ "More Ultimate casts trigger the other augment more often.": "Plus de lancers d'ultime déclenchent l'autre augment plus souvent."
 }

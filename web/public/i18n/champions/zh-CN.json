@@ -358,5 +358,17 @@
  "Its movement speed widens the gap {1} turns into damage.": "它的移动速度拉大了{1}转化为伤害的速度差。",
  "Its stronger heals and shields feed the other augment, which scales with them.": "它增强的治疗和护盾会喂给另一个随之成长的强化。",
  "Its shields trigger the other augment.": "它的护盾会触发另一个强化。",
- "Its extra casts empower more of the other augment's attacks.": "它带来的额外施法让另一个强化的强化攻击更多。"
+ "Its extra casts empower more of the other augment's attacks.": "它带来的额外施法让另一个强化的强化攻击更多。",
+ "It heals or shields more allies, so the other augment triggers more often.": "它能治疗或护盾更多友军，因此另一个强化更常触发。",
+ "Its Ability Haste feeds the other augment, which scales with Ability Haste.": "它的技能急速强化另一个强化，后者随技能急速成长。",
+ "Its attack range lets more attacks land from far enough for the other augment.": "它的攻击距离让更多攻击能从足够远处命中，触发另一个强化。",
+ "Its bonus Armor feeds the other augment, which scales with it.": "它的额外护甲强化另一个强化，后者随护甲成长。",
+ "Its bonus Health feeds the other augment, which scales with Health.": "它的额外生命值强化另一个强化，后者随生命值成长。",
+ "Its bonus Magic Resist feeds the other augment, which scales with it.": "它的额外魔抗强化另一个强化，后者随魔抗成长。",
+ "Its extra casts trigger the other augment more often.": "它带来的额外施法让另一个强化更常触发。",
+ "Its healing feeds the other augment, which triggers on heals.": "它的治疗触发另一个强化，后者在治疗时触发。",
+ "Its immobilize triggers the other augment.": "它的禁锢触发另一个强化。",
+ "Its slow gets {1}'s extra slow.": "它的减速获得{1}的额外减速。",
+ "Leaving stealth triggers the other augment.": "脱离隐身会触发另一个强化。",
+ "More Ultimate casts trigger the other augment more often.": "更多次大招施放让另一个强化更常触发。"
 }
