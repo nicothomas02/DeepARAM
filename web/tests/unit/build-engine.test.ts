@@ -243,6 +243,12 @@ describe("build engine", () => {
   it("Weapon of Destiny moves the champion's best Weapon item first; measured augments move their item up", () => {
     const wod = plan({ champ, kinds, picks, fit, game: game([]), taken: [3081] });
     expect(itemId(wod.next[0].icon)).toBe(3036);
+    // a best Weapon item the path lacks joins it first (Darius Endless Hunger case)
+    const off = plan({ champ: { ...champ, destiny: item(3075) }, kinds, picks, fit, game: game([]), taken: [3081] });
+    expect(itemId(off.next[0].icon)).toBe(3075);
+    expect(ids(off.path)).toContain(3075);
+    // not once a legendary is finished
+    expect(ids(plan({ champ: { ...champ, destiny: item(3075) }, kinds, picks, fit, game: game([], { items: [3031] }), taken: [3081] }).next)).not.toContain(3075);
     // Upgrade Infinity Edge: IE is a 1st/2nd legendary for 83% of holders vs 52% without (augmentShift)
     const up = plan({ champ, kinds, picks, fit, game: game([]), taken: [1336] });
     expect(ids(up.next)).toEqual([3031, 3006]);
@@ -387,11 +393,24 @@ describe("build engine", () => {
     const ad = (e: typeof squishy) => breakpoints(e, 14, false, known, new Set([1084]));
     expect(ad(squishy).filter((b) => b.passed)).toEqual([]);
     const lit = ad(tanky).filter((b) => b.passed).map((b) => [b.id, b.stat]);
-    expect(lit).toEqual(expect.arrayContaining([[3036, "armor"], [1084, "armor"]]));
+    expect(lit).toEqual(expect.arrayContaining([[3036, "armor"]]));
+    expect(ad(tanky).some((b) => b.id === 1084)).toBe(false); // augments stay off until data shows a clear edge (Nico 2026-11-25)
     expect(ad(tanky).some((b) => b.id === 3135)).toBe(false); // Void Staff is for AP champions
+    // Firebrand isn't lit either, even vs a high-health team
+    const beefy = ["Ornn", "Malphite", "Sion", "ChoGath", "Leona"].map((c) => ({ champ: c, items: [3083, 3084, 2502], level: 14 }));
+    expect(breakpoints(beefy, 14, false, known, new Set([1036])).some((b) => b.id === 1036)).toBe(false);
     // the plan carries them
     const p = plan({ champ: { ...champ, situational: [...champ.situational!, item(3036)] }, kinds, picks, fit, game: { ...game([]), enemies: tanky }, taken: [] });
     expect(p.breakpoints.some((b) => b.id === 3036 && b.passed)).toBe(true);
+  });
+
+  it("a switched build's max-first ability takes the top Pentakill Empower (pentakillBuild)", () => {
+    const p: Picks = { ...picks, augments: { ...picks.augments, 3170: ["HEAVY", "silver"], 3171: ["POWER", "silver"], 3172: ["THRASH", "silver"] }, champions: { Ashe: [[3170, 0.52], [3171, 0.5], [3172, 0.48]] }, pairs: {} };
+    const top = (empower?: string) => rankAugments(p, "Ashe", [], { empower }).filter((a) => a.id >= 3170 && a.id <= 3172)[0].id;
+    expect(top()).toBe(3170); // the real-game ranking for the usual build
+    expect(top("W")).toBe(3171); // AP Ashe maxes W first
+    expect(top("Q")).toBe(3170);
+    expect(plan({ champ, kinds, picks, fit, game: game([]), taken: [] }).empower).toBeNull(); // usual build: data pick stands
   });
 
   it("a frontliner pledges Knight's Vow to an ally who shreds 2+ enemy frontliners (vowPartner)", () => {
@@ -468,6 +487,15 @@ describe("build engine", () => {
   it("caps the path at six items with boots, like the site's card", () => {
     const c = { ...champ, items: [item(3006), item(3031), item(3046), item(3065)] };
     expect(plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] }).path).toHaveLength(6);
+  });
+
+  it("an enemy Big Brain or Don't Change the Channel lights the champion's own Vs shields items (shieldAugments)", () => {
+    expect(triggers(kinds, fit, [{ champ: "Lux", items: [], augments: [1180] }])["Vs shields"]).toMatch(/Big Brain/);
+    expect(triggers(kinds, fit, [{ champ: "Lux", items: [], augments: [2131] }, { champ: "Annie", items: [], augments: [1180] }])["Vs shields"]).toMatch(/Big Brain and Don't Change the Channel|Don't Change the Channel and Big Brain/);
+    expect(triggers(kinds, fit, [{ champ: "Lux", items: [], augments: [1022] }])["Vs shields"]).toBeUndefined();
+    const c = { ...champ, situational: [...champ.situational!, item(6695, { when: "Vs shields" })] };
+    const p = plan({ champ: c, kinds, picks, fit, game: { ...game(["Lux"]), enemies: [{ champ: "Lux", items: [], augments: [1180] }] }, taken: [] });
+    expect([...p.pointers.map((x) => ({ id: itemId(x.item.icon), why: x.why })), ...p.swaps.map((x) => ({ id: itemId(x.item.icon), why: x.why }))].some((x) => x.id === 6695 && /Shield Reaver/.test(x.why)), JSON.stringify(p.pointers)).toBe(true);
   });
 
   it("reads the enemy damage lean from the champions, not their items; haste is math only", () => {

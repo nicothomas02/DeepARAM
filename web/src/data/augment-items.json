@@ -308,6 +308,17 @@
    "payoff": null,
    "holders": 323,
    "check": "Outside synergy lead, tested in the archive 2026-11-24: follow z >= 3.66 (Bonferroni over 202 prespecified leads), look-alike z >= 3.66, bought after the augment >= 70%, +3 pts in each patch half with data, 10%+ of holders"
+  },
+  {
+   "augment": 1026,
+   "augmentName": "Don't Blink",
+   "item": 3009,
+   "itemName": "Boots of Swiftness",
+   "rate": 0.165,
+   "base": 0.034,
+   "payoff": null,
+   "holders": 85,
+   "check": "Nico's lead, tested in the archive 2026-11-25 (research/why-best/nico_leads.py): follow z 3.49 (Bonferroni gate 3.45), bought after the augment 71%, 10%+ of holders; Nico 2026-11-25: suggest it"
   }
  ]
 }
