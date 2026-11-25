@@ -390,5 +390,7 @@
  "More Flash charges set off more {1} explosions.": "更多闪现充能会触发更多次{1}爆炸。",
  "{1}'s crit damage multiplies every ability crit {2} allows.": "{1}的暴击伤害会放大{2}带来的每一次技能暴击。",
  "{1}'s crit damage multiplies {2}'s ultimate crits.": "{1}的暴击伤害会放大{2}的大招暴击。",
- "{1}'s crit damage makes {2}'s crits hit harder.": "{1}的暴击伤害让{2}的暴击打得更痛。"
+ "{1}'s crit damage makes {2}'s crits hit harder.": "{1}的暴击伤害让{2}的暴击打得更痛。",
+ "It belongs to the {build} build: pick that tab on the card.": "它属于{build}出装：在卡片上选择那个标签。",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "在这张卡片上它是看情况出的装备（{situation}），所以大多数玩家在其他对局里不出。"
 }

@@ -390,5 +390,7 @@
  "More Flash charges set off more {1} explosions.": "フラッシュのチャージが増え、{1}の爆発も増える。",
  "{1}'s crit damage multiplies every ability crit {2} allows.": "{1}のクリティカルダメージが、{2}で可能になるスキルのクリティカルをすべて強化する。",
  "{1}'s crit damage multiplies {2}'s ultimate crits.": "{1}のクリティカルダメージが、{2}によるアルティメットのクリティカルを強化する。",
- "{1}'s crit damage makes {2}'s crits hit harder.": "{1}のクリティカルダメージで、{2}のクリティカルがより強くなる。"
+ "{1}'s crit damage makes {2}'s crits hit harder.": "{1}のクリティカルダメージで、{2}のクリティカルがより強くなる。",
+ "It belongs to the {build} build: pick that tab on the card.": "{build}ビルドの一部です。カードでそのタブを選んでください。",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "このカードでは状況に応じた選択（{situation}）なので、ほかの試合ではほとんどのプレイヤーが買いません。"
 }

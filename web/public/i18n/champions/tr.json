@@ -361,5 +361,7 @@
  "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name} atılmaya sahip değil, bu yüzden Hayalet ve Şifa'nın hızı {name} şampiyonunu variller arasında ve çatışmaların dışına taşır.",
  "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "Son {n} yamada {name} ortalamasından {pts} puan daha fazla kazandı, ama oyuncuların yalnızca {pct} kadarı bunu alıyor, bu yüzden bunun bir kısmı onu seçenlerden kaynaklanıyor olabilir.",
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Son yamalarda alışılmış Sıçra çiftiyle neredeyse eşit (1 puandan az fark), bu yüzden ikisi de olur. Bu çifti oyuncuların yalnızca {pct} kadarı alıyor.",
- "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Bu çifti oyuncuların yalnızca {pct} kadarı alıyor ve üstünlüğü yamadan yamaya değişiyor, bu yüzden onu alışılmış Sıçra çiftine yakın say."
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Bu çifti oyuncuların yalnızca {pct} kadarı alıyor ve üstünlüğü yamadan yamaya değişiyor, bu yüzden onu alışılmış Sıçra çiftine yakın say.",
+ "It belongs to the {build} build: pick that tab on the card.": "{build} dizilimine ait: kartta o sekmeyi seç.",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Bu kartta duruma göre alınan bir eşya ({situation}), bu yüzden çoğu oyuncu diğer oyunlarda almaz."
 }

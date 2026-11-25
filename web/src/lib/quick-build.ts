@@ -22,8 +22,6 @@ export type SpellWhy = {
   ability: string;
   edge: number | null;
   patches: number;
-  /** The pair's pick rate, 0..1. */
-  pickRate: number;
 };
 type RareRow = { spells: number[]; verdict: SpellWhy["verdict"]; template: string | null; key: string; ability: string; edge: number | null; patches: unknown[] };
 let rareRows: Record<string, RareRow> | null = null;
@@ -172,7 +170,7 @@ export function quickBuilds(): QuickBuild[] {
     const rare = spells && fewPlayersSpell(spells, spellRows) ? rareSpellRow(id, spells.spells.map((s) => s.id)) : null;
     const spellWhy: SpellWhy | null =
       rare && spells
-        ? { verdict: rare.verdict, template: rare.template, key: rare.key, ability: rare.ability, edge: rare.edge, patches: rare.patches.length, pickRate: spells.pickRate }
+        ? { verdict: rare.verdict, template: rare.template, key: rare.key, ability: rare.ability, edge: rare.edge, patches: rare.patches.length }
         : null;
 
     const swaps = p.swaps.flatMap((sw) => {

@@ -390,5 +390,7 @@
  "More Flash charges set off more {1} explosions.": "Plus de charges de Saut éclair déclenchent plus d'explosions de {1}.",
  "{1}'s crit damage multiplies every ability crit {2} allows.": "Les dégâts critiques de {1} multiplient chaque critique de sort que {2} permet.",
  "{1}'s crit damage multiplies {2}'s ultimate crits.": "Les dégâts critiques de {1} multiplient les critiques d'ultime de {2}.",
- "{1}'s crit damage makes {2}'s crits hit harder.": "Les dégâts critiques de {1} rendent les critiques de {2} plus forts."
+ "{1}'s crit damage makes {2}'s crits hit harder.": "Les dégâts critiques de {1} rendent les critiques de {2} plus forts.",
+ "It belongs to the {build} build: pick that tab on the card.": "Il fait partie du build {build} : choisissez cet onglet sur la carte.",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "C'est un choix situationnel sur cette carte ({situation}), donc la plupart des joueurs l'ignorent dans les autres parties."
 }

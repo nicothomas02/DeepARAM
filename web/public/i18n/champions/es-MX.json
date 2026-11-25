@@ -361,5 +361,7 @@
  "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name} no tiene desplazamiento, así que Fantasmal y la velocidad de Curar mueven a {name} entre barriles y fuera de las peleas.",
  "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "Ganó {pts} pts más que la media de {name} en los últimos {n} parches, pero solo el {pct} de los jugadores la elige, así que parte puede deberse a quién la elige.",
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Casi igualada con la pareja habitual con Destello en los últimos parches (menos de 1 pt), así que cualquiera sirve. Solo el {pct} de los jugadores elige esta pareja.",
- "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Solo el {pct} de los jugadores elige esta pareja y su ventaja cambia de un parche a otro, así que tómala como cercana a la pareja habitual con Destello."
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Solo el {pct} de los jugadores elige esta pareja y su ventaja cambia de un parche a otro, así que tómala como cercana a la pareja habitual con Destello.",
+ "It belongs to the {build} build: pick that tab on the card.": "Forma parte de la build {build}: elige esa pestaña en la tarjeta.",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Es una compra situacional en esta tarjeta ({situation}), así que la mayoría la omite en otras partidas."
 }
