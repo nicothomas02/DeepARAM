@@ -22,7 +22,7 @@
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 
-export const ENGINE_VERSION = "1.3.15";
+export const ENGINE_VERSION = "1.3.19";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** ADAPt: converts bonus AD into AP, so AD items can fit an AP build. */
@@ -43,6 +43,7 @@ export const RULES: Record<string, Rule> = {
   augmentItems: { source: "data", on: true, why: "The 30 augment -> item follow patterns confirmed in the archive (data/augment-items.json; 4 added 2026-11-24 from tested outside synergy leads); payoff words only for the two with a measured gain. Nico approved 2026-11-23." },
   whyBest: { source: "data", on: true, why: "One line per item, only from tested reasons: augment trigger, most players build it, kit match (10 items with held-out R2 > 0.2), what it does (estimated). Otherwise none. Nico approved 2026-11-23." },
   luckyTilt: { source: "assumption", on: true, why: "Feeling lucky: among options whose 95% ranges overlap the leader's, rarer picks get up to +0.3 points; never past a clearly better one. Nico approved 2026-11-23." },
+  nicheBuilds: { source: "data", on: true, why: "A niche build (few players build that style on the champion, but at least 2 of its items with 1,000+ games each win clearly more: above the champion's average by 1.96 standard errors, AramHex 16.22-16.23; tank left out) becomes the plan once you take an augment after which players build that style clearly more than the same champion's players without it (archive, all lobbies, z >= 4). Estimated: win rates are correlational. Nico asked 2026-11-24 (enchanter Orianna)." },
   measuredReplan: { source: "data", on: true, why: "Ethereal Weapon switches to the champion's own on-hit build (+25.9 pts on-hit build share). Only measured switches." },
   destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
@@ -58,12 +59,15 @@ export const RULES: Record<string, Rule> = {
   screenTiers: { source: "game data", on: true, why: "Wiki (ARAM: Mayhem): every player gets the same tier on a screen, and the first two screens are never both Silver. Archive since 16.21: after a Silver first screen the second was Gold 15 times, Prismatic 15, Silver 0. So when the first screen is Silver, a Silver partner has one screen fewer to come." },
   headlinerScreens: { source: "game data", on: true, why: "Used once the app knows the headliner (wiki + Nico 2026-11-24). Maestro: 4 cards a screen, each rerollable once, so 8 chances to see a partner instead of 6. Command Line: screens are only Silver or Gold, so a Prismatic partner only comes from a reroll; the first reroll on a screen draws one tier higher (Silver to Gold, Gold to Prismatic). Debonair: the gold on a card only breaks a tie." },
   heartsteelStickers: { source: "assumption", on: true, why: "HEARTSTEEL stickers add their estimated value to the augment they're on: stats the champion uses, priced at basic-item gold, 0.45 win-rate points per 1,000 gold (Deft/Recursion on builders vs non-builders). Nico approved estimates 2026-11-24." },
+  transmuteDraw: { source: "assumption", on: true, why: "Transmute: Gold/Prismatic/Chaos and Pandora's Box draw at random, so their score moves with what is left to draw: the card's own DeepScore on the champion, plus how far the champion's augments still drawable at that tier (minus the ones taken or already shown) sit above or below the full list, times how much a pool's strength moves the card across champions (AramHex 16.21-16.23, 173 champions: Gold 0.34, Prismatic 0.61, Chaos 0.54 on every tier; Pandora's per draw as Prismatic). Pandora's also swaps every augment you hold for a random Prismatic: that draw minus each held augment's score, and held synergy bonuses are lost. The draw is from the champion's own augments: the game files keep per-champion augment pools with a fallback pool per tier, and in Nico's archive 66% of augments held after Pandora's Box sit in that champion's pool (normal picks 72%, a draw from all 314 augments ~21%); a pool's strength also predicts the card (r 0.69). Still estimated: whether the draw skips augments already shown, and that held augments' values add up. Nico approved 2026-11-24 (he asked for it)." },
   tierOdds: { source: "data", on: true, why: "Combo potential uses the chance each later screen comes at the partner's tier (archive since 16.21, all players, 225 games: e.g. after a Prismatic screen the next is Prismatic only 18% of the time, Gold 43%) and the chance the partner is among the 6 cards a screen can show from the champion's augments left at that tier, instead of a flat 4% per pick. Split-half backtest: predicts the next screen's tier better than tier-blind odds (log loss 1.05-1.07 vs 1.10). Nico approved 2026-11-24." },
   nearTies: { source: "data", on: true, why: "Cards on offer within the 95% noise band of the best (1.96 x their combined standard error) are shown as 'either is fine'. Engine scorecard on 9,399 archive picks since 16.21 (other players, game state at pick time controlled): a gap outside the band predicts wins (+0.043 log-odds per point, z 5.0); inside it, which side you're on doesn't (above -2.7 vs below -1.3 pts, se 1.7). Nico approved trying it 2026-11-24." },
   augmentConflicts: { source: "game data", on: true, why: "An augment that can't work with one you took goes last, with the reason (wiki augment text): Back to Basics seals your ultimate, so augments that need your ultimate cast are dead with it; ADAPt and EscAPADe convert opposite ways; you have two summoner spell slots, so Mark augments, Flash augments and augments that replace a spell can't all fit. Nico asked 2026-11-24; the longer list of possible anti-synergies is in research/augment-conflicts for his review." },
+  slotFirst: { source: "game data", on: true, why: "Weapon of Destiny (when you take it), King Me (when you first enter the enemy gate) and Ornn's Masterwork (his own item at level 13; an ally's when he forges for them at levels 14-17) each upgrade the first eligible Legendary in slots 1-6 (wiki). The cue says which item to move to slot 1: for Weapon of Destiny the champion's best Weapon item (AramHex); for King Me and Ornn, estimated, the earliest item of your build path you own (+1,000 gold of stats goes on your most important item). Weapon of Destiny is only offered on the first two regular screens (archive: 136 of 136 picks outside random draws; never seen on K/DA's or Superfans' extra picks, estimated), so its cue only shows while it is on offer. Nico chose 2026-11-24." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
   ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
-  ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). A path item you've passed over with two finished items (bought after it in the path, or off it) moves behind the rest, so Next moves on (2 is estimated: one situational buy out of order keeps the plan); two or more off-path items of one style (class-wide builds over all champions, AramHex) switch the rest of the build to that style, e.g. AP Zeri." },
+  ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). Owning n finished items means the path's first n should be bought: one of those you skipped (for an item later in the path or off it) moves behind the rest, so Next moves on after the first buy that skips it (replay audit: Next stuck 8+ min with 3,500+ gold in 103 moments); boots too once bought past without starting them; two off-path items of the other damage type (one gets the sellMismatch tip: doubling down after one off-type buy lowers team damage share, archive) switch the rest of the build to the class-wide style build (AramHex, all champions) holding most of what you own, e.g. AP Zeri." },
+  augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share, of the build's damage type unless ADAPt; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
   // Design choices Nico hasn't picked yet: kept as they were.
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
@@ -144,7 +148,8 @@ export type Picks = {
   champions: Record<string, [number, number, number?, number?, number?, number?][]>;
   pairs: Record<string, [number, number, number][]>;
   styles: Record<string, string[]>;
-  builds?: Record<string, [string, number, number[], number[], number[]][]>;
+  /** alias -> builds by style: [style, share, boots, core, later, augments that switch to it (niche builds only)] */
+  builds?: Record<string, [string, number, number[], number[], number[], number[]?][]>;
 };
 /** damage-types.json */
 export type Kinds = {
@@ -160,8 +165,12 @@ export type Fit = { champions: Record<string, [number, string[]]> };
 export type Enemy = { champ: string; items: number[] };
 export type GameState = {
   champ: string;
-  /** Item ids as the game reports them. */
+  /** Item ids as the game reports them, in inventory slot order (slots 1-6, then the trinket) where the app sorts them. */
   items: number[];
+  /** Augments on offer right now (the cards on screen). */
+  offer?: number[];
+  /** Your teammates: champion and level (for Ornn's Masterwork upgrades). */
+  allies?: { champ: string; level: number }[];
   enemies?: Enemy[];
   level?: number;
   /** Skill points in Q, W, E, R. */
@@ -229,6 +238,9 @@ export type RankedAugment = {
   tilt?: number;
   /** Why it can't work with an augment you took (augmentConflicts); such augments go last. */
   conflict?: string;
+  /** Transmute/Pandora's Box (transmuteDraw): points added (or taken) for what is left to draw and, for Pandora's,
+   *  what you hold. Estimated. */
+  draw?: number;
 };
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -377,6 +389,55 @@ export function partnerPicks(taken: number, rarity: string | undefined, opts: { 
   return n;
 }
 
+/**
+ * Random-draw cards (transmuteDraw, estimated). `tier` is what the draw comes from ("" = every tier: Chaos, which
+ * also skips the other cards on screen, already in `seen`); `slope` is how much the card's score moves per point of
+ * its pool's average across champions (AramHex 16.21-16.23); `swap` = Pandora's, which also turns every augment you
+ * hold into a random Prismatic.
+ */
+export const TRANSMUTE: Record<number, { tier: string; slope: number; swap?: boolean }> = {
+  1237: { tier: "gold", slope: 0.34 }, 237: { tier: "gold", slope: 0.34 },
+  1238: { tier: "prismatic", slope: 0.61 }, 238: { tier: "prismatic", slope: 0.61 },
+  1243: { tier: "", slope: 0.54 }, 243: { tier: "", slope: 0.54 },
+  12317: { tier: "prismatic", slope: 0.61, swap: true }, 317: { tier: "prismatic", slope: 0.61, swap: true },
+};
+
+function transmuteDraw(
+  picks: Picks,
+  own: [number, number, number?, number?, number?, number?][],
+  pairs: [number, number, number][],
+  taken: number[],
+  gone: Set<number>,
+  ranked: RankedAugment[],
+) {
+  const tierOf = (id: number) => picks.augments[id]?.[1] ?? "";
+  const value = new Map(own.map(([id, score]) => [id, score * 100]));
+  // Synergy an augment would add with what you hold (the same pair bonus the ranking uses).
+  const bonus = (id: number) => pairs.reduce((t, [a, b, p]) => t + ((a === id && taken.includes(b)) || (b === id && taken.includes(a)) ? p : 0), 0);
+  const mean = (xs: number[]) => xs.reduce((t, x) => t + x, 0) / xs.length;
+  for (const r of ranked) {
+    const t = TRANSMUTE[r.id];
+    if (!t) continue;
+    const inTier = own.filter(([id]) => !TRANSMUTE[id] && (!t.tier || tierOf(id) === t.tier));
+    const left = inTier.filter(([id]) => !taken.includes(id) && !gone.has(id));
+    if (inTier.length < 5 || left.length < 3) continue;
+    const full = mean(inTier.map(([id]) => value.get(id)!));
+    const now = mean(left.map(([id]) => value.get(id)! + bonus(id)));
+    let draw = t.slope * (now - full);
+    if (t.swap) {
+      // Each held augment becomes a random Prismatic: the draw's worth minus what it was worth, and synergy between
+      // held augments is gone.
+      const held = taken.filter((id) => value.has(id) && !TRANSMUTE[id]);
+      draw += held.reduce((s, id) => s + t.slope * (now - value.get(id)!), 0);
+      draw -= pairs.reduce((s, [a, b, p]) => s + (taken.includes(a) && taken.includes(b) ? p : 0), 0);
+    }
+    if (!Number.isFinite(draw) || Math.abs(draw) < 0.005) continue;
+    r.draw = draw;
+    r.score += draw;
+    if (r.boost !== null) r.boost += draw;
+  }
+}
+
 export function rankAugments(
   picks: Picks,
   champ: string,
@@ -424,8 +485,9 @@ export function rankAugments(
       const baseScore = score * 100 + bonus + (RULES.heartsteelStickers.on ? opts.stickers?.[id] ?? 0 : 0);
       const conflict = augmentConflict(picks, taken, id);
       return { id, score: baseScore + potential, boost: est ? baseScore : null, potential, combo, mate, deep, ...(conflict ? { conflict } : {}) } as RankedAugment;
-    })
-    .sort((x, y) => Number(!!x.conflict) - Number(!!y.conflict) || y.score - x.score);
+    });
+  if (RULES.transmuteDraw.on) transmuteDraw(picks, own, pairs, taken, gone, ranked);
+  ranked.sort((x, y) => Number(!!x.conflict) - Number(!!y.conflict) || y.score - x.score);
   if (!opts.lucky) return ranked;
   return luckyOrder(ranked, (a) => info.get(a.id)?.se ?? null, (a) => info.get(a.id)?.pick ?? null);
 }
@@ -767,11 +829,47 @@ export const UPGRADES: Record<number, number[]> = {
   2140: [3074], 2143: [6610], 2157: [6333], 3150: [4646],
 };
 export const WEAPON_OF_DESTINY = 3081;
+export const KING_ME = 1337;
+const ORNN = "ornn";
+
+/**
+ * slotFirst: Weapon of Destiny, King Me and Ornn's Masterwork upgrade the first eligible Legendary in slots 1-6. When the
+ * item you'd want upgraded isn't the first one, say which to move to slot 1. `owned` is in slot order; `path` is the
+ * build path, most important first; `destiny` the champion's best Weapon of Destiny item.
+ */
+export function slotCue(
+  game: GameState,
+  taken: number[],
+  path: Named[],
+  destiny: number | null,
+  k: Kinds | null,
+  augName: (id: number) => string,
+): { item: number; why: string; estimated: boolean } | null {
+  if (!RULES.slotFirst.on || !k) return null;
+  const boots = new Set(k.boots ?? []);
+  const eligible = game.items.map(base).filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !boots.has(i));
+  if (eligible.length < 2) return null;
+  const first = eligible[0];
+  const byPath = path.map((it) => itemId(it.icon)).find((i) => eligible.includes(i)) ?? null;
+  const cue = (target: number | null, why: string, estimated: boolean) =>
+    target !== null && target !== first ? { item: target, why, estimated } : null;
+  if ((game.offer ?? []).includes(WEAPON_OF_DESTINY) && destiny !== null && eligible.includes(destiny))
+    return cue(destiny, `Before taking ${augName(WEAPON_OF_DESTINY)}: it goes on your first Legendary (slots 1-6)`, false);
+  const me = game.champ.toLowerCase() === ORNN;
+  const ornnAlly = (game.allies ?? []).some((a) => a.champ.toLowerCase() === ORNN && a.level >= 13 && a.level <= 17);
+  if ((me && (game.level ?? 0) >= 11 && (game.level ?? 0) < 13) || (!me && ornnAlly))
+    return cue(byPath, me ? "Masterwork at level 13 upgrades your first Legendary (slots 1-6)" : "Ornn's Masterwork upgrades your first Legendary (slots 1-6)", true);
+  if (taken.includes(KING_ME))
+    return cue(byPath, `${augName(KING_ME)} upgrades your first Legendary when you enter the enemy gate`, true);
+  return null;
+}
 /** augment -> item -> [build, early, holders, builders, z build, z early]: build = extra share of holders who finish
  *  the item, early = extra share with it as 1st/2nd legendary, both EB-shrunk (tools/augment_item_shift.py, DeepARAM-PC). */
 export const AUGMENT_SHIFT = (augmentShiftData as { pairs: Record<string, Record<string, number[]>> }).pairs;
 /** Path positions an item moves per 1.0 of shrunk early pull (Wooglet's -> Rabadon's 0.52 moves it ~4 places). */
 export const SHIFT_ORDER_GAIN = 8;
+/** augmentRush gates: build-share z, early-buy z, and build-share lift (21 pairs pass on the 2026-11-24 data). */
+export const RUSH_Z_BUILD = 3, RUSH_Z_EARLY = 2, RUSH_LIFT = 0.15;
 /** Shrunk build pull before an item outside your path becomes a swap (10 points more holders build it). */
 export const SHIFT_SWAP_MIN = 0.1;
 /** Measured enough to drop "(estimated)": z >= 4 with 50+ holders. */
@@ -810,11 +908,7 @@ export function classBuild(picks: Picks, k: Kinds, style: string, magic: boolean
   return byCore.length === 3 ? [byCore, rest] : null;
 }
 
-export type BuildPick = { list: Named[]; style: string | null; core: number | null; because?: string; classWide?: boolean };
-
-/** Finished items bought past a path item before it moves behind the rest (ownedReplan). Estimated: 2 so that one
- *  situational buy out of order (Thornmail before the 3rd item) keeps the plan. */
-export const PASSED_OVER = 2;
+export type BuildPick = { list: Named[]; style: string | null; core: number | null; because?: string; classWide?: boolean; niche?: boolean };
 
 /**
  * The build to follow: the champion's usual one or, once the augments you took point to another style (on-hit, AP,
@@ -829,6 +923,10 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
   const styles = ck ? picks.builds![ck] : [];
   const votes: Record<string, number> = {}, because: Record<string, number> = {};
   for (const id of taken) {
+    // Niche builds (nicheBuilds): the champion's own niche style that this augment unlocks.
+    if (RULES.nicheBuilds.on)
+      for (const [st, , , , , triggers] of styles)
+        if (triggers?.includes(id)) { votes[st] = (votes[st] ?? 0) + 3; because[st] = id; }
     const measured = RULES.measuredReplan.on && MEASURED_SWITCHES[id] ? [MEASURED_SWITCHES[id]] : undefined;
     const strong = measured ?? (RULES.augmentReplan.on ? BUILD_CHANGERS[id] : undefined);
     for (const st of strong ?? (RULES.augmentReplan.on ? picks.styles[id] : undefined) ?? []) {
@@ -872,7 +970,8 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
   }
   const why = byItems ? forced!.because : because[st] ? (picks.augments[because[st]]?.[0] ?? "") : "";
   const sized = list.slice(0, 6);
-  return { list: sized, style: STYLE_NAMES[st] ?? st, core: Math.min(sized.length, (plan[0].length ? 1 : 0) + 3), because: why, classWide: !found };
+  const niche = !!found?.[5]?.length && found[5]!.includes(because[st]);
+  return { list: sized, style: STYLE_NAMES[st] ?? st, core: Math.min(sized.length, (plan[0].length ? 1 : 0) + 3), because: why, classWide: !found, ...(niche ? { niche: true } : {}) };
 }
 
 /**
@@ -1011,6 +1110,8 @@ export type Plan = {
   reasons: ({ text: string; kind: string; estimated?: boolean } | null)[];
   /** Feeling lucky picked a less played build style that wins about as often. */
   luckyStyle: string | null;
+  /** slotFirst: move this owned item to slot 1 before an effect upgrades your first Legendary. */
+  slotCue: { item: Named; why: string; estimated: boolean } | null;
 };
 
 export type PlanInput = {
@@ -1151,6 +1252,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const owned = new Set(game.items.map(base));
   const bootIds = new Set(k?.boots ?? []);
   let slotRows = laterPicks(champ, owned, rules);
+  const placedOff = new Set<number>();  // off-path items you own that ownedOffPath put in later slots
   if (slotRows && RULES.itemLimits.on) applied("itemLimits");
   // Off the path (ownedReplan): two or more finished items the path doesn't list, of the other damage type than the
   // path, switch what's left to the class-wide style build that holds the most of what you own.
@@ -1162,6 +1264,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const tag = (i: number, t: string) => (k.items[String(i)] ?? []).includes(t);
     const magicOf = (ids: number[]) => ids.filter((i) => tag(i, "ap") && !tag(i, "ad")).length > ids.filter((i) => tag(i, "ad") && !tag(i, "ap")).length;
     const pathIds = [...listed].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i));
+    // two off-path items: after one off-type buy, players who double down do worse (archive, within champion: team
+    // damage share -2.0 pts with 1 off-type item, -4.3 with 2), so one off-type item gets a sell tip instead (sellMismatch)
     if (off.length >= 2 && magicOf(fin) !== magicOf(pathIds)) {
       const magic = magicOf(fin);
       const inPath = fin.filter((i) => listed.has(i)).length;
@@ -1181,6 +1285,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const listed = new Set([...(champ?.items ?? []), ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
     const prefix = ((champ?.items ?? []).find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
     const extra = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !(k.boots ?? []).includes(i) && !listed.has(i));
+    extra.forEach((i) => placedOff.add(i));
     for (const i of extra) {
       const row = slotRows.find((r) => !owned.has(itemId(r.it.icon)));
       if (!row) break;
@@ -1232,9 +1337,45 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   }
   const baseList = [...(champ?.items ?? []), ...(slotRows ? slotRows.map((r) => r.it) : (champ?.rest ?? []))].filter((it, i, a) => a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
   const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules, forced);
-  if (picked.style) { slotRows = null; applied(forced && picked.because === forced.because ? "ownedReplan" : RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan"); }
-  const build = picked.list;
+  if (picked.style) { slotRows = null; applied(picked.niche ? "nicheBuilds" : forced && picked.because === forced.because ? "ownedReplan" : RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan"); }
+  const build = [...picked.list];
   const coreLen = picked.core ?? (champ?.items ?? []).length;
+  // Rush (augmentRush): an augment whose holders build one item far more AND earlier (augment-item-shift.json, real
+  // lobbies: build z >= 3, early z >= 2, +15 pts build share, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's
+  // -> Zhonya's) puts that item in the core and makes it Next. Smaller pulls only nudge the order (augmentShift).
+  const rushed: { item: Named; by: number }[] = [];
+  if (RULES.augmentRush.on && k) {
+    const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+    for (const a of taken) {
+      const top = Object.entries(AUGMENT_SHIFT[String(a)] ?? {})
+        .filter(([i, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT && !!k.recipes[i])
+        .sort((x, y) => y[1][4] - x[1][4])[0];
+      if (!top) continue;
+      const id = Number(top[0]);
+      if (owned.has(id) || [...owned].some((o) => o !== id && rules.clash(o, id))) continue;
+      // only an item of the build's damage type (no Wooglet's -> Zhonya's on an AD build) unless ADAPt converts it
+      const t = k.items[top[0]] ?? [];
+      const pathAp = build.filter((x) => (k.items[String(itemId(x.icon))] ?? []).includes("ap") && !(k.items[String(itemId(x.icon))] ?? []).includes("ad")).length;
+      const pathAd = build.filter((x) => (k.items[String(itemId(x.icon))] ?? []).includes("ad") && !(k.items[String(itemId(x.icon))] ?? []).includes("ap")).length;
+      const wrongType = (t.includes("ap") && !t.includes("ad") && pathAd > pathAp) || (t.includes("ad") && !t.includes("ap") && pathAp > pathAd);
+      if (wrongType && !taken.includes(ADAPT)) continue;
+      let at = build.findIndex((it) => itemId(it.icon) === id);
+      const it: Named = at >= 0 ? build[at] : { name: k.recipes[top[0]][0], icon: `${prefix}${220000 + id}.png` };
+      if (at >= 0) build.splice(at, 1);
+      // it takes the last core place you haven't bought (or the one it can't be built with); boots keep theirs
+      const clash = build.findIndex((x) => rules.clash(itemId(x.icon), id) && !owned.has(itemId(x.icon)));
+      if (clash >= 0) build.splice(clash, 1);
+      else if (at < 0 && build.length >= 6) {
+        const drop = [...build.keys()].reverse().find((j) => !owned.has(itemId(build[j].icon)) && !bootIds.has(itemId(build[j].icon)));
+        if (drop !== undefined) build.splice(drop, 1);
+      }
+      build.splice(Math.min(Math.max(coreLen - 1, 0), build.length), 0, it);
+      rushed.push({ item: it, by: a });
+      applied("augmentRush");
+    }
+    // the path then follows this re-planned list, not the per-slot picks (they'd list the rushed item twice)
+    if (rushed.length) slotRows = null;
+  }
   // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA
   // 2026-11-24: "Build done" with plain Boots while the build's Sorcerer's Shoes were still owed).
   const hasBoots = [...owned].some((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
@@ -1246,10 +1387,16 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   if (RULES.ownedReplan.on) {
     const buildIds = build.map((it) => itemId(it.icon));
     const fin = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i));
-    const passed = (it: Named) => fin.filter((i) => { const at = buildIds.indexOf(i); return at < 0 || at > build.indexOf(it); }).length >= PASSED_OVER;
-    // boots you've started (plain Boots owned) aren't skipped: you're building them
+    // You own n finished items, so the path's first n (boots aside) should be bought: any of those you don't own was
+    // skipped for something else (later in the path or off it) and moves behind the rest. Boots are skipped once you've
+    // bought past their place without starting them (plain Boots owned means you're building them).
+    const n = fin.length;
+    const nonBoot = build.filter((it) => !bootIds.has(itemId(it.icon)));
+    const bootsAt = build.findIndex((it) => bootIds.has(itemId(it.icon)));
+    const beforeBoots = bootsAt < 0 ? 0 : build.slice(0, bootsAt).filter((it) => !bootIds.has(itemId(it.icon))).length;
     const started = [...owned].some((i) => TIER1_BOOTS.has(i));
-    const skipped = next.filter((it) => passed(it) && !(started && bootIds.has(itemId(it.icon))));
+    const passed = (it: Named) => bootIds.has(itemId(it.icon)) ? !started && n > beforeBoots : nonBoot.indexOf(it) < n;
+    const skipped = next.filter(passed);
     if (skipped.length && skipped.length < next.length) { next = [...next.filter((it) => !skipped.includes(it)), ...skipped]; applied("ownedReplan"); }
   }
   const timing: { item: Named; because: string }[] = [];
@@ -1264,6 +1411,10 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   if (RULES.destinyFirst.on && taken.includes(WEAPON_OF_DESTINY) && !finished && champ?.destiny) {
     const idx = next.findIndex((it) => itemId(it.icon) === itemId(champ.destiny!.icon));
     if (idx >= 0) { front(idx, `${augName(WEAPON_OF_DESTINY)}: your first legendary becomes the Weapon`); applied("destinyFirst"); }
+  }
+  for (const r of [...rushed].reverse()) {
+    const idx = next.findIndex((it) => itemId(it.icon) === itemId(r.item.icon));
+    if (idx >= 0 && !timing.some((t) => t.item === next[idx])) front(idx, `${augName(r.by)}: players who take it rush this`);
   }
   const upgraded = new Map<number, string>();
   for (const a of taken) for (const id of UPGRADES[a] ?? []) if (RULES.upgradeLabel.on) upgraded.set(id, augName(a));
@@ -1300,7 +1451,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
 
   // Path: the core, then the 4th/5th/6th picks (or the rest of the build).
   const coreItems = build.slice(0, coreLen);
-  const rest = slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
+  const rest = (slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6)).filter((it, i, a) => !coreItems.some((c) => itemId(c.icon) === itemId(it.icon)) && a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
   const path = [...coreItems, ...rest];
   const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
   const slotName = (i: number) => ord(slotRows?.[i]?.slot ?? first + i);
@@ -1333,8 +1484,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const id = itemId(it.icon);
     // never alongside an item you own that it can't be owned with
     const ownedClash = [...owned].find((o) => rules.clash(o, id));
+    // (Nico 2026-11-24, Gwen: Lich Bane offered next to an owned Dusk and Dawn read as "buy both"): not shown; selling
+    // an owned item is the sell tips' call
     if (ownedClash !== undefined && !path.some((p) => itemId(p.icon) === ownedClash && !isOwned(p))) {
-      pointers.push({ item: it, why: it.why, replaces: { name: k?.recipes[ownedClash]?.[0] ?? `#${ownedClash}`, icon: null } });
       continue;
     }
     if ((it.aug || it.proven) && swaps.length < 2) {
@@ -1390,7 +1542,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   for (const t of timing.slice(0, 1)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
   if (RULES.shopTips.on && k && next.length) {
     const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
-    if (slots >= 6) {
+    // upgrading boots you started takes no new slot: never sell for them (Neeko / Kai'Sa: sell a legendary for Sorcerer's Shoes)
+    const bootUpgrade = bootIds.has(itemId(next[0].icon)) && [...owned].some((i) => bootIds.has(i));
+    if (slots >= 6 && !bootUpgrade) {
       const inBuild = new Set(build.map((it) => itemId(it.icon)));
       const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !inBuild.has(i) && !bootIds.has(i));
       const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
@@ -1424,5 +1578,12 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     rules: [...used],
     reasons,
     luckyStyle: alt?.style ?? null,
+    slotCue: (() => {
+      const c = slotCue(game, taken, path, champ?.destiny ? itemId(champ.destiny.icon) : null, k, augName);
+      if (!c) return null;
+      applied("slotFirst");
+      const it = path.find((x) => itemId(x.icon) === c.item) ?? { name: k?.recipes[c.item]?.[0] ?? `#${c.item}`, icon: `${c.item}.png` };
+      return { item: it, why: c.why, estimated: c.estimated };
+    })(),
   };
 }

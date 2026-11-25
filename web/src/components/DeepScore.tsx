@@ -3,56 +3,63 @@
 import { useT } from "./I18n";
 import type { Effect } from "@/lib/mechanisms";
 import { whatItDoesText } from "@/lib/mechanism-text";
+import { tierOfScore } from "@/lib/deepscore-scale";
 
-// A DeepScore badge: the 0-100 rating in a ring that fills and shifts colour with the score (red at the
-// bottom, through green at average, to violet at the top). Hovering, focusing or tapping it shows how
-// DeepScore works (lib/deepscore.ts). `static` drops the button, for use inside a link.
-
-// The ring colour (globals.css .deepscore) as "r g b", for browsers without oklch() or color-mix().
-function ringRgb(value: number): string {
-  const h = ((25 + value * 2.4) * Math.PI) / 180;
-  const [L, a, b] = [0.72, 0.17 * Math.cos(h), 0.17 * Math.sin(h)];
-  const l = (L + 0.3963377774 * a + 0.2158037573 * b) ** 3;
-  const m = (L - 0.1055613458 * a - 0.0638541728 * b) ** 3;
-  const s = (L - 0.0894841775 * a - 1.291485548 * b) ** 3;
-  const lin = [
-    4.0767416621 * l - 3.3077115913 * m + 0.2309699292 * s,
-    -1.2684380046 * l + 2.6097574011 * m - 0.3413193965 * s,
-    -0.0041960863 * l - 0.7034186147 * m + 1.707614701 * s,
-  ];
-  return lin.map((c) => Math.round(255 * Math.min(1, Math.max(0, c <= 0.0031308 ? 12.92 * c : 1.055 * c ** (1 / 2.4) - 0.055)))).join(" ");
-}
+// A DeepScore badge: the 0-100 rating in a ring that fills with the score, coloured by its tier, with the tier letter
+// beside the number (Nico 2026-11-24: "0-100 + tier letter" on every surface, one palette: lib/deepscore-scale.ts,
+// globals.css --tier-*). Hovering, focusing or tapping it shows the shared explanation, what this list compares, and
+// how far the pick sits above its list's average in win-rate points. `static` drops the button, for use inside a link.
 
 export default function DeepScore({
   value,
   help,
   static: still,
   effects,
+  edge,
 }: {
   value: number;
   help?: string;
+  /** Lead over the list's average in win-rate points (lib/deepscore.ts grade), added to the hover. */
+  edge?: number;
   static?: boolean;
   /** What the pick directly changes (lib/mechanisms.ts), added under the help text. Explains, never re-ranks. */
   effects?: Effect[];
 }) {
   const t = useT("tables");
-  const style = {
-    "--ds": value,
-    "--ds-c-rgb": ringRgb(value),
-  } as React.CSSProperties;
-  const label = t("DeepScore {n}", { n: value });
+  const tier = tierOfScore(value);
+  const style = { "--ds": value } as React.CSSProperties;
+  const label = t("DeepScore {n}, tier {t}", { n: value, t: tier });
   const what = effects?.length ? whatItDoesText(t, effects) : "";
-  const tip = help ? (what ? `${t(help)}\n\n${what}` : t(help)) : "";
+  const pts = typeof edge === "number" ? t("About {pts} win-rate pts from this list's average.", { pts: `${edge > 0 ? "+" : edge < 0 ? "−" : "±"}${Math.abs(edge).toFixed(1)}` }) : "";
+  const tip = help ? [t(help), pts, what].filter(Boolean).join("\n\n") : "";
+  const body = (
+    <>
+      {value}
+      <small className="ds-tier" aria-hidden="true">{tier}</small>
+    </>
+  );
   if (still || !help) {
     return (
-      <span className="deepscore" style={style} aria-label={label}>
-        {value}
+      <span className="deepscore" data-tier={tier} style={style} aria-label={label}>
+        {body}
       </span>
     );
   }
   return (
-    <button type="button" className="deepscore" style={style} data-tip={tip} aria-label={label} aria-description={tip}>
-      {value}
+    <button type="button" className="deepscore" data-tier={tier} style={style} data-tip={tip} aria-label={label} aria-description={tip}>
+      {body}
     </button>
+  );
+}
+
+/** A DeepScore inside a line of text ("69 S DeepScore"): the number in its tier's colour with the tier letter, for
+ *  compact lists where a ring would crowd the row. Same scale and colours as the badge. */
+export function DeepScoreInline({ value }: { value: number }) {
+  const tier = tierOfScore(value);
+  return (
+    <b className="ds-inline" data-tier={tier}>
+      {value}
+      <small className="ds-tier">{tier}</small>
+    </b>
   );
 }

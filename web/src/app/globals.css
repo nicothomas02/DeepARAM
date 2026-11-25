@@ -5058,11 +5058,33 @@ th > button[data-tip] {
 .tour-chip button:hover { color: var(--accent); }
 .tour-chip .tour-chip-x { width: 28px; height: 28px; margin-inline-start: 0.25rem; border-radius: 999px; font-size: 1rem; line-height: 1; }
 
-/* DeepScore badge (components/DeepScore.tsx): a ring that fills to the score, its colour running from red
-   at 0 through green at the average 50 to violet at 100. Its explanation shows on hover, focus or tap. */
+/* DeepScore badge (components/DeepScore.tsx): a ring that fills to the score, in its tier's colour, the same colours
+   as the tier chips and the apps' numbers (lib/deepscore-scale.ts), with the tier letter beside the number. Its
+   explanation shows on hover, focus or tap. */
+.deepscore, .ds-inline { --ds-c: var(--muted); }
+:is(.deepscore, .ds-inline)[data-tier="S"] { --ds-c: #c94430; }
+:is(.deepscore, .ds-inline)[data-tier="A"] { --ds-c: #f0913a; }
+:is(.deepscore, .ds-inline)[data-tier="B"] { --ds-c: #e6c24a; }
+:is(.deepscore, .ds-inline)[data-tier="C"] { --ds-c: #7fb6e8; }
+html[data-colors="colorblind"] :is(.deepscore, .ds-inline)[data-tier="S"] { --ds-c: #0b4f9c; }
+html[data-colors="colorblind"] :is(.deepscore, .ds-inline)[data-tier="A"] { --ds-c: #4a90d9; }
+html[data-colors="colorblind"] :is(.deepscore, .ds-inline)[data-tier="B"] { --ds-c: #f2c14e; }
+html[data-colors="colorblind"] :is(.deepscore, .ds-inline)[data-tier="C"] { --ds-c: #d9731a; }
+/* Inline DeepScore (DeepScoreInline): the number in its tier colour, the letter as a small tag after it. */
+.ds-inline { color: var(--fg); color: color-mix(in oklch, var(--ds-c) 60%, var(--fg)); font-variant-numeric: tabular-nums; }
+.ds-inline .ds-tier {
+  display: inline-block;
+  margin-inline-start: 0.2rem;
+  padding: 0.05rem 0.22rem;
+  border-radius: 0.3rem;
+  background: var(--ds-c);
+  color: #10131a;
+  font: 800 0.62rem/1 var(--font-sans), system-ui, sans-serif;
+  vertical-align: 0.1rem;
+}
+html[data-colors="colorblind"] .ds-inline[data-tier="S"] .ds-tier { color: #fff; }
+.ds-inline[data-tier="D"] .ds-tier { background: var(--raised); color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
 .deepscore {
-  /* --ds-c-rgb is the same colour worked out in DeepScore.tsx, for browsers without oklch(). */
-  --ds-c: rgb(var(--ds-c-rgb, 92 192 255));
   position: relative;
   display: inline-grid;
   place-items: center;
@@ -5073,23 +5095,33 @@ th > button[data-tip] {
   border-radius: 50%;
   background:
     radial-gradient(closest-side, var(--surface) 76%, transparent 78%),
-    conic-gradient(var(--ds-c) calc(var(--ds) * 1%), rgb(var(--ds-c-rgb) / 16%) 0);
+    conic-gradient(var(--ds-c) calc(var(--ds) * 1%), rgb(var(--line-rgb) / 35%) 0);
   background:
     radial-gradient(closest-side, var(--surface) 76%, transparent 78%),
     conic-gradient(var(--ds-c) calc(var(--ds) * 1%), color-mix(in srgb, var(--ds-c) 16%, transparent) 0);
   box-shadow: 0 0 12px -5px var(--ds-c);
   /* Pulled toward the text colour so it reads on light and dark backgrounds alike. */
-  color: var(--ds-c);
-  color: color-mix(in oklch, var(--ds-c) 65%, var(--fg));
+  color: var(--fg);
+  color: color-mix(in oklch, var(--ds-c) 60%, var(--fg));
   font: 700 0.875rem/1 var(--font-sans), system-ui, sans-serif;
   font-variant-numeric: tabular-nums;
   cursor: default;
 }
-@supports (color: oklch(0 0 0)) {
-  .deepscore {
-    --ds-c: oklch(0.72 0.17 calc(25deg + var(--ds) * 2.4deg));
-  }
+/* The tier letter: a small tag on the ring's top right, in the tier's colour. */
+.deepscore .ds-tier {
+  position: absolute;
+  top: -0.3rem;
+  right: -0.45rem;
+  min-width: 0.95rem;
+  padding: 0.08rem 0.2rem;
+  border-radius: 0.35rem;
+  background: var(--ds-c);
+  color: #10131a;
+  font: 800 0.6rem/1 var(--font-sans), system-ui, sans-serif;
+  text-align: center;
 }
+html[data-colors="colorblind"] .deepscore[data-tier="S"] .ds-tier { color: #fff; }
+.deepscore[data-tier="D"] .ds-tier { background: var(--raised); color: var(--muted); box-shadow: inset 0 0 0 1px var(--line); }
 button.deepscore {
   cursor: help;
 }
@@ -5103,7 +5135,7 @@ button.deepscore:focus::after {
   width: max-content;
   max-width: min(18rem, 80vw);
   padding: 0.55rem 0.7rem;
-  border: 1px solid rgb(var(--ds-c-rgb) / 45%);
+  border: 1px solid var(--line);
   border: 1px solid color-mix(in srgb, var(--ds-c) 45%, var(--line));
   border-radius: 8px;
   background: var(--raised);
@@ -6804,3 +6836,17 @@ html[data-view="detailed"] .wr-ci {
     opacity: 0.55;
   }
 }
+
+/* DeepScore legend (components/HowRankings.tsx): the tier colours and cuts, always visible above "How rankings work". */
+.ds-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.7rem;
+  margin: 0.5rem 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.ds-legend a { color: var(--fg); text-decoration: none; }
+.ds-legend-tier { display: inline-flex; align-items: center; gap: 0.25rem; font-variant-numeric: tabular-nums; }
+.ds-legend .chip { min-width: 1.5rem; padding: 0.05rem 0.35rem; font-size: 0.75rem; }

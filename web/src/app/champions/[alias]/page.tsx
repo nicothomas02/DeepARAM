@@ -172,7 +172,7 @@ function ScoredCells({ r }: { r: ItemRow }) {
     <>
       <div className="cp-cell">
         {r.deepScore !== undefined ? (
-          <DeepScore value={r.deepScore} help={BUILD_DEEPSCORE_HELP} />
+          <DeepScore value={r.deepScore} edge={r.deepEdge} help={BUILD_DEEPSCORE_HELP} />
         ) : (
           <b>–</b>
         )}
@@ -200,7 +200,7 @@ function LateScore({ r }: { r: ItemRow }) {
   return (
     <div className="cp-cell">
       {r.deepScore !== undefined ? (
-        <DeepScore value={r.deepScore} help={ITEM_DEEPSCORE_HELP} />
+        <DeepScore value={r.deepScore} edge={r.deepEdge} help={ITEM_DEEPSCORE_HELP} />
       ) : (
         <b>–</b>
       )}
@@ -373,11 +373,19 @@ export default async function ChampionPage({
           )}
         </h4>
         <ol className="cp-icons cp-buy-order">
-          {buildOrder(core).map((id) => (
-            <li key={id}>
-              <ItemIcon id={id} info={info} named />
-            </li>
-          ))}
+          {/* The core sits in one box (Nico 2026-11-24, same as the apps); the rest of the path follows outside it. */}
+          <li className="cp-core-box">
+            <small className="cp-core-label">
+              <T ns={NS}>Core items</T>
+            </small>
+            <ol className="cp-buy-order">
+              {buildOrder(core).map((id) => (
+                <li key={id}>
+                  <ItemIcon id={id} info={info} named />
+                </li>
+              ))}
+            </ol>
+          </li>
           {/* The full build (Nico, 2026-11-23): the core, then the best pick for each slot after it. */}
           {(core.full ?? []).map((r) => (
             <li key={r.items[0]} className="cp-full-pick">
@@ -533,6 +541,9 @@ export default async function ChampionPage({
       stages: pickStages.get(a.id),
       deepScore: scores.get(a.id),
       patchScore: patchScores.get(a.id),
+      // Points from the champion's augment average (not win rates), for the DeepScore hover.
+      deepEdge: scores.edges?.get(a.id),
+      patchEdge: patchScores.edges?.get(a.id),
       href: augmentHref(a.id) ?? undefined,
       desc: AUG_DESC[String(a.id)],
       changesBuild: changers.has(a.id),
@@ -985,8 +996,8 @@ export default async function ChampionPage({
               whole
               tabs={p.builds.map((b) => ({
                 key: b.style,
-                label: ARCH_LABEL[b.style] ?? b.style,
-                share: `${pct(b.share)} · DeepScore ${b.deepScore}`,
+                label: b.niche ? `Niche: ${ARCH_LABEL[b.style] ?? b.style}` : (ARCH_LABEL[b.style] ?? b.style),
+                share: b.niche ? `${pct(b.share)} of games · DeepScore ${b.deepScore} · estimated` : `${pct(b.share)} · DeepScore ${b.deepScore}`,
                 panel: cardTiles(
                   b.start,
                   styleAugs(b.augments),
@@ -1292,6 +1303,7 @@ export default async function ChampionPage({
                             {r.deepScore !== undefined && (
                               <DeepScore
                                 value={r.deepScore}
+                                edge={r.deepEdge}
                                 help={ITEM_DEEPSCORE_HELP}
                               />
                             )}

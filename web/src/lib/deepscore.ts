@@ -13,6 +13,7 @@
 // 4. Augments are judged against what the champions who take them win anyway (lib/augment-tiers.ts).
 
 import fitFile from "@/data/deepscore-fit.json";
+import { DEEPSCORE_ONE_LINE, tierOfScore } from "./deepscore-scale";
 
 /** How many standard deviations below the estimate the score sits. */
 const Z = 1;
@@ -75,16 +76,13 @@ export function lowerBound(
   return est - Z * Math.sqrt((est * (1 - est)) / n);
 }
 
-/** Lowest z-score for each tier, best first. On a normal spread: S ~9%, A ~18%, B ~38%, C ~23%, D ~12%. */
-export const TIER_Z: [string, number][] = [
-  ["S", 1.35],
-  ["A", 0.6],
-  ["B", -0.4],
-  ["C", -1.2],
-  ["D", -Infinity],
-];
+// The DeepScore scale itself (0-100, tier cuts, colours) lives in lib/deepscore-scale.ts, with no data imports, so
+// client badges and the apps share it. Tiers are cut on the rounded score, so a badge's colour and its tier chip always
+// agree with the printed cuts ("S 70+").
 
-export type Graded = { deepScore: number; tier: string };
+/** deepScore: 0-100 against the list. tier: S-D from it. edge: how far the value sits above the list's average, in
+ *  win-rate points (the values are win rates or win-rate leads), for the badge's hover ("about +2.1 pts"). */
+export type Graded = { deepScore: number; tier: string; edge: number };
 
 /** DeepScore and tier for each value, against the whole list's spread. */
 export function grade(values: number[]): Graded[] {
@@ -96,36 +94,31 @@ export function grade(values: number[]): Graded[] {
     ) || 1;
   return values.map((v) => {
     const z = (v - mean) / sd;
-    return {
-      deepScore: Math.round(Math.min(100, Math.max(0, 50 + 15 * z))),
-      tier: TIER_Z.find(([, min]) => z >= min)![0],
-    };
+    const deepScore = Math.round(Math.min(100, Math.max(0, 50 + 15 * z)));
+    return { deepScore, tier: tierOfScore(deepScore), edge: Math.round((v - mean) * 1000) / 10 || 0 };
   });
 }
 
-const CUTS = TIER_Z.slice(0, -1)
-  .map(([t, z]) => `${t} ${Math.round(50 + 15 * z)}+`)
-  .join(", ");
+// Every DeepScore hover: the one shared line (lib/deepscore-scale.ts), then what this list compares (Nico 2026-11-24:
+// one consistent explanation everywhere). The badge adds "about +X win-rate pts" from the row's edge.
+const help = (what: string) => `${DEEPSCORE_ONE_LINE} ${what}`;
 
-export const DEEPSCORE_HELP =
-  "DeepScore rates each pick from 0 to 100, where 50 is average. It starts from win rate, predicts what the pick " +
-  "will win next patch from how win rates moved between past patches, counts the newest patch most, and compares " +
-  "each pick with the rest of the list. " +
-  `Tiers: ${CUTS}, D below.`;
+export const DEEPSCORE_HELP = help(
+  "It starts from win rate, predicts next patch's from how win rates moved between past patches, counts the newest patch most and trusts picks with few games less.",
+);
 
-export const AUGMENT_DEEPSCORE_HELP =
-  "DeepScore rates each augment from 0 to 100 against others of its rarity, where 50 is average. It compares the " +
-  "augment's win rate with what the same champions win anyway, so augments that strong champions take don't look " +
-  `better than they are, and predicts how much of its edge lasts into next patch. Tiers: ${CUTS}, D below.`;
+export const AUGMENT_DEEPSCORE_HELP = help(
+  "Augments are compared with others of the same rarity, against what the same champions win anyway, so augments that strong champions take don't look better than they are.",
+);
 
-export const ITEM_DEEPSCORE_HELP =
-  "DeepScore rates each item from 0 to 100 against this champion's other items of the same tier, where 50 is average. It starts " +
-  `from the item's win rate with this champion and trusts rarely built items less. Tiers: ${CUTS}, D below.`;
+export const ITEM_DEEPSCORE_HELP = help(
+  "Items are compared with this champion's other items of the same tier, and rarely built items are trusted less.",
+);
 
-export const BUILD_DEEPSCORE_HELP =
-  "DeepScore rates each build from 0 to 100 against this champion's other builds in the same list, where 50 is average. " +
-  `It starts from the build's win rate with this champion and trusts rarely built ones less. Tiers: ${CUTS}, D below.`;
+export const BUILD_DEEPSCORE_HELP = help(
+  "Builds are compared with this champion's other builds in the same list, and rarely built ones are trusted less.",
+);
 
-export const ITEM_TIER_DEEPSCORE_HELP =
-  "DeepScore rates each item from 0 to 100 against the other items of its tier, where 50 is average. It starts from how much " +
-  `the item raises the win rate of the champions who build it and trusts rarely built items less. Tiers: ${CUTS}, D below.`;
+export const ITEM_TIER_DEEPSCORE_HELP = help(
+  "Items are compared with the other items of their tier by how much they raise the win rate of the champions who build them, and rarely built items are trusted less.",
+);

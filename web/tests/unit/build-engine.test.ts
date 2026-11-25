@@ -18,6 +18,9 @@ import {
   RULES,
   situational,
   skillUp,
+  slotCue,
+  WEAPON_OF_DESTINY,
+  KING_ME,
   startFor,
   fillStart,
   picksLeft,
@@ -33,6 +36,10 @@ import {
   type OverlayChamp,
   type Picks,
   shiftOf,
+  AUGMENT_SHIFT,
+  RUSH_Z_BUILD,
+  RUSH_Z_EARLY,
+  RUSH_LIFT,
   stickerValue,
   STICKERS,
 } from "@/lib/engine/build-engine";
@@ -150,13 +157,22 @@ describe("build engine", () => {
     expect(off.switched).toBeNull();
   });
 
+  it("switches to a niche build when you take an augment that unlocks it", () => {
+    const niche: Picks = { ...picks, builds: { Ashe: [...picks.builds!.Ashe, ["enchanter", 0.003, [3006], [3065, 3075, 3003], [3302], [4242]]] } };
+    const on = plan({ champ, kinds, picks: niche, fit, game: game([]), taken: [4242] });
+    expect(on.switched?.style).toBe("Enchanter");
+    expect(ids(on.path)).toContain(3065);
+    expect(on.rules).toContain("nicheBuilds");
+    expect(plan({ champ, kinds, picks: niche, fit, game: game([]), taken: [2018] }).switched).toBeNull();
+  });
+
   it("Weapon of Destiny moves the champion's best Weapon item first; measured augments move their item up", () => {
     const wod = plan({ champ, kinds, picks, fit, game: game([]), taken: [3081] });
     expect(itemId(wod.next[0].icon)).toBe(3036);
     // Upgrade Infinity Edge: IE is a 1st/2nd legendary for 83% of holders vs 52% without (augmentShift)
     const up = plan({ champ, kinds, picks, fit, game: game([]), taken: [1336] });
     expect(ids(up.next)).toEqual([3031, 3006]);
-    expect(up.timing[0].because).toMatch(/buy this earlier/);
+    expect(up.timing[0].because).toMatch(/rush this|buy this earlier/);
     expect(up.why[ids(up.path).indexOf(3031)]).toMatch(/upgrades it/);
     // a pull too small to matter (Ethereal Weapon -> Nashor's, shrunk) moves nothing on its own
     expect(Math.abs(shiftOf([1029], 3115).early)).toBeLessThan(0.05);
@@ -165,7 +181,8 @@ describe("build engine", () => {
   it("puts a finished item you own off the path into the first open later slot", () => {
     const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3031, 3075] }), taken: [] });
     expect(ids(p.path)).toEqual([3006, 3031, 3046, 3075, 3094, 6333]);
-    expect(ids(p.next)[0]).toBe(3046);
+    // Thornmail took the 3rd item's place: that one moves behind the rest (ownedReplan)
+    expect(ids(p.next)[0]).toBe(3094);
   });
 
   it("plain Boots don't fill the build's boots: the build's boots stay next", () => {
@@ -174,11 +191,16 @@ describe("build engine", () => {
     expect(ids(p.next)).toContain(3006);
   });
 
-  it("off-path buys re-plan: an item passed over twice stops being Next, one out-of-order buy keeps it", () => {
-    expect(ids(plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036] }), taken: [] }).next)[0]).toBe(3031);
-    const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036, 3003] }), taken: [] });
-    expect(ids(p.next)[0]).not.toBe(3031);
+  it("off-path buys re-plan: an item you skip stops being Next; an off-path buy takes one slot, not the whole path", () => {
+    // bought the 4th item first: the 2nd (the one it took the place of) moves behind the rest
+    const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036] }), taken: [] });
+    expect(ids(p.next)[0]).toBe(3046);
+    expect(ids(p.next)).not.toContain(3031);
     expect(p.rules).toContain("ownedReplan");
+    // one off-path buy passes only the first unbought item
+    expect(ids(plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3003] }), taken: [] }).next)[0]).toBe(3046);
+    // nothing bought: the plan as it is
+    expect(ids(plan({ champ, kinds, picks, fit, game: game([]), taken: [] }).next)[0]).toBe(3006);
   });
 
   it("off-path buys of the other damage type switch the rest of the build to that style (AP Zeri)", () => {
@@ -191,8 +213,43 @@ describe("build engine", () => {
     expect(p.rules).toContain("ownedReplan");
     expect(ids(p.path)).toEqual(expect.arrayContaining([3003, 3089, 3135]));
     expect([3135, 4645]).toContain(ids(p.next)[0]);
-    // one off-path AP item doesn't switch
+    // one off-path AP item doesn't switch (archive: doubling down after one off-type buy lowers damage share)
     expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+  });
+
+  it("an augment whose holders rush an item puts it in the core and makes it Next (augmentRush)", () => {
+    const shift = Object.entries(AUGMENT_SHIFT).flatMap(([a, m]) => Object.entries(m).filter(([i, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT && kinds.recipes[i] === undefined).map(([i]) => [Number(a), Number(i)]));
+    expect(shift.length).toBeGreaterThan(0);
+    const [aug, id] = shift[0];
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, [String(id)]: [`#${id}`, 3000, []] } } as Kinds;
+    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [3006] }), taken: [aug] });
+    expect(ids(p.next)[0]).toBe(id);
+    expect(ids(p.path.slice(0, p.coreLen))).toContain(id);
+    expect(p.path).toHaveLength(6);
+    expect(p.rules).toContain("augmentRush");
+  });
+
+  it("a rushed item must fit the build's damage type unless ADAPt converts it", () => {
+    const wooglets = Object.entries(AUGMENT_SHIFT).find(([, m]) => (m["3157"]?.[4] ?? 0) >= RUSH_Z_BUILD && (m["3157"]?.[5] ?? 0) >= RUSH_Z_EARLY)?.[0];
+    expect(wooglets).toBeTruthy();
+    const k2 = { ...kinds, items: { ...kinds.items, 3157: ["ap", "armor"] }, recipes: { ...kinds.recipes, 3157: ["#3157", 3000, []] } } as Kinds;
+    expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets)] }).path)).not.toContain(3157);
+    expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets), 1205] }).path)).toContain(3157);
+  });
+
+  it("a rushed item that a later slot also lists shows once (Kai'Sa / Orianna with Upgrade Stormsurge)", () => {
+    const [aug, id] = Object.entries(AUGMENT_SHIFT).flatMap(([a, m]) => Object.entries(m).filter(([, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT).map(([i]) => [Number(a), Number(i)]))[0];
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, [String(id)]: [`#${id}`, 3000, []] } } as Kinds;
+    const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3036)] }, { slot: 5, items: [item(id)] }, { slot: 6, items: [item(6333)] }] };
+    const p = plan({ champ: c, kinds: k2, picks, fit, game: game([], { items: [3006] }), taken: [aug] });
+    expect(new Set(ids(p.path)).size).toBe(p.path.length);
+    expect(ids(p.path.slice(0, p.coreLen))).toContain(id);
+  });
+
+  it("never says sell a legendary to upgrade boots you started", () => {
+    const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
+    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3036, 3094, 6333, 3075], gold: 5000, dead: true }), taken: [] });
+    expect(p.tips.some((t) => t.kind === "sell")).toBe(false);
   });
 
   it("never shows an item twice in the path", () => {
@@ -586,5 +643,64 @@ describe("augments tip a weaker split (splitAugments)", () => {
     expect(splitFor(["W", "Q", "E"], weak, [1151]).split).toEqual(weak);
     // Katarina and Kayn's splits aren't weak: augments don't move them.
     expect(splitFor(["E", "Q", "W"], { first: "Q", points: 3 }, [1103]).tipped).toBe(false);
+  });
+});
+
+describe("transmuteDraw", () => {
+  // 10 Prismatics scored 0.10 down to 0.01, 10 Silvers at 0.02, and the two random-draw cards.
+  const aug = Object.fromEntries([
+    ...Array.from({ length: 10 }, (_, n) => [String(500 + n), [`P${n}`, "prismatic"]]),
+    ...Array.from({ length: 10 }, (_, n) => [String(600 + n), [`S${n}`, "silver"]]),
+    ["1238", ["Transmute: Prismatic", "gold"]],
+    ["12317", ["Pandora's Box", "prismatic"]],
+  ]) as Picks["augments"];
+  const own = [
+    ...Array.from({ length: 10 }, (_, n) => [500 + n, 0.1 - n * 0.01]),
+    ...Array.from({ length: 10 }, (_, n) => [600 + n, -0.02]),
+    [1238, 0], [12317, -0.03],
+  ] as [number, number][];
+  const p: Picks = { ...picks, augments: aug, champions: { Ashe: own }, pairs: {} };
+  const at = (id: number, taken: number[] = [], seen: number[] = []) => rankAugments(p, "Ashe", taken, { seen }).find((a) => a.id === id)!;
+
+  it("a Transmute is worth more once weak augments of its tier are gone", () => {
+    expect(at(1238).draw).toBeUndefined();
+    // The 4 weakest Prismatics were shown: the pool's average rises from 5.5 to 7.5 points; x 0.61.
+    const later = at(1238, [], [506, 507, 508, 509]);
+    expect(later.draw).toBeCloseTo(0.61 * 2, 5);
+    expect(later.score).toBeCloseTo(1.22, 5);
+    // The strongest ones gone: worth less.
+    expect(at(1238, [], [500, 501, 502, 503]).draw!).toBeLessThan(0);
+  });
+
+  it("Pandora's Box gains from weak augments held and loses their synergy", () => {
+    const weak = at(12317, [600, 601]);
+    // Each held Silver (-2) becomes a random Prismatic (avg 5.5): 0.61 x 7.5 each.
+    expect(weak.draw).toBeCloseTo(2 * 0.61 * 7.5, 5);
+    const paired: Picks = { ...p, pairs: { Ashe: [[600, 601, 3]] } };
+    const lost = rankAugments(paired, "Ashe", [600, 601]).find((a) => a.id === 12317)!;
+    expect(lost.draw).toBeCloseTo(2 * 0.61 * 7.5 - 3, 5);
+    // Holding strong Prismatics instead: a loss.
+    expect(at(12317, [500, 501]).draw!).toBeLessThan(0);
+  });
+});
+
+describe("slotFirst", () => {
+  const path = [3006, 3031, 3036, 3094].map((id) => ({ name: `#${id}`, icon: `${id}.png` }));
+  const name = (id: number) => `#${id}`;
+  const g = (o: Partial<Parameters<typeof slotCue>[0]>) => ({ champ: "Ashe", items: [3094, 3031, 3006], ...o });
+
+  it("Weapon of Destiny on offer: move the champion's best Weapon item to slot 1", () => {
+    expect(slotCue(g({ offer: [WEAPON_OF_DESTINY] }), [], path, 3031, kinds, name)).toMatchObject({ item: 3031, estimated: false });
+    // Already first, not on offer, or only one Legendary: nothing to say.
+    expect(slotCue(g({ items: [3031, 3094], offer: [WEAPON_OF_DESTINY] }), [], path, 3031, kinds, name)).toBeNull();
+    expect(slotCue(g({}), [], path, 3031, kinds, name)).toBeNull();
+    expect(slotCue(g({ items: [3094, 3006], offer: [WEAPON_OF_DESTINY] }), [], path, 3094, kinds, name)).toBeNull();
+  });
+
+  it("King Me and an ally Ornn at 13-17: your earliest path item goes to slot 1 (estimated)", () => {
+    expect(slotCue(g({}), [KING_ME], path, null, kinds, name)).toMatchObject({ item: 3031, estimated: true });
+    expect(slotCue(g({ allies: [{ champ: "Ornn", level: 14 }] }), [], path, null, kinds, name)?.item).toBe(3031);
+    expect(slotCue(g({ allies: [{ champ: "Ornn", level: 12 }] }), [], path, null, kinds, name)).toBeNull();
+    expect(slotCue(g({ champ: "Ornn", level: 12 }), [], path, null, kinds, name)?.item).toBe(3031);
   });
 });

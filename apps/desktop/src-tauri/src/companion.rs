@@ -90,6 +90,9 @@ pub struct State {
     owner_tried: Option<Instant>,
     /// The game's result from the client's end-of-game screen ("Win" or "Lose").
     result: Option<String>,
+    /// Champions this player can play (owned or in the free rotation), read once per champion select: only those can
+    /// be taken from the bench or come from a reroll.
+    playable: Option<Vec<i64>>,
 }
 
 const OWNER_RETRY: Duration = Duration::from_secs(300);
@@ -399,6 +402,22 @@ pub fn sample_from(t: f64, team: &str, players: &[Value], events: &[Value], fit:
     s
 }
 
+/// Champion ids from /lol-champions/v1/owned-champions-minimal that the player can take: owned or free to play.
+fn playable_ids(v: &Value) -> Vec<i64> {
+    v.as_array()
+        .map(|a| {
+            a.iter()
+                .filter(|c| {
+                    c.get("ownership").and_then(|o| o.get("owned")).and_then(Value::as_bool) == Some(true)
+                        || c.get("freeToPlay").and_then(Value::as_bool) == Some(true)
+                })
+                .filter_map(|c| c.get("id")?.as_i64())
+                .filter(|id| *id > 0)
+                .collect()
+        })
+        .unwrap_or_default()
+}
+
 fn champ_select(app: &AppHandle, client: &Client) {
     let Some(session) = client.get("/lol-champ-select/v1/session") else { return };
     let me = session.get("localPlayerCellId").and_then(Value::as_i64);
@@ -420,8 +439,27 @@ fn champ_select(app: &AppHandle, client: &Client) {
         .filter(|id| *id > 0)
         .collect();
     let bench = ids(session.get("benchChampions"));
-    let script = format!("window.showPick({})", json!({ "allies": allies, "mine": mine, "bench": bench }));
+    let rerolls = client
+        .get("/lol-summoner/v1/current-summoner/rerollPoints")
+        .and_then(|r| r.get("numberOfRolls")?.as_i64())
+        .unwrap_or(0);
     let state = app.state::<Shared>();
+    let cached = state.lock().unwrap().playable.clone();
+    let playable = match cached {
+        Some(p) => p,
+        None => {
+            let p =
+                client.get("/lol-champions/v1/owned-champions-minimal").map(|v| playable_ids(&v)).unwrap_or_default();
+            if !p.is_empty() {
+                state.lock().unwrap().playable = Some(p.clone());
+            }
+            p
+        }
+    };
+    let script = format!(
+        "window.showPick({})",
+        json!({ "allies": allies, "mine": mine, "bench": bench, "rerolls": rerolls, "playable": playable })
+    );
     let unchanged = state.lock().unwrap().script.as_deref() == Some(script.as_str());
     if !unchanged {
         send(app, script);
@@ -452,11 +490,21 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
     };
     let team = row.get("team").and_then(Value::as_str).unwrap_or_default().to_owned();
     let champ = row.get("rawChampionName").and_then(Value::as_str).and_then(champion_alias).unwrap_or_default();
+    // In inventory slot order: Weapon of Destiny, King Me and Ornn's Masterwork upgrade the first Legendary in slots 1-6.
     let items_of = |p: &Value| -> Vec<i64> {
-        p.get("items")
+        let mut rows: Vec<(i64, i64)> = p
+            .get("items")
             .and_then(Value::as_array)
-            .map(|a| a.iter().filter_map(|i| i.get("itemID")?.as_i64()).collect())
-            .unwrap_or_default()
+            .map(|a| {
+                a.iter()
+                    .filter_map(|i| {
+                        Some((i.get("slot").and_then(Value::as_i64).unwrap_or(99), i.get("itemID")?.as_i64()?))
+                    })
+                    .collect()
+            })
+            .unwrap_or_default();
+        rows.sort_by_key(|r| r.0);
+        rows.into_iter().map(|r| r.1).collect()
     };
     let items = items_of(row);
     // The enemy champions and the items they've bought, as the scoreboard shows them (no names), for the item tip.
@@ -466,6 +514,18 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         .map(|p| {
             let champ = p.get("rawChampionName").and_then(Value::as_str).and_then(champion_alias).unwrap_or_default();
             json!({ "champ": champ, "items": items_of(p) })
+        })
+        .collect();
+    // Teammates' champions and levels, for Ornn's Masterwork upgrades (the slot-1 cue).
+    let allies: Vec<Value> = players
+        .iter()
+        .filter(|p| {
+            p.get("team").and_then(Value::as_str).is_some_and(|x| x == team)
+                && !std::ptr::eq(*p as *const Value, row as *const Value)
+        })
+        .map(|p| {
+            let champ = p.get("rawChampionName").and_then(Value::as_str).and_then(champion_alias).unwrap_or_default();
+            json!({ "champ": champ, "level": p.get("level").and_then(Value::as_u64).unwrap_or(0) })
         })
         .collect();
     let skills: Vec<u64> = ["Q", "W", "E", "R"]
@@ -487,6 +547,7 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         "dead": row.get("isDead").and_then(Value::as_bool).unwrap_or(false),
         "items": items,
         "enemies": enemies,
+        "allies": allies,
         "gold": data.get("activePlayer").and_then(|p| p.get("currentGold")?.as_f64()).unwrap_or(0.0),
         // For the stat-cap guard: crit chance, attack speed and ability haste as the game reports them.
         "stats": stats,
@@ -588,6 +649,7 @@ pub fn watch(app: AppHandle) {
                     if phase == "ChampSelect" {
                         s.dismissed = false;
                         s.under_since = None;
+                        s.playable = None;
                     }
                     if phase == "InProgress" {
                         s.last_live = None;
@@ -700,6 +762,17 @@ mod tests {
         assert_eq!(other_monitor(&two[..1], Some((960, 540)), 0), None);
         // A monitor to the left (negative coordinates).
         assert_eq!(other_monitor(&[(-1920, 0, 1920, 1080), (0, 0, 1920, 1080)], Some((960, 540)), 1), Some(0));
+    }
+
+    #[test]
+    fn playable_is_owned_or_free() {
+        let v = json!([
+            {"id": 1, "ownership": {"owned": true}, "freeToPlay": false},
+            {"id": 2, "ownership": {"owned": false}, "freeToPlay": true},
+            {"id": 3, "ownership": {"owned": false}, "freeToPlay": false},
+            {"id": -1, "ownership": {"owned": true}}
+        ]);
+        assert_eq!(playable_ids(&v), vec![1, 2]);
     }
 
     #[test]
