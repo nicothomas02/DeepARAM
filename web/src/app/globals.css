@@ -6858,3 +6858,11 @@ html[data-view="detailed"] .wr-ci {
 .ds-legend a { color: var(--fg); text-decoration: none; }
 .ds-legend-tier { display: inline-flex; align-items: center; gap: 0.25rem; font-variant-numeric: tabular-nums; }
 .ds-legend .chip { min-width: 1.5rem; padding: 0.05rem 0.35rem; font-size: 0.75rem; }
+
+/* HoverPreview.tsx: an item's or augment's official description on its hover card. */
+.hover-card-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
