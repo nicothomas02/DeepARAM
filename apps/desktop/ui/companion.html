@@ -544,7 +544,8 @@
   }
 
   // Why a rare spell pair without Flash leads (Nico 2026-11-25): the champion page's "Few players" line, in English, on
-  // hover only. Same templates as web/src/components/champion/FewPlayers.tsx; keep the two in step.
+  // hover only. Same templates as web/src/components/champion/FewPlayers.tsx; keep the two in step. The overlay carries
+  // no pick rates, so "only {pct} of players" reads "few players" here.
   const SPELL_KIT = {
     escape: "{name}'s {key} already does much of Flash's job, so Barrier takes the slot: in ARAM it is back about every 106 s, Flash every 176 s. Ghost covers kiting.",
     nodash: "{name} has no escape dash, so Ghost is how {name} keeps distance while still hitting, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.",
@@ -557,12 +558,11 @@
   const fill = (tpl, v) => tpl.replace(/\{(\w+)\}/g, (m, k) => (v[k] ?? m));
   function spellWhyText(w, name) {
     if (!w) return "";
-    const pct = `${(w.pickRate * 100).toFixed(w.pickRate < 0.01 ? 2 : 1)}%`;
     const kit = w.template ? SPELL_KIT[w.template] : null;
     if (w.verdict === "holds" && kit && w.edge != null)
-      return `${fill(kit, { name, key: `${w.key} (${w.ability})` })} ${fill("It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.", { pts: w.edge.toFixed(1), name, n: w.patches, pct })}`;
-    if (w.verdict === "tie") return fill("About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.", { pct });
-    if (w.verdict === "mixed") return fill("Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.", { pct });
+      return `${fill(kit, { name, key: `${w.key} (${w.ability})` })} ${fill("It won {pts} pts more than {name}'s average over the last {n} patches, but few players take it, so part of that may be who picks it.", { pts: w.edge.toFixed(1), name, n: w.patches })}`;
+    if (w.verdict === "tie") return fill("About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Few players take this pair.", {});
+    if (w.verdict === "mixed") return fill("Few players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.", {});
     return "";
   }
 

@@ -14,7 +14,9 @@ import { fillSpells } from "@/lib/fill";
 import { liveTiers } from "@/lib/highlights";
 import { SITUATIONS } from "@/lib/situations";
 
-/** A rare leading spell pair's reason, as the champion page's "Few players" tag (components/champion/FewPlayers.tsx). */
+/** A rare leading spell pair's reason, as the champion page's "Few players" tag (components/champion/FewPlayers.tsx).
+ *  No pick rate: the overlay carries no raw win or pick rates (tests/unit/overlay-data.test.ts), so the app says
+ *  "few players" where the site gives the share. */
 export type SpellWhy = {
   verdict: "holds" | "tie" | "mixed";
   template: string | null;
@@ -22,8 +24,6 @@ export type SpellWhy = {
   ability: string;
   edge: number | null;
   patches: number;
-  /** The pair's pick rate, 0..1. */
-  pickRate: number;
 };
 type RareRow = { spells: number[]; verdict: SpellWhy["verdict"]; template: string | null; key: string; ability: string; edge: number | null; patches: unknown[] };
 let rareRows: Record<string, RareRow> | null = null;
@@ -172,7 +172,7 @@ export function quickBuilds(): QuickBuild[] {
     const rare = spells && fewPlayersSpell(spells, spellRows) ? rareSpellRow(id, spells.spells.map((s) => s.id)) : null;
     const spellWhy: SpellWhy | null =
       rare && spells
-        ? { verdict: rare.verdict, template: rare.template, key: rare.key, ability: rare.ability, edge: rare.edge, patches: rare.patches.length, pickRate: spells.pickRate }
+        ? { verdict: rare.verdict, template: rare.template, key: rare.key, ability: rare.ability, edge: rare.edge, patches: rare.patches.length }
         : null;
 
     const swaps = p.swaps.flatMap((sw) => {
