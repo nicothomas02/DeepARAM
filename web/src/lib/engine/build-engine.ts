@@ -51,7 +51,7 @@ export const RULES: Record<string, Rule> = {
   luckyTilt: { source: "assumption", on: true, why: "Feeling lucky: among options whose 95% ranges overlap the leader's, rarer picks get up to +0.3 points; never past a clearly better one. Nico approved 2026-11-23." },
   nicheBuilds: { source: "data", on: true, why: "A niche build (few players build that style on the champion, but at least 2 of its items with 1,000+ games each win clearly more: above the champion's average by 1.96 standard errors, AramHex 16.22-16.23; tank left out) becomes the plan once you take an augment after which players build that style clearly more than the same champion's players without it (archive, all lobbies, z >= 4). Estimated: win rates are correlational. Nico asked 2026-11-24 (enchanter Orianna)." },
   measuredReplan: { source: "data", on: true, why: "Ethereal Weapon switches to the champion's own on-hit build (+25.9 pts on-hit build share). Only measured switches." },
-  destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary." },
+  destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary; when the path lacks it, it takes the last unbought core place first (2026-11-25: 31 of 172 champions' best Weapon was missing from their path)." },
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
   critCap: { source: "game data", on: true, why: "At 100% crit or more (live crit chance), a later slot's crit item gives way to a near-tied option (inside its 95% win-rate band) with better synergy: an item a taken augment pulls in, then a kit match, then a non-crit item, whose stats and passive keep full value (Mayhem turns crit over 100% into 0.75 adaptive force per 1%, wiki). Not Yasuo or Yone: their passive also turns extra crit into AD. Archive: overcap is noise on win rate (-1.7 +- 3.7 pts). Nico approved 2026-11-24 as a tiebreak." },
@@ -1591,6 +1591,23 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       else { const [moved] = build.splice(j, 1, it); build.splice(Math.min(coreLen, build.length), 0, moved); }
       converted.push({ item: it, by: a, does: cv.does });
       applied(CONVERTERS[String(a)] ? "converterItems" : "leanIn");
+    }
+  }
+  // Weapon of Destiny's best item (AramHex real games) that the path doesn't have joins it before any legendary is
+  // finished, taking the last core place you haven't bought (the same swap as converter items): 31 of 172 champions'
+  // best Weapon (e.g. Darius Endless Hunger, 89k of 227k Weapon games, 56% win) was missing from their path, so the
+  // destinyFirst move below found nothing (2026-11-25 check against AramHex hero_augment_items).
+  if (RULES.destinyFirst.on && k && champ?.destiny && taken.includes(WEAPON_OF_DESTINY)) {
+    const did = itemId(champ.destiny.icon);
+    const fin0 = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i)).length;
+    const ids = build.map((it) => itemId(it.icon));
+    if (!fin0 && did !== null && k.recipes[did] && !ids.includes(did) && ![...owned, ...ids].some((o) => rules.clash(o, did))) {
+      const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+      const it: Named = { name: k.recipes[did][0], icon: `${prefix}${220000 + did}.png` };
+      const claimed = new Set([...rushed, ...converted].map((r) => r.item));
+      const j = [...build.keys()].slice(0, coreLen).reverse().find((x) => !owned.has(itemId(build[x].icon)) && !bootIds.has(itemId(build[x].icon)) && !claimed.has(build[x]) && !must.has(itemId(build[x].icon)));
+      if (j === undefined) build.splice(Math.min(coreLen, build.length), 0, it);
+      else { const [moved] = build.splice(j, 1, it); build.splice(Math.min(coreLen, build.length), 0, moved); }
     }
   }
   // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA

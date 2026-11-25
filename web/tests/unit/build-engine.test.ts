@@ -239,6 +239,12 @@ describe("build engine", () => {
   it("Weapon of Destiny moves the champion's best Weapon item first; measured augments move their item up", () => {
     const wod = plan({ champ, kinds, picks, fit, game: game([]), taken: [3081] });
     expect(itemId(wod.next[0].icon)).toBe(3036);
+    // a best Weapon item the path lacks joins it first (Darius Endless Hunger case)
+    const off = plan({ champ: { ...champ, destiny: item(3075) }, kinds, picks, fit, game: game([]), taken: [3081] });
+    expect(itemId(off.next[0].icon)).toBe(3075);
+    expect(ids(off.path)).toContain(3075);
+    // not once a legendary is finished
+    expect(ids(plan({ champ: { ...champ, destiny: item(3075) }, kinds, picks, fit, game: game([], { items: [3031] }), taken: [3081] }).next)).not.toContain(3075);
     // Upgrade Infinity Edge: IE is a 1st/2nd legendary for 83% of holders vs 52% without (augmentShift)
     const up = plan({ champ, kinds, picks, fit, game: game([]), taken: [1336] });
     expect(ids(up.next)).toEqual([3031, 3006]);
