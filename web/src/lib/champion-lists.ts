@@ -24,7 +24,7 @@ export type LazyTile = {
   winRate: number;
   games?: number;
   pickRate: number;
-  /** Few players build it though it scores above the card's weakest full-build pick; the augment that explains it. */
+  /** Few players build it though it scores above the card's best full-build pick; the augment that explains it. */
   few?: { augment?: string };
 };
 export type LazyOlder = { id: number; winRate: number; games?: number; pickRate: number };
@@ -44,11 +44,14 @@ export function championLists(alias: string): ChampionLists | null {
   const names = new Map(champList().map((c) => [c.id, c.name]));
   const mates = p.mates.slice(MATES_FIRST).map((m) => ({ ...m, name: names.get(m.id) ?? m.id }));
 
-  // Legendaries that score above the card's weakest full-build pick but that few players build
-  // (under a quarter of the most built one): say why they aren't in the build (Nico 2026-11-23).
+  // Legendaries that score above the card's best full-build pick but that few players build (under a quarter of the
+  // most built one): say why they aren't in the build (Nico 2026-11-23). The bar was the weakest full-build pick until
+  // 2026-11-25: backtested 16.22 -> 16.23, items over the weakest held up 55% of the time, over the best 88%
+  // (research/few-players-items), so Nico chose the best.
   const legend = p.items.filter((r) => tierOf(r) === "legendary");
   const topPick = Math.max(0, ...legend.map((r) => r.pickRate));
-  const fullFloor = Math.min(...(p.core[0]?.full ?? []).map((r) => r.deepScore ?? 0));
+  const fullScores = (p.core[0]?.full ?? []).map((r) => r.deepScore ?? 0);
+  const fullBar = fullScores.length ? Math.max(...fullScores) : Infinity;
   const items: LazyTier[] = [];
   const used = new Set<number>();
   for (const tier of ITEM_TIERS) {
@@ -60,7 +63,7 @@ export function championLists(alias: string): ChampionLists | null {
       rows: list.map((r) => {
         const id = r.items[0];
         used.add(id);
-        const few = tier === "legendary" && r.pickRate < 0.25 * topPick && (r.deepScore ?? 0) > fullFloor;
+        const few = tier === "legendary" && r.pickRate < 0.25 * topPick && (r.deepScore ?? 0) > fullBar;
         const c = few ? ITEM_CHANGERS.find((x) => x.item === id && p.augments.some((a) => x.ids.includes(a.id))) : undefined;
         const aug = c && p.augments.find((a) => c.ids.includes(a.id))?.id;
         return {
