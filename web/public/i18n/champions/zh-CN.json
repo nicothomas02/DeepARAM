@@ -387,5 +387,8 @@
  "Both spend your bonus AD: {1} turns it into attack speed, {2} into AP.": "两者都会消耗你的额外攻击力：{1}转成攻速，{2}转成法强。",
  "Its slow widens the move speed gap {1} turns into damage.": "它的减速拉大移速差，{1}会把这个差距转成伤害。",
  "Its summoner spell haste brings the other augment's summoner spell back sooner.": "它的召唤师技能急速让另一个强化的召唤师技能更快转好。",
- "More Flash charges set off more {1} explosions.": "更多闪现充能会触发更多次{1}爆炸。"
+ "More Flash charges set off more {1} explosions.": "更多闪现充能会触发更多次{1}爆炸。",
+ "{1}'s crit damage multiplies every ability crit {2} allows.": "{1}的暴击伤害会放大{2}带来的每一次技能暴击。",
+ "{1}'s crit damage multiplies {2}'s ultimate crits.": "{1}的暴击伤害会放大{2}的大招暴击。",
+ "{1}'s crit damage makes {2}'s crits hit harder.": "{1}的暴击伤害让{2}的暴击打得更痛。"
 }

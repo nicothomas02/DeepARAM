@@ -56,6 +56,7 @@ export const RULES: Record<string, Rule> = {
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
   critCap: { source: "game data", on: true, why: "At 100% crit or more (live crit chance), a later slot's crit item gives way to a near-tied option (inside its 95% win-rate band) with better synergy: an item a taken augment pulls in, then a kit match, then a non-crit item, whose stats and passive keep full value (Mayhem turns crit over 100% into 0.75 adaptive force per 1%, wiki). Not Yasuo or Yone: their passive also turns extra crit into AD. Archive: overcap is noise on win rate (-1.7 +- 3.7 pts). Nico approved 2026-11-24 as a tiebreak." },
   skillSplits: { source: "assumption", on: true, why: "Katarina and Kayn put 3 points in Q before maxing E (Katarina) or W (Kayn). Nico approved 2026-11-24 (his pick) after a one-time regular ARAM cross-check: the only two intentional splits that beat the champion's best standard order at levels 10 and 15 (800+ games each). Azir and Soraka (Q to 3, then max W) added by Nico the same day as weaker evidence: they lead at both levels but within luck. Dr. Mundo (Q to 3, then E), Ashe (W to 3, then Q) and Rumble (E to 3, then Q) added by Nico for their kit logic; about even on win rate. Kha'Zix and Sona (Q to 3, then W), Vayne and Smolder (W to 3, then Q) chosen by Nico too: about even, with a kit reason. Shown as estimated; no stats of its own." },
+  pentakillBuild: { source: "assumption", on: true, why: "Pentakill's Empowers (HEAVY Q, POWER W, THRASH E: +20 haste and +10%) follow the ability your CURRENT build maxes first when the build switched style (e.g. AP Ashe): the champion's real-game Empower ranking (AramHex) is for its usual build. Not when the switched build maxes the same ability. 2026-11-25 check: the usual max-first ability is the champion's best Empower for 123 of 173 champions; for 38 the data clearly prefers another (z >= 3, e.g. Kai'Sa W, Malphite W, Trundle Q), and those keep the data pick on their usual build. Kit logic, estimated. Nico approved 2026-11-25 (he asked for it)." },
   splitAugments: { source: "assumption", on: true, why: "For the weaker-evidence splits (close to the standard order), an augment that favors one of the two abilities tips it: Bread and Butter/Jam/Cheese (+100 haste) or Pentakill HEAVY/POWER/THRASH (+20 haste, +10%) on the split's 3-point ability maxes that ability first; on the maxed ability, it's maxed from the start (no split). Kit logic, estimated: no data splits skill orders by augment. Nico approved 2026-11-24 (he asked for it)." },
   augmentSkills: { source: "assumption", on: true, why: "A few champions max another ability first once they take an augment (Gwen: E>Q>W with Ethereal Weapon). Nico approved 2026-11-24 (he asked for it); no source splits skill orders by augment, so it's estimated." },
   styleSkills: { source: "data", on: true, why: "When the build switches to another style (an augment, your items or a niche build), the skill max order switches to that build's own, from the same players' games the site's build toggle shows (15 champions differ, e.g. Miss Fortune AP E>W>Q vs crit Q>W>E). An augment's own order and the Archmage route still come first." },
@@ -475,11 +476,14 @@ function transmuteDraw(
   }
 }
 
+/** Pentakill Empowers by the ability they empower (wiki). */
+export const EMPOWERS: Record<string, number> = { Q: 3170, W: 3171, E: 3172 };
+
 export function rankAugments(
   picks: Picks,
   champ: string,
   taken: number[],
-  opts: { lucky?: boolean; seen?: number[]; headliner?: string; tier?: string; stickers?: Record<string, number> } = {},
+  opts: { lucky?: boolean; seen?: number[]; headliner?: string; tier?: string; stickers?: Record<string, number>; empower?: string | null } = {},
 ): RankedAugment[] {
   const ck = keyIn(picks.champions, champ);
   const own = ck ? picks.champions[ck] : [];
@@ -524,6 +528,14 @@ export function rankAugments(
       return { id, score: baseScore + potential, boost: est ? baseScore : null, potential, combo, mate, deep, ...(conflict ? { conflict } : {}) } as RankedAugment;
     });
   if (RULES.transmuteDraw.on) transmuteDraw(picks, own, pairs, taken, gone, ranked);
+  // pentakillBuild: a switched build's max-first ability takes the top Empower place (plan().empower).
+  if (RULES.pentakillBuild.on && opts.empower) {
+    const want = EMPOWERS[opts.empower];
+    const emp = ranked.filter((a) => Object.values(EMPOWERS).includes(a.id));
+    const target = emp.find((a) => a.id === want);
+    const top = Math.max(...emp.map((a) => a.score));
+    if (target && target.score < top) { target.score = top + 0.01; target.boost = target.boost === null ? null : target.score - target.potential; }
+  }
   ranked.sort((x, y) => Number(!!x.conflict) - Number(!!y.conflict) || y.score - x.score);
   if (!opts.lucky) return ranked;
   return luckyOrder(ranked, (a) => info.get(a.id)?.se ?? null, (a) => info.get(a.id)?.pick ?? null);
@@ -1253,6 +1265,8 @@ export function breakpoints(enemies: Enemy[], level: number, magic: boolean, kno
 export type Swap = { item: Named; replaces: Named | null; at: number; why: string; kind: "augment" | "proven" | "kit" };
 export type Tip = { rank: number; kind: string; text: string; item?: number };
 export type Plan = {
+  /** pentakillBuild: the ability whose Pentakill Empower to take when the build switched style, else null. */
+  empower: string | null;
   /** The whole path in buying order: core, then the 4th/5th/6th picks. */
   path: Named[];
   coreLen: number;
@@ -1930,6 +1944,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     rules: [...used],
     reasons,
     luckyStyle: alt?.style ?? null,
+    empower: RULES.pentakillBuild.on && styleOrder?.length && styleOrder[0] !== (champ0?.skills ?? [])[0] && EMPOWERS[styleOrder[0]] ? styleOrder[0] : null,
     skills: sp.order,
     skillSplit: sp.split,
     breakpoints: bp,

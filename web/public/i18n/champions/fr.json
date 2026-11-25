@@ -387,5 +387,8 @@
  "Both spend your bonus AD: {1} turns it into attack speed, {2} into AP.": "Les deux consomment ton AD bonus : {1} le change en vitesse d'attaque, {2} en AP.",
  "Its slow widens the move speed gap {1} turns into damage.": "Son ralentissement creuse l'écart de vitesse que {1} transforme en dégâts.",
  "Its summoner spell haste brings the other augment's summoner spell back sooner.": "Sa hâte de sort d'invocateur fait revenir plus tôt le sort d'invocateur de l'autre augment.",
- "More Flash charges set off more {1} explosions.": "Plus de charges de Saut éclair déclenchent plus d'explosions de {1}."
+ "More Flash charges set off more {1} explosions.": "Plus de charges de Saut éclair déclenchent plus d'explosions de {1}.",
+ "{1}'s crit damage multiplies every ability crit {2} allows.": "Les dégâts critiques de {1} multiplient chaque critique de sort que {2} permet.",
+ "{1}'s crit damage multiplies {2}'s ultimate crits.": "Les dégâts critiques de {1} multiplient les critiques d'ultime de {2}.",
+ "{1}'s crit damage makes {2}'s crits hit harder.": "Les dégâts critiques de {1} rendent les critiques de {2} plus forts."
 }

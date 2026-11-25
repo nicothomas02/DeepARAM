@@ -387,5 +387,8 @@
  "Both spend your bonus AD: {1} turns it into attack speed, {2} into AP.": "どちらも増加攻撃力を使う：{1}は攻撃速度に、{2}は魔力に変える。",
  "Its slow widens the move speed gap {1} turns into damage.": "そのスロウで移動速度の差が広がり、{1}がそれをダメージに変える。",
  "Its summoner spell haste brings the other augment's summoner spell back sooner.": "サモナースペルヘイストで、もう一方のオーグメントのサモナースペルが早く戻る。",
- "More Flash charges set off more {1} explosions.": "フラッシュのチャージが増え、{1}の爆発も増える。"
+ "More Flash charges set off more {1} explosions.": "フラッシュのチャージが増え、{1}の爆発も増える。",
+ "{1}'s crit damage multiplies every ability crit {2} allows.": "{1}のクリティカルダメージが、{2}で可能になるスキルのクリティカルをすべて強化する。",
+ "{1}'s crit damage multiplies {2}'s ultimate crits.": "{1}のクリティカルダメージが、{2}によるアルティメットのクリティカルを強化する。",
+ "{1}'s crit damage makes {2}'s crits hit harder.": "{1}のクリティカルダメージで、{2}のクリティカルがより強くなる。"
 }

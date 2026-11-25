@@ -387,5 +387,8 @@
  "Both spend your bonus AD: {1} turns it into attack speed, {2} into AP.": "Beide verbrauchen deinen Bonus-AD: {1} macht Angriffstempo daraus, {2} AP.",
  "Its slow widens the move speed gap {1} turns into damage.": "Seine Verlangsamung vergrößert den Lauftempo-Abstand, den {1} in Schaden umwandelt.",
  "Its summoner spell haste brings the other augment's summoner spell back sooner.": "Sein Beschwörerzauber-Tempo bringt den Beschwörerzauber der anderen Augmentierung schneller zurück.",
- "More Flash charges set off more {1} explosions.": "Mehr Blitz-Ladungen lösen mehr {1}-Explosionen aus."
+ "More Flash charges set off more {1} explosions.": "Mehr Blitz-Ladungen lösen mehr {1}-Explosionen aus.",
+ "{1}'s crit damage multiplies every ability crit {2} allows.": "Der kritische Schaden von {1} verstärkt jeden Fähigkeits-Krit, den {2} ermöglicht.",
+ "{1}'s crit damage multiplies {2}'s ultimate crits.": "Der kritische Schaden von {1} verstärkt die Ultimate-Krits von {2}.",
+ "{1}'s crit damage makes {2}'s crits hit harder.": "Der kritische Schaden von {1} lässt die Krits von {2} härter treffen."
 }

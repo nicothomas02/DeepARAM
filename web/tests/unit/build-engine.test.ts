@@ -400,6 +400,15 @@ describe("build engine", () => {
     expect(p.breakpoints.some((b) => b.id === 3036 && b.passed)).toBe(true);
   });
 
+  it("a switched build's max-first ability takes the top Pentakill Empower (pentakillBuild)", () => {
+    const p: Picks = { ...picks, augments: { ...picks.augments, 3170: ["HEAVY", "silver"], 3171: ["POWER", "silver"], 3172: ["THRASH", "silver"] }, champions: { Ashe: [[3170, 0.52], [3171, 0.5], [3172, 0.48]] }, pairs: {} };
+    const top = (empower?: string) => rankAugments(p, "Ashe", [], { empower }).filter((a) => a.id >= 3170 && a.id <= 3172)[0].id;
+    expect(top()).toBe(3170); // the real-game ranking for the usual build
+    expect(top("W")).toBe(3171); // AP Ashe maxes W first
+    expect(top("Q")).toBe(3170);
+    expect(plan({ champ, kinds, picks, fit, game: game([]), taken: [] }).empower).toBeNull(); // usual build: data pick stands
+  });
+
   it("a frontliner pledges Knight's Vow to an ally who shreds 2+ enemy frontliners (vowPartner)", () => {
     const f: Fit = { champions: { ...fit.champions, Braum: [0, ["Warden"]], Leona: [0, ["Vanguard"]], Ornn: [0, ["Vanguard"]], Vayne: [0, ["Marksman"]] } };
     const k2 = { ...kinds, recipes: { ...kinds.recipes, "3109": ["Knight's Vow", 2300, []] } } as Kinds;
