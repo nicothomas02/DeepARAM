@@ -351,5 +351,15 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "สกิลของคุณคริติคอลได้ โอกาสคริติคอลที่เพิ่มขึ้นจึงคุ้มกับสกิลด้วย",
  "Avoid": "เลี่ยง",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "ระดับ D: ในแพตช์ก่อน ๆ คู่สเปลล์ที่ต่ำขนาดนี้ชนะน้อยกว่าคู่อื่นของแชมเปี้ยนนี้มากในแพตช์ถัดไปด้วย",
- "Couldn't load this list.": "โหลดรายการนี้ไม่ได้"
+ "Couldn't load this list.": "โหลดรายการนี้ไม่ได้",
+ "{name}'s {key} already does much of Flash's job, so Barrier takes the slot: in ARAM it is back about every 106 s, Flash every 176 s. Ghost covers kiting.": "{key} ของ {name} ทำหน้าที่ของแฟลชได้มากอยู่แล้ว จึงใช้แบริเออร์แทน: ใน ARAM แบริเออร์กลับมาราวทุก 106 วินาที แฟลชทุก 176 วินาที ส่วนโกสต์ใช้ไคท์",
+ "{name} has no escape dash, so Ghost is how {name} keeps distance while still hitting, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name} ไม่มีท่าพุ่งไว้หนี จึงใช้โกสต์ให้ {name} รักษาระยะไปพร้อมกับตีได้ และแบริเออร์กลับมาราวทุก 106 วินาทีใน ARAM เทียบกับ 176 วินาทีของแฟลช",
+ "{name} has no dash, so Ghost is how {name} reaches targets, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name} ไม่มีท่าพุ่ง จึงใช้โกสต์ให้ {name} เข้าถึงเป้าหมาย และแบริเออร์กลับมาราวทุก 106 วินาทีใน ARAM เทียบกับ 176 วินาทีของแฟลช",
+ "{name} has no long dash, so Ghost keeps {name} on targets while Mark starts fights.": "{name} ไม่มีท่าพุ่งไกล โกสต์จึงช่วยให้ {name} ติดเป้าหมาย ส่วนมาร์กใช้เปิดไฟต์",
+ "{name}'s passive turns bonus move speed into attack damage, so Ghost adds damage as well as speed, and Mark starts fights.": "พาสซีฟของ {name} เปลี่ยนความเร็วเคลื่อนที่โบนัสเป็นพลังโจมตี โกสต์จึงเพิ่มทั้งดาเมจและความเร็ว ส่วนมาร์กใช้เปิดไฟต์",
+ "{name}'s {key} already moves {name} onto targets, so Flash adds less; Mark adds a second way in and Ignite adds kill pressure.": "{key} ของ {name} พา {name} เข้าหาเป้าหมายได้อยู่แล้ว แฟลชจึงช่วยได้น้อยลง มาร์กเพิ่มทางเข้าอีกทาง และอิกไนต์เพิ่มแรงกดดันในการสังหาร",
+ "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name} ไม่มีท่าพุ่ง โกสต์และความเร็วจากฮีลจึงพา {name} เดินระหว่างถังดินปืนและออกจากไฟต์",
+ "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "ชนะมากกว่าค่าเฉลี่ยของ {name} {pts} คะแนนใน {n} แพตช์ล่าสุด แต่มีผู้เล่นเลือกเพียง {pct} ส่วนหนึ่งจึงอาจมาจากคนที่เลือกใช้",
+ "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "ในแพตช์ล่าสุดสูสีกับคู่แฟลชที่ใช้กันทั่วไป (ต่างกันไม่ถึง 1 คะแนน) เลือกแบบไหนก็ได้ มีผู้เล่นเลือกคู่นี้เพียง {pct}",
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "มีผู้เล่นเลือกคู่นี้เพียง {pct} และความได้เปรียบเปลี่ยนไปในแต่ละแพตช์ ให้ถือว่าใกล้เคียงกับคู่แฟลชที่ใช้กันทั่วไป"
 }

@@ -351,5 +351,15 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "你的技能可以暴擊，所以額外的暴擊機率對技能也有用。",
  "Avoid": "避免",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D 梯隊：在過去的版本中，這麼低的召喚師技能組合在下個版本也明顯比該英雄的其他組合贏得少。",
- "Couldn't load this list.": "無法載入此清單。"
+ "Couldn't load this list.": "無法載入此清單。",
+ "{name}'s {key} already does much of Flash's job, so Barrier takes the slot: in ARAM it is back about every 106 s, Flash every 176 s. Ghost covers kiting.": "{name}的{key}已經承擔了閃現的大部分作用，所以這個位置給了光盾：在隨機單中路中光盾約每106秒冷卻好一次，閃現則是176秒。鬼步用於風箏。",
+ "{name} has no escape dash, so Ghost is how {name} keeps distance while still hitting, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name}沒有逃跑用的位移，所以靠鬼步，{name}能邊打邊保持距離；光盾在隨機單中路中約每106秒冷卻好一次，閃現是176秒。",
+ "{name} has no dash, so Ghost is how {name} reaches targets, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name}沒有位移，所以靠鬼步，{name}才能碰到目標；光盾在隨機單中路中約每106秒冷卻好一次，閃現是176秒。",
+ "{name} has no long dash, so Ghost keeps {name} on targets while Mark starts fights.": "{name}沒有長距離位移，所以鬼步讓{name}黏住目標，標記負責開戰。",
+ "{name}'s passive turns bonus move speed into attack damage, so Ghost adds damage as well as speed, and Mark starts fights.": "{name}的被動把額外跑速轉為攻擊力，所以鬼步除了加速還加傷害，標記負責開戰。",
+ "{name}'s {key} already moves {name} onto targets, so Flash adds less; Mark adds a second way in and Ignite adds kill pressure.": "{name}的{key}已經能把{name}帶到目標身邊，所以閃現作用較小；標記多一種進場方式，點燃增加擊殺壓力。",
+ "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name}沒有位移，所以鬼步和治癒術的跑速讓{name}在火藥桶之間移動並脫離戰鬥。",
+ "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "在最近{n}個版本中，它比{name}的平均勝率高{pts}個百分點，但只有{pct}的玩家選擇，所以部分原因可能在於選擇它的人。",
+ "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "在最近的版本中與常見的閃現組合大致持平（相差不到1個百分點），所以選哪個都可以。只有{pct}的玩家選擇這個組合。",
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "只有{pct}的玩家選擇這個組合，而且它的領先在各版本間起伏不定，所以可以把它看作與常見的閃現組合相近。"
 }

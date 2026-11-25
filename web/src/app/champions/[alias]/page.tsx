@@ -25,6 +25,7 @@ import { TfCard, TfPerf, TfStrip, TfTier, TimeframePicker } from "@/components/c
 import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
 import { fewPlayersSpell, leading, SPELL_FOLLOWING, SPELL_MIN_GAMES } from "@/lib/card-score";
+import { rareSpellWhy } from "@/lib/rare-spells";
 import {
   buildOrder,
   championPage,
@@ -593,6 +594,9 @@ export default async function ChampionPage({
   // of players take can't top the card on win rate alone (Ghost + Barrier over Flash on Ahri).
   const spells = spellsEstimated ? rawSpells : leading(scoreRows(rawSpells, FIT.items, { bound: true }), SPELL_FOLLOWING, SPELL_MIN_GAMES);
   const bestSpells = spells[0];
+  // The champion's own reason for its rare leading pair (lib/rare-spells.ts); other rows keep the generic line.
+  const spellWhyOf = (r: (typeof spells)[number]) =>
+    r === bestSpells ? { spellWhy: rareSpellWhy(c.alias, r.spells.map((s) => s.id)), champion: { alias: c.alias, name: c.name } } : {};
   const games = fillGames()?.[c.alias];
   const gamesEstimated = fillEstimated();
   const perfOf = (axes: RadarAxis[]) => {
@@ -663,7 +667,7 @@ export default async function ChampionPage({
             {bestSpells ? (
               <>
                 <Spells r={bestSpells} />
-                {fewPlayersSpell(bestSpells, spells) && <FewPlayers spellPickRate={bestSpells.pickRate} />}
+                {fewPlayersSpell(bestSpells, spells) && <FewPlayers spellPickRate={bestSpells.pickRate} {...spellWhyOf(bestSpells)} />}
                 <small className="cp-stale-tag">
                   <T ns={NS}>Estimated</T>
                 </small>
@@ -1318,7 +1322,7 @@ export default async function ChampionPage({
                       cells={<SpellCells r={r} />}
                     >
                       <Spells r={r} />
-                      {fewPlayersSpell(r, spells) && <FewPlayers spellPickRate={r.pickRate} />}
+                      {fewPlayersSpell(r, spells) && <FewPlayers spellPickRate={r.pickRate} {...spellWhyOf(r)} />}
                       {!r.estimated && isDTier((r as { deepScore?: number }).deepScore) && <AvoidTag />}
                     </Row>
                   ))}
