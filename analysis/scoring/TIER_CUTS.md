@@ -17,16 +17,10 @@ Next-patch lead over the list's average by tier, win-rate points (games-weighted
 Every list is in order, S > A > B > C > D, and every step is many standard errors apart (most ± are 0.01 to 0.2). The
 same holds on patch data thinned to 10% (a patch's first day).
 
-## 2. Nico's games (archive, all 10 players, 2,560 player-games on 16.20 to 16.23, tiered with the previous patch)
+## 2. Owner's games
 
-| | S | A | B | C | D |
-|---|---|---|---|---|---|
-| Champion played | 53.2% (295) | 51.5% (400) | 51.6% (1,071) | 44.7% (604) | 49.5% (190) |
-| Augments taken | 54.5% (1,632) | 50.3% (2,595) | 48.1% (3,652) | 47.3% (1,066) | 49.5% (204) |
-| Items built | 59.5% (210) | 50.9% (434) | 43.8% (233) | 43.4% (53) | 44.4% (9) |
-
-S is clearly above B in all three. D is too small to read (±3.5 to ±17). These numbers are correlated, not causal: who
-picks what, and when.
+Checked too (private archive, tiered with the previous patch's public data): S is above B for champions, augments and
+items, and D is too small to read. The numbers stay in the private project files, not this public repo.
 
 ## 3. Should the cuts move?
 

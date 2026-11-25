@@ -222,5 +222,6 @@ def archive_report(path):
 
 if __name__ == "__main__":
     res = {"public": {f"{k} | {l}": v for (k, l), v in public_report().items()}}
-    res["archive"] = archive_report(sys.argv[1] if len(sys.argv) > 1 else "/mnt/project-files/aramhex/archive-players.json")
+    # The archive's results print only: it is private, so they stay out of the committed json.
+    archive_report(sys.argv[1] if len(sys.argv) > 1 else "/mnt/project-files/aramhex/archive-players.json")
     json.dump(res, open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "tier_cuts.json"), "w"), indent=1, default=list)
