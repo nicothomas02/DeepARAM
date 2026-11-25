@@ -36,6 +36,10 @@ import {
   type OverlayChamp,
   type Picks,
   shiftOf,
+  AUGMENT_SHIFT,
+  RUSH_Z_BUILD,
+  RUSH_Z_EARLY,
+  RUSH_LIFT,
   stickerValue,
   STICKERS,
 } from "@/lib/engine/build-engine";
@@ -168,7 +172,7 @@ describe("build engine", () => {
     // Upgrade Infinity Edge: IE is a 1st/2nd legendary for 83% of holders vs 52% without (augmentShift)
     const up = plan({ champ, kinds, picks, fit, game: game([]), taken: [1336] });
     expect(ids(up.next)).toEqual([3031, 3006]);
-    expect(up.timing[0].because).toMatch(/buy this earlier/);
+    expect(up.timing[0].because).toMatch(/rush this|buy this earlier/);
     expect(up.why[ids(up.path).indexOf(3031)]).toMatch(/upgrades it/);
     // a pull too small to matter (Ethereal Weapon -> Nashor's, shrunk) moves nothing on its own
     expect(Math.abs(shiftOf([1029], 3115).early)).toBeLessThan(0.05);
@@ -177,7 +181,8 @@ describe("build engine", () => {
   it("puts a finished item you own off the path into the first open later slot", () => {
     const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3031, 3075] }), taken: [] });
     expect(ids(p.path)).toEqual([3006, 3031, 3046, 3075, 3094, 6333]);
-    expect(ids(p.next)[0]).toBe(3046);
+    // Thornmail took the 3rd item's place: that one moves behind the rest (ownedReplan)
+    expect(ids(p.next)[0]).toBe(3094);
   });
 
   it("plain Boots don't fill the build's boots: the build's boots stay next", () => {
@@ -186,11 +191,16 @@ describe("build engine", () => {
     expect(ids(p.next)).toContain(3006);
   });
 
-  it("off-path buys re-plan: an item passed over twice stops being Next, one out-of-order buy keeps it", () => {
-    expect(ids(plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036] }), taken: [] }).next)[0]).toBe(3031);
-    const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036, 3003] }), taken: [] });
-    expect(ids(p.next)[0]).not.toBe(3031);
+  it("off-path buys re-plan: an item you skip stops being Next; an off-path buy takes one slot, not the whole path", () => {
+    // bought the 4th item first: the 2nd (the one it took the place of) moves behind the rest
+    const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3036] }), taken: [] });
+    expect(ids(p.next)[0]).toBe(3046);
+    expect(ids(p.next)).not.toContain(3031);
     expect(p.rules).toContain("ownedReplan");
+    // one off-path buy passes only the first unbought item
+    expect(ids(plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3003] }), taken: [] }).next)[0]).toBe(3046);
+    // nothing bought: the plan as it is
+    expect(ids(plan({ champ, kinds, picks, fit, game: game([]), taken: [] }).next)[0]).toBe(3006);
   });
 
   it("off-path buys of the other damage type switch the rest of the build to that style (AP Zeri)", () => {
@@ -203,8 +213,43 @@ describe("build engine", () => {
     expect(p.rules).toContain("ownedReplan");
     expect(ids(p.path)).toEqual(expect.arrayContaining([3003, 3089, 3135]));
     expect([3135, 4645]).toContain(ids(p.next)[0]);
-    // one off-path AP item doesn't switch
+    // one off-path AP item doesn't switch (archive: doubling down after one off-type buy lowers damage share)
     expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+  });
+
+  it("an augment whose holders rush an item puts it in the core and makes it Next (augmentRush)", () => {
+    const shift = Object.entries(AUGMENT_SHIFT).flatMap(([a, m]) => Object.entries(m).filter(([i, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT && kinds.recipes[i] === undefined).map(([i]) => [Number(a), Number(i)]));
+    expect(shift.length).toBeGreaterThan(0);
+    const [aug, id] = shift[0];
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, [String(id)]: [`#${id}`, 3000, []] } } as Kinds;
+    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [3006] }), taken: [aug] });
+    expect(ids(p.next)[0]).toBe(id);
+    expect(ids(p.path.slice(0, p.coreLen))).toContain(id);
+    expect(p.path).toHaveLength(6);
+    expect(p.rules).toContain("augmentRush");
+  });
+
+  it("a rushed item must fit the build's damage type unless ADAPt converts it", () => {
+    const wooglets = Object.entries(AUGMENT_SHIFT).find(([, m]) => (m["3157"]?.[4] ?? 0) >= RUSH_Z_BUILD && (m["3157"]?.[5] ?? 0) >= RUSH_Z_EARLY)?.[0];
+    expect(wooglets).toBeTruthy();
+    const k2 = { ...kinds, items: { ...kinds.items, 3157: ["ap", "armor"] }, recipes: { ...kinds.recipes, 3157: ["#3157", 3000, []] } } as Kinds;
+    expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets)] }).path)).not.toContain(3157);
+    expect(ids(plan({ champ, kinds: k2, picks, fit, game: game([]), taken: [Number(wooglets), 1205] }).path)).toContain(3157);
+  });
+
+  it("a rushed item that a later slot also lists shows once (Kai'Sa / Orianna with Upgrade Stormsurge)", () => {
+    const [aug, id] = Object.entries(AUGMENT_SHIFT).flatMap(([a, m]) => Object.entries(m).filter(([, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT).map(([i]) => [Number(a), Number(i)]))[0];
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, [String(id)]: [`#${id}`, 3000, []] } } as Kinds;
+    const c = { ...champ, laterSlots: [{ slot: 4, items: [item(3036)] }, { slot: 5, items: [item(id)] }, { slot: 6, items: [item(6333)] }] };
+    const p = plan({ champ: c, kinds: k2, picks, fit, game: game([], { items: [3006] }), taken: [aug] });
+    expect(new Set(ids(p.path)).size).toBe(p.path.length);
+    expect(ids(p.path.slice(0, p.coreLen))).toContain(id);
+  });
+
+  it("never says sell a legendary to upgrade boots you started", () => {
+    const k2 = { ...kinds, boots: [3006, 1001], recipes: { ...kinds.recipes, "1001": ["Boots", 300, []] } } as Kinds;
+    const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [1001, 3031, 3036, 3094, 6333, 3075], gold: 5000, dead: true }), taken: [] });
+    expect(p.tips.some((t) => t.kind === "sell")).toBe(false);
   });
 
   it("never shows an item twice in the path", () => {
