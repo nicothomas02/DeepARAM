@@ -136,9 +136,11 @@ def main():
             "win_rate": c["win_rate"],
         }
         if cid == YUNARA_ID:
-            yunara = entry  # Mayhem has no mirror matches, so she is never an enemy
-        else:
-            enemies.append(entry)
+            yunara = entry  # her own numbers also feed the "yunara" block below
+        # Every champion is a possible enemy; the simulator leaves out the one it is simulating
+        # (Mayhem has no mirror matches). Yunara used to be left out entirely, from when she was
+        # the only champion simulated, which broke team fights with her in them.
+        enemies.append(entry)
         if i % 25 == 0:
             print(f"  {i}/{len(rows)} champions")
 
