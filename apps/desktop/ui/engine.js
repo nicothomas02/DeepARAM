@@ -45,6 +45,7 @@ var DeepEngine = (() => {
     MARK_AUGMENTS: () => MARK_AUGMENTS,
     MEASURED_SWITCHES: () => MEASURED_SWITCHES,
     MIN_HOLDERS: () => MIN_HOLDERS,
+    PCT_HEALTH: () => PCT_HEALTH,
     POINTS_PER_1000_GOLD: () => POINTS_PER_1000_GOLD,
     PROVEN: () => PROVEN,
     REROLL_GAIN: () => REROLL_GAIN,
@@ -101,6 +102,7 @@ var DeepEngine = (() => {
     stickerValue: () => stickerValue,
     tieBreak: () => tieBreak,
     triggers: () => triggers,
+    useShiftFor: () => useShiftFor,
     whyBest: () => whyBest
   });
 
@@ -765,7 +767,8 @@ var DeepEngine = (() => {
         how: "measured",
         kit: [],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "141": {
         name: "All For You",
@@ -775,7 +778,8 @@ var DeepEngine = (() => {
         how: "measured",
         kit: [],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1002": {
         name: "Apex Inventor",
@@ -789,7 +793,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2": {
         name: "Apex Inventor",
@@ -803,7 +808,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "3118": {
         name: "Arcane Axiom",
@@ -815,7 +821,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2087": {
         name: "Archmage",
@@ -827,7 +834,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "3049": {
         name: "Armored Impact",
@@ -842,7 +850,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: true,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1329": {
         name: "Biggest Snowball Ever",
@@ -854,7 +863,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "3051": {
         name: "Blue Barrier",
@@ -866,7 +876,8 @@ var DeepEngine = (() => {
           "Mana"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1103": {
         name: "Bread And Butter",
@@ -878,7 +889,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "103": {
         name: "Bread And Butter",
@@ -890,7 +902,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "3088": {
         name: "CRIMSON COBALT",
@@ -904,7 +917,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "13": {
         name: "Celestial Body",
@@ -918,7 +932,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1013": {
         name: "Celestial Body",
@@ -932,7 +947,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2078": {
         name: "Chain Reaction",
@@ -944,7 +960,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1018": {
         name: "Courage of the Colossus",
@@ -958,7 +975,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: true,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "18": {
         name: "Courage of the Colossus",
@@ -972,14 +990,15 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: true,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "118": {
         name: "Critical Healing",
         items: [
           6620,
           3031,
-          3039
+          6617
         ],
         how: "kit",
         kit: [
@@ -987,16 +1006,15 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: [
-          6617
-        ]
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1118": {
         name: "Critical Healing",
         items: [
           6620,
           3031,
-          3039
+          6617
         ],
         how: "kit",
         kit: [
@@ -1004,9 +1022,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: [
-          6617
-        ]
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1328": {
         name: "Critical Rhythm",
@@ -1020,7 +1037,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1323": {
         name: "Cruelty",
@@ -1035,7 +1053,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "19": {
         name: "Dashing",
@@ -1047,7 +1066,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1019": {
         name: "Dashing",
@@ -1059,7 +1079,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1020": {
         name: "Dawnbringer's Resolve",
@@ -1074,7 +1095,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "20": {
         name: "Dawnbringer's Resolve",
@@ -1089,7 +1111,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1022": {
         name: "Deft",
@@ -1101,7 +1124,8 @@ var DeepEngine = (() => {
           "AttackSpeed"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "22": {
         name: "Deft",
@@ -1113,7 +1137,8 @@ var DeepEngine = (() => {
           "AttackSpeed"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1025": {
         name: "Dive Bomber",
@@ -1125,7 +1150,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "25": {
         name: "Dive Bomber",
@@ -1137,7 +1163,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "301": {
         name: "Divine Intervention",
@@ -1149,7 +1176,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1301": {
         name: "Divine Intervention",
@@ -1161,7 +1189,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "134": {
         name: "Draw Your Sword",
@@ -1176,7 +1205,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1134": {
         name: "Draw Your Sword",
@@ -1191,7 +1221,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1225": {
         name: "Dual Wield",
@@ -1206,7 +1237,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: [
+        blocked: [],
+        blockedVsSquishy: [
           3153
         ]
       },
@@ -1223,7 +1255,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: [
+        blocked: [],
+        blockedVsSquishy: [
           3153
         ]
       },
@@ -1239,7 +1272,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2091": {
         name: "Endless Decimation",
@@ -1252,7 +1286,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1333": {
         name: "Escape Plan",
@@ -1267,7 +1302,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1030": {
         name: "Eureka",
@@ -1280,7 +1316,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "30": {
         name: "Eureka",
@@ -1293,7 +1330,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "194": {
         name: "Fey Magic",
@@ -1306,7 +1344,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1194": {
         name: "Fey Magic",
@@ -1319,7 +1358,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1344": {
         name: "Final Form",
@@ -1335,7 +1375,8 @@ var DeepEngine = (() => {
           "SpellVamp"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1036": {
         name: "Firebrand",
@@ -1349,7 +1390,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "36": {
         name: "Firebrand",
@@ -1363,7 +1405,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2103": {
         name: "From Downtown",
@@ -1377,7 +1420,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1335": {
         name: "Goldrend",
@@ -1391,7 +1435,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1041": {
         name: "Goliath",
@@ -1405,7 +1450,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "41": {
         name: "Goliath",
@@ -1419,7 +1465,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1181": {
         name: "Heavy Hitter",
@@ -1433,7 +1480,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "181": {
         name: "Heavy Hitter",
@@ -1447,7 +1495,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "3132": {
         name: "Heavy Is The Crown",
@@ -1462,7 +1511,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1392": {
         name: "Holy Snowball",
@@ -1474,7 +1524,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "45": {
         name: "Infernal Conduit",
@@ -1486,7 +1537,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1045": {
         name: "Infernal Conduit",
@@ -1498,7 +1550,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1388": {
         name: "Infinite Recursion",
@@ -1510,7 +1563,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "47": {
         name: "It's Critical",
@@ -1522,7 +1576,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1047": {
         name: "It's Critical",
@@ -1534,7 +1589,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1211": {
         name: "It's Killing Time",
@@ -1546,7 +1602,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "211": {
         name: "It's Killing Time",
@@ -1558,7 +1615,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "3123": {
         name: "Jeweled Bracelet",
@@ -1571,7 +1629,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "3094": {
         name: "Lich Brain",
@@ -1585,7 +1644,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: true,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1051": {
         name: "Light 'Em Up!",
@@ -1599,7 +1659,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2096": {
         name: "Lil' Extra Help",
@@ -1613,7 +1674,8 @@ var DeepEngine = (() => {
           "AttackSpeed"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1133": {
         name: "Magic Missile",
@@ -1625,7 +1687,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: [
+        blocked: [],
+        blockedVsSquishy: [
           4645
         ]
       },
@@ -1639,7 +1702,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: [
+        blocked: [],
+        blockedVsSquishy: [
           4645
         ]
       },
@@ -1655,7 +1719,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1054": {
         name: "Master of Duality",
@@ -1669,7 +1734,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2133": {
         name: "Mercy's Strike",
@@ -1684,7 +1750,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1056": {
         name: "Mind to Matter",
@@ -1699,7 +1766,8 @@ var DeepEngine = (() => {
           "Mana"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "56": {
         name: "Mind to Matter",
@@ -1714,7 +1782,8 @@ var DeepEngine = (() => {
           "Mana"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1058": {
         name: "Mystic Punch",
@@ -1728,7 +1797,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "58": {
         name: "Mystic Punch",
@@ -1742,7 +1812,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2043": {
         name: "Nature is Healing",
@@ -1754,7 +1825,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1061": {
         name: "Ok Boomerang",
@@ -1766,7 +1838,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1332": {
         name: "Ominous Pact",
@@ -1780,7 +1853,8 @@ var DeepEngine = (() => {
           "SpellVamp"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "311": {
         name: "Overflow",
@@ -1794,7 +1868,8 @@ var DeepEngine = (() => {
           "Mana"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1311": {
         name: "Overflow",
@@ -1808,7 +1883,8 @@ var DeepEngine = (() => {
           "Mana"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2123": {
         name: "Overloaded",
@@ -1820,7 +1896,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2139": {
         name: "Porcupine",
@@ -1835,7 +1912,8 @@ var DeepEngine = (() => {
           "SpellBlock"
         ],
         scaling: true,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1324": {
         name: "Protein Shake",
@@ -1850,7 +1928,8 @@ var DeepEngine = (() => {
           "SpellBlock"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2100": {
         name: "Pursuit of Haste",
@@ -1862,7 +1941,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2077": {
         name: "Ravenous Bind",
@@ -1877,7 +1957,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: true,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1067": {
         name: "Rejuvenation",
@@ -1892,7 +1973,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: true,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "3129": {
         name: "Sap Magic",
@@ -1908,7 +1990,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: true,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1072": {
         name: "Searing Dawn",
@@ -1922,7 +2005,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "72": {
         name: "Searing Dawn",
@@ -1936,7 +2020,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1113": {
         name: "Skilled Sniper",
@@ -1949,7 +2034,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "113": {
         name: "Skilled Sniper",
@@ -1962,7 +2048,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2088": {
         name: "Snowday",
@@ -1974,7 +2061,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1420": {
         name: "Sonata",
@@ -1988,7 +2076,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1076": {
         name: "Sonic Boom",
@@ -2002,7 +2091,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "76": {
         name: "Sonic Boom",
@@ -2016,7 +2106,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1375": {
         name: "Soul Eater",
@@ -2031,7 +2122,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "77": {
         name: "Soul Siphon",
@@ -2045,7 +2137,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1077": {
         name: "Soul Siphon",
@@ -2059,7 +2152,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2076": {
         name: "Stay Resolute",
@@ -2073,7 +2167,8 @@ var DeepEngine = (() => {
           "SpellBlock"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "3131": {
         name: "Still Here",
@@ -2086,7 +2181,8 @@ var DeepEngine = (() => {
           "LifeSteal"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1413": {
         name: "Stuck In Here With Me",
@@ -2098,7 +2194,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1353": {
         name: "Tank Engine",
@@ -2112,7 +2209,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "313": {
         name: "Tank Engine",
@@ -2126,7 +2224,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1080": {
         name: "Tank It Or Leave It",
@@ -2140,7 +2239,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "80": {
         name: "Tank It Or Leave It",
@@ -2154,7 +2254,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "81": {
         name: "Tap Dancer",
@@ -2170,7 +2271,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1081": {
         name: "Tap Dancer",
@@ -2186,7 +2288,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "3078": {
         name: "The Boom and the Bass",
@@ -2200,7 +2303,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1084": {
         name: "Thread the Needle",
@@ -2214,7 +2318,8 @@ var DeepEngine = (() => {
           "MagicPenetration"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "84": {
         name: "Thread the Needle",
@@ -2228,7 +2333,8 @@ var DeepEngine = (() => {
           "MagicPenetration"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1001": {
         name: "Titan's Resolve",
@@ -2243,7 +2349,8 @@ var DeepEngine = (() => {
           "SpellBlock"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2083": {
         name: "Tooth Fairy",
@@ -2260,7 +2367,8 @@ var DeepEngine = (() => {
           "MagicPenetration"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2005": {
         name: "Triggered Inferno",
@@ -2276,7 +2384,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1415": {
         name: "Twin Fire",
@@ -2289,7 +2398,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "87": {
         name: "Typhoon",
@@ -2303,7 +2413,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1087": {
         name: "Typhoon",
@@ -2317,7 +2428,8 @@ var DeepEngine = (() => {
           "OnHit"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1349": {
         name: "Ultimate Awakening",
@@ -2330,7 +2442,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1088": {
         name: "Ultimate Revolution",
@@ -2342,7 +2455,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "88": {
         name: "Ultimate Revolution",
@@ -2354,7 +2468,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1112": {
         name: "Ultimate Unstoppable",
@@ -2366,7 +2481,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "112": {
         name: "Ultimate Unstoppable",
@@ -2378,7 +2494,8 @@ var DeepEngine = (() => {
           "AbilityHaste"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1336": {
         name: "Upgrade Infinity Edge",
@@ -2392,7 +2509,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2140": {
         name: "Upgrade Ravenous Hydra",
@@ -2406,7 +2524,8 @@ var DeepEngine = (() => {
           "LifeSteal"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1996": {
         name: "Upgrade Sheen",
@@ -2420,7 +2539,8 @@ var DeepEngine = (() => {
           "Health"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1092": {
         name: "Vulnerability",
@@ -2433,7 +2553,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "92": {
         name: "Vulnerability",
@@ -2446,7 +2567,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1005": {
         name: "Wee Woo Wee Woo",
@@ -2458,7 +2580,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "1098": {
         name: "With Haste",
@@ -2472,7 +2595,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "98": {
         name: "With Haste",
@@ -2486,7 +2610,8 @@ var DeepEngine = (() => {
           "NonbootsMovement"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       },
       "2009": {
         name: "Zealot",
@@ -2500,7 +2625,8 @@ var DeepEngine = (() => {
           "CriticalStrike"
         ],
         scaling: false,
-        blocked: []
+        blocked: [],
+        blockedVsSquishy: []
       }
     }
   };
@@ -2548,8 +2674,9 @@ var DeepEngine = (() => {
     pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
     converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
     sellMismatch: { source: "data", on: true, why: "One finished item of the other damage type (pure AD on an AP build or the reverse, no ADAPt/EscAPADe): sell it when its 70% sell value plus your gold buys the next path item now. Archive, within champion: one such item in the first three legendaries goes with -2.0 +- 0.3 pts of team damage share (two: -4.3, three: -5.4), win rate flat (+0.1 +- 3.1). Nico 2026-11-24 asked for sell pushback when it's worth it; the 'buys it now' line is estimated." },
-    leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: tested only on champions that normally build the item, so it isn't forcing it on champions that can't use it: Dual Wield -> Blade of the Ruined King, Critical Healing -> Moonstone, Magic Missile -> Shadowflame) lose the augment's push; the item stays wherever the champion's own build has it. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
+    leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: tested only on champions that normally build the item, so it isn't forcing it on champions that can't use it: Dual Wield -> Blade of the Ruined King, Magic Missile -> Shadowflame; a loss on win rate alone needs 20+ matched holders, which cleared Critical Healing -> Moonstone) lose the augment's push, only vs 0-1 enemy frontliners where the loss isn't seen vs 2+ (BotRK is best vs high health, Nico 2026-11-24); the item stays wherever the champion's own build has it. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
     ccCounters: { source: "kit rule", on: true, why: "3+ enemies built to lock you down (Catcher/Vanguard) light up tenacity and cleanse items (Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn) as a swap. Nico 2026-11-20: Mayhem has more CC than SR; 2026-11-24 approved enemy-aware swaps when damage mix or CC clearly calls for it. Untestable so far (match data has no CC-received stat; 3+ engage -> QSS had 5 buyers), so estimated." },
+    vowPartner: { source: "kit rule", on: true, why: "Knight's Vow heals its owner for 12% of the damage the pledged (Worthy) ally deals to champions (item text, Data Dragon 16.23), so on a frontliner or enchanter, with 2+ enemy frontliners (Warden/Vanguard/Juggernaut) and an ally whose kit hits max health (Vayne, Kog'Maw, Varus...) or a marksman, it lights up as a swap: pledge to that ally. Archive, within champion: each enemy frontliner adds +1.1 +- 0.3 pts of team damage share for max-health kits and +0.7 +- 0.2 for marksmen (assassins -0.8, artillery -0.7), so the heal grows with exactly that matchup. The heal itself isn't measured (estimated). Nico 2026-11-24 asked for unconventional mechanism ideas; his example (Knight's Vow on the max-health champion itself) doesn't work: the item heals its owner from the ally's damage, not the damage dealer." },
     fullBuildShop: { source: "kit rule", on: true, why: "With six finished items and the build done: Stat Bonus (750 gold, permanent stat, level 9+) when you can afford it, else the elixir of your damage type (Sorcery for AP, Wrath for AD, Iron for tanks: 500 gold, 3 minutes) when 500-749 gold sits unspent. Permanent beats temporary for 250 more gold; the elixir only spends gold that would idle. Item text (Data Dragon 16.23); estimated, no archive data on consumables. Nico 2026-11-24 asked for elixir and anvil advice." },
     pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
     // Design choices Nico hasn't picked yet: kept as they were.
@@ -2932,6 +3059,9 @@ var DeepEngine = (() => {
       "Vs heavy crowd control": count(CATCH) >= 3 ? n(count(CATCH), "lock you down") : ""
     };
   }
+  var KNIGHTS_VOW = 3109;
+  var PCT_HEALTH = /* @__PURE__ */ new Set(["aatrox", "kogmaw", "reksai", "sett", "shen", "sion", "varus", "vayne", "warwick", "zac"]);
+  var VOW_OWNERS = /* @__PURE__ */ new Set(["Warden", "Vanguard", "Juggernaut", "Enchanter", "Catcher"]);
   var CC_ITEMS = /* @__PURE__ */ new Set([3111, 3140, 3139, 6035]);
   var RESIST_AUGMENTS = { 3265: ["armor"], 3264: ["mr"], 3263: ["armor", "mr"] };
   function situational(champ, k, fit, enemies, taken, skip, augName = (id) => `#${id}`) {
@@ -3041,12 +3171,14 @@ var DeepEngine = (() => {
     return null;
   }
   var LEAN_IN = augment_lean_in_default.pairs;
-  var AUGMENT_SHIFT = Object.fromEntries(
-    Object.entries(augment_item_shift_default.pairs).map(([a, m]) => [
-      a,
-      Object.fromEntries(Object.entries(m).filter(([i]) => !(RULES.leanIn.on && LEAN_IN[a]?.blocked.includes(Number(i)))))
-    ])
-  );
+  var SHIFT_ALL = augment_item_shift_default.pairs;
+  var dropPairs = (drop) => Object.fromEntries(Object.entries(SHIFT_ALL).map(([a, m]) => [a, Object.fromEntries(Object.entries(m).filter(([i]) => !drop(a, Number(i))))]));
+  var SHIFT_VS_FRONT = dropPairs((a, i) => RULES.leanIn.on && !!LEAN_IN[a]?.blocked.includes(i));
+  var SHIFT_VS_SQUISHY = dropPairs((a, i) => RULES.leanIn.on && (!!LEAN_IN[a]?.blocked.includes(i) || !!LEAN_IN[a]?.blockedVsSquishy?.includes(i)));
+  var AUGMENT_SHIFT = SHIFT_VS_SQUISHY;
+  function useShiftFor(frontliners) {
+    AUGMENT_SHIFT = frontliners >= 2 ? SHIFT_VS_FRONT : SHIFT_VS_SQUISHY;
+  }
   var SHIFT_ORDER_GAIN = 8;
   var RUSH_Z_BUILD = 3;
   var RUSH_Z_EARLY = 2;
@@ -3305,6 +3437,7 @@ var DeepEngine = (() => {
     const rules = itemRules(k);
     const used = /* @__PURE__ */ new Set();
     const applied = (r) => used.add(r);
+    useShiftFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
     const alt = lucky && !game.items.some((i) => (k?.recipes[base(i)]?.[1] ?? 0) >= 2e3) ? luckyBuild(champ0) : null;
     if (alt) applied("luckyTilt");
     const champ1 = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
@@ -3582,6 +3715,20 @@ var DeepEngine = (() => {
     const slotName = (i) => ord(slotRows?.[i]?.slot ?? first + i);
     const inPath = new Set(path.map((it) => itemId(it.icon)));
     const all = k ? situational(champ, k, fit, game.enemies ?? [], taken, owned, augName) : [];
+    if (RULES.vowPartner.on && k?.recipes[KNIGHTS_VOW] && !inPath.has(KNIGHTS_VOW) && !owned.has(KNIGHTS_VOW)) {
+      const arch2 = (c) => fit?.champions?.[keyIn(fit.champions, c) ?? ""]?.[1] ?? [];
+      const front2 = (game.enemies ?? []).filter((e) => arch2(e.champ).some((a) => TANKY.has(a))).length;
+      const allies = arch2(game.champ).some((a) => VOW_OWNERS.has(a)) && front2 >= 2 ? game.allies ?? [] : [];
+      const ally = allies.find((a) => PCT_HEALTH.has(champKey(a.champ))) ?? allies.find((a) => arch2(a.champ).includes("Marksman"));
+      const prefix = (path.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+      if (ally) all.unshift({
+        name: k.recipes[KNIGHTS_VOW][0],
+        icon: `${prefix}${22e4 + KNIGHTS_VOW}.png`,
+        when: "Pledge",
+        kit: true,
+        why: `Pledge to ${ally.champ}: you heal 12% of their damage, and they hit ${front2} frontliners hard.`
+      });
+    }
     const reason = (it) => all.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
     const lit = path.map((it) => ({ item: it, why: reason(it)?.why ?? "" })).filter((x) => x.why);
     const open = rest.filter((it) => !isOwned(it) && it !== next[0]);
@@ -3617,7 +3764,7 @@ var DeepEngine = (() => {
         if (r) claimed.add(r);
         swaps.push({ item: it, replaces: r, at: r ? rest.indexOf(r) : -1, why: it.why, kind: it.aug ? "augment" : it.proven ? "proven" : "kit" });
         if (it.proven) applied("provenCounters");
-        if (it.kit && !it.proven) applied("ccCounters");
+        if (it.kit && !it.proven) applied(id === KNIGHTS_VOW ? "vowPartner" : "ccCounters");
       } else if (pointers.length < 1) {
         pointers.push({ item: it, why: it.why, replaces: target(id, claimed) });
       }

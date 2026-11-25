@@ -302,6 +302,26 @@ describe("build engine", () => {
     for (const [a, v] of Object.entries(LEAN_IN)) for (const i of v.blocked) expect(AUGMENT_SHIFT[a]?.[String(i)]).toBeUndefined();
   }, 30_000);
 
+  it("a pair that did worse only vs squishy teams keeps its pull vs 2+ enemy frontliners (Dual Wield -> BotRK)", () => {
+    const dw = Object.entries(LEAN_IN).find(([a, v]) => v.name === "Dual Wield" && v.blockedVsSquishy?.includes(3153) && a === "1225")!;
+    expect(dw).toBeDefined();
+    const f: Fit = { champions: { ...fit.champions, Leona: [0, ["Vanguard"]], Ornn: [0, ["Vanguard"]] } };
+    plan({ champ, kinds, picks, fit: f, game: game(["Lux", "Brand"]), taken: [] });
+    expect(AUGMENT_SHIFT[dw[0]]?.["3153"]).toBeUndefined();
+    plan({ champ, kinds, picks, fit: f, game: game(["Leona", "Ornn"]), taken: [] });
+    expect(AUGMENT_SHIFT[dw[0]]?.["3153"]).toBeDefined();
+  });
+
+  it("a frontliner pledges Knight's Vow to an ally who shreds 2+ enemy frontliners (vowPartner)", () => {
+    const f: Fit = { champions: { ...fit.champions, Braum: [0, ["Warden"]], Leona: [0, ["Vanguard"]], Ornn: [0, ["Vanguard"]], Vayne: [0, ["Marksman"]] } };
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, "3109": ["Knight's Vow", 2300, []] } } as Kinds;
+    const vow = (allies: string[], enemies: string[]) =>
+      plan({ champ: { ...champ, id: "Braum" }, kinds: k2, picks, fit: f, game: { ...game(enemies), champ: "Braum", allies: allies.map((c) => ({ champ: c, level: 10 })) }, taken: [] }).swaps.filter((s) => itemId(s.item.icon) === 3109);
+    expect(vow(["Lux", "Vayne"], ["Leona", "Ornn"])).toEqual([expect.objectContaining({ kind: "kit", why: expect.stringContaining("Vayne") })]);
+    expect(vow(["Lux", "Vayne"], ["Leona", "Lux"])).toEqual([]); // one frontliner
+    expect(vow(["Lux", "Brand"], ["Leona", "Ornn"])).toEqual([]); // no one to pledge to
+  });
+
   it("the path's unbought places follow Next's order (pathOrder)", async () => {
     const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsGET().json()) as Kinds, p0 = (await picksGET().json()) as Picks;

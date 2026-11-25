@@ -75,8 +75,9 @@ export const RULES: Record<string, Rule> = {
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
   converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
   sellMismatch: { source: "data", on: true, why: "One finished item of the other damage type (pure AD on an AP build or the reverse, no ADAPt/EscAPADe): sell it when its 70% sell value plus your gold buys the next path item now. Archive, within champion: one such item in the first three legendaries goes with -2.0 +- 0.3 pts of team damage share (two: -4.3, three: -5.4), win rate flat (+0.1 +- 3.1). Nico 2026-11-24 asked for sell pushback when it's worth it; the 'buys it now' line is estimated." },
-  leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: tested only on champions that normally build the item, so it isn't forcing it on champions that can't use it: Dual Wield -> Blade of the Ruined King, Critical Healing -> Moonstone, Magic Missile -> Shadowflame) lose the augment's push; the item stays wherever the champion's own build has it. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
+  leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: tested only on champions that normally build the item, so it isn't forcing it on champions that can't use it: Dual Wield -> Blade of the Ruined King, Magic Missile -> Shadowflame; a loss on win rate alone needs 20+ matched holders, which cleared Critical Healing -> Moonstone) lose the augment's push, only vs 0-1 enemy frontliners where the loss isn't seen vs 2+ (BotRK is best vs high health, Nico 2026-11-24); the item stays wherever the champion's own build has it. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
   ccCounters: { source: "kit rule", on: true, why: "3+ enemies built to lock you down (Catcher/Vanguard) light up tenacity and cleanse items (Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn) as a swap. Nico 2026-11-20: Mayhem has more CC than SR; 2026-11-24 approved enemy-aware swaps when damage mix or CC clearly calls for it. Untestable so far (match data has no CC-received stat; 3+ engage -> QSS had 5 buyers), so estimated." },
+  vowPartner: { source: "kit rule", on: true, why: "Knight's Vow heals its owner for 12% of the damage the pledged (Worthy) ally deals to champions (item text, Data Dragon 16.23), so on a frontliner or enchanter, with 2+ enemy frontliners (Warden/Vanguard/Juggernaut) and an ally whose kit hits max health (Vayne, Kog'Maw, Varus...) or a marksman, it lights up as a swap: pledge to that ally. Archive, within champion: each enemy frontliner adds +1.1 +- 0.3 pts of team damage share for max-health kits and +0.7 +- 0.2 for marksmen (assassins -0.8, artillery -0.7), so the heal grows with exactly that matchup. The heal itself isn't measured (estimated). Nico 2026-11-24 asked for unconventional mechanism ideas; his example (Knight's Vow on the max-health champion itself) doesn't work: the item heals its owner from the ally's damage, not the damage dealer." },
   fullBuildShop: { source: "kit rule", on: true, why: "With six finished items and the build done: Stat Bonus (750 gold, permanent stat, level 9+) when you can afford it, else the elixir of your damage type (Sorcery for AP, Wrath for AD, Iron for tanks: 500 gold, 3 minutes) when 500-749 gold sits unspent. Permanent beats temporary for 250 more gold; the elixir only spends gold that would idle. Item text (Data Dragon 16.23); estimated, no archive data on consumables. Nico 2026-11-24 asked for elixir and anvil advice." },
   pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
   // Design choices Nico hasn't picked yet: kept as they were.
@@ -739,6 +740,11 @@ export function triggers(k: Kinds, fit: Fit | null, enemies: Enemy[]): Record<st
 }
 
 export type LitItem = Situational & { why: string; aug?: boolean; proven?: boolean; kit?: boolean };
+/** Knight's Vow: you heal 12% of the damage your Worthy ally deals to champions (vowPartner). */
+const KNIGHTS_VOW = 3109;
+/** Champions whose abilities deal damage from the target's maximum health (ability text, Data Dragon 16.23). */
+export const PCT_HEALTH = new Set(["aatrox", "kogmaw", "reksai", "sett", "shen", "sion", "varus", "vayne", "warwick", "zac"]);
+const VOW_OWNERS = new Set(["Warden", "Vanguard", "Juggernaut", "Enchanter", "Catcher"]);
 /** Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn. */
 export const CC_ITEMS = new Set([3111, 3140, 3139, 6035]);
 /** Fortified, Mystic Guard, Steadfaster Presence: what each multiplies. */
@@ -886,14 +892,22 @@ export function slotCue(
 /** Lean-in table (data/estimates/augment_lean_in.py): per augment, the items worth building around it (kit stat its text
  *  scales with + holders build it more, or a measured damage-share gain), whether its own number scales with that stat,
  *  and pairs where following the pull did clearly worse (z >= 3), which no rule may push. */
-export type LeanIn = { name: string; items: number[]; how: "measured" | "kit" | null; kit: string[]; scaling: boolean; blocked: number[] };
+export type LeanIn = { name: string; items: number[]; how: "measured" | "kit" | null; kit: string[]; scaling: boolean; blocked: number[]; blockedVsSquishy?: number[] };
 export const LEAN_IN = (augmentLeanInData as unknown as { pairs: Record<string, LeanIn> }).pairs;
-export const AUGMENT_SHIFT: Record<string, Record<string, number[]>> = Object.fromEntries(
-  Object.entries((augmentShiftData as { pairs: Record<string, Record<string, number[]>> }).pairs).map(([a, m]) => [
-    a,
-    Object.fromEntries(Object.entries(m).filter(([i]) => !(RULES.leanIn.on && LEAN_IN[a]?.blocked.includes(Number(i))))),
-  ]),
-);
+const SHIFT_ALL = (augmentShiftData as { pairs: Record<string, Record<string, number[]>> }).pairs;
+const dropPairs = (drop: (a: string, i: number) => boolean): Record<string, Record<string, number[]>> =>
+  Object.fromEntries(Object.entries(SHIFT_ALL).map(([a, m]) => [a, Object.fromEntries(Object.entries(m).filter(([i]) => !drop(a, Number(i))))]));
+/** Augment pulls the engine follows against 2+ enemy frontliners: pairs that did clearly worse are out. */
+const SHIFT_VS_FRONT = dropPairs((a, i) => RULES.leanIn.on && !!LEAN_IN[a]?.blocked.includes(i));
+/** Against squishier teams also without pairs that did worse there and aren't contradicted vs 2+ frontliners
+ *  (Dual Wield -> BotRK: Nico 2026-11-24, BotRK is best vs high health). */
+const SHIFT_VS_SQUISHY = dropPairs((a, i) => RULES.leanIn.on && (!!LEAN_IN[a]?.blocked.includes(i) || !!LEAN_IN[a]?.blockedVsSquishy?.includes(i)));
+/** The pulls in use: plan() picks the set for this game's enemy frontline before anything reads it. */
+export let AUGMENT_SHIFT: Record<string, Record<string, number[]>> = SHIFT_VS_SQUISHY;
+/** Enemy frontliners (Warden/Vanguard/Juggernaut) for the pull set. */
+export function useShiftFor(frontliners: number) {
+  AUGMENT_SHIFT = frontliners >= 2 ? SHIFT_VS_FRONT : SHIFT_VS_SQUISHY;
+}
 /** Path positions an item moves per 1.0 of shrunk early pull (Wooglet's -> Rabadon's 0.52 moves it ~4 places). */
 export const SHIFT_ORDER_GAIN = 8;
 /** augmentRush gates: build-share z, early-buy z, and build-share lift (21 pairs pass on the 2026-11-24 data). */
@@ -1266,6 +1280,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const rules = itemRules(k);
   const used = new Set<string>();
   const applied = (r: string) => used.add(r);
+  useShiftFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
   const alt = lucky && !game.items.some((i) => (k?.recipes[base(i)]?.[1] ?? 0) >= 2000) ? luckyBuild(champ0) : null;
   if (alt) applied("luckyTilt");
   const champ1: OverlayChamp | undefined = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
@@ -1561,6 +1576,16 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // pointers.
   const inPath = new Set(path.map((it) => itemId(it.icon)));
   const all = k ? situational(champ, k, fit, game.enemies ?? [], taken, owned, augName) : [];
+  // Knight's Vow (vowPartner): a frontliner or enchanter heals off an ally who shreds the enemy's frontline
+  if (RULES.vowPartner.on && k?.recipes[KNIGHTS_VOW] && !inPath.has(KNIGHTS_VOW) && !owned.has(KNIGHTS_VOW)) {
+    const arch = (c: string) => fit?.champions?.[keyIn(fit.champions, c) ?? ""]?.[1] ?? [];
+    const front = (game.enemies ?? []).filter((e) => arch(e.champ).some((a) => TANKY.has(a))).length;
+    const allies = arch(game.champ).some((a) => VOW_OWNERS.has(a)) && front >= 2 ? game.allies ?? [] : [];
+    const ally = allies.find((a) => PCT_HEALTH.has(champKey(a.champ))) ?? allies.find((a) => arch(a.champ).includes("Marksman"));
+    const prefix = (path.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+    if (ally) all.unshift({ name: k.recipes[KNIGHTS_VOW][0], icon: `${prefix}${220000 + KNIGHTS_VOW}.png`, when: "Pledge", kit: true,
+      why: `Pledge to ${ally.champ}: you heal 12% of their damage, and they hit ${front} frontliners hard.` });
+  }
   const reason = (it: Named) => all.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
   const lit = path.map((it) => ({ item: it, why: reason(it)?.why ?? "" })).filter((x) => x.why);
   const open = rest.filter((it) => !isOwned(it) && it !== next[0]);
@@ -1600,7 +1625,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       if (r) claimed.add(r);
       swaps.push({ item: it, replaces: r, at: r ? rest.indexOf(r) : -1, why: it.why, kind: it.aug ? "augment" : it.proven ? "proven" : "kit" });
       if (it.proven) applied("provenCounters");
-      if (it.kit && !it.proven) applied("ccCounters");
+      if (it.kit && !it.proven) applied(id === KNIGHTS_VOW ? "vowPartner" : "ccCounters");
     } else if (pointers.length < 1) {
       pointers.push({ item: it, why: it.why, replaces: target(id, claimed) });
     }

@@ -9,7 +9,8 @@
    "how": "measured",
    "kit": [],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "141": {
    "name": "All For You",
@@ -19,7 +20,8 @@
    "how": "measured",
    "kit": [],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1002": {
    "name": "Apex Inventor",
@@ -33,7 +35,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2": {
    "name": "Apex Inventor",
@@ -47,7 +50,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "3118": {
    "name": "Arcane Axiom",
@@ -59,7 +63,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2087": {
    "name": "Archmage",
@@ -71,7 +76,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "3049": {
    "name": "Armored Impact",
@@ -86,7 +92,8 @@
     "OnHit"
    ],
    "scaling": true,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1329": {
    "name": "Biggest Snowball Ever",
@@ -98,7 +105,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "3051": {
    "name": "Blue Barrier",
@@ -110,7 +118,8 @@
     "Mana"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1103": {
    "name": "Bread And Butter",
@@ -122,7 +131,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "103": {
    "name": "Bread And Butter",
@@ -134,7 +144,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "3088": {
    "name": "CRIMSON COBALT",
@@ -148,7 +159,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "13": {
    "name": "Celestial Body",
@@ -162,7 +174,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1013": {
    "name": "Celestial Body",
@@ -176,7 +189,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2078": {
    "name": "Chain Reaction",
@@ -188,7 +202,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1018": {
    "name": "Courage of the Colossus",
@@ -202,7 +217,8 @@
     "Health"
    ],
    "scaling": true,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "18": {
    "name": "Courage of the Colossus",
@@ -216,14 +232,15 @@
     "Health"
    ],
    "scaling": true,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "118": {
    "name": "Critical Healing",
    "items": [
     6620,
     3031,
-    3039
+    6617
    ],
    "how": "kit",
    "kit": [
@@ -231,16 +248,15 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": [
-    6617
-   ]
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1118": {
    "name": "Critical Healing",
    "items": [
     6620,
     3031,
-    3039
+    6617
    ],
    "how": "kit",
    "kit": [
@@ -248,9 +264,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": [
-    6617
-   ]
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1328": {
    "name": "Critical Rhythm",
@@ -264,7 +279,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1323": {
    "name": "Cruelty",
@@ -279,7 +295,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "19": {
    "name": "Dashing",
@@ -291,7 +308,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1019": {
    "name": "Dashing",
@@ -303,7 +321,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1020": {
    "name": "Dawnbringer's Resolve",
@@ -318,7 +337,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "20": {
    "name": "Dawnbringer's Resolve",
@@ -333,7 +353,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1022": {
    "name": "Deft",
@@ -345,7 +366,8 @@
     "AttackSpeed"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "22": {
    "name": "Deft",
@@ -357,7 +379,8 @@
     "AttackSpeed"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1025": {
    "name": "Dive Bomber",
@@ -369,7 +392,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "25": {
    "name": "Dive Bomber",
@@ -381,7 +405,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "301": {
    "name": "Divine Intervention",
@@ -393,7 +418,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1301": {
    "name": "Divine Intervention",
@@ -405,7 +431,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "134": {
    "name": "Draw Your Sword",
@@ -420,7 +447,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1134": {
    "name": "Draw Your Sword",
@@ -435,7 +463,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1225": {
    "name": "Dual Wield",
@@ -450,7 +479,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": [
+   "blocked": [],
+   "blockedVsSquishy": [
     3153
    ]
   },
@@ -467,7 +497,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": [
+   "blocked": [],
+   "blockedVsSquishy": [
     3153
    ]
   },
@@ -483,7 +514,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2091": {
    "name": "Endless Decimation",
@@ -496,7 +528,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1333": {
    "name": "Escape Plan",
@@ -511,7 +544,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1030": {
    "name": "Eureka",
@@ -524,7 +558,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "30": {
    "name": "Eureka",
@@ -537,7 +572,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "194": {
    "name": "Fey Magic",
@@ -550,7 +586,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1194": {
    "name": "Fey Magic",
@@ -563,7 +600,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1344": {
    "name": "Final Form",
@@ -579,7 +617,8 @@
     "SpellVamp"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1036": {
    "name": "Firebrand",
@@ -593,7 +632,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "36": {
    "name": "Firebrand",
@@ -607,7 +647,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2103": {
    "name": "From Downtown",
@@ -621,7 +662,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1335": {
    "name": "Goldrend",
@@ -635,7 +677,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1041": {
    "name": "Goliath",
@@ -649,7 +692,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "41": {
    "name": "Goliath",
@@ -663,7 +707,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1181": {
    "name": "Heavy Hitter",
@@ -677,7 +722,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "181": {
    "name": "Heavy Hitter",
@@ -691,7 +737,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "3132": {
    "name": "Heavy Is The Crown",
@@ -706,7 +753,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1392": {
    "name": "Holy Snowball",
@@ -718,7 +766,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "45": {
    "name": "Infernal Conduit",
@@ -730,7 +779,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1045": {
    "name": "Infernal Conduit",
@@ -742,7 +792,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1388": {
    "name": "Infinite Recursion",
@@ -754,7 +805,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "47": {
    "name": "It's Critical",
@@ -766,7 +818,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1047": {
    "name": "It's Critical",
@@ -778,7 +831,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1211": {
    "name": "It's Killing Time",
@@ -790,7 +844,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "211": {
    "name": "It's Killing Time",
@@ -802,7 +857,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "3123": {
    "name": "Jeweled Bracelet",
@@ -815,7 +871,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "3094": {
    "name": "Lich Brain",
@@ -829,7 +886,8 @@
     "Health"
    ],
    "scaling": true,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1051": {
    "name": "Light 'Em Up!",
@@ -843,7 +901,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2096": {
    "name": "Lil' Extra Help",
@@ -857,7 +916,8 @@
     "AttackSpeed"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1133": {
    "name": "Magic Missile",
@@ -869,7 +929,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": [
+   "blocked": [],
+   "blockedVsSquishy": [
     4645
    ]
   },
@@ -883,7 +944,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": [
+   "blocked": [],
+   "blockedVsSquishy": [
     4645
    ]
   },
@@ -899,7 +961,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1054": {
    "name": "Master of Duality",
@@ -913,7 +976,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2133": {
    "name": "Mercy's Strike",
@@ -928,7 +992,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1056": {
    "name": "Mind to Matter",
@@ -943,7 +1008,8 @@
     "Mana"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "56": {
    "name": "Mind to Matter",
@@ -958,7 +1024,8 @@
     "Mana"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1058": {
    "name": "Mystic Punch",
@@ -972,7 +1039,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "58": {
    "name": "Mystic Punch",
@@ -986,7 +1054,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2043": {
    "name": "Nature is Healing",
@@ -998,7 +1067,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1061": {
    "name": "Ok Boomerang",
@@ -1010,7 +1080,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1332": {
    "name": "Ominous Pact",
@@ -1024,7 +1095,8 @@
     "SpellVamp"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "311": {
    "name": "Overflow",
@@ -1038,7 +1110,8 @@
     "Mana"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1311": {
    "name": "Overflow",
@@ -1052,7 +1125,8 @@
     "Mana"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2123": {
    "name": "Overloaded",
@@ -1064,7 +1138,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2139": {
    "name": "Porcupine",
@@ -1079,7 +1154,8 @@
     "SpellBlock"
    ],
    "scaling": true,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1324": {
    "name": "Protein Shake",
@@ -1094,7 +1170,8 @@
     "SpellBlock"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2100": {
    "name": "Pursuit of Haste",
@@ -1106,7 +1183,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2077": {
    "name": "Ravenous Bind",
@@ -1121,7 +1199,8 @@
     "Health"
    ],
    "scaling": true,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1067": {
    "name": "Rejuvenation",
@@ -1136,7 +1215,8 @@
     "Health"
    ],
    "scaling": true,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "3129": {
    "name": "Sap Magic",
@@ -1152,7 +1232,8 @@
     "OnHit"
    ],
    "scaling": true,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1072": {
    "name": "Searing Dawn",
@@ -1166,7 +1247,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "72": {
    "name": "Searing Dawn",
@@ -1180,7 +1262,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1113": {
    "name": "Skilled Sniper",
@@ -1193,7 +1276,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "113": {
    "name": "Skilled Sniper",
@@ -1206,7 +1290,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2088": {
    "name": "Snowday",
@@ -1218,7 +1303,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1420": {
    "name": "Sonata",
@@ -1232,7 +1318,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1076": {
    "name": "Sonic Boom",
@@ -1246,7 +1333,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "76": {
    "name": "Sonic Boom",
@@ -1260,7 +1348,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1375": {
    "name": "Soul Eater",
@@ -1275,7 +1364,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "77": {
    "name": "Soul Siphon",
@@ -1289,7 +1379,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1077": {
    "name": "Soul Siphon",
@@ -1303,7 +1394,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2076": {
    "name": "Stay Resolute",
@@ -1317,7 +1409,8 @@
     "SpellBlock"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "3131": {
    "name": "Still Here",
@@ -1330,7 +1423,8 @@
     "LifeSteal"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1413": {
    "name": "Stuck In Here With Me",
@@ -1342,7 +1436,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1353": {
    "name": "Tank Engine",
@@ -1356,7 +1451,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "313": {
    "name": "Tank Engine",
@@ -1370,7 +1466,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1080": {
    "name": "Tank It Or Leave It",
@@ -1384,7 +1481,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "80": {
    "name": "Tank It Or Leave It",
@@ -1398,7 +1496,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "81": {
    "name": "Tap Dancer",
@@ -1414,7 +1513,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1081": {
    "name": "Tap Dancer",
@@ -1430,7 +1530,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "3078": {
    "name": "The Boom and the Bass",
@@ -1444,7 +1545,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1084": {
    "name": "Thread the Needle",
@@ -1458,7 +1560,8 @@
     "MagicPenetration"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "84": {
    "name": "Thread the Needle",
@@ -1472,7 +1575,8 @@
     "MagicPenetration"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1001": {
    "name": "Titan's Resolve",
@@ -1487,7 +1591,8 @@
     "SpellBlock"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2083": {
    "name": "Tooth Fairy",
@@ -1504,7 +1609,8 @@
     "MagicPenetration"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2005": {
    "name": "Triggered Inferno",
@@ -1520,7 +1626,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1415": {
    "name": "Twin Fire",
@@ -1533,7 +1640,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "87": {
    "name": "Typhoon",
@@ -1547,7 +1655,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1087": {
    "name": "Typhoon",
@@ -1561,7 +1670,8 @@
     "OnHit"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1349": {
    "name": "Ultimate Awakening",
@@ -1574,7 +1684,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1088": {
    "name": "Ultimate Revolution",
@@ -1586,7 +1697,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "88": {
    "name": "Ultimate Revolution",
@@ -1598,7 +1710,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1112": {
    "name": "Ultimate Unstoppable",
@@ -1610,7 +1723,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "112": {
    "name": "Ultimate Unstoppable",
@@ -1622,7 +1736,8 @@
     "AbilityHaste"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1336": {
    "name": "Upgrade Infinity Edge",
@@ -1636,7 +1751,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2140": {
    "name": "Upgrade Ravenous Hydra",
@@ -1650,7 +1766,8 @@
     "LifeSteal"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1996": {
    "name": "Upgrade Sheen",
@@ -1664,7 +1781,8 @@
     "Health"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1092": {
    "name": "Vulnerability",
@@ -1677,7 +1795,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "92": {
    "name": "Vulnerability",
@@ -1690,7 +1809,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1005": {
    "name": "Wee Woo Wee Woo",
@@ -1702,7 +1822,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "1098": {
    "name": "With Haste",
@@ -1716,7 +1837,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "98": {
    "name": "With Haste",
@@ -1730,7 +1852,8 @@
     "NonbootsMovement"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   },
   "2009": {
    "name": "Zealot",
@@ -1744,7 +1867,8 @@
     "CriticalStrike"
    ],
    "scaling": false,
-   "blocked": []
+   "blocked": [],
+   "blockedVsSquishy": []
   }
  }
 }
