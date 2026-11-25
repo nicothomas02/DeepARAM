@@ -355,5 +355,8 @@
  "Its extra hits apply on-hit effects, so the other augment stacks faster.": "它的额外命中会触发攻击特效，所以另一个强化叠层更快。",
  "Its extra hits apply on-hit effects, so they carry the other augment's on-hit damage too.": "它的额外命中会触发攻击特效，所以也会附带另一个强化的攻击特效伤害。",
  "Ability hits apply on-hit effects, so the other augment stacks faster.": "技能命中会触发攻击特效，所以另一个强化叠层更快。",
- "Its movement speed widens the gap {1} turns into damage.": "它的移动速度拉大了{1}转化为伤害的速度差。"
+ "Its movement speed widens the gap {1} turns into damage.": "它的移动速度拉大了{1}转化为伤害的速度差。",
+ "Its stronger heals and shields feed the other augment, which scales with them.": "它增强的治疗和护盾会喂给另一个随之成长的强化。",
+ "Its shields trigger the other augment.": "它的护盾会触发另一个强化。",
+ "Its extra casts empower more of the other augment's attacks.": "它带来的额外施法让另一个强化的强化攻击更多。"
 }

@@ -25,6 +25,16 @@ MS_PROD = ["Tap Dancer", "Leg Day", "With Haste", "Homeguard", "Shadow Runner", 
 MS_CONS = ["Don't Blink"]
 CRIT_PROD = ["It's Critical", "Zealot", "Critical Healing", "Critical Rhythm", "Double Tap", "Jeweled Gauntlet", "Soul Siphon", "Vulnerability", "Twin Fire"]
 CRIT_CONS = ["Critical Rhythm", "Double Tap", "Soul Siphon", "Twin Fire", "Critical Healing", "Upgrade Infinity Edge"]
+# pass 2 (2026-11-25): heal/shield power x augments that scale with or trigger on heals and shields; shields gained x
+# Mighty Shield; extra ability casts (Archmage refunds, ultimate resets) x "after casting an ability" empowered attacks
+HSP_PROD = ["Back to Basics", "Protein Shake", "Overflow", "Empyrean Promise", "Critical Healing", "Bolstered"]
+HSP_CONS = ["Circle of Death", "Spirit Bomb", "Sound Barrier"]
+SHIELD_PROD = ["Big Brain", "Blue Barrier", "Courage of the Colossus", "Escape Plan", "Final Form", "Swift and Safe", "Don't Change the Channel", "Bolstered"]
+SHIELD_CONS = ["Mighty Shield", "Sound Barrier", "Spirit Bomb"]
+CAST_PROD = ["Archmage", "Ultimate Awakening"]
+CAST_CONS = ["Armored Impact", "Bouncing Bees", "The Boom and the Bass", "Sap Magic"]
+CHAINS = [("on-hit", ONHIT_PROD, ONHIT_CONS), ("speed", MS_PROD, MS_CONS), ("crit", CRIT_PROD, CRIT_CONS),
+          ("heal power", HSP_PROD, HSP_CONS), ("shield", SHIELD_PROD, SHIELD_CONS), ("cast", CAST_PROD, CAST_CONS)]
 KEYS = {"Take'em Down Down Down": "takeem_down_down_down", "Light 'em Up!": "light_em_up"}
 key = lambda n: KEYS.get(n, re.sub(r"[^a-z0-9]+", "_", n.lower().replace("'", "")).strip("_"))
 
@@ -66,7 +76,7 @@ def main(players, damage):
 
     print("| Kind | Pair | Games with both | Damage share (pts) | Win (pts) | Covered |")
     print("|---|---|---|---|---|---|")
-    for kind, prod, cons in [("on-hit", ONHIT_PROD, ONHIT_CONS), ("speed", MS_PROD, MS_CONS), ("crit", CRIT_PROD, CRIT_CONS)]:
+    for kind, prod, cons in CHAINS:
         for a in prod:
             for b in cons:
                 if a == b or (kind == "crit" and b in CRIT_PROD and prod.index(a) > prod.index(b) if b in prod else False):

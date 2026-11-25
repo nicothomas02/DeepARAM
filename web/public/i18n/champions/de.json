@@ -355,5 +355,8 @@
  "Its extra hits apply on-hit effects, so the other augment stacks faster.": "Seine zusätzlichen Treffer lösen Treffereffekte aus, also stapelt das andere Augment schneller.",
  "Its extra hits apply on-hit effects, so they carry the other augment's on-hit damage too.": "Seine zusätzlichen Treffer lösen Treffereffekte aus, also tragen sie auch den Trefferschaden des anderen Augments.",
  "Ability hits apply on-hit effects, so the other augment stacks faster.": "Fähigkeitstreffer lösen Treffereffekte aus, also stapelt das andere Augment schneller.",
- "Its movement speed widens the gap {1} turns into damage.": "Sein Lauftempo vergrößert den Abstand, den {1} in Schaden umwandelt."
+ "Its movement speed widens the gap {1} turns into damage.": "Sein Lauftempo vergrößert den Abstand, den {1} in Schaden umwandelt.",
+ "Its stronger heals and shields feed the other augment, which scales with them.": "Seine stärkeren Heilungen und Schilde speisen das andere Augment, das mit ihnen skaliert.",
+ "Its shields trigger the other augment.": "Seine Schilde lösen das andere Augment aus.",
+ "Its extra casts empower more of the other augment's attacks.": "Seine zusätzlichen Zauber verstärken mehr Angriffe des anderen Augments."
 }
