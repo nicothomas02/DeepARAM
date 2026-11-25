@@ -23,8 +23,9 @@ import { championEstimates } from "./estimates";
 
 const IDS = championIds as Record<string, number>;
 
-/** A score map built from real games (grade no longer leads, byScore). */
-export type Scores = Map<number, number> & { real?: boolean };
+/** A score map built from real games (grade no longer leads, byScore). edges: each augment's lead over the champion's
+ *  augment average in win-rate points (lib/deepscore.ts grade edge), for the DeepScore badge's hover. */
+export type Scores = Map<number, number> & { real?: boolean; edges?: Map<number, number> };
 
 /** Augment id -> DeepScore on this champion; empty when there's no estimate. By default each augment's games pool in
  *  earlier patches where its result didn't change (Nico 2026-11-23; AugmentRow.pooled); thisPatch scores on the
@@ -33,24 +34,23 @@ export function augmentScores(alias: string, thisPatch = false): Scores {
   const p = championPage(alias);
   if (p && p.augments.length && p.augments.every((a) => a.games && a.winRate !== undefined)) {
     const use = (a: (typeof p.augments)[number]) => (!thisPatch && a.pooled ? a.pooled : { winRate: a.winRate!, games: a.games! });
-    const m: Scores = new Map(
-      scoreRows(p.augments.map((a) => ({ id: a.id, pickRate: a.pickRate, ...use(a) })), FIT.augments, { bound: true }).map(
-        (r) => [r.id, r.deepScore as number],
-      ),
-    );
+    const rows = scoreRows(p.augments.map((a) => ({ id: a.id, pickRate: a.pickRate, ...use(a) })), FIT.augments, { bound: true });
+    const m: Scores = new Map(rows.map((r) => [r.id, r.deepScore as number]));
     m.real = true;
+    m.edges = new Map(rows.flatMap((r) => (typeof r.deepEdge === "number" ? [[r.id, r.deepEdge] as [number, number]] : [])));
     return m;
   }
   const est = championEstimates(IDS[alias] ?? -1);
   if (!p || !est) return new Map();
-  return new Map(
-    scoreRows(
-      p.augments.flatMap((a) => {
-        const e = est.augments.get(a.id);
-        return e ? [{ id: a.id, winRate: e.winRate, pickRate: a.pickRate }] : [];
-      }),
-    ).map((r) => [r.id, r.deepScore as number]),
+  const rows = scoreRows(
+    p.augments.flatMap((a) => {
+      const e = est.augments.get(a.id);
+      return e ? [{ id: a.id, winRate: e.winRate, pickRate: a.pickRate }] : [];
+    }),
   );
+  const m: Scores = new Map(rows.map((r) => [r.id, r.deepScore as number]));
+  m.edges = new Map(rows.flatMap((r) => (typeof r.deepEdge === "number" ? [[r.id, r.deepEdge] as [number, number]] : [])));
+  return m;
 }
 
 const GRADE: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };

@@ -49,6 +49,8 @@ export type TierAug = {
   tier: string;
   /** 0-100, 50 is average for the rarity (lib/deepscore.ts). */
   deepScore: number;
+  /** Lead over the rarity's average in win-rate points (lib/deepscore.ts grade), for the badge's hover. */
+  edge?: number;
   /** Win rate minus what the champions who take it win anyway, in points. */
   lift: number;
   winRate: number;

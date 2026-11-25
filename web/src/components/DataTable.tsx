@@ -512,7 +512,7 @@ export default function DataTable({
                         {show(r[c.key], c.format, pts)}
                       </a>
                     ) : c.format === "deepscore" && typeof r[c.key] === "number" ? (
-                      <DeepScore value={r[c.key] as number} help={c.hint} />
+                      <DeepScore value={r[c.key] as number} help={c.hint} edge={typeof r.edge === "number" ? r.edge : typeof r.deepEdge === "number" ? r.deepEdge : undefined} />
                     ) : c.format === "tags" && c.tags ? (
                       <ArchetypeTags names={String(r[c.key] ?? "").split(",")} info={c.tags} compact />
                     ) : c.format === "tier" && r[c.key] ? (

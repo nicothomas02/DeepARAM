@@ -156,7 +156,7 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                     score && (
                       <div>
                         <b>
-                          <DeepScore value={score.deepScore} help={AUGMENT_DEEPSCORE_HELP} effects={whatItDoes("augments", a.id, { shield: /shield/i.test(DESC.augments[String(a.id)] ?? "") })} />
+                          <DeepScore value={score.deepScore} edge={score.edge} help={AUGMENT_DEEPSCORE_HELP} effects={whatItDoes("augments", a.id, { shield: /shield/i.test(DESC.augments[String(a.id)] ?? "") })} />
                         </b>
                         <span>
                           <T ns="augments">DeepScore</T>
