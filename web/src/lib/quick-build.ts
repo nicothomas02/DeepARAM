@@ -7,12 +7,29 @@ import { AUGMENT_SKILLS, CHAMPION_SKILLS, CHAMPION_SPLITS, type AugmentSkill, ty
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
 import type { AugmentSwap } from "@/lib/build-plan";
 import { buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
-import { leading, SPELL_FOLLOWING, SPELL_MIN_GAMES } from "@/lib/card-score";
+import { fewPlayersSpell, leading, SPELL_FOLLOWING, SPELL_MIN_GAMES } from "@/lib/card-score";
 import { FIT } from "@/lib/deepscore";
 import { champList } from "@/lib/champions";
 import { fillSpells } from "@/lib/fill";
 import { liveTiers } from "@/lib/highlights";
 import { SITUATIONS } from "@/lib/situations";
+
+/** A rare leading spell pair's reason, as the champion page's "Few players" tag (components/champion/FewPlayers.tsx). */
+export type SpellWhy = {
+  verdict: "holds" | "tie" | "mixed";
+  template: string | null;
+  key: string;
+  ability: string;
+  edge: number | null;
+  patches: number;
+};
+type RareRow = { spells: number[]; verdict: SpellWhy["verdict"]; template: string | null; key: string; ability: string; edge: number | null; patches: unknown[] };
+let rareRows: Record<string, RareRow> | null = null;
+function rareSpellRow(alias: string, ids: number[]): RareRow | null {
+  rareRows ??= readRepoJson<{ champions: Record<string, RareRow> }>("data/estimates/rare_spell_reasons.json")?.champions ?? {};
+  const r = rareRows[alias];
+  return r && [...r.spells].sort().join("+") === [...ids].sort().join("+") ? r : null;
+}
 
 // Split cues re-tested on Mayhem games as the archive grows (data/estimates/split_check.py, Nico approved
 // 2026-11-25): a split whose players fall clearly behind the same champion's players who max from the start is dropped.
@@ -39,6 +56,9 @@ export type QuickBuild = {
   deepScore: number | null;
   skills: string[];
   spells: Named[];
+  /** Why a rare spell pair without Flash leads (data/estimates/rare_spell_reasons.json, Nico 2026-11-25): set only when
+   *  the leading pair is a few-players pair and is the pair the reason was written for. The app shows it on hover. */
+  spellWhy?: SpellWhy | null;
   /** Starting items that build into the core (none when no common start does). */
   start: Named[];
   /** Boots (when the champion buys them) and the best core, in buying order. */
@@ -145,7 +165,13 @@ export function quickBuilds(): QuickBuild[] {
       rush: rushIds.flatMap((i) => named(i) ?? []),
     });
     const rawSpells = fillSpells(id, t?.winRate ?? p.winRate ?? 0.5);
-    const spells = (rawSpells.some((r) => r.estimated) ? rawSpells : leading(scoreRows(rawSpells, FIT.items, { bound: true }), SPELL_FOLLOWING, SPELL_MIN_GAMES))[0];
+    const spellRows = rawSpells.some((r) => r.estimated) ? rawSpells : leading(scoreRows(rawSpells, FIT.items, { bound: true }), SPELL_FOLLOWING, SPELL_MIN_GAMES);
+    const spells = spellRows[0];
+    const rare = spells && fewPlayersSpell(spells, spellRows) ? rareSpellRow(id, spells.spells.map((s) => s.id)) : null;
+    const spellWhy: SpellWhy | null =
+      rare && spells
+        ? { verdict: rare.verdict, template: rare.template, key: rare.key, ability: rare.ability, edge: rare.edge, patches: rare.patches.length }
+        : null;
 
     const swaps = p.swaps.flatMap((sw) => {
       const item = named(sw.item);
@@ -213,6 +239,7 @@ export function quickBuilds(): QuickBuild[] {
         deepScore: t?.deepScore ?? null,
         skills: builds[0]?.skills ?? CHAMPION_SKILLS[id] ?? p.skills[0]?.max ?? [],
         spells: spells?.spells.map((s) => ({ name: s.name, icon: s.icon ?? null })) ?? [],
+        spellWhy,
         start,
         items,
         rest,

@@ -361,5 +361,7 @@
  "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "لا يملك {name} اندفاعة، لذا ينقل الشبح وسرعة العلاج {name} بين البراميل وخارج القتال.",
  "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "فاز بـ{pts} نقطة أكثر من متوسط {name} في آخر {n} تحديثات، لكن {pct} فقط من اللاعبين يختارونه، لذا قد يعود جزء من ذلك إلى من يختاره.",
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "متعادل تقريبًا مع زوج الوميض المعتاد في التحديثات الأخيرة (أقل من نقطة)، لذا أيهما مناسب. {pct} فقط من اللاعبين يختارون هذا الزوج.",
- "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "{pct} فقط من اللاعبين يختارون هذا الزوج وتتغير أفضليته من تحديث لآخر، لذا اعتبره قريبًا من زوج الوميض المعتاد."
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "{pct} فقط من اللاعبين يختارون هذا الزوج وتتغير أفضليته من تحديث لآخر، لذا اعتبره قريبًا من زوج الوميض المعتاد.",
+ "It belongs to the {build} build: pick that tab on the card.": "ينتمي إلى بناء {build}: اختر هذا التبويب في البطاقة.",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "إنه اختيار حسب الموقف في هذه البطاقة ({situation})، لذا يتخطاه معظم اللاعبين في المباريات الأخرى."
 }

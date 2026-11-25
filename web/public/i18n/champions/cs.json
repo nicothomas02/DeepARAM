@@ -361,5 +361,7 @@
  "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name} nemá úskok, takže Duch a rychlost z Léčení přesouvají postavu {name} mezi sudy a ven z bojů.",
  "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "Vyhrávala o {pts} b. víc než průměr postavy {name} za poslední {n} patche, ale bere ji jen {pct} hráčů, takže část může být tím, kdo ji volí.",
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Na posledních patchích zhruba vyrovnaná s obvyklou dvojicí s Blikem (rozdíl pod 1 b.), takže je jedno, kterou zvolíš. Tuto dvojici bere jen {pct} hráčů.",
- "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Tuto dvojici bere jen {pct} hráčů a její náskok se mění patch od patche, takže ji ber jako blízkou obvyklé dvojici s Blikem."
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Tuto dvojici bere jen {pct} hráčů a její náskok se mění patch od patche, takže ji ber jako blízkou obvyklé dvojici s Blikem.",
+ "It belongs to the {build} build: pick that tab on the card.": "Patří do buildu {build}: vyber na kartě tuto záložku.",
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Na této kartě je to situační nákup ({situation}), takže ho většina hráčů v jiných hrách vynechá."
 }

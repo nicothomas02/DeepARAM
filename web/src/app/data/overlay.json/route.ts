@@ -11,12 +11,14 @@ export const dynamic = "force-static";
 
 export function GET() {
   const destiny = new Map(destinyByChampion().map((r) => [r.champion, { name: r.item.name, icon: r.item.icon || null }]));
-  const champions = quickBuilds().map(({ id, name, skills, spells, start, items, rest, full, later, laterSlots, situational, rush, swaps, augments, builds, archmage, augmentSkills, augmentStarts, richStarts }) => ({
+  const champions = quickBuilds().map(({ id, name, skills, spells, spellWhy, start, items, rest, full, later, laterSlots, situational, rush, swaps, augments, builds, archmage, augmentSkills, augmentStarts, richStarts }) => ({
     id,
     name,
     icon: `/icons/champions/${id}.webp`,
     skills,
     spells,
+    // A rare leading spell pair's reason (Nico 2026-11-25), hover only in the app; null for most champions.
+    ...(spellWhy ? { spellWhy } : {}),
     start,
     items,
     rest,
