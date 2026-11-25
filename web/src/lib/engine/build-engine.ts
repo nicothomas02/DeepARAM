@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.3";
+export const ENGINE_VERSION = "1.4.4";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -219,6 +219,19 @@ export const itemId = (icon: string | null | undefined) => {
   return ICON_ID[n] ?? n % 10000;
 };
 const base = (id: number) => id % 10000;
+/** Items that turn into another in your inventory (Riot item.json "specialRecipe", 16.23.1: map 12 and Mayhem's 77xxxx
+ *  copies): the transformed id -> the item you bought. Seraph's Embrace counts as owning Archangel's Staff, so the
+ *  path doesn't get stuck asking for an item you already have (Nico 2026-11-25). */
+export const TRANSFORMED_FROM: Record<number, number> = { 3040: 3003, 3042: 3004, 3121: 3119, 2530: 2526, 3160: 3154 };
+/** The id an inventory item counts as for "do you own it": the base id, a transformed item as its source. */
+export const ownedId = (id: number) => TRANSFORMED_FROM[base(id)] ?? base(id);
+/** What you own, held as the items you bought (ownedId). has() maps its argument the same way, so a path that names
+ *  either form (the site's builds list Diadem of Songs and Fimbulwinter, not their sources) finds it, and iterating
+ *  never counts one inventory item twice. */
+export class OwnedItems extends Set<number> {
+  constructor(items: Iterable<number> = []) { super([...items].map(ownedId)); }
+  has(id: number) { return super.has(ownedId(id)); }
+}
 const champKey = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "");
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -899,10 +912,10 @@ export function slotCue(
 ): { item: number; why: string; estimated: boolean } | null {
   if (!RULES.slotFirst.on || !k) return null;
   const boots = new Set(k.boots ?? []);
-  const eligible = game.items.map(base).filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !boots.has(i));
+  const eligible = game.items.map(ownedId).filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !boots.has(i));
   if (eligible.length < 2) return null;
   const first = eligible[0];
-  const byPath = path.map((it) => itemId(it.icon)).find((i) => eligible.includes(i)) ?? null;
+  const byPath = path.map((it) => ownedId(itemId(it.icon))).find((i) => eligible.includes(i)) ?? null;
   const cue = (target: number | null, why: string, estimated: boolean) =>
     target !== null && target !== first ? { item: target, why, estimated } : null;
   if ((game.offer ?? []).includes(WEAPON_OF_DESTINY) && destiny !== null && eligible.includes(destiny))
@@ -1042,7 +1055,7 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
     return { name: k.recipes[b][0], icon: `${prefix}${ICON_ID[id] ? id : fin ? 220000 + b : b}.png` };
   };
   const fresh = [...plan[0].slice(0, 1), ...plan[1], ...plan[2]].flatMap((id) => mk(id) ?? []);
-  const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 || k.boots.includes(i)).flatMap((i) => base0.find((it) => itemId(it.icon) === i) ?? mk(i) ?? [])
+  const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 || k.boots.includes(i)).flatMap((i) => base0.find((it) => ownedId(itemId(it.icon)) === i) ?? mk(i) ?? [])
     : [...base0.filter((it) => owned.has(itemId(it.icon))), ...[...owned].filter((i) => k.boots.includes(i) && !base0.some((it) => itemId(it.icon) === i)).flatMap((i) => mk(i) ?? [])];
   const keptIds = kept.map((it) => itemId(it.icon));
   const list: Named[] = [...kept];
@@ -1388,7 +1401,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const used = new Set<string>();
   const applied = (r: string) => used.add(r);
   shiftTableFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
-  const alt = lucky && !game.items.some((i) => (k?.recipes[base(i)]?.[1] ?? 0) >= 2000) ? luckyBuild(champ0) : null;
+  const alt = lucky && !game.items.some((i) => (k?.recipes[ownedId(i)]?.[1] ?? 0) >= 2000) ? luckyBuild(champ0) : null;
   if (alt) applied("luckyTilt");
   const champ1: OverlayChamp | undefined = alt && champ0 ? { ...champ0, ...alt, id: champ0.id, builds: champ0.builds, destiny: champ0.destiny } : champ0;
   // AP Ashe with Archmage: the haste route for the loop augments you took (the route with the most of them).
@@ -1405,7 +1418,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const augSkill = RULES.augmentSkills.on ? champ0?.augmentSkills?.find((a) => taken.includes(a.augment)) : undefined;
   if (augSkill) applied("augmentSkills");
   const champ: OverlayChamp | undefined = augSkill && champ2 ? { ...champ2, skills: augSkill.skills } : champ2;
-  const owned = new Set(game.items.map(base));
+  const owned: Set<number> = new OwnedItems(game.items);
   const bootIds = new Set(k?.boots ?? []);
   let slotRows = laterPicks(champ, owned, rules);
   const placedOff = new Set<number>();  // off-path items you own that ownedOffPath put in later slots
@@ -1813,7 +1826,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
   for (const t of [timing.find((x) => next[0] && x.item === next[0]) ?? timing[0]].filter(Boolean)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
   if (RULES.shopTips.on && k && next.length) {
-    const slots = game.items.filter((i) => (k.recipes[base(i)]?.[1] ?? 0) > 0 && !bootIds.has(base(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
+    const slots = game.items.filter((i) => (k.recipes[ownedId(i)]?.[1] ?? 0) > 0 && !bootIds.has(ownedId(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
     // upgrading boots you started takes no new slot: never sell for them (Neeko / Kai'Sa: sell a legendary for Sorcerer's Shoes)
     const bootUpgrade = bootIds.has(itemId(next[0].icon)) && [...owned].some((i) => bootIds.has(i));
     if (slots >= 6 && !bootUpgrade) {

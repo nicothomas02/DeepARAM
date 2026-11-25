@@ -12,6 +12,7 @@ const once = (get: () => Response) => { let p: Promise<unknown> | null = null; r
 const overlayJSON = once(overlayGET), kindsJSON = once(kindsGET), picksJSON = once(picksGET);
 import {
   itemId,
+  ownedId,
   itemRules,
   LUCKY_TILT,
   luckyBuild,
@@ -194,6 +195,24 @@ describe("build engine", () => {
     expect(ids(on.path)).toContain(3153);
     const off = plan({ champ, kinds, picks, fit, game: game([]), taken: [2018] });
     expect(off.switched).toBeNull();
+  });
+
+  it("counts a transformed item as the one you bought (Seraph's Embrace owns Archangel's Staff)", () => {
+    const c: OverlayChamp = { ...champ, items: [item(3003), item(3031), item(3046)] };
+    const before = plan({ champ: c, kinds, picks, fit, game: game([]), taken: [] });
+    expect(itemId(before.next[0]?.icon)).toBe(3003);
+    for (const seraph of [3040, 223040, 773040]) {
+      const after = plan({ champ: c, kinds, picks, fit, game: game([], { items: [seraph] }), taken: [] });
+      expect(itemId(after.next[0]?.icon)).not.toBe(3003);
+    }
+    // the site's builds name the transformed item (Diadem of Songs, Fimbulwinter): owning either form fills it
+    const d: OverlayChamp = { ...champ, items: [item(2530), item(3031), item(3046)] };
+    const k2 = { ...kinds, recipes: { ...kinds.recipes, "2530": ["Diadem of Songs", 2250, []], "2526": ["Whispering Circlet", 2250, []] } } as Kinds;
+    expect(itemId(plan({ champ: d, kinds: k2, picks, fit, game: game([]), taken: [] }).next[0]?.icon)).toBe(2530);
+    for (const have of [2530, 2526, 222530]) expect(itemId(plan({ champ: d, kinds: k2, picks, fit, game: game([], { items: [have] }), taken: [] }).next[0]?.icon)).not.toBe(2530);
+    expect(ownedId(3042)).toBe(3004);
+    expect(ownedId(223121)).toBe(3119);
+    expect(ownedId(2530)).toBe(2526);
   });
 
   it("levels like the switched build's own players (styleSkills)", () => {
