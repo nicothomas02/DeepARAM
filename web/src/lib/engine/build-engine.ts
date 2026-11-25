@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.3";
+export const ENGINE_VERSION = "1.4.4";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -83,7 +83,7 @@ export const RULES: Record<string, Rule> = {
   vowPartner: { source: "kit rule", on: true, why: "Knight's Vow heals its owner for 12% of the damage the pledged (Worthy) ally deals to champions (item text, Data Dragon 16.23), so on a frontliner or enchanter, with 2+ enemy frontliners (Warden/Vanguard/Juggernaut) and an ally whose kit hits max health (Vayne, Kog'Maw, Varus...) or a marksman, it lights up as a swap: pledge to that ally. Archive, within champion: each enemy frontliner adds +1.1 +- 0.3 pts of team damage share for max-health kits and +0.7 +- 0.2 for marksmen (assassins -0.8, artillery -0.7), so the heal grows with exactly that matchup. The heal itself isn't measured (estimated). Nico 2026-11-24 asked for unconventional mechanism ideas; his example (Knight's Vow on the max-health champion itself) doesn't work: the item heals its owner from the ally's damage, not the damage dealer." },
   headlinerItems: { source: "kit rule", on: true, why: "La Ilusion (a dying ally drops a candle that shields whoever picks it up) lights the champion's own 'Vs shields' item; Cafe Cuties (health relics heal 20% more missing health) lights its 'Vs healing' item. Pointers only (hover), never a swap: anti-heal and anti-shield items showed no clear effect in normal games, and these headliners leave no trace in match data to test (research/headliners). Nico's ideas 2026-11-24; estimated, used once the app knows the headliner." },
   mustCore: { source: "data", on: true, why: "A core item most of the champion's players still hold at game end (50%+, AramHex 16.22-16.23, the same bar as 'built by most players') is a must-have: augment rushes, converters and lean-in items take a flexible core place instead, or go right after the core when every core item is a must-have (Aphelios: Collector, Infinity Edge, LDR; Irelia: Blade of the Ruined King and Death's Dance). Nico 2026-11-25: some champions need one item, others a demanding core. Hold rates are behavior, not proof of value." },
-  breakpoints: { source: "kit rule", on: true, why: "Penetration and %-health items and augments (Thread the Needle, Lord Dominik's, Mortal Reminder, Serylda's, Black Cleaver, Void Staff, Cryptbloom; Blade of the Ruined King, Liandry's, Demonic Embrace) light up when this game's enemies are unusually tanky: their armor, magic resist or health (champion base stats at their level plus their items, Data Dragon) is above a typical team's with the same item counts by more than the archive's mean + 1 SD at game end (about the top 16% of games: armor x1.17, MR x1.20, health x1.10). Only items the champion's data lists and the damage type fits; Thread the Needle when it's in the champion's pool. Plain resist/health math (simulator rule: simple calculations only), never changes rankings. Nico 2026-11-25 asked for it; estimated (enemy stat augments aren't seen)." },
+  breakpoints: { source: "kit rule", on: true, why: "Penetration and %-health items and augments (Thread the Needle, Firebrand, Lord Dominik's, Mortal Reminder, Serylda's, Black Cleaver, Void Staff, Cryptbloom; Blade of the Ruined King, Liandry's, Demonic Embrace) light up when this game's enemies are unusually tanky: their armor, magic resist or health (champion base stats at their level plus their items, Data Dragon) is above a typical team's with the same item counts by more than the archive's mean + 1 SD at game end (about the top 16% of games: armor x1.17, MR x1.20, health x1.10). Only items the champion's data lists and the damage type fits; Thread the Needle and Firebrand (2% max health per on-hit, added 2026-11-25 at Nico's ask; archive: Firebrand's damage-share lift +1.4 +/- 0.8 pts vs high-health teams, -0.2 +/- 1.1 vs low) when in the champion's pool. Plain resist/health math (simulator rule: simple calculations only), never changes rankings. Nico 2026-11-25 asked for it; estimated (enemy stat augments aren't seen)." },
   allyAugments: { source: "kit rule", on: true, why: "Augments that act through teammates (wiki text: Empowered By The Faithful and Searing Dawn trigger on allies' hits; Sonic Boom, Windspeaker's Blessing, Empyrean Promise, Spirit Bomb and Wee Woo Wee Woo fire around allies in the fight) break a near-tie when 2+ allies fit (damage dealers, or melee fighters and tanks). Tiebreak only, never past a clearly better card. Archive, within champion: holders' win with vs without such a team -16 to +26 pts, all within noise (8 augments, 10-148 holders), so nothing contradicts it and nothing confirms it (estimated). Nico 2026-11-24 approved ally-aware augments." },
   fullBuildShop: { source: "kit rule", on: true, why: "With six finished items and the build done: Stat Bonus (750 gold, permanent stat, level 9+) when you can afford it, else the elixir of your damage type (Sorcery for AP, Wrath for AD, Iron for tanks: 500 gold, 3 minutes) when 500-749 gold sits unspent. Permanent beats temporary for 250 more gold; the elixir only spends gold that would idle. Item text (Data Dragon 16.23); estimated, no archive data on consumables. Nico 2026-11-24 asked for elixir and anvil advice." },
   pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
@@ -95,6 +95,7 @@ export const RULES: Record<string, Rule> = {
   upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off: augmentShift moves items by how much earlier holders really buy them." },
   augmentShift: { source: "data", on: true, why: "Every augment pulls items earlier/later and in/out of the build by how players who took it really build, vs the same champion's players without it (10-player archive lobbies, EB-shrunk so thin pairs barely move; data/augment-item-shift.json). Nico 2026-11-24: all augments change build and order." },
   augmentReplan: { source: "assumption", on: false, why: "Other augments switch the build style (style tags, the other 3-vote build changers, the class-wide fallback build). Off until measured like Draw Your Sword -> Death's Dance." },
+  shieldAugments: { source: "assumption", on: true, why: "An enemy with Big Brain or Don't Change the Channel lights the champion's own 'Vs shields' items (Serpent's Fang: Shield Reaver cuts shields gained by 50% melee / 25% ranged and the current shield on the first hit; wiki). Nico approved 2026-11-25 (he asked for it); estimated: the archive can't confirm it (Serpent's builders vs an enemy Big Brain: win -22 +/- 15 pts, n 26). Needs the app to pass enemy augments." },
   countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
   stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
   attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
@@ -180,7 +181,8 @@ export type Kinds = {
 };
 /** team-fit.json */
 export type Fit = { champions: Record<string, [number, string[]]> };
-export type Enemy = { champ: string; items: number[]; /** Champion level, when the app reads it (breakpoints). */ level?: number };
+export type Enemy = { champ: string; items: number[]; /** Champion level, when the app reads it (breakpoints). */ level?: number;
+  /** Augments the app has seen this enemy take, when it reads them (shieldAugments). */ augments?: number[] };
 export type GameState = {
   champ: string;
   /** Item ids as the game reports them, in inventory slot order (slots 1-6, then the trinket) where the app sorts them. */
@@ -718,6 +720,9 @@ const BURSTY = new Set(["Burst", "Assassin"]);
 const CATCH = new Set(["Catcher", "Vanguard"]);
 // Life steal / omnivamp / big self-heal items, and shield or heal-and-shield-power items (PC 1.22.0).
 export const SUSTAIN_ITEMS = new Set([3072, 3153, 3074, 4633, 3146, 6610, 6673, 3065, 3083]);
+/** Enemy augments with a shield big enough to light Shield Reaver items (shieldAugments): Big Brain (300% AP, lasts
+ *  until broken, back every 70 s) and Don't Change the Channel (a shield every second of channelling). */
+export const SHIELD_AUGMENTS: Record<number, string> = { 1180: "Big Brain", 180: "Big Brain", 2131: "Don't Change the Channel" };
 export const SHIELD_ITEMS = new Set([6617, 6620, 3504, 6616, 3107, 3190, 3222, 6621, 3053, 3040, 3156]);
 // Champions whose kits heal a lot (from their ability descriptions), for "Vs healing" (PC 1.22.0, under audit).
 export const HEALERS = new Set(["aatrox", "akshan", "alistar", "belveth", "briar", "drmundo", "fiddlesticks", "illaoi", "ivern", "kayn", "kled", "maokai", "milio", "nami", "nidalee", "olaf", "renataglasc", "senna", "sona", "soraka", "swain", "sylas", "taric", "trundle", "vladimir", "warwick", "yuumi", "zac", "seraphine", "darius", "fiora", "irelia", "masteryi", "udyr", "volibear", "yone"]);
@@ -747,11 +752,14 @@ export function triggers(k: Kinds, fit: Fit | null, enemies: Enemy[]): Record<st
   const magic = enemyMagic(k, list);
   const pct = (p: number) => `${Math.round(p * 100)}%`;
   const n = (x: number, what: string) => `${x} ${x === 1 ? "enemy" : "enemies"} ${what}.`;
-  const proven = {
+  const bigShields = RULES.shieldAugments.on ? [...new Set(list.flatMap((e) => (e.augments ?? []).map((a) => SHIELD_AUGMENTS[a]).filter(Boolean)))] : [];
+  const shieldAug = bigShields.length ? `Enemy ${bigShields.join(" and ")}: Shield Reaver cuts the shield.` : "";
+  const proven: Record<string, string> = {
     "Vs magic damage": magic !== null && magic >= 0.65 ? `Enemy damage is about ${pct(magic)} magic.` : "",
     // Armor cut the share of physical damage taken vs 2+ marksmen (-7 ± 3 pts, placebo -2 ± 1).
     "Vs auto attacks": marksmen >= 2 ? n(marksmen, "are marksmen") : "",
     "Vs heavy crowd control": RULES.ccCounters.on && count(CATCH) >= 3 ? n(count(CATCH), "lock you down") : "",
+    ...(shieldAug ? { "Vs shields": shieldAug } : {}),
   };
   if (!RULES.countTriggers.on) return proven;
   return {
@@ -762,7 +770,7 @@ export function triggers(k: Kinds, fit: Fit | null, enemies: Enemy[]): Record<st
     "Vs physical damage": magic !== null && magic <= 0.35 ? `Enemy damage is about ${pct(1 - magic)} physical.` : "",
     "Vs mixed damage": magic !== null && magic > 0.4 && magic < 0.6 ? "Enemy damage is mixed." : "",
     "Vs crit carries": crit >= 1 ? n(crit, "build crit") : "",
-    "Vs shields": shielders >= 2 ? n(shielders, "shield themselves or allies") : "",
+    "Vs shields": shieldAug || (shielders >= 2 ? n(shielders, "shield themselves or allies") : ""),
     "Vs heavy crowd control": count(CATCH) >= 3 ? n(count(CATCH), "lock you down") : "",
   };
 }
@@ -1186,6 +1194,9 @@ const BP_ITEMS: [number, "armor" | "mr" | "hp", "ad" | "ap"][] = [
 ];
 /** Thread the Needle: 18% armor and magic penetration (wiki). */
 const THREAD_THE_NEEDLE = [1084, 84];
+/** Firebrand: each on-hit burns 2% of the target's maximum health over 5 s, stacking without limit (wiki), so it is
+ *  worth more vs high-health teams (Nico 2026-11-25). */
+const FIREBRAND = [1036, 36];
 const growStat = (base: number, per: number, lvl: number) => base + per * (lvl - 1) * (0.7025 + 0.0175 * (lvl - 1));
 
 /** The enemy team's average [health, armor, MR] and a typical team's at the same levels and item counts. */
@@ -1226,6 +1237,8 @@ export function breakpoints(enemies: Enemy[], level: number, magic: boolean, kno
   }
   const ttn = THREAD_THE_NEEDLE.find((a) => pool.has(a));
   if (ttn !== undefined) out.push({ id: ttn, kind: "augment", stat: magic ? "mr" : "armor", ...check(magic ? "mr" : "armor"), estimated: true });
+  const fb = FIREBRAND.find((a) => pool.has(a));
+  if (fb !== undefined) out.push({ id: fb, kind: "augment", stat: "hp", ...check("hp"), estimated: true });
   return out;
 }
 
