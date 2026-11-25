@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.1";
+export const ENGINE_VERSION = "1.4.2";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -1010,18 +1010,25 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
     }
   }
   // the items you bought re-plan only when no augment switched the build
-  const top = Object.entries(votes).sort((x, y) => y[1] - x[1])[0] ?? (forced ? ([forced.style, 3] as [string, number]) : undefined);
-  if (!top) return { list: base0, style: null, core: null };
-  const [st, n] = top;
-  const byItems = !!forced && st === forced.style && !votes[st];
-  if (styles[0]?.[0] === st) return { list: base0, style: null, core: null };
-  const found = styles.find(([x]) => x === st);
-  let plan: number[][] | null = found ? [found[2].slice(0, 1), found[3], found[4]] : null;
-  if (!plan && n >= 3 && (RULES.augmentReplan.on || byItems)) {
-    const magic = byItems ? forced!.magic : (Object.entries(k.champions).find(([a]) => a.toLowerCase() === champ.toLowerCase())?.[1] ?? 0.5) > 0.5;
-    const cb = classBuild(picks, k, st, magic, rules);
-    const boots = base0.find((it) => k.boots.includes(itemId(it.icon)));
-    if (cb) plan = [boots ? [itemId(boots.icon)] : [], cb[0], cb[1]];
+  // Candidates by votes (at equal votes a style the champion has its own build for goes first), then the style your
+  // items point to. A style that can't make a plan (no own build, no class build) doesn't block the next one.
+  const own = (x: string) => (styles.some(([y]) => y === x) ? 0 : 1);
+  const cands: [string, number][] = Object.entries(votes).sort((x, y) => y[1] - x[1] || own(x[0]) - own(y[0]));
+  if (forced && !votes[forced.style]) cands.push([forced.style, 3]);
+  let st = "", byItems = false, found: (typeof styles)[number] | undefined, plan: number[][] | null = null;
+  for (const [x, n] of cands) {
+    st = x;
+    byItems = !!forced && x === forced.style && !votes[x];
+    if (styles[0]?.[0] === x) return { list: base0, style: null, core: null };
+    found = styles.find(([y]) => y === x);
+    plan = found ? [found[2].slice(0, 1), found[3], found[4]] : null;
+    if (!plan && n >= 3 && (RULES.augmentReplan.on || byItems)) {
+      const magic = byItems ? forced!.magic : (Object.entries(k.champions).find(([a]) => a.toLowerCase() === champ.toLowerCase())?.[1] ?? 0.5) > 0.5;
+      const cb = classBuild(picks, k, x, magic, rules);
+      const boots = base0.find((it) => k.boots.includes(itemId(it.icon)));
+      if (cb) plan = [boots ? [itemId(boots.icon)] : [], cb[0], cb[1]];
+    }
+    if (plan) break;
   }
   if (!plan) return { list: base0, style: null, core: null };
   const prefix = (base0[0]?.icon ?? "").replace(/\d+\.png$/, "");
@@ -1035,12 +1042,14 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
   };
   const fresh = [...plan[0].slice(0, 1), ...plan[1], ...plan[2]].flatMap((id) => mk(id) ?? []);
   const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 || k.boots.includes(i)).flatMap((i) => base0.find((it) => itemId(it.icon) === i) ?? mk(i) ?? [])
-    : base0.filter((it) => owned.has(itemId(it.icon)));
+    : [...base0.filter((it) => owned.has(itemId(it.icon))), ...[...owned].filter((i) => k.boots.includes(i) && !base0.some((it) => itemId(it.icon) === i)).flatMap((i) => mk(i) ?? [])];
   const keptIds = kept.map((it) => itemId(it.icon));
   const list: Named[] = [...kept];
+  // boots you own are your boots: the new style's boots aren't added on top
+  const hasBoots = keptIds.some((i) => k.boots.includes(i));
   for (const it of fresh) {
     const id = itemId(it.icon);
-    if (keptIds.includes(id) || owned.has(id) || list.some((x) => rules.clash(itemId(x.icon), id))) continue;
+    if (keptIds.includes(id) || (hasBoots && k.boots.includes(id)) || list.some((x) => rules.clash(itemId(x.icon), id))) continue;
     list.push(it);
   }
   const why = byItems ? forced!.because : because[st] ? (picks.augments[because[st]]?.[0] ?? "") : "";
