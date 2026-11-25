@@ -158,6 +158,9 @@
   details.best > summary { cursor: pointer; list-style: none; } details.best > summary h2 { display: inline; } details.best > summary::-webkit-details-marker { display: none; } details.best > summary::before { content: "▸ "; } details.best[open] > summary::before { content: "▾ "; }
   svg.i, svg.arr { display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: -0.125em; flex: none; }
   .badge { display: inline-flex; align-items: center; gap: 5px; }
+  .hovercard { position: fixed; z-index: 50; max-width: 300px; padding: 10px 12px; border-radius: 10px; background: var(--raised); border: 1px solid var(--line); box-shadow: var(--depth); font-size: 12px; line-height: 1.45; pointer-events: none; }
+  .hovercard .hn { font-size: 14px; font-weight: 700; color: var(--fg); } .hovercard .hr { color: var(--gold); margin-top: 4px; white-space: pre-line; }
+  .hovercard .hl { color: var(--muted); } .hovercard .hd { margin-top: 6px; color: var(--fg); }
   .foes { margin-left: auto; min-width: 170px; max-width: 220px; align-self: flex-end; }
   .foes .mates img { width: 26px; height: 26px; border-radius: 7px; }
   .foes .why.lbl { margin: 0 0 4px; }
@@ -933,6 +936,53 @@
   // The page rules also drop style="" attributes (Tauri's nonce turns off 'unsafe-inline'), which left the bars
   // empty: widths and colors ride in data-style and are set from script, which the rules allow.
   const restyle = (el) => { el.style.cssText = el.dataset.style; el.removeAttribute("data-style"); };
+  // Hover cards (Nico 2026-11-25, as the site): pointing at an item or augment icon for a moment shows its name, its
+  // stats and the official description, with the app's reason for it, if any. Hover only: nothing shows unless you point.
+  let descs = null, prevs = null, hvT = 0, hvEl = null, hvTitled = null, hvTitle = "";
+  const loadDescs = () => descs ?? (descs = fetch(`${SITE}/data/descriptions.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
+  const loadPrevs = () => prevs ?? (prevs = fetch(`${SITE}/data/previews.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
+  const slugOf = (n) => n.toLowerCase().replace(/['’.]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const hoverCard = document.createElement("div");
+  hoverCard.className = "hovercard";
+  hoverCard.hidden = true;
+  const hideCard = () => {
+    clearTimeout(hvT);
+    hoverCard.hidden = true;
+    if (hvTitled) { hvTitled.title = hvTitle; hvTitled = null; }
+    hvEl = null;
+  };
+  async function showCard(img, kind, id, x, y) {
+    const [ds, pv, pk, kd] = await Promise.all([loadDescs(), loadPrevs(), loadPicks(), loadKinds()]);
+    if (hvEl !== img) return;
+    const name = kind === "items" ? kd?.recipes?.[id]?.[0] : pk?.augments?.[id]?.[0] ?? PENTA[id];
+    if (!name) return;
+    const desc = ds?.[kind]?.[id] ?? (kind === "augments" && id < 1000 ? ds?.augments?.[id + 1000] : "") ?? "";
+    // Gold, stats and who builds it (items) or who it suits (augments). Never a win or pick rate.
+    const lines = pv?.[`/${kind}/${slugOf(name)}`]?.lines ?? [];
+    hvTitled = img.closest("[title]");
+    hvTitle = hvTitled?.title ?? "";
+    if (hvTitled) hvTitled.title = "";
+    const reason = hvTitle.startsWith(`${name} · `) ? hvTitle.slice(name.length + 3) : hvTitle.startsWith(`${name}: `) ? hvTitle.slice(name.length + 2) : hvTitle === name ? "" : hvTitle;
+    hoverCard.innerHTML = `<div class="hn">${esc(name)}</div>${reason ? `<div class="hr">${esc(reason)}</div>` : ""}${lines.length ? `<div class="hl">${lines.map(esc).join(" · ")}</div>` : ""}${desc ? `<div class="hd">${esc(desc)}</div>` : ""}`;
+    if (!hoverCard.isConnected) document.body.append(hoverCard);
+    hoverCard.hidden = false;
+    const r = hoverCard.getBoundingClientRect(), W = innerWidth, H = innerHeight;
+    hoverCard.style.left = `${Math.max(8, Math.min(W - r.width - 8, x + 14))}px`;
+    hoverCard.style.top = `${y + 18 + r.height > H ? Math.max(8, y - r.height - 12) : y + 18}px`;
+  }
+  document.addEventListener("mouseover", (e) => {
+    const img = e.target.closest?.("img");
+    if (img === hvEl) return;
+    hideCard();
+    const m = img && /\/img\/item\/(\d+)\.png|\/icons\/augments\/(\d+)\.webp/.exec(img.src);
+    if (!m) return;
+    hvEl = img;
+    const [kind, id] = m[1] ? ["items", Number(m[1]) % 10000] : ["augments", Number(m[2])];
+    hvT = setTimeout(() => showCard(img, kind, id, e.clientX, e.clientY), 300);
+  });
+  document.addEventListener("mouseout", (e) => { if (e.target === hvEl && !hvEl.contains(e.relatedTarget)) hideCard(); });
+  addEventListener("blur", hideCard);
+
   new MutationObserver((list) => { for (const m of list) for (const n of m.addedNodes) if (n.nodeType === 1) {
     if (n.dataset.style !== undefined) restyle(n);
     n.querySelectorAll("[data-style]").forEach(restyle);
