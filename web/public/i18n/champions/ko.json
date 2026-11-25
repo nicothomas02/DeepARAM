@@ -351,5 +351,15 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "스킬이 치명타로 적중하므로 추가 치명타 확률이 스킬에도 효과가 있습니다.",
  "Avoid": "비추천",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D 티어: 지난 패치들에서 이 정도로 낮은 스펠 조합은 다음 패치에서도 이 챔피언의 다른 조합보다 훨씬 덜 이겼습니다.",
- "Couldn't load this list.": "이 목록을 불러오지 못했습니다."
+ "Couldn't load this list.": "이 목록을 불러오지 못했습니다.",
+ "{name}'s {key} already does much of Flash's job, so Barrier takes the slot: in ARAM it is back about every 106 s, Flash every 176 s. Ghost covers kiting.": "{name}의 {key}이(가) 이미 점멸의 역할을 상당 부분 하므로 그 자리는 방어막이 차지합니다. 칼바람에서 방어막은 약 106초, 점멸은 176초마다 돌아옵니다. 유체화는 카이팅용입니다.",
+ "{name} has no escape dash, so Ghost is how {name} keeps distance while still hitting, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name}에게는 도주용 돌진이 없어서 유체화로 {name}은(는) 공격하면서 거리를 유지하고, 방어막은 칼바람에서 점멸의 176초 대비 약 106초마다 돌아옵니다.",
+ "{name} has no dash, so Ghost is how {name} reaches targets, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name}에게는 돌진이 없어서 유체화로 {name}은(는) 대상에게 닿고, 방어막은 칼바람에서 점멸의 176초 대비 약 106초마다 돌아옵니다.",
+ "{name} has no long dash, so Ghost keeps {name} on targets while Mark starts fights.": "{name}에게는 긴 돌진이 없어서 유체화가 {name}을(를) 대상에게 붙여 두고, 표식이 싸움을 엽니다.",
+ "{name}'s passive turns bonus move speed into attack damage, so Ghost adds damage as well as speed, and Mark starts fights.": "{name}의 패시브는 추가 이동 속도를 공격력으로 바꾸므로 유체화는 속도와 함께 피해도 더하고, 표식이 싸움을 엽니다.",
+ "{name}'s {key} already moves {name} onto targets, so Flash adds less; Mark adds a second way in and Ignite adds kill pressure.": "{name}의 {key}이(가) 이미 {name}을(를) 대상에게 데려가므로 점멸의 가치가 낮고, 표식은 두 번째 진입 수단을, 점화는 처치 압박을 더합니다.",
+ "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name}에게는 돌진이 없어서 유체화와 회복의 이동 속도로 {name}은(는) 화약통 사이를 오가고 싸움에서 빠져나옵니다.",
+ "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "최근 {n}개 패치에서 {name} 평균보다 {pts}점 더 이겼지만 플레이어의 {pct}만 고르므로, 일부는 고르는 사람의 차이일 수 있습니다.",
+ "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "최근 패치에서 흔한 점멸 조합과 거의 같으므로(1점 미만 차이) 어느 쪽이든 괜찮습니다. 이 조합은 플레이어의 {pct}만 고릅니다.",
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "이 조합은 플레이어의 {pct}만 고르고 우위가 패치마다 달라지므로, 흔한 점멸 조합과 비슷하다고 보세요."
 }

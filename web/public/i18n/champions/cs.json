@@ -351,5 +351,15 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "Tvoje schopnosti mohou kriticky zasáhnout, takže se jim další šance na kritický zásah vyplatí.",
  "Avoid": "Vyhnout se",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Tier D: v minulých patchích tak slabé dvojice kouzel vyhrávaly výrazně méně než ostatní dvojice tohoto šampiona i v dalším patchi.",
- "Couldn't load this list.": "Tento seznam se nepodařilo načíst."
+ "Couldn't load this list.": "Tento seznam se nepodařilo načíst.",
+ "{name}'s {key} already does much of Flash's job, so Barrier takes the slot: in ARAM it is back about every 106 s, Flash every 176 s. Ghost covers kiting.": "{key} postavy {name} už dělá velkou část práce Bliku, takže místo dostává Bariéra: v ARAM je zpět zhruba každých 106 s, Blik každých 176 s. Duch pomáhá s kitováním.",
+ "{name} has no escape dash, so Ghost is how {name} keeps distance while still hitting, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name} nemá úskok k útěku, takže s Duchem si {name} drží odstup a přitom dál útočí, a Bariéra je v ARAM zpět zhruba každých 106 s oproti 176 s u Bliku.",
+ "{name} has no dash, so Ghost is how {name} reaches targets, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name} nemá úskok, takže s Duchem se {name} dostane k cílům, a Bariéra je v ARAM zpět zhruba každých 106 s oproti 176 s u Bliku.",
+ "{name} has no long dash, so Ghost keeps {name} on targets while Mark starts fights.": "{name} nemá dlouhý úskok, takže Duch drží postavu {name} u cílů, zatímco Značka začíná boje.",
+ "{name}'s passive turns bonus move speed into attack damage, so Ghost adds damage as well as speed, and Mark starts fights.": "Pasivka postavy {name} mění bonusovou rychlost pohybu na útočné poškození, takže Duch přidá poškození i rychlost a Značka začíná boje.",
+ "{name}'s {key} already moves {name} onto targets, so Flash adds less; Mark adds a second way in and Ignite adds kill pressure.": "{key} postavy {name} už dostane postavu {name} k cílům, takže Blik přidá méně; Značka je druhý způsob, jak se dostat do boje, a Zapálení přidá tlak na zabití.",
+ "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name} nemá úskok, takže Duch a rychlost z Léčení přesouvají postavu {name} mezi sudy a ven z bojů.",
+ "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "Vyhrávala o {pts} b. víc než průměr postavy {name} za poslední {n} patche, ale bere ji jen {pct} hráčů, takže část může být tím, kdo ji volí.",
+ "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Na posledních patchích zhruba vyrovnaná s obvyklou dvojicí s Blikem (rozdíl pod 1 b.), takže je jedno, kterou zvolíš. Tuto dvojici bere jen {pct} hráčů.",
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Tuto dvojici bere jen {pct} hráčů a její náskok se mění patch od patche, takže ji ber jako blízkou obvyklé dvojici s Blikem."
 }

@@ -351,5 +351,15 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "Твои умения могут наносить крит, так что дополнительный шанс крита работает и для них.",
  "Avoid": "Избегать",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Тир D: в прошлых патчах такие слабые пары заклинаний и в следующем патче выигрывали заметно реже других пар этого чемпиона.",
- "Couldn't load this list.": "Не удалось загрузить этот список."
+ "Couldn't load this list.": "Не удалось загрузить этот список.",
+ "{name}'s {key} already does much of Flash's job, so Barrier takes the slot: in ARAM it is back about every 106 s, Flash every 176 s. Ghost covers kiting.": "{key} у {name} уже делает многое за Скачок, поэтому слот занимает Барьер: в ARAM он восстанавливается примерно за 106 с, Скачок — за 176 с. Призрак помогает кайтить.",
+ "{name} has no escape dash, so Ghost is how {name} keeps distance while still hitting, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "У {name} нет рывка для побега, поэтому с Призраком {name} держит дистанцию и продолжает бить, а Барьер в ARAM восстанавливается примерно за 106 с против 176 с у Скачка.",
+ "{name} has no dash, so Ghost is how {name} reaches targets, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "У {name} нет рывка, поэтому с Призраком {name} добирается до целей, а Барьер в ARAM восстанавливается примерно за 106 с против 176 с у Скачка.",
+ "{name} has no long dash, so Ghost keeps {name} on targets while Mark starts fights.": "У {name} нет длинного рывка, поэтому Призрак держит {name} рядом с целями, а Метка начинает бои.",
+ "{name}'s passive turns bonus move speed into attack damage, so Ghost adds damage as well as speed, and Mark starts fights.": "Пассивное умение {name} превращает дополнительную скорость передвижения в силу атаки, поэтому Призрак даёт и урон, и скорость, а Метка начинает бои.",
+ "{name}'s {key} already moves {name} onto targets, so Flash adds less; Mark adds a second way in and Ignite adds kill pressure.": "{key} у {name} уже доставляет {name} к целям, поэтому Скачок даёт меньше; Метка — второй способ войти в бой, а Воспламенение помогает добивать.",
+ "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "У {name} нет рывка, поэтому Призрак и скорость от Исцеления перемещают {name} между бочками и из боя.",
+ "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "Эта пара выигрывала на {pts} п. больше среднего у {name} за последние {n} патча, но её берут лишь {pct} игроков, так что отчасти дело может быть в тех, кто её выбирает.",
+ "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "На последних патчах почти наравне с обычной парой со Скачком (разница меньше 1 п.), так что подойдёт любая. Эту пару берут лишь {pct} игроков.",
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Эту пару берут лишь {pct} игроков, и её преимущество меняется от патча к патчу, так что считайте её близкой к обычной паре со Скачком."
 }

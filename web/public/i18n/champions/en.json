@@ -351,5 +351,15 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "Your abilities can crit, so the extra crit chance pays off on them.",
  "Avoid": "Avoid",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.",
- "Couldn't load this list.": "Couldn't load this list."
+ "Couldn't load this list.": "Couldn't load this list.",
+ "{name}'s {key} already does much of Flash's job, so Barrier takes the slot: in ARAM it is back about every 106 s, Flash every 176 s. Ghost covers kiting.": "{name}'s {key} already does much of Flash's job, so Barrier takes the slot: in ARAM it is back about every 106 s, Flash every 176 s. Ghost covers kiting.",
+ "{name} has no escape dash, so Ghost is how {name} keeps distance while still hitting, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name} has no escape dash, so Ghost is how {name} keeps distance while still hitting, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.",
+ "{name} has no dash, so Ghost is how {name} reaches targets, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name} has no dash, so Ghost is how {name} reaches targets, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.",
+ "{name} has no long dash, so Ghost keeps {name} on targets while Mark starts fights.": "{name} has no long dash, so Ghost keeps {name} on targets while Mark starts fights.",
+ "{name}'s passive turns bonus move speed into attack damage, so Ghost adds damage as well as speed, and Mark starts fights.": "{name}'s passive turns bonus move speed into attack damage, so Ghost adds damage as well as speed, and Mark starts fights.",
+ "{name}'s {key} already moves {name} onto targets, so Flash adds less; Mark adds a second way in and Ignite adds kill pressure.": "{name}'s {key} already moves {name} onto targets, so Flash adds less; Mark adds a second way in and Ignite adds kill pressure.",
+ "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.",
+ "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.",
+ "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.",
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair."
 }

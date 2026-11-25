@@ -351,5 +351,15 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "Kỹ năng của bạn có thể chí mạng, nên tỉ lệ chí mạng thêm cũng có ích cho chúng.",
  "Avoid": "Tránh",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "Bậc D: ở các bản trước, cặp phép thấp như vậy cũng thắng ít hơn hẳn các cặp khác của tướng này ở bản kế tiếp.",
- "Couldn't load this list.": "Không tải được danh sách này."
+ "Couldn't load this list.": "Không tải được danh sách này.",
+ "{name}'s {key} already does much of Flash's job, so Barrier takes the slot: in ARAM it is back about every 106 s, Flash every 176 s. Ghost covers kiting.": "{key} của {name} đã làm được phần lớn việc của Tốc Biến, nên Lá Chắn chiếm chỗ: trong ARAM nó hồi khoảng mỗi 106 giây, Tốc Biến mỗi 176 giây. Tốc Hành giúp thả diều.",
+ "{name} has no escape dash, so Ghost is how {name} keeps distance while still hitting, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name} không có lướt để thoát, nên với Tốc Hành {name} giữ khoảng cách mà vẫn đánh được, và Lá Chắn hồi khoảng mỗi 106 giây trong ARAM so với 176 giây của Tốc Biến.",
+ "{name} has no dash, so Ghost is how {name} reaches targets, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "{name} không có lướt, nên với Tốc Hành {name} mới với tới mục tiêu, và Lá Chắn hồi khoảng mỗi 106 giây trong ARAM so với 176 giây của Tốc Biến.",
+ "{name} has no long dash, so Ghost keeps {name} on targets while Mark starts fights.": "{name} không có lướt xa, nên Tốc Hành giữ {name} bám mục tiêu trong khi Đánh Dấu mở giao tranh.",
+ "{name}'s passive turns bonus move speed into attack damage, so Ghost adds damage as well as speed, and Mark starts fights.": "Nội tại của {name} biến tốc độ di chuyển cộng thêm thành sức mạnh công kích, nên Tốc Hành thêm cả sát thương lẫn tốc độ, và Đánh Dấu mở giao tranh.",
+ "{name}'s {key} already moves {name} onto targets, so Flash adds less; Mark adds a second way in and Ignite adds kill pressure.": "{key} của {name} đã đưa {name} tới mục tiêu, nên Tốc Biến ít giá trị hơn; Đánh Dấu thêm một cách lao vào và Thiêu Đốt thêm áp lực hạ gục.",
+ "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "{name} không có lướt, nên Tốc Hành và tốc độ từ Hồi Máu đưa {name} đi giữa các thùng thuốc súng và ra khỏi giao tranh.",
+ "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "Nó thắng hơn trung bình của {name} {pts} điểm trong {n} bản cập nhật gần nhất, nhưng chỉ {pct} người chơi chọn, nên một phần có thể do ai chọn nó.",
+ "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Ở các bản gần đây gần ngang với cặp Tốc Biến thường dùng (chênh dưới 1 điểm), nên chọn cái nào cũng được. Chỉ {pct} người chơi chọn cặp này.",
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Chỉ {pct} người chơi chọn cặp này và lợi thế của nó thay đổi theo từng bản, nên hãy coi nó gần như cặp Tốc Biến thường dùng."
 }

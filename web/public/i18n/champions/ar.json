@@ -351,5 +351,15 @@
  "Your abilities can crit, so the extra crit chance pays off on them.": "يمكن لقدراتك أن تكون ضربات حرجة، لذا تفيدها فرصة الضربة الحرجة الإضافية أيضًا.",
  "Avoid": "تجنّب",
  "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "المستوى D: في التحديثات السابقة، فازت أزواج التعاويذ بهذا الانخفاض أقل بكثير من أزواج هذا البطل الأخرى في التحديث التالي أيضًا.",
- "Couldn't load this list.": "تعذّر تحميل هذه القائمة."
+ "Couldn't load this list.": "تعذّر تحميل هذه القائمة.",
+ "{name}'s {key} already does much of Flash's job, so Barrier takes the slot: in ARAM it is back about every 106 s, Flash every 176 s. Ghost covers kiting.": "{key} لدى {name} يؤدي بالفعل جزءًا كبيرًا من عمل الوميض، لذا يأخذ الحاجز الخانة: في ARAM يعود كل 106 ثوانٍ تقريبًا، والوميض كل 176 ثانية. الشبح يساعد على الكايتنغ.",
+ "{name} has no escape dash, so Ghost is how {name} keeps distance while still hitting, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "لا يملك {name} اندفاعة للهرب، لذا بالشبح يحافظ {name} على المسافة وهو يواصل الضرب، ويعود الحاجز في ARAM كل 106 ثوانٍ تقريبًا مقابل 176 ثانية للوميض.",
+ "{name} has no dash, so Ghost is how {name} reaches targets, and Barrier is back about every 106 s in ARAM vs Flash's 176 s.": "لا يملك {name} اندفاعة، لذا بالشبح يصل {name} إلى أهدافه، ويعود الحاجز في ARAM كل 106 ثوانٍ تقريبًا مقابل 176 ثانية للوميض.",
+ "{name} has no long dash, so Ghost keeps {name} on targets while Mark starts fights.": "لا يملك {name} اندفاعة طويلة، لذا يبقي الشبح {name} على الأهداف بينما تبدأ العلامة القتال.",
+ "{name}'s passive turns bonus move speed into attack damage, so Ghost adds damage as well as speed, and Mark starts fights.": "تحوّل القدرة السلبية لدى {name} سرعة الحركة الإضافية إلى ضرر هجوم، لذا يضيف الشبح ضررًا مع السرعة، وتبدأ العلامة القتال.",
+ "{name}'s {key} already moves {name} onto targets, so Flash adds less; Mark adds a second way in and Ignite adds kill pressure.": "{key} لدى {name} يوصل {name} بالفعل إلى الأهداف، لذا يضيف الوميض أقل؛ تضيف العلامة طريقًا ثانيًا للدخول ويضيف الإشعال ضغط القتل.",
+ "{name} has no dash, so Ghost and Heal's speed move {name} between barrels and out of fights.": "لا يملك {name} اندفاعة، لذا ينقل الشبح وسرعة العلاج {name} بين البراميل وخارج القتال.",
+ "It won {pts} pts more than {name}'s average over the last {n} patches, but only {pct} of players take it, so part of that may be who picks it.": "فاز بـ{pts} نقطة أكثر من متوسط {name} في آخر {n} تحديثات، لكن {pct} فقط من اللاعبين يختارونه، لذا قد يعود جزء من ذلك إلى من يختاره.",
+ "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "متعادل تقريبًا مع زوج الوميض المعتاد في التحديثات الأخيرة (أقل من نقطة)، لذا أيهما مناسب. {pct} فقط من اللاعبين يختارون هذا الزوج.",
+ "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "{pct} فقط من اللاعبين يختارون هذا الزوج وتتغير أفضليته من تحديث لآخر، لذا اعتبره قريبًا من زوج الوميض المعتاد."
 }
