@@ -350,5 +350,6 @@
  "Your abilities can crit, and {1} heals you from those crits.": "你的技能可以暴擊，{1} 會透過這些暴擊為你治療。",
  "Your abilities can crit, so the extra crit chance pays off on them.": "你的技能可以暴擊，所以額外的暴擊機率對技能也有用。",
  "Avoid": "避免",
- "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D 梯隊：在過去的版本中，這麼低的召喚師技能組合在下個版本也明顯比該英雄的其他組合贏得少。"
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D 梯隊：在過去的版本中，這麼低的召喚師技能組合在下個版本也明顯比該英雄的其他組合贏得少。",
+ "Couldn't load this list.": "無法載入此清單。"
 }

@@ -350,5 +350,6 @@
  "Your abilities can crit, and {1} heals you from those crits.": "A képességeid kritikusat sebezhetnek, és a {1} ezekből gyógyít.",
  "Your abilities can crit, so the extra crit chance pays off on them.": "A képességeid kritikusat sebezhetnek, így a plusz kritikus esély rájuk is számít.",
  "Avoid": "Kerüld",
- "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D szint: a korábbi patchekben az ilyen gyenge varázslatpárok a következő patchben is jóval kevesebbet nyertek, mint a hős többi párja."
+ "D tier: on past patches, spell pairs this low won far less than this champion's other pairs on the next patch too.": "D szint: a korábbi patchekben az ilyen gyenge varázslatpárok a következő patchben is jóval kevesebbet nyertek, mint a hős többi párja.",
+ "Couldn't load this list.": "Nem sikerült betölteni ezt a listát."
 }
