@@ -1,4 +1,4 @@
-// Automatic updates (Nico 2026-11-24: "can app update automatically?"). Every hour the app asks GitHub for the
+// Automatic updates (Nico 2026-11-24: "can app update automatically?"). Every 15 minutes the app asks GitHub for the
 // newest release. If it's newer than this one, the app downloads the Windows installer, checks it against the
 // release's SHA-256, installs it silently and starts again in the tray. It only does this while League is closed or
 // in the lobby: never in champion select or a game. The same cadence and gating as Nico's PC app (1.25.0).
@@ -18,7 +18,7 @@ const LATEST: &str = "https://api.github.com/repos/nicothomas02/DeepARAM/release
 /// The installer's fixed name in every release (release.yml), which the download page also uses.
 pub const INSTALLER: &str = "DeepARAM-Windows-Setup.exe";
 /// How often to look for an update, and how long after the app starts the first look waits.
-pub const CHECK_EVERY: Duration = Duration::from_secs(60 * 60);
+pub const CHECK_EVERY: Duration = Duration::from_secs(15 * 60); // PC app 1.26.26: every 15 minutes
 pub const FIRST_CHECK_AFTER: Duration = Duration::from_secs(3 * 60);
 /// A version that was tried and didn't take isn't tried again for this long.
 pub const RETRY_AFTER: u64 = 24 * 60 * 60;
@@ -82,7 +82,7 @@ fn now() -> u64 {
     std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map(|d| d.as_secs()).unwrap_or(0)
 }
 
-/// Checks every hour while the app runs (Windows only: the public app's installer is Windows').
+/// Checks every 15 minutes while the app runs (Windows only: the public app's installer is Windows').
 #[cfg(windows)]
 pub fn watch(app: AppHandle) {
     std::thread::spawn(move || {
