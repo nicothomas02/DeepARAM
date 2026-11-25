@@ -47,6 +47,7 @@ var DeepEngine = (() => {
     MARK_AUGMENTS: () => MARK_AUGMENTS,
     MEASURED_SWITCHES: () => MEASURED_SWITCHES,
     MIN_HOLDERS: () => MIN_HOLDERS,
+    OwnedItems: () => OwnedItems,
     PCT_HEALTH: () => PCT_HEALTH,
     POINTS_PER_1000_GOLD: () => POINTS_PER_1000_GOLD,
     PROVEN: () => PROVEN,
@@ -2728,6 +2729,14 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   var base = (id) => id % 1e4;
   var TRANSFORMED_FROM = { 3040: 3003, 3042: 3004, 3121: 3119, 2530: 2526, 3160: 3154 };
   var ownedId = (id) => TRANSFORMED_FROM[base(id)] ?? base(id);
+  var OwnedItems = class extends Set {
+    constructor(items = []) {
+      super([...items].map(ownedId));
+    }
+    has(id) {
+      return super.has(ownedId(id));
+    }
+  };
   var champKey = (s) => s.toLowerCase().replace(/[^a-z]/g, "");
   function itemRules(k) {
     const groups = /* @__PURE__ */ new Map();
@@ -3194,7 +3203,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     const eligible = game.items.map(ownedId).filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !boots.has(i));
     if (eligible.length < 2) return null;
     const first = eligible[0];
-    const byPath = path.map((it) => itemId(it.icon)).find((i) => eligible.includes(i)) ?? null;
+    const byPath = path.map((it) => ownedId(itemId(it.icon))).find((i) => eligible.includes(i)) ?? null;
     const cue = (target, why, estimated) => target !== null && target !== first ? { item: target, why, estimated } : null;
     if ((game.offer ?? []).includes(WEAPON_OF_DESTINY) && destiny !== null && eligible.includes(destiny))
       return cue(destiny, `Before taking ${augName(WEAPON_OF_DESTINY)}: it goes on your first Legendary (slots 1-6)`, false);
@@ -3315,7 +3324,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       return { name: k.recipes[b][0], icon: `${prefix}${ICON_ID[id] ? id : fin ? 22e4 + b : b}.png` };
     };
     const fresh = [...plan2[0].slice(0, 1), ...plan2[1], ...plan2[2]].flatMap((id) => mk(id) ?? []);
-    const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 || k.boots.includes(i)).flatMap((i) => base0.find((it) => itemId(it.icon) === i) ?? mk(i) ?? []) : [...base0.filter((it) => owned.has(itemId(it.icon))), ...[...owned].filter((i) => k.boots.includes(i) && !base0.some((it) => itemId(it.icon) === i)).flatMap((i) => mk(i) ?? [])];
+    const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 || k.boots.includes(i)).flatMap((i) => base0.find((it) => ownedId(itemId(it.icon)) === i) ?? mk(i) ?? []) : [...base0.filter((it) => owned.has(itemId(it.icon))), ...[...owned].filter((i) => k.boots.includes(i) && !base0.some((it) => itemId(it.icon) === i)).flatMap((i) => mk(i) ?? [])];
     const keptIds = kept.map((it) => itemId(it.icon));
     const list = [...kept];
     const hasBoots = keptIds.some((i) => k.boots.includes(i));
@@ -3552,7 +3561,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     const augSkill = RULES.augmentSkills.on ? champ0?.augmentSkills?.find((a) => taken.includes(a.augment)) : void 0;
     if (augSkill) applied("augmentSkills");
     const champ = augSkill && champ2 ? { ...champ2, skills: augSkill.skills } : champ2;
-    const owned = new Set(game.items.map(ownedId));
+    const owned = new OwnedItems(game.items);
     const bootIds = new Set(k?.boots ?? []);
     let slotRows = laterPicks(champ, owned, rules);
     const placedOff = /* @__PURE__ */ new Set();

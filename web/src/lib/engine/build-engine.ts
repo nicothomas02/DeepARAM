@@ -225,6 +225,13 @@ const base = (id: number) => id % 10000;
 export const TRANSFORMED_FROM: Record<number, number> = { 3040: 3003, 3042: 3004, 3121: 3119, 2530: 2526, 3160: 3154 };
 /** The id an inventory item counts as for "do you own it": the base id, a transformed item as its source. */
 export const ownedId = (id: number) => TRANSFORMED_FROM[base(id)] ?? base(id);
+/** What you own, held as the items you bought (ownedId). has() maps its argument the same way, so a path that names
+ *  either form (the site's builds list Diadem of Songs and Fimbulwinter, not their sources) finds it, and iterating
+ *  never counts one inventory item twice. */
+export class OwnedItems extends Set<number> {
+  constructor(items: Iterable<number> = []) { super([...items].map(ownedId)); }
+  has(id: number) { return super.has(ownedId(id)); }
+}
 const champKey = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "");
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -908,7 +915,7 @@ export function slotCue(
   const eligible = game.items.map(ownedId).filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !boots.has(i));
   if (eligible.length < 2) return null;
   const first = eligible[0];
-  const byPath = path.map((it) => itemId(it.icon)).find((i) => eligible.includes(i)) ?? null;
+  const byPath = path.map((it) => ownedId(itemId(it.icon))).find((i) => eligible.includes(i)) ?? null;
   const cue = (target: number | null, why: string, estimated: boolean) =>
     target !== null && target !== first ? { item: target, why, estimated } : null;
   if ((game.offer ?? []).includes(WEAPON_OF_DESTINY) && destiny !== null && eligible.includes(destiny))
@@ -1048,7 +1055,7 @@ export function pickBuild(base0: Named[], picks: Picks | null, k: Kinds | null, 
     return { name: k.recipes[b][0], icon: `${prefix}${ICON_ID[id] ? id : fin ? 220000 + b : b}.png` };
   };
   const fresh = [...plan[0].slice(0, 1), ...plan[1], ...plan[2]].flatMap((id) => mk(id) ?? []);
-  const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 || k.boots.includes(i)).flatMap((i) => base0.find((it) => itemId(it.icon) === i) ?? mk(i) ?? [])
+  const kept = byItems ? [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 || k.boots.includes(i)).flatMap((i) => base0.find((it) => ownedId(itemId(it.icon)) === i) ?? mk(i) ?? [])
     : [...base0.filter((it) => owned.has(itemId(it.icon))), ...[...owned].filter((i) => k.boots.includes(i) && !base0.some((it) => itemId(it.icon) === i)).flatMap((i) => mk(i) ?? [])];
   const keptIds = kept.map((it) => itemId(it.icon));
   const list: Named[] = [...kept];
@@ -1411,7 +1418,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const augSkill = RULES.augmentSkills.on ? champ0?.augmentSkills?.find((a) => taken.includes(a.augment)) : undefined;
   if (augSkill) applied("augmentSkills");
   const champ: OverlayChamp | undefined = augSkill && champ2 ? { ...champ2, skills: augSkill.skills } : champ2;
-  const owned = new Set(game.items.map(ownedId));
+  const owned: Set<number> = new OwnedItems(game.items);
   const bootIds = new Set(k?.boots ?? []);
   let slotRows = laterPicks(champ, owned, rules);
   const placedOff = new Set<number>();  // off-path items you own that ownedOffPath put in later slots
