@@ -161,7 +161,8 @@
   font-size: 0.875rem;
   line-height: 1.2;
   text-align: center;
-  overflow-wrap: normal;
+  /* Only a word too long for the slot (Bloodthirster) breaks, instead of being cut off. */
+  overflow-wrap: break-word;
   hyphens: auto;
 }
 /* Best augments on the game card: one row whatever the rarity; the icon's ring shows it (Nico, 2026-11-20). */
@@ -254,6 +255,25 @@
   font-size: inherit;
   font-weight: 600;
   color: var(--fg);
+}
+/* The situational card can be narrow on a wide screen (two-column card layout, iPhone Duo open), so it stacks by its
+   own width, not the screen's. */
+.cp-game .cp-best-sit {
+  container-type: inline-size;
+  min-width: 0;
+}
+@container (max-width: 700px) {
+  .cp-game .cp-sit-rows li {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.3rem 0.6rem;
+  }
+  .cp-game .cp-sit-when,
+  .cp-game .cp-sit-why {
+    grid-column: 1 / -1;
+  }
+  .cp-game .cp-sit-why:empty {
+    display: none;
+  }
 }
 @media (max-width: 700px) {
   .cp-game .cp-sit-rows li {
