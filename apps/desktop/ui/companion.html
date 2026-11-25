@@ -159,6 +159,9 @@
   .tile { display: grid; justify-items: center; gap: 4px; text-align: center; font-size: 11px; line-height: 1.2; }
   .tile img { width: 40px; height: 40px; border-radius: 8px; }
   .tile.aug img { border-radius: 50%; }
+  .chg { display: flex; align-items: center; gap: 8px; } .chg img { width: 36px; height: 36px; border-radius: 6px; } .chg .d { margin-left: auto; font-size: 18px; font-weight: 700; }
+  .chg .d.up, .chg .ok { color: var(--good); } .chg .d.down { color: var(--bad); }
+  .deadshop { display: flex; gap: 6px; padding: 6px; margin-bottom: 6px; border: 2px solid var(--good); border-radius: 10px; } .deadshop img { width: 44px; height: 44px; border-radius: 6px; }
   .ii { width: 18px; height: 18px; border-radius: 4px; vertical-align: -4px; margin-right: 3px; }
   .ii.round { border-radius: 50%; }
   .key.inl { display: inline-grid; place-items: center; min-width: 20px; height: 20px; border-radius: 6px; background: var(--raised); color: var(--accent); font-weight: 700; font-size: 12px; margin-left: 2px; }
@@ -426,6 +429,8 @@
   // surrender line come only for the site owner (game.live).
   const AUGMENT_LEVELS = [1, 7, 11, 15];
   let picks = null, builds = null, kinds = null;
+  // What changed the game (post-game only): each finished buy and augment taken, with what the app called then.
+  let calls = [], appCall = null, lastNext = -1, reviewPoints = [];
   const loadKinds = () => kinds ?? (kinds = fetch(`${SITE}/data/damage-types.json`).then((r) => r.json()).catch(() => null));
   const loadPicks = () => picks ?? (picks = fetch(`${SITE}/data/augment-picks.json`).then((r) => r.json()).catch(() => null));
   const loadBuilds = () => builds ?? (builds = fetch(`${SITE}/data/overlay.json`).then((r) => r.json()).catch(() => null));
@@ -500,6 +505,8 @@
     return mine;
   }
   function setTaken(g, ids) {
+    const had = getTaken(g);
+    for (const id of ids) if (!had.includes(id) && calls.length < 60) { calls.push({ t: Math.round(g.t ?? 0), kind: "aug", got: id, app: appCall }); appCall = null; }
     try { localStorage.setItem("taken", JSON.stringify({ champ: g.champ, start: Date.now() / 1000 - g.t, ids })); } catch {}
     renderQuick();
   }
@@ -563,6 +570,7 @@
     // the list stays below for when the reading misses a card.
     const onOffer = offer.filter((id) => !taken.includes(id));
     const offered = onOffer.length ? [...ranked.filter((a) => onOffer.includes(a.id)), ...onOffer.filter((id) => !ranked.some((a) => a.id === id)).map((id) => ({ id, boost: null, deep: -1, mate: null, combo: null, potential: 0 }))] : [];
+    if (offered.length) appCall = offered[0].id;
     const advice = offered.length >= 2 ? rerollAdvice(d, ranked, offered, taken) : { html: "", card: null };
     // Cards within noise of the best: highlighted too, "either is fine".
     const ties = offered.length >= 2 && offered.every((a) => typeof a.score === "number") ? E.nearTies(d, ck, offered) : [];
@@ -662,6 +670,26 @@
     const bootIds = new Set(k?.boots ?? []);
     const hasBoots = [...owned].some((i) => bootIds.has(i));
     const nextId = p.next[0] ? itemId(p.next[0].icon) : -1;
+    lastNext = nextId;
+    // Dead, shop open: exactly what to buy with your gold toward the next item, icons only. The whole item if your
+    // parts make up the rest, else its missing parts, most expensive first.
+    const deadShop = (() => {
+      if (!game.dead || nextId < 0 || !k?.recipes || !p.next[0]?.icon) return "";
+      const base = src(p.next[0].icon).replace(/\d+\.png$/, "");
+      const cost = (id) => k.recipes[id]?.[1] ?? 0;
+      const rem = (id, pool) => { const j = pool.indexOf(id); if (j >= 0) { pool.splice(j, 1); return 0; }
+        return cost(id) - (k.recipes[id]?.[2] ?? []).reduce((s, c) => s + cost(c) - rem(c, pool), 0); };
+      const buy = (id, pool, gold, out) => {
+        const trial = [...pool], need = rem(id, trial);
+        if (need <= gold) { pool.splice(0, pool.length, ...trial); if (need > 0) out.push(id); return gold - need; }
+        for (const c of [...(k.recipes[id]?.[2] ?? [])].sort((a, b) => cost(b) - cost(a))) gold = buy(c, pool, gold, out);
+        return gold;
+      };
+      const out = [], left = buy(nextId, game.items.map((i) => i % 10000), game.gold ?? 0, out);
+      if (!out.length) return "";
+      const pic = (i) => { const fin = cost(i) >= 2000; return `<img src="${base}${fin ? 220000 + i : i}.png" data-alt="${base}${fin ? i : 220000 + i}.png" alt="" data-drop>`; };
+      return `<div class="deadshop" title="Dead: buy now (${esc(out.map((i) => k.recipes[i]?.[0] ?? i).join(", "))}), ${Math.round(left)} gold left">${out.map(pic).join("")}</div>`;
+    })();
     const shown = p.path.map((it, i) => {
       const sw = p.swaps.find((x) => x.replaces && itemId(x.replaces.icon) === itemId(it.icon));
       // The hover: the engine's tested "why it's best" line (Nico approved 2026-11-23) when there is one, else the slot reason.
@@ -690,7 +718,7 @@
       p.slotCue ? `<div class="cue blue" title="${esc(`${p.slotCue.why}${p.slotCue.estimated ? " (estimated pick)" : ""}`)}">${p.slotCue.item.icon ? `<img class="ii" src="${src(p.slotCue.item.icon)}" alt="" data-drop>` : ""} → slot 1</div>` : "",
     ].join("");
     box.innerHTML = `<div class="box${shop ? " now" : ""}">
-      ${p.next[0] ? `<div class="nextup"><span class="lb">NEXT</span>${p.next[0].icon ? `<img src="${src(p.next[0].icon)}" alt="" data-drop>` : ""}<span class="nm">${esc(p.next[0].name)}</span></div>` : ""}
+      ${deadShop}${p.next[0] ? `<div class="nextup"><span class="lb">NEXT</span>${p.next[0].icon ? `<img src="${src(p.next[0].icon)}" alt="" data-drop>` : ""}<span class="nm">${esc(p.next[0].name)}</span></div>` : ""}
       <div class="path">${tiles}</div>
       ${lines}
       ${tip}</div>`;
@@ -699,6 +727,11 @@
   window.showGame = (g) => {
     const prev = game;
     game = g;
+    if (!prev || prev.champ !== g.champ) { calls = []; appCall = null; }
+    else if (Array.isArray(prev.items) && Array.isArray(g.items)) {
+      const left = [...prev.items];
+      for (const i of g.items) { const j = left.indexOf(i); if (j >= 0) left.splice(j, 1); else if (calls.length < 60) calls.push({ t: Math.round(g.t ?? 0), kind: "item", got: i, app: lastNext }); }
+    }
     lastGame = { ...g, taken: getTaken(g) };
     lastChamp = g.champ;
     if (!document.getElementById("augs") || prev?.champ !== g.champ) {
@@ -830,7 +863,8 @@
     n.querySelectorAll("[data-style]").forEach(restyle);
   } })
     .observe(document.body, { childList: true, subtree: true });
-  document.addEventListener("error", (e) => { if (e.target.matches?.("img[data-drop]")) e.target.remove(); }, true);
+  // a picture that fails tries its data-alt once (finished items: Mayhem art id vs plain id), then goes
+  document.addEventListener("error", (e) => { const im = e.target; if (!im.matches?.("img[data-drop]")) return; if (im.dataset.alt) { const a = im.dataset.alt; im.dataset.alt = ""; im.src = a; } else im.remove(); }, true);
   // Esc leaves full screen, F11 flips it.
   addEventListener("keydown", (e) => {
     if ((e.key === "Escape" || e.key === "F11") && window.__TAURI_INTERNALS__) {
@@ -870,11 +904,13 @@
       : `<div class="box">✓ Never worth it</div>`;
     setView(`
       ${hero(lastChamp, `<span class="${result === "Win" ? "ink" : ""}">${verdict}</span>`, "Game review")}
+      <div id="changed"></div>
       <h2 title="Predicted, not measured: an estimate from kills, towers, levels and team strength.">Chance to win</h2>
       ${chart(points, ffFrom)}
       ${turnRows ? `<h2>Turning points</h2>${turnRows}` : ""}
       <h2>Surrender</h2>${ff}
       <div id="recap"></div><div id="invite"></div>`);
+    reviewPoints = points ?? [];
     renderRecap();
     if (result === "Win") inviteToShare();
   };
@@ -901,6 +937,40 @@
     }));
   }
 
+  // Chance to win at time t, read off the review's chart points ([seconds, chance]).
+  const chanceAt = (pts, t) => {
+    if (!pts.length) return null;
+    if (t <= pts[0][0]) return pts[0][1];
+    for (let i = 1; i < pts.length; i++) if (pts[i][0] >= t) { const [a, p] = pts[i - 1], [b, q] = pts[i]; return p + (q - p) * (t - a) / Math.max(1, b - a); }
+    return pts[pts.length - 1][1];
+  };
+  // What changed the game: the 2-3 buys or picks followed by the biggest swing in the chance to win over the next
+  // 3 minutes, each beside what the app called then, and how many of the app's calls you followed. Post-game only.
+  // A lead, not proof: kills, towers and levels move the chance too.
+  function whatChanged(k, p, itemPic) {
+    const pts = reviewPoints, end = pts.length ? pts[pts.length - 1][0] : 0;
+    const finished = (i) => { const r = k?.recipes[i % 10000]; return !!r && ((r[1] ?? 0) >= 2000 || (r[2] ?? []).includes(1001)); };
+    const mine = calls.filter((c) => c.kind === "aug" || finished(c.got));
+    const rows = mine.map((c) => {
+      const to = Math.min(end, c.t + 180);
+      if (to - c.t < 60) return null;
+      const a = chanceAt(pts, c.t), b = chanceAt(pts, to);
+      return a == null || b == null ? null : { ...c, a, b, d: b - a };
+    }).filter(Boolean).sort((x, y) => Math.abs(y.d) - Math.abs(x.d)).slice(0, 3).filter((r) => Math.abs(r.d) >= 0.03);
+    const nameOf = (r, id) => r.kind === "aug" ? (p?.augments?.[id]?.[0] ?? `#${id}`) : (k?.recipes[id % 10000]?.[0] ?? `#${id}`);
+    const pic = (r, id) => r.kind === "aug" ? augIcon(id) : itemPic(id);
+    const known = (r) => r.app != null && r.app >= 0;
+    const row = (r) => {
+      const same = known(r) && r.app % 10000 === r.got % 10000;
+      const tip = `${clock(r.t)}: ${r.kind === "aug" ? "took" : "finished"} ${nameOf(r, r.got)}. ${!known(r) ? "The app's call wasn't read." : same ? "The app called the same." : `The app called ${nameOf(r, r.app)}.`} Chance to win ${pct(r.a)} → ${pct(r.b)} over the next 3 minutes (estimated; kills, towers and levels move it too).`;
+      return `<div class="box chg" title="${esc(tip)}"><span class="why">${clock(r.t)}</span> ${pic(r, r.got)}${!known(r) ? "" : same ? ` <span class="ok">✓</span>` : ` <span class="why">App</span> ${pic(r, r.app)}`} <span class="d ${r.d >= 0 ? "up" : "down"}">${r.d >= 0 ? "+" : "−"}${Math.round(Math.abs(r.d) * 100)}%</span></div>`;
+    };
+    const held = (kind) => { const xs = mine.filter((c) => c.kind === kind && known(c)); return xs.length ? `${xs.filter((c) => c.app % 10000 === c.got % 10000).length}/${xs.length}` : ""; };
+    const acc = [["aug", "Augments"], ["item", "Items"]].map(([kd, l]) => held(kd) ? `<span title="${l}: the app's calls you followed this game">${l} <b>${held(kd)}</b></span>` : "").filter(Boolean).join(" · ");
+    return (rows.length ? `<h2 title="The buys and picks followed by the biggest swings in your chance to win (estimated)">What changed the game</h2>${rows.map(row).join("")}` : "")
+      + (acc ? `<div class="box why" title="How many of the app's calls you followed this game">Followed the app: ${acc}</div>` : "");
+  }
+
   // What you built and took this game, and what the enemy hit you with: kept off the in-game screen, shown here.
   async function renderRecap() {
     const box = document.getElementById("recap");
@@ -919,6 +989,8 @@
       : "";
     const magic = k ? enemyMagic(k, g.enemies ?? []) : null;
     const dmg = magic === null ? "" : `<div class="why">${esc(damageLine(k, g))}</div><div class="mates" data-style="margin-top:6px">${(g.enemies ?? []).filter((e) => e.champ).map((e) => icon(e.champ)).join("")}</div>${splitBar(magic)}`;
+    const ch = document.getElementById("changed");
+    if (ch) ch.innerHTML = whatChanged(k, p, (i) => prefix ? `<img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" data-alt="${src(prefix + (i % 10000) + ".png")}" alt="" data-drop>` : "");
     if (!itemRow && !augs && !dmg) return;
     box.innerHTML = `<h2>Your build</h2>
       ${augs ? `<div class="box"><div class="why">Augments you took</div>${augs}</div>` : ""}
