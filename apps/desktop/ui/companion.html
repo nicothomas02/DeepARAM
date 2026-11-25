@@ -700,14 +700,14 @@
     const inSplit = si >= 0 && (game.skills ?? [])[si] < split.points;
     const skillCue = augOrder || inSplit || getTaken(game).some((id) => id === 1004 || id === 4);
     const nextId0 = p.next[0] ? itemId(p.next[0].icon) : -1;
-    const ACT = { skill: "Level", buy: "Buy", sell: "Sell", cap: "AS cap" };
+    const ACT = { skill: "Level", buy: "Buy", sell: "Sell", cap: "AS cap", anvil: "Buy", elixir: "Buy" };
     const tipHtml = (t) => t.kind === "skill" ? `${ico("up")} <span class="key inl">${esc(t.text)}</span>`
       : t.kind === "buy" && t.item === nextId0 ? "Buy now"
       : t.kind === "cap" ? `${ico("warn")} AS cap`
       : `${ACT[t.kind]} ${t.item != null && itemImg(t.item) ? itemImg(t.item) : esc(tipItem(t))}`;
     // The item's name, from the engine's sentence ("Buy B. F. Sword now...", "Full build: sell X for Y.").
     function tipItem(t) {
-      const m = /^Buy (.+?) now/.exec(t.text) ?? /buys (.+?) now/.exec(t.text) ?? /sell (.+?) for/.exec(t.text) ?? /^(.+?) (?:next|stacks)/.exec(t.text);
+      const m = /^Buy (.+?) now/.exec(t.text) ?? /buys (.+?) now/.exec(t.text) ?? /sell (.+?) for/.exec(t.text) ?? /^Build done: buy (?:an? )?(.+?)(?: \(| \.|\.)/.exec(t.text) ?? /^(.+?) (?:next|stacks)/.exec(t.text);
       return m ? m[1] : "";
     }
     const tone = (t) => (t.kind === "skill" ? "blue" : "gold");
