@@ -158,6 +158,9 @@
   details.best > summary { cursor: pointer; list-style: none; } details.best > summary h2 { display: inline; } details.best > summary::-webkit-details-marker { display: none; } details.best > summary::before { content: "▸ "; } details.best[open] > summary::before { content: "▾ "; }
   svg.i, svg.arr { display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: -0.125em; flex: none; }
   .badge { display: inline-flex; align-items: center; gap: 5px; }
+  .hovercard { position: fixed; z-index: 50; max-width: 300px; padding: 10px 12px; border-radius: 10px; background: var(--raised); border: 1px solid var(--line); box-shadow: var(--depth); font-size: 12px; line-height: 1.45; pointer-events: none; }
+  .hovercard .hn { font-size: 14px; font-weight: 700; color: var(--fg); } .hovercard .hr { color: var(--gold); margin-top: 4px; white-space: pre-line; }
+  .hovercard .hl { color: var(--muted); } .hovercard .hd { margin-top: 6px; color: var(--fg); }
   .foes { margin-left: auto; min-width: 170px; max-width: 220px; align-self: flex-end; }
   .foes .mates img { width: 26px; height: 26px; border-radius: 7px; }
   .foes .why.lbl { margin: 0 0 4px; }
@@ -700,14 +703,14 @@
     const inSplit = si >= 0 && (game.skills ?? [])[si] < split.points;
     const skillCue = augOrder || inSplit || getTaken(game).some((id) => id === 1004 || id === 4);
     const nextId0 = p.next[0] ? itemId(p.next[0].icon) : -1;
-    const ACT = { skill: "Level", buy: "Buy", sell: "Sell", cap: "AS cap" };
+    const ACT = { skill: "Level", buy: "Buy", sell: "Sell", cap: "AS cap", anvil: "Buy", elixir: "Buy" };
     const tipHtml = (t) => t.kind === "skill" ? `${ico("up")} <span class="key inl">${esc(t.text)}</span>`
       : t.kind === "buy" && t.item === nextId0 ? "Buy now"
       : t.kind === "cap" ? `${ico("warn")} AS cap`
       : `${ACT[t.kind]} ${t.item != null && itemImg(t.item) ? itemImg(t.item) : esc(tipItem(t))}`;
     // The item's name, from the engine's sentence ("Buy B. F. Sword now...", "Full build: sell X for Y.").
     function tipItem(t) {
-      const m = /^Buy (.+?) now/.exec(t.text) ?? /buys (.+?) now/.exec(t.text) ?? /sell (.+?) for/.exec(t.text) ?? /^(.+?) (?:next|stacks)/.exec(t.text);
+      const m = /^Buy (.+?) now/.exec(t.text) ?? /buys (.+?) now/.exec(t.text) ?? /sell (.+?) for/.exec(t.text) ?? /^Build done: buy (?:an? )?(.+?)(?: \(| \.|\.)/.exec(t.text) ?? /^(.+?) (?:next|stacks)/.exec(t.text);
       return m ? m[1] : "";
     }
     const tone = (t) => (t.kind === "skill" ? "blue" : "gold");
@@ -933,6 +936,53 @@
   // The page rules also drop style="" attributes (Tauri's nonce turns off 'unsafe-inline'), which left the bars
   // empty: widths and colors ride in data-style and are set from script, which the rules allow.
   const restyle = (el) => { el.style.cssText = el.dataset.style; el.removeAttribute("data-style"); };
+  // Hover cards (Nico 2026-11-25, as the site): pointing at an item or augment icon for a moment shows its name, its
+  // stats and the official description, with the app's reason for it, if any. Hover only: nothing shows unless you point.
+  let prevs = null, hvT = 0, hvEl = null, hvTitled = null, hvTitle = "";
+  const loadPrevs = () => prevs ?? (prevs = fetch(`${SITE}/data/previews.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
+  const slugOf = (n) => n.toLowerCase().replace(/['’.]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const hoverCard = document.createElement("div");
+  hoverCard.className = "hovercard";
+  hoverCard.hidden = true;
+  const hideCard = () => {
+    clearTimeout(hvT);
+    hoverCard.hidden = true;
+    if (hvTitled) { hvTitled.title = hvTitle; hvTitled = null; }
+    hvEl = null;
+  };
+  async function showCard(img, kind, id, x, y) {
+    const [pv, pk, kd] = await Promise.all([loadPrevs(), loadPicks(), loadKinds()]);
+    if (hvEl !== img) return;
+    const name = kind === "items" ? kd?.recipes?.[id]?.[0] : pk?.augments?.[id]?.[0] ?? PENTA[id];
+    if (!name) return;
+    // The site's hover data (previews.json): gold, stats and who builds it (items) or who it suits (augments), and the
+    // official description. Never a win or pick rate.
+    const pe = pv?.[`/${kind}/${slugOf(name)}`] ?? (kind === "augments" ? pv?.[`icon:/icons/augments/${id}.webp`] : null);
+    const lines = pe?.lines ?? [], desc = pe?.desc ?? "";
+    hvTitled = img.closest("[title]");
+    hvTitle = hvTitled?.title ?? "";
+    if (hvTitled) hvTitled.title = "";
+    const reason = hvTitle.startsWith(`${name} · `) ? hvTitle.slice(name.length + 3) : hvTitle.startsWith(`${name}: `) ? hvTitle.slice(name.length + 2) : hvTitle === name ? "" : hvTitle;
+    hoverCard.innerHTML = `<div class="hn">${esc(name)}</div>${reason ? `<div class="hr">${esc(reason)}</div>` : ""}${lines.length ? `<div class="hl">${lines.map(esc).join(" · ")}</div>` : ""}${desc ? `<div class="hd">${esc(desc).replace(/§(.+?)§/g, "<b>$1</b>")}</div>` : ""}`;
+    if (!hoverCard.isConnected) document.body.append(hoverCard);
+    hoverCard.hidden = false;
+    const r = hoverCard.getBoundingClientRect(), W = innerWidth, H = innerHeight;
+    hoverCard.style.left = `${Math.max(8, Math.min(W - r.width - 8, x + 14))}px`;
+    hoverCard.style.top = `${y + 18 + r.height > H ? Math.max(8, y - r.height - 12) : y + 18}px`;
+  }
+  document.addEventListener("mouseover", (e) => {
+    const img = e.target.closest?.("img");
+    if (img === hvEl) return;
+    hideCard();
+    const m = img && /\/img\/item\/(\d+)\.png|\/icons\/augments\/(\d+)\.webp/.exec(img.src);
+    if (!m) return;
+    hvEl = img;
+    const [kind, id] = m[1] ? ["items", Number(m[1]) % 10000] : ["augments", Number(m[2])];
+    hvT = setTimeout(() => showCard(img, kind, id, e.clientX, e.clientY), 300);
+  });
+  document.addEventListener("mouseout", (e) => { if (e.target === hvEl && !hvEl.contains(e.relatedTarget)) hideCard(); });
+  addEventListener("blur", hideCard);
+
   new MutationObserver((list) => { for (const m of list) for (const n of m.addedNodes) if (n.nodeType === 1) {
     if (n.dataset.style !== undefined) restyle(n);
     n.querySelectorAll("[data-style]").forEach(restyle);

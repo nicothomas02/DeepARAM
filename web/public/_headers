@@ -37,3 +37,5 @@
   Access-Control-Allow-Origin: *
 /data/why-best.json
   Access-Control-Allow-Origin: *
+/data/previews.json
+  Access-Control-Allow-Origin: *

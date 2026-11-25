@@ -32,7 +32,7 @@ const nextConfig: NextConfig = {
       { source: "/:path*", headers: SECURITY_HEADERS },
       // The desktop app's companion window (apps/desktop/ui/companion.html) reads these public files from its own origin.
       {
-        source: "/data/:file(team-fit.json|duos.json|augment-picks.json|overlay.json|damage-types.json|mechanism-profiles.json|why-best.json)",
+        source: "/data/:file(team-fit.json|duos.json|augment-picks.json|overlay.json|damage-types.json|mechanism-profiles.json|why-best.json|previews.json)",
         headers: [{ key: "Access-Control-Allow-Origin", value: "*" }],
       },
       // The shared build engine, for apps that fetch it rather than load it with a script tag.
