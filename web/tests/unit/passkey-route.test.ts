@@ -428,6 +428,16 @@ describe("passkeys", () => {
     expect(JSON.stringify(warn.mock.calls)).not.toContain(other);
   });
 
+  it("cuts the name and the code it logs to 60 characters", async () => {
+    const k = await ready("signin");
+    const options = await ask("signin");
+    h.hold = async () => {
+      throw Object.assign(new Error("An error whose name and code go on and on."), { name: "N".repeat(100), code: "C".repeat(100) });
+    };
+    expect(await answer("signin", k, options)).toEqual(NOT_SIGNED_IN);
+    expect(warn.mock.calls).toEqual([["passkey signin refused", "N".repeat(60), "C".repeat(60)]]);
+  });
+
   it("also logs an answer the library reports as not verified without an error", async () => {
     const k = await passkey();
     await signUp(k);
@@ -548,12 +558,12 @@ describe("passkey challenges", () => {
     expect(everything()).toEqual(before);
   });
 
-  it.each(KINDS)("refuses to finish %s after the challenge's five minutes", async (kind) => {
+  it.each(KINDS)("refuses to finish %s once the challenge's five minutes are up", async (kind) => {
     vi.useFakeTimers({ toFake: ["Date"] });
     const k = await ready(kind);
     const options = await ask(kind);
     const cookie = challengeCookie();
-    vi.setSystemTime(Date.now() + 300_001);
+    vi.setSystemTime(Date.now() + 300_000); // the clock stands still until it is moved, so this is five minutes to the millisecond
     expect(challengeCookie()).toBeUndefined(); // a browser has dropped it by now
 
     putChallengeCookie(cookie); // a client that kept it
@@ -651,7 +661,7 @@ describe("passkey challenges", () => {
     vi.useFakeTimers({ toFake: ["Date"] });
     const k = await ready(kind);
     const options = await ask(kind);
-    vi.setSystemTime(Date.now() + 299_000);
+    vi.setSystemTime(Date.now() + 299_999);
     expect(challengeCookie()).toBeDefined();
     expect(await answer(kind, k, options)).toEqual(OK);
   });
@@ -699,6 +709,23 @@ describe("passkey challenges", () => {
       bytes.forEach((b, at) => seen[at].add(b));
     }
     expect(seen.map((values) => values.size > 1)).toEqual(Array(32).fill(true));
+  });
+
+  it.each(["new_id", "email"])("answers that it took too long if a waiting sign-up has no %s", async (column) => {
+    const options = await ask("signup");
+    sqlite.exec(`UPDATE passkey_challenges SET ${column} = NULL`);
+    expect(await answer("signup", await passkey(), options)).toEqual(TOO_LATE);
+    expect(everything()).toEqual(NOTHING);
+  });
+
+  it("turns away a cookie that can't be a handle without asking the database", async () => {
+    const k = await ready("signin");
+    const options = await ask("signin");
+    h.broken = /^DELETE FROM passkey_challenges WHERE id = /; // asking would end in an error, not in "too long"
+    for (const cookie of ["short", "x".repeat(44), `${"x".repeat(42)}~`, `${"x".repeat(42)} `]) {
+      putChallengeCookie(cookie);
+      expect(await answer("signin", k, options)).toEqual(TOO_LATE);
+    }
   });
 
   it("removes an account's waiting challenge when the account is deleted", async () => {
