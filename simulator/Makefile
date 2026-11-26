@@ -31,17 +31,18 @@ test: sanity_test champ_test mayhem_sim
 	./champ_test data/mayhem_rules.json
 	./mayhem_sim --list --json | python3 -c "import json, sys; json.load(sys.stdin)" && echo "ok:   --list --json is valid JSON (the page reads it)"
 
-# The same binaries and checks under AddressSanitizer and UndefinedBehaviorSanitizer, built into
+# The same binaries and both test suites under AddressSanitizer and UndefinedBehaviorSanitizer, built into
 # build/sanitize/ so the normal binaries stay as they are. Not run by CI; about 12 times slower.
 SAN_DIR := build/sanitize
-SAN_FLAGS := -std=c++17 -O1 -g -fno-omit-frame-pointer -fsanitize=address,undefined \
-	-fno-sanitize-recover=undefined -D_GLIBCXX_ASSERTIONS -Wall -Wextra -pedantic
+SAN_FLAGS := -std=c++17 -O1 -g -fno-omit-frame-pointer -fsanitize=address,undefined,float-cast-overflow \
+	-fno-sanitize-recover=all -D_GLIBCXX_ASSERTIONS -D_GLIBCXX_SANITIZE_VECTOR -Wall -Wextra -pedantic
 $(SAN_DIR)/yunara_sim: $(SRC) $(HDR)
 $(SAN_DIR)/mayhem_sim: $(CHAMP_SRC) $(CHAMP_HDR)
 $(SAN_DIR)/sanity_test: src/sim.cpp tests/sanity.cpp $(HDR)
 $(SAN_DIR)/champ_test: src/sim.cpp src/champ.cpp tests/champ_sanity.cpp $(CHAMP_HDR)
 $(SAN_DIR)/%:
 	mkdir -p $(SAN_DIR) && $(CXX) $(SAN_FLAGS) -pthread $(filter %.cpp,$^) -o $@
+sanitize: export ASAN_OPTIONS ?= strict_string_checks=1:check_initialization_order=1:strict_init_order=1
 sanitize: $(addprefix $(SAN_DIR)/,yunara_sim mayhem_sim sanity_test champ_test)
 	$(SAN_DIR)/sanity_test data/yunara_mayhem.json data/cn_enemy_pool.json
 	$(SAN_DIR)/champ_test data/mayhem_rules.json
