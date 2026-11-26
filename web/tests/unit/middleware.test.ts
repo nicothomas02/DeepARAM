@@ -72,7 +72,7 @@ describe("rate limits", () => {
     // The middleware is read as text: every quoted path above the matcher counts as a path a rule names. "/api/x"
     // on its own is one path, startsWith("/api/x") a whole branch. A message that starts "Update this test" means
     // the code changed shape and can no longer be read here, not that a route lost its limit.
-    const source = readFileSync("src/middleware.ts", "utf8");
+    const source = readFileSync(new URL("../../src/middleware.ts", import.meta.url), "utf8");
     const end = source.indexOf("export const config");
     expect(end, 'Update this test: it reads src/middleware.ts up to "export const config", which it can no longer find.').toBeGreaterThan(0);
     const code = source.slice(0, end).replace(/\/\*[\s\S]*?\*\/|(^|\s)\/\/.*$/gm, "");
