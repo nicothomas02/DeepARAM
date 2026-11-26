@@ -78,31 +78,31 @@
    "augments": {
     "deepscore": {
      "n": 865,
-     "hit": 0.994,
-     "lead": 0.0531
+     "hit": 0.998,
+     "lead": 0.0529
     },
     "popular": {
      "n": 865,
-     "hit": 0.74,
-     "lead": 0.0167
+     "hit": 0.743,
+     "lead": 0.0163
     }
    },
    "items": {
     "deepscore": {
      "n": 519,
-     "hit": 0.954,
-     "lead": 0.0381
+     "hit": 0.956,
+     "lead": 0.037
     },
     "popular": {
      "n": 519,
-     "hit": 0.676,
-     "lead": 0.0044
+     "hit": 0.672,
+     "lead": 0.0045
     }
    },
    "champions": {
     "n": 20,
     "still_above_50": 0.95,
-    "avg_next": 0.5433
+    "avg_next": 0.5431
    }
   }
  ]
