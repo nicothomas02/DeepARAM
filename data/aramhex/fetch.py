@@ -20,6 +20,11 @@ Writes data/aramhex/patches/<patch>/ with [games, wins] pairs:
   meta.json          patch, seq, snapshot, matches, window, which tables were carried from an earlier patch
 Only the "normal" rules are kept (event modes like first-prismatic are skipped). Standard library only.
 
+Nothing is written unless every file is the one index.json lists (sha256) and each patch's champion games add up to
+10 x its match count: the files sit behind a CDN that caches each one for five minutes on its own, so right after a
+release an old index can come with new tables (2026-11-26, common.snapshot_problem). A refused download exits 1 and
+leaves the last copy as it was; index.json keeps its old seq, so the hourly check asks again.
+
 Usage: python3 data/aramhex/fetch.py [--src DIR]   (DIR: a local clone instead of downloading)
 """
 
@@ -30,6 +35,9 @@ import os
 import sys
 import datetime as dt
 import urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import common as ah  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "patches")
@@ -55,21 +63,43 @@ def gw(r):
     return [int(r["games"]), int(r["wins"])]
 
 
+def listed(src, base, name, files):
+    """One file of a dataset, only if it is the file the index lists (sha256, where the index gives one)."""
+    raw = get(src, base + name)
+    want = (files.get(name) or {}).get("sha256")
+    got = hashlib.sha256(raw).hexdigest()
+    if want and got != want:
+        raise ah.SnapshotError(f"{base}{name} is not the file index.json lists (sha256 {got[:12]}, listed {want[:12]})")
+    return raw
+
+
+STAGED = []  # (path, text): written by flush() once every dataset has passed its checks
+SKIPPED = []  # "<patch> <file>": tables whose fields this script no longer reads, left as they were (watch() notes them)
+
+
 def dump(path, obj):
-    with open(path, "w") as f:
-        json.dump(obj, f, separators=(",", ":"), sort_keys=True)
-        f.write("\n")
+    STAGED.append((path, json.dumps(obj, separators=(",", ":"), sort_keys=True) + "\n"))
+
+
+def flush():
+    for path, text in STAGED:
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w") as f:
+            f.write(text)
+    del STAGED[:]
 
 
 def convert(src, ds, prev_hashes):
     base = ds["path"].rstrip("/") + "/"
     files = ds["files"]
-    load = lambda name: json.loads(get(src, base + name)) if name in files else None
+    load = lambda name: json.loads(listed(src, base, name, files)) if name in files else None
     patch = ds["patch"]
     out = os.path.join(OUT, patch)
-    os.makedirs(out, exist_ok=True)
     meta = load("meta.json") or {}
     heroes = load("heroes.json") or {}
+    why = ah.snapshot_problem({h: gw(r) for h, r in heroes.items()}, ds.get("matches"))
+    if why:
+        raise ah.SnapshotError(f"{base}: {why}")
     dump(os.path.join(out, "heroes.json"), {h: gw(r) for h, r in heroes.items()})
     ha = load("hero_augments.json") or {}
     excluded = set((meta.get("excluded_augments") or {}).keys())
@@ -112,20 +142,29 @@ def convert(src, ds, prev_hashes):
             w = v.get("3081")
             if not w:
                 continue
-            d[h] = {"all": [int(w.get("eligible_total", w["total"])), int(w.get("eligible_wins", w["total_wins"]))],
+            g, won = w.get("eligible_total", w.get("total")), w.get("eligible_wins", w.get("total_wins"))
+            if g is None or won is None:
+                # AramHex's 16.23 release of 2026-11-26 dropped total_wins and the eligible_* counts
+                # (recommendation_style "destiny_style_v1"). The KeyError here stopped that download half-way.
+                # Without the augment's wins the table has no "all" row, so it is left as it was and noted for Nico.
+                d = None
+                break
+            d[h] = {"all": [int(g), int(won)],
                     "items": {x["item"]: [int(x["games"]), int(x["wins"])] for x in w.get("items", [])}}
-        dump(os.path.join(out, "destiny.json"), d)
-        written.append("destiny")
-        sha = files["hero_augment_items.json"].get("sha256")
-        if sha and sha in prev_hashes.get("hero_augment_items.json", set()):
-            carried.append("destiny")
+        if d is None:
+            SKIPPED.append(f"{patch} hero_augment_items.json")
+        else:
+            dump(os.path.join(out, "destiny.json"), d)
+            written.append("destiny")
+            sha = files["hero_augment_items.json"].get("sha256")
+            if sha and sha in prev_hashes.get("hero_augment_items.json", set()):
+                carried.append("destiny")
     # Skill brackets (AramHex's own rating, not official ranks): casual, mid and top 5% ("high"; "top" is a copy).
     bands = []
     for band in ("casual", "mid", "high"):
         hb = load(f"bands/{band}/heroes.json")
         if not hb:
             continue
-        os.makedirs(os.path.join(out, "bands", band), exist_ok=True)
         dump(os.path.join(out, "bands", band, "heroes.json"), {h: gw(r) for h, r in hb.items()})
         # Bracket augment and spell tables (Nico 2026-11-24 chose "half-and-half, live patch only": champion pages mix a
         # bracket's augment scores 50/50 with all players', web/src/lib/bracket-augments.ts). Spells are kept to re-test
@@ -209,8 +248,12 @@ def watch(src, index):
         "fields": fields,
         "latest_seq": index.get("latest_seq"),
         "latest_snapshot": max((d.get("snapshot_at") or "" for d in index["datasets"]), default=""),
+        "skipped_tables": sorted(SKIPPED),
     }
     notes = []
+    for t in now["skipped_tables"]:
+        if t not in ((old or {}).get("skipped_tables") or []):
+            notes.append(f"{t}: its fields changed and fetch.py can't read it, so that table was left as it was (fetch.py needs updating)")
     if old:
         if now["schema_version"] != old.get("schema_version"):
             notes.append(f"Schema version changed: {old.get('schema_version')} -> {now['schema_version']}")
@@ -277,18 +320,25 @@ def main():
     # Oldest first, so a later patch can tell which tables it reuses from an earlier one (same file hash).
     sets = [d for d in index["datasets"] if d.get("mode") == "normal" and d["path"].rstrip("/") == f"patches/{d['patch']}/normal"]
     sets.sort(key=lambda d: [int(x) for x in d["patch"].split(".")])
-    os.makedirs(OUT, exist_ok=True)
     seen = {}
-    for ds in sets:
-        written, carried = convert(a.src, ds, seen)
-        for name, f in ds["files"].items():
-            if f.get("sha256"):
-                seen.setdefault(name, set()).add(f["sha256"])
-        print(f"{ds['patch']}: {ds.get('matches'):,} games, {', '.join(written)}" + (f" (carried: {', '.join(carried)})" if carried else ""))
+    try:
+        for ds in sets:
+            written, carried = convert(a.src, ds, seen)
+            for name, f in ds["files"].items():
+                if f.get("sha256"):
+                    seen.setdefault(name, set()).add(f["sha256"])
+            print(f"{ds['patch']}: {ds.get('matches'):,} games, {', '.join(written)}" + (f" (carried: {', '.join(carried)})" if carried else ""))
+    except ah.SnapshotError as e:
+        del STAGED[:], SKIPPED[:]
+        print(f"::error::AramHex download refused, the last copy stays: {e}", file=sys.stderr)
+        return 1
+    flush()
     for n in watch(a.src, index):
         print("upstream change:", n)
     dump(os.path.join(OUT, "index.json"), {"patches": [d["patch"] for d in sets], "latest": sets[-1]["patch"] if sets else None,
                                            "seq": index.get("latest_seq")})
+    flush()
+    return 0
 
 
 if __name__ == "__main__":

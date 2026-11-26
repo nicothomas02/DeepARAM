@@ -529,6 +529,13 @@ def main():
         print("no AramHex data (run data/aramhex/fetch.py first)")
         return 0
     live = ah.live_patch()
+    # Before anything is written: every patch's match count must fit its champion table (common.snapshot_problem).
+    # A mismatched copy is refused whole, so the files from the last good run stay as they are.
+    bad = [f"{p}: {why}" for p in sorted({*ah.patches(), *([live] if live else [])}, key=vkey) for why in [ah.problem(p)] if why]
+    if bad:
+        print("::error::AramHex copy refused, nothing written (its match count and tables are from different releases; "
+              "data/aramhex/fetch.py downloads a matching set): " + "; ".join(bad), file=sys.stderr)
+        return 1
     stale = stale_days(live) if live and ah.has(live, "heroes") else 0
     keep101 = stale >= STALE_DAYS
     done = merge_history(a.check, skip={live} if keep101 else set())
