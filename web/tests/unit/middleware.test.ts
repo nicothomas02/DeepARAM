@@ -64,7 +64,7 @@ describe("the visitor a rate limit counts", () => {
     ])
       expect(visitorKey(address), address).toBe("203.0.113.9");
     // only ::ffff:0:0/96 is IPv4; these are ordinary IPv6 addresses
-    for (const address of ["::203.0.113.9", "::fffe:203.0.113.9", "::ffff:0:203.0.113.9"])
+    for (const address of ["::203.0.113.9", "::fffe:203.0.113.9", "::ffff:0:203.0.113.9", "::1:ffff:203.0.113.9"])
       expect(visitorKey(address), address).toBe("0:0:0:0::/64");
     expect(visitorKey("1::ffff:203.0.113.9")).toBe("1:0:0:0::/64");
   });
@@ -82,6 +82,7 @@ describe("the visitor a rate limit counts", () => {
       " 2001:db8::1",
       "2001:db8:::1",
       "2001:db8::1::2", // "::" twice
+      "1:2:3:4::5:6:7:8::9", // twice again, with eight groups before the second
       ":",
       ":::",
       ":1",
@@ -174,6 +175,23 @@ describe("rate limits", () => {
     // also when the address arrives wrapped in IPv6
     expect((await middleware(req("::ffff:9.9.9.9", "/api/contact"))).status).toBe(429);
     expect((await middleware(req("::ffff:9.9.9.7", "/api/contact"))).status).toBe(200);
+  });
+
+  it("counts the first X-Forwarded-For address the same way when Cloudflare names no visitor", async () => {
+    const forwarded = (list: string) =>
+      new NextRequest("https://deeparam.com/api/contact", { method: "POST", headers: { "x-forwarded-for": list } });
+    for (let i = 1; i <= 11; i++) {
+      const r = await middleware(forwarded(`2001:db8:c:1::${i.toString(16)}, 10.0.0.${i}`));
+      expect(r.status, `address ${i}`).toBe(i <= 10 ? 200 : 429);
+    }
+    // only the first address in the list counts
+    expect((await middleware(forwarded("2001:db8:c:2::1, 2001:db8:c:1::1"))).status).toBe(200);
+  });
+
+  it("counts requests that name no visitor at all as one visitor, as before", async () => {
+    const bare = () => new NextRequest("https://deeparam.com/api/contact", { method: "POST" });
+    for (let i = 0; i < 10; i++) expect((await middleware(bare())).status).toBe(200);
+    expect((await middleware(bare())).status).toBe(429);
   });
 
   it("guards error reports, sign-in and the write routes", () => {
