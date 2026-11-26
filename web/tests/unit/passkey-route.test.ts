@@ -1,75 +1,147 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
-import { NextRequest } from "next/server";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { NextRequest, NextResponse } from "next/server";
 import { CHALLENGE_COOKIE } from "@/lib/account-cookies";
+import { createAccount, db, deleteAccount, startSession } from "@/lib/accounts";
 import { POST } from "@/app/api/account/passkey/route";
+import { POST as PASSWORD_SIGN_IN } from "@/app/api/account/signin/route";
+import { POST as SIGN_OUT } from "@/app/api/account/signout/route";
+import { POST as PASSWORD_SIGN_UP } from "@/app/api/account/signup/route";
 
-// The passkey route (api/account/passkey) run against SimpleWebAuthn itself. The "device" is a real key made
-// here that builds and signs its answers the way an authenticator does, so every check the library makes
-// (challenge, site, signature, counter, key type) is the real one. Only the accounts database, the session
-// and the browser's copy of the challenge cookie are stand-ins.
+// The passkey route (api/account/passkey) run against SimpleWebAuthn itself and the site's own account code.
+// The "device" is a real key made here that builds and signs its answers the way an authenticator does, so every
+// check the library makes (challenge, site, signature, counter, key type) is the real one. The database is a
+// real SQLite one holding the site's own tables, behind the few methods the site uses of Cloudflare D1, and the
+// browser's cookies are kept per name and path the way a browser keeps them.
 
 const HOST = "deeparam.test";
 const SITE = `https://${HOST}`;
+const PASSKEY = "/api/account/passkey";
 
-type Row = { id: string; account: string; public_key: string; counter: number; transports: string | null; label: string };
 const h = vi.hoisted(() => {
   // Newer servers can check ML-DSA-44 signatures, and on those SimpleWebAuthn 14's own defaults offer and accept
   // that key type as well. Every test here runs as if on such a server, where the defaults and the site differ.
   // Set here so it is in place before SimpleWebAuthn is loaded.
   Object.defineProperty(SubtleCrypto, "supports", { configurable: true, value: () => true });
-  return {
-    jar: new Map<string, string>(),
-    accounts: [] as { id: string; email: string }[],
-    passkeys: [] as Row[],
-    sessions: [] as string[],
-    signedIn: null as { id: string; email: string | null } | null,
-  };
+  return { d1: null as unknown, path: "/", hold: null as null | (() => Promise<void>), broken: null as null | RegExp, refusal: "" };
 });
 
-// Just the statements this route sends.
-function query(sql: string, v: unknown[]): unknown[] {
-  if (sql.startsWith("SELECT id, transports FROM passkeys WHERE account = ?")) return h.passkeys.filter((k) => k.account === v[0]);
-  if (sql.startsWith("SELECT p.*, a.owner FROM passkeys p")) return h.passkeys.filter((k) => k.id === v[0]).map((k) => ({ ...k, owner: 0 }));
-  if (sql.startsWith("SELECT 1 FROM accounts WHERE email = ?")) return h.accounts.filter((a) => a.email === v[0]);
-  if (sql.startsWith("INSERT INTO accounts")) h.accounts.push({ id: String(v[0]), email: String(v[1]) });
-  else if (sql.startsWith("INSERT INTO passkeys")) h.passkeys.push({ id: String(v[0]), account: String(v[1]), public_key: String(v[2]), counter: Number(v[3]), transports: v[4] as string | null, label: String(v[5]) });
-  else if (sql.startsWith("UPDATE passkeys SET counter = ? WHERE id = ?")) h.passkeys.filter((k) => k.id === v[1]).forEach((k) => (k.counter = Number(v[0])));
-  else throw new Error(`The stand-in database doesn't know: ${sql}`);
-  return [];
-}
-type Stmt = { bind(...v: unknown[]): Stmt; run(): Promise<void>; first(): Promise<unknown>; all(): Promise<{ results: unknown[] }> };
+// ---- The database ----
+
+type Sqlite = { exec(sql: string): void; prepare(sql: string): { run(...v: unknown[]): unknown; get(...v: unknown[]): unknown; all(...v: unknown[]): unknown[] } };
+const { DatabaseSync } = (process as unknown as { getBuiltinModule(name: string): { DatabaseSync: new (file: string) => Sqlite } }).getBuiltinModule("node:sqlite");
+const sqlite = new DatabaseSync(":memory:");
+const plain = (v: unknown[]) => v.map((x) => (typeof x === "boolean" ? Number(x) : x));
+type Stmt = { sql: string; v: unknown[]; bind(...v: unknown[]): Stmt; run(): Promise<unknown>; first(): Promise<unknown>; all(): Promise<{ results: unknown[] }> };
+// A test can break the statements that match h.broken, to see what the site does when the database refuses one.
+const prepared = (sql: string) => {
+  if (h.broken?.test(sql)) throw new Error(h.refusal);
+  return sqlite.prepare(sql);
+};
 const stmt = (sql: string, v: unknown[] = []): Stmt => ({
-  bind: (...b) => stmt(sql, b),
-  run: async () => void query(sql, v),
-  first: async () => query(sql, v)[0] ?? null,
-  all: async () => ({ results: query(sql, v) }),
+  sql,
+  v,
+  bind: (...b) => stmt(sql, plain(b)),
+  run: async () => (prepared(sql).run(...v), { success: true }),
+  first: async () => prepared(sql).get(...v) ?? null,
+  all: async () => ({ results: prepared(sql).all(...v) }),
 });
-const database = {
+// A batch is one transaction, as on D1.
+h.d1 = {
   prepare: (sql: string) => stmt(sql),
   batch: async (all: Stmt[]) => {
-    for (const s of all) await s.run();
+    sqlite.exec("BEGIN");
+    try {
+      for (const s of all) prepared(s.sql).run(...s.v);
+      sqlite.exec("COMMIT");
+    } catch (e) {
+      sqlite.exec("ROLLBACK");
+      throw e;
+    }
   },
 };
-
-vi.mock("next/headers", () => ({
-  cookies: async () => ({ get: (name: string) => (h.jar.has(name) ? { name, value: h.jar.get(name) } : undefined) }),
-}));
+vi.mock("@opennextjs/cloudflare", () => ({ getCloudflareContext: () => ({ env: { PROFILES: h.d1 } }) }));
 vi.mock("@/lib/bot-check", () => ({ passesBotCheck: async () => true }));
-vi.mock("@/lib/accounts", async (original) => {
-  const real = await original<typeof import("@/lib/accounts")>();
-  return {
-    ...real,
-    db: async () => database,
-    requireAccount: async () => {
-      if (!h.signedIn) throw new real.AccountError("Sign in first.", 401);
-      return h.signedIn;
-    },
-    startSession: async (_res: unknown, account: { id: string }) => void h.sessions.push(account.id),
-  };
+// SimpleWebAuthn itself, except that a test can hold one request at the moment its answer is about to be checked.
+vi.mock("@simplewebauthn/server", async (original) => {
+  const real = await original<typeof import("@simplewebauthn/server")>();
+  const held =
+    <A extends unknown[], R>(check: (...a: A) => Promise<R>) =>
+    async (...a: A) => {
+      const wait = h.hold;
+      h.hold = null;
+      await wait?.();
+      return check(...a);
+    };
+  return { ...real, verifyRegistrationResponse: held(real.verifyRegistrationResponse), verifyAuthenticationResponse: held(real.verifyAuthenticationResponse) };
 });
+
+const rows = <T = Record<string, unknown>>(sql: string, ...v: unknown[]) => sqlite.prepare(sql).all(...v).map((r) => ({ ...(r as object) })) as T[];
+type Row = { id: string; account: string; public_key: string; counter: number; transports: string | null; label: string };
+const saved = {
+  get accounts() {
+    return rows<{ id: string; email: string }>("SELECT id, email FROM accounts ORDER BY rowid");
+  },
+  get passkeys() {
+    return rows<Row>("SELECT id, account, public_key, counter, transports, label FROM passkeys ORDER BY rowid");
+  },
+  /** The account of every session ever started, oldest first. */
+  get sessions() {
+    return rows<{ account: string }>("SELECT account FROM sessions ORDER BY rowid").map((s) => s.account);
+  },
+};
+const everything = () => ({ accounts: saved.accounts, passkeys: saved.passkeys, sessions: saved.sessions });
+const NOTHING = { accounts: [], passkeys: [], sessions: [] };
+
+// ---- The browser's cookies ----
+
+// One cookie per name and path. A Set-Cookie that has expired drops the cookie of that name under that path and
+// no other, and a cookie goes only to addresses under its path.
+type Cookie = { name: string; value: string; path: string; until: number };
+const jar: Cookie[] = [];
+function keep(setCookie: string) {
+  const [pair, ...attrs] = setCookie.split(";").map((p) => p.trim());
+  const name = pair.slice(0, pair.indexOf("="));
+  const attr = (k: string) => attrs.find((a) => a.toLowerCase().startsWith(`${k}=`))?.slice(k.length + 1);
+  const path = attr("path") ?? "/";
+  const until = attr("max-age") !== undefined ? Date.now() + Number(attr("max-age")) * 1000 : attr("expires") ? Date.parse(attr("expires")!) : Infinity;
+  const old = jar.findIndex((c) => c.name === name && c.path === path);
+  if (old >= 0) jar.splice(old, 1);
+  if (until > Date.now()) jar.push({ name, value: decodeURIComponent(pair.slice(name.length + 1)), path, until });
+}
+const sentTo = (path: string) =>
+  jar.filter((c) => c.until > Date.now() && (path === c.path || path.startsWith(c.path.endsWith("/") ? c.path : `${c.path}/`))).sort((a, b) => b.path.length - a.path.length);
+vi.mock("next/headers", () => ({
+  cookies: async () => ({
+    get: (name: string) => {
+      const c = sentTo(h.path).find((x) => x.name === name);
+      return c && { name, value: c.value };
+    },
+  }),
+}));
+
+/** The challenge cookie as the browser would send it to the passkey route right now, if it would. */
+const challengeCookie = () => sentTo(PASSKEY).find((c) => c.name === CHALLENGE_COOKIE)?.value;
+/** A client that sets the challenge cookie itself, or (with nothing) leaves it out. */
+function putChallengeCookie(value?: string) {
+  for (let i = jar.length - 1; i >= 0; i--) if (jar[i].name === CHALLENGE_COOKIE) jar.splice(i, 1);
+  if (value !== undefined) jar.push({ name: CHALLENGE_COOKIE, value, path: PASSKEY, until: Infinity });
+}
+
+/** The Set-Cookie headers of the last answer, as they were sent. */
+let setCookies: string[] = [];
+async function send(route: (req: NextRequest) => Promise<NextResponse>, path: string, payload: Record<string, unknown> = {}, site = SITE) {
+  h.path = path;
+  const res = await route(new NextRequest(`${site}${path}`, { method: "POST", body: JSON.stringify(payload) }));
+  setCookies = res.headers.getSetCookie();
+  setCookies.forEach(keep);
+  return { status: res.status, data: await res.json() };
+}
+const post = (payload: Record<string, unknown>, site = SITE) => send(POST, PASSKEY, payload, site);
 
 // What the route writes to the log when SimpleWebAuthn refuses an answer.
 const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+// And what the site writes when something fails: clearing out old challenges, or a request it couldn't answer.
+const failed = vi.spyOn(console, "error").mockImplementation(() => {});
 
 // ---- Bytes ----
 
@@ -78,6 +150,7 @@ const join = (...parts: ArrayLike<number>[]) => Uint8Array.from(parts.flatMap((p
 const b64url = (b: ArrayLike<number>) => btoa(String.fromCharCode(...Array.from(b))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 const unb64url = (s: string) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0));
 const sha256 = async (b: Uint8Array<ArrayBuffer>) => new Uint8Array(await crypto.subtle.digest("SHA-256", b));
+const hex = (b: Uint8Array) => [...b].map((x) => x.toString(16).padStart(2, "0")).join("");
 
 // Enough CBOR for a passkey's public key and an attestation that carries no statement.
 type Cbor = number | string | Uint8Array | Map<number | string, Cbor>;
@@ -172,19 +245,12 @@ async function signed(k: Passkey, options: { challenge: string }, twist: Twist =
   };
 }
 
-// ---- The browser ----
-
-async function post(payload: Record<string, unknown>) {
-  const res = await POST(new NextRequest(`${SITE}/api/account/passkey`, { method: "POST", body: JSON.stringify(payload) }));
-  // The stand-in for the browser's cookie holds the last challenge the route sent.
-  const cookie = res.cookies.get(CHALLENGE_COOKIE);
-  if (cookie?.value) h.jar.set(CHALLENGE_COOKIE, cookie.value);
-  return { status: res.status, data: await res.json() };
-}
+// ---- People ----
 
 const OK = { status: 200, data: { ok: true } };
 const NOT_SAVED = { status: 400, data: { error: "The passkey couldn't be saved. Try again." } };
 const NOT_SIGNED_IN = { status: 401, data: { error: "That passkey didn't work. Try again." } };
+const TOO_LATE = { status: 400, data: { error: "That took too long. Try again." } };
 const algs = (options: { pubKeyCredParams: { alg: number }[] }) => options.pubKeyCredParams.map((p) => p.alg);
 
 async function signUp(k: Passkey, email = "ahri@example.com") {
@@ -197,12 +263,47 @@ async function signIn(k: Passkey, twist: Twist = {}) {
   return post({ step: "signin", response: await signed(k, options, twist) });
 }
 
-beforeEach(() => {
-  h.jar.clear();
-  h.accounts.length = h.passkeys.length = h.sessions.length = 0;
-  h.signedIn = null;
+/** A new account with a password and no passkey, signed in on this browser: the site's own sign-up, without its route. */
+async function account(email: string) {
+  const { id } = await createAccount(email, "a long enough password");
+  const res = NextResponse.json({});
+  await startSession(res, { id }, "password", true);
+  res.headers.getSetCookie().forEach(keep);
+  return id;
+}
+
+// The three things a passkey challenge is for, so one test can go through each: ready() gets a browser to where
+// it may ask, ask() is the "-options" step, answer() the step that finishes.
+type Kind = "add" | "signup" | "signin";
+const KINDS: Kind[] = ["add", "signup", "signin"];
+async function ready(kind: Kind) {
+  const k = await passkey();
+  if (kind === "add") await account("ahri@example.com");
+  if (kind === "signin") await signUp(k);
+  return k;
+}
+const ask = async (kind: Kind, email = "ahri@example.com") => (await post(kind === "signup" ? { step: "signup-options", email } : { step: `${kind}-options` })).data;
+const answer = async (kind: Kind, k: Passkey, options: { challenge: string }, twist: Twist = {}) =>
+  post({ step: kind, response: kind === "signin" ? await signed(k, options, twist) : await made(k, options, twist), label: "Windows PC" });
+
+/** How many challenges are in the database, waiting or old. */
+const waiting = () => rows<{ n: number }>("SELECT COUNT(*) AS n FROM passkey_challenges")[0].n;
+/** Challenges that ran out a moment ago and were never answered. */
+function oldChallenges(n: number) {
+  const insert = sqlite.prepare("INSERT INTO passkey_challenges (id, kind, challenge, expires) VALUES (?, 'signin', 'never answered', ?)");
+  for (let i = 0; i < n; i++) insert.run(`old-${i}`, Date.now() - 1);
+}
+
+beforeEach(async () => {
+  jar.length = 0;
+  h.hold = h.broken = null;
+  h.refusal = "The database refused this statement.";
+  failed.mockClear();
+  await db(); // the site makes its own tables the first time the database is used
+  for (const { name } of rows<{ name: string }>("SELECT name FROM sqlite_master WHERE type = 'table'")) sqlite.exec(`DELETE FROM ${name}`);
   warn.mockClear();
 });
+afterEach(() => void vi.useRealTimers());
 
 describe("passkeys", () => {
   it("creates an account with a passkey, then signs in with it", async () => {
@@ -214,37 +315,36 @@ describe("passkeys", () => {
 
     const k = await passkey();
     expect(await post({ step: "signup", response: await made(k, options), label: "Windows PC" })).toEqual(OK);
-    expect(h.accounts).toEqual([{ id: expect.any(String), email: "ahri@example.com" }]);
-    expect(h.passkeys).toEqual([{ id: b64url(k.id), account: h.accounts[0].id, public_key: b64url(k.publicKey), counter: 0, transports: "internal,hybrid", label: "Windows PC" }]);
-    expect(h.sessions).toEqual([h.accounts[0].id]);
+    expect(saved.accounts).toEqual([{ id: expect.any(String), email: "ahri@example.com" }]);
+    expect(saved.passkeys).toEqual([{ id: b64url(k.id), account: saved.accounts[0].id, public_key: b64url(k.publicKey), counter: 0, transports: "internal,hybrid", label: "Windows PC" }]);
+    expect(saved.sessions).toEqual([saved.accounts[0].id]);
 
     const ask = (await post({ step: "signin-options" })).data;
     expect(ask).toMatchObject({ rpId: HOST, userVerification: "preferred" });
     expect(await post({ step: "signin", response: await signed(k, ask) })).toEqual(OK);
-    expect(h.passkeys[0].counter).toBe(1);
-    expect(h.sessions).toEqual([h.accounts[0].id, h.accounts[0].id]);
+    expect(saved.passkeys[0].counter).toBe(1);
+    expect(saved.sessions).toEqual([saved.accounts[0].id, saved.accounts[0].id]);
     expect(warn).not.toHaveBeenCalled();
   });
 
   it("adds a second passkey to a signed-in account, and names the first so it isn't made twice", async () => {
     const first = await passkey();
-    await signUp(first);
-    h.signedIn = { id: h.accounts[0].id, email: "ahri@example.com" };
+    await signUp(first); // which leaves this browser signed in
 
     const options = (await post({ step: "add-options" })).data;
     expect(options.excludeCredentials).toEqual([{ id: b64url(first.id), type: "public-key", transports: ["internal", "hybrid"] }]);
     const second = await passkey();
     expect(await post({ step: "add", response: await made(second, options), label: "Android phone" })).toEqual(OK);
-    expect(h.passkeys.map((p) => [p.id, p.account, p.label])).toEqual([
-      [b64url(first.id), h.accounts[0].id, "Windows PC"],
-      [b64url(second.id), h.accounts[0].id, "Android phone"],
+    expect(saved.passkeys.map((p) => [p.id, p.account, p.label])).toEqual([
+      [b64url(first.id), saved.accounts[0].id, "Windows PC"],
+      [b64url(second.id), saved.accounts[0].id, "Android phone"],
     ]);
     expect(await signIn(second)).toEqual(OK);
   });
 
   it("offers EdDSA, ES256 and RS256, in that order, whatever else the server could check", async () => {
     expect(algs((await post({ step: "signup-options", email: "ahri@example.com" })).data)).toEqual([-8, -7, -257]);
-    h.signedIn = { id: "an-account", email: null };
+    await account("lux@example.com");
     expect(algs((await post({ step: "add-options" })).data)).toEqual([-8, -7, -257]);
   });
 
@@ -255,19 +355,24 @@ describe("passkeys", () => {
   ])("doesn't save a passkey whose key type wasn't offered (%s), new account or added", async (_type, make) => {
     const k = await make();
     expect(await signUp(k)).toEqual(NOT_SAVED);
-    h.signedIn = { id: "an-account", email: null };
+    expect(everything()).toEqual(NOTHING);
+
+    await account("lux@example.com");
+    const before = everything();
     const options = (await post({ step: "add-options" })).data;
     expect(await post({ step: "add", response: await made(k, options) })).toEqual(NOT_SAVED);
-    expect([h.accounts, h.passkeys, h.sessions]).toEqual([[], [], []]);
+    expect(everything()).toEqual(before);
   });
 
   it("still signs in with a passkey saved earlier whose key type new passkeys can't use (RS384)", async () => {
     const k = await rsaPasskey(-258);
-    h.accounts.push({ id: "an-account", email: "ahri@example.com" });
-    h.passkeys.push({ id: b64url(k.id), account: "an-account", public_key: b64url(k.publicKey), counter: 0, transports: "internal", label: "Windows PC" });
+    sqlite.prepare("INSERT INTO accounts (id, email, pass, created_at) VALUES ('an-account', 'ahri@example.com', NULL, datetime('now'))").run();
+    sqlite
+      .prepare("INSERT INTO passkeys (id, account, public_key, counter, transports, label, created_at) VALUES (?, 'an-account', ?, 0, 'internal', 'Windows PC', datetime('now'))")
+      .run(b64url(k.id), b64url(k.publicKey));
     expect(await signIn(k)).toEqual(OK);
-    expect(h.passkeys[0].counter).toBe(1);
-    expect(h.sessions).toEqual(["an-account"]);
+    expect(saved.passkeys[0].counter).toBe(1);
+    expect(saved.sessions).toEqual(["an-account"]);
   });
 
   it.each<[string, Twist]>([
@@ -276,7 +381,7 @@ describe("passkeys", () => {
   ])("doesn't save a passkey %s", async (_why, twist) => {
     const options = (await post({ step: "signup-options", email: "ahri@example.com" })).data;
     expect(await post({ step: "signup", response: await made(await passkey(), options, twist) })).toEqual(NOT_SAVED);
-    expect([h.accounts, h.passkeys, h.sessions]).toEqual([[], [], []]);
+    expect(everything()).toEqual(NOTHING);
   });
 
   it.each<[string, (other: Passkey) => Twist]>([
@@ -295,8 +400,8 @@ describe("passkeys", () => {
     expect(await signIn(k)).toEqual(OK); // the counter is 1 from here
 
     expect(await signIn(k, twist(await passkey()))).toEqual(NOT_SIGNED_IN);
-    expect(h.passkeys[0].counter).toBe(1);
-    expect(h.sessions).toHaveLength(2);
+    expect(saved.passkeys[0].counter).toBe(1);
+    expect(saved.sessions).toHaveLength(2);
 
     k.counter = 1;
     expect(await signIn(k)).toEqual(OK); // the same passkey, used honestly, still works
@@ -308,7 +413,6 @@ describe("passkeys", () => {
     const options = (await post({ step: "signup-options", email: "ahri@example.com" })).data;
     await post({ step: "signup", response: await made(k, options, elsewhere) });
     await signUp(k);
-    h.signedIn = { id: h.accounts[0].id, email: "ahri@example.com" };
     const more = (await post({ step: "add-options" })).data;
     await post({ step: "add", response: await made(await passkey(), more, elsewhere) });
     await signIn(k, elsewhere);
@@ -325,7 +429,415 @@ describe("passkeys", () => {
     expect(await post({ step: "signin", response: await signed(k, ask, { challenge: other }) })).toEqual(NOT_SIGNED_IN);
     expect(warn.mock.calls).toHaveLength(1);
     expect(warn.mock.calls[0]).toHaveLength(3);
+    expect(warn.mock.calls).toEqual([["passkey signin refused", "Error", ""]]); // this error has a name and no code
     expect(JSON.stringify(warn.mock.calls)).not.toContain(ask.challenge);
     expect(JSON.stringify(warn.mock.calls)).not.toContain(other);
+  });
+
+  it("cuts the name and the code it logs to 60 characters", async () => {
+    const k = await ready("signin");
+    const options = await ask("signin");
+    h.hold = async () => {
+      throw Object.assign(new Error("An error whose name and code go on and on."), { name: "N".repeat(100), code: "C".repeat(100) });
+    };
+    expect(await answer("signin", k, options)).toEqual(NOT_SIGNED_IN);
+    expect(warn.mock.calls).toEqual([["passkey signin refused", "N".repeat(60), "C".repeat(60)]]);
+  });
+
+  it("also logs an answer the library reports as not verified without an error", async () => {
+    const k = await passkey();
+    await signUp(k);
+    expect(await signIn(k, { signer: await passkey() })).toEqual(NOT_SIGNED_IN);
+    expect(warn.mock.calls).toEqual([["passkey signin refused", "NotVerified", ""]]);
+  });
+});
+
+describe("passkey challenges", () => {
+  it.each(KINDS)("refuses to finish %s with a challenge the server never gave out", async (kind) => {
+    const k = await ready(kind);
+    const own = { challenge: b64url(crypto.getRandomValues(new Uint8Array(32))) };
+    const before = everything();
+    // The cookie holding that challenge, alone and in the form a pending sign-up once travelled in.
+    for (const cookie of [own.challenge, `${own.challenge}~${crypto.randomUUID()}~${encodeURIComponent("lux@example.com")}`]) {
+      putChallengeCookie(cookie);
+      expect(await answer(kind, k, own)).toEqual(TOO_LATE);
+      expect(everything()).toEqual(before);
+    }
+  });
+
+  it("accepts a sign-in answer once, even from a passkey whose counter stays at 0", async () => {
+    const k = await ready("signin");
+    const options = await ask("signin");
+    const cookie = challengeCookie();
+    const response = await signed(k, options, { counter: 0 });
+    expect(await post({ step: "signin", response })).toEqual(OK);
+    expect(saved.passkeys[0].counter).toBe(0);
+
+    putChallengeCookie(cookie); // the same answer again, with the cookie it came with
+    const before = everything();
+    expect(await post({ step: "signin", response })).toEqual(TOO_LATE);
+    expect(everything()).toEqual(before);
+
+    expect(await signIn(k, { counter: 0 })).toEqual(OK); // a new challenge, and the passkey signs in again
+  });
+
+  it.each(KINDS)("refuses a second %s answer that arrives while the first is still being checked", async (kind) => {
+    const k = await ready(kind);
+    const options = await ask(kind);
+    const before = everything();
+    const payload = { step: kind, response: kind === "signin" ? await signed(k, options) : await made(k, options), label: "Windows PC" };
+    let reached!: () => void;
+    let letGo!: () => void;
+    const atCheck = new Promise<void>((r) => (reached = r));
+    const go = new Promise<void>((r) => (letGo = r));
+    h.hold = async () => {
+      reached();
+      await go;
+    };
+    const first = post(payload);
+    await atCheck; // the first has its challenge and has not checked its answer yet
+    expect(challengeCookie()).toBeDefined(); // and the browser still has the cookie
+
+    expect(await post(payload)).toEqual(TOO_LATE);
+    expect(everything()).toEqual(before);
+    letGo();
+    expect(await first).toEqual(OK);
+    const after = everything();
+    expect([after.accounts.length - before.accounts.length, after.passkeys.length - before.passkeys.length, after.sessions.length - before.sessions.length]).toEqual(
+      { add: [0, 1, 0], signup: [1, 1, 1], signin: [0, 0, 1] }[kind],
+    );
+  });
+
+  it.each(KINDS)("opens %s's challenge only for the cookie that came with it", async (kind) => {
+    const k = await ready(kind);
+    const options = await ask(kind);
+    const cookie = challengeCookie();
+    const before = everything();
+    putChallengeCookie(b64url(crypto.getRandomValues(new Uint8Array(32)))); // another handle of the right shape
+    expect(await answer(kind, k, options)).toEqual(TOO_LATE);
+    expect(everything()).toEqual(before);
+
+    putChallengeCookie(cookie); // and the challenge is still there for the browser that asked
+    expect(await answer(kind, k, options)).toEqual(OK);
+  });
+
+  it.each(KINDS)("keeps two browsers part-way through %s to their own challenges", async (kind) => {
+    const k = await ready(kind);
+    const one = await ask(kind);
+    const cookieOne = challengeCookie();
+    const two = await ask(kind, "lux@example.com"); // a second browser: its cookie is the one in the jar now
+    expect(two.challenge).not.toBe(one.challenge);
+    const before = everything();
+    expect((await answer(kind, k, one)).status).toBe(kind === "signin" ? 401 : 400); // the second's cookie, the first's challenge
+    expect(everything()).toEqual(before);
+
+    putChallengeCookie(cookieOne);
+    expect(await answer(kind, k, one)).toEqual(OK);
+  });
+
+  it.each<Kind>(["add", "signup"])("doesn't save a passkey made for another challenge than the one waiting (%s)", async (kind) => {
+    const k = await ready(kind);
+    await ask(kind);
+    const before = everything();
+    expect(await answer(kind, k, { challenge: b64url(crypto.getRandomValues(new Uint8Array(32))) })).toEqual(NOT_SAVED);
+    expect(everything()).toEqual(before);
+  });
+
+  it("says so when a passkey isn't on any account, and leaves the challenge for the one that is", async () => {
+    const k = await ready("signin");
+    const options = await ask("signin");
+    const before = everything();
+    expect(await post({ step: "signin", response: await signed(await passkey(), options) })).toEqual({ status: 401, data: { error: "That passkey isn't saved on any account here." } });
+    expect(everything()).toEqual(before);
+    expect(await post({ step: "signin", response: await signed(k, options) })).toEqual(OK);
+  });
+
+  it.each(KINDS)("takes back %s's challenge even when the answer is refused", async (kind) => {
+    const k = await ready(kind);
+    const options = await ask(kind);
+    const cookie = challengeCookie();
+    expect((await answer(kind, k, options, { origin: "https://deeparam.test.example" })).status).toBe(kind === "signin" ? 401 : 400);
+
+    putChallengeCookie(cookie); // a good answer to the same challenge, after the bad one
+    const before = everything();
+    expect(await answer(kind, k, options)).toEqual(TOO_LATE);
+    expect(everything()).toEqual(before);
+  });
+
+  it.each(KINDS)("refuses to finish %s once the challenge's five minutes are up", async (kind) => {
+    vi.useFakeTimers({ toFake: ["Date"] });
+    const k = await ready(kind);
+    const options = await ask(kind);
+    const cookie = challengeCookie();
+    vi.setSystemTime(Date.now() + 300_000); // the clock stands still until it is moved, so this is five minutes to the millisecond
+    expect(challengeCookie()).toBeUndefined(); // a browser has dropped it by now
+
+    putChallengeCookie(cookie); // a client that kept it
+    const before = everything();
+    expect(await answer(kind, k, options)).toEqual(TOO_LATE);
+    expect(everything()).toEqual(before);
+  });
+
+  it.each<[Kind, Kind]>([
+    ["signin", "add"],
+    ["add", "signin"],
+    ["signup", "signin"],
+  ])("refuses a challenge asked for %s as the challenge for %s", async (asked, finished) => {
+    const k = await ready(finished);
+    const options = await ask(asked, "lux@example.com");
+    expect(options.challenge).toEqual(expect.any(String));
+    const before = everything();
+    expect(await answer(finished, k, options)).toEqual(TOO_LATE);
+    expect(everything()).toEqual(before);
+  });
+
+  it("makes the account a sign-up asked for, with the server's id and the cleaned email, whatever the cookie says", async () => {
+    const options = (await post({ step: "signup-options", email: "  Ahri@Example.com " })).data;
+    const cookie = challengeCookie()!;
+    const k = await passkey();
+
+    // The cookie with an id and an email added, the form a pending sign-up once travelled in.
+    putChallengeCookie(`${cookie.split("~")[0]}~chosen-id~${encodeURIComponent("Someone Else <b>")}`);
+    expect(await post({ step: "signup", response: await made(k, options) })).toEqual(TOO_LATE);
+    expect(everything()).toEqual(NOTHING);
+
+    putChallengeCookie(cookie);
+    expect(await post({ step: "signup", response: await made(k, options) })).toEqual(OK);
+    const id = new TextDecoder().decode(unb64url(options.user.id));
+    expect(saved.accounts).toEqual([{ id, email: "ahri@example.com" }]);
+    expect(saved.passkeys.map((p) => p.account)).toEqual([id]);
+    expect(saved.sessions).toEqual([id]);
+  });
+
+  it("only lets the account that asked for a challenge add a passkey with it", async () => {
+    await account("ahri@example.com");
+    const options = await ask("add");
+    await account("lux@example.com"); // the same browser, now signed in as someone else
+    expect(challengeCookie()).toBeDefined();
+
+    const before = everything();
+    expect(await answer("add", await passkey(), options)).toEqual(TOO_LATE);
+    expect(everything()).toEqual(before);
+  });
+
+  it.each(KINDS)("has the browser drop the challenge cookie once %s is finished", async (kind) => {
+    const k = await ready(kind);
+    const options = await ask(kind);
+    expect(challengeCookie()).toBeDefined();
+    expect(await answer(kind, k, options)).toEqual(OK);
+    expect(challengeCookie()).toBeUndefined();
+  });
+
+  it("has the browser drop an unanswered challenge cookie on sign-out", async () => {
+    await account("ahri@example.com");
+    await ask("add");
+    expect(challengeCookie()).toBeDefined();
+    expect(await send(SIGN_OUT, "/api/account/signout")).toEqual(OK);
+    expect(challengeCookie()).toBeUndefined();
+    expect((await post({ step: "add-options" })).status).toBe(401); // and the browser is signed out
+  });
+
+  it.each(KINDS)("gives every %s request its own challenge and a cookie that doesn't carry it", async (kind) => {
+    await ready(kind);
+    const [one, cookieOne] = [await ask(kind), challengeCookie()!];
+    const [two, cookieTwo] = [await ask(kind), challengeCookie()!];
+    expect(one.challenge).not.toBe(two.challenge);
+    expect(cookieOne).not.toBe(cookieTwo);
+    for (const cookie of [cookieOne, cookieTwo]) {
+      expect(cookie).toMatch(/^[A-Za-z0-9_-]{43}$/);
+      expect(cookie).not.toContain(one.challenge);
+      expect(cookie).not.toContain(two.challenge);
+    }
+    // The database knows the cookie only by its SHA-256.
+    const kept = rows<{ id: string; kind: string; challenge: string }>("SELECT id, kind, challenge FROM passkey_challenges ORDER BY rowid");
+    expect(kept.map((r) => [r.kind, r.challenge])).toEqual([[kind, one.challenge], [kind, two.challenge]]);
+    expect(kept.map((r) => r.id)).toEqual([hex(await sha256(utf8(cookieOne))), hex(await sha256(utf8(cookieTwo)))]);
+  });
+
+  it.each(KINDS)("answers that it took too long when %s is finished without the cookie", async (kind) => {
+    const k = await ready(kind);
+    const options = await ask(kind);
+    putChallengeCookie();
+    const before = everything();
+    expect(await answer(kind, k, options)).toEqual(TOO_LATE);
+    expect(everything()).toEqual(before);
+  });
+
+  it.each(KINDS)("still finishes %s just inside the five minutes", async (kind) => {
+    vi.useFakeTimers({ toFake: ["Date"] });
+    const k = await ready(kind);
+    const options = await ask(kind);
+    vi.setSystemTime(Date.now() + 299_999);
+    expect(challengeCookie()).toBeDefined();
+    expect(await answer(kind, k, options)).toEqual(OK);
+  });
+
+  it("takes nothing about the new account from the request that finishes a sign-up", async () => {
+    const options = await ask("signup");
+    const response = await made(await passkey(), options);
+    expect(await post({ step: "signup", response, label: "Windows PC", id: "chosen-id", new_id: "chosen-id", account: "chosen-id", email: "lux@example.com" })).toEqual(OK);
+    const id = new TextDecoder().decode(unb64url(options.user.id));
+    expect(saved.accounts).toEqual([{ id, email: "ahri@example.com" }]);
+    expect(saved.passkeys.map((p) => p.account)).toEqual([id]);
+    expect(saved.sessions).toEqual([id]);
+  });
+
+  it("answers that the email is taken when a second sign-up for it finishes", async () => {
+    const one = await ask("signup");
+    const cookieOne = challengeCookie();
+    const two = await ask("signup");
+    expect(await answer("signup", await passkey(), two)).toEqual(OK);
+    const before = everything();
+    putChallengeCookie(cookieOne);
+    expect(await answer("signup", await passkey(), one)).toEqual({ status: 409, data: { error: "There's already an account with that email. Sign in instead." } });
+    expect(everything()).toEqual(before);
+  });
+
+  it.each(KINDS)("sets the %s challenge cookie for the passkey route only, for five minutes, HttpOnly, SameSite=Strict, and Secure on https", async (kind) => {
+    await ready(kind);
+    for (const [site, secure] of [
+      [SITE, "Secure; "],
+      [`http://${HOST}`, ""],
+    ]) {
+      expect((await post(kind === "signup" ? { step: "signup-options", email: "lux@example.com" } : { step: `${kind}-options` }, site)).status).toBe(200);
+      expect(setCookies.map((c) => c.replace(/=[A-Za-z0-9_-]{43};/, "=<handle>;").replace(/Expires=[^;]+; /, ""))).toEqual([
+        `deeparam-passkey=<handle>; Path=/api/account/passkey; Max-Age=300; ${secure}HttpOnly; SameSite=strict`,
+      ]);
+    }
+  });
+
+  it("makes every byte of the handle random", async () => {
+    const seen = Array.from({ length: 32 }, () => new Set<number>());
+    for (let i = 0; i < 24; i++) {
+      await ask("signin");
+      const bytes = unb64url(challengeCookie()!);
+      expect(bytes).toHaveLength(32);
+      bytes.forEach((b, at) => seen[at].add(b));
+    }
+    expect(seen.map((values) => values.size > 1)).toEqual(Array(32).fill(true));
+  });
+
+  it.each(["new_id", "email"])("answers that it took too long if a waiting sign-up has no %s", async (column) => {
+    const options = await ask("signup");
+    sqlite.exec(`UPDATE passkey_challenges SET ${column} = NULL`);
+    expect(await answer("signup", await passkey(), options)).toEqual(TOO_LATE);
+    expect(everything()).toEqual(NOTHING);
+  });
+
+  it("turns away a cookie that can't be a handle without asking the database", async () => {
+    const k = await ready("signin");
+    const options = await ask("signin");
+    h.broken = /^DELETE FROM passkey_challenges WHERE id = /; // asking would end in an error, not in "too long"
+    for (const cookie of ["short", "x".repeat(44), `${"x".repeat(42)}~`, `${"x".repeat(42)} `]) {
+      putChallengeCookie(cookie);
+      expect(await answer("signin", k, options)).toEqual(TOO_LATE);
+    }
+  });
+
+  it("removes an account's waiting challenge when the account is deleted", async () => {
+    const id = await account("ahri@example.com");
+    await ask("add");
+    await ask("signin");
+    expect(rows("SELECT kind, account FROM passkey_challenges ORDER BY rowid")).toEqual([{ kind: "add", account: id }, { kind: "signin", account: null }]);
+    await deleteAccount(id);
+    expect(rows("SELECT kind, account FROM passkey_challenges")).toEqual([{ kind: "signin", account: null }]);
+  });
+
+  it("clears out at most 500 old challenges at a time", async () => {
+    oldChallenges(620);
+    await ask("signin");
+    expect(waiting()).toBe(121); // 120 old ones are left, and there is the new one
+    await ask("signin");
+    expect(waiting()).toBe(2);
+  });
+
+  const CLEAN_UP = /^DELETE FROM passkey_challenges WHERE id IN/;
+  const PASSWORD = { email: "lux@example.com", password: "a long enough password" };
+
+  it("keeps a new challenge and still signs in when clearing out old ones fails, and logs why", async () => {
+    const k = await ready("signin");
+    oldChallenges(3);
+    h.broken = CLEAN_UP;
+    const options = await ask("signin");
+    expect(failed.mock.calls).toEqual([["passkey challenge clean-up failed", "The database refused this statement."]]);
+    expect(waiting()).toBe(4); // nothing was cleared, and the new challenge is there
+    expect(await answer("signin", k, options)).toEqual(OK); // and the session doesn't depend on the clean-up either
+    expect(saved.sessions).toHaveLength(2);
+    expect(waiting()).toBe(3);
+    expect(failed.mock.calls).toHaveLength(2);
+    expect(warn).not.toHaveBeenCalled();
+  });
+
+  it("signs up and in with a password, signs in with a passkey and deletes an account while the clean-up keeps failing", async () => {
+    const k = await ready("signin");
+    oldChallenges(3);
+    h.broken = CLEAN_UP;
+    expect(await send(PASSWORD_SIGN_UP, "/api/account/signup", PASSWORD)).toEqual(OK);
+    expect(await send(PASSWORD_SIGN_IN, "/api/account/signin", PASSWORD)).toEqual(OK);
+    expect(await signIn(k)).toEqual(OK);
+    const [ahri, lux] = saved.accounts;
+    expect(saved.sessions).toEqual([ahri.id, lux.id, lux.id, ahri.id]);
+    await deleteAccount(lux.id);
+    expect(saved.accounts).toEqual([ahri]);
+    expect(saved.sessions).toEqual([ahri.id, ahri.id]);
+    expect(waiting()).toBe(3); // the old ones, which nothing could clear
+    expect(failed.mock.calls).toEqual(Array(5).fill(["passkey challenge clean-up failed", "The database refused this statement."]));
+  });
+
+  it("still signs up and in with a password and deletes an account when the challenge table is missing", async () => {
+    const schema = rows<{ sql: string }>("SELECT sql FROM sqlite_master WHERE tbl_name = 'passkey_challenges' AND sql IS NOT NULL ORDER BY type DESC").map((r) => r.sql);
+    sqlite.exec("DROP TABLE passkey_challenges");
+    try {
+      expect(await send(PASSWORD_SIGN_UP, "/api/account/signup", PASSWORD)).toEqual(OK);
+      expect(await send(PASSWORD_SIGN_IN, "/api/account/signin", PASSWORD)).toEqual(OK);
+      const [lux] = saved.accounts;
+      expect(saved.sessions).toEqual([lux.id, lux.id]);
+      await deleteAccount(lux.id);
+      expect(everything()).toEqual(NOTHING);
+      expect(failed.mock.calls).toEqual(Array(3).fill(["passkey challenge clean-up failed", "no such table: passkey_challenges"]));
+      expect((await post({ step: "signin-options" })).status).toBe(500); // the passkey steps are what need the table
+    } finally {
+      schema.forEach((sql) => sqlite.exec(sql));
+    }
+    expect(waiting()).toBe(0);
+  });
+
+  it("cuts the reason it logs for a failed clean-up to 200 characters", async () => {
+    h.broken = CLEAN_UP;
+    h.refusal = "x".repeat(500);
+    await ask("signin");
+    expect(failed.mock.calls).toEqual([["passkey challenge clean-up failed", "x".repeat(200)]]);
+    expect(waiting()).toBe(1);
+  });
+
+  it("also clears out old challenges when a session starts, whichever way someone signs in", async () => {
+    oldChallenges(3);
+    expect(await send(PASSWORD_SIGN_UP, "/api/account/signup", PASSWORD)).toEqual(OK);
+    expect(waiting()).toBe(0);
+    oldChallenges(3);
+    expect(await send(PASSWORD_SIGN_IN, "/api/account/signin", PASSWORD)).toEqual(OK);
+    expect(waiting()).toBe(0);
+    const k = await passkey();
+    await signUp(k);
+    oldChallenges(3);
+    expect(await signIn(k)).toEqual(OK);
+    expect(waiting()).toBe(0);
+    expect(failed).not.toHaveBeenCalled();
+  });
+
+  it("also clears out old challenges when an account is deleted", async () => {
+    const id = await account("ahri@example.com");
+    oldChallenges(3);
+    await deleteAccount(id);
+    expect(waiting()).toBe(0);
+  });
+
+  it("clears out challenges past their five minutes whenever a new one is kept", async () => {
+    vi.useFakeTimers({ toFake: ["Date"] });
+    for (let i = 0; i < 5; i++) await ask("signin");
+    expect(rows("SELECT id FROM passkey_challenges")).toHaveLength(5);
+    vi.setSystemTime(Date.now() + 300_001);
+    await ask("signin");
+    expect(rows("SELECT id FROM passkey_challenges")).toHaveLength(1);
   });
 });

@@ -21,6 +21,12 @@ const SCHEMA = [
   `CREATE TABLE IF NOT EXISTS passkeys (id TEXT PRIMARY KEY, account TEXT NOT NULL, public_key TEXT NOT NULL, counter INTEGER NOT NULL DEFAULT 0,
     transports TEXT, label TEXT, created_at TEXT NOT NULL)`,
   `CREATE INDEX IF NOT EXISTS passkeys_account ON passkeys (account)`,
+  // Passkey challenges waiting for their answer (api/account/passkey): kept five minutes and taken back once.
+  // id is the SHA-256 of the handle in the browser's cookie. account is who asked to add a passkey; new_id and
+  // email are the account a sign-up will make.
+  `CREATE TABLE IF NOT EXISTS passkey_challenges (id TEXT PRIMARY KEY, kind TEXT NOT NULL, challenge TEXT NOT NULL, account TEXT,
+    new_id TEXT, email TEXT, expires INTEGER NOT NULL)`,
+  `CREATE INDEX IF NOT EXISTS passkey_challenges_expires ON passkey_challenges (expires)`,
   `CREATE TABLE IF NOT EXISTS link_codes (code TEXT PRIMARY KEY, account TEXT NOT NULL, expires INTEGER NOT NULL)`,
   // Sign in with Google, Apple, Discord and the rest (lib/oauth.ts): which provider account opens which site account.
   `CREATE TABLE IF NOT EXISTS logins (provider TEXT NOT NULL, subject TEXT NOT NULL, account TEXT NOT NULL, email TEXT, created_at TEXT NOT NULL,
@@ -29,6 +35,20 @@ const SCHEMA = [
   // What the account looks like on its own page: a display name and a champion icon.
   `CREATE TABLE IF NOT EXISTS account_profile (account TEXT PRIMARY KEY, name TEXT, icon TEXT)`,
 ];
+
+/**
+ * Clears out passkey challenges past their five minutes, at most 500 at a time so that no request waits on a
+ * backlog. It runs after a challenge is written, a session starts or an account is deleted, always as a statement
+ * of its own: nothing else depends on it, so a failure is logged and goes no further. The log gets the database's
+ * message cut to 200 characters, which for this statement names a table or a limit and never a row.
+ */
+export async function clearExpiredChallenges(db: DB, now: number): Promise<void> {
+  try {
+    await db.prepare("DELETE FROM passkey_challenges WHERE id IN (SELECT id FROM passkey_challenges WHERE expires < ? LIMIT 500)").bind(now).run();
+  } catch (err) {
+    console.error("passkey challenge clean-up failed", String((err as { message?: unknown } | null)?.message ?? "").slice(0, 200));
+  }
+}
 
 let ready: Promise<void> | null = null;
 
