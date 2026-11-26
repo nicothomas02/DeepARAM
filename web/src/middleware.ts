@@ -82,4 +82,4 @@ export async function middleware(req: NextRequest) {
   );
 }
 
-export const config = { matcher: ["/api/log", "/api/profile", "/api/games", "/api/history", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact", "/champions/:alias", "/items/:slug", "/augments/:slug"] };
+export const config = { matcher: ["/api/log", "/api/profile", "/api/games", "/api/history", "/api/widget/live", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact", "/champions/:alias", "/items/:slug", "/augments/:slug"] };

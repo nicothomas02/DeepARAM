@@ -56,31 +56,52 @@ describe("rate limits", () => {
     expect(config.matcher).not.toContain("/api/sim-scores"); // the Simulator leaderboard was removed
   });
 
-  // config.matcher decides which requests reach the middleware at all, and the tests above call middleware()
-  // directly: a path with a rule that the matcher leaves out is limited in these tests and nowhere else.
-  it("reaches every path a rule names, apart from the gaps listed here", () => {
-    // Rules the matcher does not reach yet, so the site applies no limit there. Take a path off this list in the
-    // same change that adds it to config.matcher.
-    const unreached = ["/api/widget/live"];
+  it("allows 60 live-game reports a minute, counted with the same visitor's uploads", async () => {
+    for (let i = 0; i < 60; i++) expect((await middleware(req("10.10.10.10", "/api/widget/live"))).status).toBe(200);
+    expect((await middleware(req("10.10.10.10", "/api/widget/live"))).status).toBe(429);
+    expect((await middleware(req("10.10.10.10", "/api/games"))).status).toBe(429);
+    expect((await middleware(req("10.10.10.11", "/api/widget/live"))).status).toBe(200);
+  });
 
-    // The paths ruleFor names, read from its source: path === "..." is one path, path.startsWith("...") a branch.
+  // config.matcher decides which requests reach the middleware at all, and the tests above call middleware()
+  // directly, so they cannot tell when a path with a rule is missing from the matcher.
+  it("reaches every path a rule names", () => {
+    // Paths a rule names that the matcher is known not to reach. None today: keep it empty.
+    const knownGaps: string[] = [];
+
+    // The middleware is read as text: every quoted path above the matcher counts as a path a rule names. "/api/x"
+    // on its own is one path, startsWith("/api/x") a whole branch. A message that starts "Update this test" means
+    // the code changed shape and can no longer be read here, not that a route lost its limit.
     const source = readFileSync("src/middleware.ts", "utf8");
-    const ruleFor = source.slice(source.indexOf("function ruleFor("), source.indexOf("type Limiter")).replace(/\/\/.*$/gm, "");
-    const named = [...ruleFor.matchAll(/\bpath(\.startsWith\(| === )"([^"]+)"/g)].map((m) => ({ path: m[2], branch: m[1] !== " === " }));
-    // every use of the path in ruleFor is one of those two forms, so no rule is read past
-    expect(named.length).toBe((ruleFor.match(/\bpath\b/g) ?? []).length - 1);
-    expect(named.map((n) => n.path)).toEqual(expect.arrayContaining(["/api/log", "/api/account", "/api/kitchen"]));
+    const end = source.indexOf("export const config");
+    expect(end, 'Update this test: it reads src/middleware.ts up to "export const config", which it can no longer find.').toBeGreaterThan(0);
+    const code = source.slice(0, end).replace(/\/\*[\s\S]*?\*\/|(^|\s)\/\/.*$/gm, "");
+    expect(/\.(test|match|exec)\(|RegExp/.test(code), "Update this test: src/middleware.ts now uses a regular expression. A rule written as one cannot be read here.").toBe(false);
+    const named = [...code.matchAll(/(startsWith\(\s*)?(["'`])(\/[^"'`\s]*)\2/g)].map((m) => ({ path: m[3], branch: Boolean(m[1]) }));
+    expect(
+      named.map((n) => n.path),
+      "Update this test: it no longer finds the rules' paths in src/middleware.ts. If the rules moved to another file, read that file here.",
+    ).toEqual(expect.arrayContaining(["/api/log", "/api/widget/live"]));
 
     // What Next does with a matcher entry, for the forms used here: ":name" is one segment, "/:name*" any number.
-    for (const entry of config.matcher) expect(entry, "a matcher form this test cannot read").toMatch(/^(\/[\w-]+|\/:\w+\*?)+$/);
+    for (const entry of config.matcher)
+      expect(entry, `Update this test: it cannot read the matcher entry "${entry}". It knows plain paths, ":name" and "/:name*".`).toMatch(/^(\/[\w-]+|\/:\w+\*?)+$/);
     const reaches = (path: string) =>
       config.matcher.some((entry) => new RegExp(`^${entry.replace(/\/:\w+\*/g, "(/.+)?").replace(/:\w+/g, "[^/]+")}$`).test(path));
 
     for (const { path, branch } of named) {
       const base = path.replace(/\/$/, "");
       const samples = branch ? [...(path === base ? [base] : []), `${base}/x`, `${base}/x/y`] : [path];
-      expect(samples.filter(reaches), `the rule for ${path}`).toEqual(unreached.includes(path) ? [] : samples);
+      const missed = samples.filter((sample) => !reaches(sample));
+      if (knownGaps.includes(path)) expect(missed.length, `"${path}" is now matched: take it off the list of known gaps in this test.`).toBeGreaterThan(0);
+      else
+        expect(
+          missed,
+          `config.matcher does not reach ${missed.join(", ")}, so the rule for "${path}" never runs on the site: add the path to config.matcher. If "${path}" in src/middleware.ts is not a rule's path, update this test instead.`,
+        ).toEqual([]);
     }
+    for (const gap of knownGaps)
+      expect(named.some((n) => n.path === gap), `"${gap}" is on this test's list of known gaps, but nothing in src/middleware.ts names it: take it off the list.`).toBe(true);
   });
 
   it("leaves the 3D Simulator's models, sounds and page public", () => {
