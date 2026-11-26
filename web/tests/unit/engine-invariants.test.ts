@@ -30,6 +30,7 @@ function games() {
     const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsJSON()) as Kinds, picks = (await picksJSON()) as Picks, fit = (await fitJSON()) as Fit;
     const steps: Step[] = [];
+    const rules = itemRules(k);
     champs.forEach((c, ci) => {
       const r = rng(ci + 1);
       const pick = <T,>(a: T[]) => a[Math.floor(r() * a.length)];
@@ -56,9 +57,12 @@ function games() {
         };
         const input = { champ: c, kinds: k, picks, fit, game, taken: [...taken] };
         steps.push({ input, out: plan(input), champ: c });
-        // buy: the route's next item, or (1 in 4) a detour
-        const nextBuy = r() < 0.25 && detours.length ? pick(detours) : route.find((i) => !items.includes(i));
-        if (nextBuy !== undefined && items.length < 6 && !items.includes(nextBuy)) items.push(nextBuy);
+        // buy: the route's next item, or (1 in 4) a detour, but never two items of a limit group the engine enforces
+        // (itemRules, the rule the path test asserts): the day's data decides which items the route and detours list,
+        // and a game already holding such a pair would test the simulated buyer, not the engine.
+        const sells = (i: number) => !items.some((o) => rules.clash(o, i));
+        const nextBuy = r() < 0.25 && detours.length ? pick(detours) : route.find((i) => !items.includes(i) && sells(i));
+        if (nextBuy !== undefined && items.length < 6 && !items.includes(nextBuy) && sells(nextBuy)) items.push(nextBuy);
       }
     });
     return { steps, k };
