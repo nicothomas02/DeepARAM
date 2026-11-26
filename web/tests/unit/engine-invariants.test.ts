@@ -57,9 +57,9 @@ function games() {
         };
         const input = { champ: c, kinds: k, picks, fit, game, taken: [...taken] };
         steps.push({ input, out: plan(input), champ: c });
-        // buy: the route's next item, or (1 in 4) a detour. Never an item the shop refuses (one of a limit group you
-        // already hold): the day's data decides which items the route and detours list, and an inventory the game
-        // doesn't allow would test the simulated buyer, not the engine.
+        // buy: the route's next item, or (1 in 4) a detour, but never two items of a limit group the engine enforces
+        // (itemRules, the rule the path test asserts): the day's data decides which items the route and detours list,
+        // and a game already holding such a pair would test the simulated buyer, not the engine.
         const sells = (i: number) => !items.some((o) => rules.clash(o, i));
         const nextBuy = r() < 0.25 && detours.length ? pick(detours) : route.find((i) => !items.includes(i) && sells(i));
         if (nextBuy !== undefined && items.length < 6 && !items.includes(nextBuy) && sells(nextBuy)) items.push(nextBuy);
