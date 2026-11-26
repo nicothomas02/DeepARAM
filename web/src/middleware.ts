@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { canonicalPath } from "@/lib/page-slugs";
+import { visitorKey } from "@/lib/visitor-key";
 
 // Per-visitor limits on the routes that cost something: browser error reports (/api/log, so they can't
 // flood the logs), signing in, and the writes (public profiles, shared games,
@@ -67,7 +68,8 @@ export async function middleware(req: NextRequest) {
   const rule = ruleFor(req);
   if (!rule) return NextResponse.next();
   const ip = req.headers.get("cf-connecting-ip") ?? req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-  const key = `${rule.binding}:${ip}`;
+  // One budget per IPv4 address, or per IPv6 /64 network: a single IPv6 visitor holds a whole /64 of addresses.
+  const key = `${rule.binding}:${visitorKey(ip)}`;
   const limiter = binding(rule.binding);
   let ok: boolean;
   try {
