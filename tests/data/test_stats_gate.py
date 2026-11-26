@@ -34,3 +34,21 @@ def test_stats_workflow_checks_real_tests_right_before_its_commit(workflow, must
         path, _, test = t.partition("::")
         assert os.path.exists(repo(path)), t
         assert not test or re.search(rf"^def {test}\(", read(path), re.M), t
+
+
+def test_a_failed_aramhex_download_ends_the_stats_run_red_after_its_commit():
+    """cn-stats.yml: the download may fail without stopping the stats (the last copy is used and the rest is
+    committed), and the job's last step then fails the run. Each part matters: without the id or continue-on-error,
+    or with an `|| ...` after the command, the failure is hidden again or the stats are held back."""
+    all_steps = steps("cn-stats.yml")
+    names = [n for n, _ in all_steps]
+    download = [t for _, t in all_steps if re.search(r"^ +run: python3 data/aramhex/fetch\.py", t, re.M)]
+    assert len(download) == 1
+    assert re.search(r"^ +run: python3 data/aramhex/fetch\.py$", download[0], re.M)  # nothing after it hides the exit code
+    assert re.search(r"^ +continue-on-error: true$", download[0], re.M)
+    step_id = re.search(r"^ +id: (\w+)$", download[0], re.M).group(1)
+    commit = names.index("Commit changes")
+    assert commit == len(names) - 2
+    last = all_steps[commit + 1][1]
+    assert re.search(rf"^ +if: steps\.{step_id}\.outcome == 'failure'$", last, re.M)
+    assert re.search(r"^ +exit 1$", last, re.M) and "continue-on-error" not in last

@@ -307,6 +307,28 @@ def test_fetch_that_stops_half_way_saves_nothing_and_says_so_once(tmp_path, fetc
     assert len(not_saved(fetch.ours)) == 1 and copy(fetch.ours) == before
     assert fetch(upstream(tmp_path, "fine", NEW)) == 0  # and the release is saved once it can be read
     assert fetch.problem() is None and saved(fetch.ours, "meta")["matches"] == NEW["matches"]
+    assert not not_saved(fetch.ours)  # "was not saved" is no longer true, and nobody had been told yet
+
+
+def test_fetch_keeps_a_not_saved_line_the_owner_was_already_told_about(tmp_path, fetch):
+    assert fetch(upstream(tmp_path, "old", OLD)) == 0
+    assert fetch(upstream(tmp_path, "new", NEW, cut="hero_spells.json", hashes=False)) == 1
+    path = os.path.join(fetch.ours, "changes.json")
+    with open(path, encoding="utf-8") as f:
+        log = json.load(f)
+    put(path, [dict(e, reported=True) for e in log])  # the daily report flips this
+    assert fetch(upstream(tmp_path, "fine", NEW)) == 0
+    assert len(not_saved(fetch.ours)) == 1
+
+
+def test_fetch_does_not_call_a_release_not_saved_when_the_copy_already_holds_it(tmp_path, fetch, capsys):
+    """A later run's download of the same release fails (a refresh for a new Tencent day downloads it again)."""
+    assert fetch(upstream(tmp_path, "new", NEW)) == 0
+    before = copy(fetch.ours)
+    capsys.readouterr()
+    assert fetch(upstream(tmp_path, "again", NEW, cut="hero_spells.json", hashes=False)) == 1
+    assert "::error::AramHex download stopped" in capsys.readouterr().err
+    assert copy(fetch.ours) == before and not not_saved(fetch.ours)
 
 
 @pytest.mark.parametrize("hashes", [True, False])
@@ -320,7 +342,7 @@ def test_fetch_refuses_tables_that_are_not_the_ones_the_index_lists(tmp_path, fe
     assert copy(fetch.ours) == before
     err = capsys.readouterr().err
     assert "::error::AramHex download refused" in err and ("index.json lists" in err if hashes else "170,000 games" in err)
-    assert len(not_saved(fetch.ours)) == 1
+    assert not not_saved(fetch.ours)  # the index names the release the copy already holds
 
 
 @pytest.mark.parametrize("matches", [NEW["matches"] + 1, NEW["matches"] - 1, None])

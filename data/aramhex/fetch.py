@@ -108,10 +108,27 @@ def read_changes():
         return []
 
 
+def saved_seq():
+    """The upstream release our copy holds (index.json), or None."""
+    try:
+        with open(os.path.join(OUT, "index.json")) as f:
+            return json.load(f).get("seq")
+    except OSError:
+        return None
+
+
+def not_saved(seq):
+    return f"AramHex release seq {seq} was not saved"
+
+
 def note_failure(seq, why):
     """A download that was refused or stopped saves no tables, only this line in changes.json, once per upstream
-    release, so the daily report says why the AramHex numbers stand still."""
-    head = f"AramHex release seq {seq} was not saved"
+    release, so the daily report says why the AramHex numbers stand still. Not when our copy already holds that
+    release (a later run's download of it failed: "not saved" would be untrue). A later run that saves the release
+    takes the line out again unless it was already reported (watch)."""
+    if seq == saved_seq():
+        return
+    head = not_saved(seq)
     log = read_changes()
     if any(str(e.get("note", "")).startswith(head) for e in log):
         return
@@ -337,10 +354,13 @@ def watch(src, index):
         pass
     # Staged like the tables: written by main()'s one flush, so a download that fails in here saves nothing either.
     STAGED.append((UPSTREAM, json.dumps(now, indent=1, sort_keys=True) + "\n"))
-    if notes:
+    # This release is being saved: an unreported "was not saved" line about it (note_failure) is no longer true.
+    log = read_changes()
+    kept = [e for e in log if e.get("reported") or not str(e.get("note", "")).startswith(not_saved(index.get("latest_seq")))]
+    if notes or len(kept) != len(log):
         day = dt.date.today().isoformat()
-        log = read_changes() + [{"date": day, "note": n, "reported": False} for n in notes]
-        STAGED.append((CHANGES, json.dumps(log, indent=1, ensure_ascii=False) + "\n"))
+        kept += [{"date": day, "note": n, "reported": False} for n in notes]
+        STAGED.append((CHANGES, json.dumps(kept, indent=1, ensure_ascii=False) + "\n"))
     return notes
 
 
@@ -351,12 +371,7 @@ def main():
     a = ap.parse_args()
     index = json.loads(get(a.src, "index.json"))
     if a.is_new:
-        try:
-            with open(os.path.join(OUT, "index.json")) as f:
-                ours = json.load(f).get("seq")
-        except OSError:
-            ours = None
-        print(f"new={'true' if index.get('latest_seq') != ours else 'false'}")
+        print(f"new={'true' if index.get('latest_seq') != saved_seq() else 'false'}")
         return 0
     # Oldest first, so a later patch can tell which tables it reuses from an earlier one (same file hash).
     sets = [d for d in index["datasets"] if d.get("mode") == "normal" and d["path"].rstrip("/") == f"patches/{d['patch']}/normal"]
