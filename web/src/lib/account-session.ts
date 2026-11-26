@@ -36,6 +36,13 @@ const SCHEMA = [
   `CREATE TABLE IF NOT EXISTS account_profile (account TEXT PRIMARY KEY, name TEXT, icon TEXT)`,
 ];
 
+/**
+ * Removes passkey challenges past their five minutes, at most 500 at a time so that no request waits on a
+ * backlog. It runs whenever a challenge is written, a session starts or an account is deleted.
+ */
+export const expiredChallenges = (db: DB, now: number) =>
+  db.prepare("DELETE FROM passkey_challenges WHERE id IN (SELECT id FROM passkey_challenges WHERE expires < ? LIMIT 500)").bind(now);
+
 let ready: Promise<void> | null = null;
 
 /** The accounts database with its tables in place, or null outside Cloudflare. */

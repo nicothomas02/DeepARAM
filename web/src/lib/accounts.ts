@@ -1,7 +1,7 @@
 import "server-only";
 import type { NextResponse } from "next/server";
 import { CHALLENGE_COOKIE, CHALLENGE_PATH, OWNER_FLAG, SESSION_COOKIE, SESSION_DAYS, SIGNED_IN_FLAG } from "./account-cookies";
-import { accountsDb, sessionAccount, sha256, type DB, type SessionAccount } from "./account-session";
+import { accountsDb, expiredChallenges, sessionAccount, sha256, type DB, type SessionAccount } from "./account-session";
 import { profileByPuuid, profilePath } from "./profiles";
 import { enabledProviders, PROVIDER_NAMES, type Identity, type Provider } from "./oauth";
 import { DEFAULT_SETTINGS } from "./settings";
@@ -97,6 +97,7 @@ export async function startSession(res: NextResponse, account: { id: string }, m
   await d.batch([
     d.prepare("INSERT INTO sessions (id, account, method, created, expires) VALUES (?, ?, ?, ?, ?)").bind(await sha256(token), account.id, method, now, expires),
     d.prepare("DELETE FROM sessions WHERE expires < ?").bind(now),
+    expiredChallenges(d, now),
   ]);
   const opts = { path: "/", maxAge: SESSION_DAYS * 86_400, sameSite: "lax" as const, secure };
   res.cookies.set(SESSION_COOKIE, token, { ...opts, httpOnly: true });
@@ -242,7 +243,7 @@ export async function changeEmail(a: SessionAccount, email: string, password: un
 
 export async function deleteAccount(id: string) {
   const d = await db();
-  await d.batch(["passkeys", "passkey_challenges", "sessions", "link_codes", "logins", "account_profile"].map((t) => d.prepare(`DELETE FROM ${t} WHERE account = ?`).bind(id)).concat(d.prepare("DELETE FROM accounts WHERE id = ?").bind(id)));
+  await d.batch(["passkeys", "passkey_challenges", "sessions", "link_codes", "logins", "account_profile"].map((t) => d.prepare(`DELETE FROM ${t} WHERE account = ?`).bind(id)).concat(d.prepare("DELETE FROM accounts WHERE id = ?").bind(id), expiredChallenges(d, Date.now())));
   // Builds sent to The Kitchen (lib/kitchen.ts); the table exists only once someone has sent one.
   await d.prepare("DELETE FROM kitchen_submissions WHERE account = ?").bind(id).run().catch(() => undefined);
   // Games saved from My Stats (lib/match-history.ts), likewise.
