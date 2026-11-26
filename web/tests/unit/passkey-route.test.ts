@@ -3,7 +3,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { CHALLENGE_COOKIE } from "@/lib/account-cookies";
 import { createAccount, db, deleteAccount, startSession } from "@/lib/accounts";
 import { POST } from "@/app/api/account/passkey/route";
+import { POST as PASSWORD_SIGN_IN } from "@/app/api/account/signin/route";
 import { POST as SIGN_OUT } from "@/app/api/account/signout/route";
+import { POST as PASSWORD_SIGN_UP } from "@/app/api/account/signup/route";
 
 // The passkey route (api/account/passkey) run against SimpleWebAuthn itself and the site's own account code.
 // The "device" is a real key made here that builds and signs its answers the way an authenticator does, so every
@@ -20,7 +22,7 @@ const h = vi.hoisted(() => {
   // that key type as well. Every test here runs as if on such a server, where the defaults and the site differ.
   // Set here so it is in place before SimpleWebAuthn is loaded.
   Object.defineProperty(SubtleCrypto, "supports", { configurable: true, value: () => true });
-  return { d1: null as unknown, path: "/", hold: null as null | (() => Promise<void>), broken: null as null | RegExp };
+  return { d1: null as unknown, path: "/", hold: null as null | (() => Promise<void>), broken: null as null | RegExp, refusal: "" };
 });
 
 // ---- The database ----
@@ -32,7 +34,7 @@ const plain = (v: unknown[]) => v.map((x) => (typeof x === "boolean" ? Number(x)
 type Stmt = { sql: string; v: unknown[]; bind(...v: unknown[]): Stmt; run(): Promise<unknown>; first(): Promise<unknown>; all(): Promise<{ results: unknown[] }> };
 // A test can break the statements that match h.broken, to see what the site does when the database refuses one.
 const prepared = (sql: string) => {
-  if (h.broken?.test(sql)) throw new Error("The database refused this statement.");
+  if (h.broken?.test(sql)) throw new Error(h.refusal);
   return sqlite.prepare(sql);
 };
 const stmt = (sql: string, v: unknown[] = []): Stmt => ({
@@ -138,6 +140,8 @@ const post = (payload: Record<string, unknown>, site = SITE) => send(POST, PASSK
 
 // What the route writes to the log when SimpleWebAuthn refuses an answer.
 const warn = vi.spyOn(console, "warn").mockImplementation(() => {});
+// And what the site writes when something fails: clearing out old challenges, or a request it couldn't answer.
+const failed = vi.spyOn(console, "error").mockImplementation(() => {});
 
 // ---- Bytes ----
 
@@ -293,6 +297,8 @@ function oldChallenges(n: number) {
 beforeEach(async () => {
   jar.length = 0;
   h.hold = h.broken = null;
+  h.refusal = "The database refused this statement.";
+  failed.mockClear();
   await db(); // the site makes its own tables the first time the database is used
   for (const { name } of rows<{ name: string }>("SELECT name FROM sqlite_master WHERE type = 'table'")) sqlite.exec(`DELETE FROM ${name}`);
   warn.mockClear();
@@ -745,21 +751,78 @@ describe("passkey challenges", () => {
     expect(waiting()).toBe(2);
   });
 
-  it("keeps a new challenge when clearing out old ones fails, and logs only the error's name", async () => {
+  const CLEAN_UP = /^DELETE FROM passkey_challenges WHERE id IN/;
+  const PASSWORD = { email: "lux@example.com", password: "a long enough password" };
+
+  it("keeps a new challenge and still signs in when clearing out old ones fails, and logs why", async () => {
     const k = await ready("signin");
     oldChallenges(3);
-    h.broken = /^DELETE FROM passkey_challenges WHERE id IN/;
+    h.broken = CLEAN_UP;
     const options = await ask("signin");
-    h.broken = null;
-    expect(warn.mock.calls).toEqual([["passkey challenge clean-up failed", "Error"]]);
+    expect(failed.mock.calls).toEqual([["passkey challenge clean-up failed", "The database refused this statement."]]);
     expect(waiting()).toBe(4); // nothing was cleared, and the new challenge is there
-    expect(await answer("signin", k, options)).toEqual(OK);
+    expect(await answer("signin", k, options)).toEqual(OK); // and the session doesn't depend on the clean-up either
+    expect(saved.sessions).toHaveLength(2);
+    expect(waiting()).toBe(3);
+    expect(failed.mock.calls).toHaveLength(2);
+    expect(warn).not.toHaveBeenCalled();
   });
 
-  it("also clears out old challenges when a session starts", async () => {
+  it("signs up and in with a password, signs in with a passkey and deletes an account while the clean-up keeps failing", async () => {
+    const k = await ready("signin");
     oldChallenges(3);
-    await account("ahri@example.com");
+    h.broken = CLEAN_UP;
+    expect(await send(PASSWORD_SIGN_UP, "/api/account/signup", PASSWORD)).toEqual(OK);
+    expect(await send(PASSWORD_SIGN_IN, "/api/account/signin", PASSWORD)).toEqual(OK);
+    expect(await signIn(k)).toEqual(OK);
+    const [ahri, lux] = saved.accounts;
+    expect(saved.sessions).toEqual([ahri.id, lux.id, lux.id, ahri.id]);
+    await deleteAccount(lux.id);
+    expect(saved.accounts).toEqual([ahri]);
+    expect(saved.sessions).toEqual([ahri.id, ahri.id]);
+    expect(waiting()).toBe(3); // the old ones, which nothing could clear
+    expect(failed.mock.calls).toEqual(Array(5).fill(["passkey challenge clean-up failed", "The database refused this statement."]));
+  });
+
+  it("still signs up and in with a password and deletes an account when the challenge table is missing", async () => {
+    const schema = rows<{ sql: string }>("SELECT sql FROM sqlite_master WHERE tbl_name = 'passkey_challenges' AND sql IS NOT NULL ORDER BY type DESC").map((r) => r.sql);
+    sqlite.exec("DROP TABLE passkey_challenges");
+    try {
+      expect(await send(PASSWORD_SIGN_UP, "/api/account/signup", PASSWORD)).toEqual(OK);
+      expect(await send(PASSWORD_SIGN_IN, "/api/account/signin", PASSWORD)).toEqual(OK);
+      const [lux] = saved.accounts;
+      expect(saved.sessions).toEqual([lux.id, lux.id]);
+      await deleteAccount(lux.id);
+      expect(everything()).toEqual(NOTHING);
+      expect(failed.mock.calls).toEqual(Array(3).fill(["passkey challenge clean-up failed", "no such table: passkey_challenges"]));
+      expect((await post({ step: "signin-options" })).status).toBe(500); // the passkey steps are what need the table
+    } finally {
+      schema.forEach((sql) => sqlite.exec(sql));
+    }
     expect(waiting()).toBe(0);
+  });
+
+  it("cuts the reason it logs for a failed clean-up to 200 characters", async () => {
+    h.broken = CLEAN_UP;
+    h.refusal = "x".repeat(500);
+    await ask("signin");
+    expect(failed.mock.calls).toEqual([["passkey challenge clean-up failed", "x".repeat(200)]]);
+    expect(waiting()).toBe(1);
+  });
+
+  it("also clears out old challenges when a session starts, whichever way someone signs in", async () => {
+    oldChallenges(3);
+    expect(await send(PASSWORD_SIGN_UP, "/api/account/signup", PASSWORD)).toEqual(OK);
+    expect(waiting()).toBe(0);
+    oldChallenges(3);
+    expect(await send(PASSWORD_SIGN_IN, "/api/account/signin", PASSWORD)).toEqual(OK);
+    expect(waiting()).toBe(0);
+    const k = await passkey();
+    await signUp(k);
+    oldChallenges(3);
+    expect(await signIn(k)).toEqual(OK);
+    expect(waiting()).toBe(0);
+    expect(failed).not.toHaveBeenCalled();
   });
 
   it("also clears out old challenges when an account is deleted", async () => {

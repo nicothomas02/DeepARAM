@@ -37,11 +37,18 @@ const SCHEMA = [
 ];
 
 /**
- * Removes passkey challenges past their five minutes, at most 500 at a time so that no request waits on a
- * backlog. It runs whenever a challenge is written, a session starts or an account is deleted.
+ * Clears out passkey challenges past their five minutes, at most 500 at a time so that no request waits on a
+ * backlog. It runs after a challenge is written, a session starts or an account is deleted, always as a statement
+ * of its own: nothing else depends on it, so a failure is logged and goes no further. The log gets the database's
+ * message cut to 200 characters, which for this statement names a table or a limit and never a row.
  */
-export const expiredChallenges = (db: DB, now: number) =>
-  db.prepare("DELETE FROM passkey_challenges WHERE id IN (SELECT id FROM passkey_challenges WHERE expires < ? LIMIT 500)").bind(now);
+export async function clearExpiredChallenges(db: DB, now: number): Promise<void> {
+  try {
+    await db.prepare("DELETE FROM passkey_challenges WHERE id IN (SELECT id FROM passkey_challenges WHERE expires < ? LIMIT 500)").bind(now).run();
+  } catch (err) {
+    console.error("passkey challenge clean-up failed", String((err as { message?: unknown } | null)?.message ?? "").slice(0, 200));
+  }
+}
 
 let ready: Promise<void> | null = null;
 

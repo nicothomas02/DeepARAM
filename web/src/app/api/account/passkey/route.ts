@@ -10,7 +10,7 @@ import {
 } from "@simplewebauthn/server";
 import { CHALLENGE_COOKIE, CHALLENGE_PATH } from "@/lib/account-cookies";
 import { body, clientIp, handle, isSecure, json } from "@/lib/account-route";
-import { expiredChallenges, sha256, type DB } from "@/lib/account-session";
+import { clearExpiredChallenges, sha256, type DB } from "@/lib/account-session";
 import { AccountError, cleanEmail, db, requireAccount, startSession, waysIn } from "@/lib/accounts";
 import { passesBotCheck } from "@/lib/bot-check";
 
@@ -54,8 +54,7 @@ const CHALLENGE_MS = 300_000;
 /**
  * Answers an "-options" step. The challenge waits in the database, with who asked (account, for "add") or the
  * account a sign-up will make (newId and email); the cookie carries only a random handle, stored as its SHA-256.
- * Challenges past their five minutes are then cleared out, which the new one doesn't depend on: if that fails,
- * only the error's name is logged.
+ * Challenges past their five minutes are then cleared out, which the new one doesn't depend on.
  */
 async function withChallenge(req: NextRequest, d: DB, kind: Kind, options: { challenge: string }, who: { account?: string; newId?: string; email?: string } = {}) {
   const handle = toB64url(crypto.getRandomValues(new Uint8Array(32)));
@@ -64,9 +63,7 @@ async function withChallenge(req: NextRequest, d: DB, kind: Kind, options: { cha
     .prepare("INSERT INTO passkey_challenges (id, kind, challenge, account, new_id, email, expires) VALUES (?, ?, ?, ?, ?, ?, ?)")
     .bind(await sha256(handle), kind, options.challenge, who.account ?? null, who.newId ?? null, who.email ?? null, now + CHALLENGE_MS)
     .run();
-  await expiredChallenges(d, now)
-    .run()
-    .catch((err: unknown) => console.warn("passkey challenge clean-up failed", short((err as { name?: unknown } | null)?.name)));
+  await clearExpiredChallenges(d, now);
   const res = json(options);
   res.cookies.set(CHALLENGE_COOKIE, handle, { path: CHALLENGE_PATH, maxAge: CHALLENGE_MS / 1000, httpOnly: true, sameSite: "strict", secure: isSecure(req) });
   return res;
