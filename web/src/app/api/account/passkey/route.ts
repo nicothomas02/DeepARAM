@@ -6,7 +6,6 @@ import {
   verifyAuthenticationResponse,
   verifyRegistrationResponse,
   type AuthenticationResponseJSON,
-  type AuthenticatorTransportFuture,
   type RegistrationResponseJSON,
 } from "@simplewebauthn/server";
 import { CHALLENGE_COOKIE } from "@/lib/account-cookies";
@@ -24,6 +23,21 @@ export const dynamic = "force-dynamic";
 
 const where = (req: NextRequest) => ({ rpID: req.nextUrl.hostname, origin: req.nextUrl.origin });
 
+// Key types (COSE numbers) for new passkeys: EdDSA, ES256, RS256. The same list is offered when a passkey is
+// made and required when it is saved. It is written out so a SimpleWebAuthn upgrade can't change it unnoticed:
+// left to its default, version 14 adds ML-DSA-44 in front wherever the server it runs on can check that
+// signature. Signing in checks the saved key itself and doesn't use this list.
+const OFFERED_ALGS = [-8, -7, -257];
+
+// When SimpleWebAuthn refuses an answer, the log gets the error's name and code and nothing else: its message
+// can quote the challenge and the origin, and the answer itself is never logged.
+const refused = (step: "add" | "signup" | "signin") => (err: unknown) => {
+  const { name, code } = (err ?? {}) as { name?: unknown; code?: unknown };
+  const short = (v: unknown) => (typeof v === "string" || typeof v === "number" ? String(v).slice(0, 60) : "");
+  console.warn(`passkey ${step} refused`, short(name), short(code));
+  return null;
+};
+
 async function withChallenge(req: NextRequest, options: { challenge: string }, extra = "") {
   const res = json(options);
   res.cookies.set(CHALLENGE_COOKIE, options.challenge + extra, { path: "/api/account/passkey", maxAge: 300, httpOnly: true, sameSite: "strict", secure: isSecure(req) });
@@ -37,7 +51,7 @@ async function takeChallenge(): Promise<string> {
 }
 
 const labelOf = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim().slice(0, 40) : "Passkey");
-const transports = (v: string | null) => (v ? (v.split(",") as AuthenticatorTransportFuture[]) : undefined);
+const transports = (v: string | null) => (v ? v.split(",") : undefined);
 const fromB64url = (s: string) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0));
 const toB64url = (b: Uint8Array) => btoa(String.fromCharCode(...b)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 
@@ -58,6 +72,7 @@ export const POST = handle(async (req) => {
       attestationType: "none",
       excludeCredentials: existing.results.map((k) => ({ id: k.id, transports: transports(k.transports) })),
       authenticatorSelection: { residentKey: "required", userVerification: "preferred" },
+      supportedAlgorithmIDs: OFFERED_ALGS,
     });
     return withChallenge(req, options);
   }
@@ -70,7 +85,8 @@ export const POST = handle(async (req) => {
       expectedOrigin: origin,
       expectedRPID: rpID,
       requireUserVerification: false,
-    }).catch(() => null);
+      supportedAlgorithmIDs: OFFERED_ALGS,
+    }).catch(refused("add"));
     if (!v?.verified) throw new AccountError("The passkey couldn't be saved. Try again.");
     const c = v.registrationInfo.credential;
     const label = labelOf(b.label);
@@ -96,6 +112,7 @@ export const POST = handle(async (req) => {
       userID: new TextEncoder().encode(id),
       attestationType: "none",
       authenticatorSelection: { residentKey: "required", userVerification: "preferred" },
+      supportedAlgorithmIDs: OFFERED_ALGS,
     });
     return withChallenge(req, options, `~${id}~${encodeURIComponent(email)}`);
   }
@@ -109,7 +126,8 @@ export const POST = handle(async (req) => {
       expectedOrigin: origin,
       expectedRPID: rpID,
       requireUserVerification: false,
-    }).catch(() => null);
+      supportedAlgorithmIDs: OFFERED_ALGS,
+    }).catch(refused("signup"));
     if (!v?.verified) throw new AccountError("The passkey couldn't be saved. Try again.");
     const c = v.registrationInfo.credential;
     const mail = decodeURIComponent(email);
@@ -143,7 +161,7 @@ export const POST = handle(async (req) => {
       expectedRPID: rpID,
       credential: { id: key.id, publicKey: fromB64url(key.public_key), counter: key.counter, transports: transports(key.transports) },
       requireUserVerification: false,
-    }).catch(() => null);
+    }).catch(refused("signin"));
     if (!v?.verified) throw new AccountError("That passkey didn't work. Try again.", 401);
     await d.prepare("UPDATE passkeys SET counter = ? WHERE id = ?").bind(v.authenticationInfo.newCounter, key.id).run();
     const res = json({ ok: true });
