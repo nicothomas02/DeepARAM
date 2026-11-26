@@ -55,17 +55,21 @@ def snapshot(root):
 
 # ---------------------------------------------------------------- merge.py: what gets published
 
-def site(tmp_path, rel, matches, core_games=None, carried=()):
+def site(tmp_path, rel, matches, core_games=None, carried=(), carried_cores=(), earlier=None, builds=()):
     """A small repo tree: an AramHex copy with release `rel`'s tables and `matches` in its meta, and the site files
     merge.py lays it over (pick rate 0.8 from the last good run). `core_games`: also an item table and one 3-item
-    core per champion with that many games."""
+    core per champion with that many games. `earlier`: (release, matches) of a 16.22 saved next to the live patch.
+    `builds`: champions with a build file."""
     root = str(tmp_path)
     ah = os.path.join(root, "data", "aramhex", "patches")
-    put(os.path.join(ah, "index.json"), {"patches": [PATCH], "latest": PATCH, "seq": rel["seq"]})
+    put(os.path.join(ah, "index.json"), {"patches": ["16.22"] * bool(earlier) + [PATCH], "latest": PATCH, "seq": rel["seq"]})
+    if earlier:
+        put(os.path.join(ah, "16.22", "heroes.json"), {c: [earlier[0]["games"], earlier[0]["games"] // 2] for c in CHAMPIONS})
+        put(os.path.join(ah, "16.22", "meta.json"), {"patch": "16.22", "matches": earlier[1]})
     put(os.path.join(ah, PATCH, "heroes.json"), {c: [rel["games"], rel["games"] // 2] for c in CHAMPIONS})
     put(os.path.join(ah, PATCH, "augments.json"), {c: {AUGMENT: [rel["held"], rel["held"] // 2]} for c in CHAMPIONS})
     put(os.path.join(ah, PATCH, "meta.json"), {"patch": PATCH, "matches": matches, "snapshot_at": "2026-11-26T09:00:00+08:00",
-                                               "carried_from_earlier_patch": list(carried)})
+                                               "carried_from_earlier_patch": list(carried), "carried_cores": list(carried_cores)})
     if core_games:
         put(os.path.join(ah, PATCH, "items.json"), {c: {"all": [rel["games"], rel["games"] // 2], "items": {}} for c in CHAMPIONS})
         put(os.path.join(ah, PATCH, "cores.json"), {c: [[[3031, 3032, 3036], core_games, core_games // 2]] for c in CHAMPIONS})
@@ -80,6 +84,8 @@ def site(tmp_path, rel, matches, core_games=None, carried=()):
     put(os.path.join(cn, "history", "by_patch.json"), {"patches": [{"patch": PATCH, "days": 2}], "champions": {
         PATCH: [{"id": int(c), "win_rate": 0.5, "pick_rate": 0.5} for c in CHAMPIONS]}})
     os.makedirs(os.path.join(cn, "builds"))
+    for c in builds:
+        put(os.path.join(cn, "builds", c + ".json"), {"augments": {"all": []}, "items": {"core": "from 101"}})
     return root
 
 
@@ -148,6 +154,42 @@ def test_merge_refuses_cores_with_more_games_than_the_champion(tmp_path, merge, 
     assert merge(site(tmp_path / "own", NEW, matches=NEW["matches"], core_games=NEW["games"] // 4)).main() == 0
 
 
+def test_merge_checks_every_saved_patch_not_only_the_live_one(tmp_path, merge):
+    """Earlier patches' champion rates are laid over the history files too."""
+    root = site(tmp_path, NEW, matches=NEW["matches"], earlier=(NEW, OLD["matches"]))
+    before = snapshot(root)
+    assert merge(root).main() == 1
+    assert snapshot(root) == before
+    assert merge(site(tmp_path / "fits", NEW, matches=NEW["matches"], earlier=(OLD, OLD["matches"]))).main() == 0
+
+
+def test_match_count_must_be_exactly_a_tenth_of_the_champion_games():
+    ah = load_aramhex("merge", "aramhex_merge").ah
+    heroes = {c: [5000, 2500] for c in CHAMPIONS}  # 100,000 games: 10,000 matches
+    assert ah.snapshot_problem(heroes, 10000) is None
+    assert ah.snapshot_problem(heroes, 9999) and ah.snapshot_problem(heroes, 10001)  # too many games, too few
+    assert ah.snapshot_problem(heroes, 17000)  # an older table under a newer count
+    assert ah.snapshot_problem(heroes, None) and ah.snapshot_problem(heroes, 0)  # no count at all
+    assert ah.snapshot_problem({}, None) is None and ah.snapshot_problem(None, 10000) is None  # no table: nothing to lay over
+
+
+def test_merge_uses_cores_only_for_champions_whose_cores_are_the_patchs_own(tmp_path, merge):
+    """fetch.py lists the champions whose cores repeat an earlier patch's; the others get theirs (2026-11-26: every
+    champion but Sylas)."""
+    root = site(tmp_path, NEW, matches=NEW["matches"], core_games=NEW["games"] // 4, carried_cores=["1"], builds=["1", "2"])
+    assert merge(root).main() == 0
+    built = {}
+    for c in ("1", "2"):
+        with open(os.path.join(root, "data", "cn", "builds", c + ".json"), encoding="utf-8") as f:
+            built[c] = json.load(f)
+    assert built["1"]["items"]["core"] == "from 101" and built["1"]["sources"].get("items.core") is None
+    assert built["2"]["sources"]["items.core"] == "aramhex"
+    assert built["2"]["items"]["core"] == [{"items": [3031, 3032, 3036], "pick_rate": 0.25, "win_rate": 0.4998, "games": 2125, "ordered": True}]
+    # a carried champion's cores may have more games than the champion (they are another patch's): not a reason to refuse
+    over = site(tmp_path / "over", NEW, matches=NEW["matches"], core_games=3 * NEW["games"], carried_cores=CHAMPIONS)
+    assert merge(over).main() == 0
+
+
 # ---------------------------------------------------------------- fetch.py: what gets saved
 
 def dataset(src, patch, rel, index=None, destiny="old", cut=None, hashes=True, cores=None):
@@ -198,18 +240,33 @@ def fetch(tmp_path, monkeypatch):
     monkeypatch.setattr(f, "CHANGES", os.path.join(ours, "changes.json"))
 
     def run(src):
-        for left in ("STAGED", "SKIPPED", "CORES"):  # nothing carried over from another test's refused download
-            getattr(f, left, []).clear()
         monkeypatch.setattr(sys, "argv", ["fetch.py", "--src", src])
         return f.main()
     run.ours = ours
-    run.problem = lambda: f.ah.snapshot_problem(saved(ours, "heroes"), saved(ours, "meta")["matches"])
+    run.problem = lambda patch=PATCH: f.ah.snapshot_problem(saved(ours, "heroes", patch), saved(ours, "meta", patch)["matches"])
     return run
 
 
-def saved(ours, name):
-    with open(os.path.join(ours, "patches", PATCH, name + ".json"), encoding="utf-8") as f:
+def saved(ours, name, patch=PATCH):
+    with open(os.path.join(ours, "patches", patch, name + ".json"), encoding="utf-8") as f:
         return json.load(f)
+
+
+def copy(ours):
+    """Everything fetch.py saves but its notes for the owner (a failed download adds one line there)."""
+    return {k: v for k, v in snapshot(ours).items() if k != "changes.json"}
+
+
+def notes(ours):
+    path = os.path.join(ours, "changes.json")
+    if not os.path.exists(path):
+        return []
+    with open(path, encoding="utf-8") as f:
+        return [e["note"] for e in json.load(f)]
+
+
+def not_saved(ours):
+    return [n for n in notes(ours) if "was not saved" in n]
 
 
 def test_fetch_saves_a_release_whose_files_are_the_ones_its_index_lists(tmp_path, fetch):
@@ -218,6 +275,7 @@ def test_fetch_saves_a_release_whose_files_are_the_ones_its_index_lists(tmp_path
     assert fetch(upstream(tmp_path, "new", NEW)) == 0
     assert saved(fetch.ours, "meta")["matches"] == NEW["matches"] and fetch.problem() is None
     assert saved(fetch.ours, "heroes")["1"] == [NEW["games"], NEW["games"] // 2]
+    assert not not_saved(fetch.ours)
 
 
 def test_fetch_survives_the_renamed_weapon_of_destiny_fields(tmp_path, fetch):
@@ -229,22 +287,26 @@ def test_fetch_survives_the_renamed_weapon_of_destiny_fields(tmp_path, fetch):
     assert saved(fetch.ours, "meta")["matches"] == NEW["matches"] and fetch.problem() is None
     assert "destiny" not in saved(fetch.ours, "meta")["tables"]
     assert snapshot(fetch.ours)[os.path.join("patches", PATCH, "destiny.json")] == destiny
-    with open(os.path.join(fetch.ours, "changes.json"), encoding="utf-8") as f:
-        notes = [e["note"] for e in json.load(f)]
-    assert any("hero_augment_items.json" in n for n in notes)
+    noted = notes(fetch.ours)
+    assert any("hero_augment_items.json" in n for n in noted)
     assert fetch(upstream(tmp_path, "again", NEW, destiny="new")) == 0  # noted once, not on every run
-    with open(os.path.join(fetch.ours, "changes.json"), encoding="utf-8") as f:
-        assert [e["note"] for e in json.load(f)] == notes
+    assert notes(fetch.ours) == noted
 
 
-def test_fetch_that_stops_half_way_leaves_the_last_copy(tmp_path, fetch):
+def test_fetch_that_stops_half_way_saves_nothing_and_says_so_once(tmp_path, fetch, capsys):
     """A table that can't be read after others were converted: unfixed, the new champion and augment tables were
-    already on disk next to the old match count."""
+    already on disk next to the old match count, and nothing told the owner."""
     assert fetch(upstream(tmp_path, "old", OLD)) == 0
-    before = snapshot(fetch.ours)
-    with pytest.raises(Exception):
-        fetch(upstream(tmp_path, "new", NEW, cut="hero_spells.json", hashes=False))
-    assert snapshot(fetch.ours) == before
+    before = copy(fetch.ours)
+    capsys.readouterr()
+    assert fetch(upstream(tmp_path, "new", NEW, cut="hero_spells.json", hashes=False)) == 1
+    assert copy(fetch.ours) == before
+    assert "::error::AramHex download stopped" in capsys.readouterr().err
+    assert len(not_saved(fetch.ours)) == 1 and f"seq {NEW['seq']} " in not_saved(fetch.ours)[0]
+    assert fetch(upstream(tmp_path, "new", NEW, cut="hero_spells.json", hashes=False)) == 1  # the same release again
+    assert len(not_saved(fetch.ours)) == 1 and copy(fetch.ours) == before
+    assert fetch(upstream(tmp_path, "fine", NEW)) == 0  # and the release is saved once it can be read
+    assert fetch.problem() is None and saved(fetch.ours, "meta")["matches"] == NEW["matches"]
 
 
 @pytest.mark.parametrize("hashes", [True, False])
@@ -252,22 +314,69 @@ def test_fetch_refuses_tables_that_are_not_the_ones_the_index_lists(tmp_path, fe
     """New tables behind the previous index (each file is cached on its own for five minutes): refused by the files'
     sha256 where the index lists them, and by ten players a match either way."""
     assert fetch(upstream(tmp_path, "old", OLD)) == 0
-    before = snapshot(fetch.ours)
+    before = copy(fetch.ours)
     capsys.readouterr()
     assert fetch(upstream(tmp_path, "mixed", NEW, index=OLD, hashes=hashes)) == 1
-    assert snapshot(fetch.ours) == before
+    assert copy(fetch.ours) == before
     err = capsys.readouterr().err
-    assert "::error::" in err and ("index.json lists" in err if hashes else "170,000 games" in err)
+    assert "::error::AramHex download refused" in err and ("index.json lists" in err if hashes else "170,000 games" in err)
+    assert len(not_saved(fetch.ours)) == 1
 
 
-@pytest.mark.parametrize("repeated, carried", [(19, ["cores"]), (0, [])])
-def test_fetch_marks_cores_repeated_from_the_patch_before_as_carried(tmp_path, fetch, repeated, carried):
+@pytest.mark.parametrize("matches", [NEW["matches"] + 1, NEW["matches"] - 1, None])
+def test_fetch_refuses_a_match_count_that_is_not_a_tenth_of_the_champion_games(tmp_path, fetch, matches):
+    """Too few games for the count, too many, or no count at all."""
+    assert fetch(upstream(tmp_path, "old", OLD)) == 0
+    before = copy(fetch.ours)
+    src = os.path.join(str(tmp_path), "off")
+    ds = dataset(src, PATCH, NEW)
+    ds["matches"] = matches
+    assert fetch(publish(src, [ds])) == 1
+    assert copy(fetch.ours) == before
+
+
+def test_fetch_saves_no_patch_when_a_later_one_is_refused(tmp_path, fetch):
+    """16.22 converts cleanly with new numbers, 16.23 is refused: 16.22's new tables must not be saved either."""
+    src = os.path.join(str(tmp_path), "both")
+    assert fetch(publish(src, [dataset(src, "16.22", OLD), dataset(src, PATCH, OLD)])) == 0
+    before = copy(fetch.ours)
+    src = os.path.join(str(tmp_path), "later")
+    assert fetch(publish(src, [dataset(src, "16.22", NEW), dataset(src, PATCH, NEW, index=OLD)])) == 1
+    assert copy(fetch.ours) == before
+    assert saved(fetch.ours, "heroes", "16.22")["1"] == [OLD["games"], OLD["games"] // 2]
+    src = os.path.join(str(tmp_path), "fine")
+    assert fetch(publish(src, [dataset(src, "16.22", NEW), dataset(src, PATCH, NEW)])) == 0
+    assert fetch.problem("16.22") is None and fetch.problem() is None and copy(fetch.ours) != before
+
+
+def test_fetch_saves_nothing_when_the_upstream_notes_fail(tmp_path, fetch):
+    """After the tables, fetch.py reads a few more files for its notes on upstream changes (watch). A failure there
+    must not leave new tables next to the old index.json and upstream.json."""
+    assert fetch(upstream(tmp_path, "old", OLD)) == 0
+    before = copy(fetch.ours)
+    src = upstream(tmp_path, "new", NEW)
+    os.remove(os.path.join(src, "LICENSE"))
+    assert fetch(src) == 1
+    assert copy(fetch.ours) == before and len(not_saved(fetch.ours)) == 1
+
+
+def test_fetch_lists_the_champions_whose_cores_repeat_an_earlier_patch(tmp_path, fetch):
     """AramHex's 16.23 release keeps 16.22's cores for every champion but one, in a file with a new hash. Their games
-    are 16.22's, so they must not be laid over 16.23's item games as its own."""
+    are 16.22's, so merge.py must not lay them over 16.23's item games; the one champion with new cores gets them."""
     src = os.path.join(str(tmp_path), "two")
     before = {c: (["3031", "3032", "3036"], 40000 + int(c)) for c in CHAMPIONS}
-    now = {c: before[c] if int(c) <= repeated else (["3118", "4005", "4628"], 900 + int(c)) for c in CHAMPIONS}
-    publish(src, [dataset(src, PATCH, NEW, cores=now), dataset(src, "16.22", OLD, cores=before)])
-    assert fetch(src) == 0
-    assert saved(fetch.ours, "meta")["carried_from_earlier_patch"] == carried
-    assert saved(fetch.ours, "cores")["20"] == [[[3118, 4005, 4628], 920, 460]]
+    now = {c: before[c] if int(c) <= 18 else (["3118", "4005", "4628"], 900 + int(c)) for c in CHAMPIONS}
+    earlier, later = dataset(src, "16.22", OLD, cores=before), dataset(src, PATCH, NEW, cores=now)
+    for ds in (earlier, later):  # a champion with no cores in either patch (Viego's rows are []) repeats nothing
+        with open(os.path.join(src, ds["path"], "core_builds.json"), encoding="utf-8") as f:
+            table = json.load(f)
+        table["20"] = []
+        table["1"][0]["wins"] += ds is later  # a recount of wins doesn't make 16.22's games this patch's
+        put(os.path.join(src, ds["path"], "core_builds.json"), table)
+        del ds["files"]["core_builds.json"]["sha256"]
+    assert fetch(publish(src, [later, earlier])) == 0
+    meta = saved(fetch.ours, "meta")
+    assert meta["carried_cores"] == [str(i) for i in range(1, 19)] and meta["carried_from_earlier_patch"] == []
+    assert saved(fetch.ours, "meta", "16.22")["carried_cores"] == []
+    assert saved(fetch.ours, "cores")["19"] == [[[3118, 4005, 4628], 919, 459]] and saved(fetch.ours, "cores")["20"] == []
+    assert any("18 of 19 champions" in n for n in notes(fetch.ours))

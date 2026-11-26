@@ -20,11 +20,13 @@ Writes data/aramhex/patches/<patch>/ with [games, wins] pairs:
   meta.json          patch, seq, snapshot, matches, window, which tables were carried from an earlier patch
 Only the "normal" rules are kept (event modes like first-prismatic are skipped). Standard library only.
 
-Nothing is written until every dataset is converted, every file is the one index.json lists (sha256) and each patch's
-champion games add up to 10 x its match count. On 2026-11-26 a KeyError half-way through 16.23 left that patch's new
-tables next to its old match count (common.snapshot_problem); the files also sit behind a CDN that caches each one
-for five minutes on its own, so an old index can come with new tables. A download that stops or is refused exits
-non-zero and leaves the last copy as it was; index.json keeps its old seq, so the hourly check asks again.
+All or nothing: the tables, upstream.json, changes.json and index.json are written together at the very end, once
+every dataset is converted, every file is the one index.json lists (sha256), each patch's champion games add up to
+10 x its match count and the upstream notes (watch) are made. On 2026-11-26 a KeyError half-way through 16.23 left
+that patch's new tables next to its old match count (common.snapshot_problem); the files also sit behind a CDN that
+caches each one for five minutes on its own, so an old index can come with new tables. A download that stops or is
+refused exits 1 and saves nothing but one line in changes.json per upstream release (note_failure); index.json keeps
+its old seq, so the next check asks again, and the workflow ends red after committing the rest.
 
 Usage: python3 data/aramhex/fetch.py [--src DIR]   (DIR: a local clone instead of downloading)
 """
@@ -34,6 +36,7 @@ import hashlib
 import json
 import os
 import sys
+import traceback
 import datetime as dt
 import urllib.request
 
@@ -74,9 +77,10 @@ def listed(src, base, name, files):
     return raw
 
 
-STAGED = []  # (path, text): written by flush() once every dataset has passed its checks
+STAGED = []  # (path, text): written by flush() at the very end, once every dataset has passed and watch() is done
 SKIPPED = []  # "<patch> <file>": tables whose fields this script no longer reads, left as they were (watch() notes them)
 CORES = []  # the core rows of the patches converted so far this run (oldest first), to spot rows carried into a later one
+CARRIED_CORES = {}  # {patch: [champions whose cores are an earlier patch's, champions with cores]} (watch() notes them)
 
 
 def dump(path, obj):
@@ -86,9 +90,36 @@ def dump(path, obj):
 def flush():
     for path, text in STAGED:
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        with open(path, "w") as f:
+        with open(path, "w", encoding="utf-8") as f:
             f.write(text)
     del STAGED[:]
+
+
+def same_cores(a, b):
+    """The same cores with the same games (wins are not compared: a recount of wins doesn't make rows a patch's own)."""
+    return b is not None and sorted((tuple(i), g) for i, g, _ in a) == sorted((tuple(i), g) for i, g, _ in b)
+
+
+def read_changes():
+    try:
+        with open(CHANGES, encoding="utf-8") as f:
+            return json.load(f)
+    except OSError:
+        return []
+
+
+def note_failure(seq, why):
+    """A download that was refused or stopped saves no tables, only this line in changes.json, once per upstream
+    release, so the daily report says why the AramHex numbers stand still."""
+    head = f"AramHex release seq {seq} was not saved"
+    log = read_changes()
+    if any(str(e.get("note", "")).startswith(head) for e in log):
+        return
+    log.append({"date": dt.date.today().isoformat(), "reported": False,
+                "note": f"{head} (the last copy stays; later runs try again): {why}"})
+    with open(CHANGES, "w", encoding="utf-8") as f:
+        json.dump(log, f, indent=1, ensure_ascii=False)
+        f.write("\n")
 
 
 def convert(src, ds, prev_hashes):
@@ -114,6 +145,7 @@ def convert(src, ds, prev_hashes):
         dump(os.path.join(out, "spells.json"), {h: {k: gw(r) for k, r in v.items() if r["games"] >= MIN_SPELL_GAMES} for h, v in sp.items()})
         written.append("spells")
     carried = []
+    carried_cores = []
     items = load("hero_items.json")
     denom = load("equipment_recommendation_heroes.json")
     if items and denom:
@@ -136,12 +168,14 @@ def convert(src, ds, prev_hashes):
         dump(os.path.join(out, "cores.json"), rows)
         written.append("cores")
         sha = files["core_builds.json"].get("sha256")
-        # Carried: the same file as an earlier patch, or a champion's rows repeated game for game. AramHex's 16.23
-        # release of 2026-11-26 keeps 16.22's cores for every champion but Sylas (its notes say so), so the file's
-        # hash is new while 172 champions' games are 16.22's: over 16.23's own item games they would read as pick
-        # rates up to 240%. One repeated champion marks the table, so merge.py leaves the cores to 101.
-        if (sha and sha in prev_hashes.get("core_builds.json", set())) or any(v and v == p.get(h) for p in CORES for h, v in rows.items()):
+        if sha and sha in prev_hashes.get("core_builds.json", set()):
             carried.append("cores")
+        # Champion by champion: cores that repeat an earlier patch's (same items, same games) are that patch's, not
+        # this one's. AramHex's 16.23 release of 2026-11-26 keeps 16.22's cores for every champion but Sylas (its
+        # notes say so) in a file with a new hash: over 16.23's own item games they would read as pick rates up to
+        # 240%. merge.py skips these champions and uses the others' cores. A champion without cores ([]) is neither.
+        carried_cores = sorted((h for h, v in rows.items() if v and any(same_cores(v, p.get(h)) for p in CORES)), key=int)
+        CARRIED_CORES[patch] = [len(carried_cores), sum(1 for v in rows.values() if v)]
         CORES.append(rows)
     dest = load("hero_augment_items.json")
     if dest:
@@ -210,9 +244,11 @@ def convert(src, ds, prev_hashes):
         "source": "AramHex (github.com/czgreat/aramhex-data), CC BY-NC 4.0",
         "patch": patch, "seq": ds.get("seq"), "snapshot_at": ds.get("snapshot_at") or meta.get("snapshot_at"),
         "matches": ds.get("matches"), "window": (ds.get("window") or meta.get("window") or {}),
-        "tables": written, "carried_from_earlier_patch": carried,
+        "tables": written, "carried_from_earlier_patch": carried, "carried_cores": carried_cores,
         "bands": bands,
     })
+    if carried_cores:
+        carried = carried + [f"cores of {len(carried_cores)} of {CARRIED_CORES[patch][1]} champions"]
     return written, carried
 
 
@@ -257,8 +293,13 @@ def watch(src, index):
         "latest_seq": index.get("latest_seq"),
         "latest_snapshot": max((d.get("snapshot_at") or "" for d in index["datasets"]), default=""),
         "skipped_tables": sorted(SKIPPED),
+        "carried_cores": {p: c for p, c in sorted(CARRIED_CORES.items()) if c[0]},
     }
     notes = []
+    for p, (n, of) in now["carried_cores"].items():
+        if ((old or {}).get("carried_cores") or {}).get(p) != [n, of]:
+            notes.append(f"{p}: the 3-item cores of {n} of {of} champions are an earlier patch's (same games); "
+                         f"the site keeps 101's for them and uses AramHex's for the other {of - n}")
     for t in now["skipped_tables"]:
         if t not in ((old or {}).get("skipped_tables") or []):
             notes.append(f"{t}: its fields changed and fetch.py can't read it, so that table was left as it was (fetch.py needs updating)")
@@ -294,20 +335,12 @@ def watch(src, index):
             now["stall_noted"] = old["stall_noted"]
     except ValueError:
         pass
-    with open(UPSTREAM, "w") as f:
-        json.dump(now, f, indent=1, sort_keys=True)
-        f.write("\n")
+    # Staged like the tables: written by main()'s one flush, so a download that fails in here saves nothing either.
+    STAGED.append((UPSTREAM, json.dumps(now, indent=1, sort_keys=True) + "\n"))
     if notes:
-        try:
-            with open(CHANGES) as f:
-                log = json.load(f)
-        except OSError:
-            log = []
         day = dt.date.today().isoformat()
-        log += [{"date": day, "note": n, "reported": False} for n in notes]
-        with open(CHANGES, "w") as f:
-            json.dump(log, f, indent=1, ensure_ascii=False)
-            f.write("\n")
+        log = read_changes() + [{"date": day, "note": n, "reported": False} for n in notes]
+        STAGED.append((CHANGES, json.dumps(log, indent=1, ensure_ascii=False) + "\n"))
     return notes
 
 
@@ -330,6 +363,7 @@ def main():
     sets.sort(key=lambda d: [int(x) for x in d["patch"].split(".")])
     seen = {}
     del STAGED[:], SKIPPED[:], CORES[:]
+    CARRIED_CORES.clear()
     try:
         for ds in sets:
             written, carried = convert(a.src, ds, seen)
@@ -337,12 +371,17 @@ def main():
                 if f.get("sha256"):
                     seen.setdefault(name, set()).add(f["sha256"])
             print(f"{ds['patch']}: {ds.get('matches'):,} games, {', '.join(written)}" + (f" (carried: {', '.join(carried)})" if carried else ""))
-    except ah.SnapshotError as e:
-        del STAGED[:], SKIPPED[:]
-        print(f"::error::AramHex download refused, the last copy stays: {e}", file=sys.stderr)
+        notes = watch(a.src, index)
+    except Exception as e:  # refused (SnapshotError) or stopped by anything else: nothing has been written
+        del STAGED[:]
+        refused = isinstance(e, ah.SnapshotError)
+        why = (str(e) if refused else f"{type(e).__name__}: {e}")[:300]
+        if not refused:
+            traceback.print_exc()
+        note_failure(index.get("latest_seq"), why)
+        print(f"::error::AramHex download {'refused' if refused else 'stopped'}, the last copy stays: {why}", file=sys.stderr)
         return 1
-    flush()
-    for n in watch(a.src, index):
+    for n in notes:
         print("upstream change:", n)
     dump(os.path.join(OUT, "index.json"), {"patches": [d["patch"] for d in sets], "latest": sets[-1]["patch"] if sets else None,
                                            "seq": index.get("latest_seq")})

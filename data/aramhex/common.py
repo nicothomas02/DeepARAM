@@ -38,6 +38,12 @@ def carried(patch):
     return set(m.get("carried_from_earlier_patch") or [])
 
 
+def carried_cores(patch):
+    """Champions whose 3-item cores in this patch's table repeat an earlier patch's (fetch.py): not this patch's games."""
+    m = load(patch, "meta") or {}
+    return set(m.get("carried_cores") or [])
+
+
 class SnapshotError(Exception):
     """Tables and a match count that are not from the same AramHex release."""
 
