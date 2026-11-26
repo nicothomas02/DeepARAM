@@ -1,6 +1,14 @@
-import { describe, expect, it } from "vitest";
-import { damageDealtWorth, forecastScorecard, gameLength, itemLift, itemLiftSummary, patchImpact, pbeForecast, playstyleClusters, playstyleOf, settlingOf, shiftsOf, typicalSettling } from "@/lib/analysis";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import { damageDealtWorth, forecastScorecard, gameLength, itemLift, itemLiftSummary, patchImpact, pbeForecast, playstyleClusters, playstyleOf, settlingOf, shiftsOf, typicalSettling, type GameLength, type LengthCurve } from "@/lib/analysis";
 import { readRepoJson } from "@/lib/repo-data";
+
+// Lets a test put a fixed file in place of one of the repo's data files; every other path reads the real file.
+const fixed = vi.hoisted(() => new Map<string, unknown>());
+vi.mock("@/lib/repo-data", async (original) => {
+  const real = await original<typeof import("@/lib/repo-data")>();
+  return { ...real, readRepoJson: (rel: string) => (fixed.has(rel) ? fixed.get(rel) : real.readRepoJson(rel)) };
+});
+afterEach(() => fixed.clear());
 
 // Readers for data/analysis (lib/analysis.ts): every page that uses them must get consistent, in-range values.
 describe("patch-change impact", () => {
@@ -83,11 +91,22 @@ describe("item lift and game length", () => {
   });
 
   it("reads a survival curve that only ever falls", () => {
+    const falls = (g: GameLength) => {
+      const s = g.curves.all.survival;
+      expect(s.length).toBeGreaterThan(1);
+      for (let i = 1; i < s.length; i++) expect(s[i]).toBeLessThanOrEqual(s[i - 1]);
+      expect(g.curves.all.median).toBeGreaterThan(10);
+    };
+    // game_length.json is private (git-ignored), so the repo and CI never have it: the owner's own file is checked
+    // where there is one, and a fixed file stands in for it everywhere. It holds what game_length.py's curve() writes
+    // for four games that ended in minutes 12, 14, 14 and 15.
+    const own = gameLength();
+    if (own) falls(own);
+    const all: LengthCurve = { games: 4, median: 14.5, quartiles: [13, 15], survival: [...Array(13).fill(1), 0.75, 0.75, 0.25], hazard: [...Array(12).fill(0), 0.25, 0, 0.6667, 1] };
+    fixed.set("data/analysis/game_length.json", { curves: { all } });
     const g = gameLength();
-    if (!g) return;
-    const s = g.curves.all.survival;
-    for (let i = 1; i < s.length; i++) expect(s[i]).toBeLessThanOrEqual(s[i - 1]);
-    expect(g.curves.all.median).toBeGreaterThan(10);
+    expect(g?.curves.all).toEqual(all);
+    falls(g!);
   });
 });
 
