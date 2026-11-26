@@ -120,12 +120,16 @@ jobs:
           f=data/cn/history/published.csv
           [ -f "$f" ] || echo "stat_date,first_seen_utc" > "$f"
           echo "${{ needs.check.outputs.day }},$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$f"
-      - name: Check the new data with the data tests (nothing is committed when they fail)
-        # The same tests as a pull request's "Data and My Stats" job. A bot push starts no Tests run, so without
-        # this a bad refresh reaches main unchecked (2026-11-26: augment pick rates above 100%).
+      - name: Check the new stats with their data tests (nothing is committed when they fail)
+        # A bot push starts no Tests run, so without this a bad refresh reaches main unchecked (2026-11-26: augment
+        # pick rates above 100%). Only the tests for the stats this job must get right (data/cn, data/stats,
+        # data/aramhex, the spell pairs, boots timing): champion pages, translations and icons come from steps
+        # that may fail on a download hiccup and must not hold back the stats, and the rest of tests/data
+        # (importer, backup, pages) is not this job's. tests/data/test_stats_gate.py keeps this list real, and in
+        # the order the whole suite runs them (some test files only load after others).
         run: |
           python3 -m pip install -q pytest
-          python3 -m pytest tests/data -q
+          python3 -m pytest -q tests/data/test_aramhex_pool.py tests/data/test_aramhex_snapshot.py tests/data/test_data_cn.py tests/data/test_data_estimates.py::test_boots_timing tests/data/test_data_fill.py tests/data/test_data_stats.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"

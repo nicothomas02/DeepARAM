@@ -92,12 +92,14 @@ jobs:
               json.dump({"patch": d["patch"], "items": d["items"]}, f, separators=(",", ":"))
               f.write("\n")
           PY
-      - name: Check the new data with the data tests (nothing is committed when they fail)
+      - name: Check the new estimates with their data tests (nothing is committed when they fail)
         if: steps.fresh.outputs.run == 'true'
-        # The same tests as a pull request's "Data and My Stats" job; a bot push starts no Tests run.
+        # A bot push starts no Tests run. Only the tests for what this job commits (data/fill, data/estimates,
+        # data/checks, data/analysis); tests/data/test_stats_gate.py keeps this list real, and in the order the
+        # whole suite runs them (some test files only load after others).
         run: |
           python3 -m pip install -q pytest
-          python3 -m pytest tests/data -q
+          python3 -m pytest -q tests/data/test_data_analysis.py tests/data/test_data_checks.py tests/data/test_data_estimates.py tests/data/test_data_fill.py
       - name: Commit changes
         if: steps.fresh.outputs.run == 'true'
         run: |
