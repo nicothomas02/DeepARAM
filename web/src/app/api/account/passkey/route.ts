@@ -6,7 +6,6 @@ import {
   verifyAuthenticationResponse,
   verifyRegistrationResponse,
   type AuthenticationResponseJSON,
-  type AuthenticatorTransportFuture,
   type RegistrationResponseJSON,
 } from "@simplewebauthn/server";
 import { CHALLENGE_COOKIE } from "@/lib/account-cookies";
@@ -24,6 +23,14 @@ export const dynamic = "force-dynamic";
 
 const where = (req: NextRequest) => ({ rpID: req.nextUrl.hostname, origin: req.nextUrl.origin });
 
+// Key algorithms (COSE numbers), written out so a SimpleWebAuthn upgrade can't change them unnoticed.
+// Offered when a passkey is made: EdDSA, ES256, RS256. Left to its default, SimpleWebAuthn 14 puts
+// ML-DSA-44 first wherever the server it runs on can check that signature.
+const OFFERED_ALGS = [-8, -7, -257];
+// Accepted when a new passkey is saved: the list SimpleWebAuthn 13 used by default. SimpleWebAuthn 14's
+// default is the offered list. Signing in checks the saved key itself and uses neither list.
+const ACCEPTED_ALGS = [-8, -7, -36, -37, -38, -39, -257, -258, -259, -65535];
+
 async function withChallenge(req: NextRequest, options: { challenge: string }, extra = "") {
   const res = json(options);
   res.cookies.set(CHALLENGE_COOKIE, options.challenge + extra, { path: "/api/account/passkey", maxAge: 300, httpOnly: true, sameSite: "strict", secure: isSecure(req) });
@@ -37,7 +44,7 @@ async function takeChallenge(): Promise<string> {
 }
 
 const labelOf = (v: unknown) => (typeof v === "string" && v.trim() ? v.trim().slice(0, 40) : "Passkey");
-const transports = (v: string | null) => (v ? (v.split(",") as AuthenticatorTransportFuture[]) : undefined);
+const transports = (v: string | null) => (v ? v.split(",") : undefined);
 const fromB64url = (s: string) => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/")), (c) => c.charCodeAt(0));
 const toB64url = (b: Uint8Array) => btoa(String.fromCharCode(...b)).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 
@@ -58,6 +65,7 @@ export const POST = handle(async (req) => {
       attestationType: "none",
       excludeCredentials: existing.results.map((k) => ({ id: k.id, transports: transports(k.transports) })),
       authenticatorSelection: { residentKey: "required", userVerification: "preferred" },
+      supportedAlgorithmIDs: OFFERED_ALGS,
     });
     return withChallenge(req, options);
   }
@@ -70,6 +78,7 @@ export const POST = handle(async (req) => {
       expectedOrigin: origin,
       expectedRPID: rpID,
       requireUserVerification: false,
+      supportedAlgorithmIDs: ACCEPTED_ALGS,
     }).catch(() => null);
     if (!v?.verified) throw new AccountError("The passkey couldn't be saved. Try again.");
     const c = v.registrationInfo.credential;
@@ -96,6 +105,7 @@ export const POST = handle(async (req) => {
       userID: new TextEncoder().encode(id),
       attestationType: "none",
       authenticatorSelection: { residentKey: "required", userVerification: "preferred" },
+      supportedAlgorithmIDs: OFFERED_ALGS,
     });
     return withChallenge(req, options, `~${id}~${encodeURIComponent(email)}`);
   }
@@ -109,6 +119,7 @@ export const POST = handle(async (req) => {
       expectedOrigin: origin,
       expectedRPID: rpID,
       requireUserVerification: false,
+      supportedAlgorithmIDs: ACCEPTED_ALGS,
     }).catch(() => null);
     if (!v?.verified) throw new AccountError("The passkey couldn't be saved. Try again.");
     const c = v.registrationInfo.credential;
