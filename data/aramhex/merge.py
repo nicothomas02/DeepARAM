@@ -396,6 +396,7 @@ def merge_builds(check, live):
     boots = ah.load(live, "boots") or {}
     cores = ah.load(live, "cores") or {}
     own_cores = "cores" not in ah.carried(live)
+    carried_cores = ah.carried_cores(live)
     # Augments pooled with earlier patches where nothing changed (common.pool); the site ranks on these by default.
     aug_hist = [ah.load(p, "augments") or {} for p in ah.earlier(live)]
     starts_hist = start_history(live)
@@ -461,7 +462,7 @@ def merge_builds(check, live):
                                   if g >= MIN_ITEM_GAMES and int(i) not in boot_ids), key=lambda r: -r["games"])
             src["items.other"] = "aramhex"
         tc = cores.get(cid)
-        if own_cores and tc and ti:
+        if own_cores and tc and ti and cid not in carried_cores:
             den = ti["all"][0]
             it["core"] = [dict(row(ids, g, w, den), ordered=True) for ids, g, w in sorted(tc, key=lambda c: -c[1])]
             src["items.core"] = "aramhex"
@@ -529,6 +530,22 @@ def main():
         print("no AramHex data (run data/aramhex/fetch.py first)")
         return 0
     live = ah.live_patch()
+    # Before anything is written: every patch's match count must fit its champion table (common.snapshot_problem).
+    # A mismatched copy is refused whole, so the files from the last good run stay as they are.
+    bad = [f"{p}: {why}" for p in sorted({*ah.patches(), *([live] if live else [])}, key=vkey) for why in [ah.problem(p)] if why]
+    if live and "cores" not in ah.carried(live):
+        # Cores counted as this patch's own must fit its item games: a core with more games than the champion's item
+        # rows are measured against is another patch's (a pick rate above 100%).
+        items, cores, skip = ah.load(live, "items") or {}, ah.load(live, "cores") or {}, ah.carried_cores(live)
+        over = sorted((c for c, rows in cores.items() if c in items and c not in skip
+                       and any(g > items[c]["all"][0] for _, g, _ in rows)), key=int)
+        if over:
+            bad.append(f"{live}: 3-item cores with more games than the champion's item games for {len(over)} champions "
+                       f"({', '.join(over[:5])}...): carried from another patch?")
+    if bad:
+        print("::error::AramHex copy refused, nothing written (its tables are not one release; "
+              "data/aramhex/fetch.py downloads a matching set): " + "; ".join(bad), file=sys.stderr)
+        return 1
     stale = stale_days(live) if live and ah.has(live, "heroes") else 0
     keep101 = stale >= STALE_DAYS
     done = merge_history(a.check, skip={live} if keep101 else set())

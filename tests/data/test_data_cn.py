@@ -25,6 +25,19 @@ def is_rate(x):
     return isinstance(x, (int, float)) and 0 <= x <= 1
 
 
+# An augment's pick_rate is not a share: it is its holders per match over all ten players (data/aramhex/merge.py
+# merge_live_augments; Tencent's own table uses the same scale). One player in ten holding it is 1.0 and the ceiling
+# is 10. Complete releases have passed 1: augment 1238 at 1.0191 on 16.19, 3086 at 1.0467 on 16.21
+# (data/aramhex/patches). The 0-1 bound this replaced would have failed on those with correct data.
+AUGMENT_PICK_MAX = 10
+# What all rows add up to is ten players times the augments each holds at game end: 37.8 to 40.2 over AramHex's five
+# releases (16.19-16.23), 36.5 to 38.4 on each of the 41 Tencent days in data/cn/history/augments. This is the check
+# that tells a wrong match count: on 2026-11-26 new tables over the previous release's count gave 65.90 (every row
+# 1.68x too high, only six of 233 above 1), and the same mix the other way round would give about 23. The two limits
+# are chosen lines well outside what real data has shown.
+AUGMENT_PICK_SUM = (30, 45)
+
+
 def stat_date(s):
     return dt.datetime.strptime(s, "%Y%m%d").date()
 
@@ -82,11 +95,14 @@ def test_augments_json(augs_json):
     ids = [a["augment_id"] for a in rows]
     assert len(ids) == len(set(ids)) >= 100
     for a in rows:
-        assert is_rate(a["win_rate"]) and is_rate(a["pick_rate"]), a["augment_id"]
+        assert is_rate(a["win_rate"]), a["augment_id"]
+        assert isinstance(a["pick_rate"], (int, float)) and 0 <= a["pick_rate"] <= AUGMENT_PICK_MAX, a["augment_id"]
         assert a["tier"] in TIERS, a["augment_id"]
         assert a["key"], a["augment_id"]
         assert a["win_rank"] >= 1 and a["pick_rank"] >= 1
         assert set(a["best_champions"]) <= champion_ids(), a["augment_id"]
+    held = sum(a["pick_rate"] for a in rows)
+    assert AUGMENT_PICK_SUM[0] <= held <= AUGMENT_PICK_SUM[1], f"augment pick rates add up to {held:.2f} holders per match"
     assert sorted(a["win_rank"] for a in rows) == list(range(1, len(rows) + 1))
 
 

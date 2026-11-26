@@ -38,7 +38,42 @@ def carried(patch):
     return set(m.get("carried_from_earlier_patch") or [])
 
 
+def carried_cores(patch):
+    """Champions whose 3-item cores in this patch's table repeat an earlier patch's (fetch.py): not this patch's games."""
+    m = load(patch, "meta") or {}
+    return set(m.get("carried_cores") or [])
+
+
+class SnapshotError(Exception):
+    """Tables and a match count that are not from the same AramHex release."""
+
+
+def snapshot_problem(heroes, n):
+    """Why a champion table and a match count cannot be one release, or None when they fit (or there is no table).
+
+    Every match has ten players with one champion each, so the champions' games add up to exactly 10 x matches (to
+    the game on all five patches, 16.19-16.23). On 2026-11-26 fetch.py stopped half-way through a new 16.23 release:
+    the new tables were saved (84,018,660 champion games = 8,401,866 matches) next to the previous release's match
+    count (4,991,976), so every "games per match" rate came out 1.68x too high and six augment pick rates passed 100%."""
+    if not heroes:
+        return None
+    games = sum(g for g, _ in heroes.values())
+    if not n or games != 10 * n:
+        return f"champions have {games:,} games, the match count says {n or 0:,} matches (10 x {n or 0:,} = {10 * (n or 0):,})"
+    return None
+
+
+def problem(patch):
+    """snapshot_problem for a saved patch."""
+    return snapshot_problem(load(patch, "heroes"), (load(patch, "meta") or {}).get("matches"))
+
+
 def matches(patch):
+    """Matches behind a patch's tables (None when AramHex has no count). Raises SnapshotError when the saved count and
+    champion table are not one release, so no "games per match" rate is computed from a mismatched pair."""
+    why = problem(patch)
+    if why:
+        raise SnapshotError(f"AramHex {patch}: {why}")
     m = load(patch, "meta") or {}
     return m.get("matches")
 

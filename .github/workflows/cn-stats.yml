@@ -81,7 +81,11 @@ jobs:
         continue-on-error: true
         run: python3 data/stats/games.py
       - name: Download the AramHex dataset (real game counts; keep the last copy if it fails)
-        run: python3 data/aramhex/fetch.py || echo "::warning::AramHex not refreshed"
+        id: aramhex
+        # A download that stops or is refused saves no tables (one line in data/aramhex/changes.json says why), so
+        # the stats go on with the last copy. The last step then turns the run red, so it doesn't pass unseen.
+        continue-on-error: true
+        run: python3 data/aramhex/fetch.py
       - name: Lay AramHex's real numbers over the 101 files (101 keeps skill orders, starters, six-item builds, teammates)
         run: python3 data/aramhex/merge.py
       - name: Score how each patch's picks held up on the next (Patches page scorecard)
@@ -120,6 +124,16 @@ jobs:
           f=data/cn/history/published.csv
           [ -f "$f" ] || echo "stat_date,first_seen_utc" > "$f"
           echo "${{ needs.check.outputs.day }},$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$f"
+      - name: Check the new stats with their data tests (nothing is committed when they fail)
+        # A bot push starts no Tests run, so without this a bad refresh reaches main unchecked (2026-11-26: augment
+        # pick rates above 100%). Only the tests for the stats this job must get right (data/cn, data/stats,
+        # data/aramhex, the spell pairs, boots timing): champion pages, translations and icons come from steps
+        # that may fail on a download hiccup and must not hold back the stats, and the rest of tests/data
+        # (importer, backup, pages) is not this job's. tests/data/test_stats_gate.py keeps this list real, and in
+        # the order the whole suite runs them (some test files only load after others).
+        run: |
+          python3 -m pip install -q pytest
+          python3 -m pytest -q tests/data/test_aramhex_pool.py tests/data/test_aramhex_snapshot.py tests/data/test_data_cn.py tests/data/test_data_estimates.py::test_boots_timing tests/data/test_data_fill.py tests/data/test_data_stats.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
@@ -131,3 +145,8 @@ jobs:
             git commit -m "Update Mayhem stats ($(date -u +%Y-%m-%d))"
             git push
           fi
+      - name: Fail the run when the AramHex download stopped or was refused (the rest is committed above)
+        if: steps.aramhex.outcome == 'failure'
+        run: |
+          echo "::error::AramHex not refreshed: data/aramhex/fetch.py stopped or refused the download (see that step and data/aramhex/changes.json). The stats above use the last copy."
+          exit 1
