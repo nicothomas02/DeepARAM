@@ -55,15 +55,20 @@ def snapshot(root):
 
 # ---------------------------------------------------------------- merge.py: what gets published
 
-def site(tmp_path, rel, matches):
+def site(tmp_path, rel, matches, core_games=None, carried=()):
     """A small repo tree: an AramHex copy with release `rel`'s tables and `matches` in its meta, and the site files
-    merge.py lays it over (pick rate 0.8 from the last good run)."""
+    merge.py lays it over (pick rate 0.8 from the last good run). `core_games`: also an item table and one 3-item
+    core per champion with that many games."""
     root = str(tmp_path)
     ah = os.path.join(root, "data", "aramhex", "patches")
     put(os.path.join(ah, "index.json"), {"patches": [PATCH], "latest": PATCH, "seq": rel["seq"]})
     put(os.path.join(ah, PATCH, "heroes.json"), {c: [rel["games"], rel["games"] // 2] for c in CHAMPIONS})
     put(os.path.join(ah, PATCH, "augments.json"), {c: {AUGMENT: [rel["held"], rel["held"] // 2]} for c in CHAMPIONS})
-    put(os.path.join(ah, PATCH, "meta.json"), {"patch": PATCH, "matches": matches, "snapshot_at": "2026-11-26T09:00:00+08:00"})
+    put(os.path.join(ah, PATCH, "meta.json"), {"patch": PATCH, "matches": matches, "snapshot_at": "2026-11-26T09:00:00+08:00",
+                                               "carried_from_earlier_patch": list(carried)})
+    if core_games:
+        put(os.path.join(ah, PATCH, "items.json"), {c: {"all": [rel["games"], rel["games"] // 2], "items": {}} for c in CHAMPIONS})
+        put(os.path.join(ah, PATCH, "cores.json"), {c: [[[3031, 3032, 3036], core_games, core_games // 2]] for c in CHAMPIONS})
     cn = os.path.join(root, "data", "cn")
     champs = [{"champion_id": int(c), "win_rate": 0.5, "pick_rate": 0.5} for c in CHAMPIONS]
     put(os.path.join(cn, "champions.json"), {"meta": {"champion_stat_date": "20261125"}, "champions": champs})
@@ -131,13 +136,25 @@ def test_merge_publishes_a_matching_copy(tmp_path, merge, rel):
     assert round(sum(c["pick_rate"] for c in champs), 6) == 10  # ten players a match
 
 
+def test_merge_refuses_cores_with_more_games_than_the_champion(tmp_path, merge, capsys):
+    """Another patch's cores counted as this patch's own (2026-11-26: 16.22's cores in the 16.23 release would have
+    read as pick rates up to 240%). Marked as carried, they are simply not used."""
+    root = site(tmp_path, NEW, matches=NEW["matches"], core_games=3 * NEW["games"])
+    before = snapshot(root)
+    assert merge(root).main() == 1
+    assert snapshot(root) == before
+    assert "3-item cores" in capsys.readouterr().err
+    assert merge(site(tmp_path / "carried", NEW, matches=NEW["matches"], core_games=3 * NEW["games"], carried=["cores"])).main() == 0
+    assert merge(site(tmp_path / "own", NEW, matches=NEW["matches"], core_games=NEW["games"] // 4)).main() == 0
+
+
 # ---------------------------------------------------------------- fetch.py: what gets saved
 
-def upstream(tmp_path, name, rel, index=None, destiny="old", cut=None, hashes=True):
-    """A local copy of the AramHex repo (fetch.py --src) holding release `rel`. `index`: the release index.json
-    describes (another one = an index that doesn't belong to the files). `cut`: a table that arrives cut off."""
-    src = os.path.join(str(tmp_path), name)
-    base = os.path.join(src, "patches", PATCH, "normal")
+def dataset(src, patch, rel, index=None, destiny="old", cut=None, hashes=True, cores=None):
+    """Writes release `rel` of one patch into a local copy of the AramHex repo and returns its index.json entry.
+    `index`: the release the entry describes (another one = an index that doesn't belong to the files). `cut`: a table
+    that arrives cut off. `cores`: {champion: (items, games)} for core_builds.json."""
+    base = os.path.join(src, "patches", patch, "normal")
 
     def tables(r):
         won = {"total": r["held"]} if destiny == "new" else {"total": r["held"], "total_wins": r["held"] // 2}
@@ -148,18 +165,28 @@ def upstream(tmp_path, name, rel, index=None, destiny="old", cut=None, hashes=Tr
             "augments.json": {AUGMENT: {"rarity": "gold"}},
             "hero_spells.json": {c: {"4+32": {"games": r["games"], "wins": r["games"] // 2}} for c in CHAMPIONS},
             "hero_augment_items.json": {c: {"3081": dict(won, items=[{"item": "3031", "games": 100, "wins": 50}])} for c in CHAMPIONS},
+            **({"core_builds.json": {c: [{"items": i, "games": g, "wins": g // 2}] for c, (i, g) in cores.items()}} if cores else {}),
         }
 
     files = {n: json.dumps(t) for n, t in tables(rel).items()}
     for n, text in files.items():
         put(os.path.join(base, n), text[: len(text) // 2] if n == cut else text)
     listed = {n: json.dumps(t) for n, t in tables(index or rel).items()}
-    ds = {"patch": PATCH, "mode": "normal", "path": f"patches/{PATCH}/normal", "matches": (index or rel)["matches"],
-          "snapshot_at": "2026-11-26T09:00:00+08:00",
-          "files": {n: ({"sha256": hashlib.sha256(t.encode()).hexdigest()} if hashes else {}) for n, t in listed.items()}}
-    put(os.path.join(src, "index.json"), {"schema_version": 1, "latest_seq": (index or rel)["seq"], "datasets": [ds]})
+    return {"patch": patch, "mode": "normal", "path": f"patches/{patch}/normal", "matches": (index or rel)["matches"],
+            "snapshot_at": "2026-11-26T09:00:00+08:00", "seq": (index or rel)["seq"],
+            "files": {n: ({"sha256": hashlib.sha256(t.encode()).hexdigest()} if hashes else {}) for n, t in listed.items()}}
+
+
+def publish(src, datasets):
+    put(os.path.join(src, "index.json"), {"schema_version": 1, "latest_seq": max(d["seq"] for d in datasets), "datasets": datasets})
     put(os.path.join(src, "LICENSE"), "CC BY-NC 4.0")
     return src
+
+
+def upstream(tmp_path, name, rel, **how):
+    """A local copy of the AramHex repo (fetch.py --src) holding release `rel` of the one patch."""
+    src = os.path.join(str(tmp_path), name)
+    return publish(src, [dataset(src, PATCH, rel, **how)])
 
 
 @pytest.fixture
@@ -171,7 +198,7 @@ def fetch(tmp_path, monkeypatch):
     monkeypatch.setattr(f, "CHANGES", os.path.join(ours, "changes.json"))
 
     def run(src):
-        for left in ("STAGED", "SKIPPED"):  # nothing carried over from another test's refused download
+        for left in ("STAGED", "SKIPPED", "CORES"):  # nothing carried over from another test's refused download
             getattr(f, left, []).clear()
         monkeypatch.setattr(sys, "argv", ["fetch.py", "--src", src])
         return f.main()
@@ -231,3 +258,16 @@ def test_fetch_refuses_tables_that_are_not_the_ones_the_index_lists(tmp_path, fe
     assert snapshot(fetch.ours) == before
     err = capsys.readouterr().err
     assert "::error::" in err and ("index.json lists" in err if hashes else "170,000 games" in err)
+
+
+@pytest.mark.parametrize("repeated, carried", [(19, ["cores"]), (0, [])])
+def test_fetch_marks_cores_repeated_from_the_patch_before_as_carried(tmp_path, fetch, repeated, carried):
+    """AramHex's 16.23 release keeps 16.22's cores for every champion but one, in a file with a new hash. Their games
+    are 16.22's, so they must not be laid over 16.23's item games as its own."""
+    src = os.path.join(str(tmp_path), "two")
+    before = {c: (["3031", "3032", "3036"], 40000 + int(c)) for c in CHAMPIONS}
+    now = {c: before[c] if int(c) <= repeated else (["3118", "4005", "4628"], 900 + int(c)) for c in CHAMPIONS}
+    publish(src, [dataset(src, PATCH, NEW, cores=now), dataset(src, "16.22", OLD, cores=before)])
+    assert fetch(src) == 0
+    assert saved(fetch.ours, "meta")["carried_from_earlier_patch"] == carried
+    assert saved(fetch.ours, "cores")["20"] == [[[3118, 4005, 4628], 920, 460]]

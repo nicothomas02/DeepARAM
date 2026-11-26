@@ -75,6 +75,7 @@ def listed(src, base, name, files):
 
 STAGED = []  # (path, text): written by flush() once every dataset has passed its checks
 SKIPPED = []  # "<patch> <file>": tables whose fields this script no longer reads, left as they were (watch() notes them)
+CORES = []  # the core rows of the patches converted so far this run (oldest first), to spot rows carried into a later one
 
 
 def dump(path, obj):
@@ -130,11 +131,17 @@ def convert(src, ds, prev_hashes):
         written.append("boots")
     cores = load("core_builds.json")
     if cores:
-        dump(os.path.join(out, "cores.json"), {h: [[[int(i) for i in c["items"]], int(c["games"]), int(c["wins"])] for c in v] for h, v in cores.items()})
+        rows = {h: [[[int(i) for i in c["items"]], int(c["games"]), int(c["wins"])] for c in v] for h, v in cores.items()}
+        dump(os.path.join(out, "cores.json"), rows)
         written.append("cores")
         sha = files["core_builds.json"].get("sha256")
-        if sha and sha in prev_hashes.get("core_builds.json", set()):
+        # Carried: the same file as an earlier patch, or a champion's rows repeated game for game. AramHex's 16.23
+        # release of 2026-11-26 keeps 16.22's cores for every champion but Sylas (its notes say so), so the file's
+        # hash is new while 172 champions' games are 16.22's: over 16.23's own item games they would read as pick
+        # rates up to 240%. One repeated champion marks the table, so merge.py leaves the cores to 101.
+        if (sha and sha in prev_hashes.get("core_builds.json", set())) or any(v and v == p.get(h) for p in CORES for h, v in rows.items()):
             carried.append("cores")
+        CORES.append(rows)
     dest = load("hero_augment_items.json")
     if dest:
         d = {}
@@ -321,6 +328,7 @@ def main():
     sets = [d for d in index["datasets"] if d.get("mode") == "normal" and d["path"].rstrip("/") == f"patches/{d['patch']}/normal"]
     sets.sort(key=lambda d: [int(x) for x in d["patch"].split(".")])
     seen = {}
+    del STAGED[:], SKIPPED[:], CORES[:]
     try:
         for ds in sets:
             written, carried = convert(a.src, ds, seen)

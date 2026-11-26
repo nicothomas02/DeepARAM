@@ -532,8 +532,16 @@ def main():
     # Before anything is written: every patch's match count must fit its champion table (common.snapshot_problem).
     # A mismatched copy is refused whole, so the files from the last good run stay as they are.
     bad = [f"{p}: {why}" for p in sorted({*ah.patches(), *([live] if live else [])}, key=vkey) for why in [ah.problem(p)] if why]
+    if live and "cores" not in ah.carried(live):
+        # Cores counted as this patch's own must fit its item games: a core with more games than the champion's item
+        # rows are measured against is another patch's (a pick rate above 100%).
+        items, cores = ah.load(live, "items") or {}, ah.load(live, "cores") or {}
+        over = sorted((c for c, rows in cores.items() if c in items and any(g > items[c]["all"][0] for _, g, _ in rows)), key=int)
+        if over:
+            bad.append(f"{live}: 3-item cores with more games than the champion's item games for {len(over)} champions "
+                       f"({', '.join(over[:5])}...): carried from another patch?")
     if bad:
-        print("::error::AramHex copy refused, nothing written (its match count and tables are from different releases; "
+        print("::error::AramHex copy refused, nothing written (its tables are not one release; "
               "data/aramhex/fetch.py downloads a matching set): " + "; ".join(bad), file=sys.stderr)
         return 1
     stale = stale_days(live) if live and ah.has(live, "heroes") else 0
