@@ -107,6 +107,14 @@ jobs:
     container:
       image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-51
       options: --privileged
+      # The image ships the GNOME SDK in one of its layers, usually an older one than Flathub has.
+      # flatpak-builder then updates the SDK in place, which renames a directory of that layer. Hosted
+      # runners whose kernel has overlayfs redirect_dir off refuse that ("Invalid cross-device link") and
+      # the build stops there. On a volume the SDK sits on a normal filesystem (Docker fills the volume
+      # from the image), so the update works on every runner.
+      # Upstream: flatpak/flatpak-github-actions#267 (no fix yet). Once it is fixed, the volume can go.
+      volumes:
+        - /var/lib/flatpak
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
