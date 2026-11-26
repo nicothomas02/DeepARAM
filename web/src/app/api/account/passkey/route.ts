@@ -32,9 +32,10 @@ const where = (req: NextRequest) => ({ rpID: req.nextUrl.hostname, origin: req.n
 // signature. Signing in checks the saved key itself and doesn't use this list.
 const OFFERED_ALGS = [-8, -7, -257];
 
+type Kind = "add" | "signup" | "signin";
+
 // When SimpleWebAuthn refuses an answer, the log gets the error's name and code and nothing else: its message
 // can quote the challenge and the origin, and the answer itself is never logged.
-type Kind = "add" | "signup" | "signin";
 const refused = (step: Kind) => (err: unknown) => {
   const { name, code } = (err ?? {}) as { name?: unknown; code?: unknown };
   const short = (v: unknown) => (typeof v === "string" || typeof v === "number" ? String(v).slice(0, 60) : "");
