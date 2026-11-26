@@ -107,11 +107,11 @@ jobs:
     container:
       image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-51
       options: --privileged
-      # The image ships the GNOME SDK in one of its layers, and it is rebuilt only twice a week. When
-      # Flathub has a newer SDK, flatpak-builder updates it in place, which renames directories of that
-      # layer. Some hosted runners refuse that ("Invalid cross-device link") and the build stops there.
-      # On a volume the SDK sits on a normal filesystem (Docker fills the volume from the image), so the
-      # update works on every runner.
+      # The image ships the GNOME SDK in one of its layers and is rebuilt only twice a week. When Flathub
+      # has a newer SDK, flatpak-builder updates it in place, which renames a directory of that layer.
+      # Hosted runners whose kernel has overlayfs redirect_dir off refuse that ("Invalid cross-device
+      # link") and the build stops there. On a volume the SDK sits on a normal filesystem (Docker fills
+      # the volume from the image), so the update works on every runner.
       volumes:
         - /var/lib/flatpak
     steps:
@@ -136,47 +136,3 @@ jobs:
           path: DeepARAM.flatpak
           if-no-files-found: error
           retention-days: 14
-
-  # TEMPORARY, removed before review: the failure depends on which hosted runner the job lands on, so this
-  # samples a few runners. Each sample says whether its runner can rename an image-layer directory, then
-  # updates the SDK on the volume the way flatpak-builder does.
-  flatpak-volume-samples:
-    name: Flatpak volume sample ${{ matrix.sample }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    strategy:
-      fail-fast: false
-      matrix:
-        sample: [1, 2, 3, 4, 5, 6]
-    container:
-      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-51
-      options: --privileged
-      volumes:
-        - /var/lib/flatpak
-    steps:
-      - name: Probe the container filesystem
-        run: |
-          echo "kernel: $(uname -r)"
-          grep -E ' (/|/var/lib/flatpak) ' /proc/mounts | sed -E 's/(lowerdir|upperdir|workdir)=[^, ]*/\1=.../g' | cut -c1-400
-          for p in redirect_dir index metacopy xino_auto; do
-            printf 'overlay %s=%s\n' "$p" "$(cat /sys/module/overlay/parameters/$p 2>/dev/null || echo unknown)"
-          done
-          df -h / /var/lib/flatpak | cut -c1-120
-          echo "SDK on the volume: $(du -sh /var/lib/flatpak 2>/dev/null | cut -f1), repo objects with more than one link: $(find /var/lib/flatpak/repo/objects -type f -links +1 2>/dev/null | head -2000 | wc -l) of the first 2000"
-          for d in /srv /mnt /media /opt /usr/share/licenses; do [ -d "$d" ] && break; done
-          if command -v python3 >/dev/null 2>&1; then
-            python3 -c 'import os, sys
-          d = sys.argv[1]
-          try:
-              os.rename(d, d + ".probe")
-              os.rename(d + ".probe", d)
-              print("PROBE rename of image-layer directory " + d + ": OK")
-          except OSError as e:
-              print("PROBE rename of image-layer directory " + d + ": FAILED, " + str(e.strerror) + " (errno " + str(e.errno) + ")")' "$d"
-          else
-            echo "PROBE skipped: no python3 in the image"
-          fi
-      - name: Update the SDK the way flatpak-builder does
-        run: |
-          flatpak update -y --noninteractive org.gnome.Sdk//51 org.gnome.Platform//51
-          echo "SDK UPDATE ON THE VOLUME: OK"
