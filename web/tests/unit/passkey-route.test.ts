@@ -429,6 +429,27 @@ describe("passkey challenges", () => {
     const before = everything();
     expect(await post({ step: "signin", response })).toEqual(TOO_LATE);
     expect(everything()).toEqual(before);
+
+    expect(await signIn(k, { counter: 0 })).toEqual(OK); // a new challenge, and the passkey signs in again
+  });
+
+  it.each(KINDS)("lets only one of two identical %s answers through when both are under way at once", async (kind) => {
+    const k = await ready(kind);
+    const options = await ask(kind);
+    const before = everything();
+    const payload = { step: kind, response: kind === "signin" ? await signed(k, options) : await made(k, options), label: "Windows PC" };
+    // The second starts one turn of the event loop behind the first and overtakes nothing: both have read the
+    // cookie before either is done. (Started in the very same turn, vitest hands one of them the real
+    // next/headers, which the site imports only when it needs it.)
+    const first = post(payload);
+    await new Promise((soon) => setTimeout(soon, 0));
+    const both = await Promise.all([first, post(payload)]);
+    expect(both.filter((r) => r.status === 200)).toEqual([OK]);
+    expect(both.filter((r) => r.status !== 200)).toEqual([TOO_LATE]);
+    const after = everything();
+    expect([after.accounts.length - before.accounts.length, after.passkeys.length - before.passkeys.length, after.sessions.length - before.sessions.length]).toEqual(
+      { add: [0, 1, 0], signup: [1, 1, 1], signin: [0, 0, 1] }[kind],
+    );
   });
 
   it.each(KINDS)("takes back %s's challenge even when the answer is refused", async (kind) => {
