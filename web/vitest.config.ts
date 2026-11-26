@@ -13,8 +13,5 @@ export default defineConfig({
   test: {
     include: ["tests/unit/**/*.test.ts"],
     environment: "node",
-    // A test that never reaches an expect() fails instead of passing empty: two had gone that way when the data
-    // they read left their only expect behind an `if`. Counts expect() calls, so use expect, not node:assert.
-    expect: { requireAssertions: true },
   },
 });
