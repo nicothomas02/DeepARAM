@@ -2,11 +2,12 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { damageDealtWorth, forecastScorecard, gameLength, itemLift, itemLiftSummary, patchImpact, pbeForecast, playstyleClusters, playstyleOf, settlingOf, shiftsOf, typicalSettling, type GameLength, type LengthCurve } from "@/lib/analysis";
 import { readRepoJson } from "@/lib/repo-data";
 
-// Lets a test put a fixed file in place of one of the repo's data files; every other path reads the real file.
+// Lets a test put a fixed file in place of one of the repo's data files; every other path reads the real file. Each
+// read gets its own copy, as a file read does.
 const fixed = vi.hoisted(() => new Map<string, unknown>());
 vi.mock("@/lib/repo-data", async (original) => {
   const real = await original<typeof import("@/lib/repo-data")>();
-  return { ...real, readRepoJson: (rel: string) => (fixed.has(rel) ? fixed.get(rel) : real.readRepoJson(rel)) };
+  return { ...real, readRepoJson: (rel: string) => (fixed.has(rel) ? structuredClone(fixed.get(rel)) : real.readRepoJson(rel)) };
 });
 afterEach(() => fixed.clear());
 
@@ -45,12 +46,22 @@ describe("meta settling and shifts", () => {
   });
 
   it("matches a patch's own curve to its days and keeps shifts in that patch", () => {
-    const t = typicalSettling()!;
-    const patch = t.live?.patch;
-    if (!patch) return;
-    const s = settlingOf(patch);
-    if (s) expect(s.spearman.length).toBe(s.days);
-    for (const sh of shiftsOf(patch)) expect(sh.patch).toBe(patch);
+    const check = (patch: string) => {
+      const s = settlingOf(patch);
+      if (s) expect(s.spearman.length).toBe(s.days);
+      for (const sh of shiftsOf(patch)) expect(sh.patch).toBe(patch);
+    };
+    // The real file names no live patch until the newest one has a settling entry, and a live patch may have no
+    // shifts yet, so it is checked as far as it goes; a fixed file with two patches and shifts in both always is.
+    const live = typicalSettling()!.live?.patch;
+    if (live) check(live);
+    const curve = (patch: string, days: number) => ({ patch, days, spearman: Array.from({ length: days }, (_, day) => 0.9 + day / 100) });
+    const shifts = ["Ahri", "Yasuo", "Zed", "Lux"].map((alias, i) => ({ patch: i % 2 ? "0.2" : "0.1", alias }));
+    fixed.set("data/analysis/meta_settling.json", { typical: { spearman: [0.9], mad_pts: [0.5] }, live: { patch: "0.2" }, patches: [curve("0.1", 3), curve("0.2", 2)], shifts });
+    const patch = typicalSettling()!.live!.patch;
+    expect(settlingOf(patch)).toEqual(curve("0.2", 2));
+    expect(shiftsOf(patch).map((sh) => sh.alias)).toEqual(["Yasuo", "Lux"]);
+    check(patch);
   });
 });
 
