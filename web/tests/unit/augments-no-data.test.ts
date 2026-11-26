@@ -7,6 +7,8 @@ import { augmentRows, augmentsWithoutData } from "@/lib/augment-winrate";
 describe("augments with no stats yet", () => {
   it("are live augments with a name and rarity, and never also in the stats", () => {
     const withStats = new Set(augmentRows().map((a) => a.augment_id));
+    // Checked on the whole list as well, so the test still says something on a day when every augment has stats.
+    expect(augmentsWithoutData().filter((a) => withStats.has(a.augment_id))).toEqual([]);
     for (const a of augmentsWithoutData()) {
       expect(withStats.has(a.augment_id), a.name).toBe(false);
       expect((augmentNames as Record<string, string>)[String(a.augment_id)] ?? a.name, String(a.augment_id)).toBeTruthy();
