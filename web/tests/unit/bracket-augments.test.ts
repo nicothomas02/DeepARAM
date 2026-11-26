@@ -5,11 +5,12 @@ import championIds from "@/data/champion-ids.json";
 import { blendScores, boundScores, bracketAugmentScores } from "@/lib/bracket-augments";
 import { FIT } from "@/lib/deepscore";
 
-// Lets a test put a fixed file in place of one of the repo's data files; every other path reads the real file.
+// Lets a test put a fixed file in place of one of the repo's data files; every other path reads the real file. Each
+// read gets its own copy, as a file read does.
 const fixed = vi.hoisted(() => new Map<string, unknown>());
 vi.mock("@/lib/repo-data", async (original) => {
   const real = await original<typeof import("@/lib/repo-data")>();
-  return { ...real, readRepoJson: (rel: string) => (fixed.has(rel) ? fixed.get(rel) : real.readRepoJson(rel)) };
+  return { ...real, readRepoJson: (rel: string) => (fixed.has(rel) ? structuredClone(fixed.get(rel)) : real.readRepoJson(rel)) };
 });
 afterEach(() => fixed.clear());
 
@@ -33,14 +34,20 @@ describe("bracket augment scores", () => {
     expect(m.has("y")).toBe(true);
   });
 
-  // A made-up live patch holding Yasuo's all-player table and the given bracket tables. The real live patch gets its
+  // A made-up live patch (0.1) holding Yasuo's all-player table and the given bracket tables, after an older patch
+  // (0.0) that has a table of its own for every bracket, which must never be borrowed. The real live patch gets its
   // bracket tables a while into a patch (16.23 had none on 2026-11-24), so neither case can be left to what it has
   // published today.
+  type Rows = Record<string, [number, number]>;
   const yasuo = championIds.Yasuo;
-  const allPlayers = { 1: [20000, 11000], 2: [20000, 10000], 3: [20000, 9000] } as Record<string, [number, number]>;
-  const topPlayers = { 1: [1000, 480], 2: [1000, 560], 3: [1000, 450] } as Record<string, [number, number]>;
-  const livePatch = (bands: Record<string, Record<string, [number, number]>>) => {
-    fixed.set("data/aramhex/patches/index.json", { latest: "0.1" });
+  const allPlayers: Rows = { 1: [20000, 11000], 2: [20000, 10000], 3: [20000, 9000] };
+  const topPlayers: Rows = { 1: [1000, 480], 2: [1000, 560], 3: [1000, 450] };
+  const casualPlayers: Rows = { 1: [5000, 2700], 2: [5000, 2400], 3: [5000, 2500] };
+  const olderPatch: Rows = { 1: [1000, 450], 2: [1000, 480], 3: [1000, 560] };
+  const livePatch = (bands: Record<string, Rows>) => {
+    fixed.set("data/aramhex/patches/index.json", { latest: "0.1", patches: ["0.0", "0.1"] });
+    fixed.set("data/aramhex/patches/0.0/augments.json", { [yasuo]: allPlayers });
+    for (const b of ["casual", "mid", "high"]) fixed.set(`data/aramhex/patches/0.0/bands/${b}/augments.json`, { [yasuo]: olderPatch });
     fixed.set("data/aramhex/patches/0.1/augments.json", { [yasuo]: allPlayers });
     for (const [b, rows] of Object.entries(bands)) fixed.set(`data/aramhex/patches/0.1/bands/${b}/augments.json`, { [yasuo]: rows });
   };
@@ -51,11 +58,14 @@ describe("bracket augment scores", () => {
   });
 
   it("scores each bracket the live patch has a table for, by augment id", () => {
-    livePatch({ high: topPlayers });
+    const bands = { casual: casualPlayers, high: topPlayers };
+    livePatch(bands);
     const r = bracketAugmentScores("Yasuo")!;
-    expect(Object.keys(r)).toEqual(["high"]);
+    expect(Object.keys(r)).toEqual(["casual", "high"]);
     for (const m of Object.values(r)) expect(m.size).toBeGreaterThan(0);
-    const mixed = blendScores(boundScores(allPlayers, FIT.augments), boundScores(topPlayers, FIT.augments));
-    expect([...r.high!]).toEqual([...mixed].map(([id, score]) => [Number(id), score]));
+    for (const b of ["casual", "high"] as const) {
+      const mixed = blendScores(boundScores(allPlayers, FIT.augments), boundScores(bands[b], FIT.augments));
+      expect([...r[b]!], b).toEqual([...mixed].map(([id, score]) => [Number(id), score]));
+    }
   });
 });
