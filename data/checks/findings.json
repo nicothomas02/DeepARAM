@@ -1,10 +1,10 @@
 {
  "patch": "16.23",
- "built": "2026-11-25",
+ "built": "2026-11-26",
  "checks": {
   "loops": 3,
   "gap": 42,
-  "sim": 13,
+  "sim": 14,
   "wasted": 0,
   "kitchen": 43
  },
@@ -37,8 +37,8 @@
    ],
    "theory": "The Simulator puts Berserker's Greaves in Corki's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Corki's builds with Berserker's Greaves win 4.5 points less often than their builds without it.",
-   "gap": -0.0453,
-   "share": 0.032,
+   "gap": -0.045,
+   "share": 0.0316,
    "status": "trap"
   },
   {
@@ -53,9 +53,26 @@
     3006
    ],
    "theory": "The Simulator puts Berserker's Greaves in Draven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.4 points less often than their builds without it.",
-   "gap": -0.0443,
-   "share": 0.0486,
+   "practice": "In real games, Draven's builds with Berserker's Greaves win 4.3 points less often than their builds without it.",
+   "gap": -0.0433,
+   "share": 0.0485,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Yunara-berserkers",
+   "kind": "sim",
+   "title": "Berserker's Greaves on Yunara",
+   "champions": [
+    "Yunara"
+   ],
+   "augments": [],
+   "items": [
+    3006
+   ],
+   "theory": "The Simulator puts Berserker's Greaves in Yunara's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Yunara's builds with Berserker's Greaves win 3.0 points less often than their builds without it.",
+   "gap": -0.0304,
+   "share": 0.1062,
    "status": "trap"
   },
   {
@@ -70,8 +87,8 @@
     3071
    ],
    "theory": "The Simulator puts Black Cleaver in Riven's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Riven's builds with Black Cleaver win 3.1 points less often than their builds without it.",
-   "gap": -0.0309,
+   "practice": "In real games, Riven's builds with Black Cleaver win 3.0 points less often than their builds without it.",
+   "gap": -0.0302,
    "share": 0.033,
    "status": "trap"
   },
@@ -87,9 +104,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Caitlyn's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Caitlyn's builds with Blade of The Ruined King win 3.2 points less often than their builds without it.",
-   "gap": -0.0324,
-   "share": 0.0597,
+   "practice": "In real games, Caitlyn's builds with Blade of The Ruined King win 3.3 points less often than their builds without it.",
+   "gap": -0.0333,
+   "share": 0.0598,
    "status": "trap"
   },
   {
@@ -104,8 +121,8 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Sivir's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Sivir's builds with Blade of The Ruined King win 3.1 points less often than their builds without it.",
-   "gap": -0.0305,
+   "practice": "In real games, Sivir's builds with Blade of The Ruined King win 3.0 points less often than their builds without it.",
+   "gap": -0.0304,
    "share": 0.1098,
    "status": "trap"
   },
@@ -121,9 +138,9 @@
     3153
    ],
    "theory": "The Simulator puts Blade of The Ruined King in Xin Zhao's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Xin Zhao's builds with Blade of The Ruined King win 3.6 points less often than their builds without it.",
-   "gap": -0.0362,
-   "share": 0.032,
+   "practice": "In real games, Xin Zhao's builds with Blade of The Ruined King win 3.8 points less often than their builds without it.",
+   "gap": -0.0377,
+   "share": 0.0321,
    "status": "trap"
   },
   {
@@ -138,9 +155,9 @@
     3089
    ],
    "theory": "The Simulator puts Rabadon's Deathcap in Karma's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.3 points less often than their builds without it.",
-   "gap": -0.1032,
-   "share": 0.0977,
+   "practice": "In real games, Karma's builds with Rabadon's Deathcap win 10.4 points less often than their builds without it.",
+   "gap": -0.1041,
+   "share": 0.0981,
    "status": "trap"
   },
   {
@@ -155,9 +172,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Jayce's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Jayce's builds with Serylda's Grudge win 7.8 points less often than their builds without it.",
-   "gap": -0.0783,
-   "share": 0.0343,
+   "practice": "In real games, Jayce's builds with Serylda's Grudge win 8.3 points less often than their builds without it.",
+   "gap": -0.0829,
+   "share": 0.0404,
    "status": "trap"
   },
   {
@@ -172,9 +189,9 @@
     6694
    ],
    "theory": "The Simulator puts Serylda's Grudge in Talon's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Talon's builds with Serylda's Grudge win 3.8 points less often than their builds without it.",
-   "gap": -0.0384,
-   "share": 0.056,
+   "practice": "In real games, Talon's builds with Serylda's Grudge win 3.9 points less often than their builds without it.",
+   "gap": -0.0391,
+   "share": 0.0559,
    "status": "trap"
   },
   {
@@ -190,8 +207,25 @@
    ],
    "theory": "The Simulator puts Serylda's Grudge in Zed's best build: in a fight it adds more than the items it beats.",
    "practice": "In real games, Zed's builds with Serylda's Grudge win 4.9 points less often than their builds without it.",
-   "gap": -0.0486,
-   "share": 0.0716,
+   "gap": -0.049,
+   "share": 0.0717,
+   "status": "trap"
+  },
+  {
+   "id": "sim-Ekko-sorcerers",
+   "kind": "sim",
+   "title": "Sorcerer's Shoes on Ekko",
+   "champions": [
+    "Ekko"
+   ],
+   "augments": [],
+   "items": [
+    3020
+   ],
+   "theory": "The Simulator puts Sorcerer's Shoes in Ekko's best build: in a fight it adds more than the items it beats.",
+   "practice": "In real games, Ekko's builds with Sorcerer's Shoes win 3.0 points less often than their builds without it.",
+   "gap": -0.0301,
+   "share": 0.2084,
    "status": "trap"
   },
   {
@@ -206,9 +240,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Gwen's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 3.1 points less often than their builds without it.",
-   "gap": -0.031,
-   "share": 0.0365,
+   "practice": "In real games, Gwen's builds with Sorcerer's Shoes win 3.5 points less often than their builds without it.",
+   "gap": -0.0355,
+   "share": 0.0364,
    "status": "trap"
   },
   {
@@ -223,26 +257,9 @@
     3020
    ],
    "theory": "The Simulator puts Sorcerer's Shoes in Lillia's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 8.2 points less often than their builds without it.",
-   "gap": -0.0817,
-   "share": 0.0561,
-   "status": "trap"
-  },
-  {
-   "id": "sim-Xerath-sorcerers",
-   "kind": "sim",
-   "title": "Sorcerer's Shoes on Xerath",
-   "champions": [
-    "Xerath"
-   ],
-   "augments": [],
-   "items": [
-    3020
-   ],
-   "theory": "The Simulator puts Sorcerer's Shoes in Xerath's best build: in a fight it adds more than the items it beats.",
-   "practice": "In real games, Xerath's builds with Sorcerer's Shoes win 3.0 points less often than their builds without it.",
-   "gap": -0.0305,
-   "share": 0.2012,
+   "practice": "In real games, Lillia's builds with Sorcerer's Shoes win 8.8 points less often than their builds without it.",
+   "gap": -0.0878,
+   "share": 0.0487,
    "status": "trap"
   }
  ],
@@ -257,6 +274,7 @@
     "Gangplank",
     "Jax",
     "Kaisa",
+    "Kalista",
     "Katarina",
     "KogMaw",
     "MissFortune",
@@ -345,6 +363,7 @@
     "Nocturne",
     "Olaf",
     "Orianna",
+    "RekSai",
     "Renata",
     "Samira",
     "Senna",
@@ -533,7 +552,7 @@
     2005
    ],
    "items": [],
-   "theory": "At least 92% of champions get Triggered Inferno, but Fiora has never been seen taking it, even though Fiora is picked often.",
+   "theory": "At least 93% of champions get Triggered Inferno, but Fiora has never been seen taking it, even though Fiora is picked often.",
    "test": "Play Fiora and watch your augment choices. If it never shows up, Riot has left it out for Fiora. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -579,15 +598,15 @@
    ],
    "augments": [
     1349,
-    1028,
     1004,
+    1028,
     1211,
     1058,
     3116,
     3118
    ],
    "items": [],
-   "theory": "At least 90% of champions get Ultimate Awakening, Erosion, Back To Basics, It's Killing Time, Mystic Punch, Take'em Down Down Down and Arcane Axiom, but Jayce has never been seen taking them, even though Jayce is picked often.",
+   "theory": "At least 90% of champions get Ultimate Awakening, Back To Basics, Erosion, It's Killing Time, Mystic Punch, Take'em Down Down Down and Arcane Axiom, but Jayce has never been seen taking them, even though Jayce is picked often.",
    "test": "Play Jayce and watch your augment choices. If they never show up, Riot has left them out for Jayce. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -665,13 +684,13 @@
    "augments": [
     1028,
     1058,
+    2107,
     2099,
     3116,
-    2107,
     3079
    ],
    "items": [],
-   "theory": "At least 90% of champions get Erosion, Mystic Punch, Rite of Ascension, Take'em Down Down Down, Hellbent and Totentanz, but Lux has never been seen taking them, even though Lux is picked often.",
+   "theory": "At least 90% of champions get Erosion, Mystic Punch, Hellbent, Rite of Ascension, Take'em Down Down Down and Totentanz, but Lux has never been seen taking them, even though Lux is picked often.",
    "test": "Play Lux and watch your augment choices. If they never show up, Riot has left them out for Lux. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -686,7 +705,7 @@
     2005
    ],
    "items": [],
-   "theory": "At least 92% of champions get Triggered Inferno, but Malzahar has never been seen taking it, even though Malzahar is picked often.",
+   "theory": "At least 93% of champions get Triggered Inferno, but Malzahar has never been seen taking it, even though Malzahar is picked often.",
    "test": "Play Malzahar and watch your augment choices. If it never shows up, Riot has left it out for Malzahar. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -702,23 +721,23 @@
     2005
    ],
    "items": [],
-   "theory": "At least 92% of champions get Jeweled Gauntlet and Triggered Inferno, but Master Yi has never been seen taking them, even though Master Yi is picked often.",
+   "theory": "At least 93% of champions get Jeweled Gauntlet and Triggered Inferno, but Master Yi has never been seen taking them, even though Master Yi is picked often.",
    "test": "Play Master Yi and watch your augment choices. If they never show up, Riot has left them out for Master Yi. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
    "id": "gap-Morgana",
    "kind": "gap",
-   "title": "Morgana never gets Rite of Ascension and 1 more",
+   "title": "Morgana never gets Hellbent and 1 more",
    "champions": [
     "Morgana"
    ],
    "augments": [
-    2099,
-    2107
+    2107,
+    2099
    ],
    "items": [],
-   "theory": "At least 90% of champions get Rite of Ascension and Hellbent, but Morgana has never been seen taking them, even though Morgana is picked often.",
+   "theory": "At least 91% of champions get Hellbent and Rite of Ascension, but Morgana has never been seen taking them, even though Morgana is picked often.",
    "test": "Play Morgana and watch your augment choices. If they never show up, Riot has left them out for Morgana. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -809,16 +828,16 @@
   {
    "id": "gap-Seraphine",
    "kind": "gap",
-   "title": "Seraphine never gets Rite of Ascension and 1 more",
+   "title": "Seraphine never gets Hellbent and 1 more",
    "champions": [
     "Seraphine"
    ],
    "augments": [
-    2099,
-    2107
+    2107,
+    2099
    ],
    "items": [],
-   "theory": "At least 90% of champions get Rite of Ascension and Hellbent, but Seraphine has never been seen taking them, even though Seraphine is picked often.",
+   "theory": "At least 91% of champions get Hellbent and Rite of Ascension, but Seraphine has never been seen taking them, even though Seraphine is picked often.",
    "test": "Play Seraphine and watch your augment choices. If they never show up, Riot has left them out for Seraphine. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -960,26 +979,26 @@
     2005
    ],
    "items": [],
-   "theory": "At least 92% of champions get Triggered Inferno, but Twitch has never been seen taking it, even though Twitch is picked often.",
+   "theory": "At least 93% of champions get Triggered Inferno, but Twitch has never been seen taking it, even though Twitch is picked often.",
    "test": "Play Twitch and watch your augment choices. If it never shows up, Riot has left it out for Twitch. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
   {
    "id": "gap-Vayne",
    "kind": "gap",
-   "title": "Vayne never gets Twin Fire and 4 more",
+   "title": "Vayne never gets Back To Basics and 4 more",
    "champions": [
     "Vayne"
    ],
    "augments": [
+    1004,
     1415,
     1028,
-    1004,
     1098,
     1150
    ],
    "items": [],
-   "theory": "At least 92% of champions get Twin Fire, Erosion, Back To Basics, With Haste and Bread And Jam, but Vayne has never been seen taking them, even though Vayne is picked often.",
+   "theory": "At least 92% of champions get Back To Basics, Twin Fire, Erosion, With Haste and Bread And Jam, but Vayne has never been seen taking them, even though Vayne is picked often.",
    "test": "Play Vayne and watch your augment choices. If they never show up, Riot has left them out for Vayne. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   },
@@ -1065,8 +1084,8 @@
    "augments": [
     1068,
     1349,
-    1415,
     1004,
+    1415,
     1103,
     1098,
     2087,
@@ -1074,7 +1093,7 @@
     1996
    ],
    "items": [],
-   "theory": "At least 91% of champions get Recursion, Ultimate Awakening, Twin Fire, Back To Basics, Bread And Butter, With Haste, Archmage, Triggered Inferno and Upgrade Sheen, but Yunara has never been seen taking them, even though Yunara is picked often.",
+   "theory": "At least 91% of champions get Recursion, Ultimate Awakening, Back To Basics, Twin Fire, Bread And Butter, With Haste, Archmage, Triggered Inferno and Upgrade Sheen, but Yunara has never been seen taking them, even though Yunara is picked often.",
    "test": "Play Yunara and watch your augment choices. If they never show up, Riot has left them out for Yunara. If that doesn't look like it's on purpose, it's worth reporting.",
    "status": "to_test"
   }
