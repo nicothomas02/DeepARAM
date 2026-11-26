@@ -26,12 +26,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          # Node 24 is what Cloudflare Workers Builds, which builds the live site, uses by default.
+          # Node 24 is the default of Cloudflare Workers Builds, which builds the live site, per the
+          # Workers Builds build-image docs, Nov 2026.
           node-version: 24
           cache: npm
           cache-dependency-path: web/package-lock.json
-      # Workers Builds installs with npm 10.9.2, not the npm 11 that ships with Node 24, and npm 10
-      # rejects some lockfiles that npm 11 accepts. Same npm here, so this install predicts that one.
+      # Per the same docs (Nov 2026), Workers Builds installs with npm 10.9.2 by default, not the
+      # npm 11 that ships with Node 24, and npm 10 rejects some lockfiles that npm 11 accepts. Same
+      # npm here, so this install predicts that one. This version has to follow Cloudflare's default
+      # by hand, or be replaced by a packageManager pin in web/package.json that both sides read.
       - name: Use the npm version that builds production
         run: npm install --global npm@10.9.2 && npm --version
       - run: npm ci --no-audit --no-fund
