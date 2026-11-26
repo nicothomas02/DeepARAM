@@ -21,7 +21,7 @@ describe("augment picks follow the champion page", () => {
     }
     expect(lists).toBeGreaterThan(300);
     expect(same / lists).toBeGreaterThan(0.99);
-  });
+  }, 30_000); // ranks every champion's augments: 2 to 4 s as a rule, over the default 5 s on a busy machine
   it("shows DeepScore, not a win-rate boost, where real games back the ranking", () => {
     const rows = Object.values(d.champions).flat();
     const real = rows.filter((r) => r[3] === 0 && r[2] >= 0);
