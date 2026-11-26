@@ -7,7 +7,7 @@ HDR := src/sim.hpp src/json.hpp src/rng.hpp
 CHAMP_SRC := src/sim.cpp src/champ.cpp src/champ_main.cpp
 CHAMP_HDR := $(HDR) src/champ.hpp
 
-.PHONY: all run test wasm wasm-mayhem clean replay analysis
+.PHONY: all run test sanitize wasm wasm-mayhem clean replay analysis
 
 all: yunara_sim mayhem_sim
 
@@ -30,6 +30,22 @@ test: sanity_test champ_test mayhem_sim
 	./sanity_test data/yunara_mayhem.json data/cn_enemy_pool.json
 	./champ_test data/mayhem_rules.json
 	./mayhem_sim --list --json | python3 -c "import json, sys; json.load(sys.stdin)" && echo "ok:   --list --json is valid JSON (the page reads it)"
+
+# The same binaries and checks under AddressSanitizer and UndefinedBehaviorSanitizer, built into
+# build/sanitize/ so the normal binaries stay as they are. Not run by CI; about 12 times slower.
+SAN_DIR := build/sanitize
+SAN_FLAGS := -std=c++17 -O1 -g -fno-omit-frame-pointer -fsanitize=address,undefined \
+	-fno-sanitize-recover=undefined -D_GLIBCXX_ASSERTIONS -Wall -Wextra -pedantic
+$(SAN_DIR)/yunara_sim: $(SRC) $(HDR)
+$(SAN_DIR)/mayhem_sim: $(CHAMP_SRC) $(CHAMP_HDR)
+$(SAN_DIR)/sanity_test: src/sim.cpp tests/sanity.cpp $(HDR)
+$(SAN_DIR)/champ_test: src/sim.cpp src/champ.cpp tests/champ_sanity.cpp $(CHAMP_HDR)
+$(SAN_DIR)/%:
+	mkdir -p $(SAN_DIR) && $(CXX) $(SAN_FLAGS) -pthread $(filter %.cpp,$^) -o $@
+sanitize: $(addprefix $(SAN_DIR)/,yunara_sim mayhem_sim sanity_test champ_test)
+	$(SAN_DIR)/sanity_test data/yunara_mayhem.json data/cn_enemy_pool.json
+	$(SAN_DIR)/champ_test data/mayhem_rules.json
+	$(SAN_DIR)/mayhem_sim --list --json > /dev/null
 
 # Browser build (needs Emscripten). Single-threaded on purpose: the site runs
 # one copy per Web Worker, so no SharedArrayBuffer or COOP/COEP headers needed.
@@ -82,4 +98,4 @@ analysis: mayhem_sim
 	python3 tools/sensitivity.py ./mayhem_sim analysis/tuning-sensitivity.json 300 3
 
 clean:
-	rm -rf yunara_sim mayhem_sim sanity_test champ_test dist
+	rm -rf yunara_sim mayhem_sim sanity_test champ_test dist $(SAN_DIR)
