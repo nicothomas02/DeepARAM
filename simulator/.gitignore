@@ -3,6 +3,7 @@ sanity_test
 dist/
 mayhem_sim
 champ_test
+build/
 # Riot art stays out of the repo; the sim's own results (index, traces, best builds, wasm) are committed for the website.
 viewer/replay-data/sprites.webp
 viewer/replay-data/clips/

@@ -77,6 +77,8 @@ make                          # builds yunara_sim and mayhem_sim
 make test                     # both test suites
 ```
 
+`make -j4 sanitize` builds all four binaries again with AddressSanitizer and UndefinedBehaviorSanitizer into `build/sanitize/` (the normal binaries are not touched), then runs both test suites and one `mayhem_sim --list --json` on those copies. That last run only has to finish without a report: its output is thrown away rather than parsed as JSON the way `make test` does, and `yunara_sim` is built but not run. It is about 12 times slower and not part of CI; run it after changing `src/`, and try a few real commands with `build/sanitize/mayhem_sim` and `build/sanitize/yunara_sim` too. It sets strict `ASAN_OPTIONS` unless you set your own. A report means a memory or undefined-behaviour bug, so fix the cause rather than hiding the report.
+
 ## How a champion is built
 
 `tools/build_champion_pool.py` writes `data/champions.json` from:
