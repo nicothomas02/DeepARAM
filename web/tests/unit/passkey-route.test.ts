@@ -256,7 +256,7 @@ async function ready(kind: Kind) {
   if (kind === "signin") await signUp(k);
   return k;
 }
-const ask = async (kind: Kind) => (await post(kind === "signup" ? { step: "signup-options", email: "ahri@example.com" } : { step: `${kind}-options` })).data;
+const ask = async (kind: Kind, email = "ahri@example.com") => (await post(kind === "signup" ? { step: "signup-options", email } : { step: `${kind}-options` })).data;
 const answer = async (kind: Kind, k: Passkey, options: { challenge: string }, twist: Twist = {}) =>
   post({ step: kind, response: kind === "signin" ? await signed(k, options, twist) : await made(k, options, twist), label: "Windows PC" });
 
@@ -460,9 +460,11 @@ describe("passkey challenges", () => {
   it.each<[Kind, Kind]>([
     ["signin", "add"],
     ["add", "signin"],
+    ["signup", "signin"],
   ])("refuses a challenge asked for %s as the challenge for %s", async (asked, finished) => {
     const k = await ready(finished);
-    const options = await ask(asked);
+    const options = await ask(asked, "lux@example.com");
+    expect(options.challenge).toEqual(expect.any(String));
     const before = everything();
     expect(await answer(finished, k, options)).toEqual(TOO_LATE);
     expect(everything()).toEqual(before);
