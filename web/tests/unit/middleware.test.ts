@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { NextRequest } from "next/server";
 import { config, middleware } from "@/middleware";
@@ -53,6 +54,54 @@ describe("rate limits", () => {
   it("guards error reports, sign-in and the write routes", () => {
     expect(config.matcher).toEqual(expect.arrayContaining(["/api/log", "/api/profile", "/api/games", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"]));
     expect(config.matcher).not.toContain("/api/sim-scores"); // the Simulator leaderboard was removed
+  });
+
+  it("allows 60 live-game reports a minute, counted with the same visitor's uploads", async () => {
+    for (let i = 0; i < 60; i++) expect((await middleware(req("10.10.10.10", "/api/widget/live"))).status).toBe(200);
+    expect((await middleware(req("10.10.10.10", "/api/widget/live"))).status).toBe(429);
+    expect((await middleware(req("10.10.10.10", "/api/games"))).status).toBe(429);
+    expect((await middleware(req("10.10.10.11", "/api/widget/live"))).status).toBe(200);
+  });
+
+  // config.matcher decides which requests reach the middleware at all, and the tests above call middleware()
+  // directly, so they cannot tell when a path with a rule is missing from the matcher.
+  it("reaches every path a rule names", () => {
+    // Paths a rule names that the matcher is known not to reach. None today: keep it empty.
+    const knownGaps: string[] = [];
+
+    // The middleware is read as text: every quoted path above the matcher counts as a path a rule names. "/api/x"
+    // on its own is one path, startsWith("/api/x") a whole branch. A message that starts "Update this test" means
+    // the code changed shape and can no longer be read here, not that a route lost its limit.
+    const source = readFileSync(new URL("../../src/middleware.ts", import.meta.url), "utf8");
+    const end = source.indexOf("export const config");
+    expect(end, 'Update this test: it reads src/middleware.ts up to "export const config", which it can no longer find.').toBeGreaterThan(0);
+    const code = source.slice(0, end).replace(/\/\*[\s\S]*?\*\/|(^|\s)\/\/.*$/gm, "");
+    expect(/\.(test|match|exec)\(|RegExp/.test(code), "Update this test: src/middleware.ts now uses a regular expression. A rule written as one cannot be read here.").toBe(false);
+    const named = [...code.matchAll(/(startsWith\(\s*)?(["'`])(\/[^"'`\s]*)\2/g)].map((m) => ({ path: m[3], branch: Boolean(m[1]) }));
+    expect(
+      named.map((n) => n.path),
+      "Update this test: it no longer finds the rules' paths in src/middleware.ts. If the rules moved to another file, read that file here.",
+    ).toEqual(expect.arrayContaining(["/api/log", "/api/widget/live"]));
+
+    // What Next does with a matcher entry, for the forms used here: ":name" is one segment, "/:name*" any number.
+    for (const entry of config.matcher)
+      expect(entry, `Update this test: it cannot read the matcher entry "${entry}". It knows plain paths, ":name" and "/:name*".`).toMatch(/^(\/[\w-]+|\/:\w+\*?)+$/);
+    const reaches = (path: string) =>
+      config.matcher.some((entry) => new RegExp(`^${entry.replace(/\/:\w+\*/g, "(/.+)?").replace(/:\w+/g, "[^/]+")}$`).test(path));
+
+    for (const { path, branch } of named) {
+      const base = path.replace(/\/$/, "");
+      const samples = branch ? [...(path === base ? [base] : []), `${base}/x`, `${base}/x/y`] : [path];
+      const missed = samples.filter((sample) => !reaches(sample));
+      if (knownGaps.includes(path)) expect(missed.length, `"${path}" is now matched: take it off the list of known gaps in this test.`).toBeGreaterThan(0);
+      else
+        expect(
+          missed,
+          `config.matcher does not reach ${missed.join(", ")}, so the rule for "${path}" never runs on the site: add the path to config.matcher. If "${path}" in src/middleware.ts is not a rule's path, update this test instead.`,
+        ).toEqual([]);
+    }
+    for (const gap of knownGaps)
+      expect(named.some((n) => n.path === gap), `"${gap}" is on this test's list of known gaps, but nothing in src/middleware.ts names it: take it off the list.`).toBe(true);
   });
 
   it("leaves the 3D Simulator's models, sounds and page public", () => {
