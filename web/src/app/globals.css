@@ -2356,6 +2356,17 @@ html[data-device="mobile"] .site-header-inner {
   cursor: pointer;
 }
 
+/* The skill-bracket picker beside the patch range (components/ChampionTiers.tsx), styled like the patch dropdown. */
+.patch-bracket select {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--fg);
+  font: 500 0.875rem var(--mono);
+  cursor: pointer;
+}
+
 .patch-pick summary::-webkit-details-marker {
   display: none;
 }
@@ -5643,6 +5654,7 @@ html[dir="rtl"] .rank-v {
   .arch-filter .arch-tag,
   .patch-pick-presets button,
   .patch-pick summary,
+  .patch-bracket select,
   .data-table.fit > .table-tools > * {
     min-height: 44px;
   }
