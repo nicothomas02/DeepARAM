@@ -1,6 +1,6 @@
 import "server-only";
 import type { NextResponse } from "next/server";
-import { CHALLENGE_COOKIE, OWNER_FLAG, SESSION_COOKIE, SESSION_DAYS, SIGNED_IN_FLAG } from "./account-cookies";
+import { CHALLENGE_COOKIE, CHALLENGE_PATH, OWNER_FLAG, SESSION_COOKIE, SESSION_DAYS, SIGNED_IN_FLAG } from "./account-cookies";
 import { accountsDb, sessionAccount, sha256, type DB, type SessionAccount } from "./account-session";
 import { profileByPuuid, profilePath } from "./profiles";
 import { enabledProviders, PROVIDER_NAMES, type Identity, type Provider } from "./oauth";
@@ -106,7 +106,8 @@ export async function startSession(res: NextResponse, account: { id: string }, m
 }
 
 export function clearSessionCookies(res: NextResponse) {
-  for (const c of [SESSION_COOKIE, SIGNED_IN_FLAG, OWNER_FLAG, CHALLENGE_COOKIE]) res.cookies.delete(c);
+  for (const c of [SESSION_COOKIE, SIGNED_IN_FLAG, OWNER_FLAG]) res.cookies.delete(c);
+  res.cookies.delete({ name: CHALLENGE_COOKIE, path: CHALLENGE_PATH });
 }
 
 export async function endSession(token: string | undefined) {
@@ -241,7 +242,7 @@ export async function changeEmail(a: SessionAccount, email: string, password: un
 
 export async function deleteAccount(id: string) {
   const d = await db();
-  await d.batch(["passkeys", "sessions", "link_codes", "logins", "account_profile"].map((t) => d.prepare(`DELETE FROM ${t} WHERE account = ?`).bind(id)).concat(d.prepare("DELETE FROM accounts WHERE id = ?").bind(id)));
+  await d.batch(["passkeys", "passkey_challenges", "sessions", "link_codes", "logins", "account_profile"].map((t) => d.prepare(`DELETE FROM ${t} WHERE account = ?`).bind(id)).concat(d.prepare("DELETE FROM accounts WHERE id = ?").bind(id)));
   // Builds sent to The Kitchen (lib/kitchen.ts); the table exists only once someone has sent one.
   await d.prepare("DELETE FROM kitchen_submissions WHERE account = ?").bind(id).run().catch(() => undefined);
   // Games saved from My Stats (lib/match-history.ts), likewise.

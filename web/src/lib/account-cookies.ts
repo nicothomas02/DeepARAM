@@ -6,8 +6,10 @@ export const SESSION_COOKIE = "deeparam-session";
 export const SIGNED_IN_FLAG = "deeparam-signed-in";
 /** Readable "1": the site owner is signed in, so pages try the owner-only files (the server checks for real). */
 export const OWNER_FLAG = "deeparam-admin-ui";
-/** HttpOnly, five minutes: the passkey challenge this browser was just sent. */
+/** HttpOnly, five minutes: names the passkey challenge the server is keeping for this browser. Never the challenge itself. */
 export const CHALLENGE_COOKIE = "deeparam-passkey";
+/** The challenge cookie is only sent to the passkey route, and a cookie has to be dropped under the path it was set with. */
+export const CHALLENGE_PATH = "/api/account/passkey";
 
 /** HttpOnly, ten minutes: state and nonce of a Sign in with Google, Apple, Discord etc. this browser started. */
 export const OAUTH_COOKIE = "deeparam-oauth";
