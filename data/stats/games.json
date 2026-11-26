@@ -1,6 +1,6 @@
 {
  "about": "Matches behind each patch's stats: real counts from AramHex where it has the patch (source: aramhex), else estimated from 101's day-to-day win-rate noise (data/stats/games.py). A champion's games = pick_rate x matches; an item's or a teammate pair's = its share x the champion's games.",
- "updated": "2026-11-26",
+ "updated": "2026-11-27",
  "median_per_day": 3971116,
  "patches": {
   "15.21": {
@@ -158,9 +158,9 @@
    "source": "aramhex"
   },
   "16.23": {
-   "days": 7,
+   "days": 8,
    "per_day": 3971116,
-   "matches": 27797810,
+   "matches": 31768925,
    "estimated": false
   }
  }
