@@ -23,13 +23,20 @@ export const dynamic = "force-dynamic";
 
 const where = (req: NextRequest) => ({ rpID: req.nextUrl.hostname, origin: req.nextUrl.origin });
 
-// Key algorithms (COSE numbers), written out so a SimpleWebAuthn upgrade can't change them unnoticed.
-// Offered when a passkey is made: EdDSA, ES256, RS256. Left to its default, SimpleWebAuthn 14 puts
-// ML-DSA-44 first wherever the server it runs on can check that signature.
+// Key types (COSE numbers) for new passkeys: EdDSA, ES256, RS256. The same list is offered when a passkey is
+// made and required when it is saved. It is written out so a SimpleWebAuthn upgrade can't change it unnoticed:
+// left to its default, version 14 adds ML-DSA-44 in front wherever the server it runs on can check that
+// signature. Signing in checks the saved key itself and doesn't use this list.
 const OFFERED_ALGS = [-8, -7, -257];
-// Accepted when a new passkey is saved: the list SimpleWebAuthn 13 used by default. SimpleWebAuthn 14's
-// default is the offered list. Signing in checks the saved key itself and uses neither list.
-const ACCEPTED_ALGS = [-8, -7, -36, -37, -38, -39, -257, -258, -259, -65535];
+
+// When SimpleWebAuthn refuses an answer, the log gets the error's name and code and nothing else: its message
+// can quote the challenge and the origin, and the answer itself is never logged.
+const refused = (step: "add" | "signup" | "signin") => (err: unknown) => {
+  const { name, code } = (err ?? {}) as { name?: unknown; code?: unknown };
+  const short = (v: unknown) => (typeof v === "string" || typeof v === "number" ? String(v).slice(0, 60) : "");
+  console.warn(`passkey ${step} refused`, short(name), short(code));
+  return null;
+};
 
 async function withChallenge(req: NextRequest, options: { challenge: string }, extra = "") {
   const res = json(options);
@@ -78,8 +85,8 @@ export const POST = handle(async (req) => {
       expectedOrigin: origin,
       expectedRPID: rpID,
       requireUserVerification: false,
-      supportedAlgorithmIDs: ACCEPTED_ALGS,
-    }).catch(() => null);
+      supportedAlgorithmIDs: OFFERED_ALGS,
+    }).catch(refused("add"));
     if (!v?.verified) throw new AccountError("The passkey couldn't be saved. Try again.");
     const c = v.registrationInfo.credential;
     const label = labelOf(b.label);
@@ -119,8 +126,8 @@ export const POST = handle(async (req) => {
       expectedOrigin: origin,
       expectedRPID: rpID,
       requireUserVerification: false,
-      supportedAlgorithmIDs: ACCEPTED_ALGS,
-    }).catch(() => null);
+      supportedAlgorithmIDs: OFFERED_ALGS,
+    }).catch(refused("signup"));
     if (!v?.verified) throw new AccountError("The passkey couldn't be saved. Try again.");
     const c = v.registrationInfo.credential;
     const mail = decodeURIComponent(email);
@@ -154,7 +161,7 @@ export const POST = handle(async (req) => {
       expectedRPID: rpID,
       credential: { id: key.id, publicKey: fromB64url(key.public_key), counter: key.counter, transports: transports(key.transports) },
       requireUserVerification: false,
-    }).catch(() => null);
+    }).catch(refused("signin"));
     if (!v?.verified) throw new AccountError("That passkey didn't work. Try again.", 401);
     await d.prepare("UPDATE passkeys SET counter = ? WHERE id = ?").bind(v.authenticationInfo.newCounter, key.id).run();
     const res = json({ ok: true });
