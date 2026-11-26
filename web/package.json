@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.65.0",
-    "@types/node": "^20",
+    "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/three": "^0.160.0",
@@ -37,7 +37,7 @@
     "eslint-config-next": "16.4.6",
     "jsdom": "^26.1.0",
     "typescript": "^5",
-    "vitest": "^3.2.4",
+    "vitest": "^5.1.1",
     "wrangler": "4.166.0"
   },
   "browserslist": [
