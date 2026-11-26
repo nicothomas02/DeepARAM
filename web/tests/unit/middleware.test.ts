@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { NextRequest } from "next/server";
 import { config, middleware } from "@/middleware";
@@ -53,6 +54,33 @@ describe("rate limits", () => {
   it("guards error reports, sign-in and the write routes", () => {
     expect(config.matcher).toEqual(expect.arrayContaining(["/api/log", "/api/profile", "/api/games", "/api/account", "/api/account/:path*", "/api/kitchen/:path*", "/api/contact"]));
     expect(config.matcher).not.toContain("/api/sim-scores"); // the Simulator leaderboard was removed
+  });
+
+  // config.matcher decides which requests reach the middleware at all, and the tests above call middleware()
+  // directly: a path with a rule that the matcher leaves out is limited in these tests and nowhere else.
+  it("reaches every path a rule names, apart from the gaps listed here", () => {
+    // Rules the matcher does not reach yet, so the site applies no limit there. Take a path off this list in the
+    // same change that adds it to config.matcher.
+    const unreached = ["/api/widget/live"];
+
+    // The paths ruleFor names, read from its source: path === "..." is one path, path.startsWith("...") a branch.
+    const source = readFileSync("src/middleware.ts", "utf8");
+    const ruleFor = source.slice(source.indexOf("function ruleFor("), source.indexOf("type Limiter")).replace(/\/\/.*$/gm, "");
+    const named = [...ruleFor.matchAll(/\bpath(\.startsWith\(| === )"([^"]+)"/g)].map((m) => ({ path: m[2], branch: m[1] !== " === " }));
+    // every use of the path in ruleFor is one of those two forms, so no rule is read past
+    expect(named.length).toBe((ruleFor.match(/\bpath\b/g) ?? []).length - 1);
+    expect(named.map((n) => n.path)).toEqual(expect.arrayContaining(["/api/log", "/api/account", "/api/kitchen"]));
+
+    // What Next does with a matcher entry, for the forms used here: ":name" is one segment, "/:name*" any number.
+    for (const entry of config.matcher) expect(entry, "a matcher form this test cannot read").toMatch(/^(\/[\w-]+|\/:\w+\*?)+$/);
+    const reaches = (path: string) =>
+      config.matcher.some((entry) => new RegExp(`^${entry.replace(/\/:\w+\*/g, "(/.+)?").replace(/:\w+/g, "[^/]+")}$`).test(path));
+
+    for (const { path, branch } of named) {
+      const base = path.replace(/\/$/, "");
+      const samples = branch ? [...(path === base ? [base] : []), `${base}/x`, `${base}/x/y`] : [path];
+      expect(samples.filter(reaches), `the rule for ${path}`).toEqual(unreached.includes(path) ? [] : samples);
+    }
   });
 
   it("leaves the 3D Simulator's models, sounds and page public", () => {
