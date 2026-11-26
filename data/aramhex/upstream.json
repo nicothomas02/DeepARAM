@@ -239,5 +239,6 @@
  "latest_seq": 20,
  "latest_snapshot": "2026-11-21T08:00:00+08:00",
  "license_sha256": "41003d4a74749c0220e33dd415042164b5a1093ed401f36277234f772d22d3d0",
- "schema_version": 1
+ "schema_version": 1,
+ "stall_noted": "2026-11-21T08:00:00+08:00"
 }
