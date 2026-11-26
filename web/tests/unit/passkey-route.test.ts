@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { NextRequest, NextResponse } from "next/server";
 import { CHALLENGE_COOKIE } from "@/lib/account-cookies";
-import { createAccount, db, startSession } from "@/lib/accounts";
+import { createAccount, db, deleteAccount, startSession } from "@/lib/accounts";
 import { POST } from "@/app/api/account/passkey/route";
 import { POST as SIGN_OUT } from "@/app/api/account/signout/route";
 
@@ -539,6 +539,15 @@ describe("passkey challenges", () => {
     const before = everything();
     expect(await answer(kind, k, options)).toEqual(TOO_LATE);
     expect(everything()).toEqual(before);
+  });
+
+  it("removes an account's waiting challenge when the account is deleted", async () => {
+    const id = await account("ahri@example.com");
+    await ask("add");
+    await ask("signin");
+    expect(rows("SELECT kind, account FROM passkey_challenges ORDER BY rowid")).toEqual([{ kind: "add", account: id }, { kind: "signin", account: null }]);
+    await deleteAccount(id);
+    expect(rows("SELECT kind, account FROM passkey_challenges")).toEqual([{ kind: "signin", account: null }]);
   });
 
   it("clears out challenges past their five minutes whenever a new one is kept", async () => {
