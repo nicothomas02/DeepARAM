@@ -81,7 +81,11 @@ jobs:
         continue-on-error: true
         run: python3 data/stats/games.py
       - name: Download the AramHex dataset (real game counts; keep the last copy if it fails)
-        run: python3 data/aramhex/fetch.py || echo "::warning::AramHex not refreshed"
+        id: aramhex
+        # A download that stops or is refused saves no tables (one line in data/aramhex/changes.json says why), so
+        # the stats go on with the last copy. The last step then turns the run red, so it doesn't pass unseen.
+        continue-on-error: true
+        run: python3 data/aramhex/fetch.py
       - name: Lay AramHex's real numbers over the 101 files (101 keeps skill orders, starters, six-item builds, teammates)
         run: python3 data/aramhex/merge.py
       - name: Score how each patch's picks held up on the next (Patches page scorecard)
@@ -141,3 +145,8 @@ jobs:
             git commit -m "Update Mayhem stats ($(date -u +%Y-%m-%d))"
             git push
           fi
+      - name: Fail the run when the AramHex download stopped or was refused (the rest is committed above)
+        if: steps.aramhex.outcome == 'failure'
+        run: |
+          echo "::error::AramHex not refreshed: data/aramhex/fetch.py stopped or refused the download (see that step and data/aramhex/changes.json). The stats above use the last copy."
+          exit 1
