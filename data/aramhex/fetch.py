@@ -20,10 +20,11 @@ Writes data/aramhex/patches/<patch>/ with [games, wins] pairs:
   meta.json          patch, seq, snapshot, matches, window, which tables were carried from an earlier patch
 Only the "normal" rules are kept (event modes like first-prismatic are skipped). Standard library only.
 
-Nothing is written unless every file is the one index.json lists (sha256) and each patch's champion games add up to
-10 x its match count: the files sit behind a CDN that caches each one for five minutes on its own, so right after a
-release an old index can come with new tables (2026-11-26, common.snapshot_problem). A refused download exits 1 and
-leaves the last copy as it was; index.json keeps its old seq, so the hourly check asks again.
+Nothing is written until every dataset is converted, every file is the one index.json lists (sha256) and each patch's
+champion games add up to 10 x its match count. On 2026-11-26 a KeyError half-way through 16.23 left that patch's new
+tables next to its old match count (common.snapshot_problem); the files also sit behind a CDN that caches each one
+for five minutes on its own, so an old index can come with new tables. A download that stops or is refused exits
+non-zero and leaves the last copy as it was; index.json keeps its old seq, so the hourly check asks again.
 
 Usage: python3 data/aramhex/fetch.py [--src DIR]   (DIR: a local clone instead of downloading)
 """

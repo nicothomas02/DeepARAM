@@ -46,9 +46,9 @@ def snapshot_problem(heroes, n):
     """Why a champion table and a match count cannot be one release, or None when they fit (or there is no table).
 
     Every match has ten players with one champion each, so the champions' games add up to exactly 10 x matches (to
-    the game on all five patches, 16.19-16.23). On 2026-11-26 a refresh ran a minute after AramHex published: fetch.py
-    got the previous index (4,991,976 matches) with the new tables (84,018,660 champion games = 8,401,866 matches), so
-    every "games per match" rate came out 1.68x too high and six augment pick rates passed 100%."""
+    the game on all five patches, 16.19-16.23). On 2026-11-26 fetch.py stopped half-way through a new 16.23 release:
+    the new tables were saved (84,018,660 champion games = 8,401,866 matches) next to the previous release's match
+    count (4,991,976), so every "games per match" rate came out 1.68x too high and six augment pick rates passed 100%."""
     if not heroes:
         return None
     games = sum(g for g, _ in heroes.values())
