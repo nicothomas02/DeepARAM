@@ -120,6 +120,12 @@ jobs:
           f=data/cn/history/published.csv
           [ -f "$f" ] || echo "stat_date,first_seen_utc" > "$f"
           echo "${{ needs.check.outputs.day }},$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$f"
+      - name: Check the new data with the data tests (nothing is committed when they fail)
+        # The same tests as a pull request's "Data and My Stats" job. A bot push starts no Tests run, so without
+        # this a bad refresh reaches main unchecked (2026-11-26: augment pick rates above 100%).
+        run: |
+          python3 -m pip install -q pytest
+          python3 -m pytest tests/data -q
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"

@@ -92,6 +92,12 @@ jobs:
               json.dump({"patch": d["patch"], "items": d["items"]}, f, separators=(",", ":"))
               f.write("\n")
           PY
+      - name: Check the new data with the data tests (nothing is committed when they fail)
+        if: steps.fresh.outputs.run == 'true'
+        # The same tests as a pull request's "Data and My Stats" job; a bot push starts no Tests run.
+        run: |
+          python3 -m pip install -q pytest
+          python3 -m pytest tests/data -q
       - name: Commit changes
         if: steps.fresh.outputs.run == 'true'
         run: |
