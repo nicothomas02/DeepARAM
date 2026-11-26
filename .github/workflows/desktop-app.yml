@@ -112,6 +112,7 @@ jobs:
       # runners whose kernel has overlayfs redirect_dir off refuse that ("Invalid cross-device link") and
       # the build stops there. On a volume the SDK sits on a normal filesystem (Docker fills the volume
       # from the image), so the update works on every runner.
+      # Upstream: flatpak/flatpak-github-actions#267 (no fix yet). Once it is fixed, the volume can go.
       volumes:
         - /var/lib/flatpak
     steps:
