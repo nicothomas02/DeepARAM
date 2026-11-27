@@ -11,6 +11,7 @@ import WinRate, { Sampled } from "@/components/WinRate";
 import DeepScore from "@/components/DeepScore";
 import { BUILD_DEEPSCORE_HELP, FIT, ITEM_DEEPSCORE_HELP } from "@/lib/deepscore";
 import FewPlayers from "@/components/champion/FewPlayers";
+import CloseCall from "@/components/champion/CloseCall";
 import AvoidTag from "@/components/champion/AvoidTag";
 import { tierOfScore } from "@/lib/deepscore-scale";
 
@@ -24,7 +25,7 @@ import { championAliases, championSummary, champList, livePlus, type RadarAxis }
 import { TfCard, TfPerf, TfStrip, TfTier, TimeframePicker } from "@/components/champion/Timeframe";
 import { historyPatches } from "@/lib/champion-history";
 import { matchesByPatch } from "@/lib/sample";
-import { fewPlayersSpell, leading, SPELL_FOLLOWING, SPELL_MIN_GAMES } from "@/lib/card-score";
+import { closeCall, fewPlayersSpell, leading, SPELL_FOLLOWING, SPELL_MIN_GAMES } from "@/lib/card-score";
 import { rareSpellWhy } from "@/lib/rare-spells";
 import { buildLabel } from "@/lib/build-labels";
 import {
@@ -650,14 +651,17 @@ export default async function ChampionPage({
         )}
       </Row>
     ));
-  const singleRows = (rows: typeof p.core) =>
-    rows.map((r, i) => (
+  const singleRows = (rows: typeof p.core, close = false) => {
+    const c0 = close && closeCall(rows);
+    return rows.map((r, i) => (
       <Row key={i} rank={i + 1} cols={4} className={augItem(r) ? "aug-item" : undefined} cells={<ScoredCells r={r} />}>
         <ItemIcon id={r.items[0]} info={info} />
         <ItemName id={r.items[0]} info={info} />
         {augTag(r)}
+        {i === 0 && c0 && <CloseCall />}
       </Row>
     ));
+  };
 
   const spellsTile = (
           <div className="cp-best">
@@ -668,6 +672,7 @@ export default async function ChampionPage({
               <>
                 <Spells r={bestSpells} />
                 {fewPlayersSpell(bestSpells, spells) && <FewPlayers spellPickRate={bestSpells.pickRate} {...spellWhyOf(bestSpells)} />}
+                {!spellsEstimated && closeCall(spells) && <CloseCall />}
                 <small className="cp-stale-tag">
                   <T ns={NS}>Estimated</T>
                 </small>
@@ -1244,7 +1249,7 @@ export default async function ChampionPage({
               <Panel title="Boots" count={p.boots.length}>
                 <Head what="Boots" cols={SCORED_COLS} />
                 <ShowMore total={p.boots.length} limit={5}>
-                  {singleRows(p.boots)}
+                  {singleRows(p.boots, true)}
                 </ShowMore>
               </Panel>
             )}
@@ -1323,6 +1328,7 @@ export default async function ChampionPage({
                     >
                       <Spells r={r} />
                       {fewPlayersSpell(r, spells) && <FewPlayers spellPickRate={r.pickRate} {...spellWhyOf(r)} />}
+                      {i === 0 && !spellsEstimated && closeCall(spells) && <CloseCall />}
                       {!r.estimated && isDTier((r as { deepScore?: number }).deepScore) && <AvoidTag />}
                     </Row>
                   ))}

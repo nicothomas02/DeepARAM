@@ -95,16 +95,24 @@ function show(v: Row[string], format: Column["format"], pts: (n: string) => stri
 // A tier letter. When the row carries the previous patch's tier (<key>_was) and it differs, the chip
 // slides in from the old letter, up or down (globals.css: on a new patch's first visit).
 const ORDER = ["S", "A", "B", "C", "D"];
-function TierChip({ tier, was }: { tier: string; was: Row[string] | undefined }) {
+/** Hover on a borderline tier (lib/tiers.ts tierEdges). */
+export const TIER_EDGE_WHY =
+  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.";
+
+function TierChip({ tier, was, edge }: { tier: string; was: Row[string] | undefined; edge?: Row[string] }) {
   const t = useT("tables");
   const old = typeof was === "string" && was !== tier && ORDER.includes(was) ? was : null;
+  const near = typeof edge === "string" && ORDER.includes(edge) ? edge : null;
+  const tip = [old ? t("{tier} last patch", { tier: old }) : "", near ? t(TIER_EDGE_WHY, { tier: near }) : ""].filter(Boolean).join(" ");
   return (
     <span
       key={`${old}-${tier}`}
-      className={`chip tier-${tier.toLowerCase()}`}
+      className={`chip tier-${tier.toLowerCase()}${near ? " tier-edge" : ""}`}
       data-was={old ?? undefined}
       data-dir={old ? (ORDER.indexOf(tier) < ORDER.indexOf(old) ? "up" : "down") : undefined}
-      title={old ? t("{tier} last patch", { tier: old }) : undefined}
+      data-edge={near ? (ORDER.indexOf(near) < ORDER.indexOf(tier) ? "up" : "down") : undefined}
+      title={tip || undefined}
+      aria-description={near ? t(TIER_EDGE_WHY, { tier: near }) : undefined}
     >
       {tier}
     </span>
@@ -516,7 +524,7 @@ export default function DataTable({
                     ) : c.format === "tags" && c.tags ? (
                       <ArchetypeTags names={String(r[c.key] ?? "").split(",")} info={c.tags} compact />
                     ) : c.format === "tier" && r[c.key] ? (
-                      <TierChip tier={String(r[c.key])} was={r[`${c.key}_was`]} />
+                      <TierChip tier={String(r[c.key])} was={r[`${c.key}_was`]} edge={r[`${c.key}_edge`]} />
                     ) : c.format === "pct" && c.rangeKeys && typeof r[c.key] === "number" && typeof r[c.rangeKeys[0]] === "number" && typeof r[c.rangeKeys[1]] === "number" ? (
                       <NextPatch p={r[c.key] as number} lo={r[c.rangeKeys[0]] as number} hi={r[c.rangeKeys[1]] as number} />
                     ) : c.format === "pct" && c.gamesKey && typeof r[c.key] === "number" && typeof r[c.gamesKey] === "number" ? (

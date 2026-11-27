@@ -363,5 +363,7 @@
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Son yamalarda alışılmış Sıçra çiftiyle neredeyse eşit (1 puandan az fark), bu yüzden ikisi de olur. Bu çifti oyuncuların yalnızca {pct} kadarı alıyor.",
  "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Bu çifti oyuncuların yalnızca {pct} kadarı alıyor ve üstünlüğü yamadan yamaya değişiyor, bu yüzden onu alışılmış Sıçra çiftine yakın say.",
  "It belongs to the {build} build: pick that tab on the card.": "{build} dizilimine ait: kartta o sekmeyi seç.",
- "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Bu kartta duruma göre alınan bir eşya ({situation}), bu yüzden çoğu oyuncu diğer oyunlarda almaz."
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Bu kartta duruma göre alınan bir eşya ({situation}), bu yüzden çoğu oyuncu diğer oyunlarda almaz.",
+ "Close call": "Başa baş",
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Sonraki seçenek neredeyse aynı derecede iyi: fark, arkasındaki oyunlardaki gürültüden küçük. İlk seçenek bu kadar az farkla öndeyken, sonraki yamada yalnızca yaklaşık yarı yarıya zirvede kaldı."
 }

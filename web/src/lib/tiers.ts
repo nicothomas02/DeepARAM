@@ -9,6 +9,7 @@
 
 import augmentNames from "@/data/augment-names.json";
 import { DEEPSCORE_HELP, FIT, grade, lowerBound, nextPatch, trueSpread, type Noise } from "./deepscore";
+import { TIER_CUTS } from "./deepscore-scale";
 
 const AUGS = augmentNames as Record<string, string>;
 
@@ -148,9 +149,27 @@ export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Rec
     })
     .sort((a, b) => b.score - a.score);
   const grades = grade(scored.map((b) => b.score));
+  const edges = tierEdges(scored.map((b) => b.score));
   return scored.map(({ games, ...rest }, i) => {
     void games;
-    return { ...rest, ...grades[i] };
+    return { ...rest, ...grades[i], tier_edge: edges[i] };
+  });
+}
+
+/** A tier line closer than this (win-rate points) makes a tier "borderline" (research/confidence/tier_holds.py,
+ *  2026-11-27: over 25 past patches, champions within 0.25 pt of a tier line kept their tier 57% of the time next
+ *  patch, 0.25-0.5 pt 71%, 1+ pt 87%; 0.25 marks about 1 champion in 6, 0.5 would mark 1 in 3). */
+export const TIER_EDGE_PTS = 0.25;
+
+/** For each score: the neighbouring tier whose line is within TIER_EDGE_PTS, or null. Same z-score cuts as grade(). */
+export function tierEdges(values: number[]): (string | null)[] {
+  if (!values.length) return [];
+  const mean = values.reduce((a, b) => a + b, 0) / values.length;
+  const sd = Math.sqrt(values.reduce((a, b) => a + (b - mean) ** 2, 0) / values.length) || 1;
+  const lines = TIER_CUTS.slice(0, -1).map(([, min], j) => ({ at: mean + ((min - 50) / 15) * sd, above: TIER_CUTS[j][0], below: TIER_CUTS[j + 1][0] }));
+  return values.map((v) => {
+    const near = lines.filter((l) => Math.abs(v - l.at) * 100 < TIER_EDGE_PTS).sort((x, y) => Math.abs(v - x.at) - Math.abs(v - y.at))[0];
+    return near ? (v >= near.at ? near.below : near.above) : null;
   });
 }
 
