@@ -18,6 +18,7 @@ import {
   cardBuyOrder,
   LATE_BUYS,
   lateBuyOrder,
+  penSecond,
   itemRules,
   LUCKY_TILT,
   luckyBuild,
@@ -514,6 +515,29 @@ describe("build engine", () => {
     expect(text(6697)).toMatch(/per champion killed/);
     for (const i of FIRST_BUYS) expect(share(i, 1)).toBeGreaterThanOrEqual(0.8);
   }, 30_000);
+
+  it("magic pen becomes the 2nd item vs a high-MR team past the champion's simulated breakpoint (penSecond)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const tanks = ["Galio", "Malphite", "Ornn", "Sion", "Braum"].map((c) => ({ champ: c, items: [2504, 3065, 4401], level: 9 }));
+    const squishy = ["Lux", "Ezreal", "Jinx", "Ahri", "Sona"].map((c) => ({ champ: c, items: [], level: 9 }));
+    let checked = 0;
+    for (const c of champs) {
+      const at = (enemies: typeof tanks, items: number[] = []) => plan({ champ: c, kinds: k, picks: p0, fit: null, game: { champ: c.id, items, enemies, level: 9 }, taken: [] });
+      const legs = (p: ReturnType<typeof at>) => p.path.map((x) => ownedId(itemId(x.icon))).filter((i) => !k.boots.includes(i));
+      const base = at(squishy);
+      const pen = legs(base).find((i) => i === 3135 || i === 3137);
+      if (!pen || !penSecond({ champ: c.id, enemies: tanks, level: 9 }, [pen])) continue;
+      // squishy team: still waits for two legendaries
+      expect(legs(base).indexOf(pen)).toBeGreaterThanOrEqual(2);
+      // tanky team: 2nd legendary, marked as estimated
+      const p = at(tanks);
+      expect(legs(p).indexOf(pen), c.id).toBe(1);
+      expect(p.why[p.path.findIndex((x) => ownedId(itemId(x.icon)) === pen)]).toMatch(/estimated/);
+      checked++;
+    }
+    expect(checked).toBeGreaterThan(0);
+  }, 60_000);
 
   it("penetration items (Void Staff...) wait until two legendaries are finished, on every champion (lateBuys: Shaco)", async () => {
     const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;

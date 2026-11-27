@@ -25,10 +25,11 @@ import augmentConvertersData from "../../data/augment-converters.json";
 import augmentLeanInData from "../../data/augment-lean-in.json";
 import { FIRST_BUYS, LATE_BUYS, lateBuyOrder } from "./first-buys";
 import breakpointData from "../../data/breakpoints.json";
+import penBreakpointData from "../../data/pen-breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
 export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
-export const ENGINE_VERSION = "1.4.11";
+export const ENGINE_VERSION = "1.4.12";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -111,6 +112,7 @@ export const RULES: Record<string, Rule> = {
   countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
   firstBuys: { source: "game data", on: true, why: "Items that grow while you hold them (item text: Heartsteel, Yun Tal, Rod of Ages, Hubris) go first while you have no legendary: each minute held earlier is more value. The archive agrees (82-93% of their buyers make each one their first legendary, item_slots.json). Nico 2026-11-27: Briar's Hubris shown 4th; find the reason, not a per-item list." },
   lateBuys: { source: "game data", on: true, why: "Items with % armor or magic penetration (item text: Void Staff, Cryptbloom, Lord Dominik's, Mortal Reminder, Serylda's, Terminus) wait until two legendaries are finished, unless an augment rule timed them: penetration multiplies damage you already deal against resist the enemy has already built. Archive: 1-10% of buyers take them 1st or 2nd, and within a slot players take them earlier when enemies have more resist (z +1.7 to +5.9) and when they have more damage (Void Staff z +3.0, Lord Dominik's +3.4). AramHex cores put them 3rd. Against an unusually tanky team, breakpoints lights them as an option. Nico 2026-11-27: Shaco's Void Staff 2nd; find the reason, not a per-item list." },
+  penSecond: { source: "assumption", on: true, why: "Against a team whose magic resist is both tankier than usual (the breakpoints cut) and past the champion's simulated breakpoint, a magic pen item in the path (Void Staff, Cryptbloom) becomes the 2nd legendary. Simulator: vs the core's planned 2nd AP item, magic pen wins from about 70 enemy MR on the median champion (typical MR then: 44). Estimated: players almost never buy it 2nd, so the archive can't confirm it. Nico approved 2026-11-27 (he chose it on the card)." },
   boughtFirst: { source: "game data", on: true, why: "The path shows what you bought first, in inventory order, then the rest in Next's order, so an item bought early shows where you bought it (Nico 2026-11-27)." },
   stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
   attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
@@ -1279,6 +1281,20 @@ export function enemyStats(enemies: Enemy[], level = 18): { got: number[]; usual
   return { got, usual };
 }
 
+const PEN_BP = (penBreakpointData as { champions: Record<string, Record<string, number>> }).champions;
+/** penSecond: the magic pen item (in `ids`) that should be the 2nd legendary this game, if any (estimated). */
+export function penSecond(game: { champ: string; enemies?: Enemy[]; level?: number }, ids: number[]): { id: number; why: string } | null {
+  const bp = PEN_BP[champKey(game.champ)];
+  const st = bp ? enemyStats(game.enemies ?? [], game.level ?? 18) : null;
+  if (!bp || !st) return null;
+  const mr = st.got[2], tanky = st.usual[2] * BP.cut.mr;
+  for (const id of ids) {
+    const need = bp[String(id)];
+    if (need !== undefined && mr >= need && mr >= tanky) return { id, why: `Enemy magic resist about ${Math.round(mr)}: past ${need}, where penetration beats more AP as your 2nd item (simulator, estimated).` };
+  }
+  return null;
+}
+
 /** Breakpoint picks for this champion in this game: passed when the enemy stat clears the tanky-game cut. */
 export function breakpoints(enemies: Enemy[], level: number, magic: boolean, known: Set<number>, _pool: Set<number> = new Set()): Breakpoint[] {
   if (!RULES.breakpoints.on) return [];
@@ -1305,7 +1321,15 @@ export function breakpoints(enemies: Enemy[], level: number, magic: boolean, kno
 // ---------------------------------------------------------------------------------------------------------------
 // The plan
 
-export type Swap = { item: Named; replaces: Named | null; at: number; why: string; kind: "augment" | "proven" | "kit" };
+export type Swap = { item: Named; replaces: Named | null; at: number; why: string; kind: "augment" | "proven" | "kit"; /** One-word in-game label ("Vs AP", "Augment"). */ label: string };
+
+/** One-word in-game label for a lit item's situation (Nico 2026-11-27: icons and one-word labels, reasons on hover). */
+export function situationLabel(when?: string): string {
+  if (!when) return "";
+  if (/^With /.test(when)) return "Augment";
+  const short: Record<string, string> = { "Vs magic damage": "Vs AP", "Vs auto attacks": "Vs autos", "Vs heavy crowd control": "Vs CC", "Vs healing": "Vs heals", "Vs physical damage": "Vs AD", "Vs crit carries": "Vs crit" };
+  return short[when] ?? when;
+}
 export type Tip = { rank: number; kind: string; text: string; item?: number };
 export type Plan = {
   /** pentakillBuild: the ability whose Pentakill Empower to take when the build switched style, else null. */
@@ -1323,7 +1347,7 @@ export type Plan = {
    *  last open slot. */
   swaps: Swap[];
   /** Lit situational items that aren't proven: shown as a pointer only. */
-  pointers: { item: Named; why: string; replaces: Named | null }[];
+  pointers: { item: Named; why: string; replaces: Named | null; label: string }[];
   /** Your augments switched the build. */
   switched: { style: string; because: string; classWide: boolean; instead: Named | null } | null;
   /** Items moved up for an augment you took. */
@@ -1462,6 +1486,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Two different Tear items can both be in the path (Nico 2026-11-27, his Ryze games: Archangel's turns into Seraph's,
   // then a new Tear stacks for Winter's Approach): the game blocks only buying one while another is still stacking, so
   // that one isn't Next until then (below). The same Tear item twice never (one id, one owned form).
+  let penWhy = "";
   const rules0 = itemRules(k);
   const rules: ItemRules = { ...rules0, clash: (a, b) => !(TEAR_ITEMS.has(ownedId(a)) && TEAR_ITEMS.has(ownedId(b)) && ownedId(a) !== ownedId(b)) && rules0.clash(a, b) };
   const stacking = game.items.map(base).find((x) => TEAR_ITEMS.has(x));
@@ -1766,9 +1791,19 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Penetration (lateBuys): % pen items (Void Staff, Serylda's...: they multiply damage you already have; 90%+ of buyers take them 3rd or
   // later, archive and AramHex cores) wait until you've finished two legendaries, unless an augment rule timed them
   // (Nico 2026-11-27, Shaco's Void Staff 2nd). The site card uses the same order (first-buys.ts).
+  // Magic pen 2nd (penSecond): vs a high-MR team past the champion's simulated breakpoint (estimated, Nico 2026-11-27).
+  const penNow = RULES.penSecond.on && finished < 2 ? penSecond(game, next.map((it) => ownedId(itemId(it.icon)))) : null;
   if (RULES.lateBuys.on && finished < 2 && next.some((it) => LATE_BUYS.has(ownedId(itemId(it.icon))))) {
-    const moved = lateBuyOrder(next, (it) => ownedId(itemId(it.icon)), (it) => bootIds.has(itemId(it.icon)), 2 - finished, (it) => timing.some((t) => t.item === it));
+    const moved = lateBuyOrder(next, (it) => ownedId(itemId(it.icon)), (it) => bootIds.has(itemId(it.icon)), 2 - finished, (it) => timing.some((t) => t.item === it) || ownedId(itemId(it.icon)) === penNow?.id);
     if (moved.some((it, i) => it !== next[i])) { next = moved; applied("lateBuys"); }
+  }
+  if (penNow) {
+    const pen = next.find((it) => ownedId(itemId(it.icon)) === penNow.id)!;
+    const rest0 = next.filter((it) => it !== pen);
+    // the 2nd legendary: after the first non-boot item still to buy when none is finished, else first
+    const at = finished === 0 ? rest0.findIndex((it) => !bootIds.has(itemId(it.icon))) + 1 : 0;
+    const moved = [...rest0.slice(0, at), pen, ...rest0.slice(at)];
+    if (moved.some((it, i) => it !== next[i])) { next = moved; applied("penSecond"); penWhy = penNow.why; }
   }
   const order = new Map(next.map((it, i) => [itemId(it.icon), i]));
   next = next.slice(0, 2);
@@ -1897,7 +1932,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     else if (ally && !own) all.unshift({ name: k.recipes[KNIGHTS_VOW][0], icon: `${prefix}${220000 + KNIGHTS_VOW}.png`, when: "Pledge", kit: true, why });
   }
   const reason = (it: Named) => all.find((x) => itemId(x.icon) === itemId(it.icon) && x.why);
-  const lit = path.map((it) => ({ item: it, why: reason(it)?.why ?? "" })).filter((x) => x.why);
+  const isPen = (it: Named) => !!penWhy && ownedId(itemId(it.icon)) === penNow?.id;
+  const lit = path.map((it) => ({ item: it, why: isPen(it) ? penWhy : reason(it)?.why ?? "" })).filter((x) => x.why);
   const open = rest.filter((it) => !isOwned(it) && it !== next[0]);
   const target = (id: number, taken0: Set<Named>): Named | null => {
     const unbought = path.filter((p) => !isOwned(p) && !taken0.has(p));
@@ -1933,17 +1969,20 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     if ((it.aug || it.proven || it.kit) && swaps.length < 2) {
       const r = target(id, claimed);
       if (r) claimed.add(r);
-      swaps.push({ item: it, replaces: r, at: r ? rest.indexOf(r) : -1, why: it.why, kind: it.aug ? "augment" : it.proven ? "proven" : "kit" });
+      swaps.push({ item: it, replaces: r, at: r ? rest.indexOf(r) : -1, why: it.why, kind: it.aug ? "augment" : it.proven ? "proven" : "kit", label: situationLabel(it.when) });
       if (it.proven) applied("provenCounters");
       if (it.kit && !it.proven) applied(id === KNIGHTS_VOW ? "vowPartner" : "ccCounters");
-    } else if (pointers.length < 1) {
-      pointers.push({ item: it, why: it.why, replaces: target(id, claimed) });
+    } else if (pointers.length < 1 && !swaps.some((x) => x.label === situationLabel(it.when))) {
+      // an option: a lit item without a tested swap. Not when a swap already answers the same situation (Nico
+      // 2026-11-27: items under the path must say why they're there, or go).
+      pointers.push({ item: it, why: it.why, replaces: target(id, claimed), label: situationLabel(it.when) });
     }
   }
 
   // Why each path item is there.
   const why = path.map((it, i) => {
     if (isOwned(it)) return "You have it.";
+    if (isPen(it)) return penWhy;
     const r = reason(it);
     const tm = timing.find((t) => t.item === it);
     const b = route && !picked.style

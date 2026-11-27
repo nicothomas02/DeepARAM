@@ -189,6 +189,7 @@
   .deadshop { display: flex; gap: 6px; padding: 6px; margin-bottom: 6px; border: 2px solid var(--good); border-radius: 10px; } .deadshop img { width: 44px; height: 44px; border-radius: 6px; }
   .ii { width: 18px; height: 18px; border-radius: 4px; vertical-align: -4px; margin-right: 3px; }
   .ii.round { border-radius: 50%; }
+  .ii.fade { opacity: .45; filter: grayscale(.6); }
   .key.inl { display: inline-grid; place-items: center; min-width: 20px; height: 20px; border-radius: 6px; background: var(--raised); color: var(--accent); font-weight: 700; font-size: 12px; margin-left: 2px; }
   .up { color: var(--good); } .down { color: var(--bad); }
   .hero .fs { position: absolute; top: 10px; right: 10px; z-index: 2; font: inherit; font-size: 11px; font-weight: 600; color: var(--text, #fff);
@@ -807,8 +808,10 @@
       const sw = p.swaps.find((x) => x.replaces && itemId(x.replaces.icon) === itemId(it.icon));
       // The hover: the engine's tested "why it's best" line (Nico approved 2026-11-23) when there is one, else the slot reason.
       const r = p.reasons?.[i];
-      return sw ? { it: { ...sw.item, icon: sw.item.icon ?? it.icon }, why: `${sw.why}\nInstead of ${it.name}`, sw: true, does: false }
-        : { it, why: r?.text ?? p.why[i] ?? "", sw: false, does: r?.kind === "does" };
+      // a swap's tile reads its one-word situation ("Vs AP", engine 1.4.12) instead of the slot number
+      const pen = (p.rules ?? []).includes("penSecond") && /simulator, estimated/.test(p.why[i] ?? "");
+      return sw ? { it: { ...sw.item, icon: sw.item.icon ?? it.icon }, why: `${sw.why}\nInstead of ${it.name}`, sw: true, does: false, tag: sw.label }
+        : { it, why: r?.text ?? p.why[i] ?? "", sw: false, does: r?.kind === "does", tag: pen ? "Vs MR" : "" };
     }).map((x, i) => ({ ...x, core: i < p.coreLen })).filter(({ it }) => { const k = itemId(it.icon ?? "") % 10000; if (seenIds.has(k)) return false; seenIds.add(k); return true; });
     const state = (it) => {
       const id = itemId(it.icon);
@@ -825,9 +828,10 @@
     const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
     let n = 0;
     // The core sits in one grey dashed box (Nico 2026-11-24, as the site card); the item being built reads "Building".
-    const tile = ({ it, why, sw, does }) => {
+    const tile = ({ it, why, sw, does, tag }) => {
       const boot = bootIds.has(itemId(it.icon));
-      const lbl = boot ? "Boots" : ord(++n);
+      const slotN = boot ? "Boots" : ord(++n);
+      const lbl = tag || slotN;
       const st = state(it);
       // The item being built, in place (Nico 2026-11-24, as PC 1.26.9): arrow, gold ring, a bar for the parts you own.
       const nx = st === " nx";
@@ -841,14 +845,17 @@
     // Extras: never an item already in the path, nor one that only replaces something you own (no item twice on screen).
     const inPath = new Set(shown.map((x) => itemId(x.it.icon ?? "") % 10000));
     const ownedNames = new Set((k?.recipes ? game.items.map((i) => k.recipes[i % 10000]?.[0]) : []).filter(Boolean));
+    // An option under the path (Nico 2026-11-27: easy to decide between it and the item it would replace): the option,
+    // a swap arrow, the path item it replaces (faded), and its one-word situation. Reasons on hover.
     const opts = p.pointers.filter((x) => x.item?.icon && !inPath.has(itemId(x.item.icon) % 10000) && !(x.replaces?.name && ownedNames.has(x.replaces.name)))
-      .map((x) => tipImg(x.item, `${x.why ?? ""}${x.replaces?.name ? ` (instead of ${x.replaces.name})` : ""}`)).join("");
+      .map((x) => `${tipImg(x.item, `${x.why ?? ""}${x.replaces?.name ? `\nOption: take it instead of ${x.replaces.name}` : ""}`)}${x.replaces?.icon ? ` ${ico("swap")} <img class="ii fade" src="${src(x.replaces.icon)}" alt="" title="${esc(`Keep ${x.replaces.name} if this game doesn't call for it`)}" data-drop>` : ""}${x.label ? ` ${esc(x.label)}` : ""}`).join("");
     // Breakpoints (engine 1.4.0+): a stat threshold you've just passed, as an icon, an arrow and the stat.
     const bpIcon = (b) => b.kind === "augment" ? augIco(b.id) : itemImg(b.id);
-    const bps = (p.breakpoints ?? []).filter((b) => b.passed).slice(0, 2).map((b) => `<div class="cue green" title="${esc(`${b.why} (estimated, simulator math)`)}">${bpIcon(b)} ${ico("up")} ${b.stat === "mr" ? "MR" : b.stat === "hp" ? "HP" : "Armor"}</div>`).join("");
+    // Not for an item already in the path (penSecond moves magic pen there itself, labelled "Vs MR").
+    const bps = (p.breakpoints ?? []).filter((b) => b.passed && !(b.kind === "item" && inPath.has(b.id))).slice(0, 2).map((b) => `<div class="cue green" title="${esc(`${b.why} (estimated, simulator math)`)}">${bpIcon(b)} Vs ${b.stat === "mr" ? "MR" : b.stat === "hp" ? "HP" : "armor"}</div>`).join("");
     const lines = [
       p.switched ? `<div class="cue gold"${p.switched.because ? ` title="For ${esc(p.switched.because)}"` : ""}>${ico("swap")} ${esc(p.switched.style)}</div>` : "",
-      opts ? `<div class="cue gold">${ico("plus")} ${opts}</div>` : "",
+      opts ? `<div class="cue gold">${opts}</div>` : "",
       bps,
       // slotFirst: Weapon of Destiny, King Me and Ornn upgrade the first Legendary in slots 1-6.
       p.slotCue ? `<div class="cue blue" title="${esc(`${p.slotCue.why}${p.slotCue.estimated ? " (estimated pick)" : ""}`)}">${p.slotCue.item.icon ? `<img class="ii" src="${src(p.slotCue.item.icon)}" alt="" data-drop>` : ""} → slot 1</div>` : "",
