@@ -3,7 +3,7 @@ import { GET as overlayGET } from "@/app/data/overlay.json/route";
 import { GET as kindsGET } from "@/app/data/damage-types.json/route";
 import { GET as picksGET } from "@/app/data/augment-picks.json/route";
 import { GET as fitGET } from "@/app/data/team-fit.json/route";
-import { plan, itemId, itemRules, mustHave, RULES, type Fit, type Kinds, type OverlayChamp, type Picks, type Plan, type GameState } from "@/lib/engine/build-engine";
+import { plan, itemId, itemRules, ownedId, mustHave, RULES, type Fit, type Kinds, type OverlayChamp, type Picks, type Plan, type GameState } from "@/lib/engine/build-engine";
 
 // Engine regression suite (2026-11-25): every champion plays a seeded game (augments from its own pool, buys from its
 // own path with off-path detours, random enemies and allies), and every plan along the way must keep the engine's
@@ -81,7 +81,10 @@ describe("engine regression suite (every champion, seeded games)", () => {
 
   it("keeps the path whole: at most six items, none twice, no two of one limit group, owned items never dropped for nothing", async () => {
     const { steps, k } = await games();
-    const rules = itemRules(k);
+    // Two different Tear items may share a path (engine 1.4.10, Nico 2026-11-27: Archangel's turns into Seraph's, then a
+    // new Tear stacks; lib/engine/build-engine.ts TEAR_ITEMS). The same Tear item twice is still caught by the Set check.
+    const r0 = itemRules(k), tears = new Set([3003, 3004, 3119, 2526]);
+    const rules = { clash: (a: number, b: number) => !(tears.has(ownedId(a)) && tears.has(ownedId(b)) && ownedId(a) !== ownedId(b)) && r0.clash(a, b) };
     for (const { input, out } of steps) {
       const p = out.path.map((x) => itemId(x.icon));
       const at = `${input.game.champ} items ${input.game.items} taken ${input.taken}`;

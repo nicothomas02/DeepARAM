@@ -6,9 +6,7 @@ import { readRepoJson } from "./repo-data";
 import { championPage } from "./champion-page";
 import { champList } from "./champions";
 import { championEstimates } from "./estimates";
-import { augmentScores } from "./champion-augments";
-import { shrunkLeads } from "./card-score";
-import { FIT } from "./deepscore";
+import { augmentLeads, augmentScores } from "./champion-augments";
 import { livePatch } from "./highlights";
 import { patchName } from "./patch-name";
 
@@ -81,16 +79,10 @@ export function augmentPicks(): AugmentPicks {
       const deep = augmentScores(alias, thisPatch);
       const use = (a: (typeof p.augments)[number]) =>
         !thisPatch && a.pooled ? a.pooled : a.winRate !== undefined && a.games ? { winRate: a.winRate, games: a.games } : null;
-      // Real games and wins on this champion (AramHex): rank by each augment's shrunk lead over the champion's list,
-      // the same order as its DeepScore on the champion page (2026-11-23: the old estimated boost, built from overall
-      // augment strength, disagreed with the page's #1 in 63% of champion x rarity lists). Shown as DeepScore only.
-      const real = deep.real
-        ? shrunkLeads(
-            // Earlier patches pooled in where nothing changed, as the page's default DeepScore (AugmentRow.pooled).
-            p.augments.map((a) => ({ id: a.id, pickRate: a.pickRate, ...(use(a) ?? { winRate: a.winRate ?? 0, games: a.games }) })),
-            FIT.augments,
-          )
-        : new Map<number, number>();
+      // Real games and wins on this champion (AramHex): rank by the same lead the champion page's DeepScore grades
+      // (augmentLeads, earlier patches pooled in where nothing changed), so the app and the page agree (2026-11-23: the
+      // old estimated boost disagreed with the page's #1 in 63% of champion x rarity lists). Shown as DeepScore only.
+      const real = deep.real ? augmentLeads(alias, thisPatch) : new Map<number, number>();
       return p.augments.map((a) => {
         out.augments[a.id] = [a.name, a.rarity];
         const lead = real.get(a.id);

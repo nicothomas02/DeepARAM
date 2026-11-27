@@ -104,22 +104,67 @@ export function scoreRows<T extends { winRate: number; pickRate: number }>(
     .sort((x, y) => y.deepScore! - x.deepScore! || y.pickRate - x.pickRate);
 }
 
-/** Each row's lead over its list's pick-weighted average, as a fraction, shrunk by its own sampling noise exactly as
- *  scoreRows does with real games (so ordering by it is DeepScore's order). Empty when any row lacks games. Used by
- *  the desktop apps' augment panel, which adds synergy points on the same win-rate scale (lib/augment-picks.ts). */
-export function shrunkLeads<T extends { id: number; winRate: number; pickRate: number; games?: number }>(
-  list: T[],
-  fit: Fit | null = null,
-): Map<number, number> {
-  if (!list.length || !list.every((r) => (r.games ?? 0) > 0)) return new Map();
+// Augment lists (2026-11-27, Nico asked to get ahead on ranked lists with one rule for site and apps): each augment's
+// lead on this champion is shrunk toward how the same augment leads on the OTHER champions (leave-one-out, itself
+// shrunk by its noise), not toward zero, and ranked on the estimate minus half a typical miss. Next-patch replay
+// (AramHex 16.19-16.23, 4 transitions, previous patches pooled as the site does, full / 10% / 2% of games), against
+// the bound rule it replaces and a 300-game smoothing rule: never worse on random 3-card offers (+0.03 pts per pick
+// on 2% of games), ahead on the champion's top-5 list (+0.02 / +0.09 / +0.10 pts vs the bound rule; +0.00 / +0.05 /
+// +0.04 vs smoothing). Penalty 0.5 picked
+// from 0 / 0.25 / 0.5 / 0.75; 0.25 and 0.75 tell the same story. Correlation, not causation.
+const LEAD_VAR_FLOOR = 0.05; // floor on p(1 - p), so a 0% or 100% row still has a variance
+export const PRIOR_PENALTY = 0.5;
+export type LeadRow = { id: number; winRate: number; pickRate: number; games: number };
+/** champion key, augment id -> the augment's lead on the other champions, shrunk (0 when no other champion has it). */
+export type AugmentPrior = (champion: string, id: number) => number;
+
+function leadsOf(list: LeadRow[]): { id: number; lead: number; v: number }[] {
   const total = list.reduce((s, r) => s + r.pickRate, 0) || 1;
   const mean = list.reduce((s, r) => s + r.winRate * r.pickRate, 0) / total;
-  const vs = list.map((r) => (r.winRate * (1 - r.winRate)) / r.games!);
-  const tau2 = trueSpread(list.map((r) => r.winRate), vs);
-  // With fit: scoreRows' bound rule, as a lead (fittedBound minus the mean, plus the miss every row shares), so the
-  // order matches the page's DeepScore and the scale stays win-rate points.
-  if (fit) return new Map(list.map((r, i) => [r.id, fittedBound(r.winRate, 1, mean, fit, { v: vs[i], tau2 }) - mean + fit.s0]));
-  return new Map(list.map((r, i) => [r.id, (tau2 / (tau2 + vs[i])) * (r.winRate - mean)]));
+  return list.map((r) => ({ id: r.id, lead: r.winRate - mean, v: Math.max(r.winRate * (1 - r.winRate), LEAD_VAR_FLOOR) / r.games }));
+}
+
+/** The cross-champion prior from every champion's augment list (rows with games only). */
+export function augmentPrior(lists: Record<string, LeadRow[]>): AugmentPrior {
+  const per = Object.entries(lists)
+    .filter(([, rows]) => rows.length && rows.every((r) => r.games > 0))
+    .map(([c, rows]) => [c, leadsOf(rows)] as const);
+  const sum = new Map<number, { w: number; wx: number }>();
+  for (const [, rows] of per)
+    for (const r of rows) {
+      const s = sum.get(r.id) ?? { w: 0, wx: 0 };
+      s.w += 1 / r.v;
+      s.wx += r.lead / r.v;
+      sum.set(r.id, s);
+    }
+  const raw: { key: string; mu: number; mv: number }[] = [];
+  for (const [c, rows] of per)
+    for (const r of rows) {
+      const s = sum.get(r.id)!;
+      const w = s.w - 1 / r.v;
+      if (w > 1e-9) raw.push({ key: `${c}:${r.id}`, mu: (s.wx - r.lead / r.v) / w, mv: 1 / w });
+    }
+  const tau2 = trueSpread(raw.map((r) => r.mu), raw.map((r) => r.mv));
+  const out = new Map(raw.map((r) => [r.key, (tau2 / (tau2 + r.mv)) * r.mu]));
+  return (champion, id) => out.get(`${champion}:${id}`) ?? 0;
+}
+
+/** Each augment's score on this champion, as a win-rate lead (fraction): the lead shrunk toward the prior `mu`, times
+ *  the fit's carry-over, minus PRIOR_PENALTY of its typical miss beyond the miss every row shares. Empty when any row
+ *  lacks games. The champion page grades these into DeepScore and the apps add synergy points on the same scale. */
+export function priorLeads(list: LeadRow[], mu: (id: number) => number, fit: Fit, penalty = PRIOR_PENALTY): Map<number, number> {
+  if (!list.length || !list.every((r) => r.games > 0)) return new Map();
+  const ls = leadsOf(list);
+  const dev = ls.map((r) => r.lead - mu(r.id));
+  const tau2 = trueSpread(dev, ls.map((r) => r.v));
+  return new Map(
+    ls.map((r, i) => {
+      const k = tau2 / (tau2 + r.v);
+      const post = mu(r.id) + k * dev[i];
+      const miss = Math.sqrt(fit.s0 ** 2 + k * r.v) - fit.s0;
+      return [r.id, fit.b * post - penalty * miss];
+    }),
+  );
 }
 
 /** Share of the most common row's pick rate a row needs to lead a list (FOLLOWED). */
