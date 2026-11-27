@@ -12,7 +12,7 @@ import { scorecard } from "@/lib/scorecard";
 // studies behind the site, plus a public track record of how our picks and pre-patch forecasts held up.
 // Each study: question, method, result with its uncertainty, what changed on the site, limits. Site rules: no data
 // sources or backend, no augment win rates (aggregates only), no mention of which AI model helped. The fixed
-// figures of the six newer studies come from the executed notebooks (portfolio repo, 2026-11-27); the track record
+// figures of the seven newer studies come from the executed notebooks (portfolio repo, 2026-11-27); the track record
 // and the three older studies read the daily analysis files. New English text has no translations yet, so other
 // languages show it in English (the i18n test only checks keys that en.json lists).
 const NS = "research";
@@ -599,6 +599,79 @@ export default function ResearchStudies() {
           <T ns={NS}>
             Thirteen champions is a small sample. Win rates also move for
             reasons the notes don&apos;t list.
+          </T>
+        }
+      />
+
+      <Study
+        id="head-to-head"
+        title={<T ns={NS}>Do our picks beat other ways of ranking?</T>}
+        q={
+          <T ns={NS}>
+            Other ARAM Mayhem tools rank the same kind of numbers differently.
+            On the same data, does DeepScore pick better augments and defaults
+            than their rules?
+          </T>
+        }
+        m={
+          <T ns={NS}>
+            Every rule ranks one patch and is scored on the next. The rules: a
+            win rate smoothed toward the champion with 300 prior games, the
+            highest raw win rate among options with at least 3% of players and
+            1,000 games, the highest raw win rate among options with a tenth of
+            the top option&apos;s games, and the most played option. Augments
+            are replayed as random three-card offers over four patch changes;
+            spell pairs, boots and items as one default per champion. The same
+            replays run on the full patch and on 10% and 2% of its games, like
+            the first hours of a patch. Differences are paired by champion, with
+            95% ranges.
+          </T>
+        }
+        r={
+          <T ns={NS}>
+            On augment offers DeepScore and the smoothed win rate take almost
+            the same card on full data. On thin data DeepScore gains 0.06 points
+            per pick at 10% of games and 0.16 at 2%, and both beat taking the
+            most played card by about 1.2 points. Defaults are where rules
+            differ: next patch, our spell pairs led by 2.0 to 2.9 points more
+            than the raw win rate behind a popularity filter, boots by 0.9 and
+            items by 1.8. We also lost somewhere: ranking only 2% of a
+            patch&apos;s games, our spell pairs and boots did 0.1 to 0.2 points
+            worse, because few options reach our game minimums that early. With
+            the previous patch pooled in, as the site does, spell pairs instead
+            led by 2.7 points; boots can&apos;t be checked that way yet.
+          </T>
+        }
+        figure={
+          <Bars
+            label="A default's lead next patch, full patch (points over the champion's average)"
+            rows={[
+              { name: "Spell pairs: DeepScore", value: 3.0 },
+              {
+                name: "Spell pairs: raw win rate, 3% + 1,000 games",
+                value: 0.5,
+              },
+              { name: "Spell pairs: most played", value: 0.3 },
+              { name: "Items: DeepScore", value: 4.6 },
+              { name: "Items: raw win rate, tenth of the top", value: 2.8 },
+              { name: "Items: most played", value: 0.4 },
+            ]}
+          />
+        }
+        changed={
+          <T ns={NS}>
+            Nothing: the current rules, with pooling, hold up. Boots in a
+            patch&apos;s first hours get the same pooling check once there is a
+            second patch of boots data.
+          </T>
+        }
+        l={
+          <T ns={NS}>
+            This compares ranking rules on one dataset, not whole sites, which
+            also differ in data and dates. A lead next patch is a correlation:
+            an option can keep leading because of who picks it. Cores
+            aren&apos;t scored because the next patch&apos;s core counts
+            aren&apos;t out yet.
           </T>
         }
       />
