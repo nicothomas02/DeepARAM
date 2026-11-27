@@ -62,9 +62,16 @@ export function augmentScores(alias: string, thisPatch = false): Scores {
 /** The rows real-games DeepScore ranks on: earlier patches pooled in where nothing changed (AugmentRow.pooled) unless
  *  thisPatch. Null unless every augment has real games. */
 function leadRows(alias: string, thisPatch: boolean): LeadRow[] | null {
-  const p = championPage(alias);
+  const p = pageOf(alias);
   if (!p || !p.augments.length || !p.augments.every((a) => a.games && a.winRate !== undefined)) return null;
   return p.augments.map((a) => ({ id: a.id, pickRate: a.pickRate, ...(!thisPatch && a.pooled ? { winRate: a.pooled.winRate, games: a.pooled.games } : { winRate: a.winRate!, games: a.games! }) }));
+}
+
+// The prior reads every champion's page for both switches; build each page once (championPage isn't cached).
+const pages = new Map<string, ReturnType<typeof championPage>>();
+function pageOf(alias: string) {
+  if (!pages.has(alias)) pages.set(alias, championPage(alias));
+  return pages.get(alias)!;
 }
 
 const priors = new Map<boolean, AugmentPrior>();
@@ -85,11 +92,19 @@ function prior(thisPatch: boolean): AugmentPrior {
 /** Augment id -> its real-games score on this champion as a win-rate lead (lib/card-score.ts priorLeads), the order
  *  DeepScore follows; empty without real games. The apps' augment panel adds synergy points on this scale. */
 export function augmentLeads(alias: string, thisPatch = false): Map<number, number> {
-  const rows = leadRows(alias, thisPatch);
-  if (!rows || !FIT.augments) return new Map();
-  const mu = prior(thisPatch);
-  return priorLeads(rows, (id) => mu(alias, id), FIT.augments);
+  // Memoised per champion and switch, like the prior: the page, the card and the app feed each ask for it, and every
+  // ask would otherwise rebuild the champion page (about 5 ms each, doubling /data/augment-picks.json's build time).
+  const key = `${alias}:${thisPatch}`;
+  let m = leadCache.get(key);
+  if (!m) {
+    const rows = leadRows(alias, thisPatch);
+    const mu = rows && FIT.augments ? prior(thisPatch) : null;
+    m = rows && mu && FIT.augments ? priorLeads(rows, (id) => mu(alias, id), FIT.augments) : new Map<number, number>();
+    leadCache.set(key, m);
+  }
+  return m;
 }
+const leadCache = new Map<string, Map<number, number>>();
 
 const GRADE: Record<string, number> = { S: 4, A: 3, B: 2, C: 1 };
 type Row = { id: number; pickRate: number; grade?: string };
