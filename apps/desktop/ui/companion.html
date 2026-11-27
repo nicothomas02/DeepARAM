@@ -142,8 +142,6 @@
   .hero .title { font-size: 24px; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
   .hero .sub { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-top: 4px; }
   .hero .sub.now { color: var(--accent); }
-  .live-mini { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 12px; color: var(--muted); }
-  .live-mini .bar { flex: 1; height: 6px; margin: 0; }
   /* At-a-glance visuals: physical/magic split bar, enemy strip in the banner, strength bars, icon tiles. */
   .split { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--raised); margin: 6px 0 4px; }
   .split .ad { background: #e8845a; } .split .ap { background: #7f8cff; }
@@ -157,7 +155,12 @@
   .slot .pbar { display: block; margin: 0; width: 100%; height: 3px; border-radius: 2px; background: var(--raised); overflow: hidden; } .slot .pbar b { display: block; height: 100%; background: var(--gold); }
   details.best > summary { cursor: pointer; list-style: none; } details.best > summary h2 { display: inline; } details.best > summary::-webkit-details-marker { display: none; } details.best > summary::before { content: "▸ "; } details.best[open] > summary::before { content: "▾ "; }
   svg.i, svg.arr { display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: -0.125em; flex: none; }
-  .badge { display: inline-flex; align-items: center; gap: 5px; }
+  .badge { display: inline-flex; align-items: center; gap: 5px; margin-right: 4px; }
+  .combo { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+  .combo .lbl { font-size: 12px; font-weight: 600; color: var(--gold); margin-right: 4px; }
+  .combo .ci { display: inline-flex; line-height: 0; }
+  .combo .ci img { width: 36px; height: 36px; border-radius: 50%; }
+  .badge img { width: 20px; height: 20px; border-radius: 50%; } .badge.gold { color: #1a1204; background: var(--gold); }
   .hovercard { position: fixed; z-index: 50; max-width: 300px; padding: 10px 12px; border-radius: 10px; background: var(--raised); border: 1px solid var(--line); box-shadow: var(--depth); font-size: 12px; line-height: 1.45; pointer-events: none; }
   .hovercard .hn { font-size: 14px; font-weight: 700; color: var(--fg); } .hovercard .hr { color: var(--gold); margin-top: 4px; white-space: pre-line; }
   .hovercard .hl { color: var(--muted); } .hovercard .hd { margin-top: 6px; color: var(--fg); }
@@ -279,16 +282,19 @@
   let bracket = (() => { try { return localStorage.getItem("bracket") || "all"; } catch { return "all"; } })();
   const strengthOf = (d, id) => (bracket !== "all" ? d.brackets?.[bracket]?.[id] : undefined) ?? d.champions[id][0];
   let lastPick = null;
-  // "Your record" (Nico 2026-11-24, everyone with a published profile, only their own games): the player's record on
+  // "Your record" (Nico 2026-11-24, only the player's own games): the player's record on
   // each choice, pulled toward 50% by 10 games, nudges its strength. Same formula as the PC app: 0.36 x (shrunk record
   // - 0.5) win-rate points, from 3 games on. Fitted on one player's 1,017 games (t = 2.0), so it stays small.
   const REC_COEF = 0.36, REC_MIN = 3;
   let myRec = null, myRecAt = 0;
   const loadRecord = async () => {
     if (myRec && Date.now() - myRecAt < 10 * 60e3) return myRec;
+    // From the player's own recent games kept on this computer while sharing is on (sharing.rs my_trends); nothing
+    // is asked of the site and no sign-in token is sent (Riot's developer policies, Nico 2026-11-27).
     const inv = window.__TAURI_INTERNALS__?.invoke;
-    const r = inv ? await inv("my_record").catch(() => null) : null;
-    myRec = new Map((r?.champions ?? []).map(([id, n, w]) => [id, { n, w }]));
+    const r = inv ? await inv("my_trends").catch(() => null) : null;
+    myRec = new Map();
+    for (const g of r?.games ?? []) { const x = myRec.get(g.champ) ?? { n: 0, w: 0 }; x.n++; if (g.win) x.w++; myRec.set(g.champ, x); }
     myRecAt = Date.now();
     return myRec;
   };
@@ -428,9 +434,12 @@
       gap = magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
       gapShort = magic > 0.75 ? "Low physical damage" : "";
     }
+    const try0 = combosFor(ap, me)[0];
+    const tryHtml = try0 ? comboHtml(ap, try0, "Combo to try", `${augName(ap, try0.a)} + ${augName(ap, try0.b)}: they work together, and both are often taken on ${label(me)}. If one is offered, look for the other.`) : "";
     setView(`
       ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion", "", true)}
       ${planHtml}
+      ${tryHtml}
       ${team.length ? `<h2>Your team</h2><div class="teamline"><div class="mates">${team.map(icon).join("")}</div>${teamNow != null ? `<span class="teamds ${teamNow >= 0.06 ? "up" : teamNow < -0.03 ? "down" : "flat"}" title="Team edge (projected): your five champions' strength plus their ten pair synergies, in win-rate points (0 = an average team). Extras like frontline, damage mix or crowd control didn't predict better when tested.">${pts(teamNow)}</span>` : ""}</div>` : ""}
       ${gap ? `<div class="cue gold" title="${esc(gap)}">${ico("warn")} ${esc(gapShort)}</div>` : ""}
       <h2>Your choices, best first</h2>
@@ -542,7 +551,7 @@
   }
   function setTaken(g, ids) {
     const had = getTaken(g);
-    for (const id of ids) if (!had.includes(id) && calls.length < 60) { calls.push({ t: Math.round(g.t ?? 0), kind: "aug", got: id, app: appCall }); appCall = null; }
+    for (const id of ids) if (!had.includes(id) && calls.length < 60) { calls.push({ t: Math.round(g.t ?? 0), kind: "aug", got: id, app: Array.isArray(appCall) ? (appCall.includes(id) ? id : appCall[0] ?? -1) : appCall }); appCall = null; }
     takenNow = { champ: g.champ, ids };
     try { localStorage.setItem("taken", JSON.stringify({ champ: g.champ, start: Date.now() / 1000 - g.t, ids })); } catch {}
     renderQuick();
@@ -611,29 +620,23 @@
   const picksView = (d, ck) => (onlyPatch && d?.only?.[ck] ? { ...d, champions: { ...d.champions, [ck]: d.only[ck] } } : d);
   // tier: the screen on offer (the picks left are counted per partner tier). headliner: only once the game reports one.
   const rankAugments = (d, ck, taken, tier) => E.rankAugments(d, ck, taken, { lucky, seen: [...seen], tier, headliner: game?.headliner });
-  function rerollAdvice(d, all, offered, taken) {
-    const a = E.rerollAdvice(d, all, offered, taken, { seen: [...seen], rerolled: [...rerolled], headliner: game?.headliner });
-    if (!a) return { html: "", card: null };
-    // In game only a glance (Nico 2026-11-24: a few seconds per alt-tab): the cue, with the reason on hover.
-    const plain = (id) => d.augments[id]?.[0] ?? `#${id}`;
-    // Reroll: the card's own badge says it (reason on its hover). Keep: one line under the cards.
-    return a.action === "reroll"
-      ? { card: a.card, html: "", why: `${pct(a.beats)} of ${label(game.champ)}'s ${a.rarity ?? ""} augments beat ${plain(a.best)}, worth about +${a.gain.toFixed(1)} on average.` }
-      : { card: null, html: `<div class="cue green" title="${esc(`${a.beats ? `Only ${pct(a.beats)}` : "None"} of ${label(game.champ)}'s ${a.rarity ?? ""} augments beat ${plain(a.best)}. A reroll is unlikely to help.`)}">✓ Keep, no reroll</div>` };
-  }
-  // A score in this game (synergy, combo odds and headliner included) on the champion's own DeepScore scale: read off
-  // its rows' score→DeepScore curve ([id, score, DeepScore, ...]), so it compares with the list's numbers.
-  function gameDeep(d, ck, score) {
-    const pts = (d.champions?.[ck] ?? []).filter((r) => typeof r[1] === "number" && typeof r[2] === "number").map((r) => [r[1], r[2]]).sort((x, y) => x[0] - y[0]);
-    if (typeof score !== "number" || pts.length < 2) return -1;
-    if (score <= pts[0][0]) return pts[0][1];
-    if (score >= pts[pts.length - 1][0]) return Math.min(100, pts[pts.length - 1][1]);
-    const j = pts.findIndex((q) => q[0] >= score);
-    const [a, b] = [pts[j - 1], pts[j]];
-    return Math.round(b[0] === a[0] ? b[1] : a[1] + ((score - a[0]) / (b[0] - a[0])) * (b[1] - a[1]));
-  }
   // The site's tier colours (S red, A orange, B yellow, C blue, D grey), on the number alone (Nico: one value).
   const tierCls = (ds) => `t-${deepTier(ds).toLowerCase()}`;
+
+  // Augment combos from pick data only (Nico 2026-11-27, Riot-friendly): a pair counts when the augment pair rules say
+  // the two work together (positive sign only, never its points), and pairs are ordered by how often this champion's
+  // players take each augment (product of the two pick rates). No numbers are shown.
+  function combosFor(ap, champ) {
+    const ck = champ ? keyIn(ap?.champions, champ) : undefined;
+    if (!ck) return [];
+    const rows = ap.champions[ck] ?? [];
+    const pick = (id) => rows.find((r) => r[0] === id)?.[5] ?? 0;
+    return (ap.pairs?.[ck] ?? []).filter(([a, b, v]) => v > 0 && a !== b && !PENTA[a] && !PENTA[b])
+      .map(([a, b]) => ({ a, b, n: pick(a) * pick(b) })).filter((c) => c.n > 0).sort((x, y) => y.n - x.n);
+  }
+  const augName = (ap, id) => ap?.augments?.[id]?.[0] ?? `#${id}`;
+  const comboHtml = (ap, c, label, hover) => `<div class="box combo" title="${esc(hover)}"><span class="lbl">${esc(label)}</span>
+      <span class="ci aug" data-r="${ap?.augments?.[c.a]?.[1] ?? ""}">${augIcon(c.a)}</span>${ico("bolt")}<span class="ci aug" data-r="${ap?.augments?.[c.b]?.[1] ?? ""}">${augIcon(c.b)}</span></div>`;
 
   async function renderAugments() {
     const box = document.getElementById("augs");
@@ -648,49 +651,59 @@
     const name = (id) => d.augments[id]?.[0] ?? PENTA[id] ?? `#${id}`;
     const tier = offer.length ? d.augments[offer[0]]?.[1] : undefined;
     const ranked = rankAugments(d, ck, taken, tier);
-    // An offer on screen: its augments side by side in ranking order (highlighted, never picked for you). The rest of
-    // the list stays below for when the reading misses a card.
+    const kit = await loadKit();
+    // Riot-friendly offer (Nico 2026-11-27; Riot: "Products cannot display win rates for Augments", apps may highlight
+    // but not dictate, and should widen the choices players make). No numbers and no single pick: up to three cards
+    // are highlighted with one word each, from data that isn't a result:
+    //   Popular  the card this champion's players take most often (pick rate on the champion)
+    //   Combo    pairs with an augment you took (augment pair rules; only that a pair exists and helps)
+    //   Kit      works with the champion's own abilities (hand-checked kit interactions)
+    // A hidden floor keeps a Combo or Kit card from being highlighted when players almost never take it next to the
+    // others on offer (pick rate under FLOOR x the most-taken card's). FLOOR and RARE are first values, checked
+    // offline (research/public-app-highlights), not fitted.
+    const FLOOR = 0.25, RARE = 0.5;
+    const rows = d.champions?.[ck] ?? [];
+    const pickOf = (id) => rows.find((r) => r[0] === id)?.[5] ?? 0;
+    const kitOf = (id) => kit?.champions?.[Object.keys(kit.champions).find((c) => c.toLowerCase() === String(ck).toLowerCase())]?.find((x) => x[0] === Number(id)) ?? null;
+    const byId = new Map(ranked.map((a) => [a.id, a]));
     const onOffer = offer.filter((id) => !taken.includes(id));
-    const offered = onOffer.length ? [...ranked.filter((a) => onOffer.includes(a.id)), ...onOffer.filter((id) => !ranked.some((a) => a.id === id)).map((id) => ({ id, boost: null, deep: -1, mate: null, combo: null, potential: 0 }))] : [];
-    if (offered.length) appCall = offered[0].id;
-    const advice = offered.length >= 2 ? rerollAdvice(d, ranked, offered, taken) : { html: "", card: null };
-    // Cards within noise of the best: highlighted too, "either is fine".
-    const ties = offered.length >= 2 && offered.every((a) => typeof a.score === "number") ? E.nearTies(d, ck, offered) : [];
-    // Can't decide between them: more combo potential, else the less common pick (Nico 2026-11-24).
-    const tb = ties.length ? E.tieBreak(d, ck, [offered[0].id, ...ties], ranked) : null;
-    // Best augments: collapsed by default, without the cards already shown this game (they can't come back).
-    const shown = ranked.filter((a) => !onOffer.includes(a.id) && !seen.has(a.id) && !PENTA[a.id]).slice(0, 8);
-    // A one-word label at most; the reason and what the augment does are on hover.
-    // [label html, colour, hover]
-    const reason = (a) => a.conflict ? [`${ico("warn")} Conflicts`, "red", `Conflicts: ${a.conflict}`] : a.mate !== null ? [`${ico("plus")}${augIco(a.mate)}${esc(name(a.mate))}`, "green", `Synergy with ${name(a.mate)}`]
-      : a.combo !== null && a.potential >= 0.3 ? [`${ico("bolt")}${augIco(a.combo)}${esc(name(a.combo))}`, "gold", `Combo potential with ${name(a.combo)} (+${a.potential.toFixed(1)})`] : ["", "", ""];
-    // On the offer, each card: a big badge (Take, or ≈ Take for a near tie; Reroll) and its DeepScore in this game.
-    const card = (a, i) => {
-      const [tag, tone, why] = reason(a);
-      const pick = tb && tb.id === a.id ? `Can't decide? This one: ${tb.why}` : "";
-      const hover = [why, pick, whatItDoes("augments", Number(a.id))].filter(Boolean).join("\n");
-      const take = i === 0 || ties.includes(a.id);
-      const badge = advice.card === a.id ? `<span class="badge blue" title="${esc(advice.why ?? "")}">${ico("reroll")} Reroll</span>` : take ? `<span class="badge green">${ico(ties.length ? "approx" : "check")} Take</span>` : "";
-      // The engine scores in points (row score × 100).
-      const gd = typeof a.score === "number" ? gameDeep(d, ck, a.score / 100) : -1;
+    const top = Math.max(0, ...onOffer.map(pickOf));
+    const popular = top > 0 ? onOffer.find((id) => pickOf(id) === top) : null;
+    const tagsOf = (id) => {
+      const a = byId.get(id) ?? {};
+      const k = kitOf(id);
+      const tags = [];
+      if (id === popular) tags.push(["Popular", "", "Taken most often by this champion's players among these cards"]);
+      if (a.mate != null && !a.conflict) tags.push(["Combo", "gold", `Works with ${name(a.mate)}, which you took`, a.mate]);
+      if (k) tags.push(["Kit", "green", `${k[2]}${k[1] ? "" : " (estimated)"}`]);
+      const ok = id === popular || (top > 0 && pickOf(id) >= FLOOR * top);
+      const rare = ok && id !== popular && top > 0 && pickOf(id) < RARE * top && tags.length > 0;
+      return { tags, ok, rare, conflict: a.conflict ?? null };
+    };
+    const offered = onOffer.map((id) => ({ id, ...tagsOf(id) }));
+    const lit = offered.filter((c) => c.ok && c.tags.length && !c.conflict).map((c) => c.id).slice(0, 3);
+    // For the review's "Followed the app": the highlighted cards.
+    if (offered.length) appCall = lit;
+    const badge = ([t, tone, , mate]) => `<span class="badge ${tone || "blue"}">${t === "Combo" ? `${ico("bolt")}${augIco(mate)}` : t === "Kit" ? icon(ck) : ""}${t}</span>`;
+    const card = (c) => {
+      const hover = [...c.tags.map((t) => t[2]), c.rare ? "Rare find: few players take it" : "", c.conflict ? `Conflicts: ${c.conflict}` : "", whatItDoes("augments", Number(c.id))].filter(Boolean).join("\n");
+      const on = lit.includes(c.id);
       return `
-      <div class="row aug card${take ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
-        ${augIcon(a.id)}
-        <div><div class="name">${esc(name(a.id))}${pick ? ` ${ico("star")}` : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${badge}</div>
-        <div class="num big ${gd >= 0 ? tierCls(gd) : ""}" title="DeepScore in this game: this champion's DeepScore with synergy, combo odds and the headliner counted">${gd >= 0 ? gd : ""}</div>
+      <div class="row aug card${on ? " best" : ""}" data-r="${d.augments[c.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
+        ${augIcon(c.id)}
+        <div><div class="name">${esc(name(c.id))}${c.rare && on ? ` ${ico("star")}` : ""}</div>${c.conflict ? `<div class="cue sm red">${ico("warn")} Conflicts</div>` : on ? c.tags.map(badge).join(" ") : ""}</div>
       </div>`;
     };
-    const row = (a, best) => {
-      const [tag, tone, why] = reason(a);
-      const pick = tb && tb.id === a.id ? `Can't decide? This one: ${tb.why}` : "";
-      // Transmute/Pandora's Box (transmuteDraw): the live adjustment for what's left to draw (and, Pandora's, what you hold).
-      const draw = typeof a.draw === "number" ? `Random draw (estimated): ${a.draw >= 0 ? "+" : ""}${a.draw.toFixed(1)} for what's left to draw${d.augments[a.id]?.[0] === "Pandora's Box" ? " and the augments you hold" : ""}` : "";
-      const hover = [why, draw, pick, whatItDoes("augments", Number(a.id))].filter(Boolean).join("\n");
+    // Not offered: this champion's most-taken augments (pick rate order), with their Combo and Kit words.
+    const shown = rows.map((r) => r[0]).filter((id) => !onOffer.includes(id) && !taken.includes(id) && !seen.has(id) && !PENTA[id]).sort((x, y) => pickOf(y) - pickOf(x)).slice(0, 8);
+    const row = (id) => {
+      const { tags } = tagsOf(id);
+      const t = tags.filter((x) => x[0] !== "Popular");
+      const hover = [...t.map((x) => x[2]), whatItDoes("augments", Number(id))].filter(Boolean).join("\n");
       return `
-      <div class="row aug${best ? " best" : ""}" data-r="${d.augments[a.id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
-        ${augIcon(a.id)}
-        <div><div class="name">${esc(name(a.id))}${pick ? ` ${ico("star")}` : ""}</div>${tag ? `<div class="cue sm ${tone}">${tag}</div>` : ""}${typeof a.draw === "number" && Math.abs(a.draw) >= 0.1 ? `<div class="cue sm ${a.draw > 0 ? "green" : "red"}">${ico("dice")} ${a.draw > 0 ? "+" : ""}${a.draw.toFixed(1)}</div>` : ""}</div>
-        ${(() => { const gd = typeof a.score === "number" ? gameDeep(d, ck, a.score / 100) : a.deep; return `<div class="num${gd >= 0 ? ` big ${tierCls(gd)}` : ""}" title="DeepScore in this game${gd >= 0 ? `, tier ${deepTier(gd)}` : ""}${a.deep >= 0 ? `\nOn this champion: ${a.deep}` : ""}">${gd >= 0 ? gd : ranked.includes(a) ? `#${ranked.indexOf(a) + 1}` : ""}</div>`; })()}
+      <div class="row aug" data-r="${d.augments[id]?.[1] ?? ""}"${hover ? ` title="${esc(hover)}"` : ""}>
+        ${augIcon(id)}
+        <div><div class="name">${esc(name(id))}</div>${t.map(badge).join(" ")}</div>
       </div>`;
     };
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
@@ -698,8 +711,8 @@
     // Narrow window: the cards go first while they're up (most important on top).
     document.querySelector(".cols")?.classList.toggle("offer-up", offered.length > 0);
     box.innerHTML = `${took}
-      ${offered.length ? `<div class="offer">${ties.length ? `<div class="cue gold" title="The highlighted cards are within noise of each other.${tb ? " The star breaks the tie (hover it)." : ""}">${ico("approx")} Either${tb ? ` · ${augIco(tb.id)}${esc(name(tb.id))}` : ""}</div>` : ""}${offered.map(card).join("")}${advice.html}</div>` : ""}
-      ${shown.length ? `<details class="best"${bestOpen ? " open" : ""}><summary><h2>Best augments${offered.length ? ` <span class="tag">not offered</span>` : ""}</h2></summary><div class="${offered.length ? "dim" : ""}">${shown.map((a) => row(a, false)).join("")}</div></details>` : ""}
+      ${offered.length ? `<div class="offer">${offered.map(card).join("")}</div>` : ""}
+      ${shown.length ? `<details class="best"${bestOpen ? " open" : ""}><summary><h2>Often taken${offered.length ? ` <span class="tag">not offered</span>` : ""}</h2></summary><div class="${offered.length ? "dim" : ""}">${shown.map(row).join("")}</div></details>` : ""}
       ${settings.length ? `<div class="why" title="Set in champion select">${esc(settings.join(" · "))}</div>` : ""}`;
   }
 
@@ -880,17 +893,8 @@
     const head0 = document.getElementById("head");
     head0.textContent = `In game · ${clock(g.t)} · Level ${g.level}${g.dead ? " · Dead: shop now" : ""}`;
     head0.classList.toggle("now", !!g.dead);
-    // The owner's chance to win and surrender call: small, under the build, so the build stays the focus.
-    let ff = document.getElementById("ff");
-    if (!ff) { ff = document.createElement("div"); ff.id = "ff"; document.querySelector(".cols section")?.append(ff); }
-    const l = g.live;
-    const ffHtml = l ? `<div class="live-mini"><span>Chance to win <b data-style="color:${color(l.win)}">${pct(l.win)}</b></span>
-        <div class="bar"><span data-style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
-      ${l.surrender ? `<div class="box yes" title="A new game is worth more than this one now.">Surrender: yes</div>` : ""}` : "";
-    // Redrawn only when it changes, to keep the window's work small during a game.
-    if (ff.lastHtml !== ffHtml) { ff.lastHtml = ffHtml; ff.innerHTML = ffHtml; }
     const head = document.getElementById("augHead");
-    head.textContent = waiting ? "Augment at your next death" : pickNow ? "Pick now" : "Augments";
+    head.textContent = waiting ? "Augment at your next death" : pickNow ? "Augment offer" : "Augments";
     head.classList.toggle("now", pickNow);
     // Only what the item advice reads: attack speed near its cap and ability haste from 100 (in steps of 10), so a
     // buff that ticks attack speed up and down doesn't redraw the items every two seconds.
@@ -906,7 +910,7 @@
     if (setOffer(ids) && game) {
       renderAugments();
       const h = document.getElementById("augHead");
-      if (h && offer.length) { h.textContent = "Pick now"; h.classList.add("now"); }
+      if (h && offer.length) { h.textContent = "Augment offer"; h.classList.add("now"); }
     }
   };
 
@@ -986,6 +990,8 @@
   // Hover cards (Nico 2026-11-25, as the site): pointing at an item or augment icon for a moment shows its name, its
   // stats and the official description, with the app's reason for it, if any. Hover only: nothing shows unless you point.
   let prevs = null, hvT = 0, hvEl = null, hvTitled = null, hvTitle = "";
+  let kitData = null;
+  const loadKit = () => kitData ?? (kitData = fetch(`${SITE}/data/kit-interactions.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
   const loadPrevs = () => prevs ?? (prevs = fetch(`${SITE}/data/previews.json`).then((r) => (r.ok ? r.json() : null)).catch(() => null));
   const slugOf = (n) => n.toLowerCase().replace(/['’.]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
   const hoverCard = document.createElement("div");
@@ -1243,12 +1249,20 @@
     const augs = g.taken.length
       ? `<div class="bigs">${g.taken.map((id) => `<span class="big aug" data-r="${p?.augments?.[id]?.[1] ?? ""}" title="${esc(p?.augments?.[id]?.[0] ?? `#${id}`)}">${augIcon(id)}</span>`).join("")}</div>`
       : "";
+    // Combos you made, and one to try next time (pick data only, as in champion select).
+    const combos = combosFor(p, g.champ);
+    const made = combos.filter((c) => g.taken.includes(c.a) && g.taken.includes(c.b));
+    const next = made.length ? null : combos.find((c) => !(g.taken.includes(c.a) && g.taken.includes(c.b)));
+    const comboRow = [
+      ...made.map((c) => comboHtml(p, c, "Combo you made", `${augName(p, c.a)} + ${augName(p, c.b)} work together.`)),
+      next ? comboHtml(p, next, "Try next time", `${augName(p, next.a)} + ${augName(p, next.b)}: they work together, and both are often taken on this champion.`) : "",
+    ].join("");
     const magic = k ? enemyMagic(k, g.enemies ?? []) : null;
     const dmg = magic === null ? "" : `<div class="mates" title="${esc(damageLine(k, g))}">${(g.enemies ?? []).filter((e) => e.champ).map((e) => icon(e.champ)).join("")}</div>${splitBar(magic)}`;
     const ch = document.getElementById("changed");
     if (ch) ch.innerHTML = whatChanged(k, p, (i) => prefix ? `<img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" data-alt="${src(prefix + (i % 10000) + ".png")}" alt="" data-drop>` : "");
-    if (!itemRow && !augs && !dmg) return;
-    box.innerHTML = `${augs || itemRow ? `<h2>Your build</h2>${augs}${itemRow}` : ""}
+    if (!itemRow && !augs && !dmg && !comboRow) return;
+    box.innerHTML = `${augs || itemRow ? `<h2>Your build</h2>${augs}${itemRow}` : ""}${comboRow}
       ${dmg ? `<h2 title="What the enemy team hit you with (estimated from their champions and items)">Enemy damage</h2><div class="box">${dmg}</div>` : ""}`;
   }
 </script>

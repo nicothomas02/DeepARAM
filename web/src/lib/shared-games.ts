@@ -78,6 +78,18 @@ export async function sharedCount(puuid: string, sharer?: string) {
   return (await db().prepare("SELECT count(*) AS n FROM sharers WHERE sharer = ?").bind(s).first<{ n: number }>())?.n ?? 0;
 }
 
+/** Moves a player's shares from their account to the app's random key (one-time, when an app switches to the key). */
+export async function relinkSharer(puuid: string, key: string) {
+  const from = await sharerId(puuid);
+  const to = await sharerId(`key:${key}`);
+  const g = db();
+  await g.batch([
+    g.prepare("INSERT OR IGNORE INTO sharers (game_key, sharer) SELECT game_key, ? FROM sharers WHERE sharer = ?").bind(to, from),
+    g.prepare("DELETE FROM sharers WHERE sharer = ?").bind(from),
+  ]);
+  return sharedCount(`key:${key}`, to);
+}
+
 /** Removes this player's link to every game; games nobody else shared go too. */
 export async function unshareGames(puuid: string) {
   const sharer = await sharerId(puuid);

@@ -3,8 +3,9 @@
 // League client on this computer and sends them to the site with no names, Riot IDs or account ids: champions,
 // items, augments, runes, spells, scores and the result. Turning it off asks the site to remove what was sent.
 //
-// The site checks the client's sign-in token once per send so nobody can post made-up games, and keeps only a
-// salted hash of the account (web/src/lib/shared-games.ts), which is what lets "off" remove the games again.
+// Each send carries a random key made on this computer (never a Riot sign-in token, Nico 2026-11-27); the site keeps
+// only a salted hash of it (web/src/lib/shared-games.ts), which is what lets "off" remove the games again. Players who
+// shared before the key send their token once so the site can move those games to the key.
 
 use std::{
     collections::BTreeSet,
@@ -20,7 +21,6 @@ use serde_json::{json, Value};
 use tauri::{menu::CheckMenuItem, AppHandle, Manager, WebviewUrl, WebviewWindowBuilder, Wry};
 
 const GAMES_URL: &str = "https://deeparam.com/api/games";
-const PROFILE_URL: &str = "https://deeparam.com/api/profile";
 /// ARAM Mayhem queues. 2450 also serves Mayhem games but isn't on Riot's public queue list.
 const MAYHEM_QUEUES: [u64; 2] = [2400, 2450];
 const CHECK_EVERY: Duration = Duration::from_secs(90);
@@ -39,6 +39,11 @@ struct State {
     enabled: bool,
     /// Game ids already sent, newest last.
     sent: Vec<u64>,
+    /// A random key made on this computer that ties this player's shares together, so turning sharing off can remove
+    /// them. Sent instead of a Riot sign-in token (Riot's developer policies, Nico 2026-11-27).
+    key: String,
+    /// Games shared before the key (by sign-in token) were moved to it, or there were none.
+    migrated: bool,
     /// The player's own line from each recent Mayhem game, newest last, kept on this computer only: what the
     /// review's "Your trends" shows to players who share. Never sent anywhere.
     trends: Vec<Trend>,
@@ -59,6 +64,8 @@ pub struct Trend {
     /// (Kills + assists) over your team's kills.
     pub kp: f64,
     pub deaths_per10: f64,
+    /// For champion select's "your record", worked out on this computer.
+    pub win: bool,
 }
 
 pub struct Sharing {
@@ -87,6 +94,16 @@ impl Sharing {
 
     fn enabled(&self) -> bool {
         self.state.lock().unwrap().enabled
+    }
+
+    /// The sharing key, made on first use.
+    fn key(&self) -> Option<String> {
+        if let Some(k) = Some(self.state.lock().unwrap().key.clone()).filter(|k| k.len() == 64) {
+            return Some(k);
+        }
+        let k = new_key()?;
+        self.update(|s| s.key = k.clone());
+        Some(k)
     }
 }
 
@@ -118,7 +135,8 @@ pub fn set(app: &AppHandle, on: bool) {
     if was && !on {
         let app = app.clone();
         thread::spawn(move || {
-            if remove_all().is_ok() {
+            let key = app.state::<Sharing>().key();
+            if key.is_some_and(|k| post(json!({ "action": "remove", "key": k })).is_ok()) {
                 app.state::<Sharing>().update(|s| s.sent.clear());
             }
         });
@@ -174,6 +192,7 @@ pub fn own_line(game: &Value, puuid: &str) -> Option<Trend> {
         taken_share: round(share(num(me, "totalDamageTaken"), sum("totalDamageTaken"))),
         kp: round(share(num(me, "kills") + num(me, "assists"), sum("kills")).min(1.0)),
         deaths_per10: round(num(me, "deaths") / (secs / 600.0)),
+        win: me["stats"]["win"].as_bool().unwrap_or(false),
     })
 }
 
@@ -206,7 +225,7 @@ fn open_question(app: &AppHandle) {
     }
     let _ = WebviewWindowBuilder::new(app, "share", WebviewUrl::App("share.html".into()))
         .title("Help improve DeepARAM")
-        .inner_size(460.0, 560.0)
+        .inner_size(460.0, 720.0)
         .resizable(false)
         .minimizable(false)
         .maximizable(false)
@@ -284,7 +303,17 @@ pub fn watch(app: AppHandle) {
                     s.trends.drain(..extra);
                 });
             }
-            if !games.is_empty() && send(&lcu, json!({ "action": "share", "games": games })).is_err() {
+            let Some(key) = sharing.key() else { continue };
+            // Once, for players who shared before the key: the sign-in token proves the account one last time so the
+            // site can move those games to the key. After that the token is never sent.
+            if !sharing.state.lock().unwrap().migrated {
+                let had = !sharing.state.lock().unwrap().sent.is_empty();
+                if had && send_to(&lcu, GAMES_URL, json!({ "action": "migrate", "key": key })).is_err() {
+                    continue;
+                }
+                sharing.update(|s| s.migrated = true);
+            }
+            if !games.is_empty() && post(json!({ "action": "share", "key": key, "games": games })).is_err() {
                 continue;
             }
             for (_, tries) in pending.iter_mut() {
@@ -317,31 +346,19 @@ fn recent_mayhem(lcu: &Lcu) -> Vec<u64> {
         .unwrap_or_default()
 }
 
-fn remove_all() -> Result<(), ()> {
-    let lcu = Lcu::find().ok_or(())?;
-    send(&lcu, json!({ "action": "remove" })).map(|_| ())
+/// Posts to the site with the sharing key; no sign-in token.
+fn post(body: Value) -> Result<Value, ()> {
+    ureq::post(GAMES_URL).send_json(&body).map_err(|_| ())?.body_mut().read_json::<Value>().map_err(|_| ())
 }
 
-/// Posts to the site with the client's sign-in token and server, which the site needs to accept the games.
-fn send(lcu: &Lcu, body: Value) -> Result<Value, ()> {
-    send_to(lcu, GAMES_URL, body)
+/// 32 random bytes from the operating system, as hex.
+fn new_key() -> Option<String> {
+    let mut b = [0u8; 32];
+    getrandom::fill(&mut b).ok()?;
+    Some(b.iter().map(|x| format!("{x:02x}")).collect())
 }
 
-/// The signed-in player's own record per champion from their published profile on the site, for champion select's
-/// "your record" nudge: {published, champions: [[champion id, games, wins]]}. The site answers only for the account
-/// the client's token belongs to, so this can never read anyone else's. Nothing without a published profile.
-#[tauri::command]
-pub async fn my_record() -> Value {
-    tauri::async_runtime::spawn_blocking(|| {
-        let lcu = Lcu::find()?;
-        send_to(&lcu, PROFILE_URL, json!({ "action": "record" })).ok()
-    })
-    .await
-    .ok()
-    .flatten()
-    .unwrap_or_else(|| json!({ "published": false, "champions": [] }))
-}
-
+/// Only for the one-time move of games shared before the key: posts with the client's sign-in token and server.
 fn send_to(lcu: &Lcu, url: &str, mut body: Value) -> Result<Value, ()> {
     let region = lcu.get("/riotclient/region-locale").unwrap_or(Value::Null);
     let platform = platform_for(region["region"].as_str().unwrap_or("")).ok_or(())?;
@@ -602,6 +619,14 @@ mod tests {
         assert_eq!(platform_for("NA"), Some("na1"));
         assert_eq!(platform_for("euw"), Some("euw1"));
         assert_eq!(platform_for("PBE"), None);
+    }
+
+    #[test]
+    fn sharing_keys_are_random_hex() {
+        let (a, b) = (new_key().unwrap(), new_key().unwrap());
+        assert_eq!(a.len(), 64);
+        assert!(a.chars().all(|c| c.is_ascii_hexdigit() && !c.is_ascii_uppercase()));
+        assert_ne!(a, b);
     }
 
     #[test]
