@@ -18,6 +18,8 @@ tauri-plugin-autostart = "2.7"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 ureq = { version = "3", features = ["json"] }
+# The random sharing key (sharing.rs); already in the build through Tauri.
+getrandom = "0.3"
 
 # Reads augment offers off the screen (screen copy and Windows' built-in text recognition) and lists running
 # programs without starting one. Same version Tauri already uses, so nothing extra to build.

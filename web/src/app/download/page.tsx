@@ -64,7 +64,7 @@ export default function Download() {
             </div>
           </div>
           <p className="download-note">
-            Each send is checked against your League sign-in so nobody can post fake games, and we keep only a scrambled code for it. Turning sharing off
+            Your shares are tied together only by a random code made on your computer, never your Riot account. Turning sharing off
             removes the games you sent. Shared games are combined with everyone&apos;s into overall stats for DeepARAM&apos;s website and apps; no single game or player is ever shown. Sharing also unlocks your own trends after each game, kept on your computer. More in{" "}
             <Link href="/privacy">Privacy</Link>.
           </p>

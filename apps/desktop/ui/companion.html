@@ -279,16 +279,19 @@
   let bracket = (() => { try { return localStorage.getItem("bracket") || "all"; } catch { return "all"; } })();
   const strengthOf = (d, id) => (bracket !== "all" ? d.brackets?.[bracket]?.[id] : undefined) ?? d.champions[id][0];
   let lastPick = null;
-  // "Your record" (Nico 2026-11-24, everyone with a published profile, only their own games): the player's record on
+  // "Your record" (Nico 2026-11-24, only the player's own games): the player's record on
   // each choice, pulled toward 50% by 10 games, nudges its strength. Same formula as the PC app: 0.36 x (shrunk record
   // - 0.5) win-rate points, from 3 games on. Fitted on one player's 1,017 games (t = 2.0), so it stays small.
   const REC_COEF = 0.36, REC_MIN = 3;
   let myRec = null, myRecAt = 0;
   const loadRecord = async () => {
     if (myRec && Date.now() - myRecAt < 10 * 60e3) return myRec;
+    // From the player's own recent games kept on this computer while sharing is on (sharing.rs my_trends); nothing
+    // is asked of the site and no sign-in token is sent (Riot's developer policies, Nico 2026-11-27).
     const inv = window.__TAURI_INTERNALS__?.invoke;
-    const r = inv ? await inv("my_record").catch(() => null) : null;
-    myRec = new Map((r?.champions ?? []).map(([id, n, w]) => [id, { n, w }]));
+    const r = inv ? await inv("my_trends").catch(() => null) : null;
+    myRec = new Map();
+    for (const g of r?.games ?? []) { const x = myRec.get(g.champ) ?? { n: 0, w: 0 }; x.n++; if (g.win) x.w++; myRec.set(g.champ, x); }
     myRecAt = Date.now();
     return myRec;
   };
