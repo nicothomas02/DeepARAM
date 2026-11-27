@@ -534,9 +534,13 @@ export function championPage(alias: string): ChampionPage | null {
   // data/estimates/first_item_starts.py, Nico 2026-11-24: "find solutions for missing/empty data").
   const firstItemStarts = readRepoJson<{ items: Record<string, { players: number; starts: [number[], number][] }> }>("data/estimates/first_item_starts.json")?.items ?? {};
   const estimatedStart = (row: ItemRow): ItemRow | null => {
-    const first = row.items.find((i) => itemTier(i) === "legendary");
-    const e = first === undefined ? undefined : firstItemStarts[String(base10k(first))];
-    if (!e || e.players < MIN_FIRST_ITEM_PLAYERS) return null;
+    // The build's first Legendary with enough archive players (2026-11-27: the 16.23 refresh led Jarvan IV with Hubris,
+    // which no archived player bought first, so the next core item's first-buyers stand in).
+    const e = row.items
+      .filter((i) => itemTier(i) === "legendary")
+      .map((i) => firstItemStarts[String(base10k(i))])
+      .find((x) => x && x.players >= MIN_FIRST_ITEM_PLAYERS);
+    if (!e) return null;
     for (const [items, n] of e.starts) {
       const r: ItemRow = { items: items.map(known), winRate: NaN, pickRate: 0, lift: 0 };
       // Every item goes into the build: players who rush Trinity Force are mostly other champions, and Ezreal's Tear

@@ -11,7 +11,9 @@ describe("Weapon of Destiny ranking", () => {
 
   it("ranks the Legendary items players make their Weapon, with real games", () => {
     expect(data.gold).toBe(200);
-    expect(data.rows.length).toBeGreaterThan(30);
+    // AramHex lists each champion's Weapon items with 1,000+ games and 2%+ of its holders (16.23 seq 22, a two-day
+    // window: 23 items; 16.22 had 30+).
+    expect(data.rows.length).toBeGreaterThan(15);
     for (const r of data.rows) expect(r.games, r.name).toBeGreaterThan(0);
     // Items without a page (Mayhem's Hubris) are Legendary items only seen in core builds: some champion buys them first.
     for (const r of data.rows) if (r.slug) expect(pages.get(r.id)?.tier, r.name).toBe("legendary");
