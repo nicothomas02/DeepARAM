@@ -1,8 +1,8 @@
 {
  "min_both": 30,
  "z_prune": -2.0,
- "players": 12680,
- "support_champions": 19,
+ "players": 12410,
+ "non_damage_scores": 31,
  "pairs": [
   {
    "a": "big_shot",
@@ -13,8 +13,10 @@
    ],
    "points": 2,
    "both": 2,
-   "z_win": -3.07,
-   "support": 0.0,
+   "z_win": -3.1,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": -1.81,
    "verdict": "too few"
   },
@@ -27,9 +29,12 @@
    ],
    "points": 2,
    "both": 2,
-   "z_win": 1.98,
-   "support": 0.5,
-   "z_lead": 1.27,
+   "z_win": 1.96,
+   "scores": {
+    "support": 1,
+    "damage": 1
+   },
+   "z_lead": 1.26,
    "verdict": "too few"
   },
   {
@@ -41,9 +46,12 @@
    ],
    "points": 2,
    "both": 5,
-   "z_win": -0.13,
-   "support": 0.2,
-   "z_lead": -0.34,
+   "z_win": -0.08,
+   "scores": {
+    "damage": 4,
+    "support": 1
+   },
+   "z_lead": -0.22,
    "verdict": "too few"
   },
   {
@@ -56,7 +64,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -70,7 +78,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -84,7 +92,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -98,7 +106,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -112,7 +120,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -126,7 +134,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -140,7 +148,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -154,7 +162,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -168,7 +176,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -182,7 +190,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -196,7 +204,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -210,7 +218,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -224,7 +232,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -238,7 +246,10 @@
    "points": 1,
    "both": 5,
    "z_win": null,
-   "support": 0.25,
+   "scores": {
+    "damage": 3,
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -252,7 +263,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -266,7 +277,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -280,7 +291,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -294,7 +305,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -308,7 +319,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -322,7 +333,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -336,7 +347,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -350,7 +361,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -364,7 +375,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -378,7 +389,9 @@
    "points": 1,
    "both": 3,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 3
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -391,9 +404,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -0.17,
-   "support": 0.0,
-   "z_lead": 0.36,
+   "z_win": -0.16,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 0.34,
    "verdict": "too few"
   },
   {
@@ -406,7 +421,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -420,7 +437,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -434,7 +451,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -448,7 +465,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -462,7 +481,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -475,9 +494,12 @@
    ],
    "points": 1,
    "both": 22,
-   "z_win": -0.62,
-   "support": 0.08,
-   "z_lead": -0.5,
+   "z_win": -0.65,
+   "scores": {
+    "damage": 12,
+    "support": 1
+   },
+   "z_lead": -0.39,
    "verdict": "too few"
   },
   {
@@ -490,7 +512,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -503,9 +525,12 @@
    ],
    "points": 1,
    "both": 25,
-   "z_win": -0.69,
-   "support": 0.06,
-   "z_lead": 0.24,
+   "z_win": -0.61,
+   "scores": {
+    "damage": 17,
+    "bruiser": 1
+   },
+   "z_lead": 0.29,
    "verdict": "too few"
   },
   {
@@ -517,9 +542,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.76,
-   "support": 0.0,
-   "z_lead": -0.69,
+   "z_win": 0.75,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": -0.72,
    "verdict": "too few"
   },
   {
@@ -532,8 +559,11 @@
    "points": 1,
    "both": 2,
    "z_win": 2.02,
-   "support": 0.5,
-   "z_lead": 1.77,
+   "scores": {
+    "support": 1,
+    "damage": 1
+   },
+   "z_lead": 1.79,
    "verdict": "too few"
   },
   {
@@ -546,7 +576,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -559,9 +591,11 @@
    ],
    "points": 1,
    "both": 19,
-   "z_win": -0.05,
-   "support": 0.08,
-   "z_lead": -0.39,
+   "z_win": -0.08,
+   "scores": {
+    "damage": 12
+   },
+   "z_lead": -0.88,
    "verdict": "too few"
   },
   {
@@ -573,9 +607,11 @@
    ],
    "points": 1,
    "both": 14,
-   "z_win": 0.28,
-   "support": 0.22,
-   "z_lead": -1.5,
+   "z_win": 0.16,
+   "scores": {
+    "damage": 9
+   },
+   "z_lead": -1.66,
    "verdict": "too few"
   },
   {
@@ -587,8 +623,10 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -0.93,
-   "support": 0.0,
+   "z_win": -0.95,
+   "scores": {
+    "damage": 3
+   },
    "z_lead": -0.43,
    "verdict": "too few"
   },
@@ -602,7 +640,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -615,9 +653,12 @@
    ],
    "points": 1,
    "both": 72,
-   "z_win": 0.15,
-   "support": 0.03,
-   "z_lead": -0.07,
+   "z_win": 0.12,
+   "scores": {
+    "damage": 29,
+    "bruiser": 1
+   },
+   "z_lead": -0.14,
    "verdict": "keep"
   },
   {
@@ -629,9 +670,12 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": -0.49,
-   "support": 0.2,
-   "z_lead": -0.23,
+   "z_win": -0.53,
+   "scores": {
+    "damage": 4,
+    "support": 1
+   },
+   "z_lead": -0.2,
    "verdict": "too few"
   },
   {
@@ -643,9 +687,12 @@
    ],
    "points": 1,
    "both": 23,
-   "z_win": 0.96,
-   "support": 0.06,
-   "z_lead": 0.62,
+   "z_win": 0.98,
+   "scores": {
+    "damage": 15,
+    "bruiser": 2
+   },
+   "z_lead": 0.49,
    "verdict": "too few"
   },
   {
@@ -657,9 +704,12 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": -3.01,
-   "support": 0.2,
-   "z_lead": -2.05,
+   "z_win": -3.06,
+   "scores": {
+    "damage": 4,
+    "support": 1
+   },
+   "z_lead": -2.06,
    "verdict": "too few"
   },
   {
@@ -672,7 +722,9 @@
    "points": 1,
    "both": 5,
    "z_win": 0.52,
-   "support": 0.0,
+   "scores": {
+    "damage": 5
+   },
    "z_lead": 0.24,
    "verdict": "too few"
   },
@@ -685,9 +737,12 @@
    ],
    "points": 1,
    "both": 9,
-   "z_win": -0.35,
-   "support": 0.12,
-   "z_lead": 1.41,
+   "z_win": -0.39,
+   "scores": {
+    "damage": 7,
+    "bruiser": 1
+   },
+   "z_lead": 0.76,
    "verdict": "too few"
   },
   {
@@ -699,9 +754,11 @@
    ],
    "points": 1,
    "both": 28,
-   "z_win": 1.14,
-   "support": 0.0,
-   "z_lead": -0.16,
+   "z_win": 1.26,
+   "scores": {
+    "damage": 17
+   },
+   "z_lead": -0.05,
    "verdict": "too few"
   },
   {
@@ -713,9 +770,13 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": 1.52,
-   "support": 0.2,
-   "z_lead": -0.02,
+   "z_win": 1.48,
+   "scores": {
+    "damage": 3,
+    "bruiser": 1,
+    "support": 1
+   },
+   "z_lead": 0.08,
    "verdict": "too few"
   },
   {
@@ -728,7 +789,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -742,7 +805,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -755,9 +820,12 @@
    ],
    "points": 1,
    "both": 9,
-   "z_win": 0.84,
-   "support": 0.12,
-   "z_lead": 0.1,
+   "z_win": 0.86,
+   "scores": {
+    "damage": 7,
+    "support": 1
+   },
+   "z_lead": -0.04,
    "verdict": "too few"
   },
   {
@@ -770,7 +838,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -783,9 +853,12 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": 1.13,
-   "support": 0.0,
-   "z_lead": 0.94,
+   "z_win": 1.14,
+   "scores": {
+    "damage": 3,
+    "support": 1
+   },
+   "z_lead": 0.13,
    "verdict": "too few"
   },
   {
@@ -798,7 +871,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -811,9 +886,12 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": -0.07,
-   "support": 0.0,
-   "z_lead": -1.22,
+   "z_win": -0.04,
+   "scores": {
+    "support": 1,
+    "damage": 4
+   },
+   "z_lead": -1.78,
    "verdict": "too few"
   },
   {
@@ -826,7 +904,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -840,7 +918,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -854,7 +932,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -868,7 +948,7 @@
    "points": -1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -881,9 +961,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 0.31,
-   "support": 0.0,
-   "z_lead": 0.4,
+   "z_win": 0.34,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": 0.46,
    "verdict": "too few"
   },
   {
@@ -895,9 +977,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -0.07,
-   "support": 0.0,
-   "z_lead": -0.24,
+   "z_win": -0.06,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": -0.25,
    "verdict": "too few"
   },
   {
@@ -909,9 +993,11 @@
    ],
    "points": 1,
    "both": 12,
-   "z_win": -0.51,
-   "support": 0.0,
-   "z_lead": -1.94,
+   "z_win": -0.49,
+   "scores": {
+    "damage": 9
+   },
+   "z_lead": -1.93,
    "verdict": "too few"
   },
   {
@@ -924,8 +1010,10 @@
    "points": 1,
    "both": 4,
    "z_win": -2.27,
-   "support": 0.0,
-   "z_lead": -1.22,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": -1.15,
    "verdict": "too few"
   },
   {
@@ -937,9 +1025,13 @@
    ],
    "points": 2,
    "both": 30,
-   "z_win": -0.11,
-   "support": 0.04,
-   "z_lead": -0.39,
+   "z_win": -0.03,
+   "scores": {
+    "damage": 23,
+    "bruiser": 1,
+    "support": 1
+   },
+   "z_lead": -0.22,
    "verdict": "keep"
   },
   {
@@ -951,9 +1043,12 @@
    ],
    "points": 1,
    "both": 20,
-   "z_win": 1.62,
-   "support": 0.06,
-   "z_lead": 1.36,
+   "z_win": 1.59,
+   "scores": {
+    "damage": 14,
+    "bruiser": 3
+   },
+   "z_lead": 1.06,
    "verdict": "too few"
   },
   {
@@ -965,9 +1060,14 @@
    ],
    "points": 2,
    "both": 29,
-   "z_win": 0.51,
-   "support": 0.05,
-   "z_lead": 1.12,
+   "z_win": 0.53,
+   "scores": {
+    "damage": 16,
+    "support": 2,
+    "bruiser": 3,
+    "frontline": 1
+   },
+   "z_lead": 1.02,
    "verdict": "too few"
   },
   {
@@ -980,8 +1080,12 @@
    "points": 1,
    "both": 8,
    "z_win": 0.05,
-   "support": 0.14,
-   "z_lead": 0.11,
+   "scores": {
+    "bruiser": 1,
+    "damage": 5,
+    "support": 1
+   },
+   "z_lead": 0.1,
    "verdict": "too few"
   },
   {
@@ -993,9 +1097,13 @@
    ],
    "points": 2,
    "both": 24,
-   "z_win": 0.43,
-   "support": 0.14,
-   "z_lead": 1.91,
+   "z_win": 0.42,
+   "scores": {
+    "damage": 19,
+    "support": 2,
+    "bruiser": 1
+   },
+   "z_lead": 1.65,
    "verdict": "too few"
   },
   {
@@ -1007,9 +1115,13 @@
    ],
    "points": 1,
    "both": 19,
-   "z_win": 0.37,
-   "support": 0.06,
-   "z_lead": 1.21,
+   "z_win": 0.35,
+   "scores": {
+    "damage": 14,
+    "bruiser": 2,
+    "frontline": 1
+   },
+   "z_lead": 1.2,
    "verdict": "too few"
   },
   {
@@ -1022,7 +1134,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1035,9 +1149,12 @@
    ],
    "points": 1,
    "both": 11,
-   "z_win": -0.24,
-   "support": 0.09,
-   "z_lead": -0.02,
+   "z_win": -0.21,
+   "scores": {
+    "damage": 9,
+    "bruiser": 2
+   },
+   "z_lead": 1.65,
    "verdict": "too few"
   },
   {
@@ -1049,9 +1166,12 @@
    ],
    "points": 1,
    "both": 17,
-   "z_win": 0.3,
-   "support": 0.14,
-   "z_lead": 2.08,
+   "z_win": 0.31,
+   "scores": {
+    "damage": 13,
+    "bruiser": 1
+   },
+   "z_lead": 1.79,
    "verdict": "too few"
   },
   {
@@ -1064,7 +1184,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1078,7 +1200,10 @@
    "points": null,
    "both": 3,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1,
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1092,7 +1217,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1106,7 +1233,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1120,8 +1249,10 @@
    "points": 1,
    "both": 3,
    "z_win": 0.67,
-   "support": 0.0,
-   "z_lead": 0.67,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": 0.62,
    "verdict": "too few"
   },
   {
@@ -1134,7 +1265,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1148,7 +1279,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1162,7 +1293,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1175,9 +1306,12 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": -0.1,
-   "support": 0.25,
-   "z_lead": 1.05,
+   "z_win": -0.12,
+   "scores": {
+    "damage": 3,
+    "support": 1
+   },
+   "z_lead": 1.0,
    "verdict": "too few"
   },
   {
@@ -1189,9 +1323,14 @@
    ],
    "points": 1,
    "both": 16,
-   "z_win": -1.64,
-   "support": 0.14,
-   "z_lead": -1.18,
+   "z_win": -1.6,
+   "scores": {
+    "damage": 11,
+    "bruiser": 1,
+    "support": 1,
+    "frontline": 1
+   },
+   "z_lead": -0.9,
    "verdict": "too few"
   },
   {
@@ -1204,8 +1343,11 @@
    "points": 1,
    "both": 10,
    "z_win": -0.01,
-   "support": 0.0,
-   "z_lead": 0.08,
+   "scores": {
+    "damage": 6,
+    "bruiser": 1
+   },
+   "z_lead": 0.07,
    "verdict": "too few"
   },
   {
@@ -1217,9 +1359,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -2.5,
-   "support": 0.0,
-   "z_lead": -3.56,
+   "z_win": -2.51,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": -3.69,
    "verdict": "too few"
   },
   {
@@ -1232,7 +1376,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1245,9 +1389,12 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": -1.06,
-   "support": 0.0,
-   "z_lead": -1.11,
+   "z_win": -1.08,
+   "scores": {
+    "damage": 4,
+    "bruiser": 1
+   },
+   "z_lead": -1.05,
    "verdict": "too few"
   },
   {
@@ -1259,9 +1406,11 @@
    ],
    "points": 1,
    "both": 18,
-   "z_win": -0.8,
-   "support": 0.0,
-   "z_lead": -1.09,
+   "z_win": -0.81,
+   "scores": {
+    "damage": 14
+   },
+   "z_lead": -1.21,
    "verdict": "too few"
   },
   {
@@ -1273,9 +1422,12 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": -1.0,
-   "support": 0.17,
-   "z_lead": 0.17,
+   "z_win": -1.01,
+   "scores": {
+    "damage": 5,
+    "support": 1
+   },
+   "z_lead": 0.13,
    "verdict": "too few"
   },
   {
@@ -1288,7 +1440,10 @@
    "points": 1,
    "both": 3,
    "z_win": null,
-   "support": 0.33,
+   "scores": {
+    "damage": 2,
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1301,9 +1456,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 0.47,
-   "support": 0.0,
-   "z_lead": -0.32,
+   "z_win": 0.5,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -0.35,
    "verdict": "too few"
   },
   {
@@ -1316,7 +1473,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1330,7 +1489,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1344,7 +1503,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1357,9 +1516,12 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": -1.61,
-   "support": 0.14,
-   "z_lead": -2.46,
+   "z_win": -1.59,
+   "scores": {
+    "damage": 6,
+    "support": 1
+   },
+   "z_lead": -2.51,
    "verdict": "too few"
   },
   {
@@ -1371,9 +1533,11 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": 0.14,
-   "support": 0.0,
-   "z_lead": 0.24,
+   "z_win": 0.08,
+   "scores": {
+    "damage": 7
+   },
+   "z_lead": 0.15,
    "verdict": "too few"
   },
   {
@@ -1385,9 +1549,11 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": -1.66,
-   "support": 0.0,
-   "z_lead": -1.2,
+   "z_win": -1.67,
+   "scores": {
+    "damage": 6
+   },
+   "z_lead": -1.33,
    "verdict": "too few"
   },
   {
@@ -1400,7 +1566,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1413,9 +1581,12 @@
    ],
    "points": 1,
    "both": 15,
-   "z_win": 0.78,
-   "support": 0.08,
-   "z_lead": -0.45,
+   "z_win": 0.72,
+   "scores": {
+    "damage": 12,
+    "support": 1
+   },
+   "z_lead": -0.52,
    "verdict": "too few"
   },
   {
@@ -1428,8 +1599,11 @@
    "points": 1,
    "both": 7,
    "z_win": -0.39,
-   "support": 0.14,
-   "z_lead": -0.01,
+   "scores": {
+    "damage": 5,
+    "bruiser": 2
+   },
+   "z_lead": -0.38,
    "verdict": "too few"
   },
   {
@@ -1442,7 +1616,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1455,9 +1629,14 @@
    ],
    "points": 1,
    "both": 34,
-   "z_win": -0.56,
-   "support": 0.1,
-   "z_lead": -0.61,
+   "z_win": -0.59,
+   "scores": {
+    "damage": 24,
+    "bruiser": 3,
+    "support": 2,
+    "frontline": 1
+   },
+   "z_lead": -0.95,
    "verdict": "keep"
   },
   {
@@ -1469,9 +1648,13 @@
    ],
    "points": 1,
    "both": 38,
-   "z_win": 0.52,
-   "support": 0.0,
-   "z_lead": 0.31,
+   "z_win": 0.51,
+   "scores": {
+    "damage": 18,
+    "bruiser": 2,
+    "frontline": 1
+   },
+   "z_lead": -0.13,
    "verdict": "keep"
   },
   {
@@ -1483,9 +1666,14 @@
    ],
    "points": 1,
    "both": 27,
-   "z_win": -0.02,
-   "support": 0.05,
-   "z_lead": -0.15,
+   "z_win": -0.04,
+   "scores": {
+    "damage": 15,
+    "bruiser": 2,
+    "support": 1,
+    "frontline": 1
+   },
+   "z_lead": -0.32,
    "verdict": "too few"
   },
   {
@@ -1498,7 +1686,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1511,9 +1699,12 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": 0.61,
-   "support": 0.0,
-   "z_lead": -0.2,
+   "z_win": 0.6,
+   "scores": {
+    "damage": 2,
+    "bruiser": 1
+   },
+   "z_lead": -0.44,
    "verdict": "too few"
   },
   {
@@ -1525,9 +1716,11 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": 0.72,
-   "support": 0.0,
-   "z_lead": 0.08,
+   "z_win": 0.7,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": 0.11,
    "verdict": "too few"
   },
   {
@@ -1539,9 +1732,11 @@
    ],
    "points": 1,
    "both": 17,
-   "z_win": 0.3,
-   "support": 0.0,
-   "z_lead": 0.74,
+   "z_win": 0.24,
+   "scores": {
+    "damage": 13
+   },
+   "z_lead": 0.66,
    "verdict": "too few"
   },
   {
@@ -1553,9 +1748,13 @@
    ],
    "points": 1,
    "both": 12,
-   "z_win": -1.74,
-   "support": 0.12,
-   "z_lead": -0.16,
+   "z_win": -1.72,
+   "scores": {
+    "damage": 6,
+    "bruiser": 1,
+    "support": 1
+   },
+   "z_lead": -0.1,
    "verdict": "too few"
   },
   {
@@ -1568,7 +1767,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1581,9 +1782,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -0.61,
-   "support": 0.0,
-   "z_lead": -1.01,
+   "z_win": -0.49,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": -0.72,
    "verdict": "too few"
   },
   {
@@ -1596,8 +1799,10 @@
    "points": 1,
    "both": 4,
    "z_win": 0.38,
-   "support": 0.0,
-   "z_lead": 0.02,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -0.02,
    "verdict": "too few"
   },
   {
@@ -1609,9 +1814,12 @@
    ],
    "points": 1,
    "both": 9,
-   "z_win": -0.42,
-   "support": 0.12,
-   "z_lead": -1.4,
+   "z_win": -0.39,
+   "scores": {
+    "damage": 7,
+    "bruiser": 1
+   },
+   "z_lead": -1.45,
    "verdict": "too few"
   },
   {
@@ -1624,7 +1832,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1638,7 +1846,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1652,7 +1860,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1666,7 +1876,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1680,7 +1892,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1693,9 +1905,12 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -1.08,
-   "support": 0.33,
-   "z_lead": -0.16,
+   "z_win": -1.06,
+   "scores": {
+    "support": 1,
+    "damage": 2
+   },
+   "z_lead": 0.12,
    "verdict": "too few"
   },
   {
@@ -1708,7 +1923,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1722,7 +1937,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1735,9 +1950,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 0.27,
-   "support": 0.0,
-   "z_lead": 1.06,
+   "z_win": 0.28,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": 0.97,
    "verdict": "too few"
   },
   {
@@ -1749,9 +1966,11 @@
    ],
    "points": 1,
    "both": 20,
-   "z_win": -0.7,
-   "support": 0.14,
-   "z_lead": -0.75,
+   "z_win": -0.67,
+   "scores": {
+    "damage": 14
+   },
+   "z_lead": -0.79,
    "verdict": "too few"
   },
   {
@@ -1763,9 +1982,12 @@
    ],
    "points": 1,
    "both": 29,
-   "z_win": 1.04,
-   "support": 0.11,
-   "z_lead": 1.96,
+   "z_win": 1.08,
+   "scores": {
+    "support": 1,
+    "damage": 8
+   },
+   "z_lead": 1.68,
    "verdict": "too few"
   },
   {
@@ -1777,9 +1999,11 @@
    ],
    "points": 1,
    "both": 8,
-   "z_win": 1.52,
-   "support": 0.0,
-   "z_lead": -0.27,
+   "z_win": 1.55,
+   "scores": {
+    "damage": 8
+   },
+   "z_lead": -0.45,
    "verdict": "too few"
   },
   {
@@ -1791,9 +2015,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -1.26,
-   "support": 0.0,
-   "z_lead": -0.73,
+   "z_win": -1.23,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -0.71,
    "verdict": "too few"
   },
   {
@@ -1805,9 +2031,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 0.19,
-   "support": 0.0,
-   "z_lead": 2.42,
+   "z_win": 0.18,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": 2.41,
    "verdict": "too few"
   },
   {
@@ -1819,9 +2047,12 @@
    ],
    "points": 1,
    "both": 18,
-   "z_win": -0.98,
-   "support": 0.0,
-   "z_lead": -1.32,
+   "z_win": -0.96,
+   "scores": {
+    "damage": 13,
+    "bruiser": 2
+   },
+   "z_lead": -1.34,
    "verdict": "too few"
   },
   {
@@ -1833,9 +2064,12 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": -0.23,
-   "support": 0.14,
-   "z_lead": 0.56,
+   "z_win": -0.26,
+   "scores": {
+    "damage": 4,
+    "bruiser": 3
+   },
+   "z_lead": 0.76,
    "verdict": "too few"
   },
   {
@@ -1847,9 +2081,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.13,
-   "support": 0.0,
-   "z_lead": 1.65,
+   "z_win": 0.17,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 1.47,
    "verdict": "too few"
   },
   {
@@ -1861,9 +2097,11 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": -0.05,
-   "support": 0.0,
-   "z_lead": -1.17,
+   "z_win": -0.04,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": -1.21,
    "verdict": "too few"
   },
   {
@@ -1875,9 +2113,12 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": 1.3,
-   "support": 0.17,
-   "z_lead": 0.19,
+   "z_win": 1.28,
+   "scores": {
+    "damage": 5,
+    "support": 1
+   },
+   "z_lead": 0.02,
    "verdict": "too few"
   },
   {
@@ -1890,7 +2131,7 @@
    "points": -2,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1904,7 +2145,7 @@
    "points": -2,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1918,7 +2159,7 @@
    "points": -2,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1932,7 +2173,7 @@
    "points": -2,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1946,7 +2187,7 @@
    "points": -2,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1960,7 +2201,7 @@
    "points": -2,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1974,7 +2215,7 @@
    "points": -2,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1988,7 +2229,7 @@
    "points": -2,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2002,7 +2243,7 @@
    "points": -2,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2015,9 +2256,14 @@
    ],
    "points": 1,
    "both": 18,
-   "z_win": 1.65,
-   "support": 0.12,
-   "z_lead": 0.75,
+   "z_win": 1.64,
+   "scores": {
+    "damage": 12,
+    "support": 2,
+    "bruiser": 1,
+    "frontline": 1
+   },
+   "z_lead": 0.2,
    "verdict": "too few"
   },
   {
@@ -2029,9 +2275,14 @@
    ],
    "points": 1,
    "both": 37,
-   "z_win": -0.49,
-   "support": 0.13,
-   "z_lead": -0.29,
+   "z_win": -0.46,
+   "scores": {
+    "damage": 23,
+    "support": 2,
+    "bruiser": 5,
+    "frontline": 1
+   },
+   "z_lead": -0.92,
    "verdict": "keep"
   },
   {
@@ -2043,9 +2294,13 @@
    ],
    "points": 1,
    "both": 60,
-   "z_win": 0.68,
-   "support": 0.14,
-   "z_lead": 1.21,
+   "z_win": 0.66,
+   "scores": {
+    "damage": 27,
+    "support": 4,
+    "bruiser": 5
+   },
+   "z_lead": 1.24,
    "verdict": "keep"
   },
   {
@@ -2057,9 +2312,12 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 2.25,
-   "support": 0.0,
-   "z_lead": 2.33,
+   "z_win": 2.2,
+   "scores": {
+    "damage": 1,
+    "support": 1
+   },
+   "z_lead": 1.01,
    "verdict": "too few"
   },
   {
@@ -2071,9 +2329,11 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": 0.48,
-   "support": 0.0,
-   "z_lead": 0.81,
+   "z_win": 0.51,
+   "scores": {
+    "damage": 5
+   },
+   "z_lead": 0.72,
    "verdict": "too few"
   },
   {
@@ -2085,9 +2345,13 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": 0.19,
-   "support": 0.14,
-   "z_lead": 0.07,
+   "z_win": 0.2,
+   "scores": {
+    "damage": 5,
+    "support": 1,
+    "bruiser": 1
+   },
+   "z_lead": -0.16,
    "verdict": "too few"
   },
   {
@@ -2100,8 +2364,11 @@
    "points": 1,
    "both": 4,
    "z_win": 0.69,
-   "support": 0.0,
-   "z_lead": -0.01,
+   "scores": {
+    "damage": 2,
+    "bruiser": 2
+   },
+   "z_lead": -0.65,
    "verdict": "too few"
   },
   {
@@ -2114,7 +2381,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2128,7 +2397,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2142,7 +2411,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2155,9 +2424,13 @@
    ],
    "points": 1,
    "both": 27,
-   "z_win": -0.65,
-   "support": 0.05,
-   "z_lead": -0.01,
+   "z_win": -0.58,
+   "scores": {
+    "damage": 16,
+    "bruiser": 1,
+    "support": 2
+   },
+   "z_lead": 0.01,
    "verdict": "too few"
   },
   {
@@ -2169,9 +2442,13 @@
    ],
    "points": 1,
    "both": 21,
-   "z_win": -1.01,
-   "support": 0.0,
-   "z_lead": -0.67,
+   "z_win": -1.03,
+   "scores": {
+    "damage": 10,
+    "bruiser": 1,
+    "support": 1
+   },
+   "z_lead": -0.84,
    "verdict": "too few"
   },
   {
@@ -2184,7 +2461,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2198,7 +2477,10 @@
    "points": 1,
    "both": 4,
    "z_win": -1.19,
-   "support": 0.25,
+   "scores": {
+    "support": 1,
+    "damage": 3
+   },
    "z_lead": -0.74,
    "verdict": "too few"
   },
@@ -2211,9 +2493,12 @@
    ],
    "points": 1,
    "both": 10,
-   "z_win": 0.79,
-   "support": 0.17,
-   "z_lead": 0.85,
+   "z_win": 0.8,
+   "scores": {
+    "damage": 5,
+    "bruiser": 1
+   },
+   "z_lead": 0.83,
    "verdict": "too few"
   },
   {
@@ -2226,7 +2511,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2239,9 +2526,12 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": -1.62,
-   "support": 0.25,
-   "z_lead": -0.75,
+   "z_win": -1.59,
+   "scores": {
+    "damage": 3,
+    "bruiser": 1
+   },
+   "z_lead": -1.4,
    "verdict": "too few"
   },
   {
@@ -2253,9 +2543,13 @@
    ],
    "points": 1,
    "both": 36,
-   "z_win": 0.38,
-   "support": 0.05,
-   "z_lead": 0.86,
+   "z_win": 0.37,
+   "scores": {
+    "bruiser": 2,
+    "damage": 17,
+    "support": 1
+   },
+   "z_lead": 0.98,
    "verdict": "keep"
   },
   {
@@ -2268,7 +2562,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2281,9 +2575,11 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": 0.11,
-   "support": 0.0,
-   "z_lead": 0.14,
+   "z_win": 0.13,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": 0.1,
    "verdict": "too few"
   },
   {
@@ -2296,7 +2592,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2309,9 +2605,11 @@
    ],
    "points": 1,
    "both": 16,
-   "z_win": 0.34,
-   "support": 0.0,
-   "z_lead": -0.35,
+   "z_win": 0.4,
+   "scores": {
+    "damage": 11
+   },
+   "z_lead": -0.29,
    "verdict": "too few"
   },
   {
@@ -2324,8 +2622,12 @@
    "points": 1,
    "both": 28,
    "z_win": 0.47,
-   "support": 0.06,
-   "z_lead": 0.56,
+   "scores": {
+    "damage": 14,
+    "support": 1,
+    "bruiser": 1
+   },
+   "z_lead": 0.4,
    "verdict": "too few"
   },
   {
@@ -2338,7 +2640,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2351,9 +2653,12 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": 1.44,
-   "support": 0.0,
-   "z_lead": 0.71,
+   "z_win": 1.45,
+   "scores": {
+    "damage": 3,
+    "bruiser": 1
+   },
+   "z_lead": 0.75,
    "verdict": "too few"
   },
   {
@@ -2365,9 +2670,12 @@
    ],
    "points": 1,
    "both": 12,
-   "z_win": 1.44,
-   "support": 0.0,
-   "z_lead": 1.22,
+   "z_win": 1.45,
+   "scores": {
+    "damage": 5,
+    "support": 1
+   },
+   "z_lead": 1.19,
    "verdict": "too few"
   },
   {
@@ -2380,7 +2688,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2393,9 +2701,12 @@
    ],
    "points": 1,
    "both": 12,
-   "z_win": -0.26,
-   "support": 0.1,
-   "z_lead": -2.17,
+   "z_win": -0.23,
+   "scores": {
+    "damage": 9,
+    "support": 1
+   },
+   "z_lead": -2.28,
    "verdict": "too few"
   },
   {
@@ -2407,9 +2718,13 @@
    ],
    "points": 1,
    "both": 9,
-   "z_win": -0.66,
-   "support": 0.0,
-   "z_lead": 0.56,
+   "z_win": -0.49,
+   "scores": {
+    "damage": 6,
+    "bruiser": 2,
+    "frontline": 1
+   },
+   "z_lead": 0.84,
    "verdict": "too few"
   },
   {
@@ -2422,8 +2737,12 @@
    "points": 1,
    "both": 11,
    "z_win": 0.45,
-   "support": 0.12,
-   "z_lead": -0.42,
+   "scores": {
+    "damage": 4,
+    "bruiser": 3,
+    "support": 1
+   },
+   "z_lead": -0.61,
    "verdict": "too few"
   },
   {
@@ -2436,7 +2755,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2449,9 +2770,13 @@
    ],
    "points": 1,
    "both": 18,
-   "z_win": -0.76,
-   "support": 0.08,
-   "z_lead": -2.11,
+   "z_win": -0.75,
+   "scores": {
+    "damage": 9,
+    "bruiser": 3,
+    "support": 1
+   },
+   "z_lead": -1.88,
    "verdict": "too few"
   },
   {
@@ -2464,8 +2789,10 @@
    "points": 1,
    "both": 6,
    "z_win": -0.0,
-   "support": 0.0,
-   "z_lead": 0.2,
+   "scores": {
+    "damage": 6
+   },
+   "z_lead": 0.11,
    "verdict": "too few"
   },
   {
@@ -2478,8 +2805,10 @@
    "points": 1,
    "both": 5,
    "z_win": -0.28,
-   "support": 0.0,
-   "z_lead": -0.68,
+   "scores": {
+    "damage": 5
+   },
+   "z_lead": -0.76,
    "verdict": "too few"
   },
   {
@@ -2491,9 +2820,12 @@
    ],
    "points": 1,
    "both": 9,
-   "z_win": 0.63,
-   "support": 0.0,
-   "z_lead": -1.31,
+   "z_win": 0.61,
+   "scores": {
+    "support": 1,
+    "damage": 8
+   },
+   "z_lead": -1.47,
    "verdict": "too few"
   },
   {
@@ -2506,8 +2838,12 @@
    "points": 1,
    "both": 9,
    "z_win": 0.52,
-   "support": 0.0,
-   "z_lead": 0.73,
+   "scores": {
+    "bruiser": 2,
+    "damage": 5,
+    "support": 1
+   },
+   "z_lead": 1.37,
    "verdict": "too few"
   },
   {
@@ -2519,9 +2855,12 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -10.08,
-   "support": 0.0,
-   "z_lead": -2.59,
+   "z_win": -10.51,
+   "scores": {
+    "damage": 1,
+    "bruiser": 1
+   },
+   "z_lead": -1.32,
    "verdict": "too few"
   },
   {
@@ -2534,8 +2873,12 @@
    "points": 1,
    "both": 8,
    "z_win": -0.29,
-   "support": 0.0,
-   "z_lead": -0.83,
+   "scores": {
+    "damage": 5,
+    "bruiser": 2,
+    "support": 1
+   },
+   "z_lead": -0.51,
    "verdict": "too few"
   },
   {
@@ -2548,7 +2891,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2562,8 +2905,11 @@
    "points": 1,
    "both": 3,
    "z_win": -0.84,
-   "support": 0.0,
-   "z_lead": -0.6,
+   "scores": {
+    "bruiser": 2,
+    "damage": 1
+   },
+   "z_lead": -0.29,
    "verdict": "too few"
   },
   {
@@ -2576,7 +2922,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2590,7 +2936,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2604,7 +2952,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2618,7 +2966,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2631,9 +2979,12 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": -1.67,
-   "support": 0.67,
-   "z_lead": -0.58,
+   "z_win": -1.65,
+   "scores": {
+    "support": 2,
+    "damage": 1
+   },
+   "z_lead": -0.47,
    "verdict": "too few"
   },
   {
@@ -2645,9 +2996,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 1.15,
-   "support": 1.0,
-   "z_lead": 0.45,
+   "z_win": 1.14,
+   "scores": {
+    "support": 3
+   },
+   "z_lead": 0.44,
    "verdict": "too few"
   },
   {
@@ -2660,7 +3013,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2673,9 +3026,12 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": -1.41,
-   "support": 0.75,
-   "z_lead": -0.25,
+   "z_win": -1.42,
+   "scores": {
+    "support": 3,
+    "damage": 1
+   },
+   "z_lead": -0.28,
    "verdict": "too few"
   },
   {
@@ -2687,9 +3043,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 2.35,
-   "support": 1.0,
-   "z_lead": 3.26,
+   "z_win": 2.36,
+   "scores": {
+    "support": 2
+   },
+   "z_lead": 3.45,
    "verdict": "too few"
   },
   {
@@ -2702,7 +3060,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2715,9 +3073,12 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -1.03,
-   "support": 0.5,
-   "z_lead": -0.53,
+   "z_win": -1.01,
+   "scores": {
+    "support": 1,
+    "damage": 1
+   },
+   "z_lead": -0.55,
    "verdict": "too few"
   },
   {
@@ -2729,9 +3090,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 1.59,
-   "support": 1.0,
-   "z_lead": 1.34,
+   "z_win": 1.63,
+   "scores": {
+    "support": 3
+   },
+   "z_lead": 1.36,
    "verdict": "too few"
   },
   {
@@ -2744,7 +3107,9 @@
    "points": 1,
    "both": 2,
    "z_win": 0.43,
-   "support": 1.0,
+   "scores": {
+    "support": 2
+   },
    "z_lead": 1.06,
    "verdict": "too few"
   },
@@ -2757,9 +3122,13 @@
    ],
    "points": 1,
    "both": 16,
-   "z_win": 0.29,
-   "support": 0.55,
-   "z_lead": -0.86,
+   "z_win": 0.32,
+   "scores": {
+    "damage": 4,
+    "support": 6,
+    "bruiser": 1
+   },
+   "z_lead": -0.75,
    "verdict": "too few"
   },
   {
@@ -2772,7 +3141,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2786,7 +3157,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2800,7 +3173,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2813,9 +3186,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 0.02,
-   "support": 1.0,
-   "z_lead": 0.39,
+   "z_win": 0.04,
+   "scores": {
+    "support": 3
+   },
+   "z_lead": 0.45,
    "verdict": "too few"
   },
   {
@@ -2828,7 +3203,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2842,7 +3219,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2856,7 +3233,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2870,7 +3247,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2884,7 +3263,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2898,7 +3277,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2912,7 +3291,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2926,7 +3305,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2940,7 +3321,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2954,7 +3335,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2968,7 +3349,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2982,7 +3365,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -2996,7 +3379,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3010,7 +3393,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3024,7 +3407,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3038,7 +3421,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3051,9 +3434,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 4.16,
-   "support": 0.5,
-   "z_lead": 1.01,
+   "z_win": 4.15,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 1.36,
    "verdict": "too few"
   },
   {
@@ -3066,7 +3451,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3080,7 +3465,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3094,7 +3479,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3108,7 +3493,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3122,7 +3507,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3136,7 +3521,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3150,7 +3535,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3164,7 +3551,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3178,7 +3565,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3192,7 +3581,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3206,7 +3597,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3220,7 +3613,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3234,7 +3627,10 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "bruiser": 1,
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3248,7 +3644,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3262,7 +3660,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3275,9 +3673,11 @@
    ],
    "points": 1,
    "both": 8,
-   "z_win": -1.34,
-   "support": 0.0,
-   "z_lead": -0.49,
+   "z_win": -1.32,
+   "scores": {
+    "damage": 7
+   },
+   "z_lead": -0.58,
    "verdict": "too few"
   },
   {
@@ -3290,7 +3690,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3304,7 +3704,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3318,7 +3718,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3331,9 +3731,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.4,
-   "support": 0.0,
-   "z_lead": 1.1,
+   "z_win": 0.41,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 1.11,
    "verdict": "too few"
   },
   {
@@ -3345,9 +3747,13 @@
    ],
    "points": 1,
    "both": 8,
-   "z_win": 1.15,
-   "support": 0.0,
-   "z_lead": 0.62,
+   "z_win": 1.06,
+   "scores": {
+    "damage": 5,
+    "support": 1,
+    "bruiser": 1
+   },
+   "z_lead": 0.31,
    "verdict": "too few"
   },
   {
@@ -3360,8 +3766,11 @@
    "points": 1,
    "both": 5,
    "z_win": 1.99,
-   "support": 0.2,
-   "z_lead": 1.89,
+   "scores": {
+    "damage": 4,
+    "bruiser": 1
+   },
+   "z_lead": 2.16,
    "verdict": "too few"
   },
   {
@@ -3374,7 +3783,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3388,7 +3799,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3402,7 +3813,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3415,9 +3828,11 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": -0.21,
-   "support": 0.0,
-   "z_lead": 0.55,
+   "z_win": -0.19,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": 0.52,
    "verdict": "too few"
   },
   {
@@ -3430,7 +3845,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3443,9 +3860,13 @@
    ],
    "points": 1,
    "both": 18,
-   "z_win": -0.17,
-   "support": 0.12,
-   "z_lead": 0.49,
+   "z_win": -0.2,
+   "scores": {
+    "damage": 11,
+    "support": 2,
+    "bruiser": 4
+   },
+   "z_lead": 0.36,
    "verdict": "too few"
   },
   {
@@ -3457,9 +3878,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -1.42,
-   "support": 0.0,
-   "z_lead": -0.73,
+   "z_win": -1.45,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -0.81,
    "verdict": "too few"
   },
   {
@@ -3472,7 +3895,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3486,7 +3909,10 @@
    "points": 1,
    "both": 3,
    "z_win": 1.64,
-   "support": 0.33,
+   "scores": {
+    "damage": 2,
+    "support": 1
+   },
    "z_lead": 0.59,
    "verdict": "too few"
   },
@@ -3499,9 +3925,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 10.48,
-   "support": 0.0,
-   "z_lead": 2.33,
+   "z_win": 10.6,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 2.2,
    "verdict": "too few"
   },
   {
@@ -3514,7 +3942,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3528,7 +3958,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3542,7 +3974,10 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1,
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3556,7 +3991,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3569,9 +4006,13 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": 0.01,
-   "support": 0.17,
-   "z_lead": -0.23,
+   "z_win": -0.02,
+   "scores": {
+    "damage": 4,
+    "bruiser": 1,
+    "support": 1
+   },
+   "z_lead": -0.16,
    "verdict": "too few"
   },
   {
@@ -3584,7 +4025,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3597,9 +4040,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.62,
-   "support": 0.0,
-   "z_lead": 1.2,
+   "z_win": 0.6,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 1.08,
    "verdict": "too few"
   },
   {
@@ -3611,9 +4056,11 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": -1.34,
-   "support": 0.0,
-   "z_lead": -1.72,
+   "z_win": -1.32,
+   "scores": {
+    "damage": 7
+   },
+   "z_lead": -1.74,
    "verdict": "too few"
   },
   {
@@ -3625,9 +4072,12 @@
    ],
    "points": 1,
    "both": 17,
-   "z_win": -1.67,
-   "support": 0.08,
-   "z_lead": -1.54,
+   "z_win": -1.7,
+   "scores": {
+    "damage": 11,
+    "support": 2
+   },
+   "z_lead": -1.32,
    "verdict": "too few"
   },
   {
@@ -3640,7 +4090,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3654,7 +4106,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3667,9 +4119,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.69,
-   "support": 0.0,
-   "z_lead": 0.88,
+   "z_win": 0.68,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 0.72,
    "verdict": "too few"
   },
   {
@@ -3682,7 +4136,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3696,7 +4150,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3709,9 +4165,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -0.69,
-   "support": 0.0,
-   "z_lead": -0.55,
+   "z_win": -0.7,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -0.62,
    "verdict": "too few"
   },
   {
@@ -3724,8 +4182,10 @@
    "points": 1,
    "both": 3,
    "z_win": 1.46,
-   "support": 0.0,
-   "z_lead": -0.69,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": -0.72,
    "verdict": "too few"
   },
   {
@@ -3737,9 +4197,14 @@
    ],
    "points": 1,
    "both": 21,
-   "z_win": 0.66,
-   "support": 0.17,
-   "z_lead": -1.05,
+   "z_win": 0.6,
+   "scores": {
+    "damage": 9,
+    "bruiser": 1,
+    "support": 1,
+    "frontline": 1
+   },
+   "z_lead": -0.37,
    "verdict": "too few"
   },
   {
@@ -3752,7 +4217,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3766,7 +4231,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3780,7 +4245,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3793,9 +4260,12 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": -0.95,
-   "support": 0.0,
-   "z_lead": -1.54,
+   "z_win": -0.94,
+   "scores": {
+    "damage": 3,
+    "bruiser": 1
+   },
+   "z_lead": -1.55,
    "verdict": "too few"
   },
   {
@@ -3807,8 +4277,11 @@
    ],
    "points": 1,
    "both": 10,
-   "z_win": 0.69,
-   "support": 0.22,
+   "z_win": 0.61,
+   "scores": {
+    "damage": 8,
+    "support": 1
+   },
    "z_lead": -0.55,
    "verdict": "too few"
   },
@@ -3822,7 +4295,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3836,7 +4309,9 @@
    "points": 1,
    "both": 3,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3849,9 +4324,11 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": 0.3,
-   "support": 0.0,
-   "z_lead": 0.8,
+   "z_win": 0.32,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": 0.82,
    "verdict": "too few"
   },
   {
@@ -3864,7 +4341,9 @@
    "points": 1,
    "both": 2,
    "z_win": 0.8,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": 0.61,
    "verdict": "too few"
   },
@@ -3878,7 +4357,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3892,7 +4373,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3906,8 +4387,10 @@
    "points": 1,
    "both": 4,
    "z_win": 0.35,
-   "support": 0.0,
-   "z_lead": 0.39,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": 0.31,
    "verdict": "too few"
   },
   {
@@ -3920,7 +4403,10 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "bruiser": 1,
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3934,7 +4420,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3948,7 +4434,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3962,7 +4450,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -3975,9 +4463,12 @@
    ],
    "points": 1,
    "both": 9,
-   "z_win": -0.69,
-   "support": 0.0,
-   "z_lead": -1.08,
+   "z_win": -0.67,
+   "scores": {
+    "damage": 5,
+    "bruiser": 1
+   },
+   "z_lead": -0.97,
    "verdict": "too few"
   },
   {
@@ -3990,7 +4481,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4004,7 +4495,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4017,9 +4508,11 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": 2.39,
-   "support": 0.0,
-   "z_lead": 0.74,
+   "z_win": 2.37,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": 0.69,
    "verdict": "too few"
   },
   {
@@ -4032,7 +4525,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4046,8 +4541,10 @@
    "points": 1,
    "both": 3,
    "z_win": 0.04,
-   "support": 0.0,
-   "z_lead": -0.42,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -0.39,
    "verdict": "too few"
   },
   {
@@ -4059,9 +4556,11 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": -0.3,
-   "support": 0.0,
-   "z_lead": 1.63,
+   "z_win": -0.31,
+   "scores": {
+    "damage": 5
+   },
+   "z_lead": 1.56,
    "verdict": "too few"
   },
   {
@@ -4073,9 +4572,11 @@
    ],
    "points": 1,
    "both": 9,
-   "z_win": -0.19,
-   "support": 0.11,
-   "z_lead": 0.49,
+   "z_win": -0.27,
+   "scores": {
+    "damage": 9
+   },
+   "z_lead": 0.16,
    "verdict": "too few"
   },
   {
@@ -4088,7 +4589,9 @@
    "points": 1,
    "both": 2,
    "z_win": -0.66,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": -0.08,
    "verdict": "too few"
   },
@@ -4102,7 +4605,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4115,9 +4620,12 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": -0.79,
-   "support": 0.0,
-   "z_lead": 1.01,
+   "z_win": -0.8,
+   "scores": {
+    "support": 1,
+    "damage": 4
+   },
+   "z_lead": 0.71,
    "verdict": "too few"
   },
   {
@@ -4130,7 +4638,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4143,9 +4653,12 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.71,
-   "support": 0.5,
-   "z_lead": -0.14,
+   "z_win": 0.73,
+   "scores": {
+    "support": 1,
+    "damage": 1
+   },
+   "z_lead": -0.13,
    "verdict": "too few"
   },
   {
@@ -4158,7 +4671,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4172,7 +4687,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4186,7 +4703,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4200,7 +4719,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4213,8 +4732,10 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 0.63,
-   "support": 0.0,
+   "z_win": 0.62,
+   "scores": {
+    "damage": 3
+   },
    "z_lead": -0.46,
    "verdict": "too few"
   },
@@ -4228,7 +4749,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4241,9 +4762,11 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": -1.3,
-   "support": 0.0,
-   "z_lead": -1.41,
+   "z_win": -1.28,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -1.44,
    "verdict": "too few"
   },
   {
@@ -4256,8 +4779,11 @@
    "points": 1,
    "both": 2,
    "z_win": 1.07,
-   "support": 0.5,
-   "z_lead": -0.05,
+   "scores": {
+    "damage": 1,
+    "support": 1
+   },
+   "z_lead": 0.45,
    "verdict": "too few"
   },
   {
@@ -4270,7 +4796,9 @@
    "points": 1,
    "both": 7,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 3
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4284,7 +4812,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4298,7 +4826,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4312,7 +4840,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4326,7 +4856,9 @@
    "points": 1,
    "both": 4,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 4
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4339,9 +4871,12 @@
    ],
    "points": 1,
    "both": 13,
-   "z_win": -0.75,
-   "support": 0.08,
-   "z_lead": -0.5,
+   "z_win": -0.76,
+   "scores": {
+    "damage": 12,
+    "support": 1
+   },
+   "z_lead": -0.35,
    "verdict": "too few"
   },
   {
@@ -4353,9 +4888,11 @@
    ],
    "points": 1,
    "both": 16,
-   "z_win": -0.09,
-   "support": 0.0,
-   "z_lead": -0.35,
+   "z_win": -0.04,
+   "scores": {
+    "damage": 13
+   },
+   "z_lead": -0.36,
    "verdict": "too few"
   },
   {
@@ -4368,7 +4905,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4382,7 +4921,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4395,9 +4936,12 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -2.39,
-   "support": 0.33,
-   "z_lead": -2.29,
+   "z_win": -2.3,
+   "scores": {
+    "damage": 2,
+    "support": 1
+   },
+   "z_lead": -2.11,
    "verdict": "too few"
   },
   {
@@ -4410,7 +4954,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4424,7 +4968,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4438,7 +4982,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4452,7 +4998,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4466,7 +5012,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4480,7 +5028,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4494,7 +5044,9 @@
    "points": 1,
    "both": 3,
    "z_win": 0.42,
-   "support": 0.0,
+   "scores": {
+    "damage": 3
+   },
    "z_lead": 0.22,
    "verdict": "too few"
   },
@@ -4508,7 +5060,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4522,7 +5076,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4536,7 +5090,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4549,9 +5103,11 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": -0.04,
-   "support": 0.0,
-   "z_lead": 0.82,
+   "z_win": 0.05,
+   "scores": {
+    "damage": 5
+   },
+   "z_lead": 0.86,
    "verdict": "too few"
   },
   {
@@ -4563,9 +5119,12 @@
    ],
    "points": 1,
    "both": 8,
-   "z_win": -0.96,
-   "support": 0.12,
-   "z_lead": -1.09,
+   "z_win": -0.87,
+   "scores": {
+    "damage": 7,
+    "support": 1
+   },
+   "z_lead": -1.1,
    "verdict": "too few"
   },
   {
@@ -4578,7 +5137,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4591,8 +5152,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.64,
-   "support": 0.5,
+   "z_win": 0.62,
+   "scores": {
+    "support": 1,
+    "damage": 1
+   },
    "z_lead": -0.82,
    "verdict": "too few"
   },
@@ -4606,7 +5170,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4620,7 +5184,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4634,7 +5198,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4647,9 +5211,12 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.98,
-   "support": 0.0,
-   "z_lead": 1.01,
+   "z_win": 1.0,
+   "scores": {
+    "bruiser": 1,
+    "damage": 1
+   },
+   "z_lead": 0.95,
    "verdict": "too few"
   },
   {
@@ -4662,7 +5229,9 @@
    "points": 1,
    "both": 3,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4676,7 +5245,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4690,7 +5261,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4704,7 +5275,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4718,7 +5289,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4731,9 +5302,11 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": -1.28,
-   "support": 0.0,
-   "z_lead": 0.55,
+   "z_win": -1.26,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": 0.66,
    "verdict": "too few"
   },
   {
@@ -4745,9 +5318,11 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": -0.56,
-   "support": 0.0,
-   "z_lead": -0.67,
+   "z_win": -0.55,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": -0.84,
    "verdict": "too few"
   },
   {
@@ -4759,9 +5334,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.38,
-   "support": 0.0,
-   "z_lead": 0.23,
+   "z_win": 0.37,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 0.11,
    "verdict": "too few"
   },
   {
@@ -4773,9 +5350,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -0.8,
-   "support": 0.0,
-   "z_lead": -0.43,
+   "z_win": -0.77,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": -0.29,
    "verdict": "too few"
   },
   {
@@ -4788,8 +5367,10 @@
    "points": 1,
    "both": 7,
    "z_win": 0.65,
-   "support": 0.0,
-   "z_lead": -0.79,
+   "scores": {
+    "damage": 7
+   },
+   "z_lead": -0.81,
    "verdict": "too few"
   },
   {
@@ -4801,9 +5382,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 0.66,
-   "support": 0.0,
-   "z_lead": -0.7,
+   "z_win": 0.69,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": -0.77,
    "verdict": "too few"
   },
   {
@@ -4816,8 +5399,10 @@
    "points": 1,
    "both": 3,
    "z_win": -0.53,
-   "support": 0.0,
-   "z_lead": -1.85,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -1.86,
    "verdict": "too few"
   },
   {
@@ -4830,7 +5415,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4844,7 +5429,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4858,7 +5445,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4872,7 +5459,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4886,7 +5475,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4900,7 +5489,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4914,7 +5503,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4928,7 +5517,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4941,9 +5530,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.84,
-   "support": 0.0,
-   "z_lead": 0.12,
+   "z_win": 0.85,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 0.04,
    "verdict": "too few"
   },
   {
@@ -4956,7 +5547,10 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "bruiser": 1,
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4969,9 +5563,12 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -1.1,
-   "support": 0.0,
-   "z_lead": 0.07,
+   "z_win": -1.05,
+   "scores": {
+    "damage": 2,
+    "support": 1
+   },
+   "z_lead": 0.66,
    "verdict": "too few"
   },
   {
@@ -4984,7 +5581,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -4998,7 +5597,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5012,7 +5613,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5026,7 +5627,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5040,7 +5643,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5054,7 +5657,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5068,7 +5671,9 @@
    "points": 1,
    "both": 3,
    "z_win": null,
-   "support": 0.33,
+   "scores": {
+    "damage": 3
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5081,9 +5686,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -0.91,
-   "support": 0.0,
-   "z_lead": -0.41,
+   "z_win": -0.88,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": -0.38,
    "verdict": "too few"
   },
   {
@@ -5096,7 +5703,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5110,7 +5719,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5124,7 +5733,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5138,7 +5747,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5152,7 +5761,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5165,9 +5774,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -0.7,
-   "support": 0.0,
-   "z_lead": 0.41,
+   "z_win": -0.72,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 0.43,
    "verdict": "too few"
   },
   {
@@ -5179,8 +5790,10 @@
    ],
    "points": 1,
    "both": 8,
-   "z_win": -1.04,
-   "support": 0.0,
+   "z_win": -1.05,
+   "scores": {
+    "damage": 8
+   },
    "z_lead": -0.02,
    "verdict": "too few"
   },
@@ -5193,9 +5806,12 @@
    ],
    "points": 1,
    "both": 9,
-   "z_win": -1.31,
-   "support": 0.0,
-   "z_lead": -1.16,
+   "z_win": -1.33,
+   "scores": {
+    "damage": 6,
+    "support": 1
+   },
+   "z_lead": -0.81,
    "verdict": "too few"
   },
   {
@@ -5208,8 +5824,10 @@
    "points": 1,
    "both": 3,
    "z_win": 0.47,
-   "support": 0.0,
-   "z_lead": 2.42,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": 2.37,
    "verdict": "too few"
   },
   {
@@ -5222,7 +5840,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5236,7 +5854,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5250,7 +5870,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5264,7 +5886,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5278,7 +5900,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5292,7 +5914,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5306,7 +5928,9 @@
    "points": 1,
    "both": 3,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 3
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5320,7 +5944,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5333,9 +5959,12 @@
    ],
    "points": 1,
    "both": 29,
-   "z_win": -0.22,
-   "support": 0.07,
-   "z_lead": 0.45,
+   "z_win": -0.27,
+   "scores": {
+    "damage": 13,
+    "support": 1
+   },
+   "z_lead": 0.71,
    "verdict": "too few"
   },
   {
@@ -5348,7 +5977,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5362,7 +5991,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5376,7 +6007,9 @@
    "points": 1,
    "both": 3,
    "z_win": 0.63,
-   "support": 0.0,
+   "scores": {
+    "damage": 3
+   },
    "z_lead": 0.96,
    "verdict": "too few"
   },
@@ -5390,7 +6023,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5404,7 +6037,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5418,7 +6053,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5431,9 +6066,11 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": 2.14,
-   "support": 0.25,
-   "z_lead": 5.24,
+   "z_win": 2.09,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": 3.63,
    "verdict": "too few"
   },
   {
@@ -5446,7 +6083,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5459,9 +6096,11 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": 0.15,
-   "support": 0.0,
-   "z_lead": -0.2,
+   "z_win": 0.17,
+   "scores": {
+    "damage": 5
+   },
+   "z_lead": -0.19,
    "verdict": "too few"
   },
   {
@@ -5474,7 +6113,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5488,7 +6129,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5502,7 +6143,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5515,9 +6156,11 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": 0.46,
-   "support": 1.0,
-   "z_lead": -0.19,
+   "z_win": 0.47,
+   "scores": {
+    "support": 5
+   },
+   "z_lead": -0.15,
    "verdict": "too few"
   },
   {
@@ -5530,7 +6173,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5544,7 +6187,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.5,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5558,7 +6203,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5572,7 +6217,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5586,7 +6231,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5600,7 +6245,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5614,7 +6261,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5628,7 +6275,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5642,7 +6289,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5656,7 +6303,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5670,7 +6319,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5684,7 +6333,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5698,7 +6347,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5712,7 +6361,9 @@
    "points": 1,
    "both": 3,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 3
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5726,7 +6377,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5739,9 +6390,12 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.19,
-   "support": 0.5,
-   "z_lead": 0.35,
+   "z_win": 0.21,
+   "scores": {
+    "support": 1,
+    "damage": 1
+   },
+   "z_lead": 0.47,
    "verdict": "too few"
   },
   {
@@ -5754,7 +6408,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5768,7 +6422,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5781,9 +6435,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 9.49,
-   "support": 0.0,
-   "z_lead": 5.43,
+   "z_win": 9.47,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": 5.3,
    "verdict": "too few"
   },
   {
@@ -5796,7 +6452,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5810,7 +6466,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5824,7 +6482,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5837,9 +6495,11 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": 0.14,
-   "support": 1.0,
-   "z_lead": 1.28,
+   "z_win": 0.19,
+   "scores": {
+    "support": 2
+   },
+   "z_lead": 1.46,
    "verdict": "too few"
   },
   {
@@ -5852,7 +6512,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5866,7 +6528,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5880,7 +6542,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5893,9 +6557,12 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 0.34,
-   "support": 0.33,
-   "z_lead": 0.87,
+   "z_win": 0.24,
+   "scores": {
+    "support": 1,
+    "damage": 2
+   },
+   "z_lead": 0.8,
    "verdict": "too few"
   },
   {
@@ -5908,7 +6575,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5922,7 +6589,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5936,7 +6603,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5950,7 +6617,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -5963,9 +6630,11 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": 0.34,
-   "support": 1.0,
-   "z_lead": 0.43,
+   "z_win": 0.31,
+   "scores": {
+    "support": 6
+   },
+   "z_lead": 0.47,
    "verdict": "too few"
   },
   {
@@ -5977,9 +6646,11 @@
    ],
    "points": 1,
    "both": 16,
-   "z_win": -1.39,
-   "support": 1.0,
-   "z_lead": -0.62,
+   "z_win": -1.46,
+   "scores": {
+    "support": 7
+   },
+   "z_lead": -0.54,
    "verdict": "too few"
   },
   {
@@ -5991,9 +6662,11 @@
    ],
    "points": 1,
    "both": 23,
-   "z_win": 0.29,
-   "support": 1.0,
-   "z_lead": -0.13,
+   "z_win": 0.35,
+   "scores": {
+    "support": 9
+   },
+   "z_lead": 0.01,
    "verdict": "too few"
   },
   {
@@ -6006,7 +6679,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6020,7 +6693,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6034,7 +6707,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6048,7 +6721,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6062,7 +6735,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6076,7 +6749,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6090,7 +6763,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6104,7 +6777,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6118,7 +6791,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6132,7 +6805,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6146,7 +6819,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6160,7 +6833,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6174,7 +6847,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6188,7 +6861,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6202,7 +6875,9 @@
    "points": 1,
    "both": 4,
    "z_win": 0.81,
-   "support": 1.0,
+   "scores": {
+    "support": 4
+   },
    "z_lead": -0.82,
    "verdict": "too few"
   },
@@ -6216,7 +6891,10 @@
    "points": 1,
    "both": 3,
    "z_win": null,
-   "support": 0.67,
+   "scores": {
+    "support": 2,
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6229,9 +6907,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 0.31,
-   "support": 0.0,
-   "z_lead": -0.84,
+   "z_win": 0.3,
+   "scores": {
+    "damage": 2
+   },
+   "z_lead": -0.99,
    "verdict": "too few"
   },
   {
@@ -6244,7 +6924,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6258,7 +6938,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6272,7 +6952,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6286,7 +6968,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6299,9 +6983,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 0.71,
-   "support": 1.0,
-   "z_lead": -0.68,
+   "z_win": 0.75,
+   "scores": {
+    "support": 2
+   },
+   "z_lead": -0.66,
    "verdict": "too few"
   },
   {
@@ -6314,7 +7000,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6328,7 +7014,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6342,7 +7028,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6355,9 +7043,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -0.31,
-   "support": 1.0,
-   "z_lead": -3.87,
+   "z_win": -0.29,
+   "scores": {
+    "support": 2
+   },
+   "z_lead": -4.08,
    "verdict": "too few"
   },
   {
@@ -6369,9 +7059,12 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -2.04,
-   "support": 0.33,
-   "z_lead": -1.41,
+   "z_win": -2.02,
+   "scores": {
+    "support": 1,
+    "damage": 2
+   },
+   "z_lead": -1.39,
    "verdict": "too few"
   },
   {
@@ -6384,7 +7077,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6398,7 +7091,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6412,7 +7105,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6426,7 +7119,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6440,7 +7135,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6454,7 +7149,9 @@
    "points": 1,
    "both": 2,
    "z_win": 1.56,
-   "support": 1.0,
+   "scores": {
+    "support": 2
+   },
    "z_lead": -0.05,
    "verdict": "too few"
   },
@@ -6468,7 +7165,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6481,9 +7180,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -3.19,
-   "support": 1.0,
-   "z_lead": -0.5,
+   "z_win": -3.18,
+   "scores": {
+    "support": 2
+   },
+   "z_lead": -0.28,
    "verdict": "too few"
   },
   {
@@ -6495,9 +7196,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 2.52,
-   "support": 1.0,
-   "z_lead": 1.47,
+   "z_win": 2.47,
+   "scores": {
+    "support": 2
+   },
+   "z_lead": 1.43,
    "verdict": "too few"
   },
   {
@@ -6509,9 +7212,11 @@
    ],
    "points": 1,
    "both": 15,
-   "z_win": -0.47,
-   "support": 1.0,
-   "z_lead": -0.81,
+   "z_win": -0.45,
+   "scores": {
+    "support": 7
+   },
+   "z_lead": -0.82,
    "verdict": "too few"
   },
   {
@@ -6524,7 +7229,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6538,8 +7243,11 @@
    "points": 1,
    "both": 22,
    "z_win": -0.99,
-   "support": 1.0,
-   "z_lead": -1.55,
+   "scores": {
+    "support": 8,
+    "damage": 1
+   },
+   "z_lead": -1.4,
    "verdict": "too few"
   },
   {
@@ -6552,7 +7260,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6566,7 +7274,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6579,9 +7289,11 @@
    ],
    "points": 1,
    "both": 9,
-   "z_win": 1.4,
-   "support": 1.0,
-   "z_lead": 2.1,
+   "z_win": 1.41,
+   "scores": {
+    "support": 5
+   },
+   "z_lead": 2.14,
    "verdict": "too few"
   },
   {
@@ -6594,7 +7306,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6607,9 +7319,12 @@
    ],
    "points": 1,
    "both": 14,
-   "z_win": 1.11,
-   "support": 0.88,
-   "z_lead": 0.34,
+   "z_win": 1.12,
+   "scores": {
+    "support": 7,
+    "damage": 1
+   },
+   "z_lead": 0.38,
    "verdict": "too few"
   },
   {
@@ -6622,7 +7337,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6635,9 +7352,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 1.99,
-   "support": 1.0,
-   "z_lead": -0.62,
+   "z_win": 2.03,
+   "scores": {
+    "support": 2
+   },
+   "z_lead": -0.6,
    "verdict": "too few"
   },
   {
@@ -6649,9 +7368,12 @@
    ],
    "points": 1,
    "both": 10,
-   "z_win": -0.27,
-   "support": 1.0,
-   "z_lead": -0.87,
+   "z_win": -0.23,
+   "scores": {
+    "support": 7,
+    "damage": 1
+   },
+   "z_lead": -1.69,
    "verdict": "too few"
   },
   {
@@ -6664,7 +7386,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6678,7 +7400,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6692,7 +7416,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6706,7 +7432,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6720,7 +7448,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6734,7 +7464,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6747,8 +7477,10 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": 0.61,
-   "support": 1.0,
+   "z_win": 0.58,
+   "scores": {
+    "support": 5
+   },
    "z_lead": -0.56,
    "verdict": "too few"
   },
@@ -6761,9 +7493,11 @@
    ],
    "points": 1,
    "both": 17,
-   "z_win": -0.22,
-   "support": 1.0,
-   "z_lead": -0.49,
+   "z_win": -0.24,
+   "scores": {
+    "support": 8
+   },
+   "z_lead": -0.39,
    "verdict": "too few"
   },
   {
@@ -6775,9 +7509,13 @@
    ],
    "points": 1,
    "both": 25,
-   "z_win": 1.44,
-   "support": 0.15,
-   "z_lead": 1.74,
+   "z_win": 1.43,
+   "scores": {
+    "damage": 11,
+    "bruiser": 1,
+    "support": 1
+   },
+   "z_lead": 0.99,
    "verdict": "too few"
   },
   {
@@ -6789,9 +7527,11 @@
    ],
    "points": 1,
    "both": 8,
-   "z_win": -1.1,
-   "support": 0.14,
-   "z_lead": 0.25,
+   "z_win": -1.09,
+   "scores": {
+    "damage": 7
+   },
+   "z_lead": 1.22,
    "verdict": "too few"
   },
   {
@@ -6804,7 +7544,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6817,9 +7559,13 @@
    ],
    "points": 1,
    "both": 49,
-   "z_win": 0.23,
-   "support": 0.08,
-   "z_lead": 0.15,
+   "z_win": 0.28,
+   "scores": {
+    "damage": 22,
+    "bruiser": 2,
+    "support": 1
+   },
+   "z_lead": 0.51,
    "verdict": "keep"
   },
   {
@@ -6831,9 +7577,12 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": 0.51,
-   "support": 0.0,
-   "z_lead": 1.16,
+   "z_win": 0.49,
+   "scores": {
+    "damage": 3,
+    "bruiser": 1
+   },
+   "z_lead": 1.22,
    "verdict": "too few"
   },
   {
@@ -6845,9 +7594,12 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 1.0,
-   "support": 0.33,
-   "z_lead": 0.95,
+   "z_win": 0.95,
+   "scores": {
+    "damage": 2,
+    "support": 1
+   },
+   "z_lead": 0.76,
    "verdict": "too few"
   },
   {
@@ -6860,7 +7612,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6874,7 +7628,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6888,7 +7642,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6902,7 +7656,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6916,7 +7670,9 @@
    "points": 1,
    "both": 3,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 3
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6930,7 +7686,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6944,7 +7700,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6958,7 +7714,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6972,7 +7728,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -6985,9 +7741,12 @@
    ],
    "points": 1,
    "both": 14,
-   "z_win": -0.02,
-   "support": 0.18,
-   "z_lead": -1.17,
+   "z_win": -0.03,
+   "scores": {
+    "damage": 10,
+    "support": 1
+   },
+   "z_lead": -1.1,
    "verdict": "too few"
   },
   {
@@ -6999,9 +7758,12 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": -0.28,
-   "support": 0.0,
-   "z_lead": -0.64,
+   "z_win": -0.27,
+   "scores": {
+    "damage": 4,
+    "bruiser": 1
+   },
+   "z_lead": -0.69,
    "verdict": "too few"
   },
   {
@@ -7014,7 +7776,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7028,8 +7790,11 @@
    "points": 1,
    "both": 62,
    "z_win": 1.42,
-   "support": 0.04,
-   "z_lead": 1.96,
+   "scores": {
+    "damage": 23,
+    "bruiser": 3
+   },
+   "z_lead": 1.95,
    "verdict": "keep"
   },
   {
@@ -7042,8 +7807,10 @@
    "points": 1,
    "both": 5,
    "z_win": -0.21,
-   "support": 0.0,
-   "z_lead": 0.78,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": 0.6,
    "verdict": "too few"
   },
   {
@@ -7056,7 +7823,9 @@
    "points": 1,
    "both": 3,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 3
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7069,9 +7838,12 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": -1.11,
-   "support": 0.0,
-   "z_lead": -1.15,
+   "z_win": -1.12,
+   "scores": {
+    "damage": 5,
+    "bruiser": 1
+   },
+   "z_lead": -1.22,
    "verdict": "too few"
   },
   {
@@ -7083,9 +7855,12 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -2.2,
-   "support": 0.0,
-   "z_lead": -1.57,
+   "z_win": -2.18,
+   "scores": {
+    "damage": 1,
+    "bruiser": 1
+   },
+   "z_lead": -1.8,
    "verdict": "too few"
   },
   {
@@ -7098,7 +7873,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7112,7 +7889,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7126,7 +7903,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7139,9 +7916,11 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": 0.71,
-   "support": 0.0,
-   "z_lead": -0.35,
+   "z_win": 0.7,
+   "scores": {
+    "damage": 7
+   },
+   "z_lead": -0.43,
    "verdict": "too few"
   },
   {
@@ -7154,7 +7933,9 @@
    "points": 1,
    "both": 2,
    "z_win": 0.08,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": -0.56,
    "verdict": "too few"
   },
@@ -7168,8 +7949,11 @@
    "points": 1,
    "both": 2,
    "z_win": 1.91,
-   "support": 0.0,
-   "z_lead": 0.34,
+   "scores": {
+    "damage": 1,
+    "bruiser": 1
+   },
+   "z_lead": 0.33,
    "verdict": "too few"
   },
   {
@@ -7182,7 +7966,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7195,9 +7981,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": 1.31,
-   "support": 0.0,
-   "z_lead": 1.2,
+   "z_win": 1.29,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": 1.21,
    "verdict": "too few"
   },
   {
@@ -7209,9 +7997,12 @@
    ],
    "points": 1,
    "both": 10,
-   "z_win": 1.37,
-   "support": 0.33,
-   "z_lead": 0.12,
+   "z_win": 1.38,
+   "scores": {
+    "damage": 7,
+    "support": 2
+   },
+   "z_lead": 0.32,
    "verdict": "too few"
   },
   {
@@ -7224,7 +8015,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7238,7 +8031,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7251,9 +8044,12 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": 1.29,
-   "support": 0.0,
-   "z_lead": 0.65,
+   "z_win": 1.32,
+   "scores": {
+    "damage": 4,
+    "bruiser": 1
+   },
+   "z_lead": 0.44,
    "verdict": "too few"
   },
   {
@@ -7265,9 +8061,12 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 1.99,
-   "support": 0.5,
-   "z_lead": 0.73,
+   "z_win": 2.03,
+   "scores": {
+    "damage": 1,
+    "support": 1
+   },
+   "z_lead": 0.75,
    "verdict": "too few"
   },
   {
@@ -7279,9 +8078,13 @@
    ],
    "points": 1,
    "both": 10,
-   "z_win": 0.38,
-   "support": 0.1,
-   "z_lead": 0.58,
+   "z_win": 0.37,
+   "scores": {
+    "damage": 8,
+    "bruiser": 1,
+    "support": 1
+   },
+   "z_lead": 0.32,
    "verdict": "too few"
   },
   {
@@ -7294,7 +8097,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7308,7 +8111,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7322,7 +8125,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7336,7 +8139,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7350,7 +8153,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7364,7 +8167,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7378,7 +8183,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7392,7 +8197,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7406,7 +8211,10 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1,
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7419,9 +8227,11 @@
    ],
    "points": 1,
    "both": 20,
-   "z_win": 0.02,
-   "support": 0.17,
-   "z_lead": -0.68,
+   "z_win": -0.05,
+   "scores": {
+    "damage": 12
+   },
+   "z_lead": -0.87,
    "verdict": "too few"
   },
   {
@@ -7433,9 +8243,12 @@
    ],
    "points": 1,
    "both": 16,
-   "z_win": 0.09,
-   "support": 0.23,
-   "z_lead": 0.27,
+   "z_win": -0.0,
+   "scores": {
+    "support": 2,
+    "damage": 11
+   },
+   "z_lead": 0.08,
    "verdict": "too few"
   },
   {
@@ -7448,7 +8261,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "bruiser": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7462,7 +8277,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7475,9 +8290,12 @@
    ],
    "points": 1,
    "both": 32,
-   "z_win": -0.01,
-   "support": 0.06,
-   "z_lead": -0.31,
+   "z_win": -0.03,
+   "scores": {
+    "damage": 15,
+    "bruiser": 1
+   },
+   "z_lead": -0.35,
    "verdict": "keep"
   },
   {
@@ -7490,7 +8308,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7503,9 +8323,12 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -3.67,
-   "support": 0.5,
-   "z_lead": -1.45,
+   "z_win": -3.73,
+   "scores": {
+    "damage": 1,
+    "support": 1
+   },
+   "z_lead": -1.38,
    "verdict": "too few"
   },
   {
@@ -7518,7 +8341,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7531,9 +8356,11 @@
    ],
    "points": 1,
    "both": 29,
-   "z_win": 0.29,
-   "support": 0.15,
-   "z_lead": -0.57,
+   "z_win": 0.28,
+   "scores": {
+    "damage": 13
+   },
+   "z_lead": -1.08,
    "verdict": "too few"
   },
   {
@@ -7545,9 +8372,12 @@
    ],
    "points": 1,
    "both": 23,
-   "z_win": 0.23,
-   "support": 0.18,
-   "z_lead": 0.13,
+   "z_win": 0.19,
+   "scores": {
+    "damage": 10,
+    "bruiser": 1
+   },
+   "z_lead": 0.69,
    "verdict": "too few"
   },
   {
@@ -7560,7 +8390,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7573,8 +8405,11 @@
    ],
    "points": 1,
    "both": 76,
-   "z_win": 1.47,
-   "support": 0.06,
+   "z_win": 1.49,
+   "scores": {
+    "damage": 34,
+    "bruiser": 2
+   },
    "z_lead": 1.67,
    "verdict": "keep"
   },
@@ -7587,9 +8422,13 @@
    ],
    "points": 1,
    "both": 7,
-   "z_win": -0.36,
-   "support": 0.14,
-   "z_lead": -0.15,
+   "z_win": -0.4,
+   "scores": {
+    "damage": 5,
+    "support": 1,
+    "bruiser": 1
+   },
+   "z_lead": -0.21,
    "verdict": "too few"
   },
   {
@@ -7601,9 +8440,12 @@
    ],
    "points": 1,
    "both": 8,
-   "z_win": 2.15,
-   "support": 0.0,
-   "z_lead": 3.84,
+   "z_win": 2.1,
+   "scores": {
+    "damage": 7,
+    "bruiser": 1
+   },
+   "z_lead": 3.57,
    "verdict": "too few"
   },
   {
@@ -7615,9 +8457,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -0.24,
-   "support": 0.0,
-   "z_lead": -0.42,
+   "z_win": -0.23,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -0.4,
    "verdict": "too few"
   },
   {
@@ -7630,7 +8474,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7644,7 +8488,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7658,7 +8502,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7672,7 +8516,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7686,7 +8530,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7700,7 +8544,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7714,7 +8558,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7727,9 +8573,11 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": 1.11,
-   "support": 0.0,
-   "z_lead": 1.56,
+   "z_win": 1.15,
+   "scores": {
+    "damage": 5
+   },
+   "z_lead": 1.64,
    "verdict": "too few"
   },
   {
@@ -7742,7 +8590,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7756,7 +8604,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7770,7 +8620,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7784,7 +8636,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7798,7 +8650,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7812,7 +8664,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7826,7 +8678,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7840,7 +8692,9 @@
    "points": 1,
    "both": 4,
    "z_win": 0.45,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": 0.99,
    "verdict": "too few"
   },
@@ -7854,7 +8708,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7868,7 +8722,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7882,7 +8736,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7895,9 +8749,11 @@
    ],
    "points": 1,
    "both": 5,
-   "z_win": 2.66,
-   "support": 0.0,
-   "z_lead": 4.52,
+   "z_win": 2.7,
+   "scores": {
+    "damage": 5
+   },
+   "z_lead": 4.4,
    "verdict": "too few"
   },
   {
@@ -7910,7 +8766,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7924,7 +8782,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7938,7 +8796,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7951,9 +8809,11 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": -2.58,
-   "support": 1.0,
-   "z_lead": -2.62,
+   "z_win": -2.53,
+   "scores": {
+    "support": 4
+   },
+   "z_lead": -2.28,
    "verdict": "too few"
   },
   {
@@ -7966,7 +8826,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7980,7 +8840,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -7994,7 +8854,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8008,7 +8868,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8022,7 +8882,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8036,7 +8898,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8050,7 +8912,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8064,7 +8926,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8078,7 +8940,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8092,7 +8954,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8106,8 +8970,10 @@
    "points": 1,
    "both": 3,
    "z_win": -0.48,
-   "support": 0.0,
-   "z_lead": -0.8,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -0.82,
    "verdict": "too few"
   },
   {
@@ -8120,7 +8986,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8134,7 +9002,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8147,9 +9015,11 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": -0.13,
-   "support": 0.0,
-   "z_lead": -0.8,
+   "z_win": -0.15,
+   "scores": {
+    "damage": 4
+   },
+   "z_lead": -0.85,
    "verdict": "too few"
   },
   {
@@ -8161,9 +9031,12 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -0.95,
-   "support": 0.0,
-   "z_lead": -1.1,
+   "z_win": -0.96,
+   "scores": {
+    "bruiser": 1,
+    "damage": 1
+   },
+   "z_lead": -1.25,
    "verdict": "too few"
   },
   {
@@ -8176,7 +9049,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8190,7 +9065,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8204,8 +9079,11 @@
    "points": 1,
    "both": 8,
    "z_win": 0.56,
-   "support": 0.0,
-   "z_lead": 0.77,
+   "scores": {
+    "damage": 5,
+    "bruiser": 3
+   },
+   "z_lead": 1.32,
    "verdict": "too few"
   },
   {
@@ -8218,7 +9096,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8232,7 +9110,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8246,7 +9126,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8260,7 +9142,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8274,7 +9156,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8288,7 +9172,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8302,7 +9186,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8315,9 +9201,11 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -1.45,
-   "support": 0.0,
-   "z_lead": -2.26,
+   "z_win": -1.46,
+   "scores": {
+    "damage": 3
+   },
+   "z_lead": -2.23,
    "verdict": "too few"
   },
   {
@@ -8330,7 +9218,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8344,7 +9232,9 @@
    "points": 1,
    "both": 2,
    "z_win": null,
-   "support": 0.0,
+   "scores": {
+    "damage": 2
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8358,7 +9248,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8372,7 +9262,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8386,7 +9278,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8400,7 +9292,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8413,9 +9305,12 @@
    ],
    "points": 1,
    "both": 3,
-   "z_win": -0.55,
-   "support": 0.33,
-   "z_lead": -0.13,
+   "z_win": -0.56,
+   "scores": {
+    "damage": 2,
+    "support": 1
+   },
+   "z_lead": -0.29,
    "verdict": "too few"
   },
   {
@@ -8428,7 +9323,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8441,8 +9338,11 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": 4.82,
-   "support": 0.5,
+   "z_win": 4.85,
+   "scores": {
+    "support": 1,
+    "damage": 1
+   },
    "z_lead": 1.59,
    "verdict": "too few"
   },
@@ -8456,7 +9356,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8470,7 +9372,9 @@
    "points": 1,
    "both": 1,
    "z_win": null,
-   "support": 1.0,
+   "scores": {
+    "support": 1
+   },
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8483,8 +9387,10 @@
    ],
    "points": 1,
    "both": 2,
-   "z_win": -0.08,
-   "support": 1.0,
+   "z_win": -0.07,
+   "scores": {
+    "support": 2
+   },
    "z_lead": -0.04,
    "verdict": "too few"
   },
@@ -8497,9 +9403,11 @@
    ],
    "points": 1,
    "both": 4,
-   "z_win": -0.85,
-   "support": 1.0,
-   "z_lead": -0.69,
+   "z_win": -0.87,
+   "scores": {
+    "support": 3
+   },
+   "z_lead": -0.71,
    "verdict": "too few"
   },
   {
@@ -8511,9 +9419,11 @@
    ],
    "points": 1,
    "both": 19,
-   "z_win": 0.77,
-   "support": 1.0,
-   "z_lead": 0.58,
+   "z_win": 0.76,
+   "scores": {
+    "support": 10
+   },
+   "z_lead": 0.57,
    "verdict": "too few"
   },
   {
@@ -8525,9 +9435,12 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": -0.87,
-   "support": 0.83,
-   "z_lead": 0.32,
+   "z_win": -0.85,
+   "scores": {
+    "support": 5,
+    "damage": 1
+   },
+   "z_lead": 0.49,
    "verdict": "too few"
   },
   {
@@ -8540,8 +9453,11 @@
    "points": 1,
    "both": 4,
    "z_win": -0.6,
-   "support": 1.0,
-   "z_lead": 0.5,
+   "scores": {
+    "support": 2,
+    "damage": 1
+   },
+   "z_lead": 0.47,
    "verdict": "too few"
   },
   {
@@ -8554,7 +9470,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8568,8 +9484,11 @@
    "points": 1,
    "both": 5,
    "z_win": -0.44,
-   "support": 1.0,
-   "z_lead": 0.49,
+   "scores": {
+    "support": 4,
+    "damage": 1
+   },
+   "z_lead": -0.28,
    "verdict": "too few"
   },
   {
@@ -8582,7 +9501,7 @@
    "points": 1,
    "both": 0,
    "z_win": null,
-   "support": null,
+   "scores": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -8595,9 +9514,13 @@
    ],
    "points": 1,
    "both": 16,
-   "z_win": 0.92,
-   "support": 0.8,
-   "z_lead": -0.15,
+   "z_win": 0.93,
+   "scores": {
+    "support": 7,
+    "bruiser": 1,
+    "damage": 2
+   },
+   "z_lead": -0.01,
    "verdict": "too few"
   },
   {
@@ -8609,9 +9532,11 @@
    ],
    "points": 1,
    "both": 6,
-   "z_win": 0.11,
-   "support": 1.0,
-   "z_lead": 0.78,
+   "z_win": 0.13,
+   "scores": {
+    "support": 5
+   },
+   "z_lead": 0.9,
    "verdict": "too few"
   }
  ]
