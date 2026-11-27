@@ -107,6 +107,33 @@ pub fn eog_result(block: &Value) -> Option<&'static str> {
     Some(if won { "Win" } else { "Lose" })
 }
 
+/// Your augments in pick order from the client's end-of-game stats (PLAYER_AUGMENT_1-6, the same as the match data,
+/// there the moment the game ends). Fills any pick the live reading missed. Empty when not found.
+pub fn eog_augments(block: &Value) -> Vec<i64> {
+    let local = block.get("localPlayer");
+    let id = local.and_then(|l| l.get("summonerId"));
+    let mut cands: Vec<&Value> = local.into_iter().collect();
+    for t in block.get("teams").and_then(Value::as_array).into_iter().flatten() {
+        for p in t.get("players").and_then(Value::as_array).into_iter().flatten() {
+            if p.get("isLocalPlayer").and_then(Value::as_bool) == Some(true) || (id.is_some() && p.get("summonerId") == id) {
+                cands.push(p);
+            }
+        }
+    }
+    for c in cands {
+        let Some(st) = c.get("stats").and_then(Value::as_object) else { continue };
+        if !st.keys().any(|k| k.to_ascii_uppercase().starts_with("PLAYER_AUGMENT_")) {
+            continue;
+        }
+        return (1..=6)
+            .filter_map(|i| st.get(&format!("PLAYER_AUGMENT_{i}")).or_else(|| st.get(&format!("playerAugment{i}"))))
+            .filter_map(|v| v.as_i64().or_else(|| v.as_f64().map(|f| f as i64)).or_else(|| v.as_str()?.parse().ok()))
+            .filter(|&v| v > 0)
+            .collect();
+    }
+    Vec::new()
+}
+
 pub type Shared = Mutex<State>;
 
 pub fn enabled(app: &AppHandle) -> bool {
@@ -676,7 +703,17 @@ pub fn watch(app: AppHandle) {
                     }
                     if phase == "EndOfGame" && mayhem {
                         drop(s);
-                        let result = c.get("/lol-end-of-game/v1/eog-stats-block").as_ref().and_then(eog_result);
+                        let block = c.get("/lol-end-of-game/v1/eog-stats-block");
+                        let result = block.as_ref().and_then(eog_result);
+                        // Picks the live reading missed: the end-of-game list has them all (marking is idempotent).
+                        let picks = block.as_ref().map(eog_augments).unwrap_or_default();
+                        if !picks.is_empty() {
+                            let js = format!("window.eogPicks && window.eogPicks({})", json!(picks));
+                            crate::phone::push(&js);
+                            if let Some(win) = app.get_webview_window(LABEL) {
+                                let _ = win.eval(js);
+                            }
+                        }
                         s = state.lock().unwrap();
                         if let Some(r) = result {
                             s.result = Some(r.to_owned());
@@ -768,6 +805,11 @@ mod tests {
         assert_eq!(eog_result(&lost), Some("Lose"));
         assert_eq!(eog_result(&json!({"teams": [], "localPlayer": {"stats": {"WIN": 1}}})), Some("Win"));
         assert_eq!(eog_result(&json!({})), None);
+        let block = json!({"localPlayer": {"summonerId": 7, "stats": {"PLAYER_AUGMENT_1": 2140, "PLAYER_AUGMENT_2": 3129, "PLAYER_AUGMENT_3": 0}}});
+        assert_eq!(eog_augments(&block), vec![2140, 3129]);
+        let in_team = json!({"localPlayer": {"summonerId": 7, "stats": {}}, "teams": [{"players": [{"summonerId": 7, "stats": {"PLAYER_AUGMENT_1": "1048"}}]}]});
+        assert_eq!(eog_augments(&in_team), vec![1048]);
+        assert!(eog_augments(&json!({})).is_empty());
     }
 
     #[test]

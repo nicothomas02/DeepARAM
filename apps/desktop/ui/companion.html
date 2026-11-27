@@ -1097,6 +1097,16 @@
     setView(`${hero(lastChamp, "Game over", "The review shows after games of 5 minutes or more")}`);
   };
 
+  // Your picks from the client's end-of-game list (every one, in order): any the live reading missed join the
+  // game's taken list, so the record and the replay are complete. Post-game only, nothing on screen changes.
+  window.eogPicks = (ids) => {
+    const s = readTaken();
+    if (!s || !Array.isArray(ids)) return;
+    const missed = ids.filter((id) => !s.ids.includes(id));
+    if (!missed.length) return;
+    try { localStorage.setItem("taken", JSON.stringify({ ...s, ids: [...s.ids, ...missed], eog: ids })); } catch {}
+  };
+
   // The game's result from the League client's end-of-game screen, when the game's own feed closed before saying it.
   window.setResult = (result) => {
     const t = document.querySelector(".hero .title");
