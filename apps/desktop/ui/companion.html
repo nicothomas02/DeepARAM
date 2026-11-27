@@ -35,7 +35,7 @@
   .num { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; }
   .mates { display: flex; gap: 6px; }
   .mates img { width: 28px; height: 28px; }
-  .teamline { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .teamline { display: flex; justify-content: space-between; align-items: center; gap: 10px; } .teamline .lbl + .mates { margin-right: auto; }
   .teamds { font-size: 30px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
   .teamds.up { color: var(--good); } .teamds.down { color: var(--bad); }
   .big { font-size: 44px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1; }
@@ -230,7 +230,7 @@
   const hueOf = (alias) => HUES[Object.keys(HUES).find((k) => k.toLowerCase() === String(alias).toLowerCase())] ?? null;
   const hero = (alias, title, sub, subId = "", slim = false) => `<div class="hero glow${slim ? " slim" : ""}"${alias && hueOf(alias) ? ` data-style="--champ-h:${hueOf(alias)[0]};--champ-s:${hueOf(alias)[1]}%"` : ""}>
       ${alias ? icon(alias) : `<img src="icon.png" alt="">`}<div><div class="title">${title}</div><div class="sub"${subId ? ` id="${subId}"` : ""}>${sub}</div></div>
-      ${window.__TAURI_INTERNALS__ ? `<button class="fs">${isFull ? "Exit full screen" : "Full screen"}</button>` : ""}</div>`;
+</div>`; // no full screen button: F11 does it (Nico 2026-11-27)
   // Full screen from the button, F11 or Esc; the app answers with the state it ended in, which labels the button.
   let isFull = false;
   window.fullScreen = (on) => window.__TAURI_INTERNALS__?.invoke("companion_fullscreen", { on: on ?? null })
@@ -441,7 +441,7 @@
     setView(`
       ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion", "", true)}
       ${planHtml}
-      ${team.length ? `<h2>Your team</h2><div class="teamline"><div class="mates">${team.map(icon).join("")}</div>${teamNow != null ? `<span class="teamds ${teamNow >= 0.06 ? "up" : teamNow < -0.03 ? "down" : "flat"}" title="Team edge (projected): your five champions' strength plus their ten pair synergies, in win-rate points (0 = an average team). Extras like frontline, damage mix or crowd control didn't predict better when tested.">${pts(teamNow)}</span>` : ""}</div>` : ""}
+      ${team.length ? `<div class="teamline"><span class="why lbl">Teammates</span><div class="mates">${team.map(icon).join("")}</div>${teamNow != null ? `<span class="teamds ${teamNow >= 0.06 ? "up" : teamNow < -0.03 ? "down" : "flat"}" title="Team edge (projected): your five champions' strength plus their ten pair synergies, in win-rate points (0 = an average team). Extras like frontline, damage mix or crowd control didn't predict better when tested.">${pts(teamNow)}</span>` : ""}</div>` : ""}
       ${gap ? `<div class="cue gold" title="${esc(gap)}">${ico("warn")} ${esc(gapShort)}</div>` : ""}
       <h2>Your choices, best first</h2>
       ${Object.keys(d.brackets ?? {}).length ? `<div class="filters" title="Skill brackets come from a rating built from game results, not official ranks.${d.bracketPatch && d.bracketPatch !== d.patch ? ` This patch's brackets aren't out yet, so they use patch ${esc(d.bracketPatch)}.` : ""}">${BRACKETS.filter(([b]) => b === "all" || d.brackets[b]).map(([b, l]) => `<button class="chip br${b === bracket ? " on" : ""}" data-b="${b}">${l}</button>`).join("")}</div>` : ""}
