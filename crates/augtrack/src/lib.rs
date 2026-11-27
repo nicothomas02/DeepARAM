@@ -57,6 +57,30 @@ pub fn zone(y_rel: f64) -> Option<Zone> {
     }
 }
 
+/// The left button, sampled every few ms by the app (ingame.rs: every 40 ms), turned into clicks.
+///
+/// Each sample gives two bits from the OS (Windows' GetAsyncKeyState): `down`, the button is down right now, and
+/// `since`, it was pressed at some point since the last sample. A quick click, pressed and released between two
+/// samples, shows only in `since`. Shaco 2026-11-27 (round 3, cards 1057/1308/2018): the pick fell between two
+/// 40 ms samples, no click was seen, and the round stayed unknown. The owner's old app fixed it with the same bit;
+/// the desktop app's port had only `down`.
+///
+/// `down` alone still starts a click when `since` reads false (another program can take that bit first). The app
+/// keeps sampling while no screen can be up and throws those clicks away, so an old press never counts later.
+#[derive(Clone, Copy, Debug, Default)]
+pub struct Button {
+    down: bool,
+}
+
+impl Button {
+    /// One sample. Returns true when a new click started since the last sample.
+    pub fn sample(&mut self, down: bool, since: bool) -> bool {
+        let new = since || (down && !self.down);
+        self.down = down;
+        new
+    }
+}
+
 /// One read of the card area.
 #[derive(Clone, Debug, Default)]
 pub struct Read {
