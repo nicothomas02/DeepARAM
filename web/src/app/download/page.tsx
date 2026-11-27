@@ -48,10 +48,11 @@ export default function Download() {
         </article>
 
         <article className="card" id="sharing">
-          <h2 className="download-h">Help improve DeepARAM (optional)</h2>
+          <h2 className="download-h">Share your games, see your trends (optional)</h2>
           <p>
-            The first time you open the app, it asks if you&apos;d like to share your finished ARAM Mayhem games. It&apos;s off unless you say yes, and you can
-            change it any time from the tray icon (<b>Share match data</b>).
+            With sharing on, the review after each game shows your own trends: damage share, damage taken, kill participation, deaths and your most
+            played champions over your last 20 games. The first time you open the app, it asks. It&apos;s off unless you say yes, and you can change it
+            any time from the tray icon (<b>Share match data</b>).
           </p>
           <div className="download-split">
             <div>
@@ -65,7 +66,9 @@ export default function Download() {
           </div>
           <p className="download-note">
             Your shares are tied together only by a random code made on your computer, never your Riot account. Turning sharing off
-            removes the games you sent. Shared games are combined with everyone&apos;s into overall stats for DeepARAM&apos;s website and apps; no single game or player is ever shown. Sharing also unlocks your own trends after each game, kept on your computer. More in{" "}
+            removes the games you sent. Turning it on also sends the Mayhem games among your last 100 in the League client. Shared games go into a pool
+            that, once enough players share, will make DeepARAM&apos;s tier lists and builds more accurate; no single game or player is ever shown. Your
+            trends are worked out and kept on your computer. More in{" "}
             <Link href="/privacy">Privacy</Link>.
           </p>
         </article>

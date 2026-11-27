@@ -1114,13 +1114,13 @@
     if (await invoke("share_status").catch(() => true)) return;
     const save = (x) => { try { localStorage.setItem("shareInvite", JSON.stringify({ ...st, ...x })); } catch {} };
     save({ n: st.n + 1, at: Date.now() });
-    box.innerHTML = `<div class="box invite"><b>Nice win.</b> Want to help DeepARAM's builds get sharper? Share your Mayhem games: champions, items, augments and the result only, never your name or account. You can turn it off any time from the tray, which removes what was sent.
+    box.innerHTML = `<div class="box invite"><b>Nice win.</b> Share your Mayhem games to see your own trends here after each game, and to help DeepARAM's builds get sharper once enough players share. Champions, items, augments and the result only, never your name or account. You can turn it off any time from the tray, which removes what was sent.
       <div class="filters" data-style="margin:10px 0 0"><button class="chip on" data-share="yes">Share my games</button><button class="chip" data-share="later">Not now</button><button class="chip" data-share="never">Don't ask again</button></div></div>`;
     box.querySelectorAll("[data-share]").forEach((b) => b.addEventListener("click", () => {
       const v = b.dataset.share;
       if (v === "yes") invoke("share_choice", { enabled: true }).catch(() => {});
       if (v === "never") save({ never: true });
-      box.innerHTML = v === "yes" ? `<div class="box">Thanks! Sharing is on. The tray's "Share match data" turns it off.</div>` : "";
+      box.innerHTML = v === "yes" ? `<div class="box">Thanks! Sharing is on. Your trends fill in from your recent games within a few minutes. The tray's "Share match data" turns it off.</div>` : "";
     }));
   }
 

@@ -57,7 +57,8 @@ export default function Privacy() {
         <p>
           The DeepARAM desktop app asks once, the first time you open it, whether to share your finished ARAM Mayhem games the same way. Sharing is off unless
           you say yes, and you can turn it on or off at any time from the app&apos;s tray icon (Share match data). The app sends the same game data described
-          above, with no names, Riot IDs or account identifiers. Your shares are tied together only by a random code the app makes on
+          above, with no names, Riot IDs or account identifiers. When you turn it on, it also sends the Mayhem games among your last 100 games in
+          the League client, then each new one as it finishes. Your shares are tied together only by a random code the app makes on
           your computer, never your Riot account; we keep just a salted hash of it. (Apps from before December 2026 sent
           the League client&apos;s sign-in token instead; when they update, they send it once more so we can move those
           games to the new code, then never again.) Turning sharing off removes the games you sent. While sharing is on, the app also keeps your own
