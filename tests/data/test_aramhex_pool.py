@@ -56,3 +56,21 @@ def test_notes_name_changed_augments():
     assert {"Bouncing Bees", "Salvation", "The Boom and the Bass"} <= got
     by_age = ah.changed_by_age("16.23")
     assert by_age[0] == set() and by_age[1] == ah.notes_changed_augments("16.23")
+
+
+def test_patch_notes_reader_parses_the_mayhem_section():
+    pn = load_module("data/official/patch_notes.py", "patch_notes_reader")
+    page = ('<h2 id="patch-champions">Champions</h2><h3>Annie</h3>'
+            '<h2 id="patch-aram:-mayhem">ARAM: Mayhem</h2><blockquote class="blockquote context"><p>Hi.</p></blockquote>'
+            '<h4 class="change-detail-title">Champions</h4><p><strong>Ziggs</strong></p>'
+            '<ul><li><strong>Damage Taken</strong>: 120% &rArr; <strong>110%</strong></li></ul>'
+            '<h4>Augments</h4><p><span><strong>&nbsp; NEW &nbsp;</strong></span><strong>&nbsp;Fortified</strong></p>'
+            '<blockquote class="blockquote context"><p>Gain 20 Armor.</p></blockquote>'
+            '<p><strong>Bouncing Bees</strong></p><ul><li>Damage: 50 - 100% &rArr; 60%</li></ul>'
+            '<h2 id="patch-arena">Arena</h2>')
+    e = pn.parse(page, "16.23.1", "https://www.leagueoflegends.com/x", "2026-11-18")
+    assert e["patch"] == "26.23" and e["gameVersion"] == "16.23" and e["date"] == "2026-11-18" and e["intro"] == "Hi."
+    assert e["champions"] == [{"name": "Ziggs", "changes": ["Damage Taken: 120% ⇒ 110%"]}]
+    assert e["augments"][0] == {"name": "Fortified", "changes": ["NEW Effect: Gain 20 Armor."]}
+    assert e["augments"][1]["name"] == "Bouncing Bees"
+    assert pn.schedule_date("16.23") == "2026-11-18"

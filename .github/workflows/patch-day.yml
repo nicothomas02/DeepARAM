@@ -51,6 +51,11 @@ jobs:
           # and refresh the Guide's English keys (new labels still need translating before tests pass)
           python3 web/scripts/fetch_assets.py
           python3 guide/i18n_keys.py
+      - name: Add the new patch's ARAM Mayhem notes
+        if: steps.check.outputs.status == 'ready'
+        # Old-patch data fades faster for augments and champions these notes changed (data/aramhex/common.py,
+        # web/src/lib/pool-change.ts). If the page isn't up yet the saved notes stay; re-run by hand later.
+        run: python3 data/official/patch_notes.py "${{ steps.check.outputs.version }}" || echo "::warning::Mayhem patch notes not added; run data/official/patch_notes.py by hand"
       - name: Refresh the Infinite Ryze, Ashe, Zilean, Karma and Graves calculators and Region Teams for the new patch
         if: steps.check.outputs.status == 'ready'
         run: |
