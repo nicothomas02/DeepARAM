@@ -5,12 +5,18 @@ The pairs come from confirmed mechanics (Ethereal Weapon + Mystic Punch...), not
 2026-11-25: prune the pairs that show no lift as data grows.
 
 Test per pair, on every archived player (the owner's games included; augments are the game's, not a habit): an
-interaction contrast within champions, I = both - A only - B only + neither, on damage to champions per minute and
-on wins, each standardised within the champion. A pair that feeds itself should land above what its two augments
-add alone. Correlational and estimated: players who hold both may differ in other ways.
+interaction contrast within champions, I = both - A only - B only + neither, on three outcomes, each standardised
+within the champion: the win, the player's share of their team's damage to champions, and deaths per minute
+(sign flipped). The lead is their mean. A pair that feeds itself should land above what its two augments add alone.
+Correlational and estimated: players who hold both may differ in other ways.
+
+Why these three (research/calibration, 2026-11-27): on 2,645 champion x augment cells of the archive, the holders'
+mean of (win + damage share - deaths) / 3 tracks the public win-rate lead of that augment on that champion with
+r 0.27, against 0.13 for the win alone and 0.22 for the old (damage per minute + win) / 2. Damage share beats damage
+per minute because it removes the game's pace, which all ten players share.
 
 Verdict per pair:
-  prune     >= MIN_BOTH holders of both and the interaction clearly the wrong way (mean of the two z <= Z_PRUNE for a
+  prune     >= MIN_BOTH holders of both and the interaction clearly the wrong way (mean of the three z <= Z_PRUNE for a
             pair that helps; >= -Z_PRUNE for a pair marked as clashing)
   keep      enough holders and not clearly the wrong way
 
@@ -48,10 +54,15 @@ def rows(archive):
         except (OSError, ValueError):
             continue
         mins = max(1.0, g.get("gameDuration", 0) / 60)
+        team_dmg = collections.Counter()
+        for p in g["participants"]:
+            team_dmg[p["teamId"]] += p["stats"].get("totalDamageDealtToChampions", 0)
         for p in g["participants"]:
             s = p["stats"]
             out.append({"champ": p["championId"], "augs": {s.get(f"playerAugment{i}") for i in range(1, 7)} - {0, None},
-                        "win": 1 if s.get("win") else 0, "dpm": s.get("totalDamageDealtToChampions", 0) / mins})
+                        "win": 1 if s.get("win") else 0,
+                        "dmg_share": s.get("totalDamageDealtToChampions", 0) / (team_dmg[p["teamId"]] or 1),
+                        "deaths": s.get("deaths", 0) / mins})
     return out
 
 
@@ -80,7 +91,7 @@ def main():
     for r in data:
         by[r["champ"]].append(r)
     for rs in by.values():
-        for key in ("dpm", "win"):
+        for key in ("win", "dmg_share", "deaths"):
             m = sum(r[key] for r in rs) / len(rs)
             sd = math.sqrt(sum((r[key] - m) ** 2 for r in rs) / max(1, len(rs) - 1)) or 1
             for r in rs:
@@ -95,16 +106,17 @@ def main():
         # only the champions that ever took both, so the contrast compares like with like
         champs = {r["champ"] for r in data if a in r["augs"] and b in r["augs"]}
         rs = [r for r in data if r["champ"] in champs]
-        zd, n = contrast(rs, a, b, "dpm_z")
-        zw, _ = contrast(rs, a, b, "win_z")
-        lead = round((zd + zw) / 2, 2) if zd is not None and zw is not None else None
+        zw, n = contrast(rs, a, b, "win_z")
+        zd, _ = contrast(rs, a, b, "dmg_share_z")
+        zx, _ = contrast(rs, a, b, "deaths_z")
+        lead = round((zw + zd - zx) / 3, 2) if None not in (zw, zd, zx) else None
         if n < MIN_BOTH or lead is None:
             verdict = "too few"
         elif sign * lead <= Z_PRUNE:
             verdict = "prune"
         else:
             verdict = "keep"
-        out.append({"a": p["a"], "b": p["b"], "ids": [a, b], "points": p.get("points"), "both": n, "z_dpm": zd, "z_win": zw,
+        out.append({"a": p["a"], "b": p["b"], "ids": [a, b], "points": p.get("points"), "both": n, "z_win": zw, "z_dmg_share": zd, "z_deaths": zx,
                     "z_lead": lead, "verdict": verdict})
     res = {"min_both": MIN_BOTH, "z_prune": Z_PRUNE, "players": len(data), "pairs": out}
     with open(OUT, "w", encoding="utf-8") as f:
