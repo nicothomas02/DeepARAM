@@ -1338,6 +1338,103 @@ h1 {
   color: var(--muted);
 }
 
+/* Methodology > Research tab: case studies and the track record */
+.research {
+  display: grid;
+  gap: 1rem;
+}
+
+.research-head {
+  margin: 0.5rem 0 0;
+  font-size: 1.25rem;
+}
+
+.research-study h4 {
+  margin: 0.9rem 0 0.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg);
+}
+
+.research-note {
+  font-size: 0.875rem;
+}
+
+.research-table-wrap {
+  overflow-x: auto;
+}
+
+.research-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.research-table th,
+.research-table td {
+  padding: 0.35rem 0.6rem 0.35rem 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.research-table th {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.research-bars {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.6rem 0 0.4rem;
+  max-width: 60ch;
+}
+
+.research-bars figcaption {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.research-bar {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) 1fr 3.5rem;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.875rem;
+}
+
+.research-bar b {
+  font: 600 0.875rem/1 var(--mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.research-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgb(var(--muted-rgb) / 0.15);
+  overflow: hidden;
+}
+
+.research-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: rgb(var(--muted-rgb) / 0.55);
+}
+
+.research-fill.lead {
+  background: var(--accent);
+}
+
+@media (max-width: 520px) {
+  .research-bar {
+    grid-template-columns: 6.5rem 1fr 3rem;
+  }
+}
+
 @keyframes rise {
   from {
     opacity: 0;

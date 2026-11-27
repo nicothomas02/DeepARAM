@@ -2,21 +2,58 @@ import type { Metadata } from "next";
 import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";
 import ResearchStudies from "@/components/ResearchStudies";
+import SubTabs from "@/components/SubTabs";
 import { pageMeta } from "@/lib/meta";
-import { damageDealtWorth, doseResponse, itemLiftSummary, pbeForecast, playstyleClusters, predictiveBacktest, typicalSettling } from "@/lib/analysis";
+import {
+  damageDealtWorth,
+  doseResponse,
+  itemLiftSummary,
+  pbeForecast,
+  playstyleClusters,
+  predictiveBacktest,
+  typicalSettling,
+} from "@/lib/analysis";
 
 export const metadata: Metadata = pageMeta(
   "/methodology",
   "Methodology",
-  "How DeepARAM's win rates, DeepScore tiers, estimates and Simulator work, in plain words.",
+  "How DeepARAM's win rates, DeepScore tiers, estimates and Simulator work, in plain words, and the research behind them: backtests, causal checks and a public track record.",
 );
 
 // How the numbers are made, in plain words (Nico's data-science plan, 2026-11-06). Methods only: never where
 // the data comes from or what runs the site (site rule); the full pipeline write-up is docs/methodology.md in
 // the repo. Add a section here when a new method ships (synergy finder, win model, confidence intervals).
+// Two tabs (2026-11-27): "How it works" (this article) and "Research" (?tab=research, where /research lands): the
+// case studies and the track record, one page as Nico chose on 2026-11-24, with its own address for a portfolio.
 const NS = "methodology";
 
 export default function Methodology() {
+  return (
+    <>
+      <Intro
+        eyebrow={<T ns={NS}>Methodology</T>}
+        title={<T ns={NS}>How DeepARAM turns games into rankings.</T>}
+      >
+        <T ns={NS}>
+          The ideas behind the numbers on every page, in plain words. When a
+          number is a guess rather than a count, the page says so.
+        </T>{" "}
+        <T ns={NS}>
+          The Research tab has the tests behind them and our track record.
+        </T>
+      </Intro>
+      <SubTabs
+        ns={NS}
+        tabs={[
+          { id: "how", label: "How it works", content: <HowItWorks /> },
+          { id: "research", label: "Research", content: <ResearchStudies /> },
+        ]}
+      />
+    </>
+  );
+}
+
+function HowItWorks() {
   const worth = damageDealtWorth();
   const dose = doseResponse();
   const settling = typicalSettling();
@@ -24,210 +61,345 @@ export default function Methodology() {
   const model = pbeForecast()?.model;
   const lift = itemLiftSummary();
   const ahead = predictiveBacktest();
-  const pct = (x: number | null | undefined) => (x === null || x === undefined ? "" : Math.round(100 * x));
+  const pct = (x: number | null | undefined) =>
+    x === null || x === undefined ? "" : Math.round(100 * x);
   return (
-    <>
-      <Intro eyebrow={<T ns={NS}>Methodology</T>} title={<T ns={NS}>How DeepARAM turns games into rankings.</T>}>
-        <T ns={NS}>The ideas behind the numbers on every page, in plain words. When a number is a guess rather than a count, the page says so.</T>
-      </Intro>
-      <article className="card prose">
-        <h2>
-          <T ns={NS}>Win rate and sample size</T>
-        </h2>
-        <p>
+    <article className="card prose">
+      <h2>
+        <T ns={NS}>Win rate and sample size</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          A win rate from a handful of games is mostly luck, but most win rates
+          here rest on so many games that luck is small. The bigger unknown is
+          the next patch, because the game keeps moving. So DeepARAM ranks
+          champions, augments, boots and starting items on what they are
+          expected to win next patch, with settings fitted on how win rates
+          moved between past patches. Lists without enough history yet, such as
+          full builds, are still pulled toward their average, harder the fewer
+          games they have.
+        </T>
+      </p>
+      <h2>
+        <T ns={NS}>DeepScore</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          DeepScore turns that adjusted win rate into one rating from 0 to 100,
+          where 50 is average.
+        </T>
+      </p>
+      <ul>
+        <li>
           <T ns={NS}>
-            A win rate from a handful of games is mostly luck, but most win rates here rest on so many games that luck is small. The bigger unknown is the next patch, because the game keeps moving. So DeepARAM ranks champions, augments, boots and starting items on what they are expected to win next patch, with settings fitted on how win rates moved between past patches. Lists without enough history yet, such as full builds, are still pulled toward their average, harder the fewer games they have.
+            Prediction: the score uses the low end of the expected win rate next
+            patch, one typical miss below it, so a pick is only rated highly
+            when its edge is likely to last.
+          </T>
+        </li>
+        <li>
+          <T ns={NS}>
+            Recency: when several patches are combined, newer patches count for
+            more.
+          </T>
+        </li>
+        <li>
+          <T ns={NS}>
+            Spread: scores are measured against the rest of the list, 15 points
+            per standard deviation, so a tier keeps its meaning as averages
+            drift.
+          </T>
+        </li>
+        <li>
+          <T ns={NS}>
+            Tiers: S, A, B, C and D are cut at fixed distances from average,
+            which keeps them balanced from patch to patch.
+          </T>
+        </li>
+      </ul>
+      <h2>
+        <T ns={NS}>Predicting next patch</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          Every past patch is a test: each champion&apos;s win rate is used to
+          predict its final win rate one patch later. The settings are fitted
+          only on the patches before the one being predicted and then scored on
+          it, so the test never sees its answer. Three things came out of it:
+          almost all of a champion&apos;s lead over the average carries over to
+          the next patch, but not quite all; older patches add nothing once the
+          latest one is known; and a rarely picked champion&apos;s lead carries
+          over as well as a popular one&apos;s, so DeepScore no longer marks
+          rare picks down for being rare.
+        </T>
+      </p>
+      {ahead && (
+        <p>
+          <T
+            ns={NS}
+            v={{
+              n: ahead.transitions,
+              carry: Math.round(100 * ahead.carry),
+              mae: ahead.fitted.mae_pts.toFixed(2),
+              old: ahead.current.mae_pts.toFixed(2),
+              tiers: pct(ahead.fitted.tier_match),
+              oldTiers: pct(ahead.current.tier_match),
+              r80: (100 * ahead.range80).toFixed(1),
+              c80: pct(ahead.fitted.coverage?.["80"]),
+              c95: pct(ahead.fitted.coverage?.["95"]),
+            }}
+          >
+            {
+              "Over {n} patches: about {carry}% of a lead carried over; the typical miss was {mae} points, against {old} for the old rule; and the predicted tier matched next patch's tier {tiers}% of the time, against {oldTiers}%. The 80% range, about ±{r80} points, held {c80}% of the time and the 95% range {c95}%."
+            }
           </T>
         </p>
-        <h2>
-          <T ns={NS}>DeepScore</T>
-        </h2>
+      )}
+      {ahead?.samplingCoverage != null && (
         <p>
-          <T ns={NS}>DeepScore turns that adjusted win rate into one rating from 0 to 100, where 50 is average.</T>
-        </p>
-        <ul>
-          <li>
-            <T ns={NS}>Prediction: the score uses the low end of the expected win rate next patch, one typical miss below it, so a pick is only rated highly when its edge is likely to last.</T>
-          </li>
-          <li>
-            <T ns={NS}>Recency: when several patches are combined, newer patches count for more.</T>
-          </li>
-          <li>
-            <T ns={NS}>Spread: scores are measured against the rest of the list, 15 points per standard deviation, so a tier keeps its meaning as averages drift.</T>
-          </li>
-          <li>
-            <T ns={NS}>Tiers: S, A, B, C and D are cut at fixed distances from average, which keeps them balanced from patch to patch.</T>
-          </li>
-        </ul>
-        <h2>
-          <T ns={NS}>Predicting next patch</T>
-        </h2>
-        <p>
-          <T ns={NS}>
-            Every past patch is a test: each champion&apos;s win rate is used to predict its final win rate one patch later. The settings are fitted only on the patches before the one being predicted and then scored on it, so the test never sees its answer. Three things came out of it: almost all of a champion&apos;s lead over the average carries over to the next patch, but not quite all; older patches add nothing once the latest one is known; and a rarely picked champion&apos;s lead carries over as well as a popular one&apos;s, so DeepScore no longer marks rare picks down for being rare.
+          <T ns={NS} v={{ s: pct(ahead.samplingCoverage) }}>
+            {
+              "A range built from game counts alone would have held next patch's win rate only {s}% of the time at 95%: from patch to patch the game drifts far more than luck can explain. That is why the Tier List shows a Next patch range rather than a sampling range."
+            }
           </T>
         </p>
-        {ahead && (
-          <p>
-            <T
-              ns={NS}
-              v={{
-                n: ahead.transitions,
-                carry: Math.round(100 * ahead.carry),
-                mae: ahead.fitted.mae_pts.toFixed(2),
-                old: ahead.current.mae_pts.toFixed(2),
-                tiers: pct(ahead.fitted.tier_match),
-                oldTiers: pct(ahead.current.tier_match),
-                r80: (100 * ahead.range80).toFixed(1),
-                c80: pct(ahead.fitted.coverage?.["80"]),
-                c95: pct(ahead.fitted.coverage?.["95"]),
-              }}
-            >
-              {"Over {n} patches: about {carry}% of a lead carried over; the typical miss was {mae} points, against {old} for the old rule; and the predicted tier matched next patch's tier {tiers}% of the time, against {oldTiers}%. The 80% range, about ±{r80} points, held {c80}% of the time and the 95% range {c95}%."}
-            </T>
-          </p>
-        )}
-        {ahead?.samplingCoverage != null && (
-          <p>
-            <T ns={NS} v={{ s: pct(ahead.samplingCoverage) }}>
-              {"A range built from game counts alone would have held next patch's win rate only {s}% of the time at 95%: from patch to patch the game drifts far more than luck can explain. That is why the Tier List shows a Next patch range rather than a sampling range."}
-            </T>
-          </p>
-        )}
-        <h2>
-          <T ns={NS}>Augments and pick bias</T>
-        </h2>
+      )}
+      <h2>
+        <T ns={NS}>Augments and pick bias</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          Strong champions take some augments more often, which can make those
+          augments look better than they are. To correct for that, an
+          augment&apos;s win rate is compared with what the champions who take
+          it win anyway, so it only scores well if it beats what its usual
+          players would win without it. Augments are ranked against others of
+          the same rarity, since a selection only ever offers one rarity.
+        </T>
+      </p>
+      <h2>
+        <T ns={NS}>Win rate boost</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          Win rate boost is how much more a pick wins than the rate it is
+          compared with, in percentage points (pts): +2 pts turns 50% into 52%.
+        </T>
+      </p>
+      <h2>
+        <T ns={NS}>Estimated numbers</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          Some numbers can&apos;t be counted game by game. They are worked out
+          from the stats that can, and every page marks them as estimated. Treat
+          them as a good guide, not a measurement.
+        </T>
+      </p>
+      <h2>
+        <T ns={NS}>The Simulator</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          The Simulator plays out fights with the game&apos;s own champion, item
+          and ability numbers. It is a model, not a replay: good for comparing
+          builds and spotting big gaps, and it can be off where the game has
+          special cases. Anything built from it, such as simulated builds and
+          upgrade picks, is labelled as simulated.
+        </T>
+      </p>
+      <h2>
+        <T ns={NS}>Did a patch change work?</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          Each champion change in the patch notes is judged with a difference in
+          differences: the champion&apos;s win-rate change from the previous
+          patch, minus the change every untouched champion made at the same
+          time. That removes shifts the whole list made, such as a new augment
+          pool. The spread of the untouched champions&apos; changes is the noise
+          floor: a change only counts as having worked when the champion moved
+          further than an unchanged one typically does.
+        </T>
+      </p>
+      {worth && dose?.buffs && dose.nerfs && (
         <p>
-          <T ns={NS}>
-            Strong champions take some augments more often, which can make those augments look better than they are. To correct for that, an augment&apos;s win rate is compared with what the champions who take it win anyway, so it only scores well if it beats what its usual players would win without it. Augments are ranked against others of the same rarity, since a selection only ever offers one rarity.
+          <T
+            ns={NS}
+            v={{
+              n: worth.n,
+              pts: worth.pts.toFixed(1),
+              lo: worth.ci[0].toFixed(1),
+              hi: worth.ci[1].toFixed(1),
+              buffs: Math.round(100 * (dose.buffs.share_positive ?? 0)),
+              nerfs: Math.round(100 * (dose.nerfs.share_negative ?? 0)),
+            }}
+          >
+            {
+              "Across {n} changes so far, a 5% damage-dealt modifier is worth about {pts} win-rate points (likely range {lo} to {hi}); {buffs}% of buffs and {nerfs}% of nerfs moved the champion the intended way beyond noise."
+            }
           </T>
         </p>
-        <h2>
-          <T ns={NS}>Win rate boost</T>
-        </h2>
+      )}
+      <h2>
+        <T ns={NS}>How fast a patch settles</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          The daily stats add up every game since the patch began, so each
+          day&apos;s ranking is compared with the patch&apos;s final one. A
+          champion whose later games go far better or worse than its earlier
+          ones, well beyond what the rest of the list did the same day, is
+          flagged as a mid-patch shift: a hotfix, or a trick players found. The
+          day split assumes games are spread evenly over the patch, so treat a
+          single flag as a lead, not proof.
+        </T>
+      </p>
+      {settling && settling.spearman.length > 0 && (
         <p>
-          <T ns={NS}>Win rate boost is how much more a pick wins than the rate it is compared with, in percentage points (pts): +2 pts turns 50% into 52%.</T>
-        </p>
-        <h2>
-          <T ns={NS}>Estimated numbers</T>
-        </h2>
-        <p>
-          <T ns={NS}>Some numbers can&apos;t be counted game by game. They are worked out from the stats that can, and every page marks them as estimated. Treat them as a good guide, not a measurement.</T>
-        </p>
-        <h2>
-          <T ns={NS}>The Simulator</T>
-        </h2>
-        <p>
-          <T ns={NS}>
-            The Simulator plays out fights with the game&apos;s own champion, item and ability numbers. It is a model, not a replay: good for comparing builds and spotting big gaps, and it can be off where the game has special cases. Anything built from it, such as simulated builds and upgrade picks, is labelled as simulated.
+          <T
+            ns={NS}
+            v={{
+              pct: Math.round(100 * settling.spearman[0]),
+              pts: settling.mad_pts[0].toFixed(2),
+            }}
+          >
+            {
+              "A typical patch's day-one ranking already matches {pct}% of its final order, {pts} points off on average."
+            }
           </T>
         </p>
-        <h2>
-          <T ns={NS}>Did a patch change work?</T>
-        </h2>
+      )}
+      <h2>
+        <T ns={NS}>Playstyles</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          Champions are grouped by how their Mayhem games go rather than by
+          class: share of the team&apos;s damage, damage soaked, kill
+          participation, time dead and which augments they take, averaged over
+          recent patches. The groups come from k-means clustering (the number of
+          groups picked by silhouette score) and a two-axis map from principal
+          components. A champion whose class is rare in its group is marked as
+          playing unlike its class.
+        </T>
+      </p>
+      {clusters && (
         <p>
-          <T ns={NS}>
-            Each champion change in the patch notes is judged with a difference in differences: the champion&apos;s win-rate change from the previous patch, minus the change every untouched champion made at the same time. That removes shifts the whole list made, such as a new augment pool. The spread of the untouched champions&apos; changes is the noise floor: a change only counts as having worked when the champion moved further than an unchanged one typically does.
+          <T ns={NS} v={{ k: clusters.k, s: clusters.silhouette.toFixed(2) }}>
+            {
+              "Currently {k} groups (silhouette {s}: the groups are broad, not sharp)."
+            }
           </T>
         </p>
-        {worth && dose?.buffs && dose.nerfs && (
-          <p>
-            <T
-              ns={NS}
-              v={{ n: worth.n, pts: worth.pts.toFixed(1), lo: worth.ci[0].toFixed(1), hi: worth.ci[1].toFixed(1), buffs: Math.round(100 * (dose.buffs.share_positive ?? 0)), nerfs: Math.round(100 * (dose.nerfs.share_negative ?? 0)) }}
-            >
-              {"Across {n} changes so far, a 5% damage-dealt modifier is worth about {pts} win-rate points (likely range {lo} to {hi}); {buffs}% of buffs and {nerfs}% of nerfs moved the champion the intended way beyond noise."}
-            </T>
-          </p>
-        )}
-        <h2>
-          <T ns={NS}>How fast a patch settles</T>
-        </h2>
+      )}
+      <h2>
+        <T ns={NS}>Expected effect of a test-server change</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          A regression fitted on the measured effects of past patch-note changes
+          (size of each Mayhem modifier change, summed ability changes) predicts
+          what a listed change should do before it ships. It is checked by
+          leaving each past patch out in turn and predicting it, and reported
+          against the simplest guesses: no change at all, and the average buff
+          or nerf. The test-server page shows it only while it beats them.
+        </T>
+      </p>
+      {model?.cv_mae_pts && model.baseline_no_change_mae_pts && (
         <p>
-          <T ns={NS}>
-            The daily stats add up every game since the patch began, so each day&apos;s ranking is compared with the patch&apos;s final one. A champion whose later games go far better or worse than its earlier ones, well beyond what the rest of the list did the same day, is flagged as a mid-patch shift: a hotfix, or a trick players found. The day split assumes games are spread evenly over the patch, so treat a single flag as a lead, not proof.
+          <T
+            ns={NS}
+            v={{
+              n: model.n,
+              mae: model.cv_mae_pts.toFixed(1),
+              base: model.baseline_no_change_mae_pts.toFixed(1),
+            }}
+          >
+            {
+              "Fitted on {n} changes; typical miss {mae} points, against {base} for assuming no change."
+            }
           </T>
         </p>
-        {settling && settling.spearman.length > 0 && (
-          <p>
-            <T ns={NS} v={{ pct: Math.round(100 * settling.spearman[0]), pts: settling.mad_pts[0].toFixed(2) }}>
-              {"A typical patch's day-one ranking already matches {pct}% of its final order, {pts} points off on average."}
-            </T>
-          </p>
-        )}
-        <h2>
-          <T ns={NS}>Playstyles</T>
-        </h2>
+      )}
+      <h2>
+        <T ns={NS}>Item boosts without the long-game effect</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          Item win rates come from builds players finished, so each one carries
+          the same effect of the game having run long enough to finish a build.
+          The usual boost compares the item with the champion&apos;s overall win
+          rate, which mixes that in. The item pages also show a boost measured
+          against the same champion&apos;s other finished builds, so the item is
+          judged against builds that were completed under the same conditions.
+          Legendary items are ranked both ways and the ones that move far are
+          the ones the finished-build effect flattered or hid.
+        </T>
+      </p>
+      {lift && lift.premium.share_positive !== null && (
         <p>
-          <T ns={NS}>
-            Champions are grouped by how their Mayhem games go rather than by class: share of the team&apos;s damage, damage soaked, kill participation, time dead and which augments they take, averaged over recent patches. The groups come from k-means clustering (the number of groups picked by silhouette score) and a two-axis map from principal components. A champion whose class is rare in its group is marked as playing unlike its class.
+          <T
+            ns={NS}
+            v={{
+              n: lift.premium.champions,
+              mean: lift.premium.mean.toFixed(1),
+              sd: lift.premium.sd.toFixed(1),
+              pos: pct(lift.premium.share_positive),
+              moved: lift.moved,
+              ranked: lift.ranked,
+            }}
+          >
+            {
+              "Across {n} champions a finished build wins {mean} points more than the champion overall on average, but that varies by {sd} points from champion to champion ({pos}% of them finish builds in better games), which is why the comparison matters per item: {moved} of {ranked} legendary items move ten places or more between the two rankings."
+            }
           </T>
         </p>
-        {clusters && (
-          <p>
-            <T ns={NS} v={{ k: clusters.k, s: clusters.silhouette.toFixed(2) }}>{"Currently {k} groups (silhouette {s}: the groups are broad, not sharp)."}</T>
-          </p>
-        )}
-        <h2>
-          <T ns={NS}>Expected effect of a test-server change</T>
-        </h2>
-        <p>
-          <T ns={NS}>
-            A regression fitted on the measured effects of past patch-note changes (size of each Mayhem modifier change, summed ability changes) predicts what a listed change should do before it ships. It is checked by leaving each past patch out in turn and predicting it, and reported against the simplest guesses: no change at all, and the average buff or nerf. The test-server page shows it only while it beats them.
-          </T>
-        </p>
-        {model?.cv_mae_pts && model.baseline_no_change_mae_pts && (
-          <p>
-            <T ns={NS} v={{ n: model.n, mae: model.cv_mae_pts.toFixed(1), base: model.baseline_no_change_mae_pts.toFixed(1) }}>
-              {"Fitted on {n} changes; typical miss {mae} points, against {base} for assuming no change."}
-            </T>
-          </p>
-        )}
-        <h2>
-          <T ns={NS}>Item boosts without the long-game effect</T>
-        </h2>
-        <p>
-          <T ns={NS}>
-            Item win rates come from builds players finished, so each one carries the same effect of the game having run long enough to finish a build. The usual boost compares the item with the champion&apos;s overall win rate, which mixes that in. The item pages also show a boost measured against the same champion&apos;s other finished builds, so the item is judged against builds that were completed under the same conditions. Legendary items are ranked both ways and the ones that move far are the ones the finished-build effect flattered or hid.
-          </T>
-        </p>
-        {lift && lift.premium.share_positive !== null && (
-          <p>
-            <T ns={NS} v={{ n: lift.premium.champions, mean: lift.premium.mean.toFixed(1), sd: lift.premium.sd.toFixed(1), pos: pct(lift.premium.share_positive), moved: lift.moved, ranked: lift.ranked }}>
-              {"Across {n} champions a finished build wins {mean} points more than the champion overall on average, but that varies by {sd} points from champion to champion ({pos}% of them finish builds in better games), which is why the comparison matters per item: {moved} of {ranked} legendary items move ten places or more between the two rankings."}
-            </T>
-          </p>
-        )}
-        <h2>
-          <T ns={NS}>Few games and ranges</T>
-        </h2>
-        <p>
-          <T ns={NS}>
-            Every win rate counted from games carries a 95% range: the true rate is inside it 95% of the time. When that range is wider than 5 points either way, the page tags the win rate Few games, and under 10 games Too few games. In the Detailed view the ± range is shown next to the number. That range covers this patch&apos;s games only; the Tier List&apos;s Next patch column adds the expected win rate next patch and, in the Detailed view, the range it lands in 4 times out of 5.
-          </T>
-        </p>
-        <h2>
-          <T ns={NS}>Synergies</T>
-        </h2>
-        <p>
-          <T ns={NS}>
-            Synergies score how well starting items, boots, builds and augments fit each champion. Rare choices that beat a champion&apos;s usual picks look like finds, but only about 55 to 60% of a rare lead carries over to the next patch, so the expected value leans on that carry-over when games are few. In a check on champions the model hadn&apos;t seen, it predicted next patch&apos;s lead better than the raw lead did. Augments get a score in points, never a win rate.
-          </T>
-        </p>
-        <h2>
-          <T ns={NS}>What the numbers can&apos;t tell you</T>
-        </h2>
-        <p>
-          <T ns={NS}>A win rate says how often a pick wins, not why. Small samples, playstyle and who tends to pick what all move it. Use the rankings to find ideas, then test them in your own games.</T>
-        </p>
-        <h2>
-          <T ns={NS}>More to come</T>
-        </h2>
-        <p>
-          <T ns={NS}>New methods are added here as they ship.</T>
-        </p>
-      </article>
-      <ResearchStudies />
-    </>
+      )}
+      <h2>
+        <T ns={NS}>Few games and ranges</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          Every win rate counted from games carries a 95% range: the true rate
+          is inside it 95% of the time. When that range is wider than 5 points
+          either way, the page tags the win rate Few games, and under 10 games
+          Too few games. In the Detailed view the ± range is shown next to the
+          number. That range covers this patch&apos;s games only; the Tier
+          List&apos;s Next patch column adds the expected win rate next patch
+          and, in the Detailed view, the range it lands in 4 times out of 5.
+        </T>
+      </p>
+      <h2>
+        <T ns={NS}>Synergies</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          Synergies score how well starting items, boots, builds and augments
+          fit each champion. Rare choices that beat a champion&apos;s usual
+          picks look like finds, but only about 55 to 60% of a rare lead carries
+          over to the next patch, so the expected value leans on that carry-over
+          when games are few. In a check on champions the model hadn&apos;t
+          seen, it predicted next patch&apos;s lead better than the raw lead
+          did. Augments get a score in points, never a win rate.
+        </T>
+      </p>
+      <h2>
+        <T ns={NS}>What the numbers can&apos;t tell you</T>
+      </h2>
+      <p>
+        <T ns={NS}>
+          A win rate says how often a pick wins, not why. Small samples,
+          playstyle and who tends to pick what all move it. Use the rankings to
+          find ideas, then test them in your own games.
+        </T>
+      </p>
+      <h2>
+        <T ns={NS}>More to come</T>
+      </h2>
+      <p>
+        <T ns={NS}>New methods are added here as they ship.</T>
+      </p>
+    </article>
   );
 }

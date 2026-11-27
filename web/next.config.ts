@@ -72,8 +72,9 @@ const nextConfig: NextConfig = {
       ["/account/simulator", "/simulator"],
       // My Stats moved onto the account page, then to the desktop apps (2026-11-24).
       ["/stats", "/account"],
-      // Research is part of the Methodology page; Region Teams was removed (Nico, 2026-11-24: cut bloat).
-      ["/research", "/methodology#research"],
+      // Research is the Methodology page's Research tab (one page since 2026-11-24, its own tab since 2026-11-27);
+      // Region Teams was removed (Nico, 2026-11-24: cut bloat).
+      ["/research", "/methodology?tab=research"],
       ["/info/region-teams", "/info"],
     ]
       .map(([source, destination]) => ({ source, destination, permanent: true }))
