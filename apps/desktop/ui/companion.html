@@ -217,6 +217,9 @@
   // moment the offer changes, and showReview({points, turns, ffFrom, result}) after it. In game the build is the focus;
   // the owner's chance to win and surrender call sit small under it, and the chart over the game waits for the review.
   const SITE = "https://deeparam.com";
+  // The app's answer to a question the page asks it (the window), or the same answer over Wi-Fi (the owner's phone
+  // companion, src-tauri/src/phone.rs, which has no app calls of its own).
+  const appAsk = (cmd) => (window.__TAURI_INTERNALS__ ? window.__TAURI_INTERNALS__.invoke(cmd) : window.phoneInvoke ? window.phoneInvoke(cmd) : Promise.reject());
   const view = document.getElementById("view");
   const pct = (p) => `${Math.round(p * 100)}%`;
   const pts = (n) => (Math.abs(n) < 0.0005 ? "0.0" : `${n > 0 ? "+" : "−"}${Math.abs(n * 100).toFixed(1)}`);
@@ -288,8 +291,7 @@
   let myRec = null, myRecAt = 0;
   const loadRecord = async () => {
     if (myRec && Date.now() - myRecAt < 10 * 60e3) return myRec;
-    const inv = window.__TAURI_INTERNALS__?.invoke;
-    const r = inv ? await inv("my_record").catch(() => null) : null;
+    const r = await appAsk("my_record").catch(() => null);
     myRec = new Map((r?.champions ?? []).map(([id, n, w]) => [id, { n, w }]));
     myRecAt = Date.now();
     return myRec;
@@ -320,7 +322,7 @@
     return sp.length === 2 && f >= 0 && f !== want ? [sp[1], sp[0]] : sp;
   }
   window.setFlashKey = (k) => { flashKey = k === "F" ? "F" : "D"; renderQuick(); };
-  window.__TAURI_INTERNALS__?.invoke("flash_key").then((k) => window.setFlashKey(k)).catch(() => {});
+  appAsk("flash_key").then((k) => window.setFlashKey(k)).catch(() => {});
 
   function gameSettings(ap, me) {
     const ck = me ? keyIn(ap?.champions, me) : undefined;
@@ -1022,6 +1024,26 @@
       renderItems();
     }
   });
+  // The phone companion (owner's PC, src-tauri/src/phone.rs) takes the window's settings, so both recommend the same:
+  // the window reports them when it opens and on every switch; the phone applies them as they come.
+  const prefsNow = () => ({ lucky, bracket, ownedOnly, onlyPatch });
+  const sendPrefs = () => window.__TAURI_INTERNALS__?.invoke("companion_prefs", { prefs: prefsNow() }).catch(() => {});
+  sendPrefs();
+  document.addEventListener("click", (e) => { if (e.target.closest?.(".chip.pt, .chip.own, .chip.br, .chip.lucky")) sendPrefs(); });
+  window.applyPrefs = (p) => {
+    if (!p || typeof p !== "object") return;
+    const was = JSON.stringify(prefsNow());
+    if (typeof p.lucky === "boolean") lucky = p.lucky;
+    if (typeof p.ownedOnly === "boolean") ownedOnly = p.ownedOnly;
+    if (typeof p.onlyPatch === "boolean") onlyPatch = p.onlyPatch;
+    if (typeof p.bracket === "string") bracket = p.bracket;
+    if (JSON.stringify(prefsNow()) === was) return;
+    try {
+      localStorage.setItem("lucky", lucky ? "1" : "0"); localStorage.setItem("ownedOnly", ownedOnly ? "1" : "0");
+      localStorage.setItem("patchOnly", onlyPatch ? "1" : "0"); localStorage.setItem("bracket", bracket);
+    } catch {}
+    if (game) { renderAugments(); renderItems(); } else if (lastPick && document.querySelector(".chip.br, .chip.own")) window.showPick(lastPick);
+  };
   // The page rules also drop style="" attributes (Tauri's nonce turns off 'unsafe-inline'), which left the bars
   // empty: widths and colors ride in data-style and are set from script, which the rules allow.
   const restyle = (el) => { el.style.cssText = el.dataset.style; el.removeAttribute("data-style"); };
@@ -1059,7 +1081,12 @@
     hoverCard.style.left = `${Math.max(8, Math.min(W - r.width - 8, x + 14))}px`;
     hoverCard.style.top = `${y + 18 + r.height > H ? Math.max(8, y - r.height - 12) : y + 18}px`;
   }
+  // Touch screens also fake mouse moves around a tap (in and out again): those are left to the tap handling below.
+  let touchAt = 0;
+  document.addEventListener("pointerdown", (e) => { if (e.pointerType === "touch") touchAt = Date.now(); }, true);
+  const fromTouch = () => Date.now() - touchAt < 1000;
   document.addEventListener("mouseover", (e) => {
+    if (fromTouch()) return;
     const img = e.target.closest?.("img");
     if (img === hvEl) return;
     hideCard();
@@ -1069,7 +1096,20 @@
     const [kind, id] = m[1] ? ["items", Number(m[1]) % 10000] : ["augments", Number(m[2])];
     hvT = setTimeout(() => showCard(img, kind, id, e.clientX, e.clientY), 300);
   });
-  document.addEventListener("mouseout", (e) => { if (e.target === hvEl && !hvEl.contains(e.relatedTarget)) hideCard(); });
+  document.addEventListener("mouseout", (e) => { if (!fromTouch() && e.target === hvEl && !hvEl.contains(e.relatedTarget)) hideCard(); });
+  // A touch screen has no pointing (the phone companion): a tap on an item or augment shows its card at once, a
+  // second tap or a tap anywhere else hides it.
+  document.addEventListener("pointerup", (e) => {
+    if (e.pointerType !== "touch") return;
+    const img = e.target.closest?.("img");
+    const m = img && /\/img\/item\/(\d+)\.png|\/icons\/augments\/(\d+)\.webp/.exec(img.src);
+    const again = img === hvEl && !hoverCard.hidden;
+    hideCard();
+    if (!m || again) return;
+    hvEl = img;
+    const [kind, id] = m[1] ? ["items", Number(m[1]) % 10000] : ["augments", Number(m[2])];
+    showCard(img, kind, id, e.clientX, e.clientY);
+  });
   addEventListener("blur", hideCard);
 
   new MutationObserver((list) => { for (const m of list) for (const n of m.addedNodes) if (n.nodeType === 1) {
