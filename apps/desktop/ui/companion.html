@@ -204,6 +204,8 @@
   @media (min-width: 1000px) { .hero { min-height: 220px; padding: 24px 28px; } .hero .title { font-size: 34px; } .hero > img { width: 72px; height: 72px; }
     .hero.slim { min-height: 0; padding: 12px 20px; } .hero.slim .title { font-size: 24px; } .hero.slim > img { width: 48px; height: 48px; } }
   [hidden] { display: none !important; }
+  #bestBox { margin-top: 14px; } #augFind { width: 100%; box-sizing: border-box; margin: 6px 0 8px; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line, #333); background: transparent; color: inherit; font: inherit; }
+  #bestRows .row.offered { outline: 2px solid var(--accent); border-radius: 10px; }
 </style>
 </head>
 <body class="idle">
@@ -675,8 +677,9 @@
     const ties = offered.length >= 2 && offered.every((a) => typeof a.score === "number") ? E.nearTies(d, ck, offered) : [];
     // Can't decide between them: more combo potential, else the less common pick (Nico 2026-11-24).
     const tb = ties.length ? E.tieBreak(d, ck, [offered[0].id, ...ties], ranked) : null;
-    // Best augments: collapsed by default, without the cards already shown this game (they can't come back).
-    const shown = ranked.filter((a) => !onOffer.includes(a.id) && !seen.has(a.id) && !PENTA[a.id]).slice(0, 8);
+    // Best augments (Nico 2026-11-27): at the bottom, every augment of this round's rarity in rank order, so you see
+    // where the cards on offer rank (highlighted in place). Cards already shown this game can't come back: left out.
+    const shown = ranked.filter((a) => (onOffer.includes(a.id) || !seen.has(a.id)) && !PENTA[a.id] && (!tier || d.augments[a.id]?.[1] === tier));
     // A one-word label at most; the reason and what the augment does are on hover.
     // [label html, colour, hover]
     const reason = (a) => a.conflict ? [`${ico("warn")} Conflicts`, "red", `Conflicts: ${a.conflict}`] : a.mate !== null ? [`${ico("plus")}${augIco(a.mate)}${esc(name(a.mate))}`, "green", `Synergy with ${name(a.mate)}`]
@@ -716,8 +719,21 @@
     document.querySelector(".cols")?.classList.toggle("offer-up", offered.length > 0);
     box.innerHTML = `${took}
       ${offered.length ? `<div class="offer">${ties.length ? `<div class="cue gold" title="The highlighted cards are within noise of each other.${tb ? " The star breaks the tie (hover it)." : ""}">${ico("approx")} Either${tb ? ` · ${augIco(tb.id)}${esc(name(tb.id))}` : ""}</div>` : ""}${offered.map(card).join("")}${advice.html}</div>` : ""}
-      ${shown.length ? `<details class="best"${bestOpen ? " open" : ""}><summary><h2>Best augments${offered.length ? ` <span class="tag">not offered</span>` : ""}</h2></summary><div class="${offered.length ? "dim" : ""}">${shown.map((a) => row(a, false)).join("")}</div></details>` : ""}
+
       ${settings.length ? `<div class="why" title="Set in champion select">${esc(settings.join(" · "))}</div>` : ""}`;
+    const rows = document.getElementById("bestRows"), head = document.getElementById("bestHead");
+    if (rows) {
+      const tierName = tier ? `${tier[0].toUpperCase()}${tier.slice(1)} ` : "";
+      if (head) head.innerHTML = `Best ${esc(tierName.toLowerCase())}augments <span class="tag">${shown.length}</span>`;
+      rows.innerHTML = shown.map((a, i) => row(a, onOffer.includes(a.id)).replace('<div class="row aug', `<div data-n="${esc(name(a.id).toLowerCase())}" class="row aug${onOffer.includes(a.id) ? " offered" : ""}`).replace(/(<div class="name">)/, `$1<span class="why">#${i + 1}</span> `)).join("");
+      filterBest();
+    }
+  }
+  // The search above Best augments: optional (nothing needs typing in a game), it only narrows the list.
+  let augQuery = "";
+  function filterBest() {
+    const q = augQuery.trim().toLowerCase();
+    document.querySelectorAll("#bestRows .row").forEach((r) => { r.hidden = !!q && !r.dataset.n.includes(q); });
   }
 
   const enemyMagic = (k, enemies) => E.enemyMagic(k, enemies);
@@ -882,7 +898,11 @@
         <h2>Quick build</h2><div id="quick"></div></section>
         <section id="augSec"><h2 id="augHead">Augments</h2>
         <div id="augs"></div></section>
-        </div>`);
+        </div>
+        <details class="best" id="bestBox"${bestOpen ? " open" : ""}><summary><h2 id="bestHead">Best augments</h2></summary>
+        <input id="augFind" type="search" placeholder="Find an augment" autocomplete="off" spellcheck="false">
+        <div id="bestRows"></div></details>`);
+      document.getElementById("augFind")?.addEventListener("input", (e) => { augQuery = e.target.value; filterBest(); });
       renderQuick();
       renderAugments();
     }
