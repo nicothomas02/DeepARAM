@@ -156,6 +156,10 @@
   details.best > summary { cursor: pointer; list-style: none; } details.best > summary h2 { display: inline; } details.best > summary::-webkit-details-marker { display: none; } details.best > summary::before { content: "▸ "; } details.best[open] > summary::before { content: "▾ "; }
   svg.i, svg.arr { display: inline-block; width: 1em; height: 1em; margin: 0; vertical-align: -0.125em; flex: none; }
   .badge { display: inline-flex; align-items: center; gap: 5px; margin-right: 4px; }
+  .combo { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+  .combo .lbl { font-size: 12px; font-weight: 600; color: var(--gold); margin-right: 4px; }
+  .combo .ci { display: inline-flex; line-height: 0; }
+  .combo .ci img { width: 36px; height: 36px; border-radius: 50%; }
   .badge img { width: 20px; height: 20px; border-radius: 50%; } .badge.gold { color: #1a1204; background: var(--gold); }
   .hovercard { position: fixed; z-index: 50; max-width: 300px; padding: 10px 12px; border-radius: 10px; background: var(--raised); border: 1px solid var(--line); box-shadow: var(--depth); font-size: 12px; line-height: 1.45; pointer-events: none; }
   .hovercard .hn { font-size: 14px; font-weight: 700; color: var(--fg); } .hovercard .hr { color: var(--gold); margin-top: 4px; white-space: pre-line; }
@@ -430,9 +434,12 @@
       gap = magic > 0.75 ? "Your team deals little physical damage: an AD item helps if your champion can use one." : "";
       gapShort = magic > 0.75 ? "Low physical damage" : "";
     }
+    const try0 = combosFor(ap, me)[0];
+    const tryHtml = try0 ? comboHtml(ap, try0, "Combo to try", `${augName(ap, try0.a)} + ${augName(ap, try0.b)}: they work together, and both are often taken on ${label(me)}. If one is offered, look for the other.`) : "";
     setView(`
       ${hero(me, me ? esc(label(me)) : "Champion select", me ? "Champion select" : "Waiting for your champion", "", true)}
       ${planHtml}
+      ${tryHtml}
       ${team.length ? `<h2>Your team</h2><div class="teamline"><div class="mates">${team.map(icon).join("")}</div>${teamNow != null ? `<span class="teamds ${teamNow >= 0.06 ? "up" : teamNow < -0.03 ? "down" : "flat"}" title="Team edge (projected): your five champions' strength plus their ten pair synergies, in win-rate points (0 = an average team). Extras like frontline, damage mix or crowd control didn't predict better when tested.">${pts(teamNow)}</span>` : ""}</div>` : ""}
       ${gap ? `<div class="cue gold" title="${esc(gap)}">${ico("warn")} ${esc(gapShort)}</div>` : ""}
       <h2>Your choices, best first</h2>
@@ -615,6 +622,21 @@
   const rankAugments = (d, ck, taken, tier) => E.rankAugments(d, ck, taken, { lucky, seen: [...seen], tier, headliner: game?.headliner });
   // The site's tier colours (S red, A orange, B yellow, C blue, D grey), on the number alone (Nico: one value).
   const tierCls = (ds) => `t-${deepTier(ds).toLowerCase()}`;
+
+  // Augment combos from pick data only (Nico 2026-11-27, Riot-friendly): a pair counts when the augment pair rules say
+  // the two work together (positive sign only, never its points), and pairs are ordered by how often this champion's
+  // players take each augment (product of the two pick rates). No numbers are shown.
+  function combosFor(ap, champ) {
+    const ck = champ ? keyIn(ap?.champions, champ) : undefined;
+    if (!ck) return [];
+    const rows = ap.champions[ck] ?? [];
+    const pick = (id) => rows.find((r) => r[0] === id)?.[5] ?? 0;
+    return (ap.pairs?.[ck] ?? []).filter(([a, b, v]) => v > 0 && a !== b && !PENTA[a] && !PENTA[b])
+      .map(([a, b]) => ({ a, b, n: pick(a) * pick(b) })).filter((c) => c.n > 0).sort((x, y) => y.n - x.n);
+  }
+  const augName = (ap, id) => ap?.augments?.[id]?.[0] ?? `#${id}`;
+  const comboHtml = (ap, c, label, hover) => `<div class="box combo" title="${esc(hover)}"><span class="lbl">${esc(label)}</span>
+      <span class="ci aug" data-r="${ap?.augments?.[c.a]?.[1] ?? ""}">${augIcon(c.a)}</span>${ico("bolt")}<span class="ci aug" data-r="${ap?.augments?.[c.b]?.[1] ?? ""}">${augIcon(c.b)}</span></div>`;
 
   async function renderAugments() {
     const box = document.getElementById("augs");
@@ -1227,12 +1249,20 @@
     const augs = g.taken.length
       ? `<div class="bigs">${g.taken.map((id) => `<span class="big aug" data-r="${p?.augments?.[id]?.[1] ?? ""}" title="${esc(p?.augments?.[id]?.[0] ?? `#${id}`)}">${augIcon(id)}</span>`).join("")}</div>`
       : "";
+    // Combos you made, and one to try next time (pick data only, as in champion select).
+    const combos = combosFor(p, g.champ);
+    const made = combos.filter((c) => g.taken.includes(c.a) && g.taken.includes(c.b));
+    const next = made.length ? null : combos.find((c) => !(g.taken.includes(c.a) && g.taken.includes(c.b)));
+    const comboRow = [
+      ...made.map((c) => comboHtml(p, c, "Combo you made", `${augName(p, c.a)} + ${augName(p, c.b)} work together.`)),
+      next ? comboHtml(p, next, "Try next time", `${augName(p, next.a)} + ${augName(p, next.b)}: they work together, and both are often taken on this champion.`) : "",
+    ].join("");
     const magic = k ? enemyMagic(k, g.enemies ?? []) : null;
     const dmg = magic === null ? "" : `<div class="mates" title="${esc(damageLine(k, g))}">${(g.enemies ?? []).filter((e) => e.champ).map((e) => icon(e.champ)).join("")}</div>${splitBar(magic)}`;
     const ch = document.getElementById("changed");
     if (ch) ch.innerHTML = whatChanged(k, p, (i) => prefix ? `<img src="${src(prefix + (i < 10000 ? 220000 + i : i) + ".png")}" data-alt="${src(prefix + (i % 10000) + ".png")}" alt="" data-drop>` : "");
-    if (!itemRow && !augs && !dmg) return;
-    box.innerHTML = `${augs || itemRow ? `<h2>Your build</h2>${augs}${itemRow}` : ""}
+    if (!itemRow && !augs && !dmg && !comboRow) return;
+    box.innerHTML = `${augs || itemRow ? `<h2>Your build</h2>${augs}${itemRow}` : ""}${comboRow}
       ${dmg ? `<h2 title="What the enemy team hit you with (estimated from their champions and items)">Enemy damage</h2><div class="box">${dmg}</div>` : ""}`;
   }
 </script>
