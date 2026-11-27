@@ -23,9 +23,11 @@ import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 import augmentConvertersData from "../../data/augment-converters.json";
 import augmentLeanInData from "../../data/augment-lean-in.json";
+import { FIRST_BUYS, LATE_BUYS, lateBuyOrder } from "./first-buys";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
+export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
 export const ENGINE_VERSION = "1.4.10";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
@@ -108,6 +110,7 @@ export const RULES: Record<string, Rule> = {
   shieldAugments: { source: "assumption", on: true, why: "An enemy with Big Brain or Don't Change the Channel lights the champion's own 'Vs shields' items (Serpent's Fang: Shield Reaver cuts shields gained by 50% melee / 25% ranged and the current shield on the first hit; wiki). Nico approved 2026-11-25 (he asked for it); estimated: the archive can't confirm it (Serpent's builders vs an enemy Big Brain: win -22 +/- 15 pts, n 26). Needs the app to pass enemy augments." },
   countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
   firstBuys: { source: "data", on: true, why: "An item players buy as their first legendary 80%+ of the time (archive buy order, item_slots.json, 400+ buyers: Heartsteel, Yun Tal, Rod of Ages, Hubris, Luden's) goes first while you have no legendary, instead of a later slot (Nico 2026-11-27, Briar's Hubris shown 4th)." },
+  lateBuys: { source: "data", on: true, why: "Items 95%+ of their buyers take 3rd or later (archive buy order, item_slots.json, 100+ buyers: Void Staff, Serylda's, Terminus, Cryptbloom, Mortal Reminder, Bloodletter's, Bloodthirster, Banshee's, Morellonomicon; AramHex ordered cores put Void Staff, Serylda's and Mortal Reminder 3rd every time) wait until two legendaries are finished, unless an augment rule timed them (Nico 2026-11-27, Shaco's Void Staff 2nd)." },
   boughtFirst: { source: "game data", on: true, why: "The path shows what you bought first, in inventory order, then the rest in Next's order, so an item bought early shows where you bought it (Nico 2026-11-27)." },
   stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
   attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
@@ -926,9 +929,6 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
 
 export const STYLE_NAMES: Record<string, string> = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
 // Items that grow with time or takedowns: first while no legendary is finished (PC 1.22.0, under audit).
-/** Items bought as the first legendary by 80%+ of their 400+ buyers (all champions, data/estimates/item_slots.json;
- *  a unit test keeps this in step with the file). */
-export const FIRST_BUYS = new Set([3084, 3032, 6657, 6697, 6655]);
 export const STACKING = new Set([6697, 3084, 3070, 3004, 3003, 3119]);
 export const BACK_TO_BASICS = new Set([1004, 4]);
 // Champions whose R has a passive that works once R has a point (Riot's R descriptions), so Back to Basics still
@@ -1763,6 +1763,13 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const has = (it: Named, kind: string) => (k?.items[String(itemId(it.icon))] ?? []).includes(kind);
   const nearCap = RULES.attackSpeedNudge.on && aspd >= 4.5;
   if (nearCap) { next = [...next.filter((it) => !has(it, "as")), ...next.filter((it) => has(it, "as"))]; applied("attackSpeedNudge"); }
+  // Late buys (lateBuys): penetration and other late picks (Void Staff, Serylda's...: 95%+ of buyers take them 3rd or
+  // later, archive and AramHex cores) wait until you've finished two legendaries, unless an augment rule timed them
+  // (Nico 2026-11-27, Shaco's Void Staff 2nd). The site card uses the same order (first-buys.ts).
+  if (RULES.lateBuys.on && finished < 2 && next.some((it) => LATE_BUYS.has(ownedId(itemId(it.icon))))) {
+    const moved = lateBuyOrder(next, (it) => ownedId(itemId(it.icon)), (it) => bootIds.has(itemId(it.icon)), 2 - finished, (it) => timing.some((t) => t.item === it));
+    if (moved.some((it, i) => it !== next[i])) { next = moved; applied("lateBuys"); }
+  }
   const order = new Map(next.map((it, i) => [itemId(it.icon), i]));
   next = next.slice(0, 2);
 
@@ -1833,10 +1840,17 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // First buys (firstBuys): an item players buy as their first legendary 80%+ of the time is Next while you have no
   // legendary yet (archive buy order, data/estimates/item_slots.json: Heartsteel 93%, Yun Tal 84%, Rod of Ages 83%,
   // Hubris 82%, Luden's 81%), not after the core when a card's later slot holds it (Nico 2026-11-27, Briar's Hubris).
-  // The path keeps the card's order until you buy it (then boughtFirst shows it first).
+  // The path shows it first too, as the site card does (first-buys.ts); the core keeps its items.
   if (RULES.firstBuys.on && !finished && !timing.length && next[0] && !FIRST_BUYS.has(ownedId(itemId(next[0].icon)))) {
     const fb = path.find((it) => !isOwned(it) && FIRST_BUYS.has(ownedId(itemId(it.icon))));
-    if (fb) { next = [fb, ...next.filter((it) => it !== fb)].slice(0, 2); applied("firstBuys"); }
+    if (fb) {
+      next = [fb, ...next.filter((it) => it !== fb)].slice(0, 2);
+      const core0 = new Set(coreItems);
+      path.splice(0, path.length, fb, ...path.filter((it) => it !== fb));
+      coreItems = path.slice(0, Math.max(coreItems.length, ...path.map((it, i) => (core0.has(it) ? i + 1 : 0))));
+      rest = path.slice(coreItems.length);
+      applied("firstBuys");
+    }
   }
   // a second Tear item isn't Next while the one you hold is still stacking (the game won't sell it until that one turns)
   if (stacking !== undefined && next.some((it) => TEAR_ITEMS.has(ownedId(itemId(it.icon))))) {

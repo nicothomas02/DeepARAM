@@ -14,6 +14,10 @@ import {
   itemId,
   ownedId,
   FIRST_BUYS,
+  firstBuyOrder,
+  cardBuyOrder,
+  LATE_BUYS,
+  lateBuyOrder,
   itemRules,
   LUCKY_TILT,
   luckyBuild,
@@ -499,7 +503,29 @@ describe("build engine", () => {
     const slots = JSON.parse(readFileSync(new URL("../../../data/estimates/item_slots.json", import.meta.url), "utf8")) as { all: Record<string, number[]> };
     const first = Object.entries(slots.all).filter(([, v]) => v.reduce((a, b) => a + b, 0) >= 400 && v[0] / v.reduce((a, b) => a + b, 0) >= 0.8).map(([i]) => Number(i));
     expect([...FIRST_BUYS].sort()).toEqual(first.sort());
+    const late = Object.entries(slots.all).filter(([, v]) => v.reduce((a, b) => a + b, 0) >= 100 && (v[0] + v[1]) / v.reduce((a, b) => a + b, 0) <= 0.05).map(([i]) => Number(i));
+    expect([...LATE_BUYS].sort()).toEqual(late.sort());
   }, 30_000);
+
+  it("late buys (Void Staff...) wait until two legendaries are finished, on every champion (lateBuys: Shaco)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    expect(lateBuyOrder([3135, 3020, 3089, 4645], (i) => i, (i) => i === 3020)).toEqual([3089, 3020, 4645, 3135]);
+    const bad: string[] = [];
+    for (const c of champs) {
+      const p = plan({ champ: c, kinds: k, picks: p0, fit: null, game: { champ: c.id, items: [] }, taken: [] });
+      const legs = p.path.map((x) => ownedId(itemId(x.icon))).filter((i) => !k.boots.includes(i));
+      if (legs.filter((i) => !LATE_BUYS.has(i)).length >= 2 && legs.slice(0, 2).some((i) => LATE_BUYS.has(i))) bad.push(`${c.id}: ${legs}`);
+    }
+    expect(bad).toEqual([]);
+    // Shaco's AP build: Void Staff after Rabadon's, not 2nd
+    const shaco = champs.find((x) => x.id === "Shaco")!;
+    const ap = shaco.builds?.find((b) => b.style === "ap");
+    if (ap) {
+      const p = plan({ champ: { ...shaco, ...ap, id: "Shaco" } as OverlayChamp, kinds: k, picks: p0, fit: null, game: { champ: "Shaco", items: [2503] }, taken: [] });
+      expect(itemId(p.next[0].icon)).not.toBe(3135);
+    }
+  }, 60_000);
 
   it("a second, different Tear item follows only once the first has turned (Nico 2026-11-27, Ryze)", async () => {
     const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
@@ -883,8 +909,8 @@ describe("build engine", () => {
         const p = plan({ champ: c, kinds: k, picks: pk, fit: null, game: { champ: c.id, items: [] }, taken });
         const path = ids(p.path);
         if (path.length > 6) bad.push(`${c.id} [${taken}]: ${path.length} items`);
-        // with no augments, the app shows the site card's path
-        if (!taken.length && c.full?.length && path.slice(p.coreLen).join() !== ids(c.full).join()) bad.push(`${c.id}: path differs from the site card`);
+        // with no augments, the app shows the site card's path (both lead with a first-buy item, lib/engine/first-buys.ts)
+        if (!taken.length && c.full?.length && path.join() !== cardBuyOrder([...ids(c.items ?? []), ...ids(c.full)], (i) => k.boots.includes(i)).join()) bad.push(`${c.id}: path differs from the site card: ${path} vs ${cardBuyOrder([...ids(c.items ?? []), ...ids(c.full)], (i) => k.boots.includes(i))}`);
         path.forEach((a, i) => path.slice(i + 1).forEach((b) => rules.clash(a, b) && bad.push(`${c.id} [${taken}]: ${a} + ${b}`)));
       }
     expect(bad).toEqual([]);
