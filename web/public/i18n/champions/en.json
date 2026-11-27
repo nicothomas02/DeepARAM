@@ -363,5 +363,7 @@
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.",
  "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.",
  "It belongs to the {build} build: pick that tab on the card.": "It belongs to the {build} build: pick that tab on the card.",
- "It is a situational pick on this card ({situation}), so most players skip it in other games.": "It is a situational pick on this card ({situation}), so most players skip it in other games."
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "It is a situational pick on this card ({situation}), so most players skip it in other games.",
+ "Close call": "Close call",
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time."
 }

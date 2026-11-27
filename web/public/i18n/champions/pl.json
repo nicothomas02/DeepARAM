@@ -363,5 +363,7 @@
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Na ostatnich patchach mniej więcej na równi ze zwykłą parą z Błyskiem (poniżej 1 pkt), więc obie są w porządku. Tę parę bierze tylko {pct} graczy.",
  "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Tę parę bierze tylko {pct} graczy, a jej przewaga zmienia się z patcha na patch, więc traktuj ją jako bliską zwykłej parze z Błyskiem.",
  "It belongs to the {build} build: pick that tab on the card.": "Należy do buildu {build}: wybierz tę kartę na karcie postaci.",
- "It is a situational pick on this card ({situation}), so most players skip it in other games.": "To przedmiot sytuacyjny na tej karcie ({situation}), więc w innych grach większość graczy go pomija."
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "To przedmiot sytuacyjny na tej karcie ({situation}), więc w innych grach większość graczy go pomija.",
+ "Close call": "Na styk",
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Następny wybór jest prawie tak samo dobry: różnica jest mniejsza niż szum w grach, na których się opiera. Gdy pierwszy wybór prowadził tak nieznacznie, w następnym patchu pozostał na szczycie tylko mniej więcej w połowie przypadków."
 }

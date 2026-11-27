@@ -363,5 +363,7 @@
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "În ultimele patch-uri e cam la egalitate cu perechea obișnuită cu Flash (sub 1 pct.), așa că oricare e bună. Doar {pct} dintre jucători aleg această pereche.",
  "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Doar {pct} dintre jucători aleg această pereche, iar avantajul ei variază de la un patch la altul, așa că consider-o apropiată de perechea obișnuită cu Flash.",
  "It belongs to the {build} build: pick that tab on the card.": "Face parte din build-ul {build}: alege acea filă pe card.",
- "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Pe acest card e o alegere situațională ({situation}), așa că majoritatea jucătorilor îl sar în alte meciuri."
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Pe acest card e o alegere situațională ({situation}), așa că majoritatea jucătorilor îl sar în alte meciuri.",
+ "Close call": "Strâns",
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Următoarea alegere e aproape la fel de bună: diferența e mai mică decât zgomotul din meciurile din spate. Când o primă alegere conducea la atât de puțin, a rămas prima în patch-ul următor doar în aproximativ jumătate din cazuri."
 }

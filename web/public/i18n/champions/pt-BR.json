@@ -363,5 +363,7 @@
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Quase empatada com a dupla de Flash de sempre nos últimos patches (menos de 1 pt), então qualquer uma serve. Só {pct} dos jogadores escolhem esta dupla.",
  "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Só {pct} dos jogadores escolhem esta dupla e a vantagem dela muda de patch para patch, então trate-a como próxima da dupla de Flash de sempre.",
  "It belongs to the {build} build: pick that tab on the card.": "Faz parte da build {build}: escolha essa aba no card.",
- "It is a situational pick on this card ({situation}), so most players skip it in other games.": "É uma compra situacional neste card ({situation}), então a maioria dos jogadores a pula nas outras partidas."
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "É uma compra situacional neste card ({situation}), então a maioria dos jogadores a pula nas outras partidas.",
+ "Close call": "Disputado",
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "A próxima opção é quase tão boa: a diferença é menor que o ruído das partidas por trás. Quando uma opção líder estava à frente por tão pouco, continuou no topo no patch seguinte só em cerca de metade das vezes."
 }

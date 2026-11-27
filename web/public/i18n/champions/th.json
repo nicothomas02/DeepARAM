@@ -363,5 +363,7 @@
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "ในแพตช์ล่าสุดสูสีกับคู่แฟลชที่ใช้กันทั่วไป (ต่างกันไม่ถึง 1 คะแนน) เลือกแบบไหนก็ได้ มีผู้เล่นเลือกคู่นี้เพียง {pct}",
  "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "มีผู้เล่นเลือกคู่นี้เพียง {pct} และความได้เปรียบเปลี่ยนไปในแต่ละแพตช์ ให้ถือว่าใกล้เคียงกับคู่แฟลชที่ใช้กันทั่วไป",
  "It belongs to the {build} build: pick that tab on the card.": "อยู่ในบิลด์ {build}: เลือกแท็บนั้นบนการ์ด",
- "It is a situational pick on this card ({situation}), so most players skip it in other games.": "บนการ์ดนี้เป็นไอเทมตามสถานการณ์ ({situation}) ผู้เล่นส่วนใหญ่จึงไม่ซื้อในเกมอื่น"
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "บนการ์ดนี้เป็นไอเทมตามสถานการณ์ ({situation}) ผู้เล่นส่วนใหญ่จึงไม่ซื้อในเกมอื่น",
+ "Close call": "สูสี",
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "ตัวเลือกถัดไปดีพอ ๆ กัน: ส่วนต่างน้อยกว่าความคลาดเคลื่อนจากจำนวนเกมที่ใช้ เมื่อตัวเลือกอันดับหนึ่งนำเพียงเท่านี้ ในแพตช์ถัดไปยังคงเป็นอันดับหนึ่งเพียงราวครึ่งหนึ่งของครั้ง"
 }

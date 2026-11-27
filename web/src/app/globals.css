@@ -6878,3 +6878,16 @@ html[data-view="detailed"] .wr-ci {
   font-size: 0.8125rem;
   line-height: 1.45;
 }
+
+/* Borderline tier (lib/tiers.ts tierEdges, 2026-11-27): close to the next tier's line. A small arrow toward that tier;
+   the hover says how often such tiers held. Uses ::before so the new-patch slide (::after) still works. */
+.chip.tier-edge { position: relative; }
+.chip.tier-edge::before {
+  position: absolute;
+  right: -0.55em;
+  font-size: 0.6em;
+  line-height: 1;
+  color: var(--muted);
+}
+.chip.tier-edge[data-edge="up"]::before { content: "\25B4"; top: 0; }
+.chip.tier-edge[data-edge="down"]::before { content: "\25BE"; bottom: 0; }
