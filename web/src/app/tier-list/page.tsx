@@ -4,6 +4,9 @@ import { livePatch } from "@/lib/highlights";
 import augmentNames from "@/data/augment-names.json";
 import { AdvancedProvider } from "@/components/Advanced";
 import ChampionTiers from "@/components/ChampionTiers";
+import { patchChanges } from "@/lib/patch-changes";
+import { readRepoJson } from "@/lib/repo-data";
+import type { PatchSchedule } from "@/lib/patch-schedule";
 import ChampionsPanel from "@/components/ChampionsPanel";
 import DuosTable from "@/components/DuosTable";
 import FullTeams from "@/components/FullTeams";
@@ -80,6 +83,8 @@ export default function TierListPage() {
   }
 
   const latest = patches.at(-1)!;
+  const schedule = readRepoJson<PatchSchedule>("data/patch-schedule.json");
+  const patchDay = schedule ? { schedule, changes: patchChanges() } : undefined;
   // Only the live and previous patch ship with the page; ChampionTiers loads the rest when picked.
   const recent = new Set(patches.slice(-2).map((p) => p.patch));
   const rows: PatchRow[] = byPatch
@@ -113,6 +118,7 @@ export default function TierListPage() {
               scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
               reliance={Object.fromEntries([...championAugmentReliance()].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
               brackets={bracketData()}
+              patchDay={patchDay}
             />
           }
           duos={duos ? <DuosTable archetypes={archetypeRows()} tagInfo={championTagData().info} version={duoVersion()} quests={teamQuests()} /> : undefined}

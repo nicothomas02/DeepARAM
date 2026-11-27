@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "Přední linie chrání carry.",
  "Crowd control groups enemies for area damage.": "Kontrola davu shlukne nepřátele pro plošné poškození.",
  "Best pairs": "Nejlepší dvojice",
- "All pairs": "Všechny dvojice"
+ "All pairs": "Všechny dvojice",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "Patch {patch} je venku. Dokud nedorazí hry z jeho prvního dne, jsou tato čísla z patche {before}; šampioni, které změnil, jsou označeni Posílen nebo Oslaben."
 }

@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "خط أمامي يحمي الحامل.",
  "Crowd control groups enemies for area damage.": "التحكم الجماعي يجمع الأعداء لضرر المنطقة.",
  "Best pairs": "أفضل الثنائيات",
- "All pairs": "كل الثنائيات"
+ "All pairs": "كل الثنائيات",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "صدر التحديث {patch}. حتى تصل مباريات يومه الأول، هذه الأرقام من التحديث {before}؛ والأبطال الذين غيّرهم موسومون بـ«مُعزَّز» أو «مُضعَف»."
 }

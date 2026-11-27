@@ -180,5 +180,8 @@
  "About {pts} win-rate pts from this list's average.": "이 목록 평균에서 약 {pts} 승률 포인트.",
  "0-100 · 50 is the average of its own list": "0~100 · 50은 같은 목록의 평균",
  "DeepScore rates each champion, augment, item or build from 0 to 100 against the rest of its own list: 50 is that list's average, so compare numbers within a list. Hover any DeepScore to see how far it sits from its list's average in win-rate points.": "DeepScore는 모든 챔피언, 증강, 아이템, 빌드를 같은 목록의 나머지와 비교해 0~100점으로 평가합니다. 50이 그 목록의 평균이므로 숫자는 같은 목록 안에서 비교하세요. DeepScore에 마우스를 올리면 목록 평균에서 몇 승률 포인트 떨어져 있는지 보여 줍니다.",
- "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "경계선: {tier} 기준선에 가깝습니다. 이만큼 기준선에 가까운 챔피언은 다음 패치에서 절반을 조금 넘는 경우에만 티어를 유지했습니다."
+ "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "경계선: {tier} 기준선에 가깝습니다. 이만큼 기준선에 가까운 챔피언은 다음 패치에서 절반을 조금 넘는 경우에만 티어를 유지했습니다.",
+ "Buffed": "상향",
+ "Nerfed": "하향",
+ "Changed in the new patch. Its numbers here are still from the last patch.": "새 패치에서 변경되었습니다. 여기 수치는 아직 이전 패치 기준입니다."
 }

@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "Tuyến đầu bảo vệ chủ lực.",
  "Crowd control groups enemies for area damage.": "Khống chế gom địch cho sát thương diện rộng.",
  "Best pairs": "Cặp đôi tốt nhất",
- "All pairs": "Tất cả cặp đôi"
+ "All pairs": "Tất cả cặp đôi",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "Bản {patch} đã ra. Cho đến khi có trận của ngày đầu, các số này là của bản {before}; tướng được thay đổi có nhãn Tăng sức mạnh hoặc Giảm sức mạnh."
 }

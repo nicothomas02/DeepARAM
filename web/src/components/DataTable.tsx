@@ -36,6 +36,8 @@ export type Column = {
   gamesKey?: string;
   /** For "pct" expected next-patch columns: the row keys holding the low and high end of its 80% range. */
   rangeKeys?: [string, string];
+  /** For "champion" columns: the row key holding a patch-day mark ("buff" or "nerf"), shown after the name. */
+  markKey?: string;
   /** For "tags" columns: the colour and meaning of each tag (the cell holds them comma-separated). */
   tags?: TagInfo;
   /** Phones (globals.css): "hide" drops the column below 640px, "wide" only below 360px, so the main numbers fit
@@ -95,6 +97,9 @@ function show(v: Row[string], format: Column["format"], pts: (n: string) => stri
 // A tier letter. When the row carries the previous patch's tier (<key>_was) and it differs, the chip
 // slides in from the old letter, up or down (globals.css: on a new patch's first visit).
 const ORDER = ["S", "A", "B", "C", "D"];
+/** Hover on a patch-day mark (components/ChampionTiers.tsx patchDay). */
+export const PATCH_MARK_WHY = "Changed in the new patch. Its numbers here are still from the last patch.";
+
 /** Hover on a borderline tier (lib/tiers.ts tierEdges). */
 export const TIER_EDGE_WHY =
   "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.";
@@ -483,7 +488,14 @@ export default function DataTable({
                 {columns.map((c) => (
                   <td key={c.key} className={cls(c, cellClass(c, r[c.key]))}>
                     {c.format === "champion" ? (
-                      <Champion id={String(r[c.key])} />
+                      <>
+                        <Champion id={String(r[c.key])} />
+                        {c.markKey && (r[c.markKey] === "buff" || r[c.markKey] === "nerf") && (
+                          <small className={`patch-mark patch-mark-${r[c.markKey]}`} title={t(PATCH_MARK_WHY)}>
+                            {t(r[c.markKey] === "buff" ? "Buffed" : "Nerfed")}
+                          </small>
+                        )}
+                      </>
                     ) : c.format === "champion-icon" ? (
                       r[c.key] ? <ChampionIcon id={String(r[c.key])} /> : "–"
                     ) : c.format === "item" ? (

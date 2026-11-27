@@ -6891,3 +6891,9 @@ html[data-view="detailed"] .wr-ci {
 }
 .chip.tier-edge[data-edge="up"]::before { content: "\25B4"; top: 0; }
 .chip.tier-edge[data-edge="down"]::before { content: "\25BE"; bottom: 0; }
+
+/* Patch day (ChampionTiers patchDay, 2026-11-27): the notice above the table and the Buffed / Nerfed marks. */
+.patch-day-note { margin: 0.4rem 0 0.6rem; padding: 0.5rem 0.75rem; border: 1px solid var(--line); border-radius: 8px; background: var(--raised); color: var(--fg); font-size: 0.9rem; }
+.patch-mark { margin-left: 0.4rem; padding: 0 0.35rem; border-radius: 4px; font-size: 0.72rem; font-weight: 600; white-space: nowrap; vertical-align: middle; }
+.patch-mark-buff { color: var(--good, #3fb37f); border: 1px solid currentColor; }
+.patch-mark-nerf { color: var(--bad, #e0605b); border: 1px solid currentColor; }

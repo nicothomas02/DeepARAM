@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "前排保護核心輸出。",
  "Crowd control groups enemies for area damage.": "控制聚攏敵人打出範圍傷害。",
  "Best pairs": "最佳組合",
- "All pairs": "全部組合"
+ "All pairs": "全部組合",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "{patch} 版本已上線。在首日對局資料到來之前，這些數字來自 {before} 版本；被調整的英雄標有「加強」或「削弱」。"
 }
