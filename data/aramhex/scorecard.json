@@ -31,7 +31,7 @@
    "to_partial": false,
    "augments": {
     "deepscore": {
-     "n": 690,
+     "n": 691,
      "hit": 1.0,
      "lead": 0.0448
     },
@@ -54,9 +54,9 @@
    "to_partial": false,
    "augments": {
     "deepscore": {
-     "n": 846,
+     "n": 847,
      "hit": 1.0,
-     "lead": 0.0496
+     "lead": 0.0498
     },
     "popular": {
      "n": 846,
@@ -79,7 +79,7 @@
     "deepscore": {
      "n": 865,
      "hit": 0.998,
-     "lead": 0.0529
+     "lead": 0.053
     },
     "popular": {
      "n": 865,

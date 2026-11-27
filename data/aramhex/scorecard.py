@@ -58,6 +58,7 @@ def card(T, nxt, name, nested, top, exclude=()):
     hist_patches = [T] + ah.earlier(T)
     tables = [ah.load(p, name) for p in hist_patches]
     target = ah.load(nxt, name) or {}
+    changed = ah.changed_by_age(T)
     best_l, pop_l = [], []
     for cid in (tables[0] or {}):
         now = {k: v for k, v in (table_rows(tables[0], cid, nested) or {}).items() if k not in exclude and v[0] > 0}
@@ -70,7 +71,8 @@ def card(T, nxt, name, nested, top, exclude=()):
             if r is None:
                 break
             hist.append({k: v for k, v in r.items() if k not in exclude})
-        pooled = ah.pool(hist)
+        # Augments pool like the site (merge.py: drift weights, notes-changed augments fade faster).
+        pooled = ah.pool(hist, drift=ah.POOL_DRIFT, changed=changed) if name == "augments" else ah.pool(hist)
         lead = ah.leads(tg)
         best, popular = picks(now, pooled, top)
         best_l += [lead[k][0] if k in lead else None for k in best]

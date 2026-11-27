@@ -36,3 +36,23 @@ def test_builds_carry_pooled_augments():
         assert 2 <= r["pooled"]["patches"] <= ah.POOL_DEPTH + 1
         assert r["pooled"]["games"] >= r["games"]
         assert 0 < r["pooled"]["win_rate"] < 1
+
+
+def test_drift_weights_keep_the_live_patch_in_charge():
+    """Drift weights (Nico 2026-11-27): a huge earlier sample counts as a bounded prior, and an augment the Mayhem notes
+    changed fades faster than one they didn't."""
+    now = {"a": [2000, 1100], "z": [100000, 50000]}  # +5 pts on 2,000 live games
+    before = {"a": [200000, 104000], "z": [100000, 50000]}  # +2 pts on 200,000 earlier games
+    fixed = ah.pool([now, before])["a"][0]
+    drift = ah.pool([now, before], drift=ah.POOL_DRIFT)["a"][0]
+    changed = ah.pool([now, before], drift=ah.POOL_DRIFT, changed=[set(), {"a"}])["a"][0]
+    assert fixed < drift < changed < 0.55  # the live +5 counts for more with drift, more again when changed
+    assert ah.pool([now, before], drift=ah.POOL_DRIFT)["a"][2] == 2
+
+
+def test_notes_name_changed_augments():
+    names = json.load(open(os.path.join(ROOT, "web", "src", "data", "augment-names.json")))
+    got = {names[i] for i in ah.notes_changed_augments("16.23")}
+    assert {"Bouncing Bees", "Salvation", "The Boom and the Bass"} <= got
+    by_age = ah.changed_by_age("16.23")
+    assert by_age[0] == set() and by_age[1] == ah.notes_changed_augments("16.23")

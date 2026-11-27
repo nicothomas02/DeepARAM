@@ -1,8 +1,595 @@
 {
- "read": "2026-10-17",
+ "read": "2026-11-27",
  "source": "Official League of Legends patch notes (leagueoflegends.com/en-us/news/game-updates/), fetched directly",
  "notation": "Riot's text kept verbatim; 'old ⇒ new'. 'aram' = plain ARAM section (Howling Abyss etc.), kept separate from Mayhem. Changes marked '(mid-patch update)' come from the patch page's Mid-Patch Updates section.",
  "patches": [
+  {
+   "patch": "26.23",
+   "gameVersion": "16.23",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-23-notes/",
+   "date": "2026-11-18",
+   "noMayhemSection": false,
+   "intro": "We're back with more content and balance changes for ARAM Mayhem! Four new Headliners are hitting the stage, bringing new ways to play. Whether you're looking for a second chance at life with Arcade, protecting your team with La Ilusion, getting rich with Debonair, or finding the perfect Augment with Maestro, we're excited for you to enjoy the show. We've also been keeping an eye on how the new set is playing out and listening to your feedback. Turrets have been falling a little too quickly, barely slowing down enemies and buying little-to-no time for their teams. We're experimenting with turret playing and increasing their defenses so games don't end in a blink. Tanks have had a particularly tough time keeping up with the chaos, so we're introducing four new tank-focused Augments to help our beefier champions stay in the fight. We're also making another round of champion balance adjustments to give some struggling picks a helping hand while bringing down a few overperformers. Finally, we're dialing back Bouncing Bees and Boom and the Bass, which have been putting out a little more damage than we'd like. As always, thank you for playing and keep the feedback coming!",
+   "champions": [
+    {
+     "name": "Brand",
+     "changes": [
+      "Damage Taken: 110% ⇒ 105%"
+     ]
+    },
+    {
+     "name": "Ekko",
+     "changes": [
+      "Tenacity: 20% ⇒ 10%"
+     ]
+    },
+    {
+     "name": "Gwen",
+     "changes": [
+      "Damage Taken: 100% ⇒ 105%"
+     ]
+    },
+    {
+     "name": "Jax",
+     "changes": [
+      "Damage Taken: 97% ⇒ 100%",
+      "Damage Dealt: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Lux",
+     "changes": [
+      "Shield Modifier: 80% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Sivir",
+     "changes": [
+      "Damage Dealt: 93% ⇒ 95%",
+      "Damage Taken: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Yasuo",
+     "changes": [
+      "Total Attack Speed Increase: 2.5% ⇒ 0%"
+     ]
+    },
+    {
+     "name": "Yone",
+     "changes": [
+      "Damage Taken: 97% ⇒ 100%",
+      "Damage Dealt: 105% ⇒ 100%"
+     ]
+    },
+    {
+     "name": "Zaahen",
+     "changes": [
+      "Damage Taken: 100% ⇒ 105%"
+     ]
+    },
+    {
+     "name": "Ziggs",
+     "changes": [
+      "Damage Taken: 120% ⇒ 110%"
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Fortified",
+     "changes": [
+      "NEW Effect: Gain 20 Armor, then increase your bonus Armor by 25%."
+     ]
+    },
+    {
+     "name": "Mystic Guard",
+     "changes": [
+      "NEW Effect: Gain 20 Magic Resist, then increase your bonus Magic Resist by 25%."
+     ]
+    },
+    {
+     "name": "Slime Time",
+     "changes": [
+      "NEW Effect: Every few seconds, Autocast a burst of slime from your body, dealing magic damage to nearby enemies. If you hit a champion, secrete a blob that heals you when walked over."
+     ]
+    },
+    {
+     "name": "Steadfaster presence",
+     "changes": [
+      "NEW Effect: Gain bonus Armor, Magic Resist, and Tenacity. This bonus increases when you're below 40% maximum Health."
+     ]
+    },
+    {
+     "name": "Boom and the Bass",
+     "changes": [
+      "Damage: 50 - 200 + 50% AD + 30% AP ⇒ 50 - 175 + 40% AD + 25% AP"
+     ]
+    },
+    {
+     "name": "Bouncing Bees",
+     "changes": [
+      "Basic Attack Damage Percent: 50 - 100% ⇒ 60%"
+     ]
+    },
+    {
+     "name": "Salvation",
+     "changes": [
+      "Cooldown: 90s ⇒ 70s"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "Headliner Arcade: NEW Effect: Collect Tokens by getting Takedowns. Cash in 4 Tokens to revive while dead.",
+    "Headliner Debonair: NEW Effect: Augments grant additional gold.",
+    "Headliner La Ilusion: NEW Effect: Allies drop a candle on death. Pick it up to shield yourself and nearby allies.",
+    "Headliner Maestro: NEW Effect: Allows you to choose from 4 Augments.",
+    "Headliner True Damage: Prismatic Anvil: Capped at 1 per team per game",
+    "Headliner Superfans: Bonus Experience: 30% ⇒ 60%",
+    "Turret Plating: Turrets in Mayhem now have 120 Armor and 120 Magic Resistance, and no longer have their resists lowered as the game goes on. Outer and inhibitor Mayhem turrets now have Turret Plating. Plating separates the health bar into thirds, with destroyed plates giving 100g split among the team nearby. On plate destruction, the tower gets a Bulwark buff that grants 60-80 resists per nearby champion."
+   ],
+   "bugfixes": [
+    "Fixed a bug where Pantheon could ignore the pullback effect of Totentanz.",
+    "Fixed a bug where Arcane Axiom was granting cooldown refund for ultimates that were not yet on cooldown.",
+    "Fixed a bug where OK Boomerang was properly firing.",
+    "Fixed a bug where Kindred would not receive the shield from Final Form.",
+    "Fixed a bug where Yun Tal Wildarrows would not gain increased critical strike chance with Weapon of Destiny.",
+    "Fixed a visual bug with the Bilgewater cannon and certain champions.",
+    "Fixed a bug where Kled would get more haste than intended from Dashing.",
+    "Fixed a bug where Nidalee could use Javelin Toss while in Cougar Form with Missile Split.",
+    "Fixed a bug where Fiddlesticks Effigies were permanent with Glass Cannon.",
+    "Fixed a bug where Syndra's Scatter the Weak did not work with Skilled Sniper.",
+    "Fixed a bug where Anivia Q could be casted with no cooldown with Skilled Sniper.",
+    "Fixed a bug with Circle of Death not dealing full damage if the user has omnivamp.",
+    "Fixed a bug with the tooltip of ADAPt.",
+    "Fixed a bug where Weapon of Destiny could not apply to unique items like Wooglet's Witchcap.",
+    "Fixed a visual bug where certain dragon soul augments were missing VFX.",
+    "Fixed a bug where Fire Fox has incorrect damage tooltips."
+   ],
+   "aram": {
+    "champions": [
+     {
+      "name": "Kalista",
+      "changes": [
+       "Damage Dealt: 110% ⇒ 105%",
+       "Damage Taken: 90% ⇒ 100%"
+      ]
+     }
+    ]
+   }
+  },
+  {
+   "patch": "26.22",
+   "gameVersion": "16.22",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-22-notes/",
+   "date": "2026-11-04",
+   "noMayhemSection": false,
+   "intro": "Hello Superstars! This patch, we’re lowering the power of some new augments on the scene, buffing some survivability augments, and fixing a bunch of bugs. We’ve been monitoring the explosiveness of combat in the new update and want to alleviate some of the more frustrating situations. Fighters have become exceptionally good at closing out games and poke dominates early in the most recent update while tanks have been struggling. We’re aiming to bring down the power of some of the augments that have been making tanks feel so fragile like Take ‘Em Down Down Down and Weapon of Destiny. We’re also bringing up the power of survivability augments like Soul Eater and Stay Resolute. We're looking at overall burst and game pacing right now to make sure things don’t feel too snowbally. The stage crews have also finished setting up on Butcher’s Bridge and Koeshin’s Crossing so both of those maps will be back in the rotation with Headliner performances. With Worlds in full swing, the last page of the Journey to Stardom is now accessible. Complete all the missions and make your way to the Worlds stage to earn all the rewards! Two new augments are also joining the fray including one based on a classic World’s Anthem that’ll definitely make your enemies remember you. As always, thank you for playing and for all your feedback!",
+   "champions": [
+    {
+     "name": "Hecarim",
+     "changes": [
+      "Ability Haste: 10 ⇒ 0"
+     ]
+    }
+   ],
+   "augments": [
+    {
+     "name": "Armored Impact",
+     "changes": [
+      "Damage: 50 - 125 + 250% bonus Armor ⇒ 25 - 125 + 220% bonus Armor"
+     ]
+    },
+    {
+     "name": "BEES!!!",
+     "changes": [
+      "Base Damage Scaling: 75 - 200 + 150% bonus AD + 70% total AP ⇒ 75 - 140 + 150% bonus AD + 70% total AP",
+      "Hive Travel Time: .75s ⇒ 1.1s"
+     ]
+    },
+    {
+     "name": "Brass Blast",
+     "changes": [
+      "Cooldown: 75s ⇒ 50s",
+      "REMOVED Minion Damage: Removed"
+     ]
+    },
+    {
+     "name": "Crimson Cobalt",
+     "changes": [
+      "Mark VFX: Visible to all players ⇒ Visible only to the augment owner"
+     ]
+    },
+    {
+     "name": "One Hit Wonder",
+     "changes": [
+      "NEW Effect: [Ability] gains increased damage based on your Ability Haste but no longer benefits from Ability Haste."
+     ]
+    },
+    {
+     "name": "Ravenous Bind",
+     "changes": [
+      "Bonus Health Heal Ratio: .1 ⇒ .12",
+      "Base Heal: 50 - 200 ⇒ 75 - 300"
+     ]
+    },
+    {
+     "name": "RISE!",
+     "changes": [
+      "NEW Effect: Killing enemy champions with your Ultimate resets the cooldown, up to 3 times."
+     ]
+    },
+    {
+     "name": "Squishy Slappy Grab",
+     "changes": [
+      "Shield per Pulled Target: 50 - 200 + 50% bonus Armor + 50% bonus Magic Resistance ⇒ 100 - 300 + 70% bonus Armor + 70% bonus Magic Resistance"
+     ]
+    },
+    {
+     "name": "Soul Eater",
+     "changes": [
+      "Health Gain per Stack: 20 ⇒ 30"
+     ]
+    },
+    {
+     "name": "Stay Resolute",
+     "changes": [
+      "Armor and Magic Resistance per Ability Hit: Level 1 / 7 / 11 - 1 / 2 / 3 ⇒ Level 1 / 11 - 2 / 3"
+     ]
+    },
+    {
+     "name": "Take 'Em Down Down Down",
+     "changes": [
+      "Five-Hit Proc Damage: (15 + 5% bonus Attack Speed + 0.15% total Ability Haste)% Missing Health ⇒ 17% Missing Health"
+     ]
+    },
+    {
+     "name": "Titan’s Resolve",
+     "changes": [
+      "Stacks of Juggernauting required for each Juggernauting level: 10 ⇒ 7"
+     ]
+    },
+    {
+     "name": "Weapon of Destiny",
+     "changes": [
+      "Flat Armor Penetration Scalar: 35 ⇒ 20",
+      "Flat Magic Penetration Scalar: 25 ⇒ 15",
+      "Percent Armor Penetration Scalar: 0.25 ⇒ 0.15",
+      "Percent Magic Penetration Scalar: 0.15 ⇒ 0.09"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "Butcher's Bridge and Koeshin's Crossing: Unavailable ⇒ Enabled"
+   ],
+   "bugfixes": [
+    "Fixed a bug where using Get Jinxed when killed by the fountain turret caused the player to not be able to move.",
+    "Fixed a bug where Jeweled Gauntlet was not giving the correct Critical Strike chance with escAPADe and ADAPt.",
+    "Fixed the tooltip for the Bee Band headliner to match its effect in game.",
+    "Fixed a bug with Crimson Cobalt where some champion’s empowered basic attacks were not consuming the mark.",
+    "Fixed a bug where the Pentakill headliner was not offering an upgrade to Udyr’s ultimate at level 18.",
+    "Fixed a bug where Karma’s Mantra empowered abilities were not counting towards damage for the Ultimate Damage K/DA band mission.",
+    "Fixed a bug where some Superstar mission descriptions were not properly displaying.",
+    "Fixed a bug where Mosh Monster’s slowing effect persisted after death.",
+    "Fixed a bug where Weapon of Destiny would swap which item is empowered if the empowered item transforms."
+   ],
+   "aram": {}
+  },
+  {
+   "patch": "26.21",
+   "gameVersion": "16.21",
+   "url": "https://www.leagueoflegends.com/en-us/news/game-updates/league-of-legends-patch-26-21-notes/",
+   "date": "2026-10-22",
+   "noMayhemSection": false,
+   "intro": "Welcome to the latest ARAM Mayhem release - “Journey to Stardom”. The stars have certainly come out to play as each game of Mayhem will now feature a Headliner performance that applies a unique twist to the rules of each game. Each iconic band will be playing their music while you battle, so make sure you enable your sound and turn up the volume! STAGE CREW ANNOUNCEMENT: It’s taking a little longer to set up the concert stages on Butcher’s Bridge and Koeshin’s Crossing, so expect those maps to be unavailable in Mayhem queues for this patch but return next patch. Along with our Headliners, we have a TON of new augments for you to enjoy. With this release we’ll also be removing some augments and wishing them a fond farewell. But who knows? Maybe they’ll be back some day for an encore. We also have a brand new progression experience where you’ll be completing missions from members K/DA, Pentakill, and other bands. Completing these missions unlocks awesome rewards like Augments, emotes, orange essence, and more! Playing games and completing missions will move you up Superstar Ranks that unlock new bands and new missions. Go from a Newbie to a Superstar performing on the Worlds stage!",
+   "champions": [],
+   "augments": [
+    {
+     "name": "Silver Blue Barrier",
+     "changes": [
+      "NEW Effect: Gain a Shield whenever you cast an Ability based on the mana cost."
+     ]
+    },
+    {
+     "name": "Flow of Spirit",
+     "changes": [
+      "NEW Effect: Using a specific ability grants you stacking Attack Speed."
+     ]
+    },
+    {
+     "name": "Fruitify",
+     "changes": [
+      "NEW Effect: Enemy Champion takedowns create Fruit that can be picked up by you and your allies for healing."
+     ]
+    },
+    {
+     "name": "Gift of the Drowned",
+     "changes": [
+      "NEW Effect: All Bonus Health from your items is converted to Lethality."
+     ]
+    },
+    {
+     "name": "Hands Off The Talent",
+     "changes": [
+      "NEW Effect: Your Attacks deal extra damage if fired from max range."
+     ]
+    },
+    {
+     "name": "Lich Brain",
+     "changes": [
+      "NEW Effect: Gain Ability Power based on your Bonus Health."
+     ]
+    },
+    {
+     "name": "Lonely Warrior",
+     "changes": [
+      "NEW Effect: Gain Armor, Magic Resistance, and Attack Speed for every enemy Champion around you."
+     ]
+    },
+    {
+     "name": "No Mana, No Problem",
+     "changes": [
+      "NEW Effect: All mana from your items is converted to Ability Power."
+     ]
+    },
+    {
+     "name": "Sound Barrier",
+     "changes": [
+      "NEW Effect: Your shields grant Move Speed."
+     ]
+    },
+    {
+     "name": "Ultimate Recursion",
+     "changes": [
+      "NEW Effect: Gain 50 Ultimate Ability Haste."
+     ]
+    },
+    {
+     "name": "Gold Arcane Axiom",
+     "changes": [
+      "NEW Effect: Takedowns refund a portion of your Ultimate Cooldown."
+     ]
+    },
+    {
+     "name": "Armored Impact",
+     "changes": [
+      "NEW Effect: Using an Ability causes your next Attack to deal additional damage based on your Armor."
+     ]
+    },
+    {
+     "name": "BEES!!!",
+     "changes": [
+      "NEW Effect: Your abilities occasionally fling an exploding beehive at your enemies that deals damage, slows, and applies On-Hit effects."
+     ]
+    },
+    {
+     "name": "Brass Blast",
+     "changes": [
+      "NEW Effect: Gain a Summoner Spell that allows you to charge up a horn blast to knock back and damage your enemies."
+     ]
+    },
+    {
+     "name": "CRIMSON COBALT",
+     "changes": [
+      "NEW Effect: One of your Abilities marks enemy champions; consuming the mark deals extra damage and reduces the cooldown of your Ability."
+     ]
+    },
+    {
+     "name": "Double Time",
+     "changes": [
+      "NEW Effect: Damaging enemy champions with two separate abilities in quick succession grants permanent Mana and deals additional damage."
+     ]
+    },
+    {
+     "name": "Enchanting Butterflies",
+     "changes": [
+      "NEW Effect: Healing and Shielding allies summons butterflies. Once you have enough butterflies, they’ll fly at enemies you damage, dealing additional damage."
+     ]
+    },
+    {
+     "name": "Get Jinxed",
+     "changes": [
+      "NEW Effect: Gain a Summoner Spell that allows you to jump on a destructive rocket and drive it into your enemies."
+     ]
+    },
+    {
+     "name": "Heavy Is The Crown",
+     "changes": [
+      "NEW Effect: Gain Attack Damage, Ability Power, and Attack Speed but decrease your own Move Speed. Every Takedown increases this effect and dying decreases the effect."
+     ]
+    },
+    {
+     "name": "Jeweled Bracelet",
+     "changes": [
+      "NEW Effect: Your Ultimate Ability can now critically strike."
+     ]
+    },
+    {
+     "name": "Recoil",
+     "changes": [
+      "NEW Effect: One of your abilities will launch you backwards when you fire it."
+     ]
+    },
+    {
+     "name": "Salvation",
+     "changes": [
+      "NEW Effect: Falling to low Health pushes back enemies and heals allies."
+     ]
+    },
+    {
+     "name": "Sap Magic",
+     "changes": [
+      "NEW Effect: Every 10 seconds, your next Attack deals additional damage and heals you."
+     ]
+    },
+    {
+     "name": "Still Here",
+     "changes": [
+      "NEW Effect: Gain Attack Damage, Ability Power, and Lifesteal based on how low your Health is."
+     ]
+    },
+    {
+     "name": "Take’em Down Down Down",
+     "changes": [
+      "NEW Effect: Damage an enemy champion five times with Attacks and Abilities to gain a burst of healing and extra damage."
+     ]
+    },
+    {
+     "name": "The Boom and the Bass",
+     "changes": [
+      "NEW Effect: After casting an Ability, your next attack deals bonus damage and grants you a burst of Move Speed."
+     ]
+    },
+    {
+     "name": "Tickle Monster",
+     "changes": [
+      "NEW Effect: All Attack Damage from your items is converted to Attack Speed."
+     ]
+    },
+    {
+     "name": "Upgrade: Stormsurge",
+     "changes": [
+      "NEW Effect: When Stormsurge applies Squall, it now detonates in an area, dealing additional damage and marking enemies with a secondary Squall."
+     ]
+    },
+    {
+     "name": "Weapon Of Destiny",
+     "changes": [
+      "NEW Effect: The first Legendary Item you buy gets stronger stats with every takedown."
+     ]
+    },
+    {
+     "name": "Prismatic Big Shot",
+     "changes": [
+      "NEW Effect: A large percent of your Attack Speed is converted to Critical Strike Damage."
+     ]
+    },
+    {
+     "name": "Bouncing Bees",
+     "changes": [
+      "NEW Effect: After using an ability, your next Attack bounces to nearby enemies, prioritizing enemy champions. Complete the quest by bouncing your Attacks to enemy champions to gain additional bounces and Attack Damage."
+     ]
+    },
+    {
+     "name": "Group Hug",
+     "changes": [
+      "NEW Effect: One of your Abilities that heals or shields also heals or shields nearby allies."
+     ]
+    },
+    {
+     "name": "Mosh Monster",
+     "changes": [
+      "NEW Effect: Using your Ultimate Ability grants you increased Health and creates a zone around you that slows Enemy Champions. Takedowns increase the amount of Bonus Health you get and the size of the slow zone."
+     ]
+    },
+    {
+     "name": "Third Times The Harm",
+     "changes": [
+      "NEW Effect: Attacking an enemy champion three times deals a burst of damage and grants you a burst of Attack Speed."
+     ]
+    },
+    {
+     "name": "Totentanz",
+     "changes": [
+      "NEW Effect: Gain a Summoner Spell that lets you “Dance with Death”, granting you immortality for 5 seconds, but if you don’t get a takedown during that time, you’ll get dragged to the underworld."
+     ]
+    },
+    {
+     "name": "Combusting Interest",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "Crit 'n Cast",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "Critical Missile",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "Dimension Shift",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "DropBear",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "Dropkick",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "Fan the Hammer",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "Hide on Bush",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "High Roller",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "Our Healing",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "Poro Stampede",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "Spiritual Purification",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    },
+    {
+     "name": "Ult Bot",
+     "changes": [
+      "REMOVED Augment: removed from the pool"
+     ]
+    }
+   ],
+   "items": [],
+   "systems": [
+    "Headliners: K/DA: Collect 4 K/DA Cards to earn an extra Augment!",
+    "Headliners: HEARTSTEEL: Augments can come with unique modifiers making them extra strong.",
+    "Headliners: True Damage: Takedowns and destroying towers can drop Anvils for your team.",
+    "Headliners: Pentakill: Increase the power of one of your abilities at the start of the game and at level 18.",
+    "Headliners: Disco: Dance under the disco ball to earn Gold for everyone.",
+    "Headliners: Cafe Cuties: Health relics are especially powerful.",
+    "Headliners: Bees: Collect the honey pots and avoid the bees that fly across the map.",
+    "Headliners: Command Line: Reroll one of your augments to be a higher tier in every selection.",
+    "Headliners: And more to come????"
+   ],
+   "bugfixes": [],
+   "aram": {}
+  },
   {
    "patch": "26.20",
    "gameVersion": "16.20",
