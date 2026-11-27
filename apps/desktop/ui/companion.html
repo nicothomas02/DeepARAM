@@ -509,11 +509,16 @@
     const taken = game ? getTaken(game) : [];
     if (ids.length) {
       // A card that changed while the other two stayed was rerolled: neither it nor its replacement can be again.
-      const kept = ids.filter((id) => offer.includes(id));
+      // Compared with this screen's last full reading, not only the one just before: a reroll's card flip reads as
+      // a close first (an empty offer), so the cards before and after it never sat side by side (Nico 2026-11-27:
+      // the reroll cue stayed on a card already rerolled).
+      const before = offer.length >= 3 ? offer : lastScreen;
+      const kept = ids.filter((id) => before.includes(id));
       // (3 cards, or 4 under Maestro)
-      if (offer.length >= 3 && ids.length === offer.length && kept.length === ids.length - 1) {
-        for (const id of [...offer, ...ids]) if (!kept.includes(id)) rerolled.add(id);
+      if (before.length >= 3 && ids.length === before.length && kept.length === ids.length - 1) {
+        for (const id of [...before, ...ids]) if (!kept.includes(id)) rerolled.add(id);
       }
+      if (ids.length >= 3) lastScreen = ids;
       ids.forEach((id) => seen.add(id));
       sawOffer = true;
     } else if (offer.length && game) { closedAt = game.t; owed = Math.max(0, owed - 1); }
@@ -598,9 +603,11 @@
   let lucky = (() => { try { return localStorage.getItem("lucky") === "1"; } catch { return false; } })();
   // Per game: every augment shown on a card (it can't come back) and the cards already rerolled (once each).
   let seen = new Set(), rerolled = new Set();
+  // The last full reading of the screen up now (or just closed by a reroll's flip); cleared when a card is taken.
+  let lastScreen = [];
   let bestOpen = false;
   document.addEventListener("toggle", (e) => { if (e.target.matches?.("details.best")) bestOpen = e.target.open; }, true);
-  const resetTrack = () => { seen = new Set(); rerolled = new Set(); };
+  const resetTrack = () => { seen = new Set(); rerolled = new Set(); lastScreen = []; };
   // "16.23+" (default: earlier patches pooled in where nothing changed, as the site) / "16.23 only" (Nico 2026-11-24).
   let onlyPatch = (() => { try { return localStorage.getItem("patchOnly") === "1"; } catch { return false; } })();
   const picksView = (d, ck) => (onlyPatch && d?.only?.[ck] ? { ...d, champions: { ...d.champions, [ck]: d.only[ck] } } : d);
@@ -911,6 +918,7 @@
     if (!game) return;
     const t = getTaken(game);
     if (t.includes(id)) return;
+    lastScreen = [];
     setTaken(game, [...t, id]);
     renderAugments();
     renderItems();
