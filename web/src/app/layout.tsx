@@ -28,6 +28,7 @@ import { livePatch, searchPages } from "@/lib/highlights";
 import { SETTINGS_SCRIPT } from "@/lib/settings";
 import { LANG_SCRIPT } from "@/lib/i18n";
 import { T } from "@/components/I18n";
+import { SUPPORT_URL } from "@/lib/support";
 import { THEME_COLORS, THEME_KEY } from "@/lib/theme";
 import { navGroups, navItems } from "@/lib/tabs";
 import "./globals.css";
@@ -161,6 +162,11 @@ export default function RootLayout({
             <Link href="/methodology">
               <T>Methodology</T>
             </Link>
+            {SUPPORT_URL && (
+              <a href={SUPPORT_URL} target="_blank" rel="noopener noreferrer">
+                <T>Support DeepARAM</T>
+              </a>
+            )}
           </nav>
           <p className="footer-pitch">
             <T>DeepARAM is built just for ARAM Mayhem. Rankings come from data science, and the fight simulator is there for fun.</T>
