@@ -860,7 +860,7 @@ describe("split skill orders", () => {
 });
 
 describe("crit cap (critCap)", () => {
-  it("swaps a near-tied crit pick for a non-crit one at 100% crit, never for Yasuo", async () => {
+  it("swaps a crit pick for the slot's non-crit one at 100% crit, never for Yasuo", async () => {
     const { plan, CRIT_CONVERTERS } = await import("@/lib/engine/build-engine");
     const icon = (id: number) => `/assets/dd/16.23.1/img/item/${220000 + id}.png`;
     const champ0 = {
@@ -883,6 +883,12 @@ describe("crit cap (critCap)", () => {
     expect(capped.rules).toContain("critCap");
     expect(CRIT_CONVERTERS.has("yasuo")).toBe(true);
     expect(at("Yasuo", 1).path.map((x) => x.name)).toContain("Infinity Edge");
+    // Nico 2026-11-27: a firm swap, also when the non-crit option is clearly behind (no near tie)
+    const far = { ...champ0, laterSlots: [{ slot: 2, items: [{ name: "Infinity Edge", icon: icon(3031), deepScore: 70 }, { name: "Lord Dominik's Regards", icon: icon(3036), deepScore: 55 }] }] };
+    const atFar = (crit: number) => plan({ champ: far, kinds, picks: null, fit: null, game: g("Tristana", crit), taken: [] } as never).path.map((x) => x.name);
+    expect(atFar(0.6)).toContain("Infinity Edge");
+    expect(atFar(1)).toContain("Lord Dominik's Regards");
+    expect(atFar(1)).not.toContain("Infinity Edge");
   });
 });
 

@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.8";
+export const ENGINE_VERSION = "1.4.9";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -54,7 +54,7 @@ export const RULES: Record<string, Rule> = {
   destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary; when the path lacks it, it takes the last unbought core place first (2026-11-25: 31 of 172 champions' best Weapon was missing from their path)." },
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
-  critCap: { source: "game data", on: true, why: "At 100% crit or more (live crit chance), a later slot's crit item gives way to a near-tied option (inside its 95% win-rate band) with better synergy: an item a taken augment pulls in, then a kit match, then a non-crit item, whose stats and passive keep full value (Mayhem turns crit over 100% into 0.75 adaptive force per 1%, wiki). Not Yasuo or Yone: their passive also turns extra crit into AD. Archive: overcap is noise on win rate (-1.7 +- 3.7 pts). Nico approved 2026-11-24 as a tiebreak." },
+  critCap: { source: "estimated (Nico approved 2026-11-27)", on: true, why: "At 100% crit or more (live crit chance), a crit item not yet bought in a later slot gives way to that slot's best non-crit option (the data's order; an item a taken augment pulls in, then a kit match, go first), whose stats and passive keep full value (Mayhem turns crit over 100% into 0.75 adaptive force per 1%, wiki). Not Yasuo or Yone: their passive also turns extra crit into AD. Archive too small to test overcap (-1.7 +- 3.7 pts). Nico approved 2026-11-24 as a tiebreak, 2026-11-27 as a firm swap." },
   skillSplits: { source: "assumption", on: true, why: "Katarina and Kayn put 3 points in Q before maxing E (Katarina) or W (Kayn). Nico approved 2026-11-24 (his pick) after a one-time regular ARAM cross-check: the only two intentional splits that beat the champion's best standard order at levels 10 and 15 (800+ games each). Azir and Soraka (Q to 3, then max W) added by Nico the same day as weaker evidence: they lead at both levels but within luck. Dr. Mundo (Q to 3, then E), Ashe (W to 3, then Q) and Rumble (E to 3, then Q) added by Nico for their kit logic; about even on win rate. Kha'Zix and Sona (Q to 3, then W), Vayne and Smolder (W to 3, then Q) chosen by Nico too: about even, with a kit reason. Shown as estimated; no stats of its own." },
   pentakillBuild: { source: "assumption", on: true, why: "Pentakill's Empowers (HEAVY Q, POWER W, THRASH E: +20 haste and +10%) follow the ability your CURRENT build maxes first when the build switched style (e.g. AP Ashe): the champion's real-game Empower ranking (AramHex) is for its usual build. Not when the switched build maxes the same ability. 2026-11-25 check: the usual max-first ability is the champion's best Empower for 123 of 173 champions; for 38 the data clearly prefers another (z >= 3, e.g. Kai'Sa W, Malphite W, Trundle Q), and those keep the data pick on their usual build. Kit logic, estimated. Nico approved 2026-11-25 (he asked for it)." },
   splitAugments: { source: "assumption", on: true, why: "For the weaker-evidence splits (close to the standard order), an augment that favors one of the two abilities tips it: Bread and Butter/Jam/Cheese (+100 haste) or Pentakill HEAVY/POWER/THRASH (+20 haste, +10%) on the split's 3-point ability maxes that ability first; on the maxed ability, it's maxed from the start (no split). Kit logic, estimated: no data splits skill orders by augment. Nico approved 2026-11-24 (he asked for it)." },
@@ -1529,11 +1529,19 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       return (w === "augment" ? 4 : w === "kit" ? 2 : 0) + (isCrit(it) ? 0 : 1);
     };
     const usedIds = new Set([...(champ?.items ?? []), ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
+    // Nico 2026-11-27 (card): a firm swap, not a tiebreak. A crit item not yet bought gives way to that slot's best
+    // non-crit option from the champion's slot list (its order = the data's ranking; augment pull, then kit match,
+    // break the order). Estimated: the archive is too small to test overcap (-1.7 +- 3.7 pts).
+    const pathIds = () => [...(champ?.items ?? []), ...slotRows!.map((r) => r.it)].map((it) => itemId(it.icon));
     for (const r of slotRows) {
-      if (owned.has(itemId(r.it.icon)) || !isCrit(r.it) || !r.it.tie) continue;
-      const better = r.alts
-        .filter((x) => x.tie && !usedIds.has(itemId(x.icon)) && ![...owned].some((o) => rules.clash(o, itemId(x.icon))) && synergy(x) > synergy(r.it))
-        .sort((x, y) => synergy(y) - synergy(x))[0];
+      if (owned.has(itemId(r.it.icon)) || !isCrit(r.it)) continue;
+      const list = [...r.alts, ...((champ?.laterSlots ?? []).find((s) => s.slot === r.slot)?.items ?? [])];
+      const held = pathIds().filter((i) => i !== itemId(r.it.icon));
+      const better = list
+        .filter((x, n) => !isCrit(x) && list.findIndex((y) => itemId(y.icon) === itemId(x.icon)) === n && !usedIds.has(itemId(x.icon))
+          && ![...owned, ...held].some((o) => rules.clash(o, itemId(x.icon))))
+        .map((x, n) => ({ x, n }))
+        .sort((a, b) => synergy(b.x) - synergy(a.x) || a.n - b.n)[0]?.x;
       if (!better) continue;
       usedIds.delete(itemId(r.it.icon));
       usedIds.add(itemId(better.icon));
