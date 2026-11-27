@@ -15,6 +15,11 @@ use tauri::{AppHandle, Manager};
 /// The newest release, as GitHub reports it.
 #[cfg(windows)]
 const LATEST: &str = "https://api.github.com/repos/nicothomas02/DeepARAM/releases/latest";
+/// The owner's feed (Nico 2026-11-27): owner builds released from the private DeepARAM-PC repo (owner-app.yml),
+/// read with his own read-only key from `owner-feed-token.txt` in the app's data folder. Public releases never
+/// replace the owner's build, and owner builds never reach the public.
+#[cfg(windows)]
+const OWNER_LATEST: &str = "https://api.github.com/repos/nicothomas02/DeepARAM-PC/releases/latest";
 /// The installer's fixed name in every release (release.yml), which the download page also uses.
 pub const INSTALLER: &str = "DeepARAM-Windows-Setup.exe";
 /// How often to look for an update, and how long after the app starts the first look waits.
@@ -50,18 +55,24 @@ pub fn quiet_phase(phase: &Result<Option<String>, ()>) -> bool {
 
 /// The installer's download link and its SHA-256 (hex) from a release: GitHub's own digest of the file, or else
 /// the release's "<installer>.sha256" file, fetched by `fetch`. None without a checksum: nothing unchecked runs.
-pub fn installer_of(release: &Value, fetch: impl Fn(&str) -> Option<String>) -> Option<(String, String)> {
+/// A private release's files download from their API address (`url`) with the key, not the browser link.
+pub fn installer_of(
+    release: &Value,
+    private: bool,
+    fetch: impl Fn(&str) -> Option<String>,
+) -> Option<(String, String)> {
+    let link = if private { "url" } else { "browser_download_url" };
     let assets = release.get("assets")?.as_array()?;
     let named = |n: &str| assets.iter().find(|a| a.get("name").and_then(Value::as_str) == Some(n));
     let exe = named(INSTALLER)?;
-    let url = exe.get("browser_download_url")?.as_str()?.to_owned();
+    let url = exe.get(link)?.as_str()?.to_owned();
     let digest = exe
         .get("digest")
         .and_then(Value::as_str)
         .and_then(|d| d.strip_prefix("sha256:"))
         .map(str::to_owned)
         .or_else(|| {
-            let sums = named(&format!("{INSTALLER}.sha256"))?.get("browser_download_url")?.as_str()?.to_owned();
+            let sums = named(&format!("{INSTALLER}.sha256"))?.get(link)?.as_str()?.to_owned();
             fetch(&sums)?.split_whitespace().next().map(str::to_owned)
         })?
         .to_ascii_lowercase();
@@ -75,9 +86,24 @@ pub fn script(setup: &str, app: &str, hidden: &str) -> String {
     )
 }
 
+/// A GitHub request; with the owner's key for the private feed. A file asks for its bytes (`raw`), not its details.
 #[cfg(windows)]
-fn get(url: &str) -> Option<ureq::http::Response<ureq::Body>> {
-    ureq::get(url).header("User-Agent", "DeepARAM-app").header("Accept", "application/vnd.github+json").call().ok()
+fn get(url: &str, key: Option<&str>, raw: bool) -> Option<ureq::http::Response<ureq::Body>> {
+    let accept = if raw { "application/octet-stream" } else { "application/vnd.github+json" };
+    let req = ureq::get(url).header("User-Agent", "DeepARAM-app").header("Accept", accept);
+    match key {
+        Some(k) => req.header("Authorization", &format!("Bearer {k}")).call().ok(),
+        None => req.call().ok(),
+    }
+}
+
+/// The owner's read-only key, saved by him (never shown or logged).
+#[cfg(windows)]
+fn owner_key(app: &AppHandle) -> Option<String> {
+    let dir = app.path().app_data_dir().ok()?;
+    let k = std::fs::read_to_string(dir.join("owner-feed-token.txt")).ok()?;
+    let k = k.trim();
+    (!k.is_empty() && k.chars().all(|c| c.is_ascii_graphic())).then(|| k.to_owned())
 }
 
 #[cfg(windows)]
@@ -133,11 +159,23 @@ fn owner_pc(app: &AppHandle) -> bool {
 fn download(app: &AppHandle) {
     use sha2::{Digest, Sha256};
 
-    if !crate::auto_update_on(app) || owner_pc(app) {
+    if !crate::auto_update_on(app) {
         return;
     }
+    // The owner's PC follows only the owner feed, and only with his key: no key, no update.
+    let key = if owner_pc(app) {
+        match owner_key(app) {
+            Some(k) => Some(k),
+            None => return,
+        }
+    } else {
+        None
+    };
+    let key = key.as_deref();
+    let private = key.is_some();
+    let feed = if private { OWNER_LATEST } else { LATEST };
     let running = app.package_info().version.to_string();
-    let Some(release) = get(LATEST).and_then(|mut r| r.body_mut().read_json::<Value>().ok()) else { return };
+    let Some(release) = get(feed, key, false).and_then(|mut r| r.body_mut().read_json::<Value>().ok()) else { return };
     let Some(tag) = release.get("tag_name").and_then(Value::as_str).map(str::to_owned) else { return };
     if !newer(&tag, &running) || crate::update_tried_recently(app, &tag, now()) {
         return;
@@ -145,10 +183,10 @@ fn download(app: &AppHandle) {
     if READY.lock().unwrap().as_ref().is_some_and(|(t, _)| *t == tag) {
         return;
     }
-    let fetch = |u: &str| get(u)?.body_mut().read_to_string().ok();
-    let Some((url, sha)) = installer_of(&release, fetch) else { return };
+    let fetch = |u: &str| get(u, key, true)?.body_mut().read_to_string().ok();
+    let Some((url, sha)) = installer_of(&release, private, fetch) else { return };
     let Some(bytes) =
-        get(&url).and_then(|mut r| r.body_mut().with_config().limit(400 * 1024 * 1024).read_to_vec().ok())
+        get(&url, key, true).and_then(|mut r| r.body_mut().with_config().limit(400 * 1024 * 1024).read_to_vec().ok())
     else {
         return;
     };
@@ -221,18 +259,21 @@ mod tests {
     fn needs_a_checksum() {
         let sha = "AB".repeat(32);
         let with_digest = json!({"assets": [{"name": INSTALLER, "browser_download_url": "https://x/s.exe", "digest": format!("sha256:{sha}")}]});
-        assert_eq!(installer_of(&with_digest, |_| None), Some(("https://x/s.exe".into(), sha.to_lowercase())));
+        assert_eq!(installer_of(&with_digest, false, |_| None), Some(("https://x/s.exe".into(), sha.to_lowercase())));
         let with_file = json!({"assets": [
             {"name": INSTALLER, "browser_download_url": "https://x/s.exe"},
             {"name": format!("{INSTALLER}.sha256"), "browser_download_url": "https://x/s.sha256"}]});
         let sum = "cd".repeat(32);
         assert_eq!(
-            installer_of(&with_file, |u| (u == "https://x/s.sha256").then(|| format!("{sum}  {INSTALLER}\n"))),
+            installer_of(&with_file, false, |u| (u == "https://x/s.sha256").then(|| format!("{sum}  {INSTALLER}\n"))),
             Some(("https://x/s.exe".into(), sum.clone()))
         );
         let without = json!({"assets": [{"name": INSTALLER, "browser_download_url": "https://x/s.exe"}]});
-        assert_eq!(installer_of(&without, |_| None), None);
-        assert_eq!(installer_of(&with_file, |_| Some("not-a-sum".into())), None);
+        assert_eq!(installer_of(&without, false, |_| None), None);
+        // The owner's private feed downloads by the API address.
+        let private = json!({"assets": [{"name": INSTALLER, "url": "https://api/x/1", "browser_download_url": "https://x/s.exe", "digest": format!("sha256:{sha}")}]});
+        assert_eq!(installer_of(&private, true, |_| None), Some(("https://api/x/1".into(), sha.to_lowercase())));
+        assert_eq!(installer_of(&with_file, false, |_| Some("not-a-sum".into())), None);
     }
 
     #[test]

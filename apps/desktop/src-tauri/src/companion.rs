@@ -115,7 +115,9 @@ pub fn eog_augments(block: &Value) -> Vec<i64> {
     let mut cands: Vec<&Value> = local.into_iter().collect();
     for t in block.get("teams").and_then(Value::as_array).into_iter().flatten() {
         for p in t.get("players").and_then(Value::as_array).into_iter().flatten() {
-            if p.get("isLocalPlayer").and_then(Value::as_bool) == Some(true) || (id.is_some() && p.get("summonerId") == id) {
+            if p.get("isLocalPlayer").and_then(Value::as_bool) == Some(true)
+                || (id.is_some() && p.get("summonerId") == id)
+            {
                 cands.push(p);
             }
         }
