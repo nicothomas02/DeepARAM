@@ -679,7 +679,11 @@
     const tb = ties.length ? E.tieBreak(d, ck, [offered[0].id, ...ties], ranked) : null;
     // Best augments (Nico 2026-11-27): at the bottom, every augment of this round's rarity in rank order, so you see
     // where the cards on offer rank (highlighted in place). Cards already shown this game can't come back: left out.
-    const shown = ranked.filter((a) => (onOffer.includes(a.id) || !seen.has(a.id)) && !PENTA[a.id] && (!tier || d.augments[a.id]?.[1] === tier));
+    // Command Line mixes rarities (a hacked reroll is a tier up): every rarity on the screen, and the next one up.
+    const NEXT = { silver: "gold", gold: "prismatic" };
+    const tiers = new Set(offer.map((id) => d.augments[id]?.[1]).filter(Boolean));
+    if (/command/i.test(game?.headliner ?? "")) for (const t of [...tiers]) if (NEXT[t]) tiers.add(NEXT[t]);
+    const shown = ranked.filter((a) => (onOffer.includes(a.id) || !seen.has(a.id)) && !PENTA[a.id] && (!tiers.size || tiers.has(d.augments[a.id]?.[1])));
     // A one-word label at most; the reason and what the augment does are on hover.
     // [label html, colour, hover]
     const reason = (a) => a.conflict ? [`${ico("warn")} Conflicts`, "red", `Conflicts: ${a.conflict}`] : a.mate !== null ? [`${ico("plus")}${augIco(a.mate)}${esc(name(a.mate))}`, "green", `Synergy with ${name(a.mate)}`]
@@ -723,8 +727,8 @@
       ${settings.length ? `<div class="why" title="Set in champion select">${esc(settings.join(" · "))}</div>` : ""}`;
     const rows = document.getElementById("bestRows"), head = document.getElementById("bestHead");
     if (rows) {
-      const tierName = tier ? `${tier[0].toUpperCase()}${tier.slice(1)} ` : "";
-      if (head) head.innerHTML = `Best ${esc(tierName.toLowerCase())}augments <span class="tag">${shown.length}</span>`;
+      const tierName = tiers.size === 1 ? `${[...tiers][0]} ` : "";
+      if (head) head.innerHTML = `Best ${esc(tierName)}augments <span class="tag">${shown.length}</span>`;
       rows.innerHTML = shown.map((a, i) => row(a, onOffer.includes(a.id)).replace('<div class="row aug', `<div data-n="${esc(name(a.id).toLowerCase())}" class="row aug${onOffer.includes(a.id) ? " offered" : ""}`).replace(/(<div class="name">)/, `$1<span class="why">#${i + 1}</span> `)).join("");
       filterBest();
     }
