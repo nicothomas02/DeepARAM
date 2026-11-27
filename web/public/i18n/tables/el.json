@@ -179,5 +179,9 @@
  "DeepScore {n}, tier {t}": "DeepScore {n}, βαθμίδα {t}",
  "About {pts} win-rate pts from this list's average.": "Περίπου {pts} μονάδες ποσοστού νικών από τον μέσο όρο αυτής της λίστας.",
  "0-100 · 50 is the average of its own list": "0-100 · 50 είναι ο μέσος όρος της λίστας του",
- "DeepScore rates each champion, augment, item or build from 0 to 100 against the rest of its own list: 50 is that list's average, so compare numbers within a list. Hover any DeepScore to see how far it sits from its list's average in win-rate points.": "Το DeepScore βαθμολογεί κάθε champion, augment, αντικείμενο ή build από 0 έως 100 σε σχέση με την υπόλοιπη λίστα του: 50 είναι ο μέσος όρος της λίστας, οπότε σύγκρινε αριθμούς μέσα στην ίδια λίστα. Πέρασε τον δείκτη πάνω από ένα DeepScore για να δεις πόσο απέχει από τον μέσο όρο της λίστας σε μονάδες ποσοστού νικών."
+ "DeepScore rates each champion, augment, item or build from 0 to 100 against the rest of its own list: 50 is that list's average, so compare numbers within a list. Hover any DeepScore to see how far it sits from its list's average in win-rate points.": "Το DeepScore βαθμολογεί κάθε champion, augment, αντικείμενο ή build από 0 έως 100 σε σχέση με την υπόλοιπη λίστα του: 50 είναι ο μέσος όρος της λίστας, οπότε σύγκρινε αριθμούς μέσα στην ίδια λίστα. Πέρασε τον δείκτη πάνω από ένα DeepScore για να δεις πόσο απέχει από τον μέσο όρο της λίστας σε μονάδες ποσοστού νικών.",
+ "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Οριακό: κοντά στη γραμμή του {tier}. Οι champions τόσο κοντά σε γραμμή κράτησαν το tier τους στο επόμενο patch μόνο λίγο περισσότερο από τις μισές φορές.",
+ "Buffed": "Ενισχύθηκε",
+ "Nerfed": "Αποδυναμώθηκε",
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Άλλαξε στο νέο patch. Οι αριθμοί του εδώ είναι ακόμα από το προηγούμενο patch."
 }

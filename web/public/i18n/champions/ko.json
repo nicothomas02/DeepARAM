@@ -363,5 +363,7 @@
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "최근 패치에서 흔한 점멸 조합과 거의 같으므로(1점 미만 차이) 어느 쪽이든 괜찮습니다. 이 조합은 플레이어의 {pct}만 고릅니다.",
  "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "이 조합은 플레이어의 {pct}만 고르고 우위가 패치마다 달라지므로, 흔한 점멸 조합과 비슷하다고 보세요.",
  "It belongs to the {build} build: pick that tab on the card.": "{build} 빌드에 속합니다. 카드에서 해당 탭을 고르세요.",
- "It is a situational pick on this card ({situation}), so most players skip it in other games.": "이 카드에서는 상황에 따른 선택({situation})이라 다른 게임에서는 대부분의 플레이어가 사지 않습니다."
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "이 카드에서는 상황에 따른 선택({situation})이라 다른 게임에서는 대부분의 플레이어가 사지 않습니다.",
+ "Close call": "근소한 차이",
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "다음 선택지도 거의 비슷합니다: 차이가 뒷받침하는 게임 수의 오차보다 작습니다. 이렇게 근소하게 앞선 1순위는 다음 패치에서 약 절반만 1순위를 유지했습니다."
 }

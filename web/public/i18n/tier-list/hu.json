@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "Egy frontvonal védi a carryt.",
  "Crowd control groups enemies for area damage.": "A tömegirányítás összeterel ellenfeleket a területi sebzéshez.",
  "Best pairs": "Legjobb párosok",
- "All pairs": "Összes páros"
+ "All pairs": "Összes páros",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "Megjelent a(z) {patch} patch. Amíg az első napjának meccsei be nem érkeznek, ezek a számok a(z) {before} patchből vannak; az általa módosított championok Erősítve vagy Gyengítve jelölést kapnak."
 }

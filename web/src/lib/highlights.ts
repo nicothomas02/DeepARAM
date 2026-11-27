@@ -57,7 +57,8 @@ export function detailDate() {
 }
 
 /** The live patch the current stats cover, like "16.20". PBE data stays on the PBE tab. */
-export const livePatch = () => readRepoCsv("data/cn/history/patches.csv")?.at(-1)?.patch ?? null;
+// Repo files exist at build time only; per-request routes on the Worker use the patch next.config.ts stamped in.
+export const livePatch = () => readRepoCsv("data/cn/history/patches.csv")?.at(-1)?.patch ?? (process.env.DEEPARAM_LIVE_PATCH || null);
 
 type Builds = { builds: { champion: string; title: string; augments: string[]; why: string }[] };
 

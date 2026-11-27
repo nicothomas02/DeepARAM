@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "Bir ön cephe taşıyıcıyı korur.",
  "Crowd control groups enemies for area damage.": "Kitle kontrolü alan hasarı için rakipleri toplar.",
  "Best pairs": "En iyi ikililer",
- "All pairs": "Tüm ikililer"
+ "All pairs": "Tüm ikililer",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "{patch} yaması çıktı. İlk gününün oyunları gelene kadar bu sayılar {before} yamasından; değiştirdiği şampiyonlar Güçlendirildi veya Zayıflatıldı olarak işaretli."
 }

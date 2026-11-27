@@ -179,5 +179,9 @@
  "DeepScore {n}, tier {t}": "DeepScore {n}, тир {t}",
  "About {pts} win-rate pts from this list's average.": "Примерно {pts} п. процента побед от среднего по этому списку.",
  "0-100 · 50 is the average of its own list": "0-100 · 50 — среднее своего списка",
- "DeepScore rates each champion, augment, item or build from 0 to 100 against the rest of its own list: 50 is that list's average, so compare numbers within a list. Hover any DeepScore to see how far it sits from its list's average in win-rate points.": "DeepScore оценивает каждого чемпиона, аугмент, предмет или сборку от 0 до 100 относительно остальной части своего списка: 50 — среднее этого списка, поэтому сравнивайте числа внутри одного списка. Наведите на DeepScore, чтобы увидеть, насколько он отличается от среднего по списку в пунктах процента побед."
+ "DeepScore rates each champion, augment, item or build from 0 to 100 against the rest of its own list: 50 is that list's average, so compare numbers within a list. Hover any DeepScore to see how far it sits from its list's average in win-rate points.": "DeepScore оценивает каждого чемпиона, аугмент, предмет или сборку от 0 до 100 относительно остальной части своего списка: 50 — среднее этого списка, поэтому сравнивайте числа внутри одного списка. Наведите на DeepScore, чтобы увидеть, насколько он отличается от среднего по списку в пунктах процента побед.",
+ "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "На границе: близко к линии {tier}. Чемпионы так близко к линии сохраняли свой тир в следующем патче лишь чуть больше чем в половине случаев.",
+ "Buffed": "Усилен",
+ "Nerfed": "Ослаблен",
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Изменён в новом патче. Цифры здесь пока из прошлого патча."
 }

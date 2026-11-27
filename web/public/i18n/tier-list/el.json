@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "Μια εμπροσθοφυλακή προστατεύει το carry.",
  "Crowd control groups enemies for area damage.": "Ο έλεγχος πλήθους μαζεύει εχθρούς για ζημιά περιοχής.",
  "Best pairs": "Καλύτερα ζευγάρια",
- "All pairs": "Όλα τα ζευγάρια"
+ "All pairs": "Όλα τα ζευγάρια",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "Το patch {patch} κυκλοφόρησε. Μέχρι να έρθουν τα παιχνίδια της πρώτης του μέρας, αυτοί οι αριθμοί είναι από το patch {before}· οι champions που άλλαξε σημειώνονται Ενισχύθηκε ή Αποδυναμώθηκε."
 }

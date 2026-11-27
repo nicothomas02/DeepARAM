@@ -1,4 +1,13 @@
 import type { NextConfig } from "next";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+
+// The live patch, read at build time. The Worker has no repo files, so routes that run per request
+// (like /api/games) fall back to this; see livePatch() in src/lib/highlights.ts.
+const PATCHES = join(process.cwd(), "..", "data", "cn", "history", "patches.csv");
+const LIVE_PATCH = existsSync(PATCHES)
+  ? (readFileSync(PATCHES, "utf8").trim().split(/\r?\n/).at(-1)?.split(",")[0] ?? "")
+  : "";
 
 // Sent with every page. The site frames its own /embed pages, so framing is limited to itself.
 // The content policy only reports for now (inline theme scripts, embeds); enforce it once it's quiet.
@@ -27,6 +36,7 @@ const SECURITY_HEADERS = [
 ];
 
 const nextConfig: NextConfig = {
+  env: { DEEPARAM_LIVE_PATCH: /^\d+\.\d+$/.test(LIVE_PATCH) ? LIVE_PATCH : "" },
   async headers() {
     return [
       { source: "/:path*", headers: SECURITY_HEADERS },
@@ -62,8 +72,9 @@ const nextConfig: NextConfig = {
       ["/account/simulator", "/simulator"],
       // My Stats moved onto the account page, then to the desktop apps (2026-11-24).
       ["/stats", "/account"],
-      // Research is part of the Methodology page; Region Teams was removed (Nico, 2026-11-24: cut bloat).
-      ["/research", "/methodology#research"],
+      // Research is the Methodology page's Research tab (one page since 2026-11-24, its own tab since 2026-11-27);
+      // Region Teams was removed (Nico, 2026-11-24: cut bloat).
+      ["/research", "/methodology?tab=research"],
       ["/info/region-teams", "/info"],
     ]
       .map(([source, destination]) => ({ source, destination, permanent: true }))

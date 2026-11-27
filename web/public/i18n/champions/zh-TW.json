@@ -363,5 +363,7 @@
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "在最近的版本中與常見的閃現組合大致持平（相差不到1個百分點），所以選哪個都可以。只有{pct}的玩家選擇這個組合。",
  "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "只有{pct}的玩家選擇這個組合，而且它的領先在各版本間起伏不定，所以可以把它看作與常見的閃現組合相近。",
  "It belongs to the {build} build: pick that tab on the card.": "它屬於{build}出裝：在卡片上選擇那個分頁。",
- "It is a situational pick on this card ({situation}), so most players skip it in other games.": "在這張卡片上它是看情況出的裝備（{situation}），所以大多數玩家在其他對局裡不出。"
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "在這張卡片上它是看情況出的裝備（{situation}），所以大多數玩家在其他對局裡不出。",
+ "Close call": "難分高下",
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "下一個選擇幾乎一樣好：差距小於其背後對局數帶來的波動。領先這麼少的首選，在下個版本仍排第一的只有約一半。"
 }

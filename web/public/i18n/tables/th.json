@@ -179,5 +179,9 @@
  "DeepScore {n}, tier {t}": "DeepScore {n} ระดับ {t}",
  "About {pts} win-rate pts from this list's average.": "ห่างจากค่าเฉลี่ยของรายการนี้ประมาณ {pts} แต้มอัตราชนะ",
  "0-100 · 50 is the average of its own list": "0-100 · 50 คือค่าเฉลี่ยของรายการตัวเอง",
- "DeepScore rates each champion, augment, item or build from 0 to 100 against the rest of its own list: 50 is that list's average, so compare numbers within a list. Hover any DeepScore to see how far it sits from its list's average in win-rate points.": "DeepScore ให้คะแนนแชมเปี้ยน ออกเมนต์ ไอเทม หรือบิลด์ ตั้งแต่ 0 ถึง 100 เทียบกับส่วนที่เหลือในรายการของมันเอง: 50 คือค่าเฉลี่ยของรายการนั้น จึงควรเทียบตัวเลขภายในรายการเดียวกัน ชี้ที่ DeepScore เพื่อดูว่าห่างจากค่าเฉลี่ยของรายการกี่แต้มอัตราชนะ"
+ "DeepScore rates each champion, augment, item or build from 0 to 100 against the rest of its own list: 50 is that list's average, so compare numbers within a list. Hover any DeepScore to see how far it sits from its list's average in win-rate points.": "DeepScore ให้คะแนนแชมเปี้ยน ออกเมนต์ ไอเทม หรือบิลด์ ตั้งแต่ 0 ถึง 100 เทียบกับส่วนที่เหลือในรายการของมันเอง: 50 คือค่าเฉลี่ยของรายการนั้น จึงควรเทียบตัวเลขภายในรายการเดียวกัน ชี้ที่ DeepScore เพื่อดูว่าห่างจากค่าเฉลี่ยของรายการกี่แต้มอัตราชนะ",
+ "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "เกือบข้ามเส้น: ใกล้เส้นของ {tier} แชมเปียนที่ใกล้เส้นขนาดนี้รักษาเทียร์ไว้ได้ในแพตช์ถัดไปเพียงมากกว่าครึ่งหนึ่งเล็กน้อย",
+ "Buffed": "บัฟ",
+ "Nerfed": "เนิร์ฟ",
+ "Changed in the new patch. Its numbers here are still from the last patch.": "ถูกปรับในแพตช์ใหม่ ตัวเลขที่นี่ยังมาจากแพตช์ก่อน"
 }

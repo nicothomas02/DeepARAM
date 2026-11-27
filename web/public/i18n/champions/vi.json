@@ -363,5 +363,7 @@
  "About even with the usual Flash pair on recent patches (within 1 pt), so either is fine. Only {pct} of players take this pair.": "Ở các bản gần đây gần ngang với cặp Tốc Biến thường dùng (chênh dưới 1 điểm), nên chọn cái nào cũng được. Chỉ {pct} người chơi chọn cặp này.",
  "Only {pct} of players take this pair and its lead swings from patch to patch, so treat it as close to the usual Flash pair.": "Chỉ {pct} người chơi chọn cặp này và lợi thế của nó thay đổi theo từng bản, nên hãy coi nó gần như cặp Tốc Biến thường dùng.",
  "It belongs to the {build} build: pick that tab on the card.": "Nó thuộc lối lên đồ {build}: chọn tab đó trên thẻ.",
- "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Trên thẻ này đây là món tùy tình huống ({situation}), nên đa số người chơi bỏ qua nó ở các trận khác."
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Trên thẻ này đây là món tùy tình huống ({situation}), nên đa số người chơi bỏ qua nó ở các trận khác.",
+ "Close call": "Sát nút",
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Lựa chọn tiếp theo gần như tốt ngang: chênh lệch nhỏ hơn độ nhiễu của số trận phía sau. Khi lựa chọn đứng đầu chỉ dẫn ít như vậy, nó vẫn đứng đầu ở bản sau chỉ khoảng một nửa số lần."
 }

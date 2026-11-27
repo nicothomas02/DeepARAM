@@ -392,5 +392,7 @@
  "{1}'s crit damage multiplies {2}'s ultimate crits.": "Der kritische Schaden von {1} verstärkt die Ultimate-Krits von {2}.",
  "{1}'s crit damage makes {2}'s crits hit harder.": "Der kritische Schaden von {1} lässt die Krits von {2} härter treffen.",
  "It belongs to the {build} build: pick that tab on the card.": "Es gehört zum Build {build}: Wähle diesen Tab auf der Karte.",
- "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Es ist auf dieser Karte ein situativer Kauf ({situation}), daher lassen es die meisten Spieler in anderen Spielen weg."
+ "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Es ist auf dieser Karte ein situativer Kauf ({situation}), daher lassen es die meisten Spieler in anderen Spielen weg.",
+ "Close call": "Knapp",
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Die nächste Wahl ist etwa gleich gut: Der Abstand ist kleiner als das Rauschen in den zugrunde liegenden Spielen. Wenn eine Top-Wahl so knapp führte, lag sie im nächsten Patch nur etwa in der Hälfte der Fälle noch vorn."
 }

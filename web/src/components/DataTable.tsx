@@ -36,6 +36,8 @@ export type Column = {
   gamesKey?: string;
   /** For "pct" expected next-patch columns: the row keys holding the low and high end of its 80% range. */
   rangeKeys?: [string, string];
+  /** For "champion" columns: the row key holding a patch-day mark ("buff" or "nerf"), shown after the name. */
+  markKey?: string;
   /** For "tags" columns: the colour and meaning of each tag (the cell holds them comma-separated). */
   tags?: TagInfo;
   /** Phones (globals.css): "hide" drops the column below 640px, "wide" only below 360px, so the main numbers fit
@@ -95,16 +97,27 @@ function show(v: Row[string], format: Column["format"], pts: (n: string) => stri
 // A tier letter. When the row carries the previous patch's tier (<key>_was) and it differs, the chip
 // slides in from the old letter, up or down (globals.css: on a new patch's first visit).
 const ORDER = ["S", "A", "B", "C", "D"];
-function TierChip({ tier, was }: { tier: string; was: Row[string] | undefined }) {
+/** Hover on a patch-day mark (components/ChampionTiers.tsx patchDay). */
+export const PATCH_MARK_WHY = "Changed in the new patch. Its numbers here are still from the last patch.";
+
+/** Hover on a borderline tier (lib/tiers.ts tierEdges). */
+export const TIER_EDGE_WHY =
+  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.";
+
+function TierChip({ tier, was, edge }: { tier: string; was: Row[string] | undefined; edge?: Row[string] }) {
   const t = useT("tables");
   const old = typeof was === "string" && was !== tier && ORDER.includes(was) ? was : null;
+  const near = typeof edge === "string" && ORDER.includes(edge) ? edge : null;
+  const tip = [old ? t("{tier} last patch", { tier: old }) : "", near ? t(TIER_EDGE_WHY, { tier: near }) : ""].filter(Boolean).join(" ");
   return (
     <span
       key={`${old}-${tier}`}
-      className={`chip tier-${tier.toLowerCase()}`}
+      className={`chip tier-${tier.toLowerCase()}${near ? " tier-edge" : ""}`}
       data-was={old ?? undefined}
       data-dir={old ? (ORDER.indexOf(tier) < ORDER.indexOf(old) ? "up" : "down") : undefined}
-      title={old ? t("{tier} last patch", { tier: old }) : undefined}
+      data-edge={near ? (ORDER.indexOf(near) < ORDER.indexOf(tier) ? "up" : "down") : undefined}
+      title={tip || undefined}
+      aria-description={near ? t(TIER_EDGE_WHY, { tier: near }) : undefined}
     >
       {tier}
     </span>
@@ -475,7 +488,14 @@ export default function DataTable({
                 {columns.map((c) => (
                   <td key={c.key} className={cls(c, cellClass(c, r[c.key]))}>
                     {c.format === "champion" ? (
-                      <Champion id={String(r[c.key])} />
+                      <>
+                        <Champion id={String(r[c.key])} />
+                        {c.markKey && (r[c.markKey] === "buff" || r[c.markKey] === "nerf") && (
+                          <small className={`patch-mark patch-mark-${r[c.markKey]}`} title={t(PATCH_MARK_WHY)}>
+                            {t(r[c.markKey] === "buff" ? "Buffed" : "Nerfed")}
+                          </small>
+                        )}
+                      </>
                     ) : c.format === "champion-icon" ? (
                       r[c.key] ? <ChampionIcon id={String(r[c.key])} /> : "–"
                     ) : c.format === "item" ? (
@@ -516,7 +536,7 @@ export default function DataTable({
                     ) : c.format === "tags" && c.tags ? (
                       <ArchetypeTags names={String(r[c.key] ?? "").split(",")} info={c.tags} compact />
                     ) : c.format === "tier" && r[c.key] ? (
-                      <TierChip tier={String(r[c.key])} was={r[`${c.key}_was`]} />
+                      <TierChip tier={String(r[c.key])} was={r[`${c.key}_was`]} edge={r[`${c.key}_edge`]} />
                     ) : c.format === "pct" && c.rangeKeys && typeof r[c.key] === "number" && typeof r[c.rangeKeys[0]] === "number" && typeof r[c.rangeKeys[1]] === "number" ? (
                       <NextPatch p={r[c.key] as number} lo={r[c.rangeKeys[0]] as number} hi={r[c.rangeKeys[1]] as number} />
                     ) : c.format === "pct" && c.gamesKey && typeof r[c.key] === "number" && typeof r[c.gamesKey] === "number" ? (

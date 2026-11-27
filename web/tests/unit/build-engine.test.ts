@@ -431,12 +431,13 @@ describe("build engine", () => {
     const ak = go("Akshan", [3153, 3006, 2510], [1029, 1206, 1027]);
     expect(ak.switched?.style).toBe("AP");
     expect(ak.rules).toContain("nicheBuilds");
-    // replay: Senna with Windspeaker's Blessing holding Ionian Boots, Ardent Censer and Staff of Flowing Water
-    const se = go("Senna", [3070, 4011, 3158, 3504, 6616, 3114], [2104, 1029, 2010, 1095]);
-    // AramHex 16.23 (2026-11-27) gives Senna an enchanter build of her own, and it leads her card: then no switch is needed
-    const own = champs.find((x) => x.id === "Senna")!.builds?.[0]?.style;
-    if (own === "enchanter") expect(se.switched).toBeNull();
-    else expect(se.switched?.style).toBe("Enchanter");
+    // replay: Senna with Windspeaker's Blessing holding Ionian Boots, Ardent Censer and Staff of Flowing Water. Since the
+    // 2026-11-27 data refresh Senna has an Enchanter tab of her own (no switch needed there), so she plays her crit tab,
+    // the card the replay started from.
+    const senna = champs.find((x) => x.id === "Senna")!;
+    const crit = senna.builds!.find((b) => b.style === "crit")!;
+    const se = plan({ champ: { ...senna, ...crit, id: "Senna", builds: senna.builds!.filter((b) => b.style !== "enchanter") } as OverlayChamp, kinds: k, picks: p0, fit: null, game: { champ: "Senna", items: [3070, 4011, 3158, 3504, 6616, 3114] }, taken: [2104, 1029, 2010, 1095] });
+    expect(se.switched?.style).toBe("Enchanter");
     const p = se.path.map((x) => itemId(x.icon));
     for (const i of [3158, 3504, 6616]) expect(p).toContain(i);
     expect(p.filter((i) => k.boots.includes(i))).toEqual([3158]);

@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "前衛がキャリーを守る。",
  "Crowd control groups enemies for area damage.": "CCで敵をまとめて範囲ダメージにつなげる。",
  "Best pairs": "ベストペア",
- "All pairs": "全ペア"
+ "All pairs": "全ペア",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "パッチ{patch}が配信されました。初日の試合データが入るまで、この数値はパッチ{before}のものです。変更されたチャンピオンには「強化」「弱体化」の印が付きます。"
 }

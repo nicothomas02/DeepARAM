@@ -3,6 +3,10 @@ import { readRepoJson } from "./repo-data";
 import { damageDealtWorth, impactTally } from "./analysis";
 import type { Validation } from "./sim-analysis";
 
+/** The public repository with the studies' code, notebooks and tests. Null until it is public (Nico decides),
+ *  so the Research tab shows no link to a private repository. */
+export const NOTEBOOK_REPO: string | null = null;
+
 // What the Research page reads (simulator/analysis/validation.json, data/analysis/patch_impact.json). Each
 // reader returns null when its file is missing, so the page just leaves that figure out.
 

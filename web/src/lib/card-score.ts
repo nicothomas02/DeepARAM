@@ -408,3 +408,27 @@ export function realFullPicks<T extends ItemRow>(
     .slice(0, room)
     .map((i) => single.find((r) => r.items.length === 1 && n(r.items[0]) === n(i)) ?? ({ items: [i], winRate: NaN, pickRate: 0, lift: 0 } as unknown as T));
 }
+
+/** Below this many sampling SEs, a list's lead over the next row is a "Close call" (research/confidence/lead_holds.py,
+ *  2026-11-27: AramHex 16.19-16.23 champion lists, leads under 1 SE stayed on top next patch 35-57% of the time, leads
+ *  of 2+ SE 85-93%). */
+export const CLOSE_CALL_Z = 1;
+const CLOSE_MIN_GAMES = 100;
+
+/** Whether `rows[0]`'s lead over the next row with real games is too small to count on (CLOSE_CALL_Z): both win rates
+ *  shrunk by their own sampling noise (as scoreRows does), gap over the gap's sampling SE. Pooled numbers when a row has
+ *  them. False when rows lack real games (estimates). */
+export function closeCall<T extends { winRate: number; games?: number; pooled?: Pooled }>(rows: T[]): boolean {
+  const use = rows
+    .map((r) => (r.pooled ? { w: r.pooled.winRate, g: r.pooled.games } : { w: r.winRate, g: r.games ?? 0 }))
+    .filter((r) => Number.isFinite(r.w));
+  if (use.length < 2 || use[0].g < CLOSE_MIN_GAMES) return false;
+  const real = use.filter((r) => r.g >= CLOSE_MIN_GAMES);
+  if (real.length < 2) return false;
+  const vs = real.map((r) => (r.w * (1 - r.w)) / r.g);
+  const tau2 = trueSpread(real.map((r) => r.w), vs);
+  const mean = real.reduce((s, r) => s + r.w, 0) / real.length;
+  const est = real.map((r, i) => mean + (tau2 / (tau2 + vs[i])) * (r.w - mean));
+  const z = (est[0] - est[1]) / Math.sqrt(vs[0] + vs[1]);
+  return z < CLOSE_CALL_Z;
+}

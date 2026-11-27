@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "แนวหน้าคอยปกป้องตัวแครี่",
  "Crowd control groups enemies for area damage.": "การควบคุมรวมศัตรูให้โดนดาเมจวงกว้าง",
  "Best pairs": "คู่ที่ดีที่สุด",
- "All pairs": "ทุกคู่"
+ "All pairs": "ทุกคู่",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "แพตช์ {patch} ออกแล้ว จนกว่าข้อมูลเกมวันแรกจะเข้ามา ตัวเลขเหล่านี้มาจากแพตช์ {before} แชมเปียนที่ถูกปรับจะมีป้าย บัฟ หรือ เนิร์ฟ"
 }
