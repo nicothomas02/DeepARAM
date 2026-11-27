@@ -34,3 +34,21 @@ def test_contrast_signs():
                                            (set(), 0.0), (set(), 0.1))]
     z, n = pc.contrast(rs, 1, 2, "x")
     assert n == 2 and z > 2  # both > A alone + B alone: the pair feeds itself
+
+
+def test_supports_are_enchanters_and_catchers():
+    ids = {v: k for k, v in __import__("json").load(open(pc.cm.REPO + "/web/src/data/champion-ids.json")).items()}
+    names = {ids[i] for i in pc.supports() if i in ids}
+    assert {"Soraka", "Janna", "Lulu", "Thresh", "Blitzcrank"} <= names
+    assert not names & {"Ashe", "Jhin", "Leona", "Garen"}  # Catcher only as a second subclass, or not a support
+
+
+def test_support_score_rewards_healing_not_damage():
+    base = {"augs": set(), "win": 0, "deaths": 0.1, "units_healed": 3, "assists": 0.5, "kp": 0.5, "cc_share": 0.2}
+    healer = dict(base, champ=16, heal_share=0.6, dmg_share=0.05)
+    hitter = dict(base, champ=16, heal_share=0.1, dmg_share=0.30)
+    pc.score_rows([healer, hitter], {16})
+    assert healer["score"] > hitter["score"]
+    a, b = [dict(healer, champ=1), dict(hitter, champ=1)]
+    pc.score_rows([a, b], set())  # not a support: damage counts
+    assert b["score"] > a["score"]
