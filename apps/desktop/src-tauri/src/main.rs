@@ -521,7 +521,8 @@ fn main() {
             sharing::share_status,
             sharing::my_record,
             sharing::my_trends,
-            flash_key
+            flash_key,
+            phone::companion_prefs
         ])
         // Must come first: a second launch focuses the running app instead of opening another.
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| show_one(app)))

@@ -349,7 +349,9 @@ fn scan(app: &AppHandle) {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
         let now = clock(&s);
-        let logged = read.as_ref().map(|r| serde_json::json!({"ids": r.ids, "xs": r.xs, "from_window": r.from_window, "blank": r.blank}));
+        let logged = read
+            .as_ref()
+            .map(|r| serde_json::json!({"ids": r.ids, "xs": r.xs, "from_window": r.from_window, "blank": r.blank}));
         input_log(app, serde_json::json!({"now": now, "read": logged, "cursor": cursor}));
         s.track.read(now, read, cursor);
         s.offer = s.track.offer.clone();
