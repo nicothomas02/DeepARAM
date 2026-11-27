@@ -180,5 +180,8 @@
  "About {pts} win-rate pts from this list's average.": "Zhruba {pts} b. poměru výher od průměru tohoto seznamu.",
  "0-100 · 50 is the average of its own list": "0-100 · 50 je průměr vlastního seznamu",
  "DeepScore rates each champion, augment, item or build from 0 to 100 against the rest of its own list: 50 is that list's average, so compare numbers within a list. Hover any DeepScore to see how far it sits from its list's average in win-rate points.": "DeepScore hodnotí každého šampiona, augment, předmět nebo build od 0 do 100 vůči zbytku vlastního seznamu: 50 je průměr toho seznamu, takže porovnávejte čísla v rámci jednoho seznamu. Najeďte na DeepScore a uvidíte, jak daleko je od průměru seznamu v bodech poměru výher.",
- "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Na hraně: blízko hranice tieru {tier}. Šampioni takto blízko hranice si tier v dalším patchi udrželi jen o něco častěji než v polovině případů."
+ "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Na hraně: blízko hranice tieru {tier}. Šampioni takto blízko hranice si tier v dalším patchi udrželi jen o něco častěji než v polovině případů.",
+ "Buffed": "Posílen",
+ "Nerfed": "Oslaben",
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Změněn v novém patchi. Jeho čísla zde jsou stále z minulého patche."
 }

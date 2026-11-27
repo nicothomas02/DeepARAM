@@ -180,5 +180,8 @@
  "About {pts} win-rate pts from this list's average.": "Cerca de {pts} pts de taxa de vitória em relação à média desta lista.",
  "0-100 · 50 is the average of its own list": "0-100 · 50 é a média da própria lista",
  "DeepScore rates each champion, augment, item or build from 0 to 100 against the rest of its own list: 50 is that list's average, so compare numbers within a list. Hover any DeepScore to see how far it sits from its list's average in win-rate points.": "O DeepScore avalia cada campeão, aumento, item ou build de 0 a 100 em relação ao resto da própria lista: 50 é a média dessa lista, então compare números dentro de uma lista. Passe o mouse sobre um DeepScore para ver a distância da média da lista em pontos de taxa de vitória.",
- "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "No limite: perto da linha {tier}. Campeões tão perto de uma linha mantiveram o tier no patch seguinte só um pouco mais da metade das vezes."
+ "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "No limite: perto da linha {tier}. Campeões tão perto de uma linha mantiveram o tier no patch seguinte só um pouco mais da metade das vezes.",
+ "Buffed": "Fortalecido",
+ "Nerfed": "Enfraquecido",
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Alterado no novo patch. Os números aqui ainda são do patch anterior."
 }

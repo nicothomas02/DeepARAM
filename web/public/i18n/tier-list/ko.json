@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "앞라인이 캐리를 지킨다.",
  "Crowd control groups enemies for area damage.": "군중 제어가 적을 모아 광역 피해로 잇는다.",
  "Best pairs": "최고의 조합",
- "All pairs": "모든 조합"
+ "All pairs": "모든 조합",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "{patch} 패치가 적용되었습니다. 첫날 게임 데이터가 들어올 때까지 이 수치는 {before} 패치 기준이며, 변경된 챔피언에는 상향 또는 하향 표시가 붙습니다."
 }

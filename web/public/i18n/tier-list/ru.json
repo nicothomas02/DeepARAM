@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "Передняя линия защищает керри.",
  "Crowd control groups enemies for area damage.": "Контроль собирает врагов под урон по площади.",
  "Best pairs": "Лучшие пары",
- "All pairs": "Все пары"
+ "All pairs": "Все пары",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "Вышел патч {patch}. Пока не пришли игры его первого дня, эти цифры из патча {before}; изменённые чемпионы отмечены как Усилен или Ослаблен."
 }

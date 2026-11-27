@@ -109,5 +109,6 @@
  "A frontline peels for the carry.": "Pierwsza linia chroni carry.",
  "Crowd control groups enemies for area damage.": "Kontrola tłumu grupuje wrogów pod obrażenia obszarowe.",
  "Best pairs": "Najlepsze pary",
- "All pairs": "Wszystkie pary"
+ "All pairs": "Wszystkie pary",
+ "Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.": "Patch {patch} już jest. Dopóki nie spłyną gry z jego pierwszego dnia, te liczby pochodzą z patcha {before}; zmienieni bohaterowie są oznaczeni jako Wzmocniony lub Osłabiony."
 }

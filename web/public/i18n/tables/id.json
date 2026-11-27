@@ -180,5 +180,8 @@
  "About {pts} win-rate pts from this list's average.": "Sekitar {pts} poin win rate dari rata-rata daftar ini.",
  "0-100 · 50 is the average of its own list": "0-100 · 50 adalah rata-rata daftarnya sendiri",
  "DeepScore rates each champion, augment, item or build from 0 to 100 against the rest of its own list: 50 is that list's average, so compare numbers within a list. Hover any DeepScore to see how far it sits from its list's average in win-rate points.": "DeepScore menilai setiap champion, augment, item, atau build dari 0 sampai 100 dibandingkan sisa daftarnya sendiri: 50 adalah rata-rata daftar itu, jadi bandingkan angka dalam satu daftar. Arahkan kursor ke DeepScore untuk melihat jaraknya dari rata-rata daftar dalam poin win rate.",
- "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Di batas: dekat garis {tier}. Champion sedekat ini dengan garis mempertahankan tier-nya di patch berikutnya hanya sedikit lebih dari separuh waktu."
+ "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Di batas: dekat garis {tier}. Champion sedekat ini dengan garis mempertahankan tier-nya di patch berikutnya hanya sedikit lebih dari separuh waktu.",
+ "Buffed": "Di-buff",
+ "Nerfed": "Di-nerf",
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Diubah di patch baru. Angkanya di sini masih dari patch sebelumnya."
 }

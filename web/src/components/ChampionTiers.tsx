@@ -10,7 +10,8 @@ import Skeleton from "@/components/Skeleton";
 import { tagsByKind, tagStyle, type TagInfo } from "@/lib/tag-info";
 import { useT } from "./I18n";
 import { bySet } from "@/lib/sets";
-import { patchName } from "@/lib/patch-name";
+import { patchName, patchVersion } from "@/lib/patch-name";
+import { awaitingData, type PatchSchedule } from "@/lib/patch-schedule";
 
 // Champion tier list over a chosen patch range: the live patch (default), any set of patches, or all time.
 // The page carries only the live and previous patch; older patches load from /data/tier-history.json when picked.
@@ -28,7 +29,7 @@ const DEEP: Column = {
   format: "deepscore",
   hint: TIER_HELP,
 };
-const NAME: Column = { key: "name", label: "Champion", format: "champion" };
+const NAME: Column = { key: "name", label: "Champion", format: "champion", markKey: "patch_mark" };
 
 const CHANGE: Column = {
   key: "change",
@@ -121,6 +122,10 @@ type Props = {
   reliance?: Record<string, number>;
   /** Win and pick rates by skill bracket for the patches that have them (lib/brackets.ts). */
   brackets?: Record<string, Partial<Record<string, { matches: number; champs: Record<string, [number, number]> }>>>;
+  /** Patch day (Nico 2026-11-27): Riot's schedule and each patch's buffed/nerfed champions (lib/patch-changes.ts). Once a
+   *  patch is out but its games aren't in yet, a notice says the numbers are the last patch's and changed champions get
+   *  a Buffed or Nerfed mark. No estimated numbers. */
+  patchDay?: { schedule: PatchSchedule; changes: Record<string, Record<string, "buff" | "nerf">> };
 };
 
 const BRACKET_LABELS: [string, string][] = [
@@ -140,10 +145,21 @@ export default function ChampionTiers({
   scaling = {},
   reliance = {},
   brackets = {},
+  patchDay,
 }: Props) {
   const t = useT("tier-list");
   const tt = useT("tags");
   const live = patches[patches.length - 1];
+  // Checked in the browser (and every minute) so a page built before the patch still turns the notice on.
+  const [awaiting, setAwaiting] = useState<{ patch: string } | null>(null);
+  useEffect(() => {
+    if (!patchDay) return;
+    const tick = () => setAwaiting(awaitingData(patchDay.schedule, live));
+    tick();
+    const id = setInterval(tick, 60_000);
+    return () => clearInterval(id);
+  }, [patchDay, live]);
+  const marks = awaiting && patchDay ? (patchDay.changes[patchVersion(awaiting.patch)] ?? {}) : null;
   const [rows, setRows] = useState(initial);
   const [full, setFull] = useState(false);
   const [picked, setPicked] = useState<Set<string>>(() => new Set([live]));
@@ -227,6 +243,7 @@ export default function ChampionTiers({
         ...c,
         change: null,
         tier_was: null,
+        patch_mark: marks?.[c.name] ?? null,
         games: games?.[c.name] ?? null,
         archetype: (tags[c.name] ?? []).filter((t) => tagInfo[t]?.kind !== "play").join(","),
         scaling: scaling[c.name] ?? null,
@@ -248,6 +265,7 @@ export default function ChampionTiers({
         ...c,
         change: was === undefined ? null : c.win_rate - was.win_rate,
         tier_was: was?.tier ?? null,
+        patch_mark: marks?.[c.name] ?? null,
         games: one === live && activeBracket === "all" ? (games?.[c.name] ?? null) : null,
         archetype: (tags[c.name] ?? [])
           .filter((t) => tagInfo[t]?.kind !== "play")
@@ -275,6 +293,7 @@ export default function ChampionTiers({
     t,
     activeBracket,
     brackets,
+    marks,
     bracketsHere,
     borrowed,
     pooled,
@@ -589,6 +608,14 @@ export default function ChampionTiers({
               { n: picked.size },
             )}
       </p>
+      {awaiting && (
+        <p className="patch-day-note" role="status">
+          {t("Patch {patch} is out. Until its first day of games is in, these numbers are from Patch {before}; champions it changed are marked Buffed or Nerfed.", {
+            patch: patchName(awaiting.patch),
+            before: patchName(live),
+          })}
+        </p>
+      )}
       {missing ? (
         <Skeleton rows={12} label={t("Loading older patches…")} />
       ) : (
