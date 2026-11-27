@@ -28,7 +28,7 @@ import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
 export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
-export const ENGINE_VERSION = "1.4.10";
+export const ENGINE_VERSION = "1.4.11";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -109,8 +109,8 @@ export const RULES: Record<string, Rule> = {
   augmentReplan: { source: "assumption", on: false, why: "Other augments switch the build style (style tags, the other 3-vote build changers, the class-wide fallback build). Off until measured like Draw Your Sword -> Death's Dance." },
   shieldAugments: { source: "assumption", on: true, why: "An enemy with Big Brain or Don't Change the Channel lights the champion's own 'Vs shields' items (Serpent's Fang: Shield Reaver cuts shields gained by 50% melee / 25% ranged and the current shield on the first hit; wiki). Nico approved 2026-11-25 (he asked for it); estimated: the archive can't confirm it (Serpent's builders vs an enemy Big Brain: win -22 +/- 15 pts, n 26). Needs the app to pass enemy augments." },
   countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
-  firstBuys: { source: "data", on: true, why: "An item players buy as their first legendary 80%+ of the time (archive buy order, item_slots.json, 400+ buyers: Heartsteel, Yun Tal, Rod of Ages, Hubris, Luden's) goes first while you have no legendary, instead of a later slot (Nico 2026-11-27, Briar's Hubris shown 4th)." },
-  lateBuys: { source: "data", on: true, why: "Items 95%+ of their buyers take 3rd or later (archive buy order, item_slots.json, 100+ buyers: Void Staff, Serylda's, Terminus, Cryptbloom, Mortal Reminder, Bloodletter's, Bloodthirster, Banshee's, Morellonomicon; AramHex ordered cores put Void Staff, Serylda's and Mortal Reminder 3rd every time) wait until two legendaries are finished, unless an augment rule timed them (Nico 2026-11-27, Shaco's Void Staff 2nd)." },
+  firstBuys: { source: "game data", on: true, why: "Items that grow while you hold them (item text: Heartsteel, Yun Tal, Rod of Ages, Hubris) go first while you have no legendary: each minute held earlier is more value. The archive agrees (82-93% of their buyers make each one their first legendary, item_slots.json). Nico 2026-11-27: Briar's Hubris shown 4th; find the reason, not a per-item list." },
+  lateBuys: { source: "game data", on: true, why: "Items with % armor or magic penetration (item text: Void Staff, Cryptbloom, Lord Dominik's, Mortal Reminder, Serylda's, Terminus) wait until two legendaries are finished, unless an augment rule timed them: penetration multiplies damage you already deal against resist the enemy has already built. Archive: 1-10% of buyers take them 1st or 2nd, and within a slot players take them earlier when enemies have more resist (z +1.7 to +5.9) and when they have more damage (Void Staff z +3.0, Lord Dominik's +3.4). AramHex cores put them 3rd. Against an unusually tanky team, breakpoints lights them as an option. Nico 2026-11-27: Shaco's Void Staff 2nd; find the reason, not a per-item list." },
   boughtFirst: { source: "game data", on: true, why: "The path shows what you bought first, in inventory order, then the rest in Next's order, so an item bought early shows where you bought it (Nico 2026-11-27)." },
   stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
   attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
@@ -1763,7 +1763,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const has = (it: Named, kind: string) => (k?.items[String(itemId(it.icon))] ?? []).includes(kind);
   const nearCap = RULES.attackSpeedNudge.on && aspd >= 4.5;
   if (nearCap) { next = [...next.filter((it) => !has(it, "as")), ...next.filter((it) => has(it, "as"))]; applied("attackSpeedNudge"); }
-  // Late buys (lateBuys): penetration and other late picks (Void Staff, Serylda's...: 95%+ of buyers take them 3rd or
+  // Penetration (lateBuys): % pen items (Void Staff, Serylda's...: they multiply damage you already have; 90%+ of buyers take them 3rd or
   // later, archive and AramHex cores) wait until you've finished two legendaries, unless an augment rule timed them
   // (Nico 2026-11-27, Shaco's Void Staff 2nd). The site card uses the same order (first-buys.ts).
   if (RULES.lateBuys.on && finished < 2 && next.some((it) => LATE_BUYS.has(ownedId(itemId(it.icon))))) {
