@@ -1,10 +1,11 @@
 import { NextRequest } from "next/server";
 import { isPlatform, tokenOwner } from "@/lib/profiles";
 import { livePatch } from "@/lib/highlights";
-import { cleanGame, sharedCount, sharedTotals, shareGames, unshareGames } from "@/lib/shared-games";
+import { cleanGame, relinkSharer, sharedCount, sharedTotals, shareGames, unshareGames } from "@/lib/shared-games";
 
-// POST /api/games {action: "share" | "remove" | "status", token, platform, games?}, sent by the My Stats
-// helper for players who turned sharing on. The token only proves who is sharing; see lib/shared-games.ts.
+// POST /api/games {action: "share" | "remove" | "status", key | (token, platform), games?}, sent by the desktop app or
+// the My Stats helper for players who turned sharing on. The key or token only ties a player's shares together; see
+// lib/shared-games.ts.
 // GET /api/games → {all, patch}: how many shared games the site holds, in all and on the live patch.
 const MAX_BODY = 600_000;
 const MAX_GAMES = 50;
@@ -28,9 +29,26 @@ export async function POST(req: NextRequest) {
   } catch {
     return json({ error: "Bad request" }, 400);
   }
-  const { action, token, platform } = body ?? {};
-  if (typeof token !== "string" || !isPlatform(platform)) return json({ error: "Bad request" }, 400);
-  const owner = await tokenOwner(token, platform);
+  const { action, token, platform, key } = body ?? {};
+  // The desktop app (0.3.15+) sends a random key it made and keeps, never a Riot sign-in token (Riot's developer
+  // policies, Nico 2026-11-27). The key only ties a player's shares together so "off" can remove them. Older apps
+  // and the My Stats helper still send the League client's token, checked with Riot.
+  let owner: { puuid: string } | null = null;
+  // "migrate" (once per app, when it switches from the token to its key): proves the account one last time with the
+  // token and moves what it shared before to the key, so turning sharing off still removes everything.
+  if (action === "migrate") {
+    if (typeof key !== "string" || !/^[0-9a-f]{64}$/.test(key) || typeof token !== "string" || !isPlatform(platform)) return json({ error: "Bad request" }, 400);
+    const was = await tokenOwner(token, platform);
+    if (!was) return json({ error: "Couldn't confirm your account." }, 401);
+    return json({ shared: await relinkSharer(was.puuid, key) });
+  }
+  if (typeof key === "string") {
+    if (!/^[0-9a-f]{64}$/.test(key)) return json({ error: "Bad request" }, 400);
+    owner = { puuid: `key:${key}` };
+  } else {
+    if (typeof token !== "string" || !isPlatform(platform)) return json({ error: "Bad request" }, 400);
+    owner = await tokenOwner(token, platform);
+  }
   if (!owner) return json({ error: "Couldn't confirm your account. Make sure the Riot Client is open and signed in." }, 401);
 
   if (action === "remove") {

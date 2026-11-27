@@ -500,7 +500,6 @@ fn main() {
             companion::companion_fullscreen,
             sharing::share_choice,
             sharing::share_status,
-            sharing::my_record,
             sharing::my_trends
         ])
         // Must come first: a second launch focuses the running app instead of opening another.
