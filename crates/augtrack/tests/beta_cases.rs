@@ -105,24 +105,39 @@ fn recorded_beta_games_never_mark_a_wrong_pick() {
             continue;
         }
         let truth = truth(
-            &serde_json::from_str(&std::fs::read_to_string(&eog).unwrap_or_default()).unwrap_or(Value::Null),
+            &serde_json::from_str(&std::fs::read_to_string(&eog).unwrap_or_default())
+                .unwrap_or(Value::Null),
         );
         if truth.is_empty() {
             continue;
         }
         games += 1;
         let picked = replay(&std::fs::read_to_string(&inp).unwrap_or_default());
-        let bad: Vec<i64> = picked.iter().filter(|a| !truth.contains(a)).cloned().collect();
+        let bad: Vec<i64> = picked
+            .iter()
+            .filter(|a| !truth.contains(a))
+            .cloned()
+            .collect();
         let got = picked.iter().filter(|a| truth.contains(a)).count();
         right += got;
         missing += truth.len().saturating_sub(got);
-        let name = Path::new(&d).file_name().unwrap_or_default().to_string_lossy().to_string();
+        let name = Path::new(&d)
+            .file_name()
+            .unwrap_or_default()
+            .to_string_lossy()
+            .to_string();
         if !bad.is_empty() {
             wrong += bad.len();
             out += &format!("game {name}: WRONG {bad:?} (truth {truth:?}, marked {picked:?})\n");
         } else if got < truth.len() {
-            out += &format!("game {name}: {got}/{} marked, missing {:?}\n", truth.len(),
-                truth.iter().filter(|a| !picked.contains(a)).collect::<Vec<_>>());
+            out += &format!(
+                "game {name}: {got}/{} marked, missing {:?}\n",
+                truth.len(),
+                truth
+                    .iter()
+                    .filter(|a| !picked.contains(a))
+                    .collect::<Vec<_>>()
+            );
         }
     }
     println!("{games} recorded games: right {right}, missing {missing}, wrong {wrong}\n{out}");
@@ -136,7 +151,9 @@ fn truth_reads_the_end_of_game_stats() {
     )
     .unwrap();
     assert_eq!(truth(&v), vec![1080, 1053]);
-    let nested: Value = serde_json::from_str(r#"{"teams":[{"players":[{"stats":{"PLAYER_AUGMENT_1":1001}}]}]}"#).unwrap();
+    let nested: Value =
+        serde_json::from_str(r#"{"teams":[{"players":[{"stats":{"PLAYER_AUGMENT_1":1001}}]}]}"#)
+            .unwrap();
     assert_eq!(truth(&nested), vec![1001]);
 }
 

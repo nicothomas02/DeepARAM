@@ -324,11 +324,10 @@ fn names(app: &AppHandle) -> Option<Vec<(i64, String)>> {
     Some(names)
 }
 
-/// The pointer as (x, how far down League's window 0-1), for the tracker.
-fn pointer() -> Option<(bool, f64, f64)> {
-    let (down, x, y) = augscan::mouse()?;
+/// A screen point as (x, how far down League's window 0-1), for the tracker.
+fn to_game(x: i32, y: i32) -> Option<(f64, f64)> {
     let (_, gy, _, gh) = augscan::game_window()?;
-    Some((down, f64::from(x), (f64::from(y) - f64::from(gy)) / f64::from(gh.max(1))))
+    Some((f64::from(x), (f64::from(y) - f64::from(gy)) / f64::from(gh.max(1))))
 }
 
 /// Reads the screen once and gives the tracker what it found (ids with their screen x) and where the pointer rests.
@@ -344,12 +343,15 @@ fn scan(app: &AppHandle) {
             blank: false,
         }
     });
-    let cursor = pointer().map(|(_, x, y)| (x, y));
+    // only the pointer: asking about the button here would take the click watcher's "pressed since" bit
+    let cursor = augscan::pointer_at().and_then(|(x, y)| to_game(x, y));
     let events = {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
         let now = clock(&s);
-        let logged = read.as_ref().map(|r| serde_json::json!({"ids": r.ids, "xs": r.xs, "from_window": r.from_window, "blank": r.blank}));
+        let logged = read
+            .as_ref()
+            .map(|r| serde_json::json!({"ids": r.ids, "xs": r.xs, "from_window": r.from_window, "blank": r.blank}));
         input_log(app, serde_json::json!({"now": now, "read": logged, "cursor": cursor}));
         s.track.read(now, read, cursor);
         s.offer = s.track.offer.clone();
@@ -362,38 +364,39 @@ fn scan(app: &AppHandle) {
 /// where the pointer is and whether the button is down, as any app can; nothing is hooked, moved or sent to the game.
 fn watch_clicks(app: AppHandle) {
     thread::spawn(move || {
-        let mut was_down = false;
+        let mut button = augtrack::Button::default();
         loop {
             let watching = {
                 let s = app.state::<Shared>();
                 let s = s.lock().unwrap();
                 s.in_game && (s.track.window || !s.track.offer.is_empty())
             };
+            let Some((down, since, sx, sy)) = augscan::mouse() else {
+                return; // no mouse to read on this OS yet
+            };
+            // Every sample goes through the button, so a press made while no screen could be up is used up here and
+            // never counts once one can.
+            let clicked = button.sample(down, since);
             if !watching {
-                was_down = false;
                 thread::sleep(Duration::from_millis(250));
                 continue;
             }
-            let Some((down, x, y)) = pointer() else {
-                if augscan::mouse().is_none() {
-                    return; // no mouse to read on this OS yet
+            // Only a click that lands in League counts: League is the active window, or the point is on League's
+            // window with nothing over it (the click that brings League back from the companion is also the pick).
+            // A click in a window over the game isn't a pick.
+            if clicked && (augscan::league_in_front() || augscan::point_on_league(sx, sy)) {
+                if let Some((x, y)) = to_game(sx, sy) {
+                    let events = {
+                        let state = app.state::<Shared>();
+                        let mut s = state.lock().unwrap();
+                        let now = clock(&s);
+                        input_log(&app, serde_json::json!({"now": now, "click": [x, y]}));
+                        s.track.click(now, x, y);
+                        std::mem::take(&mut s.track.events)
+                    };
+                    publish(&app, events);
                 }
-                thread::sleep(CLICK_EVERY);
-                continue;
-            };
-            // Only a click on League itself counts: a click in a window over the game isn't a pick.
-            if down && !was_down && augscan::league_in_front() {
-                let events = {
-                    let state = app.state::<Shared>();
-                    let mut s = state.lock().unwrap();
-                    let now = clock(&s);
-                    input_log(&app, serde_json::json!({"now": now, "click": [x, y]}));
-                    s.track.click(now, x, y);
-                    std::mem::take(&mut s.track.events)
-                };
-                publish(&app, events);
             }
-            was_down = down;
             thread::sleep(CLICK_EVERY);
         }
     });

@@ -244,17 +244,43 @@ fn fake_screen() -> Option<Vec<Line>> {
     Some(rows.into_iter().map(|(text, x)| Line { text, x, y: 200.0, w: 180.0, h: 24.0 }).collect())
 }
 
-/// Whether the left mouse button is down, and where the pointer is on screen: read-only input state, the way any
-/// app can ask Windows for it (nothing is hooked or sent to the game). Used while an offer is up, to see which card
-/// the player clicked, so the companion learns the pick without a tap (Nico 2026-11-24: no taps in game).
+/// The left mouse button and where the pointer is on screen: read-only input state, the way any app can ask Windows
+/// for it (nothing is hooked or sent to the game). Used while an offer is up, to see which card the player clicked,
+/// so the companion learns the pick without a tap (Nico 2026-11-24: no taps in game). Gives (down now, pressed since
+/// the last call, x, y): the second catches a click between two samples (augtrack::Button). Only the click watcher
+/// may call it, since asking takes that bit; anything else that only needs the pointer uses `pointer_at`.
 #[cfg(windows)]
-pub fn mouse() -> Option<(bool, i32, i32)> {
+pub fn mouse() -> Option<(bool, bool, i32, i32)> {
     win::mouse()
 }
 
 #[cfg(not(windows))]
-pub fn mouse() -> Option<(bool, i32, i32)> {
+pub fn mouse() -> Option<(bool, bool, i32, i32)> {
     None
+}
+
+/// Where the pointer is on screen, without asking about the button.
+#[cfg(windows)]
+pub fn pointer_at() -> Option<(i32, i32)> {
+    win::pointer_at()
+}
+
+#[cfg(not(windows))]
+pub fn pointer_at() -> Option<(i32, i32)> {
+    None
+}
+
+/// The screen point is on League's window, with nothing over it there. A click there lands in League even while
+/// another window is active: the click that brings League back from the companion is also the pick (Fiora
+/// 2026-11-27 in the owner's old app: rounds 2-4 closed with no click seen while only the active window counted).
+#[cfg(windows)]
+pub fn point_on_league(x: i32, y: i32) -> bool {
+    win::point_on_league(x, y)
+}
+
+#[cfg(not(windows))]
+pub fn point_on_league(_x: i32, _y: i32) -> bool {
+    false
 }
 
 /// Owner test recording only: League's whole game window as a PNG (one per augment offer), so the screens can
@@ -298,7 +324,10 @@ mod win {
             System::WinRT::{RoInitialize, RO_INIT_MULTITHREADED},
             UI::{
                 Input::KeyboardAndMouse::{GetAsyncKeyState, VK_LBUTTON},
-                WindowsAndMessaging::{FindWindowW, GetClientRect, GetCursorPos, GetForegroundWindow, IsIconic},
+                WindowsAndMessaging::{
+                    FindWindowW, GetAncestor, GetClientRect, GetCursorPos, GetForegroundWindow, IsIconic,
+                    WindowFromPoint, GA_ROOT,
+                },
             },
         },
     };
@@ -332,13 +361,31 @@ mod win {
         unsafe { FindWindowW(None, w!("League of Legends (TM) Client")).is_ok_and(|h| GetForegroundWindow() == h) }
     }
 
-    pub fn mouse() -> Option<(bool, i32, i32)> {
+    pub fn mouse() -> Option<(bool, bool, i32, i32)> {
         unsafe {
             let mut at = POINT::default();
             GetCursorPos(&mut at).ok()?;
-            // The high bit: the button is down right now.
-            let down = (GetAsyncKeyState(i32::from(VK_LBUTTON.0)) as u16 & 0x8000) != 0;
-            Some((down, at.x, at.y))
+            // The high bit: the button is down right now. The low bit: it was pressed since the last call.
+            let st = GetAsyncKeyState(i32::from(VK_LBUTTON.0)) as u16;
+            Some((st & 0x8000 != 0, st & 1 != 0, at.x, at.y))
+        }
+    }
+
+    pub fn pointer_at() -> Option<(i32, i32)> {
+        unsafe {
+            let mut at = POINT::default();
+            GetCursorPos(&mut at).ok()?;
+            Some((at.x, at.y))
+        }
+    }
+
+    pub fn point_on_league(x: i32, y: i32) -> bool {
+        unsafe {
+            let Ok(league) = FindWindowW(None, w!("League of Legends (TM) Client")) else {
+                return false;
+            };
+            let under = WindowFromPoint(POINT { x, y });
+            !under.is_invalid() && (under == league || GetAncestor(under, GA_ROOT) == league)
         }
     }
 

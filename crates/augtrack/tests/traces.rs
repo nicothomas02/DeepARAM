@@ -78,6 +78,7 @@ fn logged_games_never_mark_a_wrong_pick() {
             let t0 = g[0]["at"].as_f64().unwrap() - 0.5;
             let last = g.last().unwrap()["at"].as_f64().unwrap() - t0 + 1.0;
             screens += 1;
+            let mut hits = 0;
             for run in 0..9u64 {
                 let mut t = Tracker::new();
                 let mut now = 0.0;
@@ -143,7 +144,17 @@ fn logged_games_never_mark_a_wrong_pick() {
                 }
                 if !want.is_empty() && want.iter().all(|a| t.picked.contains(a)) {
                     right += 1;
+                    hits += 1;
                 }
+            }
+            // a screen it misses, to look at in the probe logs (Shaco 2026-11-27 round 3, all 9 of 81 misses: the
+            // pick fell between two of the old app's 40 ms button samples, so its click isn't in clicks.jsonl;
+            // tests/clicks.rs replays it with the pick put back)
+            if hits < 9 {
+                out += &format!(
+                    "missed: champ {} screen at {t0:.1} want {want:?}, right {hits}/9\n",
+                    e["cid"]
+                );
             }
         }
     }
