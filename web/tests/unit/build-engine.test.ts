@@ -465,6 +465,40 @@ describe("build engine", () => {
     expect(sell([3089], 3000)).toHaveLength(0); // on-type item
   }, 30_000);
 
+  it("every finished item you own stays in the path, and the path never asks for more than six (ownedOffPath)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const fin = (i: number) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !k.boots.includes(i);
+    // 2026-11-27 archive replay cases: Draven with Edge of Night off the path, Sylas with Rod of Ages, Karma with a
+    // Whispering Circlet her path names as Diadem of Songs
+    for (const [id, items] of [["Draven", [1001, 3814, 6696, 6676, 3036]], ["Sylas", [6657, 3111, 4633, 3157]], ["Karma", [2003, 6617, 2526]]] as const) {
+      const p = plan({ champ: champs.find((x) => x.id === id)!, kinds: k, picks: p0, fit: null, game: { champ: id, items: [...items] }, taken: [] });
+      const path = p.path.map((x) => ownedId(itemId(x.icon)));
+      for (const i of items.filter(fin)) expect(path, id).toContain(ownedId(i));
+      expect(new Set(path).size, id).toBe(path.length);
+      expect(path.filter((i) => fin(i)).length, id).toBeLessThanOrEqual(6);
+    }
+    // six finished items and no boots: the boots give way, nothing is left to buy
+    const mf = plan({ champ: champs.find((x) => x.id === "Graves")!, kinds: k, picks: p0, fit: null, game: { champ: "Graves", items: [126697, 6676, 3031, 3036, 6696, 6695] }, taken: [] });
+    expect(mf.next).toEqual([]);
+  }, 30_000);
+
+  it("a full inventory sells a stray part or starter before a finished item (shopTips)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const brand = champs.find((x) => x.id === "Brand")!;
+    const sells = (items: number[], gold: number) => plan({ champ: brand, kinds: k, picks: p0, fit: null, game: { champ: "Brand", items, gold, t: 600 }, taken: [] }).tips.filter((t) => t.kind === "sell");
+    // archive replay: Brand full with Oblivion Orb and Kindlegem and 11,249 gold got no tip (only 2,000+ items counted)
+    const full = sells([2503, 6653, 3158, 3116, 3916, 3067], 11000);
+    expect(full).toHaveLength(1);
+    expect([3916, 3067]).toContain(full[0].item);
+    expect(full[0].text).toMatch(/^Inventory full: sell /);
+    // a stray part goes before a finished item off the path
+    expect(sells([2503, 6653, 3158, 3116, 3031, 3067], 11000)).toEqual([expect.objectContaining({ item: 3067 })]);
+    // the Stat Bonus anvil takes no slot
+    expect(sells([2503, 6653, 3158, 3116, 3067, 6032], 11000)).toEqual([]);
+  }, 30_000);
+
   it("a rushed item that a later slot also lists shows once (Kai'Sa / Orianna with Upgrade Stormsurge)", () => {
     const [aug, id] = Object.entries(AUGMENT_SHIFT).flatMap(([a, m]) => Object.entries(m).filter(([, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT).map(([i]) => [Number(a), Number(i)]))[0];
     const k2 = { ...kinds, recipes: { ...kinds.recipes, [String(id)]: [`#${id}`, 3000, []] } } as Kinds;
