@@ -49,7 +49,7 @@ export default function Privacy() {
           below.
         </p>
         <p>
-          If you turn on game sharing, the app sends your games to DeepARAM so the site can build stats across everyone&apos;s games. A shared game keeps only
+          If you turn on game sharing, the app sends your games to DeepARAM so DeepARAM can combine them with everyone&apos;s into overall stats for its website and apps. No single shared game or player is ever shown. A shared game keeps only
           the champions, items, augments, runes, summoner spells, results and game stats, with no names, Riot IDs or account identifiers. We keep a salted
           hash of who shared it, so you can turn sharing off and remove the games you sent.
         </p>
@@ -58,7 +58,8 @@ export default function Privacy() {
           The DeepARAM desktop app asks once, the first time you open it, whether to share your finished ARAM Mayhem games the same way. Sharing is off unless
           you say yes, and you can turn it on or off at any time from the app&apos;s tray icon (Share match data). The app sends the same game data described
           above, with no names, Riot IDs or account identifiers. To confirm the games come from a real League account, it includes the League client&apos;s
-          sign-in token with each send; we use it only to check the account and keep just the salted hash. Turning sharing off removes the games you sent.
+          sign-in token with each send; we use it only to check the account and keep just the salted hash. Turning sharing off removes the games you sent. While sharing is on, the app also keeps your own
+          recent games on your computer to show your trends after each game; those never leave your computer.
         </p>
         <p>
           If you publish a public page from My Stats, we keep your Riot ID, server and a summary of your games (games and wins, kills, deaths, assists,

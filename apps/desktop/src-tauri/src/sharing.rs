@@ -206,7 +206,7 @@ fn open_question(app: &AppHandle) {
     }
     let _ = WebviewWindowBuilder::new(app, "share", WebviewUrl::App("share.html".into()))
         .title("Help improve DeepARAM")
-        .inner_size(460.0, 560.0)
+        .inner_size(460.0, 720.0)
         .resizable(false)
         .minimizable(false)
         .maximizable(false)
