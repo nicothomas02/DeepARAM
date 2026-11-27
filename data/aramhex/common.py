@@ -87,10 +87,24 @@ def leads(rows):
     return {k: (w / g - mean, max(w / g * (1 - w / g), 0.05) / g, g) for k, (g, w) in rows.items()}
 
 
-def pool(history, depth=POOL_DEPTH, decay=POOL_DECAY, gate=POOL_GATE):
+# Drift weights (Nico chose 2026-11-27, research/decay): instead of a fixed decay, an earlier patch's lead is treated as
+# this patch's lead plus a random walk of POOL_DRIFT per patch back, so its weight is 1 / (its noise + age x drift^2).
+# A big old sample can no longer drown out a mid-sized live one. Augments the patch's ARAM: Mayhem notes changed drift
+# POOL_DRIFT_CHANGED (measured 1.29 vs 0.57 pts between patches). Backtest 16.19-16.23 with the live patch thinned to
+# 1/5/20/50%: error on augment rows -9 to -18% vs decay 0.5, -22 to -45% on changed augments, top-5 picks the same;
+# boots -7 to -59%. Spell pairs did worse with drift (+4 to +15%) and starts were not tested: both keep the decay.
+POOL_DRIFT = 0.005
+POOL_DRIFT_CHANGED = 0.013
+
+
+def pool(history, depth=POOL_DEPTH, decay=POOL_DECAY, gate=POOL_GATE, drift=None, changed=None):
     """history: [{key: [games, wins]}, ...] newest (this patch) first. Returns {key: (win_rate, effective_games,
     patches_used)} for this patch's rows: this patch's average plus the pooled lead, and the games that lead's
-    precision is worth (so DeepScore's shrinkage sees the pooled sample)."""
+    precision is worth (so DeepScore's shrinkage sees the pooled sample).
+
+    drift: weigh earlier patches by drift (see POOL_DRIFT) instead of decay. changed: per age, the keys whose patch
+    notes changed between history[age] and the newer patch (changed_by_age); from that age back they drift
+    POOL_DRIFT_CHANGED."""
     now_rows = history[0]
     total = sum(g for g, _ in now_rows.values() if g > 0)
     if not total:
@@ -100,21 +114,64 @@ def pool(history, depth=POOL_DEPTH, decay=POOL_DECAY, gate=POOL_GATE):
     out = {}
     for k, (x0, v0, n0) in tables[0].items():
         ws, xs, vs = [1 / v0], [x0], [v0]
+        hit = False
         for age, t in enumerate(tables[1:], 1):
             if k not in t:
                 break
             x, v, _ = t[k]
             if abs(x - x0) > gate * (v + v0) ** 0.5:
                 break
-            ws.append(decay ** age / v)
+            if drift is None:
+                ws.append(decay ** age / v)
+                vs.append(v)
+            else:
+                hit = hit or bool(changed and age < len(changed) and k in changed[age])
+                d = POOL_DRIFT_CHANGED if hit else drift
+                ws.append(1 / (v + age * d * d))
+                vs.append(v + age * d * d)
             xs.append(x)
-            vs.append(v)
         W = sum(ws)
         lead = sum(w * x for w, x in zip(ws, xs)) / W
         var = sum(w * w * v for w, v in zip(ws, vs)) / W / W
         wr = min(max(mean + lead, 0.01), 0.99)
         out[k] = (round(wr, 4), max(n0, int(round(max(wr * (1 - wr), 0.05) / var))), len(xs))
     return out
+
+
+def _norm(name):
+    import re
+    import unicodedata
+    s = unicodedata.normalize("NFKD", name).replace("\u2019", "'").lower()
+    s = re.sub(r"^(the|upgrade:|quest:)\s+", "", s)
+    return re.sub(r"[^a-z0-9]", "", s)
+
+
+def notes_changed_augments(patch):
+    """Augment ids (str) the official ARAM: Mayhem notes of `patch` (game version, 16.23) list: balance changes and
+    reworks. New and removed augments are listed too but have no earlier or current rows, so they change nothing.
+    Names are matched to ids loosely (case, punctuation, a leading "The"); an unmatched name is skipped."""
+    with open(os.path.join(ROOT, "data", "official", "patch_notes.json"), encoding="utf-8") as f:
+        notes = json.load(f)["patches"]
+    entry = next((p for p in notes if p.get("gameVersion") == patch), None)
+    if not entry:
+        return set()
+    with open(os.path.join(ROOT, "web", "src", "data", "augment-names.json"), encoding="utf-8") as f:
+        names = json.load(f)
+    ids = {}
+    for i, n in names.items():
+        ids.setdefault(_norm(n), set()).add(i)
+    out = set()
+    for a in entry.get("augments", []):
+        k = _norm(a["name"])
+        out |= ids.get(k) or ids.get("the" + k) or set()
+    return out
+
+
+def changed_by_age(patch, n=POOL_DEPTH):
+    """For pool(changed=...): index age holds the augments changed between the patch `age` back and the one after it,
+    i.e. by the notes of [patch, *earlier(patch)][age - 1]. Index 0 is unused."""
+    ps = [patch] + earlier(patch, n)
+    return [set()] + [notes_changed_augments(p) for p in ps[:n]]
 
 
 def earlier(patch, n=POOL_DEPTH):

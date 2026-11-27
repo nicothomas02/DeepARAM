@@ -239,7 +239,7 @@ def row(ids, g, w, denom, pooled=None):
     return r
 
 
-def pooled_table(live, name, cid, key=None):
+def pooled_table(live, name, cid, key=None, drift=None):
     """common.pool for one champion's rows in one table, with the earlier patches that have the table."""
     hist = []
     for p in [live] + ah.earlier(live):
@@ -247,7 +247,7 @@ def pooled_table(live, name, cid, key=None):
         if t is None:
             break
         hist.append(t["items"] if key == "items" else t)
-    return ah.pool(hist) if hist else {}
+    return ah.pool(hist, drift=drift) if hist else {}
 
 
 def start_history(live):
@@ -398,6 +398,7 @@ def merge_builds(check, live):
     own_cores = "cores" not in ah.carried(live)
     # Augments pooled with earlier patches where nothing changed (common.pool); the site ranks on these by default.
     aug_hist = [ah.load(p, "augments") or {} for p in ah.earlier(live)]
+    aug_changed = ah.changed_by_age(live)  # augments the Mayhem notes changed fade faster (common.POOL_DRIFT_CHANGED)
     starts_hist = start_history(live)
     a_starts = augment_starts()
     boot_ids = {int(i) for v in boots.values() for i in v["items"]}
@@ -416,7 +417,7 @@ def merge_builds(check, live):
         # gave one (the site ranks by DeepScore once rows carry games).
         grades = {r["id"]: r.get("grade") for r in (b.get("augments") or {}).get("all", [])}
         rows = []
-        pooled = ah.pool([A.get(cid) or {}] + [h.get(cid) or {} for h in aug_hist])
+        pooled = ah.pool([A.get(cid) or {}] + [h.get(cid) or {} for h in aug_hist], drift=ah.POOL_DRIFT, changed=aug_changed)
         for a, (g, w) in (A.get(cid) or {}).items():
             if g < MIN_AUG_GAMES or a in PENTAKILL_PICKS:
                 continue
@@ -450,7 +451,7 @@ def merge_builds(check, live):
             # (analysis/scoring/items_pool.py): same picks on a full patch (+0.004 pts per 3-row offer), better on a
             # patch's first days (10% of games: +0.10 pts per offer, rank correlation +0.08). Single items are NOT
             # pooled: there pooling picked worse (-0.008 full, -0.036 at 10%).
-            bp = pooled_table(live, "boots", cid, key="items")
+            bp = pooled_table(live, "boots", cid, key="items", drift=ah.POOL_DRIFT)
             it["boots"] = sorted((row([int(i)], g, w, den, bp) for i, (g, w) in bt["items"].items() if g >= MIN_ITEM_GAMES),
                                  key=lambda r: -r["games"])
             src["items.boots"] = "aramhex"

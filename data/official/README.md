@@ -13,7 +13,7 @@ fixes. A few entries were tidied by hand where the page's layout didn't parse (2
 augments). Use it for the Patch Recaps pages and to check `data/wiki/mayhem_modifiers.json`: on 2026-10-17 every
 champion stat value the notes set agreed with the wiki table.
 
-Add each new patch's section after its notes go live.
+Each new patch's section is added on patch day by `patch_notes.py <game version>` (.github/workflows/patch-day.yml); re-run it by hand if the page wasn't up yet. The pooling rules read it: augments these notes changed fade faster (data/aramhex/common.py), and champions they changed use the live patch alone on the tier list (web/src/lib/pool-change.ts).
 
 ## Champion and augment tags (written by champions/build_data.py)
 

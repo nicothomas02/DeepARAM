@@ -1,11 +1,17 @@
 import { describe, expect, it } from "vitest";
-import { poolChanged } from "@/lib/pool-change";
+import { mayhemChanged, poolChanged } from "@/lib/pool-change";
 import { champStats, plusRows, PRIOR_GAMES, type PatchRow } from "@/lib/tiers";
 
 // "{live}+" keeps current-patch power (Nico 2026-11-27, Yunara after Critical Missile left on 16.21).
 describe("champion pooling and pool changes", () => {
   it("flags Yunara when Critical Missile left the pool (16.20 -> 16.21)", () => {
     expect(poolChanged("16.20", "16.21")).toContain("Yunara");
+  });
+
+  it("flags champions the live patch's Mayhem notes changed (16.23: Ziggs, Yasuo), not SR-only changes (Annie)", () => {
+    expect(mayhemChanged("16.23")).toEqual(expect.arrayContaining(["Ziggs", "Yasuo", "Zaahen"]));
+    expect(poolChanged("16.22", "16.23")).toContain("Ziggs");
+    expect(poolChanged("16.22", "16.23")).not.toContain("Annie");
   });
 
   const row = (patch: string, name: string, win_rate: number, pick_rate = 0.05): PatchRow =>
