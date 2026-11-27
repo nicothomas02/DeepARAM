@@ -126,7 +126,6 @@ fn quiet(app: &AppHandle) -> bool {
 /// features (Nico 2026-11-27).
 #[cfg(windows)]
 fn owner_pc(app: &AppHandle) -> bool {
-    use tauri::Manager;
     app.path().app_data_dir().is_ok_and(|d| d.join("record-offers").exists())
 }
 
