@@ -371,7 +371,8 @@ export function championPage(alias: string): ChampionPage | null {
   const slots = readRepoJson<BootsSlots>("data/estimates/boots_slot.json");
   const playedSlot = slots ? (slots.champions[String(id)]?.[0] ?? slots.all) : undefined;
   const bootsRows = rows(b?.items?.boots);
-  const noBoots = skipsBoots(bootsRows, full, (i) => itemTier(i) === "boots");
+  const noBootsFile = readRepoJson<{ skip: number[] }>("data/estimates/no_boots.json");
+  const noBoots = skipsBoots(bootsRows, full, (i) => itemTier(i) === "boots", !!noBootsFile?.skip.includes(Number(id)));
   // Tear builds (Manamune, Archangel's Staff) end the game as Muramana and Seraph's Embrace, which the feed's six-item
   // builds never list, so a core rebuilt from them can't show those builds. Found comparing with another stats site
   // (2026-11-21): Ezreal, Kassadin, Veigar and others lost their most played build. For a champion whose last cores

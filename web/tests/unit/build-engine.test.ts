@@ -499,15 +499,23 @@ describe("build engine", () => {
     expect(itemId(bought.path[0].icon)).toBe(6697);
     // buying Hubris first doesn't pass over The Collector
     expect(itemId(bought.next[0].icon)).toBe(6676);
-    // the list matches the archive's buy order file
+    // the sets come from what items do (Data Dragon text), and the archive's buy order backs them up
     const slots = JSON.parse(readFileSync(new URL("../../../data/estimates/item_slots.json", import.meta.url), "utf8")) as { all: Record<string, number[]> };
-    const first = Object.entries(slots.all).filter(([, v]) => v.reduce((a, b) => a + b, 0) >= 400 && v[0] / v.reduce((a, b) => a + b, 0) >= 0.8).map(([i]) => Number(i));
-    expect([...FIRST_BUYS].sort()).toEqual(first.sort());
-    const late = Object.entries(slots.all).filter(([, v]) => v.reduce((a, b) => a + b, 0) >= 100 && (v[0] + v[1]) / v.reduce((a, b) => a + b, 0) <= 0.05).map(([i]) => Number(i));
-    expect([...LATE_BUYS].sort()).toEqual(late.sort());
+    const dd = JSON.parse(readFileSync(new URL("../../public/assets/dd/16.23.1/data/en_US/item.json", import.meta.url), "utf8")) as { data: Record<string, { name: string; description: string; gold: { total: number; purchasable: boolean }; maps?: Record<string, boolean> }> };
+    const text = (i: number) => dd.data[String(i)].description.replace(/<[^>]+>/g, " ");
+    const pen = Object.entries(dd.data).filter(([i, v]) => Number(i) < 100000 && v.maps?.["12"] !== false && v.gold.purchasable && v.gold.total >= 2200 && /\d+%\s+(Magic|Armor) Penetration/.test(v.description.replace(/<[^>]+>/g, " "))).map(([i]) => Number(i));
+    expect([...LATE_BUYS].sort()).toEqual(pen.sort());
+    const share = (i: number, n: number) => { const v = slots.all[String(i)]; const t = v.reduce((a, b) => a + b, 0); return v.slice(0, n).reduce((a, b) => a + b, 0) / t; };
+    for (const i of LATE_BUYS) expect(share(i, 2)).toBeLessThanOrEqual(0.1);
+    // growing items: the text says they grow, and 80%+ of buyers make them the first legendary
+    expect(text(3084)).toMatch(/max Health/);
+    expect(text(3032)).toMatch(/permanently/);
+    expect(text(6657)).toMatch(/every 60 seconds/);
+    expect(text(6697)).toMatch(/per champion killed/);
+    for (const i of FIRST_BUYS) expect(share(i, 1)).toBeGreaterThanOrEqual(0.8);
   }, 30_000);
 
-  it("late buys (Void Staff...) wait until two legendaries are finished, on every champion (lateBuys: Shaco)", async () => {
+  it("penetration items (Void Staff...) wait until two legendaries are finished, on every champion (lateBuys: Shaco)", async () => {
     const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
     expect(lateBuyOrder([3135, 3020, 3089, 4645], (i) => i, (i) => i === 3020)).toEqual([3089, 3020, 4645, 3135]);

@@ -222,7 +222,9 @@ export const SKIP_BOOTS = 0.25;
  * Whether the champion's card should leave boots out: under SKIP_BOOTS of its games buy finished boots and most of
  * its listed six-item builds have none (Nico, 2026-11-20: a champion that skips boots shows none; Yuumi, Karthus).
  */
-export function skipsBoots(boots: { pickRate: number }[], full: { items: number[]; pickRate: number }[], isBoots: (id: number) => boolean): boolean {
+export function skipsBoots(boots: { pickRate: number }[], full: { items: number[]; pickRate: number }[], isBoots: (id: number) => boolean, better = false): boolean {
+  // Never buying boots tested better for this champion (data/estimates/no_boots.json; none pass yet, Nico 2026-11-27).
+  if (better) return true;
   const bought = boots.reduce((s, r) => s + r.pickRate, 0);
   const total = full.reduce((s, r) => s + r.pickRate, 0);
   const without = full.filter((r) => !r.items.some(isBoots)).reduce((s, r) => s + r.pickRate, 0);
