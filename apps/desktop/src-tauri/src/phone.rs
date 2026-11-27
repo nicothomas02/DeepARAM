@@ -28,8 +28,21 @@ struct Mirror {
 
 static MIRROR: Mutex<Mirror> = Mutex::new(Mirror { seq: 0, base: None, tail: Vec::new() });
 
+/// Owner test recording (the `record-offers` file): every script the companion was told, timed, in
+/// offers/screens.jsonl, so a game can be played back later through the real companion page.
+static RECORD: Mutex<Option<std::path::PathBuf>> = Mutex::new(None);
+
+fn record(kind: &str, script: &str) {
+    let Some(path) = RECORD.lock().unwrap().clone() else { return };
+    let ms = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| d.as_millis());
+    if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(path) {
+        let _ = writeln!(f, "{}", json!({"t": ms, "kind": kind, "js": script}));
+    }
+}
+
 /// A whole new view (champion select, the game, the review): replaces everything before it.
 pub fn full(script: &str) {
+    record("full", script);
     let mut m = MIRROR.lock().unwrap();
     m.seq += 1;
     m.base = Some((m.seq, script.to_owned()));
@@ -38,6 +51,7 @@ pub fn full(script: &str) {
 
 /// A small update on top of the view (an offer read, a pick marked, the game's result).
 pub fn push(script: &str) {
+    record("push", script);
     let mut m = MIRROR.lock().unwrap();
     m.seq += 1;
     let seq = m.seq;
@@ -124,6 +138,10 @@ fn serve(app: &AppHandle, mut stream: TcpStream, token: &str) {
 /// `phone-url.txt` beside it.
 pub fn start(app: &AppHandle) {
     let Ok(dir) = app.path().app_data_dir() else { return };
+    if dir.join("record-offers").exists() {
+        let _ = std::fs::create_dir_all(dir.join("offers"));
+        *RECORD.lock().unwrap() = Some(dir.join("offers").join("screens.jsonl"));
+    }
     let Ok(text) = std::fs::read_to_string(dir.join("phone-companion")) else { return };
     let token: String = text.lines().next().unwrap_or("").trim().chars().filter(char::is_ascii_alphanumeric).collect();
     if token.len() < 8 {
