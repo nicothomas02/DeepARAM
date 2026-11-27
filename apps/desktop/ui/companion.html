@@ -178,6 +178,11 @@
   .chip .up { color: var(--good); } .chip .down { color: var(--bad); } .chip .down svg { transform: rotate(180deg); }
   .chg { display: flex; align-items: center; gap: 8px; } .chg img { width: 48px; height: 48px; border-radius: 8px; } .chg .d { margin-left: auto; font-size: 18px; font-weight: 700; }
   .chg .d.up, .chg .ok { color: var(--good); } .chg .d.down { color: var(--bad); }
+  .trend { display: grid; grid-template-columns: 1fr 120px 52px 52px; align-items: center; gap: 8px; }
+  .trend svg { width: 120px; height: 24px; } .trend polyline { fill: none; stroke: var(--accent); stroke-width: 2; }
+  .trend .num { font-size: 14px; color: var(--fg); } .trend.head .num { font-size: 11px; color: var(--muted); }
+  .champs { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 10px; } .champs span { display: grid; justify-items: center; gap: 2px; font-size: 12px; color: var(--muted); }
+  .champs img { width: 40px; height: 40px; border-radius: 10px; }
   .deadshop { display: flex; gap: 6px; padding: 6px; margin-bottom: 6px; border: 2px solid var(--good); border-radius: 10px; } .deadshop img { width: 44px; height: 44px; border-radius: 6px; }
   .ii { width: 18px; height: 18px; border-radius: 4px; vertical-align: -4px; margin-right: 3px; }
   .ii.round { border-radius: 50%; }
@@ -1084,9 +1089,10 @@
       ${chart(points, ffFrom)}` : ""}
       ${turnRows ? `<h2>Turning points</h2><div class="chips">${turnRows}</div>` : ""}
       ${traced ? `<h2>Surrender</h2>${ff}` : ""}
+      <div id="trends"></div>
       <div id="invite"></div>`);
     reviewPoints = points ?? [];
-    renderRecap();
+    renderRecap().finally(renderTrends);
     if (result === "Win") inviteToShare();
   };
 
@@ -1141,9 +1147,84 @@
       return `<div class="box chg" title="${esc(tip)}"><span class="why">${clock(r.t)}</span> ${pic(r, r.got)}${!known(r) ? "" : same ? ` <span class="ok">✓</span>` : ` <span class="why">App</span> ${pic(r, r.app)}`} <span class="d ${r.d >= 0 ? "up" : "down"}">${r.d >= 0 ? "+" : "−"}${Math.round(Math.abs(r.d) * 100)}%</span></div>`;
     };
     const held = (kind) => { const xs = mine.filter((c) => c.kind === kind && known(c)); return xs.length ? `${xs.filter((c) => c.app % 10000 === c.got % 10000).length}/${xs.length}` : ""; };
+    lastFollow = Object.fromEntries(["aug", "item"].map((kd) => { const xs = mine.filter((c) => c.kind === kd && known(c)); return [kd, [xs.filter((c) => c.app % 10000 === c.got % 10000).length, xs.length]]; }));
     const acc = [["aug", "Augments"], ["item", "Items"]].map(([kd, l]) => held(kd) ? `<span title="${l}: the app's calls you followed this game">${l} <b>${held(kd)}</b></span>` : "").filter(Boolean).join(" · ");
     return (rows.length ? `<h2 title="The buys and picks followed by the biggest swings in your chance to win (estimated)">What changed the game</h2>${rows.map(row).join("")}` : "")
       + (acc ? `<div class="box why" title="How many of the app's calls you followed this game">Followed the app: ${acc}</div>` : "");
+  }
+
+  // Your trends: the thanks for sharing (Nico 2026-11-27, "make sharing worth it"). Post-game only, from your own
+  // recent Mayhem games, which the app keeps on this computer while sharing is on (sharing.rs my_trends). Shares of
+  // your team, so long and short games compare. No win rates. Players who don't share see a short note instead,
+  // at most once a day, never after "Don't ask again".
+  let lastFollow = null;
+  const median = (xs) => { const v = [...xs].sort((a, b) => a - b); const m = v.length >> 1; return v.length % 2 ? v[m] : (v[m - 1] + v[m]) / 2; };
+  const spark = (xs) => {
+    const lo = Math.min(...xs), hi = Math.max(...xs), span = hi - lo || 1;
+    const pts = xs.map((x, i) => `${(i / Math.max(1, xs.length - 1) * 118 + 1).toFixed(1)},${(22 - (x - lo) / span * 20).toFixed(1)}`).join(" ");
+    return `<svg viewBox="0 0 120 24" aria-hidden="true"><polyline points="${pts}"/></svg>`;
+  };
+  function logFollow() {
+    if (!lastFollow) return [];
+    let log = [];
+    try { log = JSON.parse(localStorage.getItem("followLog") ?? "[]"); } catch {}
+    const id = lastGame ? `${lastGame.champ}:${Math.floor(Date.now() / 6e5)}` : String(Date.now());
+    if (!log.some((x) => x.id === id)) log.push({ id, ...lastFollow });
+    log = log.slice(-20);
+    try { localStorage.setItem("followLog", JSON.stringify(log)); } catch {}
+    lastFollow = null;
+    return log;
+  }
+  async function renderTrends() {
+    const box = document.getElementById("trends");
+    if (!box || !window.__TAURI_INTERNALS__) return;
+    const invoke = (cmd, args) => window.__TAURI_INTERNALS__.invoke(cmd, args);
+    const log = logFollow();
+    const t = await invoke("my_trends").catch(() => null);
+    if (!t) return;
+    if (!t.sharing) {
+      let st = {};
+      try { st = JSON.parse(localStorage.getItem("shareInvite") ?? "{}"); } catch {}
+      let seen = 0;
+      try { seen = Number(localStorage.getItem("trendsTeaser") ?? 0); } catch {}
+      if (st.never || Date.now() - seen < 864e5 || document.querySelector("#invite .invite")) return;
+      try { localStorage.setItem("trendsTeaser", String(Date.now())); } catch {}
+      box.innerHTML = `<div class="box why" title="Sharing sends your Mayhem games with no name or account. Your trends are worked out and kept on this computer.">${ico("up")} Share your games to see your trends here: damage share, kill participation, deaths and your champions over your last 20 games.
+        <div class="filters" data-style="margin:8px 0 0"><button class="chip on" data-share="yes">Share my games</button></div></div>`;
+      box.querySelector("[data-share]")?.addEventListener("click", () => {
+        invoke("share_choice", { enabled: true }).catch(() => {});
+        box.innerHTML = `<div class="box">Thanks! Sharing is on. Your trends fill in from your recent games within a few minutes.</div>`;
+      });
+      return;
+    }
+    const games = (t.games ?? []).slice(-20);
+    if (games.length < 3) {
+      box.innerHTML = `<h2>Your trends</h2><div class="box why">They show once 3 of your Mayhem games are in (${games.length} so far). Recent games fill in within a few minutes.</div>`;
+      return;
+    }
+    const pctOf = (v) => `${Math.round(v * 100)}%`;
+    const one = (v) => v.toFixed(1);
+    const rows = [
+      ["Damage share", "Your damage to champions, as a share of your team's", (g) => g.dmgShare, pctOf],
+      ["Damage taken", "Damage you took, as a share of what your team took", (g) => g.takenShare, pctOf],
+      ["Kill participation", "Kills and assists over your team's kills", (g) => g.kp, pctOf],
+      ["Deaths per 10 min", "Deaths for every 10 minutes played", (g) => g.deathsPer10, one],
+    ].map(([label, tip, get, fmt]) => {
+      const xs = games.map(get);
+      return `<div class="trend" title="${esc(tip)}"><span>${label}</span>${spark(xs)}<span class="num">${fmt(median(xs.slice(-5)))}</span><span class="num">${fmt(median(xs))}</span></div>`;
+    }).join("");
+    const fit = await loadFit();
+    const byId = Object.fromEntries(Object.entries(fit?.ids ?? {}).map(([a, id]) => [id, a]));
+    const counts = {};
+    for (const g of t.games ?? []) counts[g.champ] = (counts[g.champ] ?? 0) + 1;
+    const champs = Object.entries(counts).filter(([id]) => byId[id]).sort((a, b) => b[1] - a[1]).slice(0, 6)
+      .map(([id, n]) => `<span title="${esc(label(byId[id]))}: ${n} of your last ${(t.games ?? []).length} games">${icon(byId[id])}${n}</span>`).join("");
+    const sum = (kd) => log.reduce((a, x) => [a[0] + (x[kd]?.[0] ?? 0), a[1] + (x[kd]?.[1] ?? 0)], [0, 0]);
+    const [fa, na] = sum("aug"), [fi, ni] = sum("item");
+    const follow = na || ni ? `<div class="box why" title="The app's calls you followed over your last ${log.length} reviewed games">Followed the app: ${na ? `Augments <b>${fa}/${na}</b>` : ""}${na && ni ? " · " : ""}${ni ? `Items <b>${fi}/${ni}</b>` : ""}</div>` : "";
+    box.innerHTML = `<h2 title="From your own last ${games.length} Mayhem games, kept on this computer while you share">Your trends</h2>
+      <div class="box"><div class="trend head"><span></span><span></span><span class="num">Last 5</span><span class="num">Last ${games.length}</span></div>${rows}</div>
+      ${champs ? `<div class="champs">${champs}</div>` : ""}${follow}`;
   }
 
   // What you built and took this game, and what the enemy hit you with: kept off the in-game screen, shown here.

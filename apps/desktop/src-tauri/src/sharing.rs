@@ -27,6 +27,8 @@ const CHECK_EVERY: Duration = Duration::from_secs(90);
 /// How many recent games to look through, and how many sent game ids to remember.
 const RECENT: usize = 20;
 const KEEP_SENT: usize = 400;
+/// How many of the player's own games the trends keep.
+const KEEP_TRENDS: usize = 50;
 const ASK_AFTER: Duration = Duration::from_secs(4);
 
 #[derive(Default, Serialize, Deserialize)]
@@ -37,6 +39,26 @@ struct State {
     enabled: bool,
     /// Game ids already sent, newest last.
     sent: Vec<u64>,
+    /// The player's own line from each recent Mayhem game, newest last, kept on this computer only: what the
+    /// review's "Your trends" shows to players who share. Never sent anywhere.
+    trends: Vec<Trend>,
+}
+
+/// One game of the player's own, as shares of their team (so a long game doesn't look better than a short one).
+#[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase", default)]
+pub struct Trend {
+    pub id: u64,
+    pub champ: u64,
+    pub played: String,
+    pub minutes: f64,
+    /// Your damage to champions over your team's.
+    pub dmg_share: f64,
+    /// Damage you took over what your team took.
+    pub taken_share: f64,
+    /// (Kills + assists) over your team's kills.
+    pub kp: f64,
+    pub deaths_per10: f64,
 }
 
 pub struct Sharing {
@@ -109,6 +131,52 @@ pub fn share_status(app: AppHandle) -> bool {
     app.state::<Sharing>().enabled()
 }
 
+/// The player's own recent games for the review's "Your trends", only while sharing is on (the thanks for sharing):
+/// {sharing, games: [Trend], oldest first}.
+#[tauri::command]
+pub fn my_trends(app: AppHandle) -> Value {
+    let s = app.state::<Sharing>();
+    let st = s.state.lock().unwrap();
+    if !st.enabled {
+        return json!({ "sharing": false, "games": [] });
+    }
+    json!({ "sharing": true, "games": st.trends })
+}
+
+/// The signed-in player's own line from a full match-history game, found by their puuid. None when they aren't in it.
+pub fn own_line(game: &Value, puuid: &str) -> Option<Trend> {
+    let id = game["gameId"].as_u64()?;
+    let pid = game["participantIdentities"]
+        .as_array()?
+        .iter()
+        .find(|p| p["player"]["puuid"].as_str() == Some(puuid))?["participantId"]
+        .as_u64()?;
+    let parts = game["participants"].as_array()?;
+    let me = parts.iter().find(|p| p["participantId"].as_u64() == Some(pid))?;
+    let team = me["teamId"].as_u64()?;
+    let num = |p: &Value, k: &str| p["stats"][k].as_f64().unwrap_or(0.0);
+    let mates: Vec<&Value> = parts.iter().filter(|p| p["teamId"].as_u64() == Some(team)).collect();
+    let sum = |k: &str| mates.iter().map(|p| num(p, k)).sum::<f64>();
+    let share = |mine: f64, all: f64| if all > 0.0 { mine / all } else { 0.0 };
+    let duration = game["gameDuration"].as_f64().unwrap_or(0.0);
+    let secs = if duration > 20_000.0 { duration / 1000.0 } else { duration };
+    if secs < 60.0 {
+        return None;
+    }
+    let created = game["gameCreation"].as_u64().unwrap_or(0);
+    let round = |v: f64| (v * 1000.0).round() / 1000.0;
+    Some(Trend {
+        id,
+        champ: me["championId"].as_u64()?,
+        played: ymd(created / 1000),
+        minutes: round(secs / 60.0),
+        dmg_share: round(share(num(me, "totalDamageDealtToChampions"), sum("totalDamageDealtToChampions"))),
+        taken_share: round(share(num(me, "totalDamageTaken"), sum("totalDamageTaken"))),
+        kp: round(share(num(me, "kills") + num(me, "assists"), sum("kills")).min(1.0)),
+        deaths_per10: round(num(me, "deaths") / (secs / 600.0)),
+    })
+}
+
 /// Called from ui/share.html with the player's answer.
 #[tauri::command]
 pub fn share_choice(app: AppHandle, enabled: bool) {
@@ -176,22 +244,45 @@ pub fn watch(app: AppHandle) {
                 continue;
             }
             last = Instant::now();
-            let sent: BTreeSet<u64> = sharing.state.lock().unwrap().sent.iter().copied().collect();
+            let (sent, traced): (BTreeSet<u64>, BTreeSet<u64>) = {
+                let s = sharing.state.lock().unwrap();
+                (s.sent.iter().copied().collect(), s.trends.iter().map(|t| t.id).collect())
+            };
+            let me = lcu.get("/lol-summoner/v1/current-summoner").ok().and_then(|s| s["puuid"].as_str().map(String::from));
             let mut ids: Vec<u64> = pending.iter().map(|(id, _)| *id).collect();
             ids.extend(recent_mayhem(&lcu));
-            ids.retain(|id| !sent.contains(id));
+            // A game is read if it still has to be sent, or isn't in the player's trends yet.
+            ids.retain(|id| !sent.contains(id) || (me.is_some() && !traced.contains(id)));
             ids.sort_unstable();
             ids.dedup();
             let mut games = Vec::new();
             let mut done = Vec::new();
+            let mut lines = Vec::new();
             for id in ids {
                 // Stats can take a minute to appear after a game; a missing one is tried again next time.
                 if let Ok(game) = lcu.get(&format!("/lol-match-history/v1/games/{id}")) {
+                    if !traced.contains(&id) {
+                        if let Some(line) = me.as_deref().and_then(|me| own_line(&game, me)) {
+                            lines.push(line);
+                        }
+                    }
+                    if sent.contains(&id) {
+                        continue;
+                    }
                     done.push(id);
                     if let Some(clean) = anonymise(&game) {
                         games.push(clean);
                     }
                 }
+            }
+            if !lines.is_empty() {
+                sharing.update(|s| {
+                    s.trends.extend(lines);
+                    s.trends.sort_by_key(|t| t.id);
+                    s.trends.dedup_by_key(|t| t.id);
+                    let extra = s.trends.len().saturating_sub(KEEP_TRENDS);
+                    s.trends.drain(..extra);
+                });
             }
             if !games.is_empty() && send(&lcu, json!({ "action": "share", "games": games })).is_err() {
                 continue;
@@ -511,6 +602,29 @@ mod tests {
         assert_eq!(platform_for("NA"), Some("na1"));
         assert_eq!(platform_for("euw"), Some("euw1"));
         assert_eq!(platform_for("PBE"), None);
+    }
+
+    #[test]
+    fn own_line_is_shares_of_my_team() {
+        let p = |pid: u64, team: u64, champ: u64, k: u64, d: u64, a: u64, dmg: u64, taken: u64| {
+            json!({ "participantId": pid, "teamId": team, "championId": champ,
+                "stats": { "kills": k, "deaths": d, "assists": a, "totalDamageDealtToChampions": dmg, "totalDamageTaken": taken } })
+        };
+        let game = json!({
+            "gameId": 77u64, "gameDuration": 1200, "gameCreation": 1_795_132_800_000u64,
+            "participantIdentities": [
+                { "participantId": 1, "player": { "puuid": "me" } },
+                { "participantId": 2, "player": { "puuid": "mate" } },
+                { "participantId": 3, "player": { "puuid": "foe" } }
+            ],
+            "participants": [p(1, 100, 103, 6, 4, 2, 30000, 20000), p(2, 100, 1, 4, 2, 5, 10000, 20000), p(3, 200, 2, 9, 9, 9, 99999, 99999)]
+        });
+        let t = own_line(&game, "me").unwrap();
+        assert_eq!((t.id, t.champ, t.minutes), (77, 103, 20.0));
+        assert_eq!((t.dmg_share, t.taken_share), (0.75, 0.5));
+        assert_eq!(t.kp, 0.8);
+        assert_eq!(t.deaths_per10, 2.0);
+        assert!(own_line(&game, "stranger").is_none());
     }
 
     #[test]

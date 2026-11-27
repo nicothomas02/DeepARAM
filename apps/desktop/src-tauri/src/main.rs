@@ -500,7 +500,8 @@ fn main() {
             companion::companion_fullscreen,
             sharing::share_choice,
             sharing::share_status,
-            sharing::my_record
+            sharing::my_record,
+            sharing::my_trends
         ])
         // Must come first: a second launch focuses the running app instead of opening another.
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| show_one(app)))
