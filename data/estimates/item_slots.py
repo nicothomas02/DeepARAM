@@ -8,7 +8,7 @@ six-item build list under data/cn/builds, boots left out), and counts the order 
 Only the slot comes from here; which items to show and their DeepScore still come from the stats feeds (Nico
 2026-11-20: the owner's games only where no other data exists). Read by web/src/lib/champion-page.ts.
 
-    python data/estimates/item_slots.py <archive.json>
+    python data/estimates/item_slots.py <archive.json> [--timelines <DeepARAM-PC archive/timelines>]
 
 Reads the timeline cache timeline_signals.py keeps (%APPDATA%/Mayhem Stats/timelines); nothing is downloaded.
 Writes data/estimates/item_slots.json: {"champions": {champion id: {item id: [count at slot 1..6]}}, "all": {...}}.
@@ -45,10 +45,14 @@ def legendaries():
     return out - BOOTS
 
 
+TIMELINES = None  # --timelines: DeepARAM-PC's archive/timelines (the weekly job); else the app's cache
+
+
 def cached(game_id):
     base = os.environ.get("APPDATA") or os.path.expanduser("~")
+    path = os.path.join(TIMELINES, f"{game_id}.json.gz") if TIMELINES else os.path.join(base, "Mayhem Stats", "timelines", f"{game_id}.json.gz")
     try:
-        with gzip.open(os.path.join(base, "Mayhem Stats", "timelines", f"{game_id}.json.gz"), "rt", encoding="utf-8") as f:
+        with gzip.open(path, "rt", encoding="utf-8") as f:
             return json.load(f)
     except (OSError, ValueError):
         return None
@@ -58,7 +62,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("archive")
     ap.add_argument("--out", default=os.path.join(HERE, "item_slots.json"))
+    ap.add_argument("--timelines", help="folder of <gameId>.json.gz timelines (DeepARAM-PC archive/timelines)")
     args = ap.parse_args()
+    global TIMELINES
+    TIMELINES = args.timelines
     legend = legendaries()
     with open(args.archive, encoding="utf-8") as f:
         data = json.load(f)
