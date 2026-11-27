@@ -20,7 +20,7 @@ I18N.ready.then(() => {
   // internal value names ("BaseDamage") as words, translated when the page's language has them
   const words = (n) => t(n.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/([A-Z])([A-Z][a-z])/g, "$1 $2").replace(/_/g, " "));
 
-  $("patch").textContent = t("Patch {v}", { v: D.patch.split(".").slice(0, 2).join(".") });
+  $("patch").textContent = t("Patch {v}", { v: ((m) => (m ? `${+m[1] >= 10 && +m[1] < 20 ? +m[1] + 10 : +m[1]}.${+m[2]}` : D.patch))(/^(\d+)\.(\d+)/.exec(D.patch)) });
 
   // ---- Tabs (?tab= or #hash picks one, so other pages can link straight to it)
   const tabs = [...document.querySelectorAll("[data-tab]")];
