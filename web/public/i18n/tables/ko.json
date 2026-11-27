@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "경계선: {tier} 기준선에 가깝습니다. 이만큼 기준선에 가까운 챔피언은 다음 패치에서 절반을 조금 넘는 경우에만 티어를 유지했습니다.",
  "Buffed": "상향",
  "Nerfed": "하향",
- "Changed in the new patch. Its numbers here are still from the last patch.": "새 패치에서 변경되었습니다. 여기 수치는 아직 이전 패치 기준입니다."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "새 패치에서 변경되었습니다. 여기 수치는 아직 이전 패치 기준입니다.",
+ "Top picker": "가장 많이 고른 챔피언",
+ "The champion who picks this augment most often.": "이 증강을 가장 자주 고르는 챔피언."
 }

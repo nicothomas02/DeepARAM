@@ -57,7 +57,20 @@ export type SynRow = {
   sim?: "agrees" | "disagrees";
   caution?: boolean;
 };
-export type SynTab = { id: string; label: string; what: string; rows: SynRow[]; note: string; share?: boolean };
+export type SynTab = {
+  id: string;
+  label: string;
+  what: string;
+  rows: SynRow[];
+  note: string;
+  share?: boolean;
+  /** The scores are augment win-rate points: the public page lists the rows by pick rate without them (publicSynergies). */
+  augmentPoints?: boolean;
+  /** Shown instead of `note` when the scores are left out. */
+  publicNote?: string;
+  /** The note with scores, for the owner view (publicSynergies keeps it here). */
+  ownerNote?: string;
+};
 
 const augName = (id: number): SynName => ({ kind: "augments", id, name: NAMES[String(id)] ?? "" });
 const keep = (r: { flag?: string }) => !r.flag;
@@ -195,7 +208,15 @@ export function augmentSynergies(id: number): SynTab[] {
     return [{ names: [{ kind: "items" as const, id: f.id, name: it.name, icon: it.icon }], href: itemHref(f.id), pick: f.share }];
   });
   const tabs: SynTab[] = [
-    { id: "champions", label: "Champions", what: "Champion", rows: fits, note: "Points of win rate this augment adds on each champion, estimated." },
+    {
+      id: "champions",
+      label: "Champions",
+      what: "Champion",
+      rows: fits,
+      note: "Points of win rate this augment adds on each champion, estimated.",
+      augmentPoints: true,
+      publicNote: "The champions that take this augment most often. Estimated.",
+    },
     {
       id: "combos",
       label: "Augment combos",
@@ -208,6 +229,22 @@ export function augmentSynergies(id: number): SynTab[] {
   // "Augment combos" added two augments' own scores, which lists pairs that are just two strong augments; pairs that
   // feed each other are on the champion page's Augment synergies panel instead (Nico, 2026-11-20).
   return tabs.filter((t) => t.rows.length && t.id !== "combos").map((t) => ({ ...t, rows: t.rows.map(clean) }));
+}
+
+/** The public version of a page's Synergies (Riot's developer policy, lib/augment-policy.ts): lists scored in augment
+ *  win-rate points drop the scores and list by pick rate instead (a ranking by the scores would be a win-rate order
+ *  under another name, audit 2026-11-27); the signed-in owner gets the scores back (lib/owner-view.ts). */
+export function publicSynergies(tabs: SynTab[]): SynTab[] {
+  return tabs.map((t) =>
+    t.augmentPoints
+      ? {
+          ...t,
+          note: t.publicNote ?? t.note,
+          ownerNote: t.note,
+          rows: [...t.rows].sort((a, b) => b.pick - a.pick).map((r) => ({ ...r, score: undefined })).map(clean),
+        }
+      : t,
+  );
 }
 
 /** Expected win rate for a build panel row (the champion page's Expected switch), keyed by family and items. */

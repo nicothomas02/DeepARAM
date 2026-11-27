@@ -57,5 +57,6 @@
  "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "증강: {hit} 계속 앞섬 ({lead}p), 최다 선택 {phit} ({plead})",
  "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "아이템: {hit} 계속 앞섬 ({lead}p), 최다 구매 {phit} ({plead})",
  "Top {n} champions: {kept} still above 50%": "상위 {n} 챔피언: {kept} 계속 50% 이상",
- "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "매 패치마다 챔피언별 DeepScore 상위 증강 5개와 아이템 3개를 골라 다음 패치 게임에서 확인합니다. 챔피언 평균을 얼마나 자주, 몇 포인트 차로 계속 앞섰는지 봅니다. 가장 많이 고른 것이 비교 기준입니다. 유지된다고 증강이 승리의 원인이라는 증거는 아닙니다. 이미 앞선 팀이 늦게 고른 증강도 좋아 보입니다."
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "매 패치마다 챔피언별 DeepScore 상위 증강 5개와 아이템 3개를 골라 다음 패치 게임에서 확인합니다. 챔피언 평균을 얼마나 자주, 몇 포인트 차로 계속 앞섰는지 봅니다. 가장 많이 고른 것이 비교 기준입니다. 유지된다고 증강이 승리의 원인이라는 증거는 아닙니다. 이미 앞선 팀이 늦게 고른 증강도 좋아 보입니다.",
+ "Augments: {hit} still ahead, most picked {phit}": "증강: {hit} 여전히 앞섬, 최다 선택 {phit}"
 }

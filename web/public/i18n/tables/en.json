@@ -181,5 +181,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.",
  "Buffed": "Buffed",
  "Nerfed": "Nerfed",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Changed in the new patch. Its numbers here are still from the last patch."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Changed in the new patch. Its numbers here are still from the last patch.",
+ "Top picker": "Top picker",
+ "The champion who picks this augment most often.": "The champion who picks this augment most often."
 }

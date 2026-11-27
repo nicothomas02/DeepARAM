@@ -365,5 +365,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "{build} dizilimine ait: kartta o sekmeyi seç.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Bu kartta duruma göre alınan bir eşya ({situation}), bu yüzden çoğu oyuncu diğer oyunlarda almaz.",
  "Close call": "Başa baş",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Sonraki seçenek neredeyse aynı derecede iyi: fark, arkasındaki oyunlardaki gürültüden küçük. İlk seçenek bu kadar az farkla öndeyken, sonraki yamada yalnızca yaklaşık yarı yarıya zirvede kaldı."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Sonraki seçenek neredeyse aynı derecede iyi: fark, arkasındaki oyunlardaki gürültüden küçük. İlk seçenek bu kadar az farkla öndeyken, sonraki yamada yalnızca yaklaşık yarı yarıya zirvede kaldı.",
+ "Pairs with your picks": "Seçimlerinle uyumlu",
+ "Overlaps your picks": "Seçimlerinle çakışıyor",
+ "Combos with {name}": "{name} ile kombo",
+ "Pairs well with {name}.": "{name} ile iyi uyum sağlar.",
+ "Overlaps with {name}.": "{name} ile çakışır.",
+ "No known synergy with {names} on this champion yet.": "Bu şampiyonda {names} ile henüz bilinen bir sinerji yok.",
+ "Augments that pair with the ones you took are marked.": "Aldıklarınla uyumlu güçlendirmeler işaretlendi.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "Zaten güçlendirmelerin var mı? + tuşuna bas ya da onları yuvalarına sürükle, kalanlardan hangilerinin uyduğunu gör.",
+ "Select {name} as one of your augments.": "{name} güçlendirmelerinden biri olarak seç.",
+ "Select as one of your augments.": "Güçlendirmelerinden biri olarak seç.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "Tahmini: seçim hakkı kaldıkça onaylı bir eş hâlâ havuzda."
 }

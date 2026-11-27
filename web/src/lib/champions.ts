@@ -6,7 +6,8 @@ import { champName, livePatch } from "./highlights";
 import { localAsset } from "./assets";
 import { official } from "./dd-swap";
 import { readRepoCsv, readRepoJson } from "./repo-data";
-import { champStats, plusRows, type ChampStats, type PatchRow } from "./tiers";
+import { champStats, plusRows, PRIOR_GAMES, type ChampStats, type PatchRow } from "./tiers";
+import { poolChanged } from "./pool-change";
 import { statRanges, type RangeKey, type StatRange } from "./stat-ranges";
 import { matchesByPatch } from "./sample";
 import { radarFor, type RadarAxis } from "./radar";
@@ -74,10 +75,10 @@ export function livePlus() {
   const before = patches.length > 1 ? patches[patches.length - 2] : null;
   if (!live || !before) return (plusCache = { stats: [] });
   const m = matchesByPatch();
-  const used = plusRows(rows, live, before, m);
+  const used = plusRows(rows, live, before, m, poolChanged(before, live));
   const total = new Map<string, number>();
   for (const r of used) total.set(r.name, (total.get(r.name) ?? 0) + r.pick_rate * (m?.[r.patch] ?? 0));
-  const stats = champStats(used, new Set([live, before]), m, true).map((c, i) => ({ ...c, rank: i + 1, total: Math.round(total.get(c.name) ?? 0) }));
+  const stats = champStats(used, new Set([live, before]), m, true, PRIOR_GAMES).map((c, i) => ({ ...c, rank: i + 1, total: Math.round(total.get(c.name) ?? 0) }));
   return (plusCache = { stats });
 }
 

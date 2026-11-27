@@ -394,5 +394,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "{build}ビルドの一部です。カードでそのタブを選んでください。",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "このカードでは状況に応じた選択（{situation}）なので、ほかの試合ではほとんどのプレイヤーが買いません。",
  "Close call": "僅差",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "次の候補もほぼ同等です。差は元になった試合数によるブレより小さいです。この程度の差でトップだった選択肢は、次のパッチでもトップのままだったのは約半分だけでした。"
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "次の候補もほぼ同等です。差は元になった試合数によるブレより小さいです。この程度の差でトップだった選択肢は、次のパッチでもトップのままだったのは約半分だけでした。",
+ "Pairs with your picks": "選択と好相性",
+ "Overlaps your picks": "選択と効果が重複",
+ "Combos with {name}": "{name}とコンボ",
+ "Pairs well with {name}.": "{name}と好相性。",
+ "Overlaps with {name}.": "{name}と効果が重複。",
+ "No known synergy with {names} on this champion yet.": "このチャンピオンでは{names}との既知のシナジーはまだありません。",
+ "Augments that pair with the ones you took are marked.": "選んだオーグメントと相性の良いものに印が付きます。",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "すでにオーグメントがある? +を押すかスロットにドラッグすると、残りのうち相性の良いものが分かります。",
+ "Select {name} as one of your augments.": "{name}を自分のオーグメントとして選択。",
+ "Select as one of your augments.": "自分のオーグメントとして選択。",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "推定: 選択が残っている間、確認済みの相方がまだプールにあります。"
 }

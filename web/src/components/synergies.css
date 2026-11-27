@@ -76,6 +76,10 @@
 .syn-row[data-share] {
   grid-template-columns: 2.4rem minmax(0, 1fr) 5.4rem;
 }
+.syn-th[data-noscore],
+.syn-row[data-noscore] {
+  grid-template-columns: 2.4rem minmax(0, 1fr) 4.6rem 4.2rem;
+}
 .syn-th {
   color: var(--muted);
   font-size: 0.875rem;
@@ -225,6 +229,10 @@ a.syn-what:hover .syn-name {
   .syn-th[data-share],
   .syn-row[data-share] {
     grid-template-columns: 1.8rem minmax(0, 1fr) 4.4rem;
+  }
+  .syn-th[data-noscore],
+  .syn-row[data-noscore] {
+    grid-template-columns: 1.8rem minmax(0, 1fr) 3.8rem 3.8rem;
   }
   .syn-icons {
     max-width: 7.2rem;

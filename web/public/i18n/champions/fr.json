@@ -394,5 +394,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "Il fait partie du build {build} : choisissez cet onglet sur la carte.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "C'est un choix situationnel sur cette carte ({situation}), donc la plupart des joueurs l'ignorent dans les autres parties.",
  "Close call": "Serré",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Le choix suivant est presque aussi bon : l'écart est plus petit que le bruit des parties derrière. Quand un premier choix menait d'aussi peu, il est resté premier au patch suivant environ une fois sur deux seulement."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Le choix suivant est presque aussi bon : l'écart est plus petit que le bruit des parties derrière. Quand un premier choix menait d'aussi peu, il est resté premier au patch suivant environ une fois sur deux seulement.",
+ "Pairs with your picks": "Va avec vos choix",
+ "Overlaps your picks": "Fait doublon avec vos choix",
+ "Combos with {name}": "Combo avec {name}",
+ "Pairs well with {name}.": "Va bien avec {name}.",
+ "Overlaps with {name}.": "Fait doublon avec {name}.",
+ "No known synergy with {names} on this champion yet.": "Aucune synergie connue avec {names} sur ce champion pour l'instant.",
+ "Augments that pair with the ones you took are marked.": "Les augments qui vont avec ceux que vous avez pris sont signalés.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "Vous avez déjà des augments ? Appuyez sur + ou glissez-les dans vos emplacements pour voir lesquels des autres vont avec.",
+ "Select {name} as one of your augments.": "Choisir {name} comme l'un de vos augments.",
+ "Select as one of your augments.": "Choisir comme l'un de vos augments.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "Estimé : un partenaire confirmé est encore dans le pool tant qu'il reste des choix."
 }

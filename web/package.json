@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/sync-embeds.mjs && node scripts/static-data.mjs --clean",
+    "predev": "node scripts/sync-embeds.mjs && node scripts/static-data.mjs --clean && vite-node --config vitest.config.ts scripts/owner-points.ts",
     "dev": "next dev",
-    "prebuild": "node scripts/sync-embeds.mjs && node scripts/static-data.mjs --clean",
+    "prebuild": "node scripts/sync-embeds.mjs && node scripts/static-data.mjs --clean && vite-node --config vitest.config.ts scripts/owner-points.ts",
     "build": "next build",
     "postbuild": "node scripts/static-data.mjs",
     "start": "next start",

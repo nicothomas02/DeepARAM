@@ -13,12 +13,17 @@ import type { AugmentRow } from "@/lib/champion-page";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import { PICK_TAG_SHARE, SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import { comboPotential, synergyWhyTemplate, synergyWith, type SynergyPair } from "@/lib/synergy-picks";
+import { ownerPairs, useOwnerPoints } from "@/lib/owner-view";
 
 // A champion's augments as one ranked table with rarity and augment pick filters, best DeepScore first, each with the game's
 // build tags, ten to a page. The number columns' headers re-sort it (highest first; a second click flips it). The search box
 // above it finds an augment by name (English or the page's language) and keeps its rank, so a visitor sees where it places.
 // The round "+" by a row's icon selects an augment the visitor already has: it leaves the list, and the rest re-rank by their boost
 // plus their estimated synergy with the taken ones (lib/synergy-picks.ts), so Mystic Punch climbs once Ethereal Weapon is in.
+// Public view (Riot's developer policy, Nico 2026-11-27): no augment win-rate points at all. Rows come without their
+// boost and the pairs with their direction only, so the list keeps its DeepScore order and the pairs show as labels
+// ("Pairs with your picks", "Combos with X"). The signed-in owner gets the points back (lib/owner-view.ts) and the
+// full version: Boost, Fit, With your picks, Combo potential.
 
 const RARITIES = ["all", "prismatic", "gold", "silver"] as const;
 const LABEL = {
@@ -44,9 +49,9 @@ const DRAG = "application/x-deeparam-augment";
 const VS_ALL_GAP = 15;
 
 export default function AugmentTable({
-  rows: givenRows,
+  rows: publicRows,
   champion,
-  synergy = [],
+  synergy: publicSynergy = [],
   patch,
   brackets,
   everywhere,
@@ -87,6 +92,15 @@ export default function AugmentTable({
   const names = useNames();
   const describe = useDescription();
   const box = useRef<HTMLDivElement>(null);
+  const owner = useOwnerPoints("champions", champion);
+  const full = !!owner;
+  const givenRows = owner
+    ? publicRows.map((r) => {
+        const o = owner.rows[String(r.id)];
+        return o ? { ...r, lift: o[0] ?? undefined, deepEdge: o[1] ?? undefined, patchEdge: o[2] ?? undefined } : r;
+      })
+    : publicRows;
+  const synergy = owner ? ownerPairs(publicSynergy, owner.pairs) : publicSynergy;
   const [rarity, setRarity] = useKept<(typeof RARITIES)[number]>(
     "all",
     box,
@@ -135,8 +149,8 @@ export default function AugmentTable({
     .filter((r) => !taken.includes(r.id))
     .map((r) => ({
       ...r,
-      fit: taken.length ? (r.lift ?? 0) + (syn.get(r.id)?.total ?? 0) : undefined,
-      combo: r.lift === undefined ? undefined : r.lift + (syn.get(r.id)?.total ?? 0) + (combos.get(r.id)?.points ?? 0) / 100,
+      fit: full && taken.length ? (r.lift ?? 0) + (syn.get(r.id)?.total ?? 0) : undefined,
+      combo: !full || r.lift === undefined ? undefined : r.lift + (syn.get(r.id)?.total ?? 0) + (combos.get(r.id)?.points ?? 0) / 100,
     }));
   const take = (id: number) => {
     if (taken.includes(id) || taken.length >= MAX_TAKEN) return;
@@ -170,7 +184,9 @@ export default function AugmentTable({
     if (!next.length && sort.key === "fit") setSort({ key: "deepScore", desc: true });
     setPage(0);
   };
-  const sortKey: SortKey = sort.key === "fit" && !taken.length ? "deepScore" : sort.key;
+  // The public view has no win-rate-point sorts; a kept one falls back to DeepScore.
+  const sortKey: SortKey =
+    (sort.key === "fit" && !taken.length) || (!full && (sort.key === "fit" || sort.key === "combo" || sort.key === "lift")) ? "deepScore" : sort.key;
   const ranked = rows
     .filter((r) => rarity === "all" || r.rarity === rarity)
     .filter((r) => pick === "any" || (r.stages?.[pick] ?? 0) >= FAIR_SHARE)
@@ -208,7 +224,7 @@ export default function AugmentTable({
     </span>
   );
   // Estimated win rates, when there are any: an extra column with each augment's win rate boost below it.
-  const est = rows.some((r) => r.winRate !== undefined || r.lift !== undefined) || taken.length > 0;
+  const est = rows.some((r) => r.winRate !== undefined || r.lift !== undefined) || (full && taken.length > 0);
   const cols = est ? 3 : 2;
   const pages = Math.ceil(shown.length / PAGE);
   const at = Math.min(page, Math.max(0, pages - 1));
@@ -228,8 +244,11 @@ export default function AugmentTable({
     // Synergy with the taken augments first: it's why the row moved.
     for (const p of syn.get(a.id)?.parts ?? []) {
       const n = Math.abs(p.points).toFixed(1);
-      const line =
-        p.points >= 0
+      const line = !full
+        ? p.points >= 0
+          ? t("Pairs well with {name}.", { name: augName(p.with) })
+          : t("Overlaps with {name}.", { name: augName(p.with) })
+        : p.points >= 0
           ? t("Pairs well with {name}: +{n} pts.", { name: augName(p.with), n })
           : t("Overlaps with {name}: -{n} pts.", { name: augName(p.with), n });
       // The reason translates as a template with the augments' names in the page's language.
@@ -358,7 +377,7 @@ export default function AugmentTable({
             </button>
           </div>
         )}
-        {est && Array.from(combos.values()).some((c) => c.points > 0) && (
+        {full && est && Array.from(combos.values()).some((c) => c.points > 0) && (
           <div className="cp-seg" role="group" aria-label={t("Rank by")}>
             <button
               type="button"
@@ -384,13 +403,19 @@ export default function AugmentTable({
         )}
         {lonely.length > 0 && (
           <p className="cp-filter-note">
-            {t("No known synergy with {names} on this champion yet, so the rest rank by their boost alone.", {
-              names: lonely.map(augName).join(", "),
-            })}
+            {full
+              ? t("No known synergy with {names} on this champion yet, so the rest rank by their boost alone.", {
+                  names: lonely.map(augName).join(", "),
+                })
+              : t("No known synergy with {names} on this champion yet.", { names: lonely.map(augName).join(", ") })}
           </p>
         )}
         <p className="cp-filter-note">
-          {sortKey === "combo"
+          {!full
+            ? taken.length
+              ? t("Augments that pair with the ones you took are marked.")
+              : t("Already have augments? Press + or drag them into your slots to see which of the rest pair with them.")
+            : sortKey === "combo"
             ? t("Estimated: ranked by each augment's boost plus part of its best confirmed combo while picks remain.")
             : taken.length
             ? t("Estimated: ranked by each augment's boost plus its synergy with the ones you took.")
@@ -431,8 +456,12 @@ export default function AugmentTable({
                   role="button"
                   tabIndex={0}
                   data-no-link
-                  aria-label={t("Select {name}: the rest re-rank by synergy with it.", { name: augName(a.id) })}
-                  title={t("Select: the rest re-rank by synergy with it.")}
+                  aria-label={
+                    full
+                      ? t("Select {name}: the rest re-rank by synergy with it.", { name: augName(a.id) })
+                      : t("Select {name} as one of your augments.", { name: augName(a.id) })
+                  }
+                  title={full ? t("Select: the rest re-rank by synergy with it.") : t("Select as one of your augments.")}
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
@@ -497,7 +526,11 @@ export default function AugmentTable({
                   const total = syn.get(a.id)?.total ?? 0;
                   return Math.abs(total) >= 0.003 ? (
                     <span className={`cp-pill cp-syn ${tone(total) ?? ""}`} title={t("Estimated synergy with the augments you took.")}>
-                      {t("Synergy {n}", { n: tt("{n} pts", { n: signedPts(total) }) })}
+                      {full
+                        ? t("Synergy {n}", { n: tt("{n} pts", { n: signedPts(total) }) })
+                        : total > 0
+                          ? t("Pairs with your picks")
+                          : t("Overlaps your picks")}
                     </span>
                   ) : null;
                 })()}
@@ -506,9 +539,15 @@ export default function AugmentTable({
                   return c && c.points > 0 ? (
                     <span
                       className="cp-pill cp-syn up"
-                      title={t("Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.")}
+                      title={
+                        full
+                          ? t("Estimated: a confirmed partner is still to come, worth part of the pair's points while picks remain.")
+                          : t("Estimated: a confirmed partner is still in the pool while picks remain.")
+                      }
                     >
-                      {t("Combos with {name} {n}", { name: augName(c.with), n: tt("{n} pts", { n: signedPts(c.points / 100) }) })}
+                      {full
+                        ? t("Combos with {name} {n}", { name: augName(c.with), n: tt("{n} pts", { n: signedPts(c.points / 100) }) })
+                        : t("Combos with {name}", { name: augName(c.with) })}
                     </span>
                   ) : null;
                 })()}
@@ -545,7 +584,7 @@ export default function AugmentTable({
                   // Champion fit (Nico, 2026-11-24): this champion's DeepScore minus the augment's DeepScore across
                   // all champions, both 0-100, so augments that work on this champion in particular stand out.
                   const all = everywhere?.[a.id];
-                  if (a.deepScore === undefined || all === undefined) return null;
+                  if (!full || a.deepScore === undefined || all === undefined) return null;
                   const d = Math.round(a.deepScore - all);
                   return (
                     <small

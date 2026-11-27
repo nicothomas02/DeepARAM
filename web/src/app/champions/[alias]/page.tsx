@@ -96,6 +96,7 @@ import BestUpgrades from "@/components/champion/BestUpgrades";
 import KitInteractions from "@/components/champion/KitInteractions";
 import { kitInteractions } from "@/lib/kit-interactions";
 import { championUpgrades } from "@/lib/champion-upgrades";
+import { publicPair } from "@/lib/synergy-picks";
 import { SIMULATOR_IN_STATS } from "@/lib/sim-policy";
 import { augmentBuilds, buildChangers, CHANGES_BUILD } from "@/lib/augment-builds";
 import AugmentBuildPicker from "@/components/champion/AugmentBuildPicker";
@@ -548,9 +549,9 @@ export default async function ChampionPage({
       stages: pickStages.get(a.id),
       deepScore: scores.get(a.id),
       patchScore: patchScores.get(a.id),
-      // Points from the champion's augment average (not win rates), for the DeepScore hover.
-      deepEdge: scores.edges?.get(a.id),
-      patchEdge: patchScores.edges?.get(a.id),
+      // The win rate boost and the DeepScore hover's win-rate-point lead are for the signed-in owner only (Riot's
+      // developer policy, lib/owner-view.ts): AugmentTable fetches them after sign-in.
+      lift: undefined,
       href: augmentHref(a.id) ?? undefined,
       desc: AUG_DESC[String(a.id)],
       changesBuild: changers.has(a.id),
@@ -1049,16 +1050,12 @@ export default async function ChampionPage({
               title="Augments"
               count={p.augments.length}
               note={
-                est?.augments.size ? (
-                  SHOW_AUGMENT_WIN_RATES ? (
-                    <T ns={NS}>
-                      {
-                        "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate."
-                      }
-                    </T>
-                  ) : (
-                    <T ns={NS}>{"Boost is estimated: how many points of win rate the augment adds to this champion."}</T>
-                  )
+                est?.augments.size && SHOW_AUGMENT_WIN_RATES ? (
+                  <T ns={NS}>
+                    {
+                      "Win rates are estimated. The boost below each is how much the augment adds to this champion's win rate."
+                    }
+                  </T>
                 ) : undefined
               }
             >
@@ -1068,7 +1065,7 @@ export default async function ChampionPage({
                   <BracketRates rates={br.rates} borrowed={br.patch !== c.patch ? br.patch : null} active={!!bracketAugs} patch={patchName(c.patch)} />
                 ) : null;
               })()}
-              <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs} patch={patchName(c.patch)} brackets={bracketAugs ?? undefined} everywhere={everywhere} />
+              <AugmentTable rows={augRows} champion={c.alias} synergy={synergyPairs.map(publicPair)} patch={patchName(c.patch)} brackets={bracketAugs ?? undefined} everywhere={everywhere} />
             </Panel>
           )}
           {/* Augment synergies (Nico, 2026-11-20): pairs worth more than the sum of their parts, from confirmed

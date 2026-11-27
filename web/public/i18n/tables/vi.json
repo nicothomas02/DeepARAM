@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Sát ranh giới: gần vạch {tier}. Tướng gần vạch như vậy chỉ giữ được bậc ở bản sau hơn một nửa số lần một chút.",
  "Buffed": "Tăng sức mạnh",
  "Nerfed": "Giảm sức mạnh",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Thay đổi ở bản mới. Số liệu ở đây vẫn là của bản trước."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Thay đổi ở bản mới. Số liệu ở đây vẫn là của bản trước.",
+ "Top picker": "Chọn nhiều nhất bởi",
+ "The champion who picks this augment most often.": "Tướng chọn lõi nâng cấp này thường xuyên nhất."
 }

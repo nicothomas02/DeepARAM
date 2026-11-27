@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "เกือบข้ามเส้น: ใกล้เส้นของ {tier} แชมเปียนที่ใกล้เส้นขนาดนี้รักษาเทียร์ไว้ได้ในแพตช์ถัดไปเพียงมากกว่าครึ่งหนึ่งเล็กน้อย",
  "Buffed": "บัฟ",
  "Nerfed": "เนิร์ฟ",
- "Changed in the new patch. Its numbers here are still from the last patch.": "ถูกปรับในแพตช์ใหม่ ตัวเลขที่นี่ยังมาจากแพตช์ก่อน"
+ "Changed in the new patch. Its numbers here are still from the last patch.": "ถูกปรับในแพตช์ใหม่ ตัวเลขที่นี่ยังมาจากแพตช์ก่อน",
+ "Top picker": "เลือกบ่อยที่สุดโดย",
+ "The champion who picks this augment most often.": "แชมเปี้ยนที่เลือกออคเมนต์นี้บ่อยที่สุด"
 }

@@ -57,5 +57,6 @@
  "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "التعزيزات: {hit} ما زالت متقدمة ({lead} نقطة)، الأكثر اختيارًا {phit} ({plead})",
  "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "العناصر: {hit} ما زالت متقدمة ({lead} نقطة)، الأكثر شراءً {phit} ({plead})",
  "Top {n} champions: {kept} still above 50%": "أفضل {n} أبطال: {kept} ما زالوا فوق 50%",
- "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "في كل تحديث نأخذ أفضل 5 تعزيزات وأفضل 3 عناصر لكل بطل حسب DeepScore ونختبرها على مباريات التحديث التالي: كم مرة ما زالت تتفوق على متوسط البطل وبكم نقطة. الأكثر اختيارًا هي المرجع. الصمود لا يثبت أن التعزيز يسبب الفوز."
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "في كل تحديث نأخذ أفضل 5 تعزيزات وأفضل 3 عناصر لكل بطل حسب DeepScore ونختبرها على مباريات التحديث التالي: كم مرة ما زالت تتفوق على متوسط البطل وبكم نقطة. الأكثر اختيارًا هي المرجع. الصمود لا يثبت أن التعزيز يسبب الفوز.",
+ "Augments: {hit} still ahead, most picked {phit}": "التعزيزات: {hit} لا تزال متقدمة، الأكثر اختيارًا {phit}"
 }

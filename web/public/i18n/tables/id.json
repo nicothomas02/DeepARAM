@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Di batas: dekat garis {tier}. Champion sedekat ini dengan garis mempertahankan tier-nya di patch berikutnya hanya sedikit lebih dari separuh waktu.",
  "Buffed": "Di-buff",
  "Nerfed": "Di-nerf",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Diubah di patch baru. Angkanya di sini masih dari patch sebelumnya."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Diubah di patch baru. Angkanya di sini masih dari patch sebelumnya.",
+ "Top picker": "Paling sering dipilih oleh",
+ "The champion who picks this augment most often.": "Champion yang paling sering memilih augment ini."
 }

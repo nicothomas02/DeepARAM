@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "临界：接近 {tier} 档分界线。离分界线这么近的英雄，下个版本保住档位的只比一半略多。",
  "Buffed": "加强",
  "Nerfed": "削弱",
- "Changed in the new patch. Its numbers here are still from the last patch.": "在新版本中有改动。这里的数字仍来自上个版本。"
+ "Changed in the new patch. Its numbers here are still from the last patch.": "在新版本中有改动。这里的数字仍来自上个版本。",
+ "Top picker": "最常选用",
+ "The champion who picks this augment most often.": "最常选这个强化符文的英雄。"
 }

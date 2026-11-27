@@ -38,5 +38,6 @@
  "Estimated across the champions that often take both: no games record the pair together.": "両方をよく選ぶチャンピオン全体からの推定: このペアを一緒に記録した試合はありません。",
  "Share of the champions who take this augment that build each item.": "このオーグメントを選ぶチャンピオンのうち、各アイテムをビルドする割合。",
  "this build": "このビルド",
- "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "このオーグメントをよく選ぶチャンピオンが、選んだかどうかに関係なく普段作るアイテムです。どのアイテムがオーグメントと合うかは示していません。"
+ "What the champions who often take this augment usually build, with or without it. It doesn't show which items go with the augment.": "このオーグメントをよく選ぶチャンピオンが、選んだかどうかに関係なく普段作るアイテムです。どのアイテムがオーグメントと合うかは示していません。",
+ "The champions that take this augment most often. Estimated.": "このオーグメントをよく選ぶチャンピオン。推定。"
 }

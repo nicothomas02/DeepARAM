@@ -9,7 +9,7 @@ import { pageMeta } from "@/lib/meta";
 import { readRepoJson } from "@/lib/repo-data";
 import { augmentStages, rarityOdds } from "@/lib/estimates";
 import Synergies from "@/components/Synergies";
-import { augmentSynergies, fewGames } from "@/lib/synergies";
+import { augmentSynergies, fewGames, publicSynergies } from "@/lib/synergies";
 import ShareButton from "@/components/ShareButton";
 import ShareCard from "@/components/ShareCard";
 import { Description, Name, T } from "@/components/I18n";
@@ -17,7 +17,7 @@ import descriptions from "@/data/descriptions.json";
 import { patchName } from "@/lib/patch-name";
 import { augmentRanges } from "@/lib/stat-ranges";
 import { RangePicker, RangeView } from "@/components/StatRange";
-import DeepScore from "@/components/DeepScore";
+import AugmentDeepScore from "@/components/AugmentDeepScore";
 import { whatItDoes } from "@/lib/mechanisms";
 import { augmentTiers } from "@/lib/augment-tiers";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
@@ -42,8 +42,9 @@ const odds = (tier: string) => readRepoJson<{ odds?: Odds }>("guide/augment_rule
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const a = augmentBySlug((await params).slug);
   if (!a) return {};
-  const best = a.best.length
-    ? ` Best on ${a.best
+  // Most picked by, not "best on": that list ranks champions by the augment's win rate boost (owner view only).
+  const best = a.pickers.length
+    ? ` Picked most by ${a.pickers
         .slice(0, 3)
         .map((c) => c.name)
         .join(", ")}.`
@@ -64,7 +65,7 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
   const patch = livePatch() && patchName(livePatch());
   const offer = odds(a.tier);
   const stages = augmentStages(a.id);
-  const synergies = augmentSynergies(a.id);
+  const synergies = publicSynergies(augmentSynergies(a.id));
   const rarity = rarityOdds(a.tier);
   const score = augmentTiers().find((x) => x.id === a.id);
   // The live patch keeps the page's own numbers; other ranges come from saved patches.
@@ -156,7 +157,7 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                     score && (
                       <div>
                         <b>
-                          <DeepScore value={score.deepScore} edge={score.edge} help={AUGMENT_DEEPSCORE_HELP} effects={whatItDoes("augments", a.id, { shield: /shield/i.test(DESC.augments[String(a.id)] ?? "") })} />
+                          <AugmentDeepScore id={a.id} value={score.deepScore} help={AUGMENT_DEEPSCORE_HELP} effects={whatItDoes("augments", a.id, { shield: /shield/i.test(DESC.augments[String(a.id)] ?? "") })} />
                         </b>
                         <span>
                           <T ns="augments">DeepScore</T>
@@ -252,10 +253,10 @@ export default async function AugmentPage({ params }: { params: Promise<{ slug: 
                     { label: "Pick rate", value: pct(a.pickRate) },
                     ...(a.pickRank ? [{ label: "Pick rank", value: `#${a.pickRank} of ${a.of}` }] : []),
                   ],
-              row: a.best.length
+              row: a.pickers.length
                 ? {
-                    label: "Best on",
-                    icons: a.best.slice(0, 6).map((b) => `/icons/champions/${b.id}.webp`),
+                    label: "Picked most by",
+                    icons: a.pickers.slice(0, 6).map((b) => `/icons/champions/${b.id}.webp`),
                   }
                 : undefined,
               url: `https://deeparam.com/augments/${a.slug}`,

@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Οριακό: κοντά στη γραμμή του {tier}. Οι champions τόσο κοντά σε γραμμή κράτησαν το tier τους στο επόμενο patch μόνο λίγο περισσότερο από τις μισές φορές.",
  "Buffed": "Ενισχύθηκε",
  "Nerfed": "Αποδυναμώθηκε",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Άλλαξε στο νέο patch. Οι αριθμοί του εδώ είναι ακόμα από το προηγούμενο patch."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Άλλαξε στο νέο patch. Οι αριθμοί του εδώ είναι ακόμα από το προηγούμενο patch.",
+ "Top picker": "Πιο συχνά από",
+ "The champion who picks this augment most often.": "Ο champion που επιλέγει πιο συχνά αυτό το augment."
 }

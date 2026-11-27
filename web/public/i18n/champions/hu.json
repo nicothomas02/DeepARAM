@@ -365,5 +365,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "A(z) {build} buildhez tartozik: válaszd ezt a fület a kártyán.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Ezen a kártyán helyzeti vásárlás ({situation}), ezért más meccseken a legtöbb játékos kihagyja.",
  "Close call": "Szoros",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "A következő választás majdnem ugyanolyan jó: a különbség kisebb, mint a mögötte álló meccsek zaja. Amikor egy első helyezett ilyen kevéssel vezetett, a következő patchben csak nagyjából az esetek felében maradt az élen."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "A következő választás majdnem ugyanolyan jó: a különbség kisebb, mint a mögötte álló meccsek zaja. Amikor egy első helyezett ilyen kevéssel vezetett, a következő patchben csak nagyjából az esetek felében maradt az élen.",
+ "Pairs with your picks": "Illik a választásaidhoz",
+ "Overlaps your picks": "Átfedésben van a választásaiddal",
+ "Combos with {name}": "Kombó: {name}",
+ "Pairs well with {name}.": "Jól illik ehhez: {name}.",
+ "Overlaps with {name}.": "Átfedésben van ezzel: {name}.",
+ "No known synergy with {names} on this champion yet.": "Ennél a hősnél még nincs ismert szinergia ezekkel: {names}.",
+ "Augments that pair with the ones you took are marked.": "A kiválasztottakhoz illő augmentek meg vannak jelölve.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "Már vannak augmentjeid? Nyomd meg a + gombot, vagy húzd őket a helyeikre, hogy lásd, melyik illik hozzájuk a többi közül.",
+ "Select {name} as one of your augments.": "{name} kiválasztása az egyik augmentedként.",
+ "Select as one of your augments.": "Kiválasztás az egyik augmentedként.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "Becslés: egy megerősített társ még a készletben van, amíg van hátra választás."
 }

@@ -44,7 +44,8 @@ export function previews(): Record<string, Preview> {
       tier: a.tier,
       ...(SHOW_AUGMENT_WIN_RATES ? { winRate: a.winRate } : {}),
       pickRate: a.pickRate,
-      lines: a.best.length ? [`Best on ${a.best.slice(0, 3).map((b) => b.name).join(", ")}`] : [],
+      // Most picked by, not "best on" (that ranks by win rate boost, owner view only, lib/owner-view.ts).
+      lines: a.pickers.length ? [`Picked most by ${a.pickers.slice(0, 3).map((b) => b.name).join(", ")}`] : [],
       id: String(a.id),
       desc: DESC.augments[String(a.id)],
     };

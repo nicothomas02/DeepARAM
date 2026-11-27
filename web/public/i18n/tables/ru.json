@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "На границе: близко к линии {tier}. Чемпионы так близко к линии сохраняли свой тир в следующем патче лишь чуть больше чем в половине случаев.",
  "Buffed": "Усилен",
  "Nerfed": "Ослаблен",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Изменён в новом патче. Цифры здесь пока из прошлого патча."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Изменён в новом патче. Цифры здесь пока из прошлого патча.",
+ "Top picker": "Чаще всех берёт",
+ "The champion who picks this augment most often.": "Чемпион, который чаще всех берёт этот аугмент."
 }

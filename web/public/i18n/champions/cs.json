@@ -365,5 +365,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "Patří do buildu {build}: vyber na kartě tuto záložku.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Na této kartě je to situační nákup ({situation}), takže ho většina hráčů v jiných hrách vynechá.",
  "Close call": "Těsné",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Další volba je skoro stejně dobrá: rozdíl je menší než šum ve hrách, ze kterých vychází. Když vedla volba takto těsně, zůstala v dalším patchi na prvním místě jen asi v polovině případů."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Další volba je skoro stejně dobrá: rozdíl je menší než šum ve hrách, ze kterých vychází. Když vedla volba takto těsně, zůstala v dalším patchi na prvním místě jen asi v polovině případů.",
+ "Pairs with your picks": "Hodí se k tvým volbám",
+ "Overlaps your picks": "Překrývá se s tvými volbami",
+ "Combos with {name}": "Kombo s {name}",
+ "Pairs well with {name}.": "Dobře se hodí k {name}.",
+ "Overlaps with {name}.": "Překrývá se s {name}.",
+ "No known synergy with {names} on this champion yet.": "Zatím žádná známá synergie s {names} u tohoto šampiona.",
+ "Augments that pair with the ones you took are marked.": "Augmenty, které se hodí k vybraným, jsou označené.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "Už máš augmenty? Stiskni + nebo je přetáhni do slotů a uvidíš, které z ostatních se k nim hodí.",
+ "Select {name} as one of your augments.": "Vybrat {name} jako jeden ze svých augmentů.",
+ "Select as one of your augments.": "Vybrat jako jeden ze svých augmentů.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "Odhad: potvrzený partner je stále v poolu, dokud zbývají volby."
 }

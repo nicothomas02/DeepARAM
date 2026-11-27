@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "境界付近：{tier}のラインに近いです。ラインにこれほど近いチャンピオンが次のパッチでティアを維持したのは、半分を少し超える程度でした。",
  "Buffed": "強化",
  "Nerfed": "弱体化",
- "Changed in the new patch. Its numbers here are still from the last patch.": "新しいパッチで変更されました。ここでの数値はまだ前のパッチのものです。"
+ "Changed in the new patch. Its numbers here are still from the last patch.": "新しいパッチで変更されました。ここでの数値はまだ前のパッチのものです。",
+ "Top picker": "最多ピック",
+ "The champion who picks this augment most often.": "このオーグメントを最もよく選ぶチャンピオン。"
 }
