@@ -87,6 +87,7 @@ fn clock(s: &State) -> f64 {
 /// What the tracker decided since the last look: the companion shows offers and marks picks (no tap in game).
 fn publish(app: &AppHandle, events: Vec<augtrack::Event>) {
     for e in events {
+        record(app, &e);
         match e {
             augtrack::Event::Offer(ids) => companion::show_offer(app, &ids),
             augtrack::Event::Closed { pick, .. } => {
@@ -99,6 +100,36 @@ fn publish(app: &AppHandle, events: Vec<augtrack::Event>) {
             // a "close" that was a reroll's card flip: the companion keeps its mark until the next pick replaces it
             augtrack::Event::Unmark(_) => {}
         }
+    }
+}
+
+/// Owner test recording (off unless a file named `record-offers` is in the app's data folder; never on for the
+/// public): each offer's screen as a PNG plus a line per tracker event in offers/offers.jsonl, to replay offer
+/// screens to augment readers (ours and others) without a live game, and to check picks against the game's own
+/// post-game list.
+fn record(app: &AppHandle, e: &augtrack::Event) {
+    let Ok(base) = app.path().app_data_dir() else { return };
+    if !base.join("record-offers").exists() {
+        return;
+    }
+    let dir = base.join("offers");
+    let _ = std::fs::create_dir_all(&dir);
+    let ms = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| d.as_millis());
+    let line = match e {
+        augtrack::Event::Offer(ids) => {
+            let png = format!("{ms}.png");
+            let saved = augscan::save_game_frame(&dir.join(&png));
+            serde_json::json!({"t": ms, "offer": ids, "png": saved.then_some(png)})
+        }
+        augtrack::Event::Closed { cards, pick, replaced, cols } => {
+            serde_json::json!({"t": ms, "closed": cards, "pick": pick, "replaced": replaced, "cols": cols})
+        }
+        augtrack::Event::Unmark(id) => serde_json::json!({"t": ms, "unmark": id}),
+        augtrack::Event::Late(id) => serde_json::json!({"t": ms, "late": id}),
+    };
+    use std::io::Write;
+    if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(dir.join("offers.jsonl")) {
+        let _ = writeln!(f, "{line}");
     }
 }
 

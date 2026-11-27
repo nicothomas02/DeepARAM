@@ -257,6 +257,18 @@ pub fn mouse() -> Option<(bool, i32, i32)> {
     None
 }
 
+/// Owner test recording only: League's whole game window as a PNG (one per augment offer), so the screens can
+/// be played back later to test augment readers (ours and others) without a live game.
+#[cfg(windows)]
+pub fn save_game_frame(path: &std::path::Path) -> bool {
+    win::save_game_frame(path)
+}
+
+#[cfg(not(windows))]
+pub fn save_game_frame(_path: &std::path::Path) -> bool {
+    false
+}
+
 /// Screen reading works on Windows only (its built-in text recognition), or with a test game's fake screen.
 pub fn available() -> bool {
     #[cfg(debug_assertions)]
@@ -372,6 +384,18 @@ mod win {
             ReleaseDC(None, screen);
             (rows == h).then_some(px)
         }
+    }
+
+    pub fn save_game_frame(path: &std::path::Path) -> bool {
+        let Some((x, y, w, h)) = game_window() else { return false };
+        let Some(px) = capture(x, y, w, h, w, h) else { return false };
+        let rgb: Vec<u8> = px.chunks_exact(4).flat_map(|p| [p[2], p[1], p[0]]).collect();
+        let Ok(file) = std::fs::File::create(path) else { return false };
+        let mut enc = png::Encoder::new(std::io::BufWriter::new(file), w as u32, h as u32);
+        enc.set_color(png::ColorType::Rgb);
+        enc.set_depth(png::BitDepth::Eight);
+        enc.set_compression(png::Compression::Fast);
+        enc.write_header().and_then(|mut wr| wr.write_image_data(&rgb)).is_ok()
     }
 
     fn engine() -> Option<OcrEngine> {

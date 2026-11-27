@@ -26,6 +26,8 @@ augtrack = { path = "../../../crates/augtrack" }
 [target.'cfg(windows)'.dependencies]
 # Checks a downloaded update against the release's SHA-256 before it runs (already in the build through Tauri).
 sha2 = "0.10"
+# Owner test recording: offer screens saved as PNG (already in the build through Tauri's image-png).
+png = "0.17"
 windows = { version = "0.62", features = [
   "Foundation",
   "Foundation_Collections",
