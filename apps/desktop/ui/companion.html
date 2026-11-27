@@ -142,8 +142,6 @@
   .hero .title { font-size: 24px; font-weight: 700; letter-spacing: -.01em; line-height: 1.1; }
   .hero .sub { color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; margin-top: 4px; }
   .hero .sub.now { color: var(--accent); }
-  .live-mini { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 12px; color: var(--muted); }
-  .live-mini .bar { flex: 1; height: 6px; margin: 0; }
   /* At-a-glance visuals: physical/magic split bar, enemy strip in the banner, strength bars, icon tiles. */
   .split { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--raised); margin: 6px 0 4px; }
   .split .ad { background: #e8845a; } .split .ap { background: #7f8cff; }
@@ -873,15 +871,6 @@
     const head0 = document.getElementById("head");
     head0.textContent = `In game · ${clock(g.t)} · Level ${g.level}${g.dead ? " · Dead: shop now" : ""}`;
     head0.classList.toggle("now", !!g.dead);
-    // The owner's chance to win and surrender call: small, under the build, so the build stays the focus.
-    let ff = document.getElementById("ff");
-    if (!ff) { ff = document.createElement("div"); ff.id = "ff"; document.querySelector(".cols section")?.append(ff); }
-    const l = g.live;
-    const ffHtml = l ? `<div class="live-mini"><span>Chance to win <b data-style="color:${color(l.win)}">${pct(l.win)}</b></span>
-        <div class="bar"><span data-style="width:${pct(l.win)};background:${color(l.win)}"></span></div></div>
-      ${l.surrender ? `<div class="box yes" title="A new game is worth more than this one now.">Surrender: yes</div>` : ""}` : "";
-    // Redrawn only when it changes, to keep the window's work small during a game.
-    if (ff.lastHtml !== ffHtml) { ff.lastHtml = ffHtml; ff.innerHTML = ffHtml; }
     const head = document.getElementById("augHead");
     head.textContent = waiting ? "Augment at your next death" : pickNow ? "Augment offer" : "Augments";
     head.classList.toggle("now", pickNow);
