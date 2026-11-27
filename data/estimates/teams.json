@@ -6,18 +6,19 @@
   "server": "Tencent",
   "champion_stat_date": "20261126",
   "augment_stat_date": "20261126",
-  "fetched_at": "2026-11-26T20:17:46+00:00",
-  "detail_date": "20261119",
+  "fetched_at": "2026-11-27T02:57:42+00:00",
   "aramhex": {
    "patch": "16.23",
-   "fields": [],
-   "source": "AramHex (github.com/czgreat/aramhex-data), CC BY-NC 4.0",
-   "note": "snapshot 7 days behind; champion rates from 101"
+   "fields": [
+    "win_rate",
+    "pick_rate"
+   ],
+   "source": "AramHex (github.com/czgreat/aramhex-data), CC BY-NC 4.0"
   }
  },
  "carry_over": 0.954,
  "carry_over_pairs": 6466,
- "pair_additivity_pts": 0.334,
+ "pair_additivity_pts": 0.338,
  "pairs": 7230,
  "max_per_champion": 3,
  "teams_label": "Strongest by data: ranked by champion win rates and pair synergy only",
@@ -25,38 +26,38 @@
   {
    "champions": [
     157,
-    4,
-    114,
-    350,
-    910
+    200,
+    526,
+    910,
+    147
    ],
    "names": [
     "Yasuo",
-    "TwistedFate",
-    "Fiora",
-    "Yuumi",
-    "Hwei"
+    "Belveth",
+    "Rell",
+    "Hwei",
+    "Seraphine"
    ],
-   "projected_win_rate": 0.7999,
-   "from_champions": 0.7442,
-   "synergy_pts": 5.57,
-   "pairs_known": 10,
+   "projected_win_rate": 0.8037,
+   "from_champions": 0.7146,
+   "synergy_pts": 8.92,
+   "pairs_known": 9,
    "best_pairs": [
     [
-     "Fiora",
-     "Hwei"
+     "Seraphine",
+     "Belveth"
     ],
     [
-     "Yuumi",
+     "Belveth",
      "Hwei"
     ]
    ],
    "subclasses": [
     "Skirmisher",
-    "Burst",
     "Skirmisher",
-    "Enchanter",
-    "Artillery"
+    "Vanguard",
+    "Artillery",
+    "Enchanter"
    ]
   },
   {
@@ -74,9 +75,9 @@
     "Rell",
     "Ivern"
    ],
-   "projected_win_rate": 0.7978,
-   "from_champions": 0.746,
-   "synergy_pts": 5.19,
+   "projected_win_rate": 0.8025,
+   "from_champions": 0.7513,
+   "synergy_pts": 5.12,
    "pairs_known": 9,
    "best_pairs": [
     [
@@ -99,137 +100,26 @@
   {
    "champions": [
     157,
-    4,
-    427,
+    245,
     350,
-    236
+    427,
+    910
    ],
    "names": [
     "Yasuo",
-    "TwistedFate",
-    "Ivern",
+    "Ekko",
     "Yuumi",
-    "Lucian"
+    "Ivern",
+    "Hwei"
    ],
-   "projected_win_rate": 0.7956,
-   "from_champions": 0.7143,
-   "synergy_pts": 8.13,
+   "projected_win_rate": 0.8001,
+   "from_champions": 0.6993,
+   "synergy_pts": 10.08,
    "pairs_known": 9,
    "best_pairs": [
     [
-     "Lucian",
-     "Ivern"
-    ],
-    [
-     "Lucian",
+     "Ekko",
      "Yuumi"
-    ]
-   ],
-   "subclasses": [
-    "Skirmisher",
-    "Burst",
-    "Enchanter",
-    "Enchanter",
-    "Marksman"
-   ]
-  },
-  {
-   "champions": [
-    5,
-    200,
-    26,
-    910,
-    888
-   ],
-   "names": [
-    "XinZhao",
-    "Belveth",
-    "Zilean",
-    "Hwei",
-    "Renata"
-   ],
-   "projected_win_rate": 0.7834,
-   "from_champions": 0.6593,
-   "synergy_pts": 12.41,
-   "pairs_known": 7,
-   "best_pairs": [
-    [
-     "XinZhao",
-     "Renata"
-    ],
-    [
-     "XinZhao",
-     "Zilean"
-    ]
-   ],
-   "subclasses": [
-    "Diver",
-    "Skirmisher",
-    "Specialist",
-    "Artillery",
-    "Enchanter"
-   ]
-  },
-  {
-   "champions": [
-    114,
-    5,
-    910,
-    147,
-    888
-   ],
-   "names": [
-    "Fiora",
-    "XinZhao",
-    "Hwei",
-    "Seraphine",
-    "Renata"
-   ],
-   "projected_win_rate": 0.7818,
-   "from_champions": 0.6591,
-   "synergy_pts": 12.27,
-   "pairs_known": 7,
-   "best_pairs": [
-    [
-     "Fiora",
-     "Hwei"
-    ],
-    [
-     "XinZhao",
-     "Renata"
-    ]
-   ],
-   "subclasses": [
-    "Skirmisher",
-    "Diver",
-    "Artillery",
-    "Enchanter",
-    "Enchanter"
-   ]
-  },
-  {
-   "champions": [
-    200,
-    427,
-    40,
-    245,
-    42
-   ],
-   "names": [
-    "Belveth",
-    "Ivern",
-    "Janna",
-    "Ekko",
-    "Corki"
-   ],
-   "projected_win_rate": 0.769,
-   "from_champions": 0.6497,
-   "synergy_pts": 11.93,
-   "pairs_known": 8,
-   "best_pairs": [
-    [
-     "Janna",
-     "Corki"
     ],
     [
      "Ekko",
@@ -238,67 +128,104 @@
    ],
    "subclasses": [
     "Skirmisher",
-    "Enchanter",
-    "Enchanter",
     "Assassin",
-    "Marksman"
-   ]
-  },
-  {
-   "champions": [
-    114,
-    5,
-    26,
-    888,
-    161
-   ],
-   "names": [
-    "Fiora",
-    "XinZhao",
-    "Zilean",
-    "Renata",
-    "Velkoz"
-   ],
-   "projected_win_rate": 0.761,
-   "from_champions": 0.6541,
-   "synergy_pts": 10.68,
-   "pairs_known": 7,
-   "best_pairs": [
-    [
-     "XinZhao",
-     "Renata"
-    ],
-    [
-     "XinZhao",
-     "Zilean"
-    ]
-   ],
-   "subclasses": [
-    "Skirmisher",
-    "Diver",
-    "Specialist",
+    "Enchanter",
     "Enchanter",
     "Artillery"
    ]
   },
   {
    "champions": [
+    200,
+    799,
+    44,
+    910,
+    147
+   ],
+   "names": [
+    "Belveth",
+    "Ambessa",
+    "Taric",
+    "Hwei",
+    "Seraphine"
+   ],
+   "projected_win_rate": 0.792,
+   "from_champions": 0.6551,
+   "synergy_pts": 13.69,
+   "pairs_known": 7,
+   "best_pairs": [
+    [
+     "Taric",
+     "Ambessa"
+    ],
+    [
+     "Ambessa",
+     "Hwei"
+    ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Diver",
+    "Warden",
+    "Artillery",
+    "Enchanter"
+   ]
+  },
+  {
+   "champions": [
+    887,
+    245,
+    350,
+    427,
+    112
+   ],
+   "names": [
+    "Gwen",
+    "Ekko",
+    "Yuumi",
+    "Ivern",
+    "Viktor"
+   ],
+   "projected_win_rate": 0.7828,
+   "from_champions": 0.6611,
+   "synergy_pts": 12.17,
+   "pairs_known": 6,
+   "best_pairs": [
+    [
+     "Ekko",
+     "Yuumi"
+    ],
+    [
+     "Ekko",
+     "Ivern"
+    ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Assassin",
+    "Enchanter",
+    "Enchanter",
+    "Battlemage"
+   ]
+  },
+  {
+   "champions": [
     40,
+    245,
     777,
     350,
-    245,
     42
    ],
    "names": [
     "Janna",
+    "Ekko",
     "Yone",
     "Yuumi",
-    "Ekko",
     "Corki"
    ],
-   "projected_win_rate": 0.7551,
-   "from_champions": 0.6261,
-   "synergy_pts": 12.9,
+   "projected_win_rate": 0.7767,
+   "from_champions": 0.6538,
+   "synergy_pts": 12.29,
    "pairs_known": 8,
    "best_pairs": [
     [
@@ -312,9 +239,9 @@
    ],
    "subclasses": [
     "Enchanter",
+    "Assassin",
     "Skirmisher",
     "Enchanter",
-    "Assassin",
     "Marksman"
    ]
   },
@@ -322,58 +249,58 @@
    "champions": [
     37,
     40,
-    42,
     12,
-    901
+    236,
+    42
    ],
    "names": [
     "Sona",
     "Janna",
-    "Corki",
     "Alistar",
-    "Smolder"
+    "Lucian",
+    "Corki"
    ],
-   "projected_win_rate": 0.7521,
-   "from_champions": 0.5991,
-   "synergy_pts": 15.3,
-   "pairs_known": 6,
+   "projected_win_rate": 0.7703,
+   "from_champions": 0.6448,
+   "synergy_pts": 12.56,
+   "pairs_known": 7,
    "best_pairs": [
     [
      "Janna",
      "Corki"
     ],
     [
-     "Alistar",
-     "Smolder"
+     "Janna",
+     "Lucian"
     ]
    ],
    "subclasses": [
     "Enchanter",
     "Enchanter",
-    "Marksman",
     "Vanguard",
+    "Marksman",
     "Marksman"
    ]
   },
   {
    "champions": [
     10,
-    526,
+    5,
     799,
     44,
     161
    ],
    "names": [
     "Kayle",
-    "Rell",
+    "XinZhao",
     "Ambessa",
     "Taric",
     "Velkoz"
    ],
-   "projected_win_rate": 0.7454,
-   "from_champions": 0.6345,
-   "synergy_pts": 11.08,
-   "pairs_known": 7,
+   "projected_win_rate": 0.7678,
+   "from_champions": 0.6679,
+   "synergy_pts": 9.99,
+   "pairs_known": 8,
    "best_pairs": [
     [
      "Taric",
@@ -386,7 +313,7 @@
    ],
    "subclasses": [
     "Specialist",
-    "Vanguard",
+    "Diver",
     "Diver",
     "Warden",
     "Artillery"
@@ -394,96 +321,96 @@
   },
   {
    "champions": [
-    25,
-    526,
-    887,
-    799,
-    44
-   ],
-   "names": [
-    "Morgana",
-    "Rell",
-    "Gwen",
-    "Ambessa",
-    "Taric"
-   ],
-   "projected_win_rate": 0.745,
-   "from_champions": 0.6587,
-   "synergy_pts": 8.64,
-   "pairs_known": 9,
-   "best_pairs": [
-    [
-     "Taric",
-     "Ambessa"
-    ],
-    [
-     "Taric",
-     "Gwen"
-    ]
-   ],
-   "subclasses": [
-    "Catcher",
-    "Vanguard",
-    "Skirmisher",
-    "Diver",
-    "Warden"
-   ]
-  },
-  {
-   "champions": [
-    11,
     10,
+    5,
+    526,
     78,
-    245,
-    115
+    25
    ],
    "names": [
-    "MasterYi",
     "Kayle",
+    "XinZhao",
+    "Rell",
     "Poppy",
-    "Ekko",
-    "Ziggs"
+    "Morgana"
    ],
-   "projected_win_rate": 0.7433,
-   "from_champions": 0.6361,
-   "synergy_pts": 10.72,
+   "projected_win_rate": 0.7671,
+   "from_champions": 0.7185,
+   "synergy_pts": 4.85,
    "pairs_known": 9,
    "best_pairs": [
-    [
-     "MasterYi",
-     "Ziggs"
-    ],
     [
      "Kayle",
      "Poppy"
+    ],
+    [
+     "XinZhao",
+     "Morgana"
     ]
    ],
    "subclasses": [
-    "Skirmisher",
     "Specialist",
+    "Diver",
+    "Vanguard",
     "Warden",
-    "Assassin",
-    "Artillery"
+    "Catcher"
    ]
   },
   {
    "champions": [
-    11,
-    10,
-    25,
-    17,
-    78
+    5,
+    37,
+    40,
+    26,
+    42
    ],
    "names": [
-    "MasterYi",
-    "Kayle",
-    "Morgana",
-    "Teemo",
-    "Poppy"
+    "XinZhao",
+    "Sona",
+    "Janna",
+    "Zilean",
+    "Corki"
    ],
-   "projected_win_rate": 0.7409,
-   "from_champions": 0.6867,
-   "synergy_pts": 5.43,
+   "projected_win_rate": 0.766,
+   "from_champions": 0.6717,
+   "synergy_pts": 9.43,
+   "pairs_known": 7,
+   "best_pairs": [
+    [
+     "Janna",
+     "Corki"
+    ],
+    [
+     "XinZhao",
+     "Zilean"
+    ]
+   ],
+   "subclasses": [
+    "Diver",
+    "Enchanter",
+    "Enchanter",
+    "Specialist",
+    "Marksman"
+   ]
+  },
+  {
+   "champions": [
+    4,
+    10,
+    78,
+    17,
+    11
+   ],
+   "names": [
+    "TwistedFate",
+    "Kayle",
+    "Poppy",
+    "Teemo",
+    "MasterYi"
+   ],
+   "projected_win_rate": 0.7615,
+   "from_champions": 0.7201,
+   "synergy_pts": 4.14,
    "pairs_known": 10,
    "best_pairs": [
     [
@@ -496,82 +423,45 @@
     ]
    ],
    "subclasses": [
-    "Skirmisher",
+    "Burst",
     "Specialist",
-    "Catcher",
+    "Warden",
     "Specialist",
-    "Warden"
+    "Skirmisher"
    ]
   },
   {
    "champions": [
-    11,
-    37,
-    12,
-    163,
-    901
-   ],
-   "names": [
-    "MasterYi",
-    "Sona",
-    "Alistar",
-    "Taliyah",
-    "Smolder"
-   ],
-   "projected_win_rate": 0.7342,
-   "from_champions": 0.5958,
-   "synergy_pts": 13.84,
-   "pairs_known": 8,
-   "best_pairs": [
-    [
-     "Alistar",
-     "Smolder"
-    ],
-    [
-     "Alistar",
-     "Taliyah"
-    ]
-   ],
-   "subclasses": [
-    "Skirmisher",
-    "Enchanter",
-    "Vanguard",
-    "Battlemage",
-    "Marksman"
-   ]
-  },
-  {
-   "champions": [
+    114,
     887,
-    799,
     44,
     147,
-    161
+    115
    ],
    "names": [
+    "Fiora",
     "Gwen",
-    "Ambessa",
     "Taric",
     "Seraphine",
-    "Velkoz"
+    "Ziggs"
    ],
-   "projected_win_rate": 0.7321,
-   "from_champions": 0.6035,
-   "synergy_pts": 12.86,
+   "projected_win_rate": 0.756,
+   "from_champions": 0.6429,
+   "synergy_pts": 11.31,
    "pairs_known": 8,
    "best_pairs": [
-    [
-     "Taric",
-     "Ambessa"
-    ],
     [
      "Taric",
      "Gwen"
+    ],
+    [
+     "Fiora",
+     "Ziggs"
     ]
    ],
    "subclasses": [
     "Skirmisher",
-    "Diver",
+    "Skirmisher",
     "Warden",
     "Enchanter",
     "Artillery"
@@ -579,59 +469,170 @@
   },
   {
    "champions": [
-    37,
-    236,
-    12,
-    902,
-    901
+    4,
+    78,
+    25,
+    876,
+    11
    ],
    "names": [
-    "Sona",
-    "Lucian",
-    "Alistar",
-    "Milio",
-    "Smolder"
+    "TwistedFate",
+    "Poppy",
+    "Morgana",
+    "Lillia",
+    "MasterYi"
    ],
-   "projected_win_rate": 0.7219,
-   "from_champions": 0.5743,
-   "synergy_pts": 14.76,
-   "pairs_known": 7,
+   "projected_win_rate": 0.7537,
+   "from_champions": 0.708,
+   "synergy_pts": 4.57,
+   "pairs_known": 10,
    "best_pairs": [
     [
-     "Alistar",
-     "Smolder"
+     "Poppy",
+     "Lillia"
     ],
     [
-     "Smolder",
-     "Milio"
+     "MasterYi",
+     "Morgana"
     ]
    ],
    "subclasses": [
-    "Enchanter",
-    "Marksman",
-    "Vanguard",
-    "Enchanter",
-    "Marksman"
+    "Burst",
+    "Warden",
+    "Catcher",
+    "Specialist",
+    "Skirmisher"
    ]
   },
   {
    "champions": [
-    78,
+    37,
+    777,
+    12,
+    236,
+    902
+   ],
+   "names": [
+    "Sona",
+    "Yone",
+    "Alistar",
+    "Lucian",
+    "Milio"
+   ],
+   "projected_win_rate": 0.7437,
+   "from_champions": 0.6306,
+   "synergy_pts": 11.31,
+   "pairs_known": 7,
+   "best_pairs": [
+    [
+     "Lucian",
+     "Milio"
+    ],
+    [
+     "Alistar",
+     "Lucian"
+    ]
+   ],
+   "subclasses": [
+    "Enchanter",
+    "Skirmisher",
+    "Vanguard",
+    "Marksman",
+    "Enchanter"
+   ]
+  },
+  {
+   "champions": [
+    114,
+    799,
+    888,
+    161,
+    115
+   ],
+   "names": [
+    "Fiora",
+    "Ambessa",
+    "Renata",
+    "Velkoz",
+    "Ziggs"
+   ],
+   "projected_win_rate": 0.7395,
+   "from_champions": 0.6047,
+   "synergy_pts": 13.48,
+   "pairs_known": 7,
+   "best_pairs": [
+    [
+     "Fiora",
+     "Ziggs"
+    ],
+    [
+     "Fiora",
+     "Velkoz"
+    ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Diver",
+    "Enchanter",
+    "Artillery",
+    "Artillery"
+   ]
+  },
+  {
+   "champions": [
+    114,
+    11,
+    26,
+    888,
+    115
+   ],
+   "names": [
+    "Fiora",
+    "MasterYi",
+    "Zilean",
+    "Renata",
+    "Ziggs"
+   ],
+   "projected_win_rate": 0.7368,
+   "from_champions": 0.6265,
+   "synergy_pts": 11.03,
+   "pairs_known": 7,
+   "best_pairs": [
+    [
+     "MasterYi",
+     "Ziggs"
+    ],
+    [
+     "MasterYi",
+     "Zilean"
+    ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Skirmisher",
+    "Specialist",
+    "Enchanter",
+    "Artillery"
+   ]
+  },
+  {
+   "champions": [
     26,
     234,
     112,
+    12,
     107
    ],
    "names": [
-    "Poppy",
     "Zilean",
     "Viego",
     "Viktor",
+    "Alistar",
     "Rengar"
    ],
-   "projected_win_rate": 0.7189,
-   "from_champions": 0.6047,
-   "synergy_pts": 11.41,
+   "projected_win_rate": 0.7209,
+   "from_champions": 0.6029,
+   "synergy_pts": 11.8,
    "pairs_known": 6,
    "best_pairs": [
     [
@@ -644,85 +645,48 @@
     ]
    ],
    "subclasses": [
-    "Warden",
     "Specialist",
     "Skirmisher",
     "Battlemage",
+    "Vanguard",
     "Assassin"
    ]
   },
   {
    "champions": [
+    887,
+    876,
     3,
-    234,
-    112,
-    147,
+    89,
     895
    ],
    "names": [
+    "Gwen",
+    "Lillia",
     "Galio",
-    "Viego",
-    "Viktor",
-    "Seraphine",
+    "Leona",
     "Nilah"
    ],
-   "projected_win_rate": 0.7012,
-   "from_champions": 0.5845,
-   "synergy_pts": 11.67,
+   "projected_win_rate": 0.7194,
+   "from_champions": 0.6287,
+   "synergy_pts": 9.07,
    "pairs_known": 8,
    "best_pairs": [
     [
-     "Seraphine",
+     "Leona",
+     "Lillia"
+    ],
+    [
+     "Galio",
      "Nilah"
-    ],
-    [
-     "Seraphine",
-     "Viego"
     ]
    ],
    "subclasses": [
+    "Skirmisher",
+    "Specialist",
     "Warden",
-    "Skirmisher",
-    "Battlemage",
-    "Enchanter",
+    "Vanguard",
     "Skirmisher"
-   ]
-  },
-  {
-   "champions": [
-    777,
-    103,
-    112,
-    16,
-    421
-   ],
-   "names": [
-    "Yone",
-    "Ahri",
-    "Viktor",
-    "Soraka",
-    "RekSai"
-   ],
-   "projected_win_rate": 0.6968,
-   "from_champions": 0.5717,
-   "synergy_pts": 12.51,
-   "pairs_known": 8,
-   "best_pairs": [
-    [
-     "Viktor",
-     "RekSai"
-    ],
-    [
-     "Ahri",
-     "RekSai"
-    ]
-   ],
-   "subclasses": [
-    "Skirmisher",
-    "Burst",
-    "Battlemage",
-    "Enchanter",
-    "Diver"
    ]
   },
   {
@@ -740,9 +704,9 @@
     "Lucian",
     "Milio"
    ],
-   "projected_win_rate": 0.6965,
-   "from_champions": 0.6135,
-   "synergy_pts": 8.3,
+   "projected_win_rate": 0.716,
+   "from_champions": 0.6355,
+   "synergy_pts": 8.05,
    "pairs_known": 10,
    "best_pairs": [
     [
@@ -761,10 +725,84 @@
     "Marksman",
     "Enchanter"
    ]
+  },
+  {
+   "champions": [
+    876,
+    17,
+    3,
+    234,
+    102
+   ],
+   "names": [
+    "Lillia",
+    "Teemo",
+    "Galio",
+    "Viego",
+    "Shyvana"
+   ],
+   "projected_win_rate": 0.7048,
+   "from_champions": 0.653,
+   "synergy_pts": 5.18,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "Galio",
+     "Lillia"
+    ],
+    [
+     "Teemo",
+     "Viego"
+    ]
+   ],
+   "subclasses": [
+    "Specialist",
+    "Specialist",
+    "Warden",
+    "Skirmisher",
+    "Juggernaut"
+   ]
   }
  ],
  "frontline_label": "Best with a frontline: each team has a Warden, Vanguard or Juggernaut (a design rule, not measured)",
  "frontline_teams": [
+  {
+   "champions": [
+    157,
+    200,
+    526,
+    910,
+    147
+   ],
+   "names": [
+    "Yasuo",
+    "Belveth",
+    "Rell",
+    "Hwei",
+    "Seraphine"
+   ],
+   "projected_win_rate": 0.8037,
+   "from_champions": 0.7146,
+   "synergy_pts": 8.92,
+   "pairs_known": 9,
+   "best_pairs": [
+    [
+     "Seraphine",
+     "Belveth"
+    ],
+    [
+     "Belveth",
+     "Hwei"
+    ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Skirmisher",
+    "Vanguard",
+    "Artillery",
+    "Enchanter"
+   ]
+  },
   {
    "champions": [
     157,
@@ -780,9 +818,9 @@
     "Rell",
     "Ivern"
    ],
-   "projected_win_rate": 0.7978,
-   "from_champions": 0.746,
-   "synergy_pts": 5.19,
+   "projected_win_rate": 0.8025,
+   "from_champions": 0.7513,
+   "synergy_pts": 5.12,
    "pairs_known": 9,
    "best_pairs": [
     [
@@ -805,58 +843,58 @@
   {
    "champions": [
     157,
-    114,
-    526,
+    200,
+    223,
     910,
-    147
+    888
    ],
    "names": [
     "Yasuo",
-    "Fiora",
-    "Rell",
+    "Belveth",
+    "TahmKench",
     "Hwei",
-    "Seraphine"
+    "Renata"
    ],
-   "projected_win_rate": 0.79,
-   "from_champions": 0.7048,
+   "projected_win_rate": 0.7991,
+   "from_champions": 0.7139,
    "synergy_pts": 8.52,
    "pairs_known": 9,
    "best_pairs": [
     [
-     "Fiora",
+     "TahmKench",
      "Hwei"
     ],
     [
-     "Fiora",
-     "Seraphine"
+     "Belveth",
+     "Renata"
     ]
    ],
    "subclasses": [
     "Skirmisher",
     "Skirmisher",
-    "Vanguard",
+    "Warden",
     "Artillery",
     "Enchanter"
    ]
   },
   {
    "champions": [
-    157,
+    887,
     799,
     427,
     44,
     910
    ],
    "names": [
-    "Yasuo",
+    "Gwen",
     "Ambessa",
     "Ivern",
     "Taric",
     "Hwei"
    ],
-   "projected_win_rate": 0.7874,
-   "from_champions": 0.6796,
-   "synergy_pts": 10.77,
+   "projected_win_rate": 0.7916,
+   "from_champions": 0.6565,
+   "synergy_pts": 13.51,
    "pairs_known": 8,
    "best_pairs": [
     [
@@ -864,8 +902,8 @@
      "Ambessa"
     ],
     [
-     "Ambessa",
-     "Hwei"
+     "Taric",
+     "Gwen"
     ]
    ],
    "subclasses": [
@@ -878,369 +916,147 @@
   },
   {
    "champions": [
-    4,
-    200,
-    799,
-    427,
-    44
-   ],
-   "names": [
-    "TwistedFate",
-    "Belveth",
-    "Ambessa",
-    "Ivern",
-    "Taric"
-   ],
-   "projected_win_rate": 0.7817,
-   "from_champions": 0.6961,
-   "synergy_pts": 8.57,
-   "pairs_known": 8,
-   "best_pairs": [
-    [
-     "Taric",
-     "Ambessa"
-    ],
-    [
-     "Ivern",
-     "Ambessa"
-    ]
-   ],
-   "subclasses": [
-    "Burst",
-    "Skirmisher",
-    "Diver",
-    "Enchanter",
-    "Warden"
-   ]
-  },
-  {
-   "champions": [
-    200,
-    799,
-    44,
-    910,
-    147
-   ],
-   "names": [
-    "Belveth",
-    "Ambessa",
-    "Taric",
-    "Hwei",
-    "Seraphine"
-   ],
-   "projected_win_rate": 0.7792,
-   "from_champions": 0.6377,
-   "synergy_pts": 14.15,
-   "pairs_known": 7,
-   "best_pairs": [
-    [
-     "Taric",
-     "Ambessa"
-    ],
-    [
-     "Ambessa",
-     "Hwei"
-    ]
-   ],
-   "subclasses": [
-    "Skirmisher",
-    "Diver",
-    "Warden",
-    "Artillery",
-    "Enchanter"
-   ]
-  },
-  {
-   "champions": [
-    4,
-    114,
-    11,
-    25,
-    526
-   ],
-   "names": [
-    "TwistedFate",
-    "Fiora",
-    "MasterYi",
-    "Morgana",
-    "Rell"
-   ],
-   "projected_win_rate": 0.7635,
-   "from_champions": 0.7376,
-   "synergy_pts": 2.58,
-   "pairs_known": 10,
-   "best_pairs": [
-    [
-     "MasterYi",
-     "Morgana"
-    ],
-    [
-     "TwistedFate",
-     "MasterYi"
-    ]
-   ],
-   "subclasses": [
-    "Burst",
-    "Skirmisher",
-    "Skirmisher",
-    "Catcher",
-    "Vanguard"
-   ]
-  },
-  {
-   "champions": [
-    5,
-    40,
-    26,
-    42,
-    12
-   ],
-   "names": [
-    "XinZhao",
-    "Janna",
-    "Zilean",
-    "Corki",
-    "Alistar"
-   ],
-   "projected_win_rate": 0.7542,
-   "from_champions": 0.6457,
-   "synergy_pts": 10.86,
-   "pairs_known": 7,
-   "best_pairs": [
-    [
-     "Janna",
-     "Corki"
-    ],
-    [
-     "XinZhao",
-     "Zilean"
-    ]
-   ],
-   "subclasses": [
-    "Diver",
-    "Enchanter",
-    "Specialist",
-    "Marksman",
-    "Vanguard"
-   ]
-  },
-  {
-   "champions": [
-    37,
-    40,
-    42,
-    12,
-    901
-   ],
-   "names": [
-    "Sona",
-    "Janna",
-    "Corki",
-    "Alistar",
-    "Smolder"
-   ],
-   "projected_win_rate": 0.7521,
-   "from_champions": 0.5991,
-   "synergy_pts": 15.3,
-   "pairs_known": 6,
-   "best_pairs": [
-    [
-     "Janna",
-     "Corki"
-    ],
-    [
-     "Alistar",
-     "Smolder"
-    ]
-   ],
-   "subclasses": [
-    "Enchanter",
-    "Enchanter",
-    "Marksman",
-    "Vanguard",
-    "Marksman"
-   ]
-  },
-  {
-   "champions": [
-    5,
-    11,
-    26,
-    12,
-    112
-   ],
-   "names": [
-    "XinZhao",
-    "MasterYi",
-    "Zilean",
-    "Alistar",
-    "Viktor"
-   ],
-   "projected_win_rate": 0.7503,
-   "from_champions": 0.6586,
-   "synergy_pts": 9.18,
-   "pairs_known": 7,
-   "best_pairs": [
-    [
-     "XinZhao",
-     "Zilean"
-    ],
-    [
-     "MasterYi",
-     "Zilean"
-    ]
-   ],
-   "subclasses": [
-    "Diver",
-    "Skirmisher",
-    "Specialist",
-    "Vanguard",
-    "Battlemage"
-   ]
-  },
-  {
-   "champions": [
-    5,
-    37,
-    40,
-    3,
-    42
-   ],
-   "names": [
-    "XinZhao",
-    "Sona",
-    "Janna",
-    "Galio",
-    "Corki"
-   ],
-   "projected_win_rate": 0.7484,
-   "from_champions": 0.6628,
-   "synergy_pts": 8.56,
-   "pairs_known": 9,
-   "best_pairs": [
-    [
-     "Janna",
-     "Corki"
-    ],
-    [
-     "Sona",
-     "Corki"
-    ]
-   ],
-   "subclasses": [
-    "Diver",
-    "Enchanter",
-    "Enchanter",
-    "Warden",
-    "Marksman"
-   ]
-  },
-  {
-   "champions": [
-    11,
-    10,
-    78,
+    887,
+    526,
     245,
-    115
-   ],
-   "names": [
-    "MasterYi",
-    "Kayle",
-    "Poppy",
-    "Ekko",
-    "Ziggs"
-   ],
-   "projected_win_rate": 0.7433,
-   "from_champions": 0.6361,
-   "synergy_pts": 10.72,
-   "pairs_known": 9,
-   "best_pairs": [
-    [
-     "MasterYi",
-     "Ziggs"
-    ],
-    [
-     "Kayle",
-     "Poppy"
-    ]
-   ],
-   "subclasses": [
-    "Skirmisher",
-    "Specialist",
-    "Warden",
-    "Assassin",
-    "Artillery"
-   ]
-  },
-  {
-   "champions": [
-    3,
     350,
-    245,
-    112,
-    895
+    427
    ],
    "names": [
-    "Galio",
-    "Yuumi",
+    "Gwen",
+    "Rell",
     "Ekko",
-    "Viktor",
-    "Nilah"
+    "Yuumi",
+    "Ivern"
    ],
-   "projected_win_rate": 0.7365,
-   "from_champions": 0.5989,
-   "synergy_pts": 13.77,
-   "pairs_known": 9,
+   "projected_win_rate": 0.7773,
+   "from_champions": 0.6777,
+   "synergy_pts": 9.96,
+   "pairs_known": 6,
    "best_pairs": [
     [
      "Ekko",
      "Yuumi"
     ],
     [
-     "Yuumi",
-     "Nilah"
-    ]
-   ],
-   "subclasses": [
-    "Warden",
-    "Enchanter",
-    "Assassin",
-    "Battlemage",
-    "Skirmisher"
-   ]
-  },
-  {
-   "champions": [
-    114,
-    25,
-    3,
-    350,
-    236
-   ],
-   "names": [
-    "Fiora",
-    "Morgana",
-    "Galio",
-    "Yuumi",
-    "Lucian"
-   ],
-   "projected_win_rate": 0.7328,
-   "from_champions": 0.6694,
-   "synergy_pts": 6.33,
-   "pairs_known": 10,
-   "best_pairs": [
-    [
-     "Lucian",
-     "Yuumi"
-    ],
-    [
-     "Morgana",
-     "Fiora"
+     "Ekko",
+     "Ivern"
     ]
    ],
    "subclasses": [
     "Skirmisher",
-    "Catcher",
+    "Vanguard",
+    "Assassin",
+    "Enchanter",
+    "Enchanter"
+   ]
+  },
+  {
+   "champions": [
+    10,
+    5,
+    78,
+    245,
+    112
+   ],
+   "names": [
+    "Kayle",
+    "XinZhao",
+    "Poppy",
+    "Ekko",
+    "Viktor"
+   ],
+   "projected_win_rate": 0.772,
+   "from_champions": 0.7012,
+   "synergy_pts": 7.07,
+   "pairs_known": 7,
+   "best_pairs": [
+    [
+     "Kayle",
+     "Poppy"
+    ],
+    [
+     "XinZhao",
+     "Viktor"
+    ]
+   ],
+   "subclasses": [
+    "Specialist",
+    "Diver",
+    "Warden",
+    "Assassin",
+    "Battlemage"
+   ]
+  },
+  {
+   "champions": [
+    37,
+    40,
+    12,
+    236,
+    42
+   ],
+   "names": [
+    "Sona",
+    "Janna",
+    "Alistar",
+    "Lucian",
+    "Corki"
+   ],
+   "projected_win_rate": 0.7703,
+   "from_champions": 0.6448,
+   "synergy_pts": 12.56,
+   "pairs_known": 7,
+   "best_pairs": [
+    [
+     "Janna",
+     "Corki"
+    ],
+    [
+     "Janna",
+     "Lucian"
+    ]
+   ],
+   "subclasses": [
+    "Enchanter",
+    "Enchanter",
+    "Vanguard",
+    "Marksman",
+    "Marksman"
+   ]
+  },
+  {
+   "champions": [
+    40,
+    245,
+    3,
+    350,
+    42
+   ],
+   "names": [
+    "Janna",
+    "Ekko",
+    "Galio",
+    "Yuumi",
+    "Corki"
+   ],
+   "projected_win_rate": 0.7693,
+   "from_champions": 0.6532,
+   "synergy_pts": 11.62,
+   "pairs_known": 8,
+   "best_pairs": [
+    [
+     "Janna",
+     "Corki"
+    ],
+    [
+     "Ekko",
+     "Yuumi"
+    ]
+   ],
+   "subclasses": [
+    "Enchanter",
+    "Assassin",
     "Warden",
     "Enchanter",
     "Marksman"
@@ -1249,133 +1065,281 @@
   {
    "champions": [
     10,
-    78,
-    245,
-    234,
-    112
+    5,
+    799,
+    44,
+    161
    ],
    "names": [
     "Kayle",
-    "Poppy",
-    "Ekko",
-    "Viego",
-    "Viktor"
+    "XinZhao",
+    "Ambessa",
+    "Taric",
+    "Velkoz"
    ],
-   "projected_win_rate": 0.7302,
-   "from_champions": 0.6363,
-   "synergy_pts": 9.39,
-   "pairs_known": 6,
+   "projected_win_rate": 0.7678,
+   "from_champions": 0.6679,
+   "synergy_pts": 9.99,
+   "pairs_known": 8,
    "best_pairs": [
     [
-     "Kayle",
-     "Poppy"
+     "Taric",
+     "Ambessa"
     ],
     [
-     "Viktor",
-     "Viego"
+     "Velkoz",
+     "Ambessa"
     ]
    ],
    "subclasses": [
     "Specialist",
+    "Diver",
+    "Diver",
     "Warden",
-    "Assassin",
-    "Skirmisher",
-    "Battlemage"
+    "Artillery"
    ]
   },
   {
    "champions": [
-    10,
-    25,
-    78,
-    234,
-    107
+    5,
+    40,
+    26,
+    12,
+    42
    ],
    "names": [
-    "Kayle",
-    "Morgana",
-    "Poppy",
-    "Viego",
-    "Rengar"
+    "XinZhao",
+    "Janna",
+    "Zilean",
+    "Alistar",
+    "Corki"
    ],
-   "projected_win_rate": 0.7235,
-   "from_champions": 0.6397,
-   "synergy_pts": 8.38,
+   "projected_win_rate": 0.7631,
+   "from_champions": 0.6564,
+   "synergy_pts": 10.67,
    "pairs_known": 7,
    "best_pairs": [
     [
-     "Kayle",
-     "Poppy"
+     "Janna",
+     "Corki"
     ],
     [
-     "Morgana",
-     "Viego"
+     "XinZhao",
+     "Zilean"
     ]
    ],
    "subclasses": [
+    "Diver",
+    "Enchanter",
     "Specialist",
-    "Catcher",
-    "Warden",
-    "Skirmisher",
-    "Assassin"
+    "Vanguard",
+    "Marksman"
    ]
   },
   {
    "champions": [
-    26,
-    234,
-    36,
+    4,
+    10,
+    78,
+    17,
+    11
+   ],
+   "names": [
+    "TwistedFate",
+    "Kayle",
+    "Poppy",
+    "Teemo",
+    "MasterYi"
+   ],
+   "projected_win_rate": 0.7615,
+   "from_champions": 0.7201,
+   "synergy_pts": 4.14,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "MasterYi",
+     "Teemo"
+    ],
+    [
+     "Kayle",
+     "Poppy"
+    ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Specialist",
+    "Warden",
+    "Specialist",
+    "Skirmisher"
+   ]
+  },
+  {
+   "champions": [
+    114,
+    887,
+    44,
     147,
     115
    ],
    "names": [
-    "Zilean",
-    "Viego",
-    "DrMundo",
+    "Fiora",
+    "Gwen",
+    "Taric",
     "Seraphine",
     "Ziggs"
    ],
-   "projected_win_rate": 0.7079,
-   "from_champions": 0.5725,
-   "synergy_pts": 13.54,
-   "pairs_known": 7,
+   "projected_win_rate": 0.756,
+   "from_champions": 0.6429,
+   "synergy_pts": 11.31,
+   "pairs_known": 8,
    "best_pairs": [
     [
-     "Zilean",
-     "Viego"
+     "Taric",
+     "Gwen"
     ],
     [
-     "Seraphine",
-     "Viego"
+     "Fiora",
+     "Ziggs"
     ]
    ],
    "subclasses": [
-    "Specialist",
     "Skirmisher",
-    "Juggernaut",
+    "Skirmisher",
+    "Warden",
     "Enchanter",
     "Artillery"
    ]
   },
   {
    "champions": [
+    4,
+    114,
+    78,
+    876,
+    350
+   ],
+   "names": [
+    "TwistedFate",
+    "Fiora",
+    "Poppy",
+    "Lillia",
+    "Yuumi"
+   ],
+   "projected_win_rate": 0.7544,
+   "from_champions": 0.7178,
+   "synergy_pts": 3.66,
+   "pairs_known": 9,
+   "best_pairs": [
+    [
+     "Poppy",
+     "Lillia"
+    ],
+    [
+     "TwistedFate",
+     "Yuumi"
+    ]
+   ],
+   "subclasses": [
+    "Burst",
+    "Skirmisher",
+    "Warden",
+    "Specialist",
+    "Enchanter"
+   ]
+  },
+  {
+   "champions": [
     37,
-    350,
+    777,
+    12,
     236,
-    106,
     902
    ],
    "names": [
     "Sona",
-    "Yuumi",
+    "Yone",
+    "Alistar",
     "Lucian",
-    "Volibear",
     "Milio"
    ],
-   "projected_win_rate": 0.7018,
-   "from_champions": 0.6037,
-   "synergy_pts": 9.81,
+   "projected_win_rate": 0.7437,
+   "from_champions": 0.6306,
+   "synergy_pts": 11.31,
    "pairs_known": 7,
+   "best_pairs": [
+    [
+     "Lucian",
+     "Milio"
+    ],
+    [
+     "Alistar",
+     "Lucian"
+    ]
+   ],
+   "subclasses": [
+    "Enchanter",
+    "Skirmisher",
+    "Vanguard",
+    "Marksman",
+    "Enchanter"
+   ]
+  },
+  {
+   "champions": [
+    114,
+    223,
+    147,
+    21,
+    115
+   ],
+   "names": [
+    "Fiora",
+    "TahmKench",
+    "Seraphine",
+    "MissFortune",
+    "Ziggs"
+   ],
+   "projected_win_rate": 0.7367,
+   "from_champions": 0.6303,
+   "synergy_pts": 10.64,
+   "pairs_known": 7,
+   "best_pairs": [
+    [
+     "Fiora",
+     "Ziggs"
+    ],
+    [
+     "MissFortune",
+     "Fiora"
+    ]
+   ],
+   "subclasses": [
+    "Skirmisher",
+    "Warden",
+    "Enchanter",
+    "Marksman",
+    "Artillery"
+   ]
+  },
+  {
+   "champions": [
+    37,
+    799,
+    3,
+    236,
+    902
+   ],
+   "names": [
+    "Sona",
+    "Ambessa",
+    "Galio",
+    "Lucian",
+    "Milio"
+   ],
+   "projected_win_rate": 0.7312,
+   "from_champions": 0.6386,
+   "synergy_pts": 9.26,
+   "pairs_known": 8,
    "best_pairs": [
     [
      "Lucian",
@@ -1388,121 +1352,158 @@
    ],
    "subclasses": [
     "Enchanter",
-    "Enchanter",
+    "Diver",
+    "Warden",
     "Marksman",
-    "Juggernaut",
     "Enchanter"
    ]
   },
   {
    "champions": [
-    887,
-    876,
-    119,
-    412,
-    89
+    11,
+    26,
+    112,
+    36,
+    115
    ],
    "names": [
-    "Gwen",
-    "Lillia",
-    "Draven",
-    "Thresh",
-    "Leona"
+    "MasterYi",
+    "Zilean",
+    "Viktor",
+    "DrMundo",
+    "Ziggs"
    ],
-   "projected_win_rate": 0.6855,
-   "from_champions": 0.5941,
-   "synergy_pts": 9.14,
-   "pairs_known": 9,
+   "projected_win_rate": 0.725,
+   "from_champions": 0.5999,
+   "synergy_pts": 12.51,
+   "pairs_known": 7,
    "best_pairs": [
     [
-     "Leona",
-     "Lillia"
+     "MasterYi",
+     "Ziggs"
     ],
     [
-     "Leona",
-     "Gwen"
+     "MasterYi",
+     "Zilean"
     ]
    ],
    "subclasses": [
     "Skirmisher",
     "Specialist",
-    "Marksman",
-    "Catcher",
-    "Vanguard"
+    "Battlemage",
+    "Juggernaut",
+    "Artillery"
    ]
   },
   {
    "champions": [
-    887,
-    876,
-    895,
-    89,
-    111
-   ],
-   "names": [
-    "Gwen",
-    "Lillia",
-    "Nilah",
-    "Leona",
-    "Nautilus"
-   ],
-   "projected_win_rate": 0.6842,
-   "from_champions": 0.5751,
-   "synergy_pts": 10.91,
-   "pairs_known": 8,
-   "best_pairs": [
-    [
-     "Nautilus",
-     "Nilah"
-    ],
-    [
-     "Leona",
-     "Lillia"
-    ]
-   ],
-   "subclasses": [
-    "Skirmisher",
-    "Specialist",
-    "Skirmisher",
-    "Vanguard",
-    "Vanguard"
-   ]
-  },
-  {
-   "champions": [
-    887,
-    876,
-    98,
-    89,
+    223,
+    25,
+    17,
+    11,
     901
    ],
    "names": [
-    "Gwen",
-    "Lillia",
-    "Shen",
-    "Leona",
+    "TahmKench",
+    "Morgana",
+    "Teemo",
+    "MasterYi",
     "Smolder"
    ],
-   "projected_win_rate": 0.683,
-   "from_champions": 0.5746,
-   "synergy_pts": 10.84,
+   "projected_win_rate": 0.7206,
+   "from_champions": 0.6589,
+   "synergy_pts": 6.17,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "TahmKench",
+     "Smolder"
+    ],
+    [
+     "MasterYi",
+     "Teemo"
+    ]
+   ],
+   "subclasses": [
+    "Warden",
+    "Catcher",
+    "Specialist",
+    "Skirmisher",
+    "Marksman"
+   ]
+  },
+  {
+   "champions": [
+    777,
+    3,
+    26,
+    234,
+    112
+   ],
+   "names": [
+    "Yone",
+    "Galio",
+    "Zilean",
+    "Viego",
+    "Viktor"
+   ],
+   "projected_win_rate": 0.7157,
+   "from_champions": 0.6372,
+   "synergy_pts": 7.85,
    "pairs_known": 9,
    "best_pairs": [
     [
-     "Shen",
-     "Lillia"
+     "Zilean",
+     "Viego"
     ],
     [
-     "Leona",
-     "Lillia"
+     "Viktor",
+     "Viego"
     ]
    ],
    "subclasses": [
     "Skirmisher",
-    "Specialist",
     "Warden",
-    "Vanguard",
-    "Marksman"
+    "Specialist",
+    "Skirmisher",
+    "Battlemage"
+   ]
+  },
+  {
+   "champions": [
+    25,
+    876,
+    234,
+    102,
+    89
+   ],
+   "names": [
+    "Morgana",
+    "Lillia",
+    "Viego",
+    "Shyvana",
+    "Leona"
+   ],
+   "projected_win_rate": 0.7041,
+   "from_champions": 0.6366,
+   "synergy_pts": 6.75,
+   "pairs_known": 10,
+   "best_pairs": [
+    [
+     "Leona",
+     "Lillia"
+    ],
+    [
+     "Morgana",
+     "Viego"
+    ]
+   ],
+   "subclasses": [
+    "Catcher",
+    "Specialist",
+    "Skirmisher",
+    "Juggernaut",
+    "Vanguard"
    ]
   }
  ]
