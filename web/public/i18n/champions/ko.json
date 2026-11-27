@@ -365,5 +365,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "{build} 빌드에 속합니다. 카드에서 해당 탭을 고르세요.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "이 카드에서는 상황에 따른 선택({situation})이라 다른 게임에서는 대부분의 플레이어가 사지 않습니다.",
  "Close call": "근소한 차이",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "다음 선택지도 거의 비슷합니다: 차이가 뒷받침하는 게임 수의 오차보다 작습니다. 이렇게 근소하게 앞선 1순위는 다음 패치에서 약 절반만 1순위를 유지했습니다."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "다음 선택지도 거의 비슷합니다: 차이가 뒷받침하는 게임 수의 오차보다 작습니다. 이렇게 근소하게 앞선 1순위는 다음 패치에서 약 절반만 1순위를 유지했습니다.",
+ "Pairs with your picks": "선택과 잘 맞음",
+ "Overlaps your picks": "선택과 겹침",
+ "Combos with {name}": "{name}와 콤보",
+ "Pairs well with {name}.": "{name}와 잘 맞습니다.",
+ "Overlaps with {name}.": "{name}와 효과가 겹칩니다.",
+ "No known synergy with {names} on this champion yet.": "이 챔피언에서 {names}와의 알려진 시너지는 아직 없습니다.",
+ "Augments that pair with the ones you took are marked.": "고른 증강과 잘 맞는 증강에 표시됩니다.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "이미 증강이 있나요? +를 누르거나 슬롯으로 끌어 놓으면 나머지 중 잘 맞는 증강을 볼 수 있습니다.",
+ "Select {name} as one of your augments.": "{name}을(를) 내 증강으로 선택.",
+ "Select as one of your augments.": "내 증강으로 선택.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "추정: 선택이 남아 있는 동안 확인된 짝이 아직 풀에 있습니다."
 }

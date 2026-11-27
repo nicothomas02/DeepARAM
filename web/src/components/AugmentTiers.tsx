@@ -5,6 +5,7 @@ import { getParam, setParams } from "@/lib/url-state";
 import { EmptyState } from "@/components/EmptyState";
 import DataTable, { type Column, type Row } from "./DataTable";
 import { useT } from "./I18n";
+import { useOwnerPoints } from "@/lib/owner-view";
 
 // Augment tier list (/tier-list?tab=augments&rarity=gold&style=ap), laid out like the Champions tab: filter chips
 // for rarity and build style (under a "Filter by tags" fold) above one sortable table of every augment (rows and columns from the page).
@@ -30,12 +31,17 @@ export default function AugmentTiers({
   rows,
   columns,
   advancedColumns,
+  ownerColumns,
+  ownerAdvancedColumns,
   styles,
   note,
 }: {
   rows: Row[];
   columns: Column[];
   advancedColumns?: Column[];
+  /** The signed-in owner's columns, with the augment win-rate points the public table leaves out (lib/owner-view.ts). */
+  ownerColumns?: Column[];
+  ownerAdvancedColumns?: Column[];
   styles: Record<string, string>;
   /** Shown under the table. */
   note?: React.ReactNode;
@@ -67,7 +73,15 @@ export default function AugmentTiers({
     setParams({ [key]: v || null });
   };
 
-  const shown = rows.filter(
+  // The owner's numbers, fetched after sign-in; everyone else keeps the public rows.
+  const owner = useOwnerPoints("tierList");
+  const allRows = owner
+    ? rows.map((r) => {
+        const o = owner[String(r.id)];
+        return o ? { ...r, lift: o.lift, edge: o.edge, spread: o.spread, best: o.best } : r;
+      })
+    : rows;
+  const shown = allRows.filter(
     (a) =>
       (!rarity || String(a.tier).toLowerCase() === rarity) &&
       (!style ||
@@ -136,8 +150,8 @@ export default function AugmentTiers({
         </EmptyState>
       ) : (
         <DataTable
-          columns={columns}
-          advancedColumns={advancedColumns}
+          columns={owner && ownerColumns ? ownerColumns : columns}
+          advancedColumns={owner && ownerAdvancedColumns ? ownerAdvancedColumns : advancedColumns}
           rows={shown}
           initialSort={{ key: "deepScore", desc: true }}
           searchKey="name"

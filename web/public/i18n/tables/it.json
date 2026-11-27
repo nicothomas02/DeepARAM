@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Al limite: vicino alla linea {tier}. I campioni così vicini a una linea hanno mantenuto il tier nella patch successiva solo poco più della metà delle volte.",
  "Buffed": "Potenziato",
  "Nerfed": "Indebolito",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Modificato nella nuova patch. I suoi numeri qui sono ancora della patch precedente."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Modificato nella nuova patch. I suoi numeri qui sono ancora della patch precedente.",
+ "Top picker": "Più scelto da",
+ "The champion who picks this augment most often.": "Il campione che sceglie più spesso questo augment."
 }

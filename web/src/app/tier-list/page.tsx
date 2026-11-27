@@ -31,7 +31,7 @@ import { T } from "@/components/I18n";
 import HowRankings from "@/components/HowRankings";
 import ItemIndex from "@/components/ItemIndex";
 import { PICK_TAG_SHARE } from "@/lib/augment-policy";
-import { augmentSpread, augmentStages, championAugmentReliance, itemEstimate, powerCurveLists } from "@/lib/estimates";
+import { augmentStages, championAugmentReliance, itemEstimate, powerCurveLists } from "@/lib/estimates";
 import { itemPages } from "@/lib/item-pages";
 import { text } from "@/lib/content";
 import Pending from "@/components/Pending";
@@ -131,7 +131,9 @@ export default function TierListPage() {
   if (augments.length) {
     const graded = new Map(augmentTiers().map((a) => [a.id, a]));
     const augName = (a: Record<string, unknown>) => names[String(a.augment_id)] ?? String(a.key).replace(/^ARAM_/, "");
-    const bestById = new Map(augmentPages().map((p) => [p.id, p.best]));
+    // Public "Top picker": the champion who picks it most. The champion with the biggest win rate boost, and the boost
+    // itself, are for the signed-in owner only (lib/owner-view.ts), so no augment win-rate points reach the page.
+    const pickerById = new Map(augmentPages().map((p) => [p.id, p.pickers[0]?.id ?? null]));
     // The augment picks (1st to 4th) where a clear share of an augment's picks happen (estimated, PICK_TAG_SHARE).
     const picksAt = (id: number) =>
       (augmentStages(id)?.stages ?? []).flatMap((share, i) => (share >= PICK_TAG_SHARE ? [String(i + 1)] : []));
@@ -159,9 +161,15 @@ export default function TierListPage() {
       format: "pts" as const,
       hint: "Win rate minus what the champions who take it win anyway. Above zero means it helps them.",
     };
-    const shownAugCols = augCols
-      .filter((c) => SHOW_AUGMENT_WIN_RATES || c.key !== "win_rate")
-      .flatMap((c) => (c.key === "deepScore" ? [c, liftCol] : [c]));
+    const shownAugCols = augCols.filter((c) => SHOW_AUGMENT_WIN_RATES || c.key !== "win_rate");
+    const ownerAugCols = shownAugCols.flatMap((c) => (c.key === "deepScore" ? [c, liftCol] : [c]));
+    const topPickerCol = {
+      key: "best",
+      label: "Top picker",
+      format: "champion-icon" as const,
+      sortable: false,
+      hint: "The champion who picks this augment most often.",
+    };
     tabs.push({
       id: "augments",
       label: "Augments",
@@ -170,8 +178,11 @@ export default function TierListPage() {
           <AugmentTiers
             styles={STYLES}
             columns={[...shownAugCols, pickCol]}
-            // Most useful on the left: rank, DeepScore, the boost, pick rate, then the finer numbers.
-            advancedColumns={[
+            // Most useful on the left: rank, DeepScore, pick rate, then the finer numbers.
+            advancedColumns={[...augCols.slice(0, 3), ...(SHOW_AUGMENT_WIN_RATES ? [augCols[4]] : []), augCols[5], pickCol, topPickerCol, augCols[3]]}
+            // The owner's columns add the win rate boost, how it varies by champion and the champion with the biggest boost.
+            ownerColumns={[...ownerAugCols, pickCol]}
+            ownerAdvancedColumns={[
               ...augCols.slice(0, 3),
               ...(SHOW_AUGMENT_WIN_RATES ? [augCols[4]] : []),
               liftCol,
@@ -196,12 +207,9 @@ export default function TierListPage() {
                 styles: (graded.get(Number(a.augment_id))?.styles ?? []).join(","),
                 grade: graded.get(Number(a.augment_id))?.tier ?? null,
                 deepScore: graded.get(Number(a.augment_id))?.deepScore ?? null,
-                edge: graded.get(Number(a.augment_id))?.edge ?? null,
-                lift: graded.get(Number(a.augment_id))?.lift ?? null,
-                spread: augmentSpread(Number(a.augment_id)),
                 win_rate: SHOW_AUGMENT_WIN_RATES ? Number(a.win_rate) : (null as unknown as number),
                 pick_rate: Number(a.pick_rate),
-                best: bestById.get(Number(a.augment_id))?.[0]?.id ?? null,
+                best: pickerById.get(Number(a.augment_id)) ?? null,
                 picks: picksAt(Number(a.augment_id)).join(" · ") || null,
                 stages: picksAt(Number(a.augment_id)).join(","),
               }))
@@ -217,9 +225,6 @@ export default function TierListPage() {
                     styles: "",
                     grade: null,
                     deepScore: null,
-                    edge: null,
-                    lift: null,
-                    spread: null,
                     win_rate: null as unknown as number,
                     pick_rate: null as unknown as number,
                     best: null,

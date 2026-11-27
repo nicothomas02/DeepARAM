@@ -394,5 +394,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "它属于{build}出装：在卡片上选择那个标签。",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "在这张卡片上它是看情况出的装备（{situation}），所以大多数玩家在其他对局里不出。",
  "Close call": "难分高下",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "下一个选择几乎一样好：差距小于其背后对局数带来的波动。领先这么少的首选，在下个版本仍排第一的只有约一半。"
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "下一个选择几乎一样好：差距小于其背后对局数带来的波动。领先这么少的首选，在下个版本仍排第一的只有约一半。",
+ "Pairs with your picks": "与你的选择搭配",
+ "Overlaps your picks": "与你的选择重叠",
+ "Combos with {name}": "与{name}组合",
+ "Pairs well with {name}.": "与{name}搭配良好。",
+ "Overlaps with {name}.": "与{name}效果重叠。",
+ "No known synergy with {names} on this champion yet.": "该英雄与{names}暂无已知协同。",
+ "Augments that pair with the ones you took are marked.": "与你已选强化符文搭配的会被标出。",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "已经有强化符文了？按 + 或拖到栏位里，看看其余哪些与它们搭配。",
+ "Select {name} as one of your augments.": "选择{name}作为你的强化符文之一。",
+ "Select as one of your augments.": "选择作为你的强化符文之一。",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "估算：只要还有选择次数，已确认的搭档仍在池中。"
 }

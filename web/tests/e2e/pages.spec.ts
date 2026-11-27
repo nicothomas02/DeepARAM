@@ -270,22 +270,24 @@ test("the Tier List's Items tab filters items and links to item pages", async ({
   await expect(page).toHaveURL(new RegExp(`${href}$`));
 });
 
-test("augment and item pages show the official description under the name, the list the best champ, and Synergies a score", async ({ page }) => {
+test("augment and item pages show the official description under the name, the list the top picker, and no augment win-rate points", async ({ page }) => {
   await page.goto("/items/zhonyas-hourglass");
   await expect(page.locator(".champ-hero .official-desc")).toContainText("Time Stop");
   await page.goto("/tier-list?tab=augments");
-  // The augment list shows the best champion's icon (under More columns) and no longer the rank columns.
+  // The augment list shows the top picker's icon (under More columns), and no rank or win-rate-point columns: those
+  // are for the signed-in owner only (Riot's developer policy, lib/owner-view.ts).
   await page.locator("#panel-augments .table-more").first().click();
   const heads = page.locator("#augments thead th, [role=tabpanel] thead th");
-  await expect(heads.filter({ hasText: "Best champ" })).toHaveCount(1);
-  await expect(heads.filter({ hasText: /Win rank|Pick rank/ })).toHaveCount(0);
+  await expect(heads.filter({ hasText: "Top picker" })).toHaveCount(1);
+  await expect(heads.filter({ hasText: /Win rank|Pick rank|Win rate boost|Varies by champion|Best champ/ })).toHaveCount(0);
   // On phones the simple view hides the column, so only check the icon is there.
   await expect(page.locator("td img.champ-icon").first()).toBeAttached();
   const aug = page.locator('a[href^="/augments/"]').first();
   await aug.click();
   await expect(page.locator(".champ-hero .official-desc")).not.toBeEmpty();
-  // Synergies: champions it fits, scored in points (never an augment win rate).
-  await expect(page.locator("#synergies .syn-row").first()).toContainText("pts");
+  // Synergies: the champions that take it, without points (augment win-rate points are owner-only).
+  await expect(page.locator("#synergies .syn-row").first()).toBeVisible();
+  await expect(page.locator("#synergies")).not.toContainText("pts");
 });
 
 test("champion pages list Synergies, and build lists show real win rates with no Adjusted / Raw switch", async ({ page }) => {

@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "La limită: aproape de linia {tier}. Campionii atât de aproape de o linie și-au păstrat tier-ul în patch-ul următor doar puțin peste jumătate din cazuri.",
  "Buffed": "Întărit",
  "Nerfed": "Slăbit",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Modificat în noul patch. Cifrele de aici sunt încă din patch-ul anterior."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Modificat în noul patch. Cifrele de aici sunt încă din patch-ul anterior.",
+ "Top picker": "Ales cel mai des de",
+ "The champion who picks this augment most often.": "Campionul care alege cel mai des acest augment."
 }

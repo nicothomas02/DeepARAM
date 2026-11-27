@@ -365,5 +365,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "Item ini bagian dari build {build}: pilih tab itu di kartu.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Ini pilihan situasional di kartu ini ({situation}), jadi kebanyakan pemain melewatkannya di game lain.",
  "Close call": "Selisih tipis",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Pilihan berikutnya hampir sama bagusnya: selisihnya lebih kecil daripada noise dari game di baliknya. Saat pilihan teratas unggul setipis ini, ia tetap teratas di patch berikutnya hanya sekitar separuh waktu."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Pilihan berikutnya hampir sama bagusnya: selisihnya lebih kecil daripada noise dari game di baliknya. Saat pilihan teratas unggul setipis ini, ia tetap teratas di patch berikutnya hanya sekitar separuh waktu.",
+ "Pairs with your picks": "Cocok dengan pilihanmu",
+ "Overlaps your picks": "Tumpang tindih dengan pilihanmu",
+ "Combos with {name}": "Kombo dengan {name}",
+ "Pairs well with {name}.": "Cocok dengan {name}.",
+ "Overlaps with {name}.": "Tumpang tindih dengan {name}.",
+ "No known synergy with {names} on this champion yet.": "Belum ada sinergi yang diketahui dengan {names} pada champion ini.",
+ "Augments that pair with the ones you took are marked.": "Augment yang cocok dengan yang kamu ambil diberi tanda.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "Sudah punya augment? Tekan + atau seret ke slotmu untuk melihat mana yang cocok dari sisanya.",
+ "Select {name} as one of your augments.": "Pilih {name} sebagai salah satu augment-mu.",
+ "Select as one of your augments.": "Pilih sebagai salah satu augment-mu.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "Perkiraan: pasangan yang terkonfirmasi masih ada di pool selama pilihan tersisa."
 }

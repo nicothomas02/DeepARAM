@@ -365,5 +365,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "Ανήκει στο build {build}: διάλεξε εκείνη την καρτέλα στην κάρτα.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Σε αυτή την κάρτα είναι επιλογή ανάλογα με την περίσταση ({situation}), οπότε οι περισσότεροι παίκτες το παραλείπουν σε άλλα παιχνίδια.",
  "Close call": "Οριακό",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Η επόμενη επιλογή είναι σχεδόν εξίσου καλή: η διαφορά είναι μικρότερη από τον θόρυβο στα παιχνίδια πίσω της. Όταν μια πρώτη επιλογή προηγούνταν τόσο λίγο, έμεινε πρώτη στο επόμενο patch μόνο περίπου στις μισές περιπτώσεις."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Η επόμενη επιλογή είναι σχεδόν εξίσου καλή: η διαφορά είναι μικρότερη από τον θόρυβο στα παιχνίδια πίσω της. Όταν μια πρώτη επιλογή προηγούνταν τόσο λίγο, έμεινε πρώτη στο επόμενο patch μόνο περίπου στις μισές περιπτώσεις.",
+ "Pairs with your picks": "Ταιριάζει με τις επιλογές σου",
+ "Overlaps your picks": "Επικαλύπτεται με τις επιλογές σου",
+ "Combos with {name}": "Συνδυασμός με {name}",
+ "Pairs well with {name}.": "Ταιριάζει καλά με {name}.",
+ "Overlaps with {name}.": "Επικαλύπτεται με {name}.",
+ "No known synergy with {names} on this champion yet.": "Δεν υπάρχει ακόμα γνωστή συνέργεια με {names} σε αυτόν τον champion.",
+ "Augments that pair with the ones you took are marked.": "Τα augments που ταιριάζουν με όσα πήρες είναι σημειωμένα.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "Έχεις ήδη augments; Πάτα + ή σύρε τα στις θέσεις σου για να δεις ποια από τα υπόλοιπα ταιριάζουν.",
+ "Select {name} as one of your augments.": "Επίλεξε το {name} ως ένα από τα augments σου.",
+ "Select as one of your augments.": "Επίλεξέ το ως ένα από τα augments σου.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "Εκτίμηση: ένας επιβεβαιωμένος συνεργάτης είναι ακόμα διαθέσιμος όσο μένουν επιλογές."
 }

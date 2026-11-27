@@ -57,5 +57,6 @@
  "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})": "強化：{hit} 仍領先（{lead} 分），最常選 {phit}（{plead}）",
  "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})": "裝備：{hit} 仍領先（{lead} 分），最常買 {phit}（{plead}）",
  "Top {n} champions: {kept} still above 50%": "前 {n} 名英雄：{kept} 仍高於 50%",
- "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "每個版本，我們依 DeepScore 選出每位英雄的前 5 個強化與前 3 件裝備，並用下一版本的對局檢驗：它們多常仍高於英雄平均，高出多少分。最常選的作為對照。表現持續不代表強化導致勝利。"
+ "Each patch, we take every champion's top 5 augments and top 3 items by DeepScore and check them on the next patch's games: how often they still beat the champion's average, and by how many points. The most picked ones are the baseline. Holding up is not proof an augment causes the wins.": "每個版本，我們依 DeepScore 選出每位英雄的前 5 個強化與前 3 件裝備，並用下一版本的對局檢驗：它們多常仍高於英雄平均，高出多少分。最常選的作為對照。表現持續不代表強化導致勝利。",
+ "Augments: {hit} still ahead, most picked {phit}": "強化符文：{hit}仍然領先，最常選的{phit}"
 }

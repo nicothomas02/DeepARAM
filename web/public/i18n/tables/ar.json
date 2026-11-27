@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "حدّي: قريب من خط الفئة {tier}. الأبطال بهذا القرب من الخط احتفظوا بفئتهم في التحديث التالي في ما يزيد قليلًا على نصف الحالات فقط.",
  "Buffed": "مُعزَّز",
  "Nerfed": "مُضعَف",
- "Changed in the new patch. Its numbers here are still from the last patch.": "تغيّر في التحديث الجديد. أرقامه هنا لا تزال من التحديث السابق."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "تغيّر في التحديث الجديد. أرقامه هنا لا تزال من التحديث السابق.",
+ "Top picker": "الأكثر اختيارًا له",
+ "The champion who picks this augment most often.": "البطل الذي يختار هذا التعزيز أكثر من غيره."
 }

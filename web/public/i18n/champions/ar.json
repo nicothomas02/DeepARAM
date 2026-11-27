@@ -365,5 +365,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "ينتمي إلى بناء {build}: اختر هذا التبويب في البطاقة.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "إنه اختيار حسب الموقف في هذه البطاقة ({situation})، لذا يتخطاه معظم اللاعبين في المباريات الأخرى.",
  "Close call": "متقارب",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "الخيار التالي جيد بالقدر نفسه تقريبًا: الفارق أصغر من التذبذب في المباريات التي يستند إليها. عندما تصدّر خيار بفارق صغير كهذا، بقي في الصدارة في التحديث التالي في نحو نصف الحالات فقط."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "الخيار التالي جيد بالقدر نفسه تقريبًا: الفارق أصغر من التذبذب في المباريات التي يستند إليها. عندما تصدّر خيار بفارق صغير كهذا، بقي في الصدارة في التحديث التالي في نحو نصف الحالات فقط.",
+ "Pairs with your picks": "يتوافق مع اختياراتك",
+ "Overlaps your picks": "يتداخل مع اختياراتك",
+ "Combos with {name}": "كومبو مع {name}",
+ "Pairs well with {name}.": "يتوافق جيدًا مع {name}.",
+ "Overlaps with {name}.": "يتداخل مع {name}.",
+ "No known synergy with {names} on this champion yet.": "لا يوجد تآزر معروف مع {names} لهذا البطل بعد.",
+ "Augments that pair with the ones you took are marked.": "التعزيزات التي تتوافق مع ما اخترته مُعلَّمة.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "لديك تعزيزات بالفعل؟ اضغط + أو اسحبها إلى خاناتك لترى أيّ التعزيزات الأخرى يتوافق معها.",
+ "Select {name} as one of your augments.": "اختر {name} كأحد تعزيزاتك.",
+ "Select as one of your augments.": "اختر كأحد تعزيزاتك.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "تقديري: شريك مؤكد لا يزال متاحًا ما دامت هناك اختيارات متبقية."
 }

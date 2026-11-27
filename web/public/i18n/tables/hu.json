@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Határeset: közel a(z) {tier} vonalhoz. Az ilyen közeli championok a következő patchben csak valamivel az esetek több mint felében tartották meg a tierüket.",
  "Buffed": "Erősítve",
  "Nerfed": "Gyengítve",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Az új patchben változott. A számai itt még az előző patchből vannak."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Az új patchben változott. A számai itt még az előző patchből vannak.",
+ "Top picker": "Leggyakrabban választja",
+ "The champion who picks this augment most often.": "A hős, aki ezt az augmentet a leggyakrabban választja."
 }

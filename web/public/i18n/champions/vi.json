@@ -365,5 +365,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "Nó thuộc lối lên đồ {build}: chọn tab đó trên thẻ.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Trên thẻ này đây là món tùy tình huống ({situation}), nên đa số người chơi bỏ qua nó ở các trận khác.",
  "Close call": "Sát nút",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Lựa chọn tiếp theo gần như tốt ngang: chênh lệch nhỏ hơn độ nhiễu của số trận phía sau. Khi lựa chọn đứng đầu chỉ dẫn ít như vậy, nó vẫn đứng đầu ở bản sau chỉ khoảng một nửa số lần."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Lựa chọn tiếp theo gần như tốt ngang: chênh lệch nhỏ hơn độ nhiễu của số trận phía sau. Khi lựa chọn đứng đầu chỉ dẫn ít như vậy, nó vẫn đứng đầu ở bản sau chỉ khoảng một nửa số lần.",
+ "Pairs with your picks": "Hợp với lựa chọn của bạn",
+ "Overlaps your picks": "Trùng với lựa chọn của bạn",
+ "Combos with {name}": "Combo với {name}",
+ "Pairs well with {name}.": "Hợp với {name}.",
+ "Overlaps with {name}.": "Trùng tác dụng với {name}.",
+ "No known synergy with {names} on this champion yet.": "Chưa có cộng hưởng nào đã biết với {names} trên tướng này.",
+ "Augments that pair with the ones you took are marked.": "Các lõi nâng cấp hợp với những cái bạn đã chọn sẽ được đánh dấu.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "Đã có lõi nâng cấp? Nhấn + hoặc kéo vào ô để xem cái nào trong số còn lại hợp với chúng.",
+ "Select {name} as one of your augments.": "Chọn {name} làm một lõi nâng cấp của bạn.",
+ "Select as one of your augments.": "Chọn làm một lõi nâng cấp của bạn.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "Ước tính: một cặp đã xác nhận vẫn còn trong nhóm khi còn lượt chọn."
 }

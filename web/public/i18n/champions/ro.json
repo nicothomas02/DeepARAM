@@ -365,5 +365,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "Face parte din build-ul {build}: alege acea filă pe card.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "Pe acest card e o alegere situațională ({situation}), așa că majoritatea jucătorilor îl sar în alte meciuri.",
  "Close call": "Strâns",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Următoarea alegere e aproape la fel de bună: diferența e mai mică decât zgomotul din meciurile din spate. Când o primă alegere conducea la atât de puțin, a rămas prima în patch-ul următor doar în aproximativ jumătate din cazuri."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Următoarea alegere e aproape la fel de bună: diferența e mai mică decât zgomotul din meciurile din spate. Când o primă alegere conducea la atât de puțin, a rămas prima în patch-ul următor doar în aproximativ jumătate din cazuri.",
+ "Pairs with your picks": "Se potrivește cu alegerile tale",
+ "Overlaps your picks": "Se suprapune cu alegerile tale",
+ "Combos with {name}": "Combo cu {name}",
+ "Pairs well with {name}.": "Se potrivește bine cu {name}.",
+ "Overlaps with {name}.": "Se suprapune cu {name}.",
+ "No known synergy with {names} on this champion yet.": "Încă nicio sinergie cunoscută cu {names} pe acest campion.",
+ "Augments that pair with the ones you took are marked.": "Augmenturile care se potrivesc cu cele alese sunt marcate.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "Ai deja augmenturi? Apasă + sau trage-le în sloturi ca să vezi care dintre celelalte se potrivesc.",
+ "Select {name} as one of your augments.": "Alege {name} ca unul dintre augmenturile tale.",
+ "Select as one of your augments.": "Alege ca unul dintre augmenturile tale.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "Estimat: un partener confirmat e încă în pool cât timp mai sunt alegeri."
 }

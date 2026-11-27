@@ -6,6 +6,7 @@ import RowLink from "@/components/RowLink";
 import { useNames, useT } from "@/components/I18n";
 import { KEPT, useKept } from "@/lib/kept";
 import type { SynName, SynRow, SynTab } from "@/lib/synergies";
+import { useOwnerPoints } from "@/lib/owner-view";
 import "./synergies.css";
 
 // Synergies on champion and augment pages (lib/synergies.ts): one table per kind of pairing (augments, items, full
@@ -24,8 +25,18 @@ const count = (n: number) => (n >= 1e6 ? `${(n / 1e6).toFixed(1)}M` : n >= 1e4 ?
 const iconSrc = (n: SynName) =>
   n.kind === "augments" ? `/icons/augments/${n.id}.webp` : n.kind === "champions" ? `/icons/champions/${n.id}.webp` : (n.icon ?? "");
 
-export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few: number; subject: SynName }) {
+export default function Synergies({ tabs: given, few, subject }: { tabs: SynTab[]; few: number; subject: SynName }) {
   const t = useT(NS);
+  // Lists scored in augment win-rate points come without the scores (lib/synergies.ts publicSynergies); the signed-in
+  // owner gets them back (lib/owner-view.ts).
+  const owner = useOwnerPoints("augments", subject.kind === "augments" ? subject.id : undefined);
+  const tabs = owner
+    ? given.map((x) =>
+        x.augmentPoints
+          ? { ...x, note: x.ownerNote ?? x.note, rows: x.rows.map((r) => ({ ...r, score: owner.champions[String(r.names[0].id)] })) }
+          : x,
+      )
+    : given;
   const tt = useT("tables");
   const names = useNames();
   const box = useRef<HTMLDivElement>(null);
@@ -37,20 +48,22 @@ export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few:
   const [shown, setShown] = useState(PAGE);
   const label = (r: SynRow) => r.names.map((n) => names(n.kind, n.id, n.name)).join(" + ");
   const share = !!tab?.share;
-  const key: SortKey = share ? "pick" : sort.key;
+  // No scores (the public view of an augment win-rate list): no Score column, listed by pick rate.
+  const noScore = !share && !!tab && tab.rows.every((r) => r.score === undefined);
+  const key: SortKey = share || (noScore && sort.key === "score") ? "pick" : sort.key;
   const rows = useMemo(() => {
     if (!tab) return [];
     const needle = q.trim().toLowerCase();
     return tab.rows
       .filter((r) => share || !hideFew || (r.games ?? Infinity) >= few)
       .filter((r) => !needle || label(r).toLowerCase().includes(needle))
-      .sort((a, b) => ((a[key] ?? -Infinity) - (b[key] ?? -Infinity)) * (sort.desc || share ? -1 : 1));
+      .sort((a, b) => ((a[key] ?? -Infinity) - (b[key] ?? -Infinity)) * (sort.desc || share || (noScore && sort.key === "score") ? -1 : 1));
     // label depends on the language's names, which `names` tracks.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tab, q, hideFew, key, sort.desc, few, share, names]);
+  }, [tab, q, hideFew, key, sort.desc, sort.key, few, share, noScore, names]);
   if (!tab) return null;
   const fewCount = share ? 0 : tab.rows.filter((r) => (r.games ?? Infinity) < few).length;
-  const best = !share && sort.key === "score" && sort.desc && !q ? rows[0] : undefined;
+  const best = !share && !noScore && sort.key === "score" && sort.desc && !q ? rows[0] : undefined;
   const head = (k: SortKey, text: string) => (
     <span>
       <button
@@ -120,14 +133,14 @@ export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few:
           {t("Best fit for {subject}: {name}, {n} pts.", { subject: names(subject.kind, subject.id, subject.name), name: best.names.length > 2 ? t("this build") : label(best), n: pts(best.score) })}
         </p>
       )}
-      <div className="syn-th" data-share={share || undefined}>
+      <div className="syn-th" data-share={share || undefined} data-noscore={noScore || undefined}>
         <span>{t("Rank")}</span>
         <span>{t(tab.what)}</span>
         {share ? (
           <span>{t("Built by")}</span>
         ) : (
           <>
-            {head("score", "Score")}
+            {!noScore && head("score", "Score")}
             {head("pick", "Pick rate")}
             {head("games", "Games")}
           </>
@@ -187,7 +200,7 @@ export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few:
             </>
           );
           return (
-            <div key={`${r.slot ?? ""}${r.names.map((n) => n.id).join("-")}`} className="syn-row" data-share={share || undefined}>
+            <div key={`${r.slot ?? ""}${r.names.map((n) => n.id).join("-")}`} className="syn-row" data-share={share || undefined} data-noscore={noScore || undefined}>
               <span className="syn-rk">#{i + 1}</span>
               {r.href ? (
                 <RowLink className={cls} href={r.href}>
@@ -202,11 +215,13 @@ export default function Synergies({ tabs, few, subject }: { tabs: SynTab[]; few:
                 </span>
               ) : (
                 <>
+                  {!noScore && (
                   <span className="syn-cell">
                     <b className={r.score === undefined ? "" : r.score > 0.0005 ? "delta-up" : r.score < -0.0005 ? "delta-down" : ""}>
                       {r.score === undefined ? "–" : tt("{n} pts", { n: pts(r.score) })}
                     </b>
                   </span>
+                  )}
                   <span className="syn-cell">
                     <b>{pct(r.pick)}</b>
                   </span>

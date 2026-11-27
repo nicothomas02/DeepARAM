@@ -15,6 +15,14 @@ export type SynergyPair = {
   why?: string;
 };
 
+/** A synergy pair for the public page: which way it goes (1 adds, -1 overlaps), never how many win-rate points
+ *  (Riot's developer policy; the signed-in owner gets the points back, lib/owner-view.ts ownerPairs). */
+export const publicPair = (p: SynergyPair): SynergyPair => ({
+  ...p,
+  points: Math.sign(p.points),
+  ...(p.order ? { order: p.order.map(Math.sign) as [number, number] } : {}),
+});
+
 export type SynergyPart = { with: number; points: number; why?: string };
 
 /** Extra estimated win rate (a fraction) each augment not yet taken gets from its synergy with the taken ones. */

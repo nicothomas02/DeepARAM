@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Grenzfall: nahe an der {tier}-Linie. Champions so nah an einer Linie behielten ihren Tier im nächsten Patch nur in etwas mehr als der Hälfte der Fälle.",
  "Buffed": "Gebufft",
  "Nerfed": "Generft",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Im neuen Patch geändert. Die Zahlen hier stammen noch aus dem letzten Patch."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Im neuen Patch geändert. Die Zahlen hier stammen noch aus dem letzten Patch.",
+ "Top picker": "Meistgewählt von",
+ "The champion who picks this augment most often.": "Der Champion, der dieses Augment am häufigsten wählt."
 }

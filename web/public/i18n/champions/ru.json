@@ -365,5 +365,16 @@
  "It belongs to the {build} build: pick that tab on the card.": "Он входит в сборку {build}: выберите эту вкладку на карточке.",
  "It is a situational pick on this card ({situation}), so most players skip it in other games.": "На этой карточке это ситуативный предмет ({situation}), поэтому в других играх его обычно не берут.",
  "Close call": "Почти вровень",
- "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Следующий вариант почти так же хорош: разница меньше шума в играх, на которых он основан. Когда лидер опережал так мало, в следующем патче он оставался первым лишь примерно в половине случаев."
+ "The next pick is about as good: the gap is smaller than the noise in the games behind it. When a top pick led by this little, it was still on top next patch only about half the time.": "Следующий вариант почти так же хорош: разница меньше шума в играх, на которых он основан. Когда лидер опережал так мало, в следующем патче он оставался первым лишь примерно в половине случаев.",
+ "Pairs with your picks": "Сочетается с вашим выбором",
+ "Overlaps your picks": "Пересекается с вашим выбором",
+ "Combos with {name}": "Комбо с {name}",
+ "Pairs well with {name}.": "Хорошо сочетается с {name}.",
+ "Overlaps with {name}.": "Пересекается с {name}.",
+ "No known synergy with {names} on this champion yet.": "Пока нет известной синергии с {names} у этого чемпиона.",
+ "Augments that pair with the ones you took are marked.": "Аугменты, которые сочетаются с выбранными, отмечены.",
+ "Already have augments? Press + or drag them into your slots to see which of the rest pair with them.": "Уже есть аугменты? Нажмите + или перетащите их в ячейки, чтобы увидеть, какие из остальных с ними сочетаются.",
+ "Select {name} as one of your augments.": "Выбрать {name} как один из ваших аугментов.",
+ "Select as one of your augments.": "Выбрать как один из ваших аугментов.",
+ "Estimated: a confirmed partner is still in the pool while picks remain.": "Оценка: подтверждённый партнёр ещё в пуле, пока остаются выборы."
 }

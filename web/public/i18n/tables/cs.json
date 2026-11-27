@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Na hraně: blízko hranice tieru {tier}. Šampioni takto blízko hranice si tier v dalším patchi udrželi jen o něco častěji než v polovině případů.",
  "Buffed": "Posílen",
  "Nerfed": "Oslaben",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Změněn v novém patchi. Jeho čísla zde jsou stále z minulého patche."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Změněn v novém patchi. Jeho čísla zde jsou stále z minulého patche.",
+ "Top picker": "Nejčastěji bere",
+ "The champion who picks this augment most often.": "Šampion, který tento augment bere nejčastěji."
 }

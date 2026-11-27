@@ -183,5 +183,7 @@
  "Borderline: close to the {tier} line. Champions this close to a line kept their tier only a little over half the time next patch.": "Sınırda: {tier} çizgisine yakın. Bir çizgiye bu kadar yakın şampiyonlar sonraki yamada tier'lerini yalnızca yarıdan biraz fazla korudu.",
  "Buffed": "Güçlendirildi",
  "Nerfed": "Zayıflatıldı",
- "Changed in the new patch. Its numbers here are still from the last patch.": "Yeni yamada değişti. Buradaki sayıları hâlâ önceki yamadan."
+ "Changed in the new patch. Its numbers here are still from the last patch.": "Yeni yamada değişti. Buradaki sayıları hâlâ önceki yamadan.",
+ "Top picker": "En çok seçen",
+ "The champion who picks this augment most often.": "Bu güçlendirmeyi en sık seçen şampiyon."
 }

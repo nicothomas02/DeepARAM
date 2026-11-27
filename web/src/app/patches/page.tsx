@@ -10,6 +10,7 @@ import { livePatch } from "@/lib/highlights";
 import { readRepoJson } from "@/lib/repo-data";
 import { awaitingData, type PatchSchedule } from "@/lib/patch-schedule";
 import { scorecard } from "@/lib/scorecard";
+import AugmentScoreLine from "@/components/AugmentScoreLine";
 
 export const metadata: Metadata = pageMeta(
   "/patches",
@@ -160,11 +161,13 @@ export default function PatchesPage() {
                   ].map(([label, s]) =>
                     s && typeof s === "object" ? (
                       <span key={label as string}>
-                        <T ns="patches" v={{ hit: share(s.deepscore.hit), lead: pts(s.deepscore.lead), phit: share(s.popular.hit), plead: pts(s.popular.lead) }}>
-                          {label === "Augments"
-                            ? "Augments: {hit} still ahead ({lead} pts), most picked {phit} ({plead})"
-                            : "Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})"}
-                        </T>{" "}
+                        {label === "Augments" ? (
+                          <AugmentScoreLine from={r.from} hit={share(s.deepscore.hit)} phit={share(s.popular.hit)} />
+                        ) : (
+                          <T ns="patches" v={{ hit: share(s.deepscore.hit), lead: pts(s.deepscore.lead), phit: share(s.popular.hit), plead: pts(s.popular.lead) }}>
+                            {"Items: {hit} still ahead ({lead} pts), most bought {phit} ({plead})"}
+                          </T>
+                        )}{" "}
                       </span>
                     ) : null,
                   )}
