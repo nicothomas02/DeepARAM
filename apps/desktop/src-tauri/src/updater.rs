@@ -122,11 +122,19 @@ fn quiet(app: &AppHandle) -> bool {
         && quiet_phase(&crate::companion::client_phase())
 }
 
+/// The owner's beta (its `record-offers` file): never replaced by a public release, which lacks the owner's
+/// features (Nico 2026-11-27).
+#[cfg(windows)]
+fn owner_pc(app: &AppHandle) -> bool {
+    use tauri::Manager;
+    app.path().app_data_dir().is_ok_and(|d| d.join("record-offers").exists())
+}
+
 #[cfg(windows)]
 fn download(app: &AppHandle) {
     use sha2::{Digest, Sha256};
 
-    if !crate::auto_update_on(app) {
+    if !crate::auto_update_on(app) || owner_pc(app) {
         return;
     }
     let running = app.package_info().version.to_string();
