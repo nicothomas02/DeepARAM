@@ -22,6 +22,7 @@ import { augmentTiers, STYLES } from "@/lib/augment-tiers";
 import AugmentTiers from "@/components/AugmentTiers";
 import { augmentRows, augmentsWithoutData, type RawAugment } from "@/lib/augment-winrate";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
+import { poolChanged } from "@/lib/pool-change";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import championIds from "@/data/champion-ids.json";
 import championNames from "@/data/champion-names.json";
@@ -115,6 +116,7 @@ export default function TierListPage() {
               tagInfo={championTagData().info}
               games={fillGames()}
               matches={matchesByPatch()}
+              poolChanged={patches.length > 1 ? poolChanged(patches.at(-2)!.patch, latest.patch) : []}
               scaling={Object.fromEntries([...powerCurveLists().scaling].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
               reliance={Object.fromEntries([...championAugmentReliance()].flatMap(([id, v]) => (ALIAS[id] ? [[ALIAS[id], v]] : [])))}
               brackets={bracketData()}

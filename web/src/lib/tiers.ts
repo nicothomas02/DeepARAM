@@ -61,6 +61,13 @@ const PRIOR_STRENGTH = 0.25;
 /** Weight of each older patch's games relative to the next newer one. */
 const RECENT = 0.5;
 
+/** "{live}+": the patch before counts as at most this many games, a prior the live patch's own games soon outweigh.
+ *  Half of its millions of games outweighed the live patch's for weeks (research/pool-change/pool_change.py,
+ *  2026-11-27, 4 patch pairs, simulated early-patch samples, target the live patch's final win rate): mean error
+ *  0.33 pt at 10,000 live games with this cap vs 0.50 pt with half weight, 0.12 vs 0.20 at 100,000, and best of
+ *  3,000 / 10,000 / 30,000 / 100,000 at every sample size from 3,000 games up. */
+export const PRIOR_GAMES = 10_000;
+
 export const TIER_HELP = DEEPSCORE_HELP;
 
 const weighted = (pairs: [number | null, number][]) => {
@@ -77,7 +84,14 @@ const weighted = (pairs: [number | null, number][]) => {
 /** `matches`: estimated matches behind each patch's numbers (lib/sample.ts), to give each champion's `sample`. */
 /** `ownDays`: a champion's pick rate counts only the days of the patches it has rows for (the Tier List's "16.23+" view
  *  leaves out a champion's earlier patch when its win rate moved sharply, ChampionTiers). */
-export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Record<string, number>, ownDays = false): ChampStats[] {
+export function champStats(
+  rows: PatchRow[],
+  patches: Set<string>,
+  matches?: Record<string, number>,
+  ownDays = false,
+  /** Most games an older patch counts as (PRIOR_GAMES), for "{live}+"; needs `matches`. */
+  priorCap?: number,
+): ChampStats[] {
   const picked = rows.filter((r) => patches.has(r.patch));
   const totalDays = [...new Set(picked.map((r) => `${r.patch}:${r.days}`))].reduce((d, k) => d + Number(k.split(":")[1]), 0);
   // Patches newest first, to weigh older ones down.
@@ -88,7 +102,15 @@ export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Rec
 
   const base = [...byChamp].map(([name, rs]) => {
     const g = rs.map((r) => r.pick_rate * r.days);
-    const w = rs.map((r, i) => g[i] * (recency.get(r.patch) ?? 1));
+    // With a cap (priorCap), weights are real games (pick rate × matches) and an older patch counts as at most
+    // priorCap of them; the live patch always counts fully. Otherwise pick rate × days at RECENT per patch back.
+    const capped = priorCap !== undefined && rs.every((r) => r.pick_rate * (matches?.[r.patch] ?? 0) > 0);
+    const rec = (r: PatchRow) => {
+      const base = recency.get(r.patch) ?? 1;
+      const real = r.pick_rate * (matches?.[r.patch] ?? NaN);
+      return capped && base < 1 ? Math.min(base, priorCap! / real) : base;
+    };
+    const w = rs.map((r, i) => (capped ? r.pick_rate * matches![r.patch] : g[i]) * rec(r));
     const latest = rs[rs.length - 1]; // rows arrive oldest patch first (no .at(): older Safari lacks it)
     const games = g.reduce((a, b) => a + b, 0);
     // Real games per patch (pick rate × matches), weighted like the win rate.
@@ -96,9 +118,9 @@ export function champStats(rows: PatchRow[], patches: Set<string>, matches?: Rec
     let sw2 = 0;
     for (const r of rs) {
       const real = r.pick_rate * (matches?.[r.patch] ?? NaN);
-      const rec = recency.get(r.patch) ?? 1;
-      sw += real * rec;
-      sw2 += real * rec * rec;
+      const k = rec(r);
+      sw += real * k;
+      sw2 += real * k * k;
     }
     return {
       name,
@@ -175,9 +197,17 @@ export function tierEdges(values: number[]): (string | null)[] {
 
 /** The "{live}+" rows (Nico 2026-11-24, like the augment list's switch from #643): the live patch's rows plus the patch
  *  before's, except a champion whose win rate moved by more than 4 standard errors between the two (a big buff or nerf),
- *  who keeps the live patch alone. Pass to champStats with both patches and ownDays, so the earlier patch counts at
- *  half weight per game (RECENT). */
-export function plusRows(rows: PatchRow[], live: string, before: string, matches?: Record<string, number>): PatchRow[] {
+ *  who keeps the live patch alone, and a champion whose augment pool changed (`reset`). Pass to champStats with both
+ *  patches, ownDays and PRIOR_GAMES, so the earlier patch counts at half weight per game up to PRIOR_GAMES games. */
+export function plusRows(
+  rows: PatchRow[],
+  live: string,
+  before: string,
+  matches?: Record<string, number>,
+  /** Champions whose augment pool changed between the two patches (lib/pool-change.ts): live patch only. */
+  reset?: Iterable<string>,
+): PatchRow[] {
+  const fresh = new Set(reset ?? []);
   const liveRows = new Map(rows.filter((r) => r.patch === live).map((r) => [r.name, r]));
   const agree = (r: PatchRow) => {
     const l = liveRows.get(r.name);
@@ -188,5 +218,5 @@ export function plusRows(rows: PatchRow[], live: string, before: string, matches
     const p = (l.win_rate + r.win_rate) / 2;
     return Math.abs(l.win_rate - r.win_rate) <= 4 * Math.sqrt(p * (1 - p) * (1 / nL + 1 / nP));
   };
-  return rows.filter((r) => r.patch === live || (r.patch === before && agree(r)));
+  return rows.filter((r) => r.patch === live || (r.patch === before && !fresh.has(r.name) && agree(r)));
 }

@@ -5,7 +5,7 @@ import { loadSettings } from "@/lib/settings";
 import { useBracket, type BracketKey } from "@/lib/bracket-pref";
 import { getParam, setParams } from "@/lib/url-state";
 import DataTable, { type Column } from "./DataTable";
-import { champStats, plusRows, TIER_HELP, type PatchRow } from "@/lib/tiers";
+import { champStats, plusRows, PRIOR_GAMES, TIER_HELP, type PatchRow } from "@/lib/tiers";
 import Skeleton from "@/components/Skeleton";
 import { tagsByKind, tagStyle, type TagInfo } from "@/lib/tag-info";
 import { useT } from "./I18n";
@@ -118,6 +118,8 @@ type Props = {
   games?: Record<string, number> | null;
   /** Estimated matches per patch (lib/sample.ts), for each win rate's 95% range. */
   matches?: Record<string, number>;
+  /** Champions whose augment pool changed since the patch before (lib/pool-change.ts): "{live}+" keeps their live patch alone. */
+  poolChanged?: string[];
   scaling?: Record<string, number>;
   reliance?: Record<string, number>;
   /** Win and pick rates by skill bracket for the patches that have them (lib/brackets.ts). */
@@ -142,6 +144,7 @@ export default function ChampionTiers({
   tagInfo,
   games,
   matches,
+  poolChanged,
   scaling = {},
   reliance = {},
   brackets = {},
@@ -238,8 +241,8 @@ export default function ChampionTiers({
   const stats = useMemo(() => {
     if (missing) return [];
     if (pooled && before) {
-      const used = plusRows(rows, live, before, matches);
-      return champStats(used, new Set([live, before]), matches, true).map((c) => ({
+      const used = plusRows(rows, live, before, matches, poolChanged);
+      return champStats(used, new Set([live, before]), matches, true, PRIOR_GAMES).map((c) => ({
         ...c,
         change: null,
         tier_was: null,
@@ -286,6 +289,7 @@ export default function ChampionTiers({
     tagInfo,
     games,
     matches,
+    poolChanged,
     one,
     live,
     scaling,
