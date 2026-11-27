@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.7";
+export const ENGINE_VERSION = "1.4.8";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -89,7 +89,8 @@ export const RULES: Record<string, Rule> = {
   fullBuildShop: { source: "kit rule", on: true, why: "With six finished items and the build done: Stat Bonus (750 gold, permanent stat, level 9+) when you can afford it, else the elixir of your damage type (Sorcery for AP, Wrath for AD, Iron for tanks: 500 gold, 3 minutes) when 500-749 gold sits unspent. Permanent beats temporary for 250 more gold; the elixir only spends gold that would idle. Item text (Data Dragon 16.23); estimated, no archive data on consumables. Nico 2026-11-24 asked for elixir and anvil advice." },
   pathOrder: { source: "game data", on: true, why: "The shown path follows the same order as Next for the items you haven't bought (augment pulls, rushes, timing), so the core is a starting point that moves with your augments, not a fixed list. Nico 2026-11-24: the core is only a default baseline." },
   // Design choices Nico hasn't picked yet: kept as they were.
-  rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23." },
+  rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23. Since rerollAll (2026-11-27) it applies only to rerolling the best card on offer." },
+  rerollAll: { source: "game data", on: true, why: "Every card you won't take gets Reroll: each card can be rerolled once (wiki) and you keep the best card either way, so a reroll of any other card can only help (expected best of the screen never drops). The best card gets Reroll only when the average reroll at its rarity beats it by the minimum gain, else Take. Nico 2026-11-27: use all rerolls possible unless rerolling a good augment is estimated to be worse." },
   swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
   shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
   // No evidence either way: off until a test passes (Nico 2026-11-23, apply defaults).
@@ -674,6 +675,8 @@ export type RerollAdvice = {
   /** Expected points gained by rerolling `card`. */
   gain: number;
   rarity: string;
+  /** rerollAll: per card on offer, "reroll", "take" (the best card, worth keeping), or "done" (already rerolled). */
+  cards?: Record<number, "reroll" | "take" | "done">;
   /** Command Line: this screen's rerolls still draw one tier higher. */
   hacked?: boolean;
 };
@@ -727,7 +730,24 @@ export function rerollAdvice(
   const tied = offered.map((o, k) => ({ o, k })).filter((x) => same(v[x.k]));
   const top = hl === "debonair" && tied.length > 1 ? tied.reduce((a, b) => ((b.o.gold ?? 0) > (a.o.gold ?? 0) ? b : a)) : { o: offered[v.indexOf(best)] };
   const bestId = top.o.id;
-  const out = { best: bestId, beats, gain, rarity: r, ...(hacked ? { hacked: true } : {}) };
+  // rerollAll: a reroll of a card you won't take is free (you keep the best either way); the best card only when its
+  // own reroll is worth the minimum gain
+  let cards: Record<number, "reroll" | "take" | "done"> | undefined;
+  if (RULES.rerollAll.on) {
+    cards = {};
+    const bestJ = offered.findIndex((o) => o.id === bestId);
+    offered.forEach((o, j) => {
+      if (j === bestJ) {
+        // the best card's own reroll: the expected best of the screen afterwards, against keeping it
+        const draw = hacked ? poolAt(NEXT_TIER[tierOf(o.id)] ?? "") : poolAt(tierOf(o.id));
+        const keep = Math.max(...v.filter((__, k) => k !== j), -Infinity);
+        const g = draw.length >= 5 ? draw.reduce((t, x) => t + Math.max(keep, x), 0) / draw.length - best : -Infinity;
+        cards![o.id] = !done.has(o.id) && g > 0 && g >= min ? "reroll" : "take";
+      }
+      else cards![o.id] = done.has(o.id) ? "done" : "reroll";
+    });
+  }
+  const out = { best: bestId, beats, gain, rarity: r, ...(cards ? { cards } : {}), ...(hacked ? { hacked: true } : {}) };
   return pick >= 0 && gain > 0 && gain >= min ? { action: "reroll", card: offered[pick].id, ...out } : { action: "keep", card: null, ...out };
 }
 

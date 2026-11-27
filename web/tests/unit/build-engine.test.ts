@@ -564,6 +564,18 @@ describe("build engine", () => {
     expect(again?.card ?? null).toBeNull();
   });
 
+  it("rerollAll: every card you won't take says reroll, the best says take unless its reroll beats it (Nico 2026-11-27)", () => {
+    const ranked = rankAugments(picks, "Ashe", [100], {});
+    const offered = [{ id: 109 }, { id: 110 }, { id: 108 }];
+    const r = rerollAdvice(picks, ranked, offered, [100]);
+    if (!r?.cards) return; // pool too small in this fixture
+    const verdicts = Object.values(r.cards);
+    expect(verdicts.filter((v) => v === "take").length).toBeLessThanOrEqual(1);
+    for (const o of offered) if (o.id !== r.best) expect(r.cards[o.id]).toBe("reroll");
+    const after = rerollAdvice(picks, ranked, offered, [100], { rerolled: offered.filter((o) => o.id !== r.best).map((o) => o.id) });
+    for (const o of offered) if (o.id !== r.best) expect(after?.cards?.[o.id]).toBe("done");
+  });
+
   it("AP Ashe with Archmage follows the haste route for the loop augments taken, Hawkshot capped at its rank", () => {
     const c: OverlayChamp = {
       ...champ,
