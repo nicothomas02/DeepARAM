@@ -30,7 +30,6 @@ function games() {
     const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsJSON()) as Kinds, picks = (await picksJSON()) as Picks, fit = (await fitJSON()) as Fit;
     const steps: Step[] = [];
-    const limits = itemRules(k);
     champs.forEach((c, ci) => {
       const r = rng(ci + 1);
       const pick = <T,>(a: T[]) => a[Math.floor(r() * a.length)];
@@ -59,9 +58,10 @@ function games() {
         steps.push({ input, out: plan(input), champ: c });
         // buy: the route's next item, or (1 in 4) a detour
         const nextBuy = r() < 0.25 && detours.length ? pick(detours) : route.find((i) => !items.includes(i));
-        // the shop won't sell an item that shares a unique group with one you hold (LDR / Terminus / Mortal Reminder):
-        // a detour like that is a game that can't happen (2026-11-27: Ashe's situational list gained Terminus)
-        if (nextBuy !== undefined && items.length < 6 && !items.includes(nextBuy) && !items.some((i) => limits.clash(i, nextBuy))) items.push(nextBuy);
+        // the shop won't sell a second item of a limit group you hold (Terminus with Lord Dominik's), so neither does the
+        // simulated player (2026-11-27: the 16.23 refresh made Terminus one of Ashe's detours)
+        const rules0 = itemRules(k);
+        if (nextBuy !== undefined && items.length < 6 && !items.includes(nextBuy) && !items.some((o) => rules0.clash(o, nextBuy))) items.push(nextBuy);
       }
     });
     return { steps, k };

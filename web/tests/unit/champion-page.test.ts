@@ -183,9 +183,11 @@ describe("boot starts (Nico 2026-11-24: allow boots as starting items)", () => {
     const boot = p.starting.find((r) => r.items.includes(3006));
     expect(boot?.estimated).toBe(true);
     expect(boot?.deepScore).toBeTypeOf("number");
-    // A feed start that already holds boots isn't doubled (Kalista: Dagger + Berserker's Greaves).
-    const k = championPage("Kalista")!.starting.filter((r) => r.items.includes(3006) && r.items.includes(1042));
-    expect(k.length).toBe(1);
-    expect(k[0].estimated).toBeUndefined();
+    // A feed start that already holds boots isn't doubled: no two starts list the same items. (Kalista's feed had
+    // Dagger + Berserker's Greaves until the 2026-11-26 refresh; now only the archive has it, so it shows estimated.)
+    for (const a of ["Yasuo", "Kalista", "Zeri", "Jinx"]) {
+      const keys = championPage(a)!.starting.map((r) => [...r.items].sort((x, y) => x - y).join("+"));
+      expect(new Set(keys).size, a).toBe(keys.length);
+    }
   }, 120000);
 });

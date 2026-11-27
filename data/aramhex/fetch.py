@@ -14,7 +14,7 @@ Writes data/aramhex/patches/<patch>/ with [games, wins] pairs:
   items.json         {champion: {"all": [g, w], "items": {item: [g, w]}}}   finished items (no item augments)
   boots.json         {champion: {"all": [g, w], "items": {boots: [g, w]}}}  boots held at game end
   cores.json         {champion: [[items...], g, w]}          ordered, first three legendary items
-  destiny.json       {champion: {"all": [g, w], "items": {item: [g, w]}}}  Weapon of Destiny's first legendary
+  destiny.json       {champion: {"all": [g, w or null], "items": {item: [g, w]}}}  Weapon of Destiny's first legendary
   augment_info.json  {augment: rarity}
   bands/<b>/heroes.json  champion [g, w] per skill bracket (casual, mid, high = top 5%), when published
   meta.json          patch, seq, snapshot, matches, window, which tables were carried from an earlier patch
@@ -103,7 +103,10 @@ def convert(src, ds, prev_hashes):
         dump(os.path.join(out, "cores.json"), {h: [[[int(i) for i in c["items"]], int(c["games"]), int(c["wins"])] for c in v] for h, v in cores.items()})
         written.append("cores")
         sha = files["core_builds.json"].get("sha256")
-        if sha and sha in prev_hashes.get("core_builds.json", set()):
+        # Reused from an earlier patch: the same file, or (since seq 22) meta.json's components.core.reused_from, which
+        # can come with a few champions recounted (hero_overrides) so the file hash differs.
+        reused = ((meta.get("components") or {}).get("core") or {}).get("reused_from")
+        if (sha and sha in prev_hashes.get("core_builds.json", set())) or reused:
             carried.append("cores")
     dest = load("hero_augment_items.json")
     if dest:
@@ -112,7 +115,11 @@ def convert(src, ds, prev_hashes):
             w = v.get("3081")
             if not w:
                 continue
-            d[h] = {"all": [int(w.get("eligible_total", w["total"])), int(w.get("eligible_wins", w["total_wins"]))],
+            # Since seq 22 (2026-11-26) a holder total can come without its wins (show_delta false): keep the games,
+            # wins null, rather than stop the whole fetch before meta.json (which left 16.23's tables newer than its
+            # match count and pushed pick rates over 1).
+            wins = w.get("eligible_wins", w.get("total_wins"))
+            d[h] = {"all": [int(w.get("eligible_total", w["total"])), int(wins) if wins is not None else None],
                     "items": {x["item"]: [int(x["games"]), int(x["wins"])] for x in w.get("items", [])}}
         dump(os.path.join(out, "destiny.json"), d)
         written.append("destiny")
