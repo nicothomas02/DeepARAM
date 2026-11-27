@@ -288,6 +288,13 @@ fn send(app: &AppHandle, script: String) {
     }
 }
 
+/// The player changed which key Flash goes on: spell pairs redraw with Flash there.
+pub fn flash_key(app: &AppHandle, key: &str) {
+    if let Some(win) = app.get_webview_window(LABEL) {
+        let _ = win.eval(format!("window.setFlashKey && window.setFlashKey({})", json!(key)));
+    }
+}
+
 /// The augments on offer changed (read off the screen by the in-game watcher): shown right away.
 pub fn show_offer(app: &AppHandle, offer: &[i64]) {
     if let Some(win) = app.get_webview_window(LABEL) {

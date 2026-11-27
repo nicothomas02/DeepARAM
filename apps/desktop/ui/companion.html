@@ -310,6 +310,16 @@
 
   // Set before the game, never during it (no taps in game, Nico 2026-11-24): Feeling lucky, and the patch switch
   // where pooling earlier patches changes this champion's augment ranking.
+  // Flash on the player's key (the tray's "Flash on F"; D unless set): the pair shows D then F, Flash on that side.
+  let flashKey = "D";
+  const isFlash = (sp) => /flash/i.test(sp?.name ?? "") || /SummonerFlash/.test(sp?.icon ?? "");
+  function flashOrder(sp) {
+    const f = sp.findIndex(isFlash), want = flashKey === "F" ? 1 : 0;
+    return sp.length === 2 && f >= 0 && f !== want ? [sp[1], sp[0]] : sp;
+  }
+  window.setFlashKey = (k) => { flashKey = k === "F" ? "F" : "D"; renderQuick(); };
+  window.__TAURI_INTERNALS__?.invoke("flash_key").then((k) => window.setFlashKey(k)).catch(() => {});
+
   function gameSettings(ap, me) {
     const ck = me ? keyIn(ap?.champions, me) : undefined;
     const pv = ap?.patch ?? "This patch";
@@ -411,7 +421,7 @@
     const coreItems = plan ? plan.items.filter(once) : [];
     const restItems = plan ? (plan.full ?? []).filter(once).slice(0, Math.max(0, 6 - coreItems.length)) : [];
     const planHtml = plan ? `<div class="box plan">
-        ${(plan.spells ?? []).length ? `<span class="mates spells"${plan.spellWhy ? ` title="${esc(spellWhyText(plan.spellWhy, plan.name))}"` : ""}>${plan.spells.map((sp) => ic(sp)).join("")}</span>` : ""}
+        ${(plan.spells ?? []).length ? `<span class="mates spells"${plan.spellWhy ? ` title="${esc(spellWhyText(plan.spellWhy, plan.name))}"` : ""}>${flashOrder(plan.spells).map((sp) => ic(sp)).join("")}</span>` : ""}
         <span class="keys"${plan.skillSplit ? ` title="${plan.skillSplit.weak ? "Your pick, weaker evidence" : "Your pick, estimated"}"` : ""}>${plan.skillSplit ? `<b>${plan.skillSplit.first}</b> to ${plan.skillSplit.points}, then ` : ""}${(plan.skills ?? []).map((x) => `<b>${x}</b>`).join(" › ")}</span>
         <span class="buildline">${plan.start?.length ? `<span class="mates">${plan.start.map((it) => ic(it, "Start: ")).join("")}</span><span class="why">›</span>` : ""}${coreItems.length ? `<span class="corebox"><span class="lbl">Core</span><span class="mates">${coreItems.map((it) => ic(it)).join("")}</span></span>` : ""}${restItems.length ? `<span class="why">›</span><span class="mates">${restItems.map((it) => ic(it)).join("")}</span>` : ""}</span></div>` : "";
     // Team gap: one line, only once the whole team is in and only when something is missing.
@@ -949,7 +959,7 @@
     const st = E.startFor ? E.startFor(b, getTaken(game), bought(game) ? undefined : game.gold, k) : { start: b.start ?? [], augment: null };
     box.innerHTML = `<div class="quick">
       <div class="keys"${b.skillSplit ? ` title="${b.skillSplit.weak ? "Your pick, weaker evidence" : "Your pick, estimated"}"` : ""}>${b.skillSplit ? `<span class="key">${esc(b.skillSplit.first)}</span><span class="why">to ${b.skillSplit.points}, then</span>` : ""}${(b.skills ?? []).map((k, i) => `${i ? `<span class="why">›</span>` : ""}<span class="key">${esc(k)}</span>`).join("")}</div>
-      ${(b.spells ?? []).map((sp) => `<span class="spell" title="${esc([sp.name, spellWhyText(c.spellWhy, c.name)].filter(Boolean).join("\n"))}"><img src="${src(sp.icon)}" alt=""></span>`).join("")}
+      ${flashOrder(b.spells ?? []).map((sp) => `<span class="spell" title="${esc([sp.name, spellWhyText(c.spellWhy, c.name)].filter(Boolean).join("\n"))}"><img src="${src(sp.icon)}" alt=""></span>`).join("")}
       ${st.start.length ? `<span class="spell"${st.filled ? ` title="You have extra gold: spend it on these parts"` : st.augment ? ` title="Changed by your first augment"` : st.rich ? ` title="You have extra gold to start"` : ""}>Start ${st.start.map((it) => `<img src="${src(it.icon)}" alt="" title="${esc(it.name)}">`).join("")}</span>` : ""}
     </div>`;
   }

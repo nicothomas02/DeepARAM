@@ -125,6 +125,18 @@ struct Saved {
     /// The last update installed by itself, and when (seconds): not tried again for a day if it didn't take.
     update_tried: Option<(String, u64)>,
     scan_hint_shown: bool,
+    /// Flash goes on F in recommended spell pairs (off: on D, the usual key).
+    flash_on_f: bool,
+}
+
+/// Which key Flash goes on in recommended spell pairs: "D" (default) or "F" (the tray's "Flash on F").
+#[tauri::command]
+fn flash_key(app: AppHandle) -> &'static str {
+    if app.state::<Store>().saved.lock().unwrap().flash_on_f {
+        "F"
+    } else {
+        "D"
+    }
 }
 
 #[derive(Deserialize)]
@@ -370,11 +382,12 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     let quit = MenuItem::with_id(app, "quit", "Quit DeepARAM", true, None::<&str>)?;
     let sep = || PredefinedMenuItem::separator(app);
     // Everything for a Mayhem game shows in the companion window, never over the game.
-    let (companion_on, scan_on, second_on, gpu_on) = {
+    let (companion_on, scan_on, second_on, gpu_on, flash_f) = {
         let store = app.state::<Store>();
         let saved = store.saved.lock().unwrap();
-        (!saved.companion_off, !saved.scan_off, !saved.second_screen_off, saved.companion_gpu)
+        (!saved.companion_off, !saved.scan_off, !saved.second_screen_off, saved.companion_gpu, saved.flash_on_f)
     };
+    let flash = CheckMenuItem::with_id(app, "flash", "Flash on F (off: on D)", true, flash_f, None::<&str>)?;
     let comp = CheckMenuItem::with_id(
         app,
         "companion",
@@ -401,7 +414,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
         gpu_on,
         None::<&str>,
     )?;
-    let companion_menu = Submenu::with_items(app, "Mayhem companion", true, &[&comp, &scan, &second, &gpu])?;
+    let companion_menu = Submenu::with_items(app, "Mayhem companion", true, &[&comp, &scan, &second, &gpu, &flash])?;
     let share = sharing::menu_item(app)?;
     let menu = Menu::with_items(
         app,
@@ -455,6 +468,11 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
                 let on = gpu.is_checked().unwrap_or(false);
                 app.state::<Store>().update(|s| s.companion_gpu = on);
             }
+            "flash" => {
+                let on = flash.is_checked().unwrap_or(false);
+                app.state::<Store>().update(|s| s.flash_on_f = on);
+                companion::flash_key(app, if on { "F" } else { "D" });
+            }
             "second" => {
                 let on = second.is_checked().unwrap_or(true);
                 app.state::<Store>().update(|s| s.second_screen_off = !on);
@@ -501,7 +519,8 @@ fn main() {
             sharing::share_choice,
             sharing::share_status,
             sharing::my_record,
-            sharing::my_trends
+            sharing::my_trends,
+            flash_key
         ])
         // Must come first: a second launch focuses the running app instead of opening another.
         .plugin(tauri_plugin_single_instance::init(|app, _args, _cwd| show_one(app)))

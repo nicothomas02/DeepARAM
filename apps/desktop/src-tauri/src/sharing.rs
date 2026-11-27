@@ -146,11 +146,10 @@ pub fn my_trends(app: AppHandle) -> Value {
 /// The signed-in player's own line from a full match-history game, found by their puuid. None when they aren't in it.
 pub fn own_line(game: &Value, puuid: &str) -> Option<Trend> {
     let id = game["gameId"].as_u64()?;
-    let pid = game["participantIdentities"]
-        .as_array()?
-        .iter()
-        .find(|p| p["player"]["puuid"].as_str() == Some(puuid))?["participantId"]
-        .as_u64()?;
+    let pid =
+        game["participantIdentities"].as_array()?.iter().find(|p| p["player"]["puuid"].as_str() == Some(puuid))?
+            ["participantId"]
+            .as_u64()?;
     let parts = game["participants"].as_array()?;
     let me = parts.iter().find(|p| p["participantId"].as_u64() == Some(pid))?;
     let team = me["teamId"].as_u64()?;
@@ -248,7 +247,8 @@ pub fn watch(app: AppHandle) {
                 let s = sharing.state.lock().unwrap();
                 (s.sent.iter().copied().collect(), s.trends.iter().map(|t| t.id).collect())
             };
-            let me = lcu.get("/lol-summoner/v1/current-summoner").ok().and_then(|s| s["puuid"].as_str().map(String::from));
+            let me =
+                lcu.get("/lol-summoner/v1/current-summoner").ok().and_then(|s| s["puuid"].as_str().map(String::from));
             let mut ids: Vec<u64> = pending.iter().map(|(id, _)| *id).collect();
             ids.extend(recent_mayhem(&lcu));
             // A game is read if it still has to be sent, or isn't in the player's trends yet.
