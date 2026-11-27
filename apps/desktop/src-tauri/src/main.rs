@@ -4,6 +4,7 @@
 mod augscan;
 mod companion;
 mod ingame;
+mod phone;
 mod procs;
 mod review;
 mod sharing;
@@ -538,6 +539,8 @@ fn main() {
             app.manage(ingame::Shared::default());
             app.manage(companion::Shared::default());
             app.manage(sharing::Sharing::load(&handle));
+            // The owner's phone companion (off unless its file is in the data folder).
+            phone::start(&handle);
             // First launch: start with Windows (hidden in the tray), so champion select and the game are followed
             // without opening the app first. The tray's switch turns it off.
             if handle.state::<Store>().fresh && autostart_available() {

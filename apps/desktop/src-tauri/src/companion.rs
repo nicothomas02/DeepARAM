@@ -239,6 +239,7 @@ fn is_owner(client: &Client) -> Option<bool> {
 
 fn send(app: &AppHandle, script: String) {
     app.state::<Shared>().lock().unwrap().script = Some(script.clone());
+    crate::phone::full(&script);
     if let Some(win) = app.get_webview_window(LABEL) {
         let _ = win.eval(&script);
         return;
@@ -290,22 +291,28 @@ fn send(app: &AppHandle, script: String) {
 
 /// The player changed which key Flash goes on: spell pairs redraw with Flash there.
 pub fn flash_key(app: &AppHandle, key: &str) {
+    let js = format!("window.setFlashKey && window.setFlashKey({})", json!(key));
+    crate::phone::push(&js);
     if let Some(win) = app.get_webview_window(LABEL) {
-        let _ = win.eval(format!("window.setFlashKey && window.setFlashKey({})", json!(key)));
+        let _ = win.eval(js);
     }
 }
 
 /// The augments on offer changed (read off the screen by the in-game watcher): shown right away.
 pub fn show_offer(app: &AppHandle, offer: &[i64]) {
+    let js = format!("window.showOffer && window.showOffer({})", json!(offer));
+    crate::phone::push(&js);
     if let Some(win) = app.get_webview_window(LABEL) {
-        let _ = win.eval(format!("window.showOffer && window.showOffer({})", json!(offer)));
+        let _ = win.eval(js);
     }
 }
 
 /// The augment the player picked, learned from the card they clicked: the companion marks it taken by itself.
 pub fn auto_taken(app: &AppHandle, id: i64) {
+    let js = format!("window.autoTaken && window.autoTaken({id})");
+    crate::phone::push(&js);
     if let Some(win) = app.get_webview_window(LABEL) {
-        let _ = win.eval(format!("window.autoTaken && window.autoTaken({id})"));
+        let _ = win.eval(js);
     }
 }
 
@@ -674,8 +681,10 @@ pub fn watch(app: AppHandle) {
                         if let Some(r) = result {
                             s.result = Some(r.to_owned());
                             drop(s);
+                            let js = format!("window.setResult && window.setResult({})", json!(r));
+                            crate::phone::push(&js);
                             if let Some(win) = app.get_webview_window(LABEL) {
-                                let _ = win.eval(format!("window.setResult && window.setResult({})", json!(r)));
+                                let _ = win.eval(js);
                             }
                             s = state.lock().unwrap();
                         }
