@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element -- small local icons */
+import { cardBuyOrder, firstBuyOrder } from "@/lib/engine/first-buys";
 import { AUGMENT_SKILLS, CHAMPION_SKILLS, CHAMPION_SPLITS } from "@/lib/augment-skills";
 import type { Metadata } from "next";
 import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
@@ -354,6 +355,11 @@ export default async function ChampionPage({
   const bestCore = p.core[0]; // the lists rank by DeepScore, which already trusts rare builds less
   // The card's build plan for one core: the core in buying order, the rest of the usual build, the parts to rush,
   // augment swaps, then situational items (Nico, 2026-11-20). One per style tab when the champion has two real styles.
+  // The full-build item that goes before the core: a first-buy item when the core has none (first-buys.ts).
+  const leadOf = (core: ItemRow) => {
+    const all = firstBuyOrder([...buildOrder(core), ...(core.full ?? []).map((r) => r.items[0])]);
+    return (core.full ?? []).some((r) => r.items[0] === all[0]) ? all[0] : undefined;
+  };
   const buildPlan = (
     core: ItemRow,
     situ: typeof p.situational,
@@ -376,13 +382,20 @@ export default async function ChampionPage({
           )}
         </h4>
         <ol className="cp-icons cp-buy-order">
+          {/* A first-buy item (Hubris, Heartsteel...: 80%+ of buyers take it first) leads the path, before the core, as in
+              the apps (lib/engine/first-buys.ts, Nico 2026-11-27). */}
+          {leadOf(core) !== undefined && (
+            <li className="cp-full-pick" title="Most players buy it as their first legendary">
+              <ItemIcon id={leadOf(core)!} info={info} named />
+            </li>
+          )}
           {/* The core sits in one box (Nico 2026-11-24, same as the apps); the rest of the path follows outside it. */}
           <li className="cp-core-box">
             <small className="cp-core-label">
               <T ns={NS}>Core items</T>
             </small>
             <ol className="cp-buy-order">
-              {buildOrder(core).map((id) => {
+              {cardBuyOrder(buildOrder(core), (i) => i === core.boots).map((id) => {
                 // A core item most players skip is flexible (mustCore, data/estimates/core_strictness.py, Nico 2026-11-25)
                 const cs = (coreStrictness as { champions: Record<string, { must: number[]; hold: Record<string, number> }> }).champions[c.alias];
                 const flex = !!cs && id !== core.boots && !cs.must.includes(id % 10000);
@@ -395,14 +408,14 @@ export default async function ChampionPage({
             </ol>
           </li>
           {/* The full build (Nico, 2026-11-23): the core, then the best pick for each slot after it. */}
-          {(core.full ?? []).map((r) => (
+          {(core.full ?? []).filter((r) => r.items[0] !== leadOf(core)).map((r) => (
             <li key={r.items[0]} className="cp-full-pick">
               <ItemIcon id={r.items[0]} info={info} named />
             </li>
           ))}
         </ol>
         <BuildWhy
-          why={buildWhy(c.alias, [...buildOrder(core), ...(core.full ?? []).map((r) => r.items[0])].filter((i) => i !== core.boots))}
+          why={buildWhy(c.alias, cardBuyOrder([...buildOrder(core), ...(core.full ?? []).map((r) => r.items[0])], (i) => i === core.boots).filter((i) => i !== core.boots))}
           champion={c.name}
           championId={(championIds as Record<string, number>)[alias] ?? -1}
           items={info}
@@ -621,7 +634,7 @@ export default async function ChampionPage({
     ) : null;
   // The default card's six items in buying order, so the Full builds list reads the same way (inCardOrder).
   const cardCore = p.builds.length > 1 ? p.builds[0].core : bestCore;
-  const cardOrder = cardCore ? [...buildOrder(cardCore), ...(cardCore.full ?? []).map((r) => r.items[0])] : [];
+  const cardOrder = cardCore ? cardBuyOrder([...buildOrder(cardCore), ...(cardCore.full ?? []).map((r) => r.items[0])], (i) => i === cardCore.boots) : [];
   const inCardOrder = (items: number[]) => {
     // Any boots take the card's boots spot.
     const bootsAt = cardOrder.findIndex((i) => itemTier(i) === "boots");

@@ -6,6 +6,7 @@ import { T, useT } from "@/components/I18n";
 import WinRate from "@/components/WinRate";
 import { Cell, ItemIcon, LaterItems, RatedCells, pct } from "@/components/champion/Ranked";
 import { buildOrder } from "@/lib/card-score";
+import { cardBuyOrder } from "@/lib/engine/first-buys";
 import { radarFor } from "@/lib/radar";
 import { bySet } from "@/lib/sets";
 import { champStats, type PatchRow } from "@/lib/tiers";
@@ -373,11 +374,9 @@ export function TfCard({ alias, patches, matches, spells, skill, children }: Com
                 <T ns="champions">{(card.core.full ?? []).length ? "Full build" : "Best core build"}</T>
               </h4>
               <div className="cp-icons">
-                {buildOrder(card.core).map((id) => (
+                {/* a first-buy item (Hubris, Heartsteel...) leads and late buys (Void Staff...) wait, as in the apps' path (lib/engine/first-buys.ts) */}
+                {cardBuyOrder([...buildOrder(card.core), ...(card.core.full ?? []).map((r) => r.items[0])], (i) => i === card.core!.boots).map((id) => (
                   <ItemIcon key={id} id={id} info={info} named />
-                ))}
-                {(card.core.full ?? []).map((r) => (
-                  <ItemIcon key={r.items[0]} id={r.items[0]} info={info} named />
                 ))}
               </div>
               {!card.core.later?.length && (card.core.rest ?? []).length > 0 && (

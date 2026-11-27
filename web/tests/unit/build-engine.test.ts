@@ -13,6 +13,11 @@ const overlayJSON = once(overlayGET), kindsJSON = once(kindsGET), picksJSON = on
 import {
   itemId,
   ownedId,
+  FIRST_BUYS,
+  firstBuyOrder,
+  cardBuyOrder,
+  LATE_BUYS,
+  lateBuyOrder,
   itemRules,
   LUCKY_TILT,
   luckyBuild,
@@ -260,8 +265,9 @@ describe("build engine", () => {
 
   it("puts a finished item you own off the path into the first open later slot", () => {
     const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3031, 3075] }), taken: [] });
-    // owned items keep their places; the open ones follow Next's order (pathOrder), so the skipped 3rd item is last
-    expect(ids(p.path)).toEqual([3006, 3031, 3094, 3075, 6333, 3046]);
+    // what you bought comes first in inventory order (boughtFirst, Nico 2026-11-27); the open ones follow Next's order
+    // (pathOrder), so the skipped 3rd item is last
+    expect(ids(p.path)).toEqual([3006, 3031, 3075, 3094, 6333, 3046]);
     // Thornmail took the 3rd item's place: that one moves behind the rest (ownedReplan)
     expect(ids(p.next)[0]).toBe(3094);
   });
@@ -463,6 +469,96 @@ describe("build engine", () => {
     expect(sell([3020, 3031], 0)).toHaveLength(0); // 70% of Infinity Edge alone doesn't buy the next legendary
     expect(sell([3031], 3000, [1205])).toHaveLength(0); // ADAPt turns its AD into AP
     expect(sell([3089], 3000)).toHaveLength(0); // on-type item
+  }, 30_000);
+
+  it("every finished item you own stays in the path, and the path never asks for more than six (ownedOffPath)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const fin = (i: number) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !k.boots.includes(i);
+    // 2026-11-27 archive replay cases: Draven with Edge of Night off the path, Sylas with Rod of Ages, Karma with a
+    // Whispering Circlet her path names as Diadem of Songs
+    for (const [id, items] of [["Draven", [1001, 3814, 6696, 6676, 3036]], ["Sylas", [6657, 3111, 4633, 3157]], ["Karma", [2003, 6617, 2526]]] as const) {
+      const p = plan({ champ: champs.find((x) => x.id === id)!, kinds: k, picks: p0, fit: null, game: { champ: id, items: [...items] }, taken: [] });
+      const path = p.path.map((x) => ownedId(itemId(x.icon)));
+      for (const i of items.filter(fin)) expect(path, id).toContain(ownedId(i));
+      expect(new Set(path).size, id).toBe(path.length);
+      expect(path.filter((i) => fin(i)).length, id).toBeLessThanOrEqual(6);
+    }
+    // six finished items and no boots: the boots give way, nothing is left to buy
+    const mf = plan({ champ: champs.find((x) => x.id === "Graves")!, kinds: k, picks: p0, fit: null, game: { champ: "Graves", items: [126697, 6676, 3031, 3036, 6696, 6695] }, taken: [] });
+    expect(mf.next).toEqual([]);
+  }, 30_000);
+
+  it("a first-buy item is Next before any legendary, and shows first once bought (firstBuys, boughtFirst: Briar's Hubris)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const briar = champs.find((x) => x.id === "Briar")!;
+    const at = (items: number[]) => plan({ champ: briar, kinds: k, picks: p0, fit: null, game: { champ: "Briar", items, gold: 3000 }, taken: [] });
+    expect(itemId(at([]).next[0].icon)).toBe(6697);
+    const bought = at([6697]);
+    expect(itemId(bought.path[0].icon)).toBe(6697);
+    // buying Hubris first doesn't pass over The Collector
+    expect(itemId(bought.next[0].icon)).toBe(6676);
+    // the list matches the archive's buy order file
+    const slots = JSON.parse(readFileSync(new URL("../../../data/estimates/item_slots.json", import.meta.url), "utf8")) as { all: Record<string, number[]> };
+    const first = Object.entries(slots.all).filter(([, v]) => v.reduce((a, b) => a + b, 0) >= 400 && v[0] / v.reduce((a, b) => a + b, 0) >= 0.8).map(([i]) => Number(i));
+    expect([...FIRST_BUYS].sort()).toEqual(first.sort());
+    const late = Object.entries(slots.all).filter(([, v]) => v.reduce((a, b) => a + b, 0) >= 100 && (v[0] + v[1]) / v.reduce((a, b) => a + b, 0) <= 0.05).map(([i]) => Number(i));
+    expect([...LATE_BUYS].sort()).toEqual(late.sort());
+  }, 30_000);
+
+  it("late buys (Void Staff...) wait until two legendaries are finished, on every champion (lateBuys: Shaco)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    expect(lateBuyOrder([3135, 3020, 3089, 4645], (i) => i, (i) => i === 3020)).toEqual([3089, 3020, 4645, 3135]);
+    const bad: string[] = [];
+    for (const c of champs) {
+      const p = plan({ champ: c, kinds: k, picks: p0, fit: null, game: { champ: c.id, items: [] }, taken: [] });
+      const legs = p.path.map((x) => ownedId(itemId(x.icon))).filter((i) => !k.boots.includes(i));
+      if (legs.filter((i) => !LATE_BUYS.has(i)).length >= 2 && legs.slice(0, 2).some((i) => LATE_BUYS.has(i))) bad.push(`${c.id}: ${legs}`);
+    }
+    expect(bad).toEqual([]);
+    // Shaco's AP build: Void Staff after Rabadon's, not 2nd
+    const shaco = champs.find((x) => x.id === "Shaco")!;
+    const ap = shaco.builds?.find((b) => b.style === "ap");
+    if (ap) {
+      const p = plan({ champ: { ...shaco, ...ap, id: "Shaco" } as OverlayChamp, kinds: k, picks: p0, fit: null, game: { champ: "Shaco", items: [2503] }, taken: [] });
+      expect(itemId(p.next[0].icon)).not.toBe(3135);
+    }
+  }, 60_000);
+
+  it("a second, different Tear item follows only once the first has turned (Nico 2026-11-27, Ryze)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const ryze = champs.find((x) => x.id === "Ryze")!;
+    const at = (items: number[]) => plan({ champ: ryze, kinds: k, picks: p0, fit: null, game: { champ: "Ryze", items, gold: 3000 }, taken: [] });
+    const tear = new Set([3003, 3004, 3119, 2526]);
+    // Archangel's Staff still stacking: Fimbulwinter stays in the path but isn't Next
+    const stacking = at([6657, 3008, 3003, 3110]);
+    expect(stacking.path.map((x) => ownedId(itemId(x.icon)))).toEqual(expect.arrayContaining([3003, 3119]));
+    expect(stacking.next.some((x) => tear.has(ownedId(itemId(x.icon))))).toBe(false);
+    // once it turned into Seraph's Embrace, the second Tear item can be Next
+    const turned = at([6657, 3008, 3040, 3110, 4633]);
+    expect(turned.next.map((x) => ownedId(itemId(x.icon)))).toContain(3119);
+    // never the same Tear item twice
+    const ids2 = turned.path.map((x) => ownedId(itemId(x.icon)));
+    expect(ids2.filter((i) => i === 3003)).toHaveLength(1);
+  }, 30_000);
+
+  it("a full inventory sells a stray part or starter before a finished item (shopTips)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const brand = champs.find((x) => x.id === "Brand")!;
+    const sells = (items: number[], gold: number) => plan({ champ: brand, kinds: k, picks: p0, fit: null, game: { champ: "Brand", items, gold, t: 600 }, taken: [] }).tips.filter((t) => t.kind === "sell");
+    // archive replay: Brand full with Oblivion Orb and Kindlegem and 11,249 gold got no tip (only 2,000+ items counted)
+    const full = sells([2503, 6653, 3158, 3116, 3916, 3067], 11000);
+    expect(full).toHaveLength(1);
+    expect([3916, 3067]).toContain(full[0].item);
+    expect(full[0].text).toMatch(/^Inventory full: sell /);
+    // a stray part goes before a finished item off the path
+    expect(sells([2503, 6653, 3158, 3116, 3031, 3067], 11000)).toEqual([expect.objectContaining({ item: 3067 })]);
+    // the Stat Bonus anvil takes no slot
+    expect(sells([2503, 6653, 3158, 3116, 3067, 6032], 11000)).toEqual([]);
   }, 30_000);
 
   it("a rushed item that a later slot also lists shows once (Kai'Sa / Orianna with Upgrade Stormsurge)", () => {
@@ -813,8 +909,8 @@ describe("build engine", () => {
         const p = plan({ champ: c, kinds: k, picks: pk, fit: null, game: { champ: c.id, items: [] }, taken });
         const path = ids(p.path);
         if (path.length > 6) bad.push(`${c.id} [${taken}]: ${path.length} items`);
-        // with no augments, the app shows the site card's path
-        if (!taken.length && c.full?.length && path.slice(p.coreLen).join() !== ids(c.full).join()) bad.push(`${c.id}: path differs from the site card`);
+        // with no augments, the app shows the site card's path (both lead with a first-buy item, lib/engine/first-buys.ts)
+        if (!taken.length && c.full?.length && path.join() !== cardBuyOrder([...ids(c.items ?? []), ...ids(c.full)], (i) => k.boots.includes(i)).join()) bad.push(`${c.id}: path differs from the site card: ${path} vs ${cardBuyOrder([...ids(c.items ?? []), ...ids(c.full)], (i) => k.boots.includes(i))}`);
         path.forEach((a, i) => path.slice(i + 1).forEach((b) => rules.clash(a, b) && bad.push(`${c.id} [${taken}]: ${a} + ${b}`)));
       }
     expect(bad).toEqual([]);
