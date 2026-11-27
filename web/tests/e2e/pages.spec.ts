@@ -87,7 +87,7 @@ test("old addresses redirect to the current tabs", async ({ page }) => {
     ["/tools/fun", "/kitchen"],
     ["/lab", "/kitchen"],
     ["/stats", "/account"],
-    ["/research", "/methodology"],
+    ["/research", "/methodology?tab=research"],
     ["/info/region-teams", "/info"],
     ["/status", "/"],
     ["/simulator/infinite-ryze", "/calculators?tab=infinite-ryze"],

@@ -18,3 +18,30 @@ describe("research page figures", () => {
     expect(v!.slope).toBeGreaterThan(0);
   });
 });
+
+describe("research track record", () => {
+  it("has scored picks for at least one patch change", async () => {
+    const { scorecard } = await import("@/lib/scorecard");
+    const rows = scorecard();
+    expect(rows.length).toBeGreaterThan(0);
+    for (const r of rows) {
+      expect(r.augments!.deepscore.hit).toBeGreaterThanOrEqual(0);
+      expect(r.augments!.deepscore.hit).toBeLessThanOrEqual(1);
+    }
+  });
+  it("reads the forecast scorecard, graded or waiting", async () => {
+    const { forecastScorecard } = await import("@/lib/analysis");
+    const f = forecastScorecard();
+    expect(f).not.toBeNull();
+    expect(f!.patches.length + f!.waiting.length).toBeGreaterThan(0);
+    for (const p of f!.patches)
+      expect(p.summary.direction.right).toBeLessThanOrEqual(
+        p.summary.direction.of,
+      );
+  });
+  it("links no repository until it is public", async () => {
+    const { NOTEBOOK_REPO } = await import("@/lib/research");
+    if (NOTEBOOK_REPO)
+      expect(NOTEBOOK_REPO).toMatch(/^https:\/\/github\.com\//);
+  });
+});
