@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { alongCore, followed, fullPicks, realFullPicks, laterItems, skipsBoots, slotItems, type ItemRow } from "@/lib/card-score";
+import { alongCore, augmentPrior, followed, priorLeads, fullPicks, realFullPicks, laterItems, skipsBoots, slotItems, type ItemRow } from "@/lib/card-score";
 
 describe("followed", () => {
   it("keeps a rare build from leading the list", () => {
@@ -101,5 +101,34 @@ describe("realFullPicks", () => {
   });
   it("returns null when no followed build holds the core", () => {
     expect(realFullPicks(core, [row([1, 2, 8, 9, 4, 5], 0.05, 90)], single, undefined, isBoots)).toBeNull();
+  });
+});
+
+describe("augment cross-champion prior", () => {
+  const fit = { b: 0.95, k: 0, s0: 0.00857, s1: 0, q50: 0.4, q80: 0.9, q95: 2 };
+  const row = (id: number, winRate: number, games: number) => ({ id, winRate, games, pickRate: games });
+  it("takes an augment's prior from the other champions only", () => {
+    const lists = {
+      a: [row(1, 0.6, 5000), row(2, 0.5, 5000)],
+      b: [row(1, 0.56, 5000), row(2, 0.5, 5000)],
+    };
+    const mu = augmentPrior(lists);
+    // On a, augment 1's prior comes from b's +3 pt lead (shrunk a little), not from a's own +5 pts.
+    expect(mu("a", 1)).toBeGreaterThan(0.02);
+    expect(mu("a", 1)).toBeLessThan(0.03);
+    expect(mu("b", 1)).toBeGreaterThan(mu("a", 1));
+    expect(mu("c", 1)).toBe(0);
+  });
+  it("reduces to the shrunk lead with no prior and no penalty", () => {
+    const list = [row(1, 0.55, 2000), row(2, 0.5, 2000), row(3, 0.47, 2000)];
+    const out = priorLeads(list, () => 0, fit, 0);
+    expect(out.get(1)!).toBeGreaterThan(0);
+    expect(out.get(3)!).toBeLessThan(0);
+    expect(out.get(1)! / 0.95).toBeLessThan(0.55 - 0.5067);
+  });
+  it("lifts a thin row of an augment that is strong on other champions", () => {
+    const list = [row(1, 0.52, 150), row(2, 0.52, 150), row(3, 0.5, 6000), row(4, 0.49, 6000)];
+    const out = priorLeads(list, (id) => (id === 1 ? 0.03 : id === 2 ? -0.03 : 0), fit);
+    expect(out.get(1)!).toBeGreaterThan(out.get(2)!);
   });
 });

@@ -660,9 +660,13 @@ export default function ResearchStudies() {
         }
         changed={
           <T ns={NS}>
-            Nothing: the current rules, with pooling, hold up. Boots in a
-            patch&apos;s first hours get the same pooling check once there is a
-            second patch of boots data.
+            Augments now also lean on how each augment does on other
+            champions. In the same replay, with pooling, that kept offers at
+            least as good and put the champion&apos;s top five augments ahead of
+            the smoothed rule early in a patch (0.04 to 0.05 points, ranges
+            above zero) and level with it on full data. Boots in a patch&apos;s
+            first hours get the same pooling check once there is a second patch
+            of boots data.
           </T>
         }
         l={
