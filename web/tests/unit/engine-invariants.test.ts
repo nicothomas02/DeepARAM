@@ -58,7 +58,10 @@ function games() {
         steps.push({ input, out: plan(input), champ: c });
         // buy: the route's next item, or (1 in 4) a detour
         const nextBuy = r() < 0.25 && detours.length ? pick(detours) : route.find((i) => !items.includes(i));
-        if (nextBuy !== undefined && items.length < 6 && !items.includes(nextBuy)) items.push(nextBuy);
+        // the shop won't sell a second item of a limit group you hold (Terminus with Lord Dominik's), so neither does the
+        // simulated player (2026-11-27: the 16.23 refresh made Terminus one of Ashe's detours)
+        const rules0 = itemRules(k);
+        if (nextBuy !== undefined && items.length < 6 && !items.includes(nextBuy) && !items.some((o) => rules0.clash(o, nextBuy))) items.push(nextBuy);
       }
     });
     return { steps, k };
