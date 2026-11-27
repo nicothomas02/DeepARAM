@@ -9,11 +9,17 @@ A split player put exactly 3 points into the split ability before the maxed abil
 split; one that follows right after an estimated augment pick is reactive and left out). The comparison group is the
 same champion's players who maxed the same ability from the start (the order the cue replaces).
 
-Leading indicators, not only wins (house rule): damage to champions and gold earned at minute 8, when the split's
-points matter most, each standardised within the champion; plus the win rate.
+Leading indicators, not only wins (house rule): kill participation and deaths per minute over the game, each
+standardised within the champion (lead = mean of the KP z and the flipped deaths z); plus the win rate.
+
+Why these (research/calibration, 2026-11-27): on 356 champion x skill max order cells of the archive, the players'
+mean (KP - deaths) tracks the public win-rate gap between max orders with r 0.22 (0.16-0.25 in random halves of the
+champions), while the win alone gives 0.03 and the old indicator, damage + gold at minute 8, points the WRONG way
+(r -0.06, -0.16 on cells with 15+ players): orders that win more often deal less early damage. Damage and gold at
+minute 8 are still reported, for information only.
 
 Verdict per cue:
-  drop      split players clearly behind on the leading indicators (mean of the two z <= -2) with >= MIN_SPLITS splits,
+  drop      split players clearly behind on the leading indicators (lead z <= -2) with >= MIN_SPLITS splits,
             or the win gap z <= -2 with >= 3 * MIN_SPLITS splits
   keep      clearly ahead or level with enough splits
   too few   fewer than MIN_SPLITS intentional splits: the cue stays on its original evidence
@@ -73,6 +79,10 @@ def rows(archive, champs):
                     lvl[e["participantId"]].setdefault(e["level"], e["timestamp"])
                 elif e["type"] == "CHAMPION_KILL":
                     deaths[e.get("victimId")].append(e["timestamp"])
+        mins = max(1.0, g.get("gameDuration", 0) / 60)
+        team_kills = collections.Counter()
+        for p in g["participants"]:
+            team_kills[p["teamId"]] += p["stats"].get("kills", 0)
         for p in g["participants"]:
             pid, ch = p["participantId"], names.get(p["championId"])
             if ch not in champs or len(sk[pid]) < 9:
@@ -102,7 +112,9 @@ def rows(archive, champs):
                 continue
             out.append({"champ": ch, "kind": kind[0], "max": kind[1], "own": ids.get(pid) == me and me is not None,
                         "win": 1 if p["stats"].get("win") else 0,
-                        "dmg": pf.get("damageStats", {}).get("totalDamageDoneToChampions", 0), "gold": pf.get("totalGold", 0)})
+                        "dmg": pf.get("damageStats", {}).get("totalDamageDoneToChampions", 0), "gold": pf.get("totalGold", 0),
+                        "kp": (p["stats"].get("kills", 0) + p["stats"].get("assists", 0)) / (team_kills[p["teamId"]] or 1),
+                        "deaths": p["stats"].get("deaths", 0) / mins})
     return out
 
 
@@ -126,7 +138,7 @@ def main():
         by[r["champ"]].append(r)
     # standardise the indicators within each champion (all its rows), so champions pool fairly
     for ch, rs in by.items():
-        for key in ("dmg", "gold"):
+        for key in ("dmg", "gold", "kp", "deaths"):
             m = sum(r[key] for r in rs) / len(rs)
             sd = math.sqrt(sum((r[key] - m) ** 2 for r in rs) / max(1, len(rs) - 1)) or 1
             for r in rs:
@@ -141,8 +153,8 @@ def main():
         target = maxed[0][0] if maxed else None
         sp = [r for r in rs if r["kind"] == "split" and r["max"] == target]
         st = [r for r in rs if r["kind"] == "std" and r["max"] == target]
-        zd, zg, zw = (zdiff([r[k] for r in sp], [r[k] for r in st]) for k in ("dmg_z", "gold_z", "win"))
-        lead = round((zd + zg) / 2, 2) if zd is not None and zg is not None else None
+        zd, zg, zk, zx, zw = (zdiff([r[k] for r in sp], [r[k] for r in st]) for k in ("dmg_z", "gold_z", "kp_z", "deaths_z", "win"))
+        lead = round((zk - zx) / 2, 2) if zk is not None and zx is not None else None
         if len(sp) < MIN_SPLITS:
             verdict = "too few"
         elif (lead is not None and lead <= Z_DROP) or (zw is not None and zw <= Z_DROP and len(sp) >= 3 * MIN_SPLITS):
@@ -157,11 +169,14 @@ def main():
                    "reactive": sum(1 for r in rs if r["kind"] == "reactive"), "standard": len(st),
                    "win_split": round(sum(r["win"] for r in sp) / len(sp), 3) if sp else None,
                    "win_standard": round(sum(r["win"] for r in st) / len(st), 3) if st else None,
-                   "z_damage8": zd, "z_gold8": zg, "z_lead": lead, "z_win": zw, "verdict": verdict}
+                   "z_kp": zk, "z_deaths": zx, "z_lead": lead, "z_win": zw, "z_damage8": zd, "z_gold8": zg,
+                   "verdict": verdict}
     ps, pt = pooled["split"], pooled["std"]
     pool = {"splits": len(ps), "standard": len(pt),
             "z_damage8": zdiff([r["dmg_z"] for r in ps], [r["dmg_z"] for r in pt]),
             "z_gold8": zdiff([r["gold_z"] for r in ps], [r["gold_z"] for r in pt]),
+            "z_kp": zdiff([r["kp_z"] for r in ps], [r["kp_z"] for r in pt]),
+            "z_deaths": zdiff([r["deaths_z"] for r in ps], [r["deaths_z"] for r in pt]),
             "z_win": zdiff([r["win"] for r in ps], [r["win"] for r in pt])}
     res = {"minute": MINUTE, "min_splits": MIN_SPLITS, "z_drop": Z_DROP, "players": len(data),
            "weak_pooled": pool, "champions": out}

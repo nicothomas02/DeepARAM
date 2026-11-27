@@ -353,8 +353,9 @@ def mark_augment_starts(rows, augs, est):
     # most common start, counted in the archive) and the rise at least matches how often the champion's players start
     # it overall (the augment at least doubles it: Upgrade Stormsurge and Alternator on Ahri, not Eureka and Lost
     # Chapter, which her players start anyway; a chosen line, flagged to Nico 2026-11-24).
-    # Switches re-tested on leading indicators as the archive grows (data/estimates/start_switch_check.py, Nico
-    # approved 2026-11-25): an augment whose followers fall clearly behind those who kept the usual start is dropped.
+    # Switches re-tested as the archive grows (data/estimates/start_switch_check.py, Nico approved 2026-11-25): an
+    # augment whose followers win clearly less than those who kept the usual start is dropped (wins only since
+    # 2026-11-27: minute-8 damage and gold showed no link to which starts win, research/calibration).
     out = {}
     dropped = augment_start_drops()
     for aid, ks in rises.items():

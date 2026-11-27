@@ -1,8 +1,998 @@
 {
  "min_both": 30,
  "z_prune": -2.0,
- "players": 12450,
+ "players": 12680,
  "pairs": [
+  {
+   "a": "big_shot",
+   "b": "jeweled_gauntlet",
+   "ids": [
+    3018,
+    1048
+   ],
+   "points": 2,
+   "both": 2,
+   "z_win": -3.07,
+   "z_dmg_share": -0.68,
+   "z_deaths": 0.67,
+   "z_lead": -1.47,
+   "verdict": "too few"
+  },
+  {
+   "a": "big_shot",
+   "b": "jeweled_bracelet",
+   "ids": [
+    3018,
+    3123
+   ],
+   "points": 2,
+   "both": 2,
+   "z_win": 1.98,
+   "z_dmg_share": -0.03,
+   "z_deaths": -1.79,
+   "z_lead": 1.25,
+   "verdict": "too few"
+  },
+  {
+   "a": "big_shot",
+   "b": "vulnerability",
+   "ids": [
+    3018,
+    1092
+   ],
+   "points": 2,
+   "both": 5,
+   "z_win": -0.13,
+   "z_dmg_share": 0.68,
+   "z_deaths": 0.71,
+   "z_lead": -0.05,
+   "verdict": "too few"
+  },
+  {
+   "a": "doom",
+   "b": "cant_touch_this",
+   "ids": [
+    3173,
+    1011
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "doom",
+   "b": "fey_magic",
+   "ids": [
+    3173,
+    1194
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "doom",
+   "b": "final_form",
+   "ids": [
+    3173,
+    1344
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "doom",
+   "b": "its_killing_time",
+   "ids": [
+    3173,
+    1211
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "doom",
+   "b": "mosh_monster",
+   "ids": [
+    3173,
+    3053
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "doom",
+   "b": "stuck_in_here_with_me",
+   "ids": [
+    3173,
+    1413
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "doom",
+   "b": "ultimate_awakening",
+   "ids": [
+    3173,
+    1349
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "doom",
+   "b": "ultimate_unstoppable",
+   "ids": [
+    3173,
+    1112
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "biggest_snowball_ever",
+   "ids": [
+    1348,
+    1329
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "blade_waltz",
+   "ids": [
+    1348,
+    1006
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "brass_blast",
+   "ids": [
+    1348,
+    3071
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "clown_college",
+   "ids": [
+    1348,
+    1310
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "flashbang",
+   "ids": [
+    1348,
+    1187
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "flashy",
+   "ids": [
+    1348,
+    1116
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "get_jinxed",
+   "ids": [
+    1348,
+    3004
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "growth_spurt",
+   "ids": [
+    1348,
+    1401
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "holy_snowball",
+   "ids": [
+    1348,
+    1392
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "pinball",
+   "ids": [
+    1348,
+    1358
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "poltergeist",
+   "ids": [
+    1348,
+    1347
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "snowblast",
+   "ids": [
+    1348,
+    2080
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "snowday",
+   "ids": [
+    1348,
+    2088
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "spin_me_right_round",
+   "ids": [
+    1348,
+    1386
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "totentanz",
+   "ids": [
+    1348,
+    3079
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flashy",
+   "b": "flashbang",
+   "ids": [
+    1116,
+    1187
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bees",
+   "b": "dont_blink",
+   "ids": [
+    3086,
+    1026
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -0.17,
+   "z_dmg_share": 0.85,
+   "z_deaths": 0.24,
+   "z_lead": 0.15,
+   "verdict": "too few"
+  },
+  {
+   "a": "fey_magic",
+   "b": "dont_blink",
+   "ids": [
+    1194,
+    1026
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flashbang",
+   "b": "dont_blink",
+   "ids": [
+    1187,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "dont_blink",
+   "ids": [
+    3053,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "shark_bait",
+   "b": "dont_blink",
+   "ids": [
+    2032,
+    1026
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "sonic_boom",
+   "b": "dont_blink",
+   "ids": [
+    1076,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "celestial_body",
+   "b": "pressure_cooker",
+   "ids": [
+    1013,
+    2102
+   ],
+   "points": 1,
+   "both": 22,
+   "z_win": -0.62,
+   "z_dmg_share": 0.53,
+   "z_deaths": 0.77,
+   "z_lead": -0.29,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "pressure_cooker",
+   "ids": [
+    1134,
+    2102
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "goliath",
+   "b": "pressure_cooker",
+   "ids": [
+    1041,
+    2102
+   ],
+   "points": 1,
+   "both": 25,
+   "z_win": -0.69,
+   "z_dmg_share": 1.35,
+   "z_deaths": 0.75,
+   "z_lead": -0.03,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "pressure_cooker",
+   "ids": [
+    1053,
+    2102
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.76,
+   "z_dmg_share": -0.29,
+   "z_deaths": 2.16,
+   "z_lead": -0.56,
+   "verdict": "too few"
+  },
+  {
+   "a": "mind_to_matter",
+   "b": "pressure_cooker",
+   "ids": [
+    1056,
+    2102
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 2.02,
+   "z_dmg_share": 2.35,
+   "z_deaths": 0.18,
+   "z_lead": 1.4,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "pressure_cooker",
+   "ids": [
+    3053,
+    2102
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "steel_your_heart",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    1152,
+    1018
+   ],
+   "points": 1,
+   "both": 19,
+   "z_win": -0.05,
+   "z_dmg_share": -1.4,
+   "z_deaths": 0.26,
+   "z_lead": -0.57,
+   "verdict": "too few"
+  },
+  {
+   "a": "steel_your_heart",
+   "b": "cruelty",
+   "ids": [
+    1152,
+    1323
+   ],
+   "points": 1,
+   "both": 14,
+   "z_win": 0.28,
+   "z_dmg_share": -1.16,
+   "z_deaths": 1.42,
+   "z_lead": -0.77,
+   "verdict": "too few"
+  },
+  {
+   "a": "steel_your_heart",
+   "b": "dont_change_the_channel",
+   "ids": [
+    1152,
+    2131
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -0.93,
+   "z_dmg_share": 0.34,
+   "z_deaths": 0.23,
+   "z_lead": -0.27,
+   "verdict": "too few"
+  },
+  {
+   "a": "steel_your_heart",
+   "b": "gift_of_the_drowned",
+   "ids": [
+    1152,
+    3063
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "steel_your_heart",
+   "b": "heavy_hitter",
+   "ids": [
+    1152,
+    1181
+   ],
+   "points": 1,
+   "both": 72,
+   "z_win": 0.15,
+   "z_dmg_share": 0.79,
+   "z_deaths": 0.81,
+   "z_lead": 0.04,
+   "verdict": "keep"
+  },
+  {
+   "a": "steel_your_heart",
+   "b": "lich_brain",
+   "ids": [
+    1152,
+    3094
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -0.49,
+   "z_dmg_share": 0.0,
+   "z_deaths": 0.74,
+   "z_lead": -0.41,
+   "verdict": "too few"
+  },
+  {
+   "a": "steel_your_heart",
+   "b": "pressure_cooker",
+   "ids": [
+    1152,
+    2102
+   ],
+   "points": 1,
+   "both": 23,
+   "z_win": 0.96,
+   "z_dmg_share": -0.19,
+   "z_deaths": -0.45,
+   "z_lead": 0.41,
+   "verdict": "too few"
+  },
+  {
+   "a": "steel_your_heart",
+   "b": "rejuvenation",
+   "ids": [
+    1152,
+    1067
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": -3.01,
+   "z_dmg_share": 0.65,
+   "z_deaths": 1.84,
+   "z_lead": -1.4,
+   "verdict": "too few"
+  },
+  {
+   "a": "steel_your_heart",
+   "b": "sap_magic",
+   "ids": [
+    1152,
+    3129
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": 0.52,
+   "z_dmg_share": -0.88,
+   "z_deaths": -0.32,
+   "z_lead": -0.01,
+   "verdict": "too few"
+  },
+  {
+   "a": "soul_eater",
+   "b": "pressure_cooker",
+   "ids": [
+    1375,
+    2102
+   ],
+   "points": 1,
+   "both": 9,
+   "z_win": -0.35,
+   "z_dmg_share": 0.48,
+   "z_deaths": -1.42,
+   "z_lead": 0.52,
+   "verdict": "too few"
+  },
+  {
+   "a": "tank_engine",
+   "b": "pressure_cooker",
+   "ids": [
+    1353,
+    2102
+   ],
+   "points": 1,
+   "both": 28,
+   "z_win": 1.14,
+   "z_dmg_share": -1.19,
+   "z_deaths": 0.07,
+   "z_lead": -0.04,
+   "verdict": "too few"
+  },
+  {
+   "a": "adapt",
+   "b": "master_of_duality",
+   "ids": [
+    1205,
+    1054
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": 1.52,
+   "z_dmg_share": -3.2,
+   "z_deaths": 0.12,
+   "z_lead": -0.6,
+   "verdict": "too few"
+  },
+  {
+   "a": "adapt",
+   "b": "heavy_is_the_crown",
+   "ids": [
+    1205,
+    3132
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "adapt",
+   "b": "urfs_champion",
+   "ids": [
+    1205,
+    1154
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "escapade",
+   "b": "master_of_duality",
+   "ids": [
+    1206,
+    1054
+   ],
+   "points": 1,
+   "both": 9,
+   "z_win": 0.84,
+   "z_dmg_share": -0.07,
+   "z_deaths": 0.52,
+   "z_lead": 0.08,
+   "verdict": "too few"
+  },
+  {
+   "a": "escapade",
+   "b": "heavy_is_the_crown",
+   "ids": [
+    1206,
+    3132
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "escapade",
+   "b": "urfs_champion",
+   "ids": [
+    1206,
+    1154
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": 1.13,
+   "z_dmg_share": 1.04,
+   "z_deaths": 0.82,
+   "z_lead": 0.45,
+   "verdict": "too few"
+  },
+  {
+   "a": "escapade",
+   "b": "witchful_thinking",
+   "ids": [
+    1206,
+    1097
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "escapade",
+   "b": "phenomenal_evil",
+   "ids": [
+    1206,
+    1390
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": -0.07,
+   "z_dmg_share": -0.1,
+   "z_deaths": 2.06,
+   "z_lead": -0.74,
+   "verdict": "too few"
+  },
+  {
+   "a": "escapade",
+   "b": "lich_brain",
+   "ids": [
+    1206,
+    3094
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "escapade",
+   "b": "no_mana_no_problem",
+   "ids": [
+    1206,
+    3059
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "escapade",
+   "b": "ominous_pact",
+   "ids": [
+    1206,
+    1332
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "adapt",
+   "b": "tickle_monster",
+   "ids": [
+    1205,
+    3058
+   ],
+   "points": -1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ethereal_weapon",
+   "b": "crimson_cobalt",
+   "ids": [
+    1029,
+    3088
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 0.31,
+   "z_dmg_share": -1.48,
+   "z_deaths": -0.73,
+   "z_lead": -0.15,
+   "verdict": "too few"
+  },
+  {
+   "a": "ethereal_weapon",
+   "b": "armored_impact",
+   "ids": [
+    1029,
+    3049
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -0.07,
+   "z_dmg_share": -0.16,
+   "z_deaths": 0.38,
+   "z_lead": -0.2,
+   "verdict": "too few"
+  },
+  {
+   "a": "ethereal_weapon",
+   "b": "the_boom_and_the_bass",
+   "ids": [
+    1029,
+    3078
+   ],
+   "points": 1,
+   "both": 12,
+   "z_win": -0.51,
+   "z_dmg_share": -1.9,
+   "z_deaths": 1.12,
+   "z_lead": -1.18,
+   "verdict": "too few"
+  },
+  {
+   "a": "ethereal_weapon",
+   "b": "sap_magic",
+   "ids": [
+    1029,
+    3129
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": -2.27,
+   "z_dmg_share": 0.95,
+   "z_deaths": 0.63,
+   "z_lead": -0.65,
+   "verdict": "too few"
+  },
   {
    "a": "ethereal_weapon",
    "b": "mystic_punch",
@@ -11,11 +1001,12 @@
     1058
    ],
    "points": 2,
-   "both": 28,
-   "z_dpm": 0.2,
-   "z_win": -0.17,
-   "z_lead": 0.01,
-   "verdict": "too few"
+   "both": 30,
+   "z_win": -0.11,
+   "z_dmg_share": -0.44,
+   "z_deaths": 0.08,
+   "z_lead": -0.21,
+   "verdict": "keep"
   },
   {
    "a": "ethereal_weapon",
@@ -26,37 +1017,10 @@
    ],
    "points": 1,
    "both": 20,
-   "z_dpm": 1.07,
-   "z_win": 1.63,
-   "z_lead": 1.35,
-   "verdict": "too few"
-  },
-  {
-   "a": "ethereal_weapon",
-   "b": "marksmage",
-   "ids": [
-    1029,
-    1129
-   ],
-   "points": 1,
-   "both": 38,
-   "z_dpm": -1.34,
-   "z_win": -0.75,
-   "z_lead": -1.04,
-   "verdict": "keep"
-  },
-  {
-   "a": "ethereal_weapon",
-   "b": "heavy_hitter",
-   "ids": [
-    1029,
-    1181
-   ],
-   "points": 1,
-   "both": 16,
-   "z_dpm": 0.18,
-   "z_win": 0.51,
-   "z_lead": 0.34,
+   "z_win": 1.62,
+   "z_dmg_share": 0.39,
+   "z_deaths": -0.44,
+   "z_lead": 0.82,
    "verdict": "too few"
   },
   {
@@ -68,9 +1032,10 @@
    ],
    "points": 2,
    "both": 29,
-   "z_dpm": 0.06,
-   "z_win": 0.49,
-   "z_lead": 0.28,
+   "z_win": 0.51,
+   "z_dmg_share": 0.13,
+   "z_deaths": -2.28,
+   "z_lead": 0.97,
    "verdict": "too few"
   },
   {
@@ -81,10 +1046,11 @@
     3123
    ],
    "points": 1,
-   "both": 7,
-   "z_dpm": -0.7,
-   "z_win": -0.68,
-   "z_lead": -0.69,
+   "both": 8,
+   "z_win": 0.05,
+   "z_dmg_share": -0.07,
+   "z_deaths": -0.01,
+   "z_lead": -0.0,
    "verdict": "too few"
   },
   {
@@ -95,10 +1061,11 @@
     1358
    ],
    "points": 2,
-   "both": 23,
-   "z_dpm": 1.46,
-   "z_win": 0.73,
-   "z_lead": 1.09,
+   "both": 24,
+   "z_win": 0.43,
+   "z_dmg_share": 0.7,
+   "z_deaths": -1.85,
+   "z_lead": 0.99,
    "verdict": "too few"
   },
   {
@@ -109,10 +1076,11 @@
     2088
    ],
    "points": 1,
-   "both": 17,
-   "z_dpm": 0.88,
-   "z_win": 0.51,
-   "z_lead": 0.7,
+   "both": 19,
+   "z_win": 0.37,
+   "z_dmg_share": 2.73,
+   "z_deaths": 0.56,
+   "z_lead": 0.85,
    "verdict": "too few"
   },
   {
@@ -124,8 +1092,9 @@
    ],
    "points": 1,
    "both": 2,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -137,10 +1106,11 @@
     1392
    ],
    "points": 1,
-   "both": 10,
-   "z_dpm": 1.3,
-   "z_win": -0.52,
-   "z_lead": 0.39,
+   "both": 11,
+   "z_win": -0.24,
+   "z_dmg_share": 0.62,
+   "z_deaths": -2.44,
+   "z_lead": 0.94,
    "verdict": "too few"
   },
   {
@@ -151,10 +1121,11 @@
     2088
    ],
    "points": 1,
-   "both": 14,
-   "z_dpm": 1.99,
-   "z_win": 0.4,
-   "z_lead": 1.2,
+   "both": 17,
+   "z_win": 0.3,
+   "z_dmg_share": 1.29,
+   "z_deaths": -1.41,
+   "z_lead": 1.0,
    "verdict": "too few"
   },
   {
@@ -165,9 +1136,10 @@
     3075
    ],
    "points": 1,
-   "both": 0,
-   "z_dpm": null,
+   "both": 1,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -180,8 +1152,9 @@
    ],
    "points": null,
    "both": 3,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -194,8 +1167,9 @@
    ],
    "points": 1,
    "both": 2,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -208,8 +1182,9 @@
    ],
    "points": 1,
    "both": 1,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -222,9 +1197,10 @@
    ],
    "points": 1,
    "both": 3,
-   "z_dpm": -0.1,
    "z_win": 0.67,
-   "z_lead": 0.29,
+   "z_dmg_share": 0.14,
+   "z_deaths": -0.18,
+   "z_lead": 0.33,
    "verdict": "too few"
   },
   {
@@ -236,8 +1212,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -250,8 +1227,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -264,8 +1242,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -277,10 +1256,11 @@
     3051
    ],
    "points": 1,
-   "both": 2,
-   "z_dpm": -0.98,
-   "z_win": -0.67,
-   "z_lead": -0.82,
+   "both": 4,
+   "z_win": -0.1,
+   "z_dmg_share": 0.72,
+   "z_deaths": -2.26,
+   "z_lead": 0.96,
    "verdict": "too few"
   },
   {
@@ -292,9 +1272,10 @@
    ],
    "points": 1,
    "both": 16,
-   "z_dpm": -1.35,
-   "z_win": -1.7,
-   "z_lead": -1.52,
+   "z_win": -1.64,
+   "z_dmg_share": -0.55,
+   "z_deaths": 0.56,
+   "z_lead": -0.92,
    "verdict": "too few"
   },
   {
@@ -306,9 +1287,10 @@
    ],
    "points": 1,
    "both": 10,
-   "z_dpm": 0.24,
-   "z_win": 0.03,
-   "z_lead": 0.14,
+   "z_win": -0.01,
+   "z_dmg_share": 0.51,
+   "z_deaths": 0.34,
+   "z_lead": 0.05,
    "verdict": "too few"
   },
   {
@@ -320,9 +1302,10 @@
    ],
    "points": 1,
    "both": 3,
-   "z_dpm": -0.73,
-   "z_win": -2.71,
-   "z_lead": -1.72,
+   "z_win": -2.5,
+   "z_dmg_share": -0.28,
+   "z_deaths": 3.52,
+   "z_lead": -2.1,
    "verdict": "too few"
   },
   {
@@ -334,8 +1317,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -348,9 +1332,10 @@
    ],
    "points": 1,
    "both": 5,
-   "z_dpm": -0.84,
-   "z_win": -1.09,
-   "z_lead": -0.97,
+   "z_win": -1.06,
+   "z_dmg_share": -1.5,
+   "z_deaths": -0.6,
+   "z_lead": -0.65,
    "verdict": "too few"
   },
   {
@@ -362,9 +1347,10 @@
    ],
    "points": 1,
    "both": 18,
-   "z_dpm": -0.85,
-   "z_win": -0.78,
-   "z_lead": -0.81,
+   "z_win": -0.8,
+   "z_dmg_share": -0.58,
+   "z_deaths": 0.92,
+   "z_lead": -0.77,
    "verdict": "too few"
   },
   {
@@ -376,9 +1362,10 @@
    ],
    "points": 1,
    "both": 6,
-   "z_dpm": 0.16,
-   "z_win": -0.84,
-   "z_lead": -0.34,
+   "z_win": -1.0,
+   "z_dmg_share": 0.16,
+   "z_deaths": -0.82,
+   "z_lead": -0.01,
    "verdict": "too few"
   },
   {
@@ -390,8 +1377,9 @@
    ],
    "points": 1,
    "both": 3,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -404,9 +1392,10 @@
    ],
    "points": 1,
    "both": 3,
-   "z_dpm": -0.53,
    "z_win": 0.47,
-   "z_lead": -0.03,
+   "z_dmg_share": -0.46,
+   "z_deaths": 1.11,
+   "z_lead": -0.37,
    "verdict": "too few"
   },
   {
@@ -418,8 +1407,9 @@
    ],
    "points": 1,
    "both": 2,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -432,8 +1422,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -446,8 +1437,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -460,9 +1452,10 @@
    ],
    "points": 1,
    "both": 7,
-   "z_dpm": -1.59,
-   "z_win": -1.66,
-   "z_lead": -1.62,
+   "z_win": -1.61,
+   "z_dmg_share": -1.61,
+   "z_deaths": 0.12,
+   "z_lead": -1.11,
    "verdict": "too few"
   },
   {
@@ -474,9 +1467,10 @@
    ],
    "points": 1,
    "both": 7,
-   "z_dpm": 1.01,
-   "z_win": 0.08,
-   "z_lead": 0.55,
+   "z_win": 0.14,
+   "z_dmg_share": 0.88,
+   "z_deaths": 1.1,
+   "z_lead": -0.03,
    "verdict": "too few"
   },
   {
@@ -488,9 +1482,10 @@
    ],
    "points": 1,
    "both": 7,
-   "z_dpm": 0.06,
    "z_win": -1.66,
-   "z_lead": -0.8,
+   "z_dmg_share": -0.39,
+   "z_deaths": 0.23,
+   "z_lead": -0.76,
    "verdict": "too few"
   },
   {
@@ -501,9 +1496,10 @@
     3058
    ],
    "points": 1,
-   "both": 1,
-   "z_dpm": null,
+   "both": 2,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -516,9 +1512,10 @@
    ],
    "points": 1,
    "both": 15,
-   "z_dpm": -2.54,
-   "z_win": 0.77,
-   "z_lead": -0.89,
+   "z_win": 0.78,
+   "z_dmg_share": -0.9,
+   "z_deaths": 0.5,
+   "z_lead": -0.21,
    "verdict": "too few"
   },
   {
@@ -530,9 +1527,10 @@
    ],
    "points": 1,
    "both": 7,
-   "z_dpm": -0.22,
-   "z_win": -0.41,
-   "z_lead": -0.32,
+   "z_win": -0.39,
+   "z_dmg_share": -0.31,
+   "z_deaths": -0.25,
+   "z_lead": -0.15,
    "verdict": "too few"
   },
   {
@@ -544,8 +1542,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -558,9 +1557,10 @@
    ],
    "points": 1,
    "both": 34,
-   "z_dpm": -0.79,
-   "z_win": -0.51,
-   "z_lead": -0.65,
+   "z_win": -0.56,
+   "z_dmg_share": -0.53,
+   "z_deaths": 0.07,
+   "z_lead": -0.39,
    "verdict": "keep"
   },
   {
@@ -572,9 +1572,10 @@
    ],
    "points": 1,
    "both": 38,
-   "z_dpm": -0.47,
-   "z_win": 0.56,
-   "z_lead": 0.05,
+   "z_win": 0.52,
+   "z_dmg_share": -0.33,
+   "z_deaths": -0.39,
+   "z_lead": 0.19,
    "verdict": "keep"
   },
   {
@@ -586,9 +1587,10 @@
    ],
    "points": 1,
    "both": 27,
-   "z_dpm": -0.61,
-   "z_win": 0.02,
-   "z_lead": -0.29,
+   "z_win": -0.02,
+   "z_dmg_share": -1.15,
+   "z_deaths": -0.87,
+   "z_lead": -0.1,
    "verdict": "too few"
   },
   {
@@ -600,8 +1602,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -613,10 +1616,11 @@
     1415
    ],
    "points": 1,
-   "both": 2,
-   "z_dpm": -0.09,
-   "z_win": 0.47,
-   "z_lead": 0.19,
+   "both": 4,
+   "z_win": 0.61,
+   "z_dmg_share": 0.33,
+   "z_deaths": 1.41,
+   "z_lead": -0.16,
    "verdict": "too few"
   },
   {
@@ -628,8 +1632,9 @@
    ],
    "points": 1,
    "both": 5,
-   "z_dpm": -0.43,
-   "z_win": 0.46,
+   "z_win": 0.72,
+   "z_dmg_share": -1.08,
+   "z_deaths": -0.41,
    "z_lead": 0.02,
    "verdict": "too few"
   },
@@ -642,9 +1647,10 @@
    ],
    "points": 1,
    "both": 17,
-   "z_dpm": -1.03,
-   "z_win": 0.26,
-   "z_lead": -0.39,
+   "z_win": 0.3,
+   "z_dmg_share": -0.74,
+   "z_deaths": -2.23,
+   "z_lead": 0.6,
    "verdict": "too few"
   },
   {
@@ -656,9 +1662,10 @@
    ],
    "points": 1,
    "both": 12,
-   "z_dpm": -0.8,
-   "z_win": -1.86,
-   "z_lead": -1.33,
+   "z_win": -1.74,
+   "z_dmg_share": 0.63,
+   "z_deaths": -0.37,
+   "z_lead": -0.25,
    "verdict": "too few"
   },
   {
@@ -670,8 +1677,9 @@
    ],
    "points": 1,
    "both": 1,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -684,9 +1692,10 @@
    ],
    "points": 1,
    "both": 2,
-   "z_dpm": -0.87,
-   "z_win": -0.62,
-   "z_lead": -0.74,
+   "z_win": -0.61,
+   "z_dmg_share": -1.11,
+   "z_deaths": 0.93,
+   "z_lead": -0.88,
    "verdict": "too few"
   },
   {
@@ -698,9 +1707,10 @@
    ],
    "points": 1,
    "both": 4,
-   "z_dpm": -1.2,
-   "z_win": 0.33,
-   "z_lead": -0.43,
+   "z_win": 0.38,
+   "z_dmg_share": -0.7,
+   "z_deaths": -0.35,
+   "z_lead": 0.01,
    "verdict": "too few"
   },
   {
@@ -712,9 +1722,10 @@
    ],
    "points": 1,
    "both": 9,
-   "z_dpm": -0.88,
-   "z_win": -0.46,
-   "z_lead": -0.67,
+   "z_win": -0.42,
+   "z_dmg_share": -2.62,
+   "z_deaths": 0.23,
+   "z_lead": -1.09,
    "verdict": "too few"
   },
   {
@@ -726,8 +1737,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -740,8 +1752,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -754,8 +1767,9 @@
    ],
    "points": 1,
    "both": 1,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -767,9 +1781,10 @@
     3131
    ],
    "points": 1,
-   "both": 0,
-   "z_dpm": null,
+   "both": 1,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -782,8 +1797,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -796,9 +1812,10 @@
    ],
    "points": 1,
    "both": 3,
-   "z_dpm": -1.38,
-   "z_win": -0.86,
-   "z_lead": -1.12,
+   "z_win": -1.08,
+   "z_dmg_share": -0.34,
+   "z_deaths": -0.38,
+   "z_lead": -0.35,
    "verdict": "too few"
   },
   {
@@ -810,8 +1827,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -824,8 +1842,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -838,9 +1857,10 @@
    ],
    "points": 1,
    "both": 3,
-   "z_dpm": 1.52,
    "z_win": 0.27,
-   "z_lead": 0.9,
+   "z_dmg_share": 1.39,
+   "z_deaths": 0.0,
+   "z_lead": 0.55,
    "verdict": "too few"
   },
   {
@@ -852,9 +1872,10 @@
    ],
    "points": 1,
    "both": 20,
-   "z_dpm": 0.84,
-   "z_win": -0.72,
-   "z_lead": 0.06,
+   "z_win": -0.7,
+   "z_dmg_share": 1.6,
+   "z_deaths": 1.53,
+   "z_lead": -0.21,
    "verdict": "too few"
   },
   {
@@ -866,9 +1887,10 @@
    ],
    "points": 1,
    "both": 29,
-   "z_dpm": -0.41,
-   "z_win": 0.92,
-   "z_lead": 0.26,
+   "z_win": 1.04,
+   "z_dmg_share": 0.26,
+   "z_deaths": -1.58,
+   "z_lead": 0.96,
    "verdict": "too few"
   },
   {
@@ -880,9 +1902,10 @@
    ],
    "points": 1,
    "both": 8,
-   "z_dpm": -1.85,
-   "z_win": 1.5,
-   "z_lead": -0.18,
+   "z_win": 1.52,
+   "z_dmg_share": -1.71,
+   "z_deaths": 0.3,
+   "z_lead": -0.16,
    "verdict": "too few"
   },
   {
@@ -894,9 +1917,10 @@
    ],
    "points": 1,
    "both": 3,
-   "z_dpm": -1.69,
    "z_win": -1.26,
-   "z_lead": -1.48,
+   "z_dmg_share": -1.34,
+   "z_deaths": -0.57,
+   "z_lead": -0.68,
    "verdict": "too few"
   },
   {
@@ -908,9 +1932,10 @@
    ],
    "points": 1,
    "both": 3,
-   "z_dpm": 1.16,
-   "z_win": 0.23,
-   "z_lead": 0.69,
+   "z_win": 0.19,
+   "z_dmg_share": 0.59,
+   "z_deaths": -2.48,
+   "z_lead": 1.09,
    "verdict": "too few"
   },
   {
@@ -921,10 +1946,11 @@
     1211
    ],
    "points": 1,
-   "both": 17,
-   "z_dpm": -0.98,
-   "z_win": -1.06,
-   "z_lead": -1.02,
+   "both": 18,
+   "z_win": -0.98,
+   "z_dmg_share": -1.05,
+   "z_deaths": 0.37,
+   "z_lead": -0.8,
    "verdict": "too few"
   },
   {
@@ -936,9 +1962,10 @@
    ],
    "points": 1,
    "both": 7,
-   "z_dpm": -0.41,
-   "z_win": -0.21,
-   "z_lead": -0.31,
+   "z_win": -0.23,
+   "z_dmg_share": 0.59,
+   "z_deaths": -0.26,
+   "z_lead": 0.21,
    "verdict": "too few"
   },
   {
@@ -950,9 +1977,10 @@
    ],
    "points": 1,
    "both": 2,
-   "z_dpm": 0.17,
    "z_win": 0.13,
-   "z_lead": 0.15,
+   "z_dmg_share": 2.41,
+   "z_deaths": -0.21,
+   "z_lead": 0.92,
    "verdict": "too few"
   },
   {
@@ -964,9 +1992,10 @@
    ],
    "points": 1,
    "both": 4,
-   "z_dpm": -2.26,
-   "z_win": -0.04,
-   "z_lead": -1.15,
+   "z_win": -0.05,
+   "z_dmg_share": -1.86,
+   "z_deaths": 1.08,
+   "z_lead": -1.0,
    "verdict": "too few"
   },
   {
@@ -978,9 +2007,10 @@
    ],
    "points": 1,
    "both": 7,
-   "z_dpm": 0.76,
    "z_win": 1.3,
-   "z_lead": 1.03,
+   "z_dmg_share": -0.85,
+   "z_deaths": 0.53,
+   "z_lead": -0.03,
    "verdict": "too few"
   },
   {
@@ -992,8 +2022,9 @@
    ],
    "points": -2,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1006,8 +2037,9 @@
    ],
    "points": -2,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1020,8 +2052,9 @@
    ],
    "points": -2,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1034,8 +2067,9 @@
    ],
    "points": -2,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1048,8 +2082,9 @@
    ],
    "points": -2,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1062,8 +2097,9 @@
    ],
    "points": -2,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1076,8 +2112,9 @@
    ],
    "points": -2,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1090,8 +2127,9 @@
    ],
    "points": -2,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1104,8 +2142,9 @@
    ],
    "points": -2,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1117,10 +2156,11 @@
     1068
    ],
    "points": 1,
-   "both": 17,
-   "z_dpm": 1.09,
-   "z_win": 1.64,
-   "z_lead": 1.36,
+   "both": 18,
+   "z_win": 1.65,
+   "z_dmg_share": -0.38,
+   "z_deaths": 0.04,
+   "z_lead": 0.41,
    "verdict": "too few"
   },
   {
@@ -1132,9 +2172,10 @@
    ],
    "points": 1,
    "both": 37,
-   "z_dpm": -0.22,
-   "z_win": -0.37,
-   "z_lead": -0.29,
+   "z_win": -0.49,
+   "z_dmg_share": -0.72,
+   "z_deaths": 0.09,
+   "z_lead": -0.43,
    "verdict": "keep"
   },
   {
@@ -1146,9 +2187,10 @@
    ],
    "points": 1,
    "both": 60,
-   "z_dpm": -0.29,
-   "z_win": 0.74,
-   "z_lead": 0.23,
+   "z_win": 0.68,
+   "z_dmg_share": 0.28,
+   "z_deaths": -0.98,
+   "z_lead": 0.65,
    "verdict": "keep"
   },
   {
@@ -1160,9 +2202,10 @@
    ],
    "points": 1,
    "both": 2,
-   "z_dpm": 0.41,
-   "z_win": 2.2,
-   "z_lead": 1.31,
+   "z_win": 2.25,
+   "z_dmg_share": 0.95,
+   "z_deaths": -1.22,
+   "z_lead": 1.47,
    "verdict": "too few"
   },
   {
@@ -1174,9 +2217,10 @@
    ],
    "points": 1,
    "both": 5,
-   "z_dpm": 1.77,
-   "z_win": 0.43,
-   "z_lead": 1.1,
+   "z_win": 0.48,
+   "z_dmg_share": 1.62,
+   "z_deaths": 0.36,
+   "z_lead": 0.58,
    "verdict": "too few"
   },
   {
@@ -1188,9 +2232,10 @@
    ],
    "points": 1,
    "both": 7,
-   "z_dpm": 0.57,
-   "z_win": 0.09,
-   "z_lead": 0.33,
+   "z_win": 0.19,
+   "z_dmg_share": 1.31,
+   "z_deaths": 0.7,
+   "z_lead": 0.27,
    "verdict": "too few"
   },
   {
@@ -1202,9 +2247,10 @@
    ],
    "points": 1,
    "both": 4,
-   "z_dpm": -2.36,
-   "z_win": 0.68,
-   "z_lead": -0.84,
+   "z_win": 0.69,
+   "z_dmg_share": -2.36,
+   "z_deaths": -0.51,
+   "z_lead": -0.39,
    "verdict": "too few"
   },
   {
@@ -1216,8 +2262,9 @@
    ],
    "points": 1,
    "both": 1,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1230,8 +2277,9 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
    "verdict": "too few"
   },
@@ -1244,9 +2292,6940 @@
    ],
    "points": 1,
    "both": 0,
-   "z_dpm": null,
    "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
    "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "typhoon",
+   "b": "tap_dancer",
+   "ids": [
+    1087,
+    1081
+   ],
+   "points": 1,
+   "both": 27,
+   "z_win": -0.65,
+   "z_dmg_share": 1.05,
+   "z_deaths": -0.62,
+   "z_lead": 0.34,
+   "verdict": "too few"
+  },
+  {
+   "a": "typhoon",
+   "b": "light_em_up",
+   "ids": [
+    1087,
+    1051
+   ],
+   "points": 1,
+   "both": 21,
+   "z_win": -1.01,
+   "z_dmg_share": -0.21,
+   "z_deaths": -0.01,
+   "z_lead": -0.4,
+   "verdict": "too few"
+  },
+  {
+   "a": "typhoon",
+   "b": "third_times_the_harm",
+   "ids": [
+    1087,
+    3016
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "typhoon",
+   "b": "takeem_down_down_down",
+   "ids": [
+    1087,
+    3116
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": -1.19,
+   "z_dmg_share": -0.46,
+   "z_deaths": 0.33,
+   "z_lead": -0.66,
+   "verdict": "too few"
+  },
+  {
+   "a": "typhoon",
+   "b": "master_of_duality",
+   "ids": [
+    1087,
+    1054
+   ],
+   "points": 1,
+   "both": 10,
+   "z_win": 0.79,
+   "z_dmg_share": 0.06,
+   "z_deaths": -0.87,
+   "z_lead": 0.57,
+   "verdict": "too few"
+  },
+  {
+   "a": "typhoon",
+   "b": "hellbent",
+   "ids": [
+    1087,
+    2107
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "typhoon",
+   "b": "juiced",
+   "ids": [
+    1087,
+    2016
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -1.62,
+   "z_dmg_share": -0.81,
+   "z_deaths": 0.09,
+   "z_lead": -0.84,
+   "verdict": "too few"
+  },
+  {
+   "a": "dual_wield",
+   "b": "light_em_up",
+   "ids": [
+    1225,
+    1051
+   ],
+   "points": 1,
+   "both": 36,
+   "z_win": 0.38,
+   "z_dmg_share": 1.44,
+   "z_deaths": -0.31,
+   "z_lead": 0.71,
+   "verdict": "keep"
+  },
+  {
+   "a": "dual_wield",
+   "b": "third_times_the_harm",
+   "ids": [
+    1225,
+    3016
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "dual_wield",
+   "b": "takeem_down_down_down",
+   "ids": [
+    1225,
+    3116
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": 0.11,
+   "z_dmg_share": -0.04,
+   "z_deaths": -0.26,
+   "z_lead": 0.11,
+   "verdict": "too few"
+  },
+  {
+   "a": "dual_wield",
+   "b": "hellbent",
+   "ids": [
+    1225,
+    2107
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "double_tap",
+   "b": "tap_dancer",
+   "ids": [
+    2010,
+    1081
+   ],
+   "points": 1,
+   "both": 16,
+   "z_win": 0.34,
+   "z_dmg_share": -0.43,
+   "z_deaths": 0.66,
+   "z_lead": -0.25,
+   "verdict": "too few"
+  },
+  {
+   "a": "double_tap",
+   "b": "light_em_up",
+   "ids": [
+    2010,
+    1051
+   ],
+   "points": 1,
+   "both": 28,
+   "z_win": 0.47,
+   "z_dmg_share": -0.99,
+   "z_deaths": -1.18,
+   "z_lead": 0.22,
+   "verdict": "too few"
+  },
+  {
+   "a": "double_tap",
+   "b": "third_times_the_harm",
+   "ids": [
+    2010,
+    3016
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "double_tap",
+   "b": "takeem_down_down_down",
+   "ids": [
+    2010,
+    3116
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": 1.44,
+   "z_dmg_share": -0.7,
+   "z_deaths": -0.32,
+   "z_lead": 0.35,
+   "verdict": "too few"
+  },
+  {
+   "a": "double_tap",
+   "b": "master_of_duality",
+   "ids": [
+    2010,
+    1054
+   ],
+   "points": 1,
+   "both": 12,
+   "z_win": 1.44,
+   "z_dmg_share": 0.52,
+   "z_deaths": -0.3,
+   "z_lead": 0.75,
+   "verdict": "too few"
+  },
+  {
+   "a": "double_tap",
+   "b": "hellbent",
+   "ids": [
+    2010,
+    2107
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "double_tap",
+   "b": "juiced",
+   "ids": [
+    2010,
+    2016
+   ],
+   "points": 1,
+   "both": 12,
+   "z_win": -0.26,
+   "z_dmg_share": -2.79,
+   "z_deaths": 1.59,
+   "z_lead": -1.55,
+   "verdict": "too few"
+  },
+  {
+   "a": "ethereal_weapon",
+   "b": "tap_dancer",
+   "ids": [
+    1029,
+    1081
+   ],
+   "points": 1,
+   "both": 9,
+   "z_win": -0.66,
+   "z_dmg_share": 0.93,
+   "z_deaths": -0.58,
+   "z_lead": 0.28,
+   "verdict": "too few"
+  },
+  {
+   "a": "ethereal_weapon",
+   "b": "light_em_up",
+   "ids": [
+    1029,
+    1051
+   ],
+   "points": 1,
+   "both": 11,
+   "z_win": 0.45,
+   "z_dmg_share": -0.79,
+   "z_deaths": 0.39,
+   "z_lead": -0.24,
+   "verdict": "too few"
+  },
+  {
+   "a": "ethereal_weapon",
+   "b": "third_times_the_harm",
+   "ids": [
+    1029,
+    3016
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ethereal_weapon",
+   "b": "master_of_duality",
+   "ids": [
+    1029,
+    1054
+   ],
+   "points": 1,
+   "both": 18,
+   "z_win": -0.76,
+   "z_dmg_share": -1.7,
+   "z_deaths": 0.64,
+   "z_lead": -1.03,
+   "verdict": "too few"
+  },
+  {
+   "a": "tap_dancer",
+   "b": "dont_blink",
+   "ids": [
+    1081,
+    1026
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": -0.0,
+   "z_dmg_share": -0.37,
+   "z_deaths": -0.73,
+   "z_lead": 0.12,
+   "verdict": "too few"
+  },
+  {
+   "a": "homeguard",
+   "b": "dont_blink",
+   "ids": [
+    1105,
+    1026
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -0.28,
+   "z_dmg_share": -0.46,
+   "z_deaths": 0.5,
+   "z_lead": -0.41,
+   "verdict": "too few"
+  },
+  {
+   "a": "shadow_runner",
+   "b": "dont_blink",
+   "ids": [
+    1073,
+    1026
+   ],
+   "points": 1,
+   "both": 9,
+   "z_win": 0.63,
+   "z_dmg_share": -0.95,
+   "z_deaths": 2.87,
+   "z_lead": -1.06,
+   "verdict": "too few"
+  },
+  {
+   "a": "giant_slayer",
+   "b": "dont_blink",
+   "ids": [
+    1195,
+    1026
+   ],
+   "points": 1,
+   "both": 9,
+   "z_win": 0.52,
+   "z_dmg_share": 0.74,
+   "z_deaths": 0.17,
+   "z_lead": 0.36,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "dont_blink",
+   "ids": [
+    1134,
+    1026
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -10.08,
+   "z_dmg_share": -0.02,
+   "z_deaths": -0.56,
+   "z_lead": -3.18,
+   "verdict": "too few"
+  },
+  {
+   "a": "shrink_engine",
+   "b": "dont_blink",
+   "ids": [
+    1373,
+    1026
+   ],
+   "points": 1,
+   "both": 8,
+   "z_win": -0.29,
+   "z_dmg_share": -0.95,
+   "z_deaths": 0.34,
+   "z_lead": -0.53,
+   "verdict": "too few"
+  },
+  {
+   "a": "prom_queen",
+   "b": "dont_blink",
+   "ids": [
+    1421,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "kill_secured",
+   "b": "dont_blink",
+   "ids": [
+    2026,
+    1026
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -0.84,
+   "z_dmg_share": -0.4,
+   "z_deaths": -0.54,
+   "z_lead": -0.23,
+   "verdict": "too few"
+  },
+  {
+   "a": "final_form",
+   "b": "dont_blink",
+   "ids": [
+    1344,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "back_to_basics",
+   "b": "circle_of_death",
+   "ids": [
+    1004,
+    1015
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "back_to_basics",
+   "b": "spirit_bomb",
+   "ids": [
+    1004,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "back_to_basics",
+   "b": "sound_barrier",
+   "ids": [
+    1004,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "protein_shake",
+   "b": "circle_of_death",
+   "ids": [
+    1324,
+    1015
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": -1.67,
+   "z_dmg_share": 0.35,
+   "z_deaths": -0.13,
+   "z_lead": -0.4,
+   "verdict": "too few"
+  },
+  {
+   "a": "protein_shake",
+   "b": "spirit_bomb",
+   "ids": [
+    1324,
+    2104
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 1.15,
+   "z_dmg_share": -0.31,
+   "z_deaths": -0.79,
+   "z_lead": 0.54,
+   "verdict": "too few"
+  },
+  {
+   "a": "protein_shake",
+   "b": "sound_barrier",
+   "ids": [
+    1324,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "overflow",
+   "b": "circle_of_death",
+   "ids": [
+    1311,
+    1015
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -1.41,
+   "z_dmg_share": -0.17,
+   "z_deaths": 0.38,
+   "z_lead": -0.65,
+   "verdict": "too few"
+  },
+  {
+   "a": "overflow",
+   "b": "spirit_bomb",
+   "ids": [
+    1311,
+    2104
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 2.35,
+   "z_dmg_share": 1.08,
+   "z_deaths": -1.98,
+   "z_lead": 1.8,
+   "verdict": "too few"
+  },
+  {
+   "a": "overflow",
+   "b": "sound_barrier",
+   "ids": [
+    1311,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "circle_of_death",
+   "ids": [
+    1331,
+    1015
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -1.03,
+   "z_dmg_share": 1.11,
+   "z_deaths": 0.84,
+   "z_lead": -0.25,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "spirit_bomb",
+   "ids": [
+    1331,
+    2104
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 1.59,
+   "z_dmg_share": 2.22,
+   "z_deaths": -0.45,
+   "z_lead": 1.42,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "sound_barrier",
+   "ids": [
+    1331,
+    3025
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.43,
+   "z_dmg_share": -0.27,
+   "z_deaths": -1.39,
+   "z_lead": 0.52,
+   "verdict": "too few"
+  },
+  {
+   "a": "critical_healing",
+   "b": "circle_of_death",
+   "ids": [
+    1118,
+    1015
+   ],
+   "points": 1,
+   "both": 16,
+   "z_win": 0.29,
+   "z_dmg_share": -0.97,
+   "z_deaths": -0.56,
+   "z_lead": -0.04,
+   "verdict": "too few"
+  },
+  {
+   "a": "critical_healing",
+   "b": "spirit_bomb",
+   "ids": [
+    1118,
+    2104
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "critical_healing",
+   "b": "sound_barrier",
+   "ids": [
+    1118,
+    3025
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bolstered",
+   "b": "circle_of_death",
+   "ids": [
+    2144,
+    1015
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bolstered",
+   "b": "spirit_bomb",
+   "ids": [
+    2144,
+    2104
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 0.02,
+   "z_dmg_share": -0.73,
+   "z_deaths": -0.14,
+   "z_lead": -0.19,
+   "verdict": "too few"
+  },
+  {
+   "a": "bolstered",
+   "b": "sound_barrier",
+   "ids": [
+    2144,
+    3025
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "big_brain",
+   "b": "mighty_shield",
+   "ids": [
+    1180,
+    1314
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "big_brain",
+   "b": "sound_barrier",
+   "ids": [
+    1180,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "big_brain",
+   "b": "spirit_bomb",
+   "ids": [
+    1180,
+    2104
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blue_barrier",
+   "b": "mighty_shield",
+   "ids": [
+    3051,
+    1314
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blue_barrier",
+   "b": "sound_barrier",
+   "ids": [
+    3051,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blue_barrier",
+   "b": "spirit_bomb",
+   "ids": [
+    3051,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "courage_of_the_colossus",
+   "b": "mighty_shield",
+   "ids": [
+    1018,
+    1314
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "courage_of_the_colossus",
+   "b": "sound_barrier",
+   "ids": [
+    1018,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "courage_of_the_colossus",
+   "b": "spirit_bomb",
+   "ids": [
+    1018,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "escape_plan",
+   "b": "mighty_shield",
+   "ids": [
+    1333,
+    1314
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "escape_plan",
+   "b": "sound_barrier",
+   "ids": [
+    1333,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "escape_plan",
+   "b": "spirit_bomb",
+   "ids": [
+    1333,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "final_form",
+   "b": "mighty_shield",
+   "ids": [
+    1344,
+    1314
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "final_form",
+   "b": "sound_barrier",
+   "ids": [
+    1344,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "final_form",
+   "b": "spirit_bomb",
+   "ids": [
+    1344,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "swift_and_safe",
+   "b": "mighty_shield",
+   "ids": [
+    1315,
+    1314
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 4.16,
+   "z_dmg_share": 0.2,
+   "z_deaths": -1.0,
+   "z_lead": 1.79,
+   "verdict": "too few"
+  },
+  {
+   "a": "swift_and_safe",
+   "b": "sound_barrier",
+   "ids": [
+    1315,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "swift_and_safe",
+   "b": "spirit_bomb",
+   "ids": [
+    1315,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "dont_change_the_channel",
+   "b": "mighty_shield",
+   "ids": [
+    2131,
+    1314
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "dont_change_the_channel",
+   "b": "sound_barrier",
+   "ids": [
+    2131,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "dont_change_the_channel",
+   "b": "spirit_bomb",
+   "ids": [
+    2131,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bolstered",
+   "b": "mighty_shield",
+   "ids": [
+    2144,
+    1314
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "archmage",
+   "b": "armored_impact",
+   "ids": [
+    2087,
+    3049
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "archmage",
+   "b": "bouncing_bees",
+   "ids": [
+    2087,
+    3048
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "archmage",
+   "b": "the_boom_and_the_bass",
+   "ids": [
+    2087,
+    3078
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "archmage",
+   "b": "sap_magic",
+   "ids": [
+    2087,
+    3129
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "armored_impact",
+   "ids": [
+    1349,
+    3049
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "bouncing_bees",
+   "ids": [
+    1349,
+    3048
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "the_boom_and_the_bass",
+   "ids": [
+    1349,
+    3078
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "sap_magic",
+   "ids": [
+    1349,
+    3129
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "double_tap",
+   "b": "reload",
+   "ids": [
+    2010,
+    2126
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "dual_wield",
+   "b": "juiced",
+   "ids": [
+    1225,
+    2016
+   ],
+   "points": 1,
+   "both": 8,
+   "z_win": -1.34,
+   "z_dmg_share": -0.02,
+   "z_deaths": -0.43,
+   "z_lead": -0.31,
+   "verdict": "too few"
+  },
+  {
+   "a": "dual_wield",
+   "b": "reload",
+   "ids": [
+    1225,
+    2126
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ethereal_weapon",
+   "b": "reload",
+   "ids": [
+    1029,
+    2126
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "typhoon",
+   "b": "reload",
+   "ids": [
+    1087,
+    2126
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "back_to_basics",
+   "b": "one_hit_wonder",
+   "ids": [
+    1004,
+    3060
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.4,
+   "z_dmg_share": 0.94,
+   "z_deaths": -1.04,
+   "z_lead": 0.79,
+   "verdict": "too few"
+  },
+  {
+   "a": "back_to_basics",
+   "b": "with_haste",
+   "ids": [
+    1004,
+    1098
+   ],
+   "points": 1,
+   "both": 8,
+   "z_win": 1.15,
+   "z_dmg_share": 0.1,
+   "z_deaths": 0.2,
+   "z_lead": 0.35,
+   "verdict": "too few"
+  },
+  {
+   "a": "eureka",
+   "b": "one_hit_wonder",
+   "ids": [
+    1030,
+    3060
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": 1.99,
+   "z_dmg_share": 2.07,
+   "z_deaths": -0.42,
+   "z_lead": 1.49,
+   "verdict": "too few"
+  },
+  {
+   "a": "infinite_recursion",
+   "b": "one_hit_wonder",
+   "ids": [
+    1388,
+    3060
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "one_hit_wonder",
+   "ids": [
+    1053,
+    3060
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "with_haste",
+   "ids": [
+    1053,
+    1098
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "recursion",
+   "b": "one_hit_wonder",
+   "ids": [
+    1068,
+    3060
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -0.21,
+   "z_dmg_share": -0.18,
+   "z_deaths": -1.36,
+   "z_lead": 0.32,
+   "verdict": "too few"
+  },
+  {
+   "a": "shrink_engine",
+   "b": "one_hit_wonder",
+   "ids": [
+    1373,
+    3060
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "shrink_engine",
+   "b": "with_haste",
+   "ids": [
+    1373,
+    1098
+   ],
+   "points": 1,
+   "both": 18,
+   "z_win": -0.17,
+   "z_dmg_share": -1.02,
+   "z_deaths": -1.61,
+   "z_lead": 0.14,
+   "verdict": "too few"
+  },
+  {
+   "a": "archmage",
+   "b": "double_time",
+   "ids": [
+    2087,
+    3036
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -1.42,
+   "z_dmg_share": -0.12,
+   "z_deaths": 0.53,
+   "z_lead": -0.69,
+   "verdict": "too few"
+  },
+  {
+   "a": "archmage",
+   "b": "master_of_duality",
+   "ids": [
+    2087,
+    1054
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "archmage",
+   "b": "overloaded",
+   "ids": [
+    2087,
+    2123
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 1.64,
+   "z_dmg_share": -0.25,
+   "z_deaths": 0.01,
+   "z_lead": 0.46,
+   "verdict": "too few"
+  },
+  {
+   "a": "archmage",
+   "b": "upgrade_sheen",
+   "ids": [
+    2087,
+    1996
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 10.48,
+   "z_dmg_share": -0.04,
+   "z_deaths": -1.27,
+   "z_lead": 3.9,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_punch",
+   "b": "archmage",
+   "ids": [
+    1058,
+    2087
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_punch",
+   "b": "armored_impact",
+   "ids": [
+    1058,
+    3049
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_punch",
+   "b": "bouncing_bees",
+   "ids": [
+    1058,
+    3048
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_punch",
+   "b": "double_time",
+   "ids": [
+    1058,
+    3036
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_punch",
+   "b": "master_of_duality",
+   "ids": [
+    1058,
+    1054
+   ],
+   "points": 1,
+   "both": 7,
+   "z_win": 0.01,
+   "z_dmg_share": -0.21,
+   "z_deaths": 0.55,
+   "z_lead": -0.25,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_punch",
+   "b": "overloaded",
+   "ids": [
+    1058,
+    2123
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_punch",
+   "b": "sap_magic",
+   "ids": [
+    1058,
+    3129
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.62,
+   "z_dmg_share": 0.46,
+   "z_deaths": -0.83,
+   "z_lead": 0.64,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_punch",
+   "b": "the_boom_and_the_bass",
+   "ids": [
+    1058,
+    3078
+   ],
+   "points": 1,
+   "both": 7,
+   "z_win": -1.34,
+   "z_dmg_share": -1.08,
+   "z_deaths": 0.89,
+   "z_lead": -1.1,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_punch",
+   "b": "upgrade_sheen",
+   "ids": [
+    1058,
+    1996
+   ],
+   "points": 1,
+   "both": 17,
+   "z_win": -1.67,
+   "z_dmg_share": -1.54,
+   "z_deaths": -0.19,
+   "z_lead": -1.01,
+   "verdict": "too few"
+  },
+  {
+   "a": "overloaded",
+   "b": "armored_impact",
+   "ids": [
+    2123,
+    3049
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "overloaded",
+   "b": "bouncing_bees",
+   "ids": [
+    2123,
+    3048
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "overloaded",
+   "b": "double_time",
+   "ids": [
+    2123,
+    3036
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.69,
+   "z_dmg_share": 2.27,
+   "z_deaths": 0.44,
+   "z_lead": 0.84,
+   "verdict": "too few"
+  },
+  {
+   "a": "overloaded",
+   "b": "master_of_duality",
+   "ids": [
+    2123,
+    1054
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "overloaded",
+   "b": "sap_magic",
+   "ids": [
+    2123,
+    3129
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "overloaded",
+   "b": "the_boom_and_the_bass",
+   "ids": [
+    2123,
+    3078
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -0.69,
+   "z_dmg_share": -0.06,
+   "z_deaths": 0.27,
+   "z_lead": -0.34,
+   "verdict": "too few"
+  },
+  {
+   "a": "overloaded",
+   "b": "upgrade_sheen",
+   "ids": [
+    2123,
+    1996
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 1.46,
+   "z_dmg_share": -3.49,
+   "z_deaths": -0.71,
+   "z_lead": -0.44,
+   "verdict": "too few"
+  },
+  {
+   "a": "skilled_sniper",
+   "b": "archmage",
+   "ids": [
+    1113,
+    2087
+   ],
+   "points": 1,
+   "both": 21,
+   "z_win": 0.66,
+   "z_dmg_share": 0.09,
+   "z_deaths": 0.9,
+   "z_lead": -0.05,
+   "verdict": "too few"
+  },
+  {
+   "a": "skilled_sniper",
+   "b": "armored_impact",
+   "ids": [
+    1113,
+    3049
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "skilled_sniper",
+   "b": "bouncing_bees",
+   "ids": [
+    1113,
+    3048
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "skilled_sniper",
+   "b": "double_time",
+   "ids": [
+    1113,
+    3036
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "skilled_sniper",
+   "b": "master_of_duality",
+   "ids": [
+    1113,
+    1054
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": -0.95,
+   "z_dmg_share": -0.66,
+   "z_deaths": 0.88,
+   "z_lead": -0.83,
+   "verdict": "too few"
+  },
+  {
+   "a": "skilled_sniper",
+   "b": "overloaded",
+   "ids": [
+    1113,
+    2123
+   ],
+   "points": 1,
+   "both": 10,
+   "z_win": 0.69,
+   "z_dmg_share": -0.4,
+   "z_deaths": 1.16,
+   "z_lead": -0.29,
+   "verdict": "too few"
+  },
+  {
+   "a": "skilled_sniper",
+   "b": "sap_magic",
+   "ids": [
+    1113,
+    3129
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "skilled_sniper",
+   "b": "the_boom_and_the_bass",
+   "ids": [
+    1113,
+    3078
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "skilled_sniper",
+   "b": "upgrade_sheen",
+   "ids": [
+    1113,
+    1996
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": 0.3,
+   "z_dmg_share": 0.38,
+   "z_deaths": -1.1,
+   "z_lead": 0.59,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "archmage",
+   "ids": [
+    1349,
+    2087
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.8,
+   "z_dmg_share": -0.16,
+   "z_deaths": -1.15,
+   "z_lead": 0.6,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "double_time",
+   "ids": [
+    1349,
+    3036
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "master_of_duality",
+   "ids": [
+    1349,
+    1054
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "overloaded",
+   "ids": [
+    1349,
+    2123
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": 0.35,
+   "z_dmg_share": 0.68,
+   "z_deaths": 0.03,
+   "z_lead": 0.33,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "upgrade_sheen",
+   "ids": [
+    1349,
+    1996
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "arcane_axiom",
+   "b": "cant_touch_this",
+   "ids": [
+    3118,
+    1011
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "arcane_axiom",
+   "b": "fey_magic",
+   "ids": [
+    3118,
+    1194
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "arcane_axiom",
+   "b": "final_form",
+   "ids": [
+    3118,
+    1344
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "arcane_axiom",
+   "b": "its_killing_time",
+   "ids": [
+    3118,
+    1211
+   ],
+   "points": 1,
+   "both": 9,
+   "z_win": -0.69,
+   "z_dmg_share": 0.83,
+   "z_deaths": 2.6,
+   "z_lead": -0.82,
+   "verdict": "too few"
+  },
+  {
+   "a": "arcane_axiom",
+   "b": "mosh_monster",
+   "ids": [
+    3118,
+    3053
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "arcane_axiom",
+   "b": "stuck_in_here_with_me",
+   "ids": [
+    3118,
+    1413
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "arcane_axiom",
+   "b": "ultimate_awakening",
+   "ids": [
+    3118,
+    1349
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": 2.39,
+   "z_dmg_share": -0.95,
+   "z_deaths": -0.6,
+   "z_lead": 0.68,
+   "verdict": "too few"
+  },
+  {
+   "a": "arcane_axiom",
+   "b": "ultimate_unstoppable",
+   "ids": [
+    3118,
+    1112
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "cant_touch_this",
+   "ids": [
+    1349,
+    1011
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 0.04,
+   "z_dmg_share": 0.15,
+   "z_deaths": 0.93,
+   "z_lead": -0.25,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "fey_magic",
+   "ids": [
+    1349,
+    1194
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -0.3,
+   "z_dmg_share": 2.16,
+   "z_deaths": -1.48,
+   "z_lead": 1.11,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "final_form",
+   "ids": [
+    1349,
+    1344
+   ],
+   "points": 1,
+   "both": 9,
+   "z_win": -0.19,
+   "z_dmg_share": 0.83,
+   "z_deaths": 0.69,
+   "z_lead": -0.02,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "mosh_monster",
+   "ids": [
+    1349,
+    3053
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -0.66,
+   "z_dmg_share": 0.3,
+   "z_deaths": -0.29,
+   "z_lead": -0.02,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "stuck_in_here_with_me",
+   "ids": [
+    1349,
+    1413
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_awakening",
+   "b": "ultimate_unstoppable",
+   "ids": [
+    1349,
+    1112
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": -0.79,
+   "z_dmg_share": 3.72,
+   "z_deaths": -0.07,
+   "z_lead": 1.0,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_recursion",
+   "b": "cant_touch_this",
+   "ids": [
+    3055,
+    1011
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_recursion",
+   "b": "fey_magic",
+   "ids": [
+    3055,
+    1194
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.71,
+   "z_dmg_share": 1.57,
+   "z_deaths": 1.81,
+   "z_lead": 0.16,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_recursion",
+   "b": "final_form",
+   "ids": [
+    3055,
+    1344
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_recursion",
+   "b": "its_killing_time",
+   "ids": [
+    3055,
+    1211
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_recursion",
+   "b": "mosh_monster",
+   "ids": [
+    3055,
+    3053
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_recursion",
+   "b": "stuck_in_here_with_me",
+   "ids": [
+    3055,
+    1413
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_recursion",
+   "b": "ultimate_awakening",
+   "ids": [
+    3055,
+    1349
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 0.63,
+   "z_dmg_share": 0.82,
+   "z_deaths": 1.71,
+   "z_lead": -0.09,
+   "verdict": "too few"
+  },
+  {
+   "a": "ultimate_recursion",
+   "b": "ultimate_unstoppable",
+   "ids": [
+    3055,
+    1112
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "tap_dancer",
+   "ids": [
+    1134,
+    1081
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": -1.3,
+   "z_dmg_share": -0.27,
+   "z_deaths": 0.53,
+   "z_lead": -0.7,
+   "verdict": "too few"
+  },
+  {
+   "a": "escape_plan",
+   "b": "dont_blink",
+   "ids": [
+    1333,
+    1026
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 1.07,
+   "z_dmg_share": -1.95,
+   "z_deaths": -2.1,
+   "z_lead": 0.41,
+   "verdict": "too few"
+  },
+  {
+   "a": "escape_plan",
+   "b": "tap_dancer",
+   "ids": [
+    1333,
+    1081
+   ],
+   "points": 1,
+   "both": 7,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "final_form",
+   "b": "tap_dancer",
+   "ids": [
+    1344,
+    1081
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "firefox",
+   "b": "dont_blink",
+   "ids": [
+    1308,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "firefox",
+   "b": "tap_dancer",
+   "ids": [
+    1308,
+    1081
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "get_excited",
+   "b": "dont_blink",
+   "ids": [
+    1322,
+    1026
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "get_excited",
+   "b": "tap_dancer",
+   "ids": [
+    1322,
+    1081
+   ],
+   "points": 1,
+   "both": 13,
+   "z_win": -0.75,
+   "z_dmg_share": 0.52,
+   "z_deaths": -0.05,
+   "z_lead": -0.06,
+   "verdict": "too few"
+  },
+  {
+   "a": "giant_slayer",
+   "b": "tap_dancer",
+   "ids": [
+    1195,
+    1081
+   ],
+   "points": 1,
+   "both": 16,
+   "z_win": -0.09,
+   "z_dmg_share": -1.92,
+   "z_deaths": -0.93,
+   "z_lead": -0.36,
+   "verdict": "too few"
+  },
+  {
+   "a": "goldrend",
+   "b": "dont_blink",
+   "ids": [
+    1335,
+    1026
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "goldrend",
+   "b": "tap_dancer",
+   "ids": [
+    1335,
+    1081
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "homeguard",
+   "b": "tap_dancer",
+   "ids": [
+    1105,
+    1081
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -2.39,
+   "z_dmg_share": 1.79,
+   "z_deaths": 2.91,
+   "z_lead": -1.17,
+   "verdict": "too few"
+  },
+  {
+   "a": "its_go_time",
+   "b": "dont_blink",
+   "ids": [
+    2125,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "its_go_time",
+   "b": "tap_dancer",
+   "ids": [
+    2125,
+    1081
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "kill_secured",
+   "b": "tap_dancer",
+   "ids": [
+    2026,
+    1081
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "dont_blink",
+   "ids": [
+    1053,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "tap_dancer",
+   "ids": [
+    1053,
+    1081
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "nightstalking",
+   "b": "dont_blink",
+   "ids": [
+    1326,
+    1026
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "nightstalking",
+   "b": "tap_dancer",
+   "ids": [
+    1326,
+    1081
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 0.42,
+   "z_dmg_share": -0.51,
+   "z_deaths": -0.39,
+   "z_lead": 0.1,
+   "verdict": "too few"
+  },
+  {
+   "a": "ominous_pact",
+   "b": "dont_blink",
+   "ids": [
+    1332,
+    1026
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ominous_pact",
+   "b": "tap_dancer",
+   "ids": [
+    1332,
+    1081
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "prom_queen",
+   "b": "tap_dancer",
+   "ids": [
+    1421,
+    1081
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "shadow_runner",
+   "b": "tap_dancer",
+   "ids": [
+    1073,
+    1081
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -0.04,
+   "z_dmg_share": 1.36,
+   "z_deaths": -0.41,
+   "z_lead": 0.58,
+   "verdict": "too few"
+  },
+  {
+   "a": "shrink_engine",
+   "b": "tap_dancer",
+   "ids": [
+    1373,
+    1081
+   ],
+   "points": 1,
+   "both": 8,
+   "z_win": -0.96,
+   "z_dmg_share": -1.18,
+   "z_deaths": 0.75,
+   "z_lead": -0.96,
+   "verdict": "too few"
+  },
+  {
+   "a": "sonata",
+   "b": "dont_blink",
+   "ids": [
+    1420,
+    1026
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "sonata",
+   "b": "tap_dancer",
+   "ids": [
+    1420,
+    1081
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.64,
+   "z_dmg_share": -0.37,
+   "z_deaths": 0.61,
+   "z_lead": -0.11,
+   "verdict": "too few"
+  },
+  {
+   "a": "sound_barrier",
+   "b": "dont_blink",
+   "ids": [
+    3025,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "sound_barrier",
+   "b": "tap_dancer",
+   "ids": [
+    3025,
+    1081
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "the_boom_and_the_bass",
+   "b": "dont_blink",
+   "ids": [
+    3078,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "the_boom_and_the_bass",
+   "b": "tap_dancer",
+   "ids": [
+    3078,
+    1081
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.98,
+   "z_dmg_share": -0.08,
+   "z_deaths": -1.21,
+   "z_lead": 0.7,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_zhonyas",
+   "b": "dont_blink",
+   "ids": [
+    1318,
+    1026
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_zhonyas",
+   "b": "tap_dancer",
+   "ids": [
+    1318,
+    1081
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "wee_woo_wee_woo",
+   "b": "dont_blink",
+   "ids": [
+    1005,
+    1026
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "wee_woo_wee_woo",
+   "b": "tap_dancer",
+   "ids": [
+    1005,
+    1081
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "biggest_snowball_ever",
+   "b": "earthwake",
+   "ids": [
+    1329,
+    1027
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "biggest_snowball_ever",
+   "b": "outlaws_grit",
+   "ids": [
+    1329,
+    1063
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": -1.28,
+   "z_dmg_share": 3.7,
+   "z_deaths": -0.45,
+   "z_lead": 0.96,
+   "verdict": "too few"
+  },
+  {
+   "a": "biggest_snowball_ever",
+   "b": "shadow_runner",
+   "ids": [
+    1329,
+    1073
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -0.56,
+   "z_dmg_share": 1.14,
+   "z_deaths": 1.96,
+   "z_lead": -0.46,
+   "verdict": "too few"
+  },
+  {
+   "a": "biggest_snowball_ever",
+   "b": "swift_and_safe",
+   "ids": [
+    1329,
+    1315
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.38,
+   "z_dmg_share": -0.16,
+   "z_deaths": 0.03,
+   "z_lead": 0.06,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "earthwake",
+   "ids": [
+    1006,
+    1027
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -0.8,
+   "z_dmg_share": 0.14,
+   "z_deaths": 0.29,
+   "z_lead": -0.32,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "outlaws_grit",
+   "ids": [
+    1006,
+    1063
+   ],
+   "points": 1,
+   "both": 7,
+   "z_win": 0.65,
+   "z_dmg_share": -1.28,
+   "z_deaths": 1.23,
+   "z_lead": -0.62,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "shadow_runner",
+   "ids": [
+    1006,
+    1073
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 0.66,
+   "z_dmg_share": -1.17,
+   "z_deaths": 0.62,
+   "z_lead": -0.38,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "swift_and_safe",
+   "ids": [
+    1006,
+    1315
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -0.53,
+   "z_dmg_share": -0.77,
+   "z_deaths": 1.3,
+   "z_lead": -0.87,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "earthwake",
+   "ids": [
+    1331,
+    1027
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "outlaws_grit",
+   "ids": [
+    1331,
+    1063
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "shadow_runner",
+   "ids": [
+    1331,
+    1073
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "swift_and_safe",
+   "ids": [
+    1331,
+    1315
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "earthwake",
+   "ids": [
+    1348,
+    1027
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "outlaws_grit",
+   "ids": [
+    1348,
+    1063
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "shadow_runner",
+   "ids": [
+    1348,
+    1073
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flash_2",
+   "b": "swift_and_safe",
+   "ids": [
+    1348,
+    1315
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flashy",
+   "b": "earthwake",
+   "ids": [
+    1116,
+    1027
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.84,
+   "z_dmg_share": -0.81,
+   "z_deaths": -0.28,
+   "z_lead": 0.1,
+   "verdict": "too few"
+  },
+  {
+   "a": "flashy",
+   "b": "outlaws_grit",
+   "ids": [
+    1116,
+    1063
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "flashy",
+   "b": "shadow_runner",
+   "ids": [
+    1116,
+    1073
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -1.1,
+   "z_dmg_share": -1.5,
+   "z_deaths": -1.98,
+   "z_lead": -0.21,
+   "verdict": "too few"
+  },
+  {
+   "a": "flashy",
+   "b": "swift_and_safe",
+   "ids": [
+    1116,
+    1315
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "holy_snowball",
+   "b": "earthwake",
+   "ids": [
+    1392,
+    1027
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "holy_snowball",
+   "b": "outlaws_grit",
+   "ids": [
+    1392,
+    1063
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "holy_snowball",
+   "b": "shadow_runner",
+   "ids": [
+    1392,
+    1073
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "holy_snowball",
+   "b": "swift_and_safe",
+   "ids": [
+    1392,
+    1315
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "quickstep",
+   "b": "earthwake",
+   "ids": [
+    2064,
+    1027
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "quickstep",
+   "b": "outlaws_grit",
+   "ids": [
+    2064,
+    1063
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "quickstep",
+   "b": "shadow_runner",
+   "ids": [
+    2064,
+    1073
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -0.91,
+   "z_dmg_share": 0.77,
+   "z_deaths": 0.29,
+   "z_lead": -0.14,
+   "verdict": "too few"
+  },
+  {
+   "a": "quickstep",
+   "b": "swift_and_safe",
+   "ids": [
+    2064,
+    1315
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "recoil",
+   "b": "earthwake",
+   "ids": [
+    3075,
+    1027
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "recoil",
+   "b": "outlaws_grit",
+   "ids": [
+    3075,
+    1063
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "recoil",
+   "b": "shadow_runner",
+   "ids": [
+    3075,
+    1073
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "recoil",
+   "b": "swift_and_safe",
+   "ids": [
+    3075,
+    1315
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "rite_of_ascension",
+   "b": "earthwake",
+   "ids": [
+    2099,
+    1027
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -0.7,
+   "z_dmg_share": 1.17,
+   "z_deaths": -0.94,
+   "z_lead": 0.47,
+   "verdict": "too few"
+  },
+  {
+   "a": "rite_of_ascension",
+   "b": "outlaws_grit",
+   "ids": [
+    2099,
+    1063
+   ],
+   "points": 1,
+   "both": 8,
+   "z_win": -1.04,
+   "z_dmg_share": 0.5,
+   "z_deaths": -0.71,
+   "z_lead": 0.06,
+   "verdict": "too few"
+  },
+  {
+   "a": "rite_of_ascension",
+   "b": "shadow_runner",
+   "ids": [
+    2099,
+    1073
+   ],
+   "points": 1,
+   "both": 9,
+   "z_win": -1.31,
+   "z_dmg_share": 0.48,
+   "z_deaths": 1.3,
+   "z_lead": -0.71,
+   "verdict": "too few"
+  },
+  {
+   "a": "rite_of_ascension",
+   "b": "swift_and_safe",
+   "ids": [
+    2099,
+    1315
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 0.47,
+   "z_dmg_share": 1.77,
+   "z_deaths": -1.07,
+   "z_lead": 1.1,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowblast",
+   "b": "earthwake",
+   "ids": [
+    2080,
+    1027
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowblast",
+   "b": "outlaws_grit",
+   "ids": [
+    2080,
+    1063
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowblast",
+   "b": "shadow_runner",
+   "ids": [
+    2080,
+    1073
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowblast",
+   "b": "swift_and_safe",
+   "ids": [
+    2080,
+    1315
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowday",
+   "b": "earthwake",
+   "ids": [
+    2088,
+    1027
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowday",
+   "b": "outlaws_grit",
+   "ids": [
+    2088,
+    1063
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowday",
+   "b": "shadow_runner",
+   "ids": [
+    2088,
+    1073
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowday",
+   "b": "swift_and_safe",
+   "ids": [
+    2088,
+    1315
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "nightstalking",
+   "b": "shadow_runner",
+   "ids": [
+    1326,
+    1073
+   ],
+   "points": 1,
+   "both": 29,
+   "z_win": -0.22,
+   "z_dmg_share": 0.82,
+   "z_deaths": -0.92,
+   "z_lead": 0.51,
+   "verdict": "too few"
+  },
+  {
+   "a": "chain_reaction",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    2078,
+    1018
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "chain_reaction",
+   "b": "cruelty",
+   "ids": [
+    2078,
+    1323
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "chain_reaction",
+   "b": "slap_around",
+   "ids": [
+    2078,
+    1136
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 0.63,
+   "z_dmg_share": 0.89,
+   "z_deaths": -0.63,
+   "z_lead": 0.72,
+   "verdict": "too few"
+  },
+  {
+   "a": "chain_reaction",
+   "b": "soul_eater",
+   "ids": [
+    2078,
+    1375
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowblast",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    2080,
+    1018
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowblast",
+   "b": "cruelty",
+   "ids": [
+    2080,
+    1323
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowblast",
+   "b": "slap_around",
+   "ids": [
+    2080,
+    1136
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": 2.14,
+   "z_dmg_share": 3.02,
+   "z_deaths": -1.03,
+   "z_lead": 2.06,
+   "verdict": "too few"
+  },
+  {
+   "a": "snowblast",
+   "b": "soul_eater",
+   "ids": [
+    2080,
+    1375
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "fey_magic",
+   "b": "ice_cold",
+   "ids": [
+    1194,
+    1044
+   ],
+   "points": 1,
+   "both": 7,
+   "z_win": 0.15,
+   "z_dmg_share": -0.55,
+   "z_deaths": 0.1,
+   "z_lead": -0.17,
+   "verdict": "too few"
+  },
+  {
+   "a": "flashbang",
+   "b": "ice_cold",
+   "ids": [
+    1187,
+    1044
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "ice_cold",
+   "ids": [
+    3053,
+    1044
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "shark_bait",
+   "b": "ice_cold",
+   "ids": [
+    2032,
+    1044
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "sonic_boom",
+   "b": "ice_cold",
+   "ids": [
+    1076,
+    1044
+   ],
+   "points": 1,
+   "both": 7,
+   "z_win": 0.46,
+   "z_dmg_share": -0.55,
+   "z_deaths": 0.16,
+   "z_lead": -0.08,
+   "verdict": "too few"
+  },
+  {
+   "a": "dawnbringers_resolve",
+   "b": "spirit_bomb",
+   "ids": [
+    1020,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "dawnbringers_resolve",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1020,
+    1095
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "circle_of_death",
+   "ids": [
+    1134,
+    1015
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "spirit_bomb",
+   "ids": [
+    1134,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1134,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "final_form",
+   "b": "circle_of_death",
+   "ids": [
+    1344,
+    1015
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "final_form",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1344,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "fruitify",
+   "b": "circle_of_death",
+   "ids": [
+    3121,
+    1015
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "fruitify",
+   "b": "spirit_bomb",
+   "ids": [
+    3121,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "fruitify",
+   "b": "windspeakers_blessing",
+   "ids": [
+    3121,
+    1095
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "goredrink",
+   "b": "spirit_bomb",
+   "ids": [
+    1138,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "goredrink",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1138,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "nature_is_healing",
+   "b": "circle_of_death",
+   "ids": [
+    2043,
+    1015
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "nature_is_healing",
+   "b": "spirit_bomb",
+   "ids": [
+    2043,
+    2104
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "nature_is_healing",
+   "b": "windspeakers_blessing",
+   "ids": [
+    2043,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ocean_soul",
+   "b": "circle_of_death",
+   "ids": [
+    1060,
+    1015
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.19,
+   "z_dmg_share": -0.71,
+   "z_deaths": -0.52,
+   "z_lead": 0.0,
+   "verdict": "too few"
+  },
+  {
+   "a": "ocean_soul",
+   "b": "spirit_bomb",
+   "ids": [
+    1060,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ocean_soul",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1060,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ravenous_bind",
+   "b": "circle_of_death",
+   "ids": [
+    2077,
+    1015
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 9.49,
+   "z_dmg_share": 1.92,
+   "z_deaths": -1.89,
+   "z_lead": 4.43,
+   "verdict": "too few"
+  },
+  {
+   "a": "ravenous_bind",
+   "b": "spirit_bomb",
+   "ids": [
+    2077,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "ravenous_bind",
+   "b": "windspeakers_blessing",
+   "ids": [
+    2077,
+    1095
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "rejuvenation",
+   "b": "spirit_bomb",
+   "ids": [
+    1067,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "rejuvenation",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1067,
+    1095
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": 0.14,
+   "z_dmg_share": -0.13,
+   "z_deaths": -0.34,
+   "z_lead": 0.12,
+   "verdict": "too few"
+  },
+  {
+   "a": "salvation",
+   "b": "circle_of_death",
+   "ids": [
+    3039,
+    1015
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "salvation",
+   "b": "spirit_bomb",
+   "ids": [
+    3039,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "salvation",
+   "b": "windspeakers_blessing",
+   "ids": [
+    3039,
+    1095
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "sap_magic",
+   "b": "circle_of_death",
+   "ids": [
+    3129,
+    1015
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 0.34,
+   "z_dmg_share": 1.91,
+   "z_deaths": 0.55,
+   "z_lead": 0.57,
+   "verdict": "too few"
+  },
+  {
+   "a": "sap_magic",
+   "b": "spirit_bomb",
+   "ids": [
+    3129,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "sap_magic",
+   "b": "windspeakers_blessing",
+   "ids": [
+    3129,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "siphon",
+   "b": "spirit_bomb",
+   "ids": [
+    2073,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "siphon",
+   "b": "windspeakers_blessing",
+   "ids": [
+    2073,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "sonata",
+   "b": "circle_of_death",
+   "ids": [
+    1420,
+    1015
+   ],
+   "points": 1,
+   "both": 7,
+   "z_win": 0.34,
+   "z_dmg_share": -0.36,
+   "z_deaths": -0.82,
+   "z_lead": 0.27,
+   "verdict": "too few"
+  },
+  {
+   "a": "sonata",
+   "b": "spirit_bomb",
+   "ids": [
+    1420,
+    2104
+   ],
+   "points": 1,
+   "both": 16,
+   "z_win": -1.39,
+   "z_dmg_share": 1.08,
+   "z_deaths": 0.55,
+   "z_lead": -0.29,
+   "verdict": "too few"
+  },
+  {
+   "a": "sonata",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1420,
+    1095
+   ],
+   "points": 1,
+   "both": 23,
+   "z_win": 0.29,
+   "z_dmg_share": 1.08,
+   "z_deaths": 0.56,
+   "z_lead": 0.27,
+   "verdict": "too few"
+  },
+  {
+   "a": "soul_siphon",
+   "b": "spirit_bomb",
+   "ids": [
+    1077,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "soul_siphon",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1077,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "still_here",
+   "b": "spirit_bomb",
+   "ids": [
+    3131,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "still_here",
+   "b": "windspeakers_blessing",
+   "ids": [
+    3131,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_ravenous_hydra",
+   "b": "circle_of_death",
+   "ids": [
+    2140,
+    1015
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_ravenous_hydra",
+   "b": "spirit_bomb",
+   "ids": [
+    2140,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_ravenous_hydra",
+   "b": "windspeakers_blessing",
+   "ids": [
+    2140,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_sheen",
+   "b": "circle_of_death",
+   "ids": [
+    1996,
+    1015
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_sheen",
+   "b": "spirit_bomb",
+   "ids": [
+    1996,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_sheen",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1996,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_sundered_sky",
+   "b": "circle_of_death",
+   "ids": [
+    2143,
+    1015
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_sundered_sky",
+   "b": "spirit_bomb",
+   "ids": [
+    2143,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_sundered_sky",
+   "b": "windspeakers_blessing",
+   "ids": [
+    2143,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_sword_of_blossoming_dawn",
+   "b": "circle_of_death",
+   "ids": [
+    1379,
+    1015
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_sword_of_blossoming_dawn",
+   "b": "spirit_bomb",
+   "ids": [
+    1379,
+    2104
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": 0.81,
+   "z_dmg_share": 0.42,
+   "z_deaths": -0.89,
+   "z_lead": 0.71,
+   "verdict": "too few"
+  },
+  {
+   "a": "upgrade_sword_of_blossoming_dawn",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1379,
+    1095
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "warlock_juicebox",
+   "b": "circle_of_death",
+   "ids": [
+    2132,
+    1015
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.31,
+   "z_dmg_share": 0.01,
+   "z_deaths": 1.67,
+   "z_lead": -0.45,
+   "verdict": "too few"
+  },
+  {
+   "a": "warlock_juicebox",
+   "b": "spirit_bomb",
+   "ids": [
+    2132,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "warlock_juicebox",
+   "b": "windspeakers_blessing",
+   "ids": [
+    2132,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "big_brain",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1180,
+    1095
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blue_barrier",
+   "b": "windspeakers_blessing",
+   "ids": [
+    3051,
+    1095
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bolstered",
+   "b": "windspeakers_blessing",
+   "ids": [
+    2144,
+    1095
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 0.71,
+   "z_dmg_share": 0.59,
+   "z_deaths": 1.45,
+   "z_lead": -0.05,
+   "verdict": "too few"
+  },
+  {
+   "a": "courage_of_the_colossus",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1018,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "dont_change_the_channel",
+   "b": "windspeakers_blessing",
+   "ids": [
+    2131,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "mighty_shield",
+   "ids": [
+    1331,
+    1314
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1331,
+    1095
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -0.31,
+   "z_dmg_share": 0.63,
+   "z_deaths": 1.13,
+   "z_lead": -0.27,
+   "verdict": "too few"
+  },
+  {
+   "a": "escape_plan",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1333,
+    1095
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -2.04,
+   "z_dmg_share": 0.68,
+   "z_deaths": 1.73,
+   "z_lead": -1.03,
+   "verdict": "too few"
+  },
+  {
+   "a": "mountain_soul",
+   "b": "mighty_shield",
+   "ids": [
+    1057,
+    1314
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mountain_soul",
+   "b": "sound_barrier",
+   "ids": [
+    1057,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mountain_soul",
+   "b": "spirit_bomb",
+   "ids": [
+    1057,
+    2104
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mountain_soul",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1057,
+    1095
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "swift_and_safe",
+   "b": "windspeakers_blessing",
+   "ids": [
+    1315,
+    1095
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "back_to_basics",
+   "b": "mercys_strike",
+   "ids": [
+    1004,
+    2133
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 1.56,
+   "z_dmg_share": -0.04,
+   "z_deaths": -0.11,
+   "z_lead": 0.54,
+   "verdict": "too few"
+  },
+  {
+   "a": "bolstered",
+   "b": "mercys_strike",
+   "ids": [
+    2144,
+    2133
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "critical_healing",
+   "b": "mercys_strike",
+   "ids": [
+    1118,
+    2133
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -3.19,
+   "z_dmg_share": -0.52,
+   "z_deaths": -2.76,
+   "z_lead": -0.32,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "mercys_strike",
+   "ids": [
+    1331,
+    2133
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 2.52,
+   "z_dmg_share": 0.72,
+   "z_deaths": -1.04,
+   "z_lead": 1.43,
+   "verdict": "too few"
+  },
+  {
+   "a": "first_aid_kit",
+   "b": "mercys_strike",
+   "ids": [
+    1037,
+    2133
+   ],
+   "points": 1,
+   "both": 15,
+   "z_win": -0.47,
+   "z_dmg_share": 1.31,
+   "z_deaths": 0.92,
+   "z_lead": -0.03,
+   "verdict": "too few"
+  },
+  {
+   "a": "first_aid_kit",
+   "b": "sound_barrier",
+   "ids": [
+    1037,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "first_aid_kit",
+   "b": "spirit_bomb",
+   "ids": [
+    1037,
+    2104
+   ],
+   "points": 1,
+   "both": 22,
+   "z_win": -0.99,
+   "z_dmg_share": -0.13,
+   "z_deaths": 1.16,
+   "z_lead": -0.76,
+   "verdict": "too few"
+  },
+  {
+   "a": "overflow",
+   "b": "mercys_strike",
+   "ids": [
+    1311,
+    2133
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "protein_shake",
+   "b": "mercys_strike",
+   "ids": [
+    1324,
+    2133
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "wee_woo_wee_woo",
+   "b": "mercys_strike",
+   "ids": [
+    1005,
+    2133
+   ],
+   "points": 1,
+   "both": 9,
+   "z_win": 1.4,
+   "z_dmg_share": 1.45,
+   "z_deaths": -0.73,
+   "z_lead": 1.19,
+   "verdict": "too few"
+  },
+  {
+   "a": "wee_woo_wee_woo",
+   "b": "sound_barrier",
+   "ids": [
+    1005,
+    3025
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "wee_woo_wee_woo",
+   "b": "spirit_bomb",
+   "ids": [
+    1005,
+    2104
+   ],
+   "points": 1,
+   "both": 14,
+   "z_win": 1.11,
+   "z_dmg_share": -0.84,
+   "z_deaths": -0.59,
+   "z_lead": 0.29,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "empowered_by_the_faithful",
+   "ids": [
+    1331,
+    2004
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "enchanting_butterflies",
+   "ids": [
+    1331,
+    3163
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 1.99,
+   "z_dmg_share": 0.29,
+   "z_deaths": 0.78,
+   "z_lead": 0.5,
+   "verdict": "too few"
+  },
+  {
+   "a": "empyrean_promise",
+   "b": "sonic_boom",
+   "ids": [
+    1331,
+    1076
+   ],
+   "points": 1,
+   "both": 10,
+   "z_win": -0.27,
+   "z_dmg_share": 0.78,
+   "z_deaths": 0.37,
+   "z_lead": 0.05,
+   "verdict": "too few"
+  },
+  {
+   "a": "group_hug",
+   "b": "empowered_by_the_faithful",
+   "ids": [
+    3149,
+    2004
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "group_hug",
+   "b": "enchanting_butterflies",
+   "ids": [
+    3149,
+    3163
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "group_hug",
+   "b": "sonic_boom",
+   "ids": [
+    3149,
+    1076
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "salvation",
+   "b": "empowered_by_the_faithful",
+   "ids": [
+    3039,
+    2004
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "salvation",
+   "b": "enchanting_butterflies",
+   "ids": [
+    3039,
+    3163
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "salvation",
+   "b": "sonic_boom",
+   "ids": [
+    3039,
+    1076
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "sonata",
+   "b": "enchanting_butterflies",
+   "ids": [
+    1420,
+    3163
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": 0.61,
+   "z_dmg_share": -0.78,
+   "z_deaths": 0.74,
+   "z_lead": -0.3,
+   "verdict": "too few"
+  },
+  {
+   "a": "sonata",
+   "b": "sonic_boom",
+   "ids": [
+    1420,
+    1076
+   ],
+   "points": 1,
+   "both": 17,
+   "z_win": -0.22,
+   "z_dmg_share": -0.23,
+   "z_deaths": -0.95,
+   "z_lead": 0.17,
+   "verdict": "too few"
+  },
+  {
+   "a": "celestial_body",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    1013,
+    1018
+   ],
+   "points": 1,
+   "both": 25,
+   "z_win": 1.44,
+   "z_dmg_share": 0.65,
+   "z_deaths": -0.21,
+   "z_lead": 0.77,
+   "verdict": "too few"
+  },
+  {
+   "a": "celestial_body",
+   "b": "cruelty",
+   "ids": [
+    1013,
+    1323
+   ],
+   "points": 1,
+   "both": 8,
+   "z_win": -1.1,
+   "z_dmg_share": 2.16,
+   "z_deaths": -1.4,
+   "z_lead": 0.82,
+   "verdict": "too few"
+  },
+  {
+   "a": "celestial_body",
+   "b": "dont_change_the_channel",
+   "ids": [
+    1013,
+    2131
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "celestial_body",
+   "b": "heavy_hitter",
+   "ids": [
+    1013,
+    1181
+   ],
+   "points": 1,
+   "both": 49,
+   "z_win": 0.23,
+   "z_dmg_share": 1.11,
+   "z_deaths": 0.67,
+   "z_lead": 0.22,
+   "verdict": "keep"
+  },
+  {
+   "a": "celestial_body",
+   "b": "lich_brain",
+   "ids": [
+    1013,
+    3094
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": 0.51,
+   "z_dmg_share": 1.49,
+   "z_deaths": -0.04,
+   "z_lead": 0.68,
+   "verdict": "too few"
+  },
+  {
+   "a": "celestial_body",
+   "b": "rejuvenation",
+   "ids": [
+    1013,
+    1067
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 1.0,
+   "z_dmg_share": 1.1,
+   "z_deaths": 0.66,
+   "z_lead": 0.48,
+   "verdict": "too few"
+  },
+  {
+   "a": "celestial_body",
+   "b": "sap_magic",
+   "ids": [
+    1013,
+    3129
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    1134,
+    1018
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "cruelty",
+   "ids": [
+    1134,
+    1323
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "dont_change_the_channel",
+   "ids": [
+    1134,
+    2131
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "gift_of_the_drowned",
+   "ids": [
+    1134,
+    3063
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "heavy_hitter",
+   "ids": [
+    1134,
+    1181
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "lich_brain",
+   "ids": [
+    1134,
+    3094
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "rejuvenation",
+   "ids": [
+    1134,
+    1067
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "draw_your_sword",
+   "b": "sap_magic",
+   "ids": [
+    1134,
+    3129
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "goliath",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    1041,
+    1018
+   ],
+   "points": 1,
+   "both": 14,
+   "z_win": -0.02,
+   "z_dmg_share": -0.46,
+   "z_deaths": 1.74,
+   "z_lead": -0.74,
+   "verdict": "too few"
+  },
+  {
+   "a": "goliath",
+   "b": "cruelty",
+   "ids": [
+    1041,
+    1323
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -0.28,
+   "z_dmg_share": 0.03,
+   "z_deaths": 1.24,
+   "z_lead": -0.5,
+   "verdict": "too few"
+  },
+  {
+   "a": "goliath",
+   "b": "dont_change_the_channel",
+   "ids": [
+    1041,
+    2131
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "goliath",
+   "b": "heavy_hitter",
+   "ids": [
+    1041,
+    1181
+   ],
+   "points": 1,
+   "both": 62,
+   "z_win": 1.42,
+   "z_dmg_share": 1.0,
+   "z_deaths": -2.04,
+   "z_lead": 1.49,
+   "verdict": "keep"
+  },
+  {
+   "a": "goliath",
+   "b": "lich_brain",
+   "ids": [
+    1041,
+    3094
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -0.21,
+   "z_dmg_share": 0.27,
+   "z_deaths": -1.29,
+   "z_lead": 0.45,
+   "verdict": "too few"
+  },
+  {
+   "a": "goliath",
+   "b": "rejuvenation",
+   "ids": [
+    1041,
+    1067
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "goliath",
+   "b": "sap_magic",
+   "ids": [
+    1041,
+    3129
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": -1.11,
+   "z_dmg_share": -0.19,
+   "z_deaths": 1.04,
+   "z_lead": -0.78,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    1053,
+    1018
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -2.2,
+   "z_dmg_share": 0.78,
+   "z_deaths": 1.31,
+   "z_lead": -0.91,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "cruelty",
+   "ids": [
+    1053,
+    1323
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "dont_change_the_channel",
+   "ids": [
+    1053,
+    2131
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "gift_of_the_drowned",
+   "ids": [
+    1053,
+    3063
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "heavy_hitter",
+   "ids": [
+    1053,
+    1181
+   ],
+   "points": 1,
+   "both": 7,
+   "z_win": 0.71,
+   "z_dmg_share": -0.82,
+   "z_deaths": 0.66,
+   "z_lead": -0.26,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "lich_brain",
+   "ids": [
+    1053,
+    3094
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 0.08,
+   "z_dmg_share": -1.07,
+   "z_deaths": 0.8,
+   "z_lead": -0.6,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "rejuvenation",
+   "ids": [
+    1053,
+    1067
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 1.91,
+   "z_dmg_share": -1.35,
+   "z_deaths": -1.16,
+   "z_lead": 0.57,
+   "verdict": "too few"
+  },
+  {
+   "a": "mad_scientist",
+   "b": "sap_magic",
+   "ids": [
+    1053,
+    3129
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mind_to_matter",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    1056,
+    1018
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": 1.31,
+   "z_dmg_share": 0.61,
+   "z_deaths": -1.44,
+   "z_lead": 1.12,
+   "verdict": "too few"
+  },
+  {
+   "a": "mind_to_matter",
+   "b": "cruelty",
+   "ids": [
+    1056,
+    1323
+   ],
+   "points": 1,
+   "both": 10,
+   "z_win": 1.37,
+   "z_dmg_share": 1.15,
+   "z_deaths": 0.61,
+   "z_lead": 0.64,
+   "verdict": "too few"
+  },
+  {
+   "a": "mind_to_matter",
+   "b": "dont_change_the_channel",
+   "ids": [
+    1056,
+    2131
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mind_to_matter",
+   "b": "gift_of_the_drowned",
+   "ids": [
+    1056,
+    3063
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mind_to_matter",
+   "b": "heavy_hitter",
+   "ids": [
+    1056,
+    1181
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": 1.29,
+   "z_dmg_share": 0.62,
+   "z_deaths": 1.23,
+   "z_lead": 0.23,
+   "verdict": "too few"
+  },
+  {
+   "a": "mind_to_matter",
+   "b": "lich_brain",
+   "ids": [
+    1056,
+    3094
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 1.99,
+   "z_dmg_share": 2.14,
+   "z_deaths": 0.37,
+   "z_lead": 1.25,
+   "verdict": "too few"
+  },
+  {
+   "a": "mind_to_matter",
+   "b": "rejuvenation",
+   "ids": [
+    1056,
+    1067
+   ],
+   "points": 1,
+   "both": 10,
+   "z_win": 0.38,
+   "z_dmg_share": -0.14,
+   "z_deaths": -0.67,
+   "z_lead": 0.3,
+   "verdict": "too few"
+  },
+  {
+   "a": "mind_to_matter",
+   "b": "sap_magic",
+   "ids": [
+    1056,
+    3129
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    3053,
+    1018
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "cruelty",
+   "ids": [
+    3053,
+    1323
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "dont_change_the_channel",
+   "ids": [
+    3053,
+    2131
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "gift_of_the_drowned",
+   "ids": [
+    3053,
+    3063
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "heavy_hitter",
+   "ids": [
+    3053,
+    1181
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "lich_brain",
+   "ids": [
+    3053,
+    3094
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "rejuvenation",
+   "ids": [
+    3053,
+    1067
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mosh_monster",
+   "b": "sap_magic",
+   "ids": [
+    3053,
+    3129
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "soul_eater",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    1375,
+    1018
+   ],
+   "points": 1,
+   "both": 20,
+   "z_win": 0.02,
+   "z_dmg_share": -1.01,
+   "z_deaths": 0.72,
+   "z_lead": -0.57,
+   "verdict": "too few"
+  },
+  {
+   "a": "soul_eater",
+   "b": "cruelty",
+   "ids": [
+    1375,
+    1323
+   ],
+   "points": 1,
+   "both": 16,
+   "z_win": 0.09,
+   "z_dmg_share": 1.03,
+   "z_deaths": 1.03,
+   "z_lead": 0.03,
+   "verdict": "too few"
+  },
+  {
+   "a": "soul_eater",
+   "b": "dont_change_the_channel",
+   "ids": [
+    1375,
+    2131
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "soul_eater",
+   "b": "gift_of_the_drowned",
+   "ids": [
+    1375,
+    3063
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "soul_eater",
+   "b": "heavy_hitter",
+   "ids": [
+    1375,
+    1181
+   ],
+   "points": 1,
+   "both": 32,
+   "z_win": -0.01,
+   "z_dmg_share": -1.11,
+   "z_deaths": -0.72,
+   "z_lead": -0.13,
+   "verdict": "keep"
+  },
+  {
+   "a": "soul_eater",
+   "b": "lich_brain",
+   "ids": [
+    1375,
+    3094
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "soul_eater",
+   "b": "rejuvenation",
+   "ids": [
+    1375,
+    1067
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -3.67,
+   "z_dmg_share": -0.48,
+   "z_deaths": 0.35,
+   "z_lead": -1.5,
+   "verdict": "too few"
+  },
+  {
+   "a": "soul_eater",
+   "b": "sap_magic",
+   "ids": [
+    1375,
+    3129
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "tank_engine",
+   "b": "courage_of_the_colossus",
+   "ids": [
+    1353,
+    1018
+   ],
+   "points": 1,
+   "both": 29,
+   "z_win": 0.29,
+   "z_dmg_share": 0.02,
+   "z_deaths": 2.22,
+   "z_lead": -0.64,
+   "verdict": "too few"
+  },
+  {
+   "a": "tank_engine",
+   "b": "cruelty",
+   "ids": [
+    1353,
+    1323
+   ],
+   "points": 1,
+   "both": 23,
+   "z_win": 0.23,
+   "z_dmg_share": 1.18,
+   "z_deaths": -0.3,
+   "z_lead": 0.57,
+   "verdict": "too few"
+  },
+  {
+   "a": "tank_engine",
+   "b": "dont_change_the_channel",
+   "ids": [
+    1353,
+    2131
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "tank_engine",
+   "b": "heavy_hitter",
+   "ids": [
+    1353,
+    1181
+   ],
+   "points": 1,
+   "both": 76,
+   "z_win": 1.47,
+   "z_dmg_share": 2.55,
+   "z_deaths": 0.34,
+   "z_lead": 1.23,
+   "verdict": "keep"
+  },
+  {
+   "a": "tank_engine",
+   "b": "lich_brain",
+   "ids": [
+    1353,
+    3094
+   ],
+   "points": 1,
+   "both": 7,
+   "z_win": -0.36,
+   "z_dmg_share": -0.3,
+   "z_deaths": -0.92,
+   "z_lead": 0.09,
+   "verdict": "too few"
+  },
+  {
+   "a": "tank_engine",
+   "b": "rejuvenation",
+   "ids": [
+    1353,
+    1067
+   ],
+   "points": 1,
+   "both": 8,
+   "z_win": 2.15,
+   "z_dmg_share": 2.03,
+   "z_deaths": -1.87,
+   "z_lead": 2.02,
+   "verdict": "too few"
+  },
+  {
+   "a": "tank_engine",
+   "b": "sap_magic",
+   "ids": [
+    1353,
+    3129
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -0.24,
+   "z_dmg_share": -1.71,
+   "z_deaths": -0.62,
+   "z_lead": -0.44,
+   "verdict": "too few"
+  },
+  {
+   "a": "adaptive_ward",
+   "b": "armored_impact",
+   "ids": [
+    2138,
+    3049
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "adaptive_ward",
+   "b": "fortified",
+   "ids": [
+    2138,
+    3265
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "adaptive_ward",
+   "b": "protein_shake",
+   "ids": [
+    2138,
+    1324
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "adaptive_ward",
+   "b": "steadfaster_presence",
+   "ids": [
+    2138,
+    3263
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "fortified",
+   "b": "armored_impact",
+   "ids": [
+    3265,
+    3049
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "fortified",
+   "b": "protein_shake",
+   "ids": [
+    3265,
+    1324
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "fortified",
+   "b": "steadfaster_presence",
+   "ids": [
+    3265,
+    3263
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "lonely_warrior",
+   "b": "armored_impact",
+   "ids": [
+    3134,
+    3049
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": 1.11,
+   "z_dmg_share": -0.03,
+   "z_deaths": -1.16,
+   "z_lead": 0.75,
+   "verdict": "too few"
+  },
+  {
+   "a": "lonely_warrior",
+   "b": "fortified",
+   "ids": [
+    3134,
+    3265
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "lonely_warrior",
+   "b": "protein_shake",
+   "ids": [
+    3134,
+    1324
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "lonely_warrior",
+   "b": "steadfaster_presence",
+   "ids": [
+    3134,
+    3263
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "outlaws_grit",
+   "b": "armored_impact",
+   "ids": [
+    1063,
+    3049
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "outlaws_grit",
+   "b": "fortified",
+   "ids": [
+    1063,
+    3265
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "outlaws_grit",
+   "b": "protein_shake",
+   "ids": [
+    1063,
+    1324
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "outlaws_grit",
+   "b": "steadfaster_presence",
+   "ids": [
+    1063,
+    3263
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "stay_resolute",
+   "b": "armored_impact",
+   "ids": [
+    2076,
+    3049
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": 0.45,
+   "z_dmg_share": 1.79,
+   "z_deaths": 0.15,
+   "z_lead": 0.7,
+   "verdict": "too few"
+  },
+  {
+   "a": "stay_resolute",
+   "b": "fortified",
+   "ids": [
+    2076,
+    3265
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "stay_resolute",
+   "b": "protein_shake",
+   "ids": [
+    2076,
+    1324
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "stay_resolute",
+   "b": "steadfaster_presence",
+   "ids": [
+    2076,
+    3263
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "steadfaster_presence",
+   "b": "armored_impact",
+   "ids": [
+    3263,
+    3049
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": 2.66,
+   "z_dmg_share": 0.41,
+   "z_deaths": -2.25,
+   "z_lead": 1.77,
+   "verdict": "too few"
+  },
+  {
+   "a": "steadfaster_presence",
+   "b": "protein_shake",
+   "ids": [
+    3263,
+    1324
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "windspeakers_blessing",
+   "b": "armored_impact",
+   "ids": [
+    1095,
+    3049
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "windspeakers_blessing",
+   "b": "fortified",
+   "ids": [
+    1095,
+    3265
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "windspeakers_blessing",
+   "b": "protein_shake",
+   "ids": [
+    1095,
+    1324
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": -2.58,
+   "z_dmg_share": 0.75,
+   "z_deaths": 0.9,
+   "z_lead": -0.91,
+   "verdict": "too few"
+  },
+  {
+   "a": "windspeakers_blessing",
+   "b": "steadfaster_presence",
+   "ids": [
+    1095,
+    3263
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "adaptive_ward",
+   "b": "mystic_guard",
+   "ids": [
+    2138,
+    3264
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "lonely_warrior",
+   "b": "mystic_guard",
+   "ids": [
+    3134,
+    3264
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_guard",
+   "b": "protein_shake",
+   "ids": [
+    3264,
+    1324
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "mystic_guard",
+   "b": "steadfaster_presence",
+   "ids": [
+    3264,
+    3263
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "outlaws_grit",
+   "b": "mystic_guard",
+   "ids": [
+    1063,
+    3264
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "stay_resolute",
+   "b": "mystic_guard",
+   "ids": [
+    2076,
+    3264
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "windspeakers_blessing",
+   "b": "mystic_guard",
+   "ids": [
+    1095,
+    3264
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "lil_extra_help",
+   "b": "hands_off_the_talent",
+   "ids": [
+    2096,
+    3052
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "scoped_weapons",
+   "b": "hands_off_the_talent",
+   "ids": [
+    1170,
+    3052
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "scopier_weapons",
+   "b": "hands_off_the_talent",
+   "ids": [
+    1071,
+    3052
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -0.48,
+   "z_dmg_share": -0.5,
+   "z_deaths": 0.69,
+   "z_lead": -0.56,
+   "verdict": "too few"
+  },
+  {
+   "a": "scopiest_weapons",
+   "b": "hands_off_the_talent",
+   "ids": [
+    1115,
+    3052
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bees",
+   "b": "hellbent",
+   "ids": [
+    3086,
+    2107
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bees",
+   "b": "juiced",
+   "ids": [
+    3086,
+    2016
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": -0.13,
+   "z_dmg_share": -1.27,
+   "z_deaths": -0.63,
+   "z_lead": -0.26,
+   "verdict": "too few"
+  },
+  {
+   "a": "bees",
+   "b": "light_em_up",
+   "ids": [
+    3086,
+    1051
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -0.95,
+   "z_dmg_share": 1.46,
+   "z_deaths": 2.19,
+   "z_lead": -0.56,
+   "verdict": "too few"
+  },
+  {
+   "a": "bees",
+   "b": "master_of_duality",
+   "ids": [
+    3086,
+    1054
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bees",
+   "b": "reload",
+   "ids": [
+    3086,
+    2126
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bees",
+   "b": "takeem_down_down_down",
+   "ids": [
+    3086,
+    3116
+   ],
+   "points": 1,
+   "both": 8,
+   "z_win": 0.56,
+   "z_dmg_share": -0.02,
+   "z_deaths": -0.9,
+   "z_lead": 0.48,
+   "verdict": "too few"
+  },
+  {
+   "a": "bees",
+   "b": "tap_dancer",
+   "ids": [
+    3086,
+    1081
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bees",
+   "b": "third_times_the_harm",
+   "ids": [
+    3086,
+    3016
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "firebrand",
+   "ids": [
+    1006,
+    1036
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "hellbent",
+   "ids": [
+    1006,
+    2107
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "juiced",
+   "ids": [
+    1006,
+    2016
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "light_em_up",
+   "ids": [
+    1006,
+    1051
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "master_of_duality",
+   "ids": [
+    1006,
+    1054
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "mystic_punch",
+   "ids": [
+    1006,
+    1058
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -1.45,
+   "z_dmg_share": -0.47,
+   "z_deaths": 2.67,
+   "z_lead": -1.53,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "reload",
+   "ids": [
+    1006,
+    2126
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "shrink_ray",
+   "ids": [
+    1006,
+    1074
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "takeem_down_down_down",
+   "ids": [
+    1006,
+    3116
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "tap_dancer",
+   "ids": [
+    1006,
+    1081
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "third_times_the_harm",
+   "ids": [
+    1006,
+    3016
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "blade_waltz",
+   "b": "tickle_monster",
+   "ids": [
+    1006,
+    3058
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bees",
+   "b": "ice_cold",
+   "ids": [
+    3086,
+    1044
+   ],
+   "points": 1,
+   "both": 3,
+   "z_win": -0.55,
+   "z_dmg_share": -0.07,
+   "z_deaths": 0.54,
+   "z_lead": -0.39,
+   "verdict": "too few"
+  },
+  {
+   "a": "back_to_basics",
+   "b": "empowered_by_the_faithful",
+   "ids": [
+    1004,
+    2004
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "back_to_basics",
+   "b": "enchanting_butterflies",
+   "ids": [
+    1004,
+    3163
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": 4.82,
+   "z_dmg_share": -0.05,
+   "z_deaths": -1.58,
+   "z_lead": 2.12,
+   "verdict": "too few"
+  },
+  {
+   "a": "bolstered",
+   "b": "empowered_by_the_faithful",
+   "ids": [
+    2144,
+    2004
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "bolstered",
+   "b": "enchanting_butterflies",
+   "ids": [
+    2144,
+    3163
+   ],
+   "points": 1,
+   "both": 1,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "critical_healing",
+   "b": "empowered_by_the_faithful",
+   "ids": [
+    1118,
+    2004
+   ],
+   "points": 1,
+   "both": 2,
+   "z_win": -0.08,
+   "z_dmg_share": -0.51,
+   "z_deaths": -0.66,
+   "z_lead": 0.02,
+   "verdict": "too few"
+  },
+  {
+   "a": "critical_healing",
+   "b": "enchanting_butterflies",
+   "ids": [
+    1118,
+    3163
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": -0.85,
+   "z_dmg_share": -0.13,
+   "z_deaths": -0.07,
+   "z_lead": -0.3,
+   "verdict": "too few"
+  },
+  {
+   "a": "first_aid_kit",
+   "b": "empowered_by_the_faithful",
+   "ids": [
+    1037,
+    2004
+   ],
+   "points": 1,
+   "both": 19,
+   "z_win": 0.77,
+   "z_dmg_share": 1.78,
+   "z_deaths": 0.02,
+   "z_lead": 0.84,
+   "verdict": "too few"
+  },
+  {
+   "a": "first_aid_kit",
+   "b": "enchanting_butterflies",
+   "ids": [
+    1037,
+    3163
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": -0.87,
+   "z_dmg_share": 0.44,
+   "z_deaths": -1.71,
+   "z_lead": 0.43,
+   "verdict": "too few"
+  },
+  {
+   "a": "overflow",
+   "b": "empowered_by_the_faithful",
+   "ids": [
+    1311,
+    2004
+   ],
+   "points": 1,
+   "both": 4,
+   "z_win": -0.6,
+   "z_dmg_share": 0.66,
+   "z_deaths": -0.34,
+   "z_lead": 0.13,
+   "verdict": "too few"
+  },
+  {
+   "a": "overflow",
+   "b": "enchanting_butterflies",
+   "ids": [
+    1311,
+    3163
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "protein_shake",
+   "b": "empowered_by_the_faithful",
+   "ids": [
+    1324,
+    2004
+   ],
+   "points": 1,
+   "both": 5,
+   "z_win": -0.44,
+   "z_dmg_share": 0.1,
+   "z_deaths": 0.59,
+   "z_lead": -0.31,
+   "verdict": "too few"
+  },
+  {
+   "a": "protein_shake",
+   "b": "enchanting_butterflies",
+   "ids": [
+    1324,
+    3163
+   ],
+   "points": 1,
+   "both": 0,
+   "z_win": null,
+   "z_dmg_share": null,
+   "z_deaths": null,
+   "z_lead": null,
+   "verdict": "too few"
+  },
+  {
+   "a": "wee_woo_wee_woo",
+   "b": "empowered_by_the_faithful",
+   "ids": [
+    1005,
+    2004
+   ],
+   "points": 1,
+   "both": 16,
+   "z_win": 0.92,
+   "z_dmg_share": -0.55,
+   "z_deaths": -0.71,
+   "z_lead": 0.36,
+   "verdict": "too few"
+  },
+  {
+   "a": "wee_woo_wee_woo",
+   "b": "enchanting_butterflies",
+   "ids": [
+    1005,
+    3163
+   ],
+   "points": 1,
+   "both": 6,
+   "z_win": 0.11,
+   "z_dmg_share": -0.23,
+   "z_deaths": -1.04,
+   "z_lead": 0.31,
    "verdict": "too few"
   }
  ]

@@ -10,9 +10,12 @@ Test, per augment (pooled over the champions that have a switch for it): of the 
 first on such a champion, those who bought the switched start in the first minute against those who didn't. Leading
 indicators at minute 8: damage to champions and gold earned, each standardised within the champion; plus the win rate.
 
-Verdict per augment:
-  drop      followers clearly behind: mean of the two indicator z <= -2 with >= MIN_EACH players on each side,
-            or win z <= -2 with >= 3 * MIN_EACH on each side
+Verdict per augment (since 2026-11-27, research/calibration): the minute-8 indicators are reported for information
+only and no longer drop a switch. On 178 champion x starting-items cells of the archive, the players' damage + gold
+at minute 8 tracked the public win-rate gap between starts with r 0.03 (no signal; the win alone 0.14, kill
+participation, deaths, damage share all <= 0.15). Start choices move win rates by well under a point, too little
+for any archive indicator to see, so only a clear win gap drops a switch.
+  drop      followers clearly behind on wins: win z <= -2 with >= 3 * MIN_EACH players on each side
   keep      enough players on each side and not clearly behind
   too few   the switch stays on its original evidence (what first-pickers buy)
 
@@ -109,7 +112,7 @@ def main():
         lead = round((zd + zg) / 2, 2) if zd is not None and zg is not None else None
         if min(len(fo), len(no)) < MIN_EACH:
             verdict = "too few"
-        elif (lead is not None and lead <= Z_DROP) or (zw is not None and zw <= Z_DROP and min(len(fo), len(no)) >= 3 * MIN_EACH):
+        elif zw is not None and zw <= Z_DROP and min(len(fo), len(no)) >= 3 * MIN_EACH:
             verdict = "drop"
         else:
             verdict = "keep"
