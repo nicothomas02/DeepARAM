@@ -58,7 +58,7 @@ export function championHistory(alias: string): HistFile | null {
   const rewards = rewardItems();
   const slots = readRepoJson<{ champions: Record<string, [number | null, number]>; all: number }>("data/estimates/boots_slot.json");
   const bootsAt = slots ? (slots.champions[String(id)]?.[0] ?? slots.all) : undefined;
-  const out: HistFile = { patches: {}, items: {}, augments: {}, order: orderedCores(id).map((r) => [r.items, r.weight]), ...(bootsAt !== undefined ? { bootsAt } : {}) };
+  const out: HistFile = { patches: {}, items: {}, augments: {}, order: orderedCores(id).map((r) => [r.items, r.weight]), ...(bootsAt !== undefined ? { bootsAt } : {}), ...(readRepoJson<{ skip: number[] }>("data/estimates/no_boots.json")?.skip.includes(Number(id)) ? { skipBoots: true } : {}) };
   for (const s of snapshots()) {
     const c = s.champions[String(id)];
     if (!c) continue;

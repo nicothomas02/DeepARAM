@@ -24,6 +24,8 @@ export type HistFile = {
   order?: [number[], number][];
   /** Core items players buy before the boots (data/estimates/boots_slot.json), when known. */
   bootsAt?: number;
+  /** Never buying boots tested better for this champion (data/estimates/no_boots.json). */
+  skipBoots?: boolean;
   /** The slot players buy each item in, this champion and all champions (data/estimates/item_slots.json). */
   itemSlots?: { champ: SlotCounts; all: SlotCounts };
 };
@@ -100,7 +102,7 @@ export function cardFor(file: HistFile, picked: string[], weight: Record<string,
   const best = leading(scoreRows(lists("core"), FIT.items, { bound: true }), MIN_FOLLOWING)[0] ?? null;
   let coreRow: ItemRow | null = best;
   // A champion that skips boots gets none on the card (lib/card-score.ts skipsBoots).
-  const noBoots = skipsBoots(lists("boots"), full, (i) => file.items[i]?.tier === "boots");
+  const noBoots = skipsBoots(lists("boots"), full, (i) => file.items[i]?.tier === "boots", !!file.skipBoots);
   if (best && !noBoots) {
     // The boots most bought alongside this core in six-item builds, else the best boots.
     const share = new Map<number, number>();
