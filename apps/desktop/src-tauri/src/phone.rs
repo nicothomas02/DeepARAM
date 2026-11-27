@@ -66,7 +66,7 @@ pub fn file_last_game(app: &AppHandle) {
     let _guard = RECORD.lock().unwrap();
     for e in std::fs::read_dir(&dir).into_iter().flatten().flatten() {
         let name = e.file_name().to_string_lossy().into_owned();
-        let keep = name == "offers.jsonl" || name == "screens.jsonl" || name == "eog.json" || name.ends_with(".png");
+        let keep = name == "offers.jsonl" || name == "inputs.jsonl" || name == "screens.jsonl" || name == "eog.json" || name.ends_with(".png");
         if keep && e.path().is_file() {
             let _ = std::fs::rename(e.path(), to.join(&name));
         }

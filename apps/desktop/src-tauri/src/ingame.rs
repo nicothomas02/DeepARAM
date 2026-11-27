@@ -107,6 +107,21 @@ fn publish(app: &AppHandle, events: Vec<augtrack::Event>) {
 /// public): each offer's screen as a PNG plus a line per tracker event in offers/offers.jsonl, to replay offer
 /// screens to augment readers (ours and others) without a live game, and to check picks against the game's own
 /// post-game list.
+/// Owner recording: the tracker's raw inputs (game ticks, screen reads, clicks) on its own clock, to
+/// offers/inputs.jsonl, so a recorded game can be replayed through the real tracker (crates/augtrack) in tests.
+fn input_log(app: &AppHandle, line: serde_json::Value) {
+    let Ok(base) = app.path().app_data_dir() else { return };
+    if !base.join("record-offers").exists() {
+        return;
+    }
+    let dir = base.join("offers");
+    let _ = std::fs::create_dir_all(&dir);
+    use std::io::Write;
+    if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(dir.join("inputs.jsonl")) {
+        let _ = writeln!(f, "{line}");
+    }
+}
+
 fn record(app: &AppHandle, e: &augtrack::Event) {
     let Ok(base) = app.path().app_data_dir() else { return };
     if !base.join("record-offers").exists() {
@@ -290,6 +305,8 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
         let now = clock(&s);
         let width = augscan::game_window().map_or(1920.0, |(_, _, w, _)| f64::from(w));
         s.track.game(now, game_time, level as u32, dead, augtrack::Headliner::None, width);
+        drop(s);
+        input_log(app, serde_json::json!({"now": now, "game": [game_time, level, dead, width]}));
     }
     sample(app, agent, game_time, &players);
 }
@@ -332,6 +349,8 @@ fn scan(app: &AppHandle) {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
         let now = clock(&s);
+        let logged = read.as_ref().map(|r| serde_json::json!({"ids": r.ids, "xs": r.xs, "from_window": r.from_window, "blank": r.blank}));
+        input_log(app, serde_json::json!({"now": now, "read": logged, "cursor": cursor}));
         s.track.read(now, read, cursor);
         s.offer = s.track.offer.clone();
         std::mem::take(&mut s.track.events)
@@ -368,6 +387,7 @@ fn watch_clicks(app: AppHandle) {
                     let state = app.state::<Shared>();
                     let mut s = state.lock().unwrap();
                     let now = clock(&s);
+                    input_log(&app, serde_json::json!({"now": now, "click": [x, y]}));
                     s.track.click(now, x, y);
                     std::mem::take(&mut s.track.events)
                 };
