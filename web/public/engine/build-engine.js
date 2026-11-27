@@ -2669,6 +2669,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
   var STAT_BONUS = 22e4;
   var STAT_BONUS_IDS = /* @__PURE__ */ new Set([6032]);
+  var TEAR_ITEMS = /* @__PURE__ */ new Set([3003, 3004, 3119, 2526]);
   var CONSUMABLES = /* @__PURE__ */ new Set([2003, 2031, 2033, 2055, 2138, 2139, 2140, 2150, 2151, 2152, 3340, 3363, 3364, 2010, 2001]);
   var ADAPT = 1205;
   var RULES = {
@@ -3599,7 +3600,9 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   }
   var CRIT_CONVERTERS = /* @__PURE__ */ new Set(["yasuo", "yone"]);
   function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, why: whyData, profiles }) {
-    const rules = itemRules(k);
+    const rules0 = itemRules(k);
+    const rules = { ...rules0, clash: (a, b) => !(TEAR_ITEMS.has(ownedId(a)) && TEAR_ITEMS.has(ownedId(b)) && ownedId(a) !== ownedId(b)) && rules0.clash(a, b) };
+    const stacking = game.items.map(base).find((x) => TEAR_ITEMS.has(x));
     const used = /* @__PURE__ */ new Set();
     const applied = (r) => used.add(r);
     shiftTableFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
@@ -3929,6 +3932,12 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
         const at = (it) => order.get(itemId(it.icon)) ?? Infinity;
         next = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y)).slice(0, 2);
       }
+    }
+    if (stacking !== void 0 && next.some((it) => TEAR_ITEMS.has(ownedId(itemId(it.icon))))) {
+      const at = (it) => order.get(itemId(it.icon)) ?? Infinity;
+      const open2 = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+      next = open2.filter((it) => !TEAR_ITEMS.has(ownedId(itemId(it.icon)))).slice(0, 2);
+      applied("itemLimits");
     }
     const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
     const slotName = (i) => ord(slotRows?.[i]?.slot ?? first + i);

@@ -483,6 +483,24 @@ describe("build engine", () => {
     expect(mf.next).toEqual([]);
   }, 30_000);
 
+  it("a second, different Tear item follows only once the first has turned (Nico 2026-11-27, Ryze)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const ryze = champs.find((x) => x.id === "Ryze")!;
+    const at = (items: number[]) => plan({ champ: ryze, kinds: k, picks: p0, fit: null, game: { champ: "Ryze", items, gold: 3000 }, taken: [] });
+    const tear = new Set([3003, 3004, 3119, 2526]);
+    // Archangel's Staff still stacking: Fimbulwinter stays in the path but isn't Next
+    const stacking = at([6657, 3008, 3003, 3110]);
+    expect(stacking.path.map((x) => ownedId(itemId(x.icon)))).toEqual(expect.arrayContaining([3003, 3119]));
+    expect(stacking.next.some((x) => tear.has(ownedId(itemId(x.icon))))).toBe(false);
+    // once it turned into Seraph's Embrace, the second Tear item can be Next
+    const turned = at([6657, 3008, 3040, 3110, 4633]);
+    expect(turned.next.map((x) => ownedId(itemId(x.icon)))).toContain(3119);
+    // never the same Tear item twice
+    const ids2 = turned.path.map((x) => ownedId(itemId(x.icon)));
+    expect(ids2.filter((i) => i === 3003)).toHaveLength(1);
+  }, 30_000);
+
   it("a full inventory sells a stray part or starter before a finished item (shopTips)", async () => {
     const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;

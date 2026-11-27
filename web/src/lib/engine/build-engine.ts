@@ -34,6 +34,10 @@ const STAT_BONUS = 220000;
 /** The Stat Bonus anvil as the game reports it (Mayhem 6032): bought, but no inventory slot. */
 const STAT_BONUS_IDS = new Set([6032]);
 /** Potions, wards and other consumables: never sold for a slot (they're used up). */
+/** Tear items in their stacking form (Manaflow: the game's limit group, client item data): Archangel's Staff,
+ *  Manamune, Winter's Approach, Whispering Circlet. Their finished forms (Seraph's, Muramana, Fimbulwinter, Diadem)
+ *  leave the group, so a second, different one can follow. */
+const TEAR_ITEMS = new Set([3003, 3004, 3119, 2526]);
 const CONSUMABLES = new Set([2003, 2031, 2033, 2055, 2138, 2139, 2140, 2150, 2151, 2152, 3340, 3363, 3364, 2010, 2001]);
 /** ADAPt: converts bonus AD into AP, so AD items can fit an AP build. */
 const ADAPT = 1205;
@@ -1450,7 +1454,12 @@ export function splitFor(order: string[] | undefined, split: OverlayChamp["skill
 export const CRIT_CONVERTERS = new Set(["yasuo", "yone"]);
 
 export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, why: whyData, profiles }: PlanInput): Plan {
-  const rules = itemRules(k);
+  // Two different Tear items can both be in the path (Nico 2026-11-27, his Ryze games: Archangel's turns into Seraph's,
+  // then a new Tear stacks for Winter's Approach): the game blocks only buying one while another is still stacking, so
+  // that one isn't Next until then (below). The same Tear item twice never (one id, one owned form).
+  const rules0 = itemRules(k);
+  const rules: ItemRules = { ...rules0, clash: (a, b) => !(TEAR_ITEMS.has(ownedId(a)) && TEAR_ITEMS.has(ownedId(b)) && ownedId(a) !== ownedId(b)) && rules0.clash(a, b) };
+  const stacking = game.items.map(base).find((x) => TEAR_ITEMS.has(x));
   const used = new Set<string>();
   const applied = (r: string) => used.add(r);
   shiftTableFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
@@ -1814,6 +1823,13 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const at = (it: Named) => order.get(itemId(it.icon)) ?? Infinity;
       next = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y)).slice(0, 2);
     }
+  }
+  // a second Tear item isn't Next while the one you hold is still stacking (the game won't sell it until that one turns)
+  if (stacking !== undefined && next.some((it) => TEAR_ITEMS.has(ownedId(itemId(it.icon))))) {
+    const at = (it: Named) => order.get(itemId(it.icon)) ?? Infinity;
+    const open2 = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+    next = open2.filter((it) => !TEAR_ITEMS.has(ownedId(itemId(it.icon)))).slice(0, 2);
+    applied("itemLimits");
   }
   const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
   const slotName = (i: number) => ord(slotRows?.[i]?.slot ?? first + i);
