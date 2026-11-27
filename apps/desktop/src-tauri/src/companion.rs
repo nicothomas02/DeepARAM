@@ -694,6 +694,7 @@ pub fn watch(app: AppHandle) {
                         s = state.lock().unwrap();
                     }
                     if phase == "ChampSelect" {
+                        crate::phone::file_last_game(&app);
                         s.dismissed = false;
                         s.under_since = None;
                         s.playable = None;
@@ -706,6 +707,9 @@ pub fn watch(app: AppHandle) {
                     if phase == "EndOfGame" && mayhem {
                         drop(s);
                         let block = c.get("/lol-end-of-game/v1/eog-stats-block");
+                        if let Some(b) = block.as_ref() {
+                            crate::phone::game_ended(&app, b);
+                        }
                         let result = block.as_ref().and_then(eog_result);
                         // Picks the live reading missed: the end-of-game list has them all (marking is idempotent).
                         let picks = block.as_ref().map(eog_augments).unwrap_or_default();

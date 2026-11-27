@@ -40,6 +40,45 @@ fn record(kind: &str, script: &str) {
     }
 }
 
+/// The game just ended (owner recording): keeps its end-of-game stats beside the recording and notes its id, so
+/// the next champion select files the whole game (including what the review showed) under offers/<gameId>/.
+pub fn game_ended(app: &AppHandle, eog: &serde_json::Value) {
+    let Some(dir) = recording_dir(app) else { return };
+    let Some(id) = eog.get("gameId").and_then(serde_json::Value::as_i64) else { return };
+    let _ = std::fs::create_dir_all(&dir);
+    let _ = std::fs::write(dir.join("eog.json"), eog.to_string());
+    let _ = std::fs::write(dir.join("last-game.txt"), id.to_string());
+}
+
+/// A new champion select: the last game's files (offers.jsonl, screens.jsonl, the offer pictures, eog.json) move
+/// into offers/<gameId>/, where the nightly sync copies them to the private archive (archive/beta/<gameId>/).
+pub fn file_last_game(app: &AppHandle) {
+    let Some(dir) = recording_dir(app) else { return };
+    let Some(id) = std::fs::read_to_string(dir.join("last-game.txt")).ok().and_then(|t| t.trim().parse::<i64>().ok())
+    else {
+        return;
+    };
+    let to = dir.join(id.to_string());
+    if std::fs::create_dir_all(&to).is_err() {
+        return;
+    }
+    // The recorder appends to these: take them out of its way first.
+    let _guard = RECORD.lock().unwrap();
+    for e in std::fs::read_dir(&dir).into_iter().flatten().flatten() {
+        let name = e.file_name().to_string_lossy().into_owned();
+        let keep = name == "offers.jsonl" || name == "screens.jsonl" || name == "eog.json" || name.ends_with(".png");
+        if keep && e.path().is_file() {
+            let _ = std::fs::rename(e.path(), to.join(&name));
+        }
+    }
+    let _ = std::fs::remove_file(dir.join("last-game.txt"));
+}
+
+fn recording_dir(app: &AppHandle) -> Option<std::path::PathBuf> {
+    let base = app.path().app_data_dir().ok()?;
+    base.join("record-offers").exists().then(|| base.join("offers"))
+}
+
 /// A whole new view (champion select, the game, the review): replaces everything before it.
 pub fn full(script: &str) {
     record("full", script);
