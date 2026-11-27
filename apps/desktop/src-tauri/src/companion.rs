@@ -587,11 +587,7 @@ pub fn watch(app: AppHandle) {
             let dismissed = app.state::<Shared>().lock().unwrap().dismissed;
             match phase.as_str() {
                 "ChampSelect" if mayhem && !dismissed => champ_select(&app, c),
-                "InProgress" if mayhem => {
-                    if !dismissed {
-                        live_game(&app, &game_agent);
-                    }
-                }
+                "InProgress" if mayhem && !dismissed => live_game(&app, &game_agent),
                 _ => {}
             }
             thread::sleep(POLL);
