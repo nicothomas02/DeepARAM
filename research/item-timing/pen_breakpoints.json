@@ -1,0 +1,4334 @@
+{
+ "state": {
+  "2": [
+   6,
+   1321,
+   53.0,
+   44.0
+  ],
+  "3": [
+   10,
+   2068,
+   75.8,
+   54.0
+  ],
+  "4": [
+   13,
+   2758,
+   98.4,
+   64.0
+  ]
+ },
+ "rows": [
+  {
+   "champ": "Annie",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    3118
+   ],
+   "slots": {
+    "2": -7.9,
+    "3": -15.5
+   },
+   "wins_2nd_from_resist": 90
+  },
+  {
+   "champ": "Annie",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    3118
+   ],
+   "slots": {
+    "2": -14.0,
+    "3": -20.4
+   },
+   "wins_2nd_from_resist": 190
+  },
+  {
+   "champ": "Kayle",
+   "pen": 3135,
+   "core": [
+    3115,
+    2510,
+    3089
+   ],
+   "slots": {
+    "2": 10.1,
+    "3": -5.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Kayle",
+   "pen": 3036,
+   "core": [
+    3115,
+    2510,
+    3089
+   ],
+   "slots": {
+    "2": 2.8,
+    "3": -12.9
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Kayle",
+   "pen": 3033,
+   "core": [
+    3115,
+    2510,
+    3089
+   ],
+   "slots": {
+    "2": 2.0,
+    "3": -13.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Kayle",
+   "pen": 3302,
+   "core": [
+    3115,
+    2510,
+    3089
+   ],
+   "slots": {
+    "2": 10.7,
+    "3": -8.2
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Xerath",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.1,
+    "3": -16.5
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Xerath",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -11.1,
+    "3": -22.6
+   },
+   "wins_2nd_from_resist": 130
+  },
+  {
+   "champ": "Shyvana",
+   "pen": 3135,
+   "core": [
+    2510,
+    6653,
+    4633
+   ],
+   "slots": {
+    "2": 7.9,
+    "3": -5.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Shyvana",
+   "pen": 3137,
+   "core": [
+    2510,
+    6653,
+    4633
+   ],
+   "slots": {
+    "2": 16.5,
+    "3": 0.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ahri",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.9,
+    "3": 6.3
+   },
+   "wins_2nd_from_resist": 80
+  },
+  {
+   "champ": "Ahri",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -7.6,
+    "3": 4.8
+   },
+   "wins_2nd_from_resist": 120
+  },
+  {
+   "champ": "Graves",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.8
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Graves",
+   "pen": 6694,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -2.8,
+    "3": -10.8
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Fizz",
+   "pen": 3135,
+   "core": [
+    3089,
+    3100,
+    4645
+   ],
+   "slots": {
+    "2": 1.1,
+    "3": -2.7
+   },
+   "wins_2nd_from_resist": 40
+  },
+  {
+   "champ": "Fizz",
+   "pen": 3137,
+   "core": [
+    3089,
+    3100,
+    4645
+   ],
+   "slots": {
+    "2": -6.2,
+    "3": -7.9
+   },
+   "wins_2nd_from_resist": 110
+  },
+  {
+   "champ": "Volibear",
+   "pen": 3135,
+   "core": [
+    2510,
+    3087,
+    3089
+   ],
+   "slots": {
+    "2": -19.3,
+    "3": -2.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Volibear",
+   "pen": 3137,
+   "core": [
+    2510,
+    3087,
+    3089
+   ],
+   "slots": {
+    "2": -18.9,
+    "3": -3.6
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Volibear",
+   "pen": 3302,
+   "core": [
+    2510,
+    3087,
+    3089
+   ],
+   "slots": {
+    "2": -6.5,
+    "3": 8.0
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Rengar",
+   "pen": 3137,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -18.6,
+    "3": -26.1
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Rengar",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.8
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Rengar",
+   "pen": 6694,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": 4.0,
+    "3": -7.3
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "MasterYi",
+   "pen": 3036,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -1.8,
+    "3": 2.5
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "MasterYi",
+   "pen": 3033,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -3.5,
+    "3": 0.0
+   },
+   "wins_2nd_from_resist": 80
+  },
+  {
+   "champ": "MasterYi",
+   "pen": 6694,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -7.5,
+    "3": -4.5
+   },
+   "wins_2nd_from_resist": 110
+  },
+  {
+   "champ": "MasterYi",
+   "pen": 3302,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -1.9,
+    "3": -3.9
+   },
+   "wins_2nd_from_resist": 80
+  },
+  {
+   "champ": "Varus",
+   "pen": 3135,
+   "core": [
+    3085,
+    3153,
+    3302
+   ],
+   "slots": {
+    "2": -34.3,
+    "3": -26.3
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Varus",
+   "pen": 3137,
+   "core": [
+    3085,
+    3153,
+    3302
+   ],
+   "slots": {
+    "2": -33.7,
+    "3": -26.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Varus",
+   "pen": 3036,
+   "core": [
+    3085,
+    3153,
+    3302
+   ],
+   "slots": {
+    "2": -3.9,
+    "3": 6.1
+   },
+   "wins_2nd_from_resist": 100
+  },
+  {
+   "champ": "Varus",
+   "pen": 3033,
+   "core": [
+    3085,
+    3153,
+    3302
+   ],
+   "slots": {
+    "2": -5.5,
+    "3": 3.8
+   },
+   "wins_2nd_from_resist": 110
+  },
+  {
+   "champ": "Varus",
+   "pen": 6694,
+   "core": [
+    3085,
+    3153,
+    3302
+   ],
+   "slots": {
+    "2": -6.4,
+    "3": 1.6
+   },
+   "wins_2nd_from_resist": 110
+  },
+  {
+   "champ": "Nautilus",
+   "pen": 3135,
+   "core": [
+    2502,
+    3083,
+    3084
+   ],
+   "slots": {
+    "2": 25.3,
+    "3": 17.3
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Viktor",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    3135
+   ],
+   "slots": {
+    "2": -11.1,
+    "3": 7.0
+   },
+   "wins_2nd_from_resist": 130
+  },
+  {
+   "champ": "Fiora",
+   "pen": 3036,
+   "core": [
+    3074,
+    6333,
+    3078
+   ],
+   "slots": {
+    "2": 9.9,
+    "3": 1.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Fiora",
+   "pen": 3033,
+   "core": [
+    3074,
+    6333,
+    3078
+   ],
+   "slots": {
+    "2": 8.2,
+    "3": -0.9
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ziggs",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6653
+   ],
+   "slots": {
+    "2": -5.1,
+    "3": 15.7
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Ziggs",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6653
+   ],
+   "slots": {
+    "2": -7.3,
+    "3": 21.4
+   },
+   "wins_2nd_from_resist": 90
+  },
+  {
+   "champ": "Draven",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Draven",
+   "pen": 6694,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -5.0,
+    "3": -7.0
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Alistar",
+   "pen": 3135,
+   "core": [
+    2502,
+    3083,
+    3084
+   ],
+   "slots": {
+    "2": 24.6,
+    "3": 12.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Alistar",
+   "pen": 3137,
+   "core": [
+    2502,
+    3083,
+    3084
+   ],
+   "slots": {
+    "2": 18.2,
+    "3": 12.9
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Hecarim",
+   "pen": 3036,
+   "core": [
+    2517,
+    3161,
+    6333
+   ],
+   "slots": {
+    "2": 12.8,
+    "3": 9.1
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Hecarim",
+   "pen": 3033,
+   "core": [
+    2517,
+    3161,
+    6333
+   ],
+   "slots": {
+    "2": 10.8,
+    "3": 6.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Hecarim",
+   "pen": 6694,
+   "core": [
+    2517,
+    3161,
+    6333
+   ],
+   "slots": {
+    "2": 8.0,
+    "3": 10.9
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Darius",
+   "pen": 3036,
+   "core": [
+    3065,
+    3084,
+    2501
+   ],
+   "slots": {
+    "2": 35.2,
+    "3": -5.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Darius",
+   "pen": 3033,
+   "core": [
+    3065,
+    3084,
+    2501
+   ],
+   "slots": {
+    "2": 33.0,
+    "3": -6.9
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Lissandra",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    3157
+   ],
+   "slots": {
+    "2": -5.5,
+    "3": 16.4
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Lissandra",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    3157
+   ],
+   "slots": {
+    "2": -6.7,
+    "3": 10.5
+   },
+   "wins_2nd_from_resist": 90
+  },
+  {
+   "champ": "Diana",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.3,
+    "3": 3.3
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Diana",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -10.0,
+    "3": 9.0
+   },
+   "wins_2nd_from_resist": 120
+  },
+  {
+   "champ": "Quinn",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Syndra",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    3135
+   ],
+   "slots": {
+    "2": -6.7,
+    "3": -0.4
+   },
+   "wins_2nd_from_resist": 90
+  },
+  {
+   "champ": "AurelionSol",
+   "pen": 3135,
+   "core": [
+    3089,
+    3116,
+    4645
+   ],
+   "slots": {
+    "2": 23.6,
+    "3": -2.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "AurelionSol",
+   "pen": 3137,
+   "core": [
+    3089,
+    3116,
+    4645
+   ],
+   "slots": {
+    "2": 13.6,
+    "3": -10.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Sion",
+   "pen": 3036,
+   "core": [
+    2502,
+    3083,
+    3084
+   ],
+   "slots": {
+    "2": 25.7,
+    "3": 16.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Sion",
+   "pen": 3033,
+   "core": [
+    2502,
+    3083,
+    3084
+   ],
+   "slots": {
+    "2": 24.0,
+    "3": 14.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Zoe",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.0,
+    "3": 7.7
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Zoe",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -1.6,
+    "3": 10.7
+   },
+   "wins_2nd_from_resist": 60
+  },
+  {
+   "champ": "Zyra",
+   "pen": 3135,
+   "core": [
+    2503,
+    3116,
+    6653
+   ],
+   "slots": {
+    "2": 19.0,
+    "3": 12.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Zyra",
+   "pen": 3137,
+   "core": [
+    2503,
+    3116,
+    6653
+   ],
+   "slots": {
+    "2": 22.8,
+    "3": 15.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Kaisa",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -7.5,
+    "3": 0.6
+   },
+   "wins_2nd_from_resist": 100
+  },
+  {
+   "champ": "Kaisa",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -0.7,
+    "3": 7.0
+   },
+   "wins_2nd_from_resist": 50
+  },
+  {
+   "champ": "Kaisa",
+   "pen": 3036,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": 2.3,
+    "3": 4.0
+   },
+   "wins_2nd_from_resist": 40
+  },
+  {
+   "champ": "Kaisa",
+   "pen": 3033,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": 1.1,
+    "3": 2.3
+   },
+   "wins_2nd_from_resist": 40
+  },
+  {
+   "champ": "Kaisa",
+   "pen": 3302,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": 10.6,
+    "3": 18.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Seraphine",
+   "pen": 3135,
+   "core": [
+    3116,
+    4645,
+    6653
+   ],
+   "slots": {
+    "2": -5.5,
+    "3": 9.9
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Seraphine",
+   "pen": 3137,
+   "core": [
+    3116,
+    4645,
+    6653
+   ],
+   "slots": {
+    "2": 0.3,
+    "3": 16.3
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Sivir",
+   "pen": 3033,
+   "core": [
+    3031,
+    6675,
+    3036
+   ],
+   "slots": {
+    "2": 3.3,
+    "3": -2.5
+   },
+   "wins_2nd_from_resist": 40
+  },
+  {
+   "champ": "Sivir",
+   "pen": 6694,
+   "core": [
+    3031,
+    6675,
+    3036
+   ],
+   "slots": {
+    "2": -8.9,
+    "3": -1.0
+   },
+   "wins_2nd_from_resist": 140
+  },
+  {
+   "champ": "Sivir",
+   "pen": 3302,
+   "core": [
+    3031,
+    6675,
+    3036
+   ],
+   "slots": {
+    "2": -2.4,
+    "3": -6.7
+   },
+   "wins_2nd_from_resist": 100
+  },
+  {
+   "champ": "Gnar",
+   "pen": 3036,
+   "core": [
+    2510,
+    3089,
+    3135
+   ],
+   "slots": {
+    "2": 8.0,
+    "3": 4.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Gnar",
+   "pen": 3302,
+   "core": [
+    2510,
+    3089,
+    3135
+   ],
+   "slots": {
+    "2": 12.3,
+    "3": 9.3
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Zac",
+   "pen": 3135,
+   "core": [
+    2502,
+    3065,
+    3084
+   ],
+   "slots": {
+    "2": 24.3,
+    "3": 16.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Velkoz",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    3135
+   ],
+   "slots": {
+    "2": -9.7,
+    "3": -2.9
+   },
+   "wins_2nd_from_resist": 160
+  },
+  {
+   "champ": "Taliyah",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    3135
+   ],
+   "slots": {
+    "2": -10.9,
+    "3": 1.9
+   },
+   "wins_2nd_from_resist": 130
+  },
+  {
+   "champ": "Camille",
+   "pen": 3036,
+   "core": [
+    3074,
+    3078,
+    6333
+   ],
+   "slots": {
+    "2": -12.1,
+    "3": 17.1
+   },
+   "wins_2nd_from_resist": 190
+  },
+  {
+   "champ": "Camille",
+   "pen": 3033,
+   "core": [
+    3074,
+    3078,
+    6333
+   ],
+   "slots": {
+    "2": -13.8,
+    "3": 14.2
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Akshan",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.7
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Akshan",
+   "pen": 3302,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -6.8,
+    "3": -8.3
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Teemo",
+   "pen": 3135,
+   "core": [
+    3089,
+    3118,
+    4645
+   ],
+   "slots": {
+    "2": 13.2,
+    "3": -2.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Teemo",
+   "pen": 3137,
+   "core": [
+    3089,
+    3118,
+    4645
+   ],
+   "slots": {
+    "2": 5.7,
+    "3": -6.2
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Teemo",
+   "pen": 3302,
+   "core": [
+    3089,
+    3118,
+    4645
+   ],
+   "slots": {
+    "2": 16.4,
+    "3": -3.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Tristana",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.6
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Tristana",
+   "pen": 3302,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.6,
+    "3": -3.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Warwick",
+   "pen": 3135,
+   "core": [
+    3065,
+    3153,
+    6333
+   ],
+   "slots": {
+    "2": -25.7,
+    "3": -5.5
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Warwick",
+   "pen": 3302,
+   "core": [
+    3065,
+    3153,
+    6333
+   ],
+   "slots": {
+    "2": -1.5,
+    "3": 10.8
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Olaf",
+   "pen": 3036,
+   "core": [
+    3073,
+    6333,
+    3065
+   ],
+   "slots": {
+    "2": 8.2,
+    "3": 37.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Olaf",
+   "pen": 3033,
+   "core": [
+    3073,
+    6333,
+    3065
+   ],
+   "slots": {
+    "2": 6.6,
+    "3": 34.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Nunu",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.5,
+    "3": 3.3
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Nunu",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -14.5,
+    "3": -3.5
+   },
+   "wins_2nd_from_resist": 170
+  },
+  {
+   "champ": "Belveth",
+   "pen": 3036,
+   "core": [
+    6333,
+    3153,
+    6672
+   ],
+   "slots": {
+    "2": 1.3,
+    "3": -21.9
+   },
+   "wins_2nd_from_resist": 50
+  },
+  {
+   "champ": "Belveth",
+   "pen": 3033,
+   "core": [
+    6333,
+    3153,
+    6672
+   ],
+   "slots": {
+    "2": 0.5,
+    "3": -23.2
+   },
+   "wins_2nd_from_resist": 50
+  },
+  {
+   "champ": "Belveth",
+   "pen": 3302,
+   "core": [
+    6333,
+    3153,
+    6672
+   ],
+   "slots": {
+    "2": -3.7,
+    "3": -10.0
+   },
+   "wins_2nd_from_resist": 190
+  },
+  {
+   "champ": "Jhin",
+   "pen": 3036,
+   "core": [
+    3031,
+    6676,
+    3094
+   ],
+   "slots": {
+    "2": 1.3,
+    "3": 21.6
+   },
+   "wins_2nd_from_resist": 50
+  },
+  {
+   "champ": "Jhin",
+   "pen": 3033,
+   "core": [
+    3031,
+    6676,
+    3094
+   ],
+   "slots": {
+    "2": -0.2,
+    "3": 18.4
+   },
+   "wins_2nd_from_resist": 60
+  },
+  {
+   "champ": "Jhin",
+   "pen": 6694,
+   "core": [
+    3031,
+    6676,
+    3094
+   ],
+   "slots": {
+    "2": -2.0,
+    "3": 16.4
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Kindred",
+   "pen": 3036,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -0.9,
+    "3": 3.8
+   },
+   "wins_2nd_from_resist": 60
+  },
+  {
+   "champ": "Kindred",
+   "pen": 3033,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -2.7,
+    "3": 1.3
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Kindred",
+   "pen": 3302,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -7.6,
+    "3": -7.7
+   },
+   "wins_2nd_from_resist": 150
+  },
+  {
+   "champ": "MissFortune",
+   "pen": 3135,
+   "core": [
+    2503,
+    3089,
+    4645
+   ],
+   "slots": {
+    "2": -10.1,
+    "3": -5.6
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "MissFortune",
+   "pen": 3137,
+   "core": [
+    2503,
+    3089,
+    4645
+   ],
+   "slots": {
+    "2": -10.0,
+    "3": -5.8
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "MissFortune",
+   "pen": 3036,
+   "core": [
+    2503,
+    3089,
+    4645
+   ],
+   "slots": {
+    "2": 7.4,
+    "3": 8.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "MissFortune",
+   "pen": 3033,
+   "core": [
+    2503,
+    3089,
+    4645
+   ],
+   "slots": {
+    "2": 5.6,
+    "3": 6.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "MissFortune",
+   "pen": 6694,
+   "core": [
+    2503,
+    3089,
+    4645
+   ],
+   "slots": {
+    "2": 9.5,
+    "3": 10.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ashe",
+   "pen": 3135,
+   "core": [
+    3118,
+    4005,
+    4628
+   ],
+   "slots": {
+    "2": 5.6,
+    "3": -4.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ashe",
+   "pen": 3137,
+   "core": [
+    3118,
+    4005,
+    4628
+   ],
+   "slots": {
+    "2": 3.7,
+    "3": -6.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ashe",
+   "pen": 3036,
+   "core": [
+    3118,
+    4005,
+    4628
+   ],
+   "slots": {
+    "2": 67.9,
+    "3": 52.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ashe",
+   "pen": 3033,
+   "core": [
+    3118,
+    4005,
+    4628
+   ],
+   "slots": {
+    "2": 65.1,
+    "3": 49.2
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ashe",
+   "pen": 6694,
+   "core": [
+    3118,
+    4005,
+    4628
+   ],
+   "slots": {
+    "2": 53.2,
+    "3": 38.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ashe",
+   "pen": 3302,
+   "core": [
+    3118,
+    4005,
+    4628
+   ],
+   "slots": {
+    "2": 65.2,
+    "3": 45.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Zeri",
+   "pen": 3036,
+   "core": [
+    3031,
+    3032,
+    3085
+   ],
+   "slots": {
+    "2": -15.3,
+    "3": 15.1
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Zeri",
+   "pen": 3033,
+   "core": [
+    3031,
+    3032,
+    3085
+   ],
+   "slots": {
+    "2": -16.9,
+    "3": 12.4
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Jinx",
+   "pen": 3033,
+   "core": [
+    3031,
+    3085,
+    3036
+   ],
+   "slots": {
+    "2": 18.0,
+    "3": -2.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Jinx",
+   "pen": 6694,
+   "core": [
+    3031,
+    3085,
+    3036
+   ],
+   "slots": {
+    "2": 7.9,
+    "3": -7.1
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Jinx",
+   "pen": 3302,
+   "core": [
+    3031,
+    3085,
+    3036
+   ],
+   "slots": {
+    "2": 8.0,
+    "3": -12.9
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "TahmKench",
+   "pen": 3135,
+   "core": [
+    3083,
+    3084,
+    2502
+   ],
+   "slots": {
+    "2": 6.5,
+    "3": 9.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "TahmKench",
+   "pen": 3137,
+   "core": [
+    3083,
+    3084,
+    2502
+   ],
+   "slots": {
+    "2": 3.9,
+    "3": 9.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Tryndamere",
+   "pen": 3137,
+   "core": [
+    3031,
+    3153,
+    3046
+   ],
+   "slots": {
+    "2": -27.5,
+    "3": -33.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Tryndamere",
+   "pen": 3036,
+   "core": [
+    3031,
+    3153,
+    3046
+   ],
+   "slots": {
+    "2": 6.2,
+    "3": -3.2
+   },
+   "wins_2nd_from_resist": 30
+  },
+  {
+   "champ": "Tryndamere",
+   "pen": 3033,
+   "core": [
+    3031,
+    3153,
+    3046
+   ],
+   "slots": {
+    "2": 4.2,
+    "3": -5.5
+   },
+   "wins_2nd_from_resist": 30
+  },
+  {
+   "champ": "Tryndamere",
+   "pen": 3302,
+   "core": [
+    3031,
+    3153,
+    3046
+   ],
+   "slots": {
+    "2": 0.0,
+    "3": -14.3
+   },
+   "wins_2nd_from_resist": 60
+  },
+  {
+   "champ": "Briar",
+   "pen": 3036,
+   "core": [
+    6333,
+    6676,
+    3031
+   ],
+   "slots": {
+    "2": -0.8,
+    "3": -3.6
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Briar",
+   "pen": 3033,
+   "core": [
+    6333,
+    6676,
+    3031
+   ],
+   "slots": {
+    "2": -2.5,
+    "3": -5.9
+   },
+   "wins_2nd_from_resist": 80
+  },
+  {
+   "champ": "Viego",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6333
+   ],
+   "slots": {
+    "2": -1.8
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Senna",
+   "pen": 3036,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -0.4,
+    "3": 4.7
+   },
+   "wins_2nd_from_resist": 60
+  },
+  {
+   "champ": "Senna",
+   "pen": 3033,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -2.2,
+    "3": 2.2
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Senna",
+   "pen": 6694,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -1.2,
+    "3": 1.5
+   },
+   "wins_2nd_from_resist": 60
+  },
+  {
+   "champ": "Senna",
+   "pen": 3302,
+   "core": [
+    3031,
+    6676,
+    3153
+   ],
+   "slots": {
+    "2": -4.5,
+    "3": -4.8
+   },
+   "wins_2nd_from_resist": 120
+  },
+  {
+   "champ": "Lucian",
+   "pen": 3135,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -22.5,
+    "3": -23.1
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Lucian",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.8
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Lucian",
+   "pen": 6694,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -4.1,
+    "3": -2.2
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Jax",
+   "pen": 3135,
+   "core": [
+    3153,
+    6333,
+    3078
+   ],
+   "slots": {
+    "2": -8.0,
+    "3": -17.6
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Jax",
+   "pen": 3036,
+   "core": [
+    3153,
+    6333,
+    3078
+   ],
+   "slots": {
+    "2": 13.8,
+    "3": 3.9
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Jax",
+   "pen": 3033,
+   "core": [
+    3153,
+    6333,
+    3078
+   ],
+   "slots": {
+    "2": 12.1,
+    "3": 1.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Jax",
+   "pen": 3302,
+   "core": [
+    3153,
+    6333,
+    3078
+   ],
+   "slots": {
+    "2": 10.6,
+    "3": -5.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Kled",
+   "pen": 3036,
+   "core": [
+    3748,
+    2501,
+    3084
+   ],
+   "slots": {
+    "2": 6.1,
+    "3": 17.4
+   },
+   "wins_2nd_from_resist": 30
+  },
+  {
+   "champ": "Ekko",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    2510
+   ],
+   "slots": {
+    "2": -6.0,
+    "3": 10.3
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Ekko",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    2510
+   ],
+   "slots": {
+    "2": -10.7,
+    "3": 4.4
+   },
+   "wins_2nd_from_resist": 150
+  },
+  {
+   "champ": "Morgana",
+   "pen": 3135,
+   "core": [
+    2503,
+    6653,
+    3116
+   ],
+   "slots": {
+    "2": 6.0,
+    "3": 22.9
+   },
+   "wins_2nd_from_resist": 30
+  },
+  {
+   "champ": "Morgana",
+   "pen": 3137,
+   "core": [
+    2503,
+    6653,
+    3116
+   ],
+   "slots": {
+    "2": 1.4,
+    "3": 22.7
+   },
+   "wins_2nd_from_resist": 40
+  },
+  {
+   "champ": "Zilean",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.5,
+    "3": 3.9
+   },
+   "wins_2nd_from_resist": 80
+  },
+  {
+   "champ": "Zilean",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -8.7,
+    "3": -0.2
+   },
+   "wins_2nd_from_resist": 140
+  },
+  {
+   "champ": "Azir",
+   "pen": 3135,
+   "core": [
+    3089,
+    3115,
+    4645
+   ],
+   "slots": {
+    "2": -13.2,
+    "3": -2.3
+   },
+   "wins_2nd_from_resist": 150
+  },
+  {
+   "champ": "Azir",
+   "pen": 3137,
+   "core": [
+    3089,
+    3115,
+    4645
+   ],
+   "slots": {
+    "2": -20.0,
+    "3": -11.0
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Azir",
+   "pen": 3302,
+   "core": [
+    3089,
+    3115,
+    4645
+   ],
+   "slots": {
+    "2": -25.5,
+    "3": -19.4
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Singed",
+   "pen": 3135,
+   "core": [
+    3116,
+    6653,
+    6657
+   ],
+   "slots": {
+    "2": 8.1,
+    "3": 22.1
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Evelynn",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.2,
+    "3": 1.0
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Twitch",
+   "pen": 3135,
+   "core": [
+    3031,
+    3085,
+    3153
+   ],
+   "slots": {
+    "2": -12.9,
+    "3": -30.1
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Twitch",
+   "pen": 3137,
+   "core": [
+    3031,
+    3085,
+    3153
+   ],
+   "slots": {
+    "2": -16.0,
+    "3": -31.8
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Twitch",
+   "pen": 3036,
+   "core": [
+    3031,
+    3085,
+    3153
+   ],
+   "slots": {
+    "2": 16.0,
+    "3": 2.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Twitch",
+   "pen": 3033,
+   "core": [
+    3031,
+    3085,
+    3153
+   ],
+   "slots": {
+    "2": 13.9,
+    "3": 0.1
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Twitch",
+   "pen": 3302,
+   "core": [
+    3031,
+    3085,
+    3153
+   ],
+   "slots": {
+    "2": 7.5,
+    "3": -8.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Galio",
+   "pen": 3135,
+   "core": [
+    2502,
+    3083,
+    3084
+   ],
+   "slots": {
+    "2": 38.5,
+    "3": 29.3
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Galio",
+   "pen": 3137,
+   "core": [
+    2502,
+    3083,
+    3084
+   ],
+   "slots": {
+    "2": 30.1,
+    "3": 22.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Karthus",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    3135
+   ],
+   "slots": {
+    "2": -11.4,
+    "3": -7.4
+   },
+   "wins_2nd_from_resist": 120
+  },
+  {
+   "champ": "Chogath",
+   "pen": 3135,
+   "core": [
+    3083,
+    3084,
+    2502
+   ],
+   "slots": {
+    "2": 15.2,
+    "3": 4.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Chogath",
+   "pen": 3137,
+   "core": [
+    3083,
+    3084,
+    2502
+   ],
+   "slots": {
+    "2": 11.4,
+    "3": 16.1
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Amumu",
+   "pen": 3135,
+   "core": [
+    2502,
+    3075,
+    3083
+   ],
+   "slots": {
+    "2": 29.7,
+    "3": 27.1
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Amumu",
+   "pen": 3137,
+   "core": [
+    2502,
+    3075,
+    3083
+   ],
+   "slots": {
+    "2": 28.6,
+    "3": 24.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Anivia",
+   "pen": 3135,
+   "core": [
+    6653,
+    3089,
+    3118
+   ],
+   "slots": {
+    "2": -0.1,
+    "3": 12.8
+   },
+   "wins_2nd_from_resist": 50
+  },
+  {
+   "champ": "Anivia",
+   "pen": 3137,
+   "core": [
+    6653,
+    3089,
+    3118
+   ],
+   "slots": {
+    "2": -2.4,
+    "3": 10.3
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Shaco",
+   "pen": 3135,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -23.7,
+    "3": -25.4
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Shaco",
+   "pen": 3137,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -23.9,
+    "3": -24.1
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Shaco",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.5
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Shaco",
+   "pen": 6694,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -6.4,
+    "3": -8.0
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "DrMundo",
+   "pen": 3135,
+   "core": [
+    2502,
+    3065,
+    3083
+   ],
+   "slots": {
+    "2": -4.0,
+    "3": -4.6
+   },
+   "wins_2nd_from_resist": 50
+  },
+  {
+   "champ": "DrMundo",
+   "pen": 3036,
+   "core": [
+    2502,
+    3065,
+    3083
+   ],
+   "slots": {
+    "2": 15.6,
+    "3": 15.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Samira",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.8
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Kassadin",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6657
+   ],
+   "slots": {
+    "2": -5.8,
+    "3": 27.0
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Kassadin",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6657
+   ],
+   "slots": {
+    "2": 2.7,
+    "3": 37.2
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Irelia",
+   "pen": 3135,
+   "core": [
+    3091,
+    3153,
+    6333
+   ],
+   "slots": {
+    "2": -21.0,
+    "3": -12.0
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Irelia",
+   "pen": 3036,
+   "core": [
+    3091,
+    3153,
+    6333
+   ],
+   "slots": {
+    "2": -2.8,
+    "3": 11.1
+   },
+   "wins_2nd_from_resist": 110
+  },
+  {
+   "champ": "Irelia",
+   "pen": 3033,
+   "core": [
+    3091,
+    3153,
+    6333
+   ],
+   "slots": {
+    "2": -4.0,
+    "3": 9.1
+   },
+   "wins_2nd_from_resist": 170
+  },
+  {
+   "champ": "Irelia",
+   "pen": 3302,
+   "core": [
+    3091,
+    3153,
+    6333
+   ],
+   "slots": {
+    "2": -1.5,
+    "3": 6.7
+   },
+   "wins_2nd_from_resist": 100
+  },
+  {
+   "champ": "TwistedFate",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.5,
+    "3": 1.0
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "TwistedFate",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -10.4,
+    "3": -5.1
+   },
+   "wins_2nd_from_resist": 130
+  },
+  {
+   "champ": "TwistedFate",
+   "pen": 3036,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.4,
+    "3": -8.2
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "TwistedFate",
+   "pen": 3302,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": 8.2,
+    "3": -0.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Janna",
+   "pen": 3135,
+   "core": [
+    3504,
+    6617,
+    6621
+   ],
+   "slots": {
+    "2": 9.3,
+    "3": 18.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Janna",
+   "pen": 3137,
+   "core": [
+    3504,
+    6617,
+    6621
+   ],
+   "slots": {
+    "2": 4.0,
+    "3": 18.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Gangplank",
+   "pen": 3135,
+   "core": [
+    3031,
+    3036,
+    3508
+   ],
+   "slots": {
+    "2": -28.8,
+    "3": -31.3
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Gangplank",
+   "pen": 3137,
+   "core": [
+    3031,
+    3036,
+    3508
+   ],
+   "slots": {
+    "2": -25.3,
+    "3": -29.3
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Gangplank",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    3508
+   ],
+   "slots": {
+    "2": -1.6
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Gangplank",
+   "pen": 6694,
+   "core": [
+    3031,
+    3036,
+    3508
+   ],
+   "slots": {
+    "2": -3.4,
+    "3": -8.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Thresh",
+   "pen": 3135,
+   "core": [
+    3084,
+    3083,
+    3075
+   ],
+   "slots": {
+    "2": 19.6,
+    "3": 21.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Thresh",
+   "pen": 3036,
+   "core": [
+    3084,
+    3083,
+    3075
+   ],
+   "slots": {
+    "2": 21.6,
+    "3": 24.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Corki",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.4
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Corki",
+   "pen": 6694,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": 3.1,
+    "3": 2.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Illaoi",
+   "pen": 3036,
+   "core": [
+    3065,
+    3084,
+    2501
+   ],
+   "slots": {
+    "2": 32.6,
+    "3": 1.3
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "RekSai",
+   "pen": 3036,
+   "core": [
+    2502,
+    3065,
+    3084
+   ],
+   "slots": {
+    "2": 57.2,
+    "3": 44.3
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Kalista",
+   "pen": 3036,
+   "core": [
+    3302,
+    3124,
+    3153
+   ],
+   "slots": {
+    "2": -1.6,
+    "3": -4.0
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Kalista",
+   "pen": 3033,
+   "core": [
+    3302,
+    3124,
+    3153
+   ],
+   "slots": {
+    "2": -3.3,
+    "3": -5.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Karma",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.3,
+    "3": 1.7
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Karma",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.9,
+    "3": -0.9
+   },
+   "wins_2nd_from_resist": 80
+  },
+  {
+   "champ": "Bard",
+   "pen": 3135,
+   "core": [
+    3100,
+    6655,
+    3089
+   ],
+   "slots": {
+    "2": 3.9,
+    "3": -6.0
+   },
+   "wins_2nd_from_resist": 30
+  },
+  {
+   "champ": "Bard",
+   "pen": 3302,
+   "core": [
+    3100,
+    6655,
+    3089
+   ],
+   "slots": {
+    "2": 10.8,
+    "3": -5.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Veigar",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.1,
+    "3": 6.4
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Veigar",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -11.2,
+    "3": -0.3
+   },
+   "wins_2nd_from_resist": 130
+  },
+  {
+   "champ": "Trundle",
+   "pen": 3135,
+   "core": [
+    2503,
+    4005,
+    6653
+   ],
+   "slots": {
+    "2": 3.0,
+    "3": -12.1
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Trundle",
+   "pen": 3137,
+   "core": [
+    2503,
+    4005,
+    6653
+   ],
+   "slots": {
+    "2": 4.9,
+    "3": -12.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Trundle",
+   "pen": 3036,
+   "core": [
+    2503,
+    4005,
+    6653
+   ],
+   "slots": {
+    "2": 50.9,
+    "3": 27.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Trundle",
+   "pen": 3033,
+   "core": [
+    2503,
+    4005,
+    6653
+   ],
+   "slots": {
+    "2": 48.3,
+    "3": 24.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Trundle",
+   "pen": 3302,
+   "core": [
+    2503,
+    4005,
+    6653
+   ],
+   "slots": {
+    "2": 36.0,
+    "3": 13.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Xayah",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6675
+   ],
+   "slots": {
+    "2": -1.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Xayah",
+   "pen": 3302,
+   "core": [
+    3031,
+    3036,
+    6675
+   ],
+   "slots": {
+    "2": -6.3,
+    "3": -5.1
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "XinZhao",
+   "pen": 3036,
+   "core": [
+    2510,
+    3065,
+    3087
+   ],
+   "slots": {
+    "2": 37.4,
+    "3": 1.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "XinZhao",
+   "pen": 3033,
+   "core": [
+    2510,
+    3065,
+    3087
+   ],
+   "slots": {
+    "2": 35.0,
+    "3": -1.2
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "XinZhao",
+   "pen": 3302,
+   "core": [
+    2510,
+    3065,
+    3087
+   ],
+   "slots": {
+    "2": 34.0,
+    "3": -4.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Swain",
+   "pen": 3135,
+   "core": [
+    3065,
+    4633,
+    2502
+   ],
+   "slots": {
+    "2": 7.4,
+    "3": 26.2
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Caitlyn",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.8
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Caitlyn",
+   "pen": 6694,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -8.0,
+    "3": -5.3
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Caitlyn",
+   "pen": 3302,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -6.8,
+    "3": -8.0
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Ornn",
+   "pen": 3135,
+   "core": [
+    3083,
+    3084,
+    6665
+   ],
+   "slots": {
+    "2": -1.5,
+    "3": 5.7
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Ornn",
+   "pen": 3137,
+   "core": [
+    3083,
+    3084,
+    6665
+   ],
+   "slots": {
+    "2": -2.9,
+    "3": 4.3
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Sylas",
+   "pen": 3135,
+   "core": [
+    3089,
+    3100,
+    4645
+   ],
+   "slots": {
+    "2": 0.9,
+    "3": -2.7
+   },
+   "wins_2nd_from_resist": 40
+  },
+  {
+   "champ": "Sylas",
+   "pen": 3137,
+   "core": [
+    3089,
+    3100,
+    4645
+   ],
+   "slots": {
+    "2": 4.4,
+    "3": 11.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Sylas",
+   "pen": 3036,
+   "core": [
+    3089,
+    3100,
+    4645
+   ],
+   "slots": {
+    "2": -9.4,
+    "3": -15.3
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Neeko",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.3,
+    "3": 3.4
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Neeko",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -9.1,
+    "3": -1.5
+   },
+   "wins_2nd_from_resist": 110
+  },
+  {
+   "champ": "Aphelios",
+   "pen": 3033,
+   "core": [
+    3031,
+    6676,
+    3036
+   ],
+   "slots": {
+    "2": -2.7,
+    "3": -2.9
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Blitzcrank",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.6,
+    "3": -1.6
+   },
+   "wins_2nd_from_resist": 110
+  },
+  {
+   "champ": "Blitzcrank",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -1.7,
+    "3": 6.6
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Malphite",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.3,
+    "3": 1.3
+   },
+   "wins_2nd_from_resist": 80
+  },
+  {
+   "champ": "Malphite",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -9.6,
+    "3": -0.5
+   },
+   "wins_2nd_from_resist": 180
+  },
+  {
+   "champ": "Katarina",
+   "pen": 3135,
+   "core": [
+    3153,
+    3302,
+    6672
+   ],
+   "slots": {
+    "2": -4.5,
+    "3": -21.7
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Katarina",
+   "pen": 3036,
+   "core": [
+    3153,
+    3302,
+    6672
+   ],
+   "slots": {
+    "2": -0.8,
+    "3": -13.1
+   },
+   "wins_2nd_from_resist": 100
+  },
+  {
+   "champ": "Maokai",
+   "pen": 3135,
+   "core": [
+    2502,
+    3065,
+    3084
+   ],
+   "slots": {
+    "2": 16.6,
+    "3": 5.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Maokai",
+   "pen": 3137,
+   "core": [
+    2502,
+    3065,
+    3084
+   ],
+   "slots": {
+    "2": 19.2,
+    "3": 10.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Renekton",
+   "pen": 3036,
+   "core": [
+    6333,
+    3161,
+    3065
+   ],
+   "slots": {
+    "2": 14.2,
+    "3": 45.2
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Renekton",
+   "pen": 3033,
+   "core": [
+    6333,
+    3161,
+    3065
+   ],
+   "slots": {
+    "2": 12.1,
+    "3": 41.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Renekton",
+   "pen": 6694,
+   "core": [
+    6333,
+    3161,
+    3065
+   ],
+   "slots": {
+    "2": 13.6,
+    "3": 37.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Elise",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -4.5,
+    "3": 0.7
+   },
+   "wins_2nd_from_resist": 80
+  },
+  {
+   "champ": "Elise",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.2,
+    "3": -4.0
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Orianna",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    3135
+   ],
+   "slots": {
+    "2": -11.6,
+    "3": -2.8
+   },
+   "wins_2nd_from_resist": 130
+  },
+  {
+   "champ": "Brand",
+   "pen": 3135,
+   "core": [
+    2503,
+    6653,
+    4645
+   ],
+   "slots": {
+    "2": 8.4,
+    "3": -1.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Brand",
+   "pen": 3137,
+   "core": [
+    2503,
+    6653,
+    4645
+   ],
+   "slots": {
+    "2": 13.5,
+    "3": 3.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Vayne",
+   "pen": 3036,
+   "core": [
+    3153,
+    3302,
+    3124
+   ],
+   "slots": {
+    "2": 9.4,
+    "3": -9.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Vayne",
+   "pen": 3033,
+   "core": [
+    3153,
+    3302,
+    3124
+   ],
+   "slots": {
+    "2": 7.4,
+    "3": -10.9
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Rumble",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6653
+   ],
+   "slots": {
+    "2": -5.3,
+    "3": 17.0
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Rumble",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6653
+   ],
+   "slots": {
+    "2": -4.4,
+    "3": 17.3
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Cassiopeia",
+   "pen": 3135,
+   "core": [
+    6653,
+    3116,
+    3089
+   ],
+   "slots": {
+    "2": 19.2,
+    "3": -0.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Leblanc",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.2,
+    "3": 7.9
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Leblanc",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -8.2,
+    "3": 13.2
+   },
+   "wins_2nd_from_resist": 100
+  },
+  {
+   "champ": "Vex",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.1,
+    "3": 3.6
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Vex",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -10.8,
+    "3": -3.0
+   },
+   "wins_2nd_from_resist": 130
+  },
+  {
+   "champ": "Heimerdinger",
+   "pen": 3135,
+   "core": [
+    2503,
+    3116,
+    6653
+   ],
+   "slots": {
+    "2": 18.9,
+    "3": 2.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Heimerdinger",
+   "pen": 3137,
+   "core": [
+    2503,
+    3116,
+    6653
+   ],
+   "slots": {
+    "2": 28.7,
+    "3": 10.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Nasus",
+   "pen": 3135,
+   "core": [
+    2503,
+    3089,
+    4645
+   ],
+   "slots": {
+    "2": 3.3,
+    "3": -3.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Nasus",
+   "pen": 3137,
+   "core": [
+    2503,
+    3089,
+    4645
+   ],
+   "slots": {
+    "2": 6.0,
+    "3": -1.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Nasus",
+   "pen": 3036,
+   "core": [
+    2503,
+    3089,
+    4645
+   ],
+   "slots": {
+    "2": 17.9,
+    "3": 10.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Nasus",
+   "pen": 3033,
+   "core": [
+    2503,
+    3089,
+    4645
+   ],
+   "slots": {
+    "2": 16.4,
+    "3": 8.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Nidalee",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.2,
+    "3": 7.1
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Nidalee",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": 0.7,
+    "3": 13.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Udyr",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6653
+   ],
+   "slots": {
+    "2": -6.0,
+    "3": 12.6
+   },
+   "wins_2nd_from_resist": 90
+  },
+  {
+   "champ": "Udyr",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6653
+   ],
+   "slots": {
+    "2": -11.1,
+    "3": 18.1
+   },
+   "wins_2nd_from_resist": 210
+  },
+  {
+   "champ": "Udyr",
+   "pen": 3036,
+   "core": [
+    3089,
+    4645,
+    6653
+   ],
+   "slots": {
+    "2": -6.2,
+    "3": 6.1
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Udyr",
+   "pen": 3033,
+   "core": [
+    3089,
+    4645,
+    6653
+   ],
+   "slots": {
+    "2": -7.3,
+    "3": 4.8
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Yone",
+   "pen": 3036,
+   "core": [
+    3031,
+    3032,
+    6333
+   ],
+   "slots": {
+    "2": -12.9,
+    "3": 11.2
+   },
+   "wins_2nd_from_resist": 230
+  },
+  {
+   "champ": "Yone",
+   "pen": 3033,
+   "core": [
+    3031,
+    3032,
+    6333
+   ],
+   "slots": {
+    "2": -14.5,
+    "3": 8.6
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Yone",
+   "pen": 3302,
+   "core": [
+    3031,
+    3032,
+    6333
+   ],
+   "slots": {
+    "2": -22.6,
+    "3": 2.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Gragas",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.3,
+    "3": 3.1
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Gragas",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -9.0,
+    "3": 1.1
+   },
+   "wins_2nd_from_resist": 110
+  },
+  {
+   "champ": "Vladimir",
+   "pen": 3135,
+   "core": [
+    3089,
+    4633,
+    4629
+   ],
+   "slots": {
+    "2": -4.4,
+    "3": -1.1
+   },
+   "wins_2nd_from_resist": 80
+  },
+  {
+   "champ": "Vladimir",
+   "pen": 3137,
+   "core": [
+    3089,
+    4633,
+    4629
+   ],
+   "slots": {
+    "2": 1.7,
+    "3": 5.1
+   },
+   "wins_2nd_from_resist": 40
+  },
+  {
+   "champ": "Mel",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    3135
+   ],
+   "slots": {
+    "2": -6.4,
+    "3": -2.2
+   },
+   "wins_2nd_from_resist": 90
+  },
+  {
+   "champ": "Yunara",
+   "pen": 3033,
+   "core": [
+    3031,
+    3085,
+    3036
+   ],
+   "slots": {
+    "2": 4.6,
+    "3": -2.1
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Yunara",
+   "pen": 3302,
+   "core": [
+    3031,
+    3085,
+    3036
+   ],
+   "slots": {
+    "2": 7.3,
+    "3": -6.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Locke",
+   "pen": 3135,
+   "core": [
+    3100,
+    4645,
+    3089
+   ],
+   "slots": {
+    "2": -5.8,
+    "3": -4.0
+   },
+   "wins_2nd_from_resist": 80
+  },
+  {
+   "champ": "Locke",
+   "pen": 3137,
+   "core": [
+    3100,
+    4645,
+    3089
+   ],
+   "slots": {
+    "2": -10.2,
+    "3": -0.8
+   },
+   "wins_2nd_from_resist": 140
+  },
+  {
+   "champ": "Ezreal",
+   "pen": 3135,
+   "core": [
+    3089,
+    3118,
+    4645
+   ],
+   "slots": {
+    "2": 4.0,
+    "3": -3.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ezreal",
+   "pen": 3137,
+   "core": [
+    3089,
+    3118,
+    4645
+   ],
+   "slots": {
+    "2": 4.3,
+    "3": -4.1
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ezreal",
+   "pen": 3036,
+   "core": [
+    3089,
+    3118,
+    4645
+   ],
+   "slots": {
+    "2": 8.7,
+    "3": 0.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ezreal",
+   "pen": 3033,
+   "core": [
+    3089,
+    3118,
+    4645
+   ],
+   "slots": {
+    "2": 7.5,
+    "3": -0.9
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Ezreal",
+   "pen": 6694,
+   "core": [
+    3089,
+    3118,
+    4645
+   ],
+   "slots": {
+    "2": 11.2,
+    "3": -0.3
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Mordekaiser",
+   "pen": 3135,
+   "core": [
+    3065,
+    4633,
+    3116
+   ],
+   "slots": {
+    "2": 1.0,
+    "3": 20.2
+   },
+   "wins_2nd_from_resist": 40
+  },
+  {
+   "champ": "Yorick",
+   "pen": 6694,
+   "core": [
+    3065,
+    3084,
+    6662
+   ],
+   "slots": {
+    "2": 36.8,
+    "3": 12.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Akali",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.3,
+    "3": 3.8
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Akali",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -10.4,
+    "3": -2.5
+   },
+   "wins_2nd_from_resist": 120
+  },
+  {
+   "champ": "Kennen",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.5,
+    "3": 3.4
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Kennen",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -10.9,
+    "3": -3.3
+   },
+   "wins_2nd_from_resist": 130
+  },
+  {
+   "champ": "Garen",
+   "pen": 3036,
+   "core": [
+    3031,
+    3046,
+    6631
+   ],
+   "slots": {
+    "2": 12.3,
+    "3": 21.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Garen",
+   "pen": 3033,
+   "core": [
+    3031,
+    3046,
+    6631
+   ],
+   "slots": {
+    "2": 10.2,
+    "3": 18.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Garen",
+   "pen": 6694,
+   "core": [
+    3031,
+    3046,
+    6631
+   ],
+   "slots": {
+    "2": 14.6,
+    "3": 20.1
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Sett",
+   "pen": 3036,
+   "core": [
+    2501,
+    3083,
+    3084
+   ],
+   "slots": {
+    "2": 25.8,
+    "3": 19.7
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Sett",
+   "pen": 3033,
+   "core": [
+    2501,
+    3083,
+    3084
+   ],
+   "slots": {
+    "2": 23.6,
+    "3": 16.9
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Sett",
+   "pen": 6694,
+   "core": [
+    2501,
+    3083,
+    3084
+   ],
+   "slots": {
+    "2": 26.2,
+    "3": 23.2
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Lillia",
+   "pen": 3135,
+   "core": [
+    2503,
+    6653,
+    4633
+   ],
+   "slots": {
+    "2": 2.9,
+    "3": 8.0
+   },
+   "wins_2nd_from_resist": 30
+  },
+  {
+   "champ": "Lillia",
+   "pen": 3137,
+   "core": [
+    2503,
+    6653,
+    4633
+   ],
+   "slots": {
+    "2": -0.1,
+    "3": 4.2
+   },
+   "wins_2nd_from_resist": 50
+  },
+  {
+   "champ": "Gwen",
+   "pen": 3135,
+   "core": [
+    2510,
+    3115,
+    4645
+   ],
+   "slots": {
+    "2": -15.8,
+    "3": -3.2
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Renata",
+   "pen": 3137,
+   "core": [
+    3118,
+    4005,
+    2065
+   ],
+   "slots": {
+    "2": 12.6,
+    "3": 15.4
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Aurora",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -5.7,
+    "3": 3.1
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Aurora",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    4646
+   ],
+   "slots": {
+    "2": -10.3,
+    "3": -2.5
+   },
+   "wins_2nd_from_resist": 120
+  },
+  {
+   "champ": "Nilah",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    6676
+   ],
+   "slots": {
+    "2": -1.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Fiddlesticks",
+   "pen": 3135,
+   "core": [
+    3089,
+    3118,
+    4645
+   ],
+   "slots": {
+    "2": 6.9,
+    "3": -1.8
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Fiddlesticks",
+   "pen": 3137,
+   "core": [
+    3089,
+    3118,
+    4645
+   ],
+   "slots": {
+    "2": 10.5,
+    "3": -3.5
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Malzahar",
+   "pen": 3135,
+   "core": [
+    2503,
+    6653,
+    3116
+   ],
+   "slots": {
+    "2": 4.8,
+    "3": 20.3
+   },
+   "wins_2nd_from_resist": 30
+  },
+  {
+   "champ": "Malzahar",
+   "pen": 3137,
+   "core": [
+    2503,
+    6653,
+    3116
+   ],
+   "slots": {
+    "2": 6.8,
+    "3": 21.0
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Smolder",
+   "pen": 3033,
+   "core": [
+    3031,
+    3036,
+    3508
+   ],
+   "slots": {
+    "2": -1.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Smolder",
+   "pen": 6694,
+   "core": [
+    3031,
+    3036,
+    3508
+   ],
+   "slots": {
+    "2": 0.5,
+    "3": -8.2
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Zaahen",
+   "pen": 3036,
+   "core": [
+    2517,
+    6333,
+    6610
+   ],
+   "slots": {
+    "2": 7.8,
+    "3": 22.6
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Zaahen",
+   "pen": 3033,
+   "core": [
+    2517,
+    6333,
+    6610
+   ],
+   "slots": {
+    "2": 6.2,
+    "3": 20.2
+   },
+   "wins_2nd_from_resist": 20
+  },
+  {
+   "champ": "Hwei",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    2503
+   ],
+   "slots": {
+    "2": -6.1,
+    "3": -3.7
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Hwei",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    2503
+   ],
+   "slots": {
+    "2": -13.1,
+    "3": -9.7
+   },
+   "wins_2nd_from_resist": 130
+  },
+  {
+   "champ": "KogMaw",
+   "pen": 3135,
+   "core": [
+    3124,
+    3153,
+    3302
+   ],
+   "slots": {
+    "2": -13.1,
+    "3": -8.4
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "KogMaw",
+   "pen": 3137,
+   "core": [
+    3124,
+    3153,
+    3302
+   ],
+   "slots": {
+    "2": -18.4,
+    "3": -12.2
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "KogMaw",
+   "pen": 3036,
+   "core": [
+    3124,
+    3153,
+    3302
+   ],
+   "slots": {
+    "2": -8.5,
+    "3": -1.9
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "KogMaw",
+   "pen": 3033,
+   "core": [
+    3124,
+    3153,
+    3302
+   ],
+   "slots": {
+    "2": -9.3,
+    "3": -3.3
+   },
+   "wins_2nd_from_resist": null
+  },
+  {
+   "champ": "Lux",
+   "pen": 3135,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -5.2,
+    "3": -1.1
+   },
+   "wins_2nd_from_resist": 70
+  },
+  {
+   "champ": "Lux",
+   "pen": 3137,
+   "core": [
+    3089,
+    4645,
+    6655
+   ],
+   "slots": {
+    "2": -10.4,
+    "3": -1.3
+   },
+   "wins_2nd_from_resist": 130
+  }
+ ]
+}
