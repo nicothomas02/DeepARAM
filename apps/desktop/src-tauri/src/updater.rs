@@ -41,7 +41,9 @@ pub fn newer(tag: &str, running: &str) -> bool {
 pub fn quiet_phase(phase: &Result<Option<String>, ()>) -> bool {
     match phase {
         Ok(None) => true,
-        Ok(Some(p)) => matches!(p.as_str(), "None" | "Lobby" | "Matchmaking" | "PreEndOfGame" | "WaitingForStats" | "EndOfGame"),
+        Ok(Some(p)) => {
+            matches!(p.as_str(), "None" | "Lobby" | "Matchmaking" | "PreEndOfGame" | "WaitingForStats" | "EndOfGame")
+        }
         Err(()) => false,
     }
 }

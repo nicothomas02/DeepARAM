@@ -1,0 +1,11 @@
+[package]
+name = "augtrack"
+version = "0.1.0"
+edition = "2021"
+publish = false
+description = "Augment pick tracking for the DeepARAM desktop apps: which card you took, from screen reads and clicks. No platform code: the app feeds it reads, clicks and game state."
+
+[dependencies]
+
+[dev-dependencies]
+serde_json = "1"

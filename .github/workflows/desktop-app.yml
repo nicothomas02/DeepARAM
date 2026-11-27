@@ -5,9 +5,9 @@ name: Desktop app
 on:
   push:
     branches: [main]
-    paths: ["apps/desktop/**", ".github/workflows/desktop-app.yml"]
+    paths: ["apps/desktop/**", "crates/augtrack/**", ".github/workflows/desktop-app.yml"]
   pull_request:
-    paths: ["apps/desktop/**", ".github/workflows/desktop-app.yml"]
+    paths: ["apps/desktop/**", "crates/augtrack/**", ".github/workflows/desktop-app.yml"]
   workflow_dispatch:
 
 permissions:
@@ -45,6 +45,14 @@ jobs:
           cargo fmt --check
           cargo clippy --locked --all-targets -- -D warnings
           cargo test --locked
+      - name: Augment tracking gate (simulator, 300 runs per scenario; no wrong picks allowed)
+        working-directory: crates/augtrack
+        env:
+          AUGTRACK_RUNS: "300"
+        run: |
+          cargo fmt --check
+          cargo clippy --all-targets -- -D warnings
+          cargo test
       - name: Build installers
         run: npx tauri build
       - uses: actions/upload-artifact@v4

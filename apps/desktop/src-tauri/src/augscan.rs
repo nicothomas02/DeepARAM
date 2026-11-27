@@ -156,6 +156,7 @@ fn one_row(found: Vec<(f64, f64, f64, i64)>) -> Vec<(f64, f64, f64, i64)> {
 
 /// The card a click across at `x` landed on: the nearest card centre, if the click is within half the gap between
 /// cards of it (a click between or beside the cards, or on the reroll button's row below, is none of them).
+#[cfg(test)] // clicks map to cards in the shared tracker now (crates/augtrack)
 pub fn card_at(cards: &[(i64, f64)], x: f64) -> Option<i64> {
     if cards.len() < 2 {
         return None;
@@ -316,9 +317,7 @@ mod win {
     }
 
     pub fn league_in_front() -> bool {
-        unsafe {
-            FindWindowW(None, w!("League of Legends (TM) Client")).is_ok_and(|h| GetForegroundWindow() == h)
-        }
+        unsafe { FindWindowW(None, w!("League of Legends (TM) Client")).is_ok_and(|h| GetForegroundWindow() == h) }
     }
 
     pub fn mouse() -> Option<(bool, i32, i32)> {
@@ -482,7 +481,8 @@ mod tests {
         ];
         assert_eq!(match_offer(&lines, &names()), vec![1011, 1100, 1101]);
         // A list alone never makes an offer of more than one name.
-        let list = vec![line("Deft", 1300.0, 400.0), line("Blunt Force", 1300.0, 440.0), line("Mystic Punch", 1300.0, 480.0)];
+        let list =
+            vec![line("Deft", 1300.0, 400.0), line("Blunt Force", 1300.0, 440.0), line("Mystic Punch", 1300.0, 480.0)];
         assert!(match_offer(&list, &names()).len() <= 1);
     }
 
@@ -491,7 +491,10 @@ mod tests {
         let even = vec![(1, 100.0), (2, 400.0), (3, 700.0), (4, 1000.0)];
         assert_eq!(check_four(even.clone()), even);
         // A stray fourth beside three even cards: the three stay.
-        assert_eq!(check_four(vec![(9, 0.0), (1, 400.0), (2, 700.0), (3, 1000.0)]), vec![(1, 400.0), (2, 700.0), (3, 1000.0)]);
+        assert_eq!(
+            check_four(vec![(9, 0.0), (1, 400.0), (2, 700.0), (3, 1000.0)]),
+            vec![(1, 400.0), (2, 700.0), (3, 1000.0)]
+        );
         // No even set: no offer.
         assert!(check_four(vec![(1, 100.0), (2, 150.0), (3, 700.0), (4, 1000.0)]).is_empty());
         // Three cards are never touched.
