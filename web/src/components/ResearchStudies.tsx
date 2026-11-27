@@ -635,9 +635,11 @@ export default function ResearchStudies() {
             most played card by about 1.2 points. Defaults are where rules
             differ: next patch, our spell pairs led by 2.0 to 2.9 points more
             than the raw win rate behind a popularity filter, boots by 0.9 and
-            items by 1.8. We also lost somewhere: on 2% of a patch&apos;s games
-            our spell pairs and boots did 0.1 to 0.2 points worse, because few
-            options reach our game minimums that early.
+            items by 1.8. We also lost somewhere: ranking only 2% of a
+            patch&apos;s games, our spell pairs and boots did 0.1 to 0.2 points
+            worse, because few options reach our game minimums that early. With
+            the previous patch pooled in, as the site does, spell pairs instead
+            led by 2.7 points; boots can&apos;t be checked that way yet.
           </T>
         }
         figure={
@@ -658,10 +660,9 @@ export default function ResearchStudies() {
         }
         changed={
           <T ns={NS}>
-            Nothing yet: the current rules hold up except in a patch&apos;s
-            first hours, where pooling earlier patches is checked next. Other
-            tools&apos; actual picks for this patch are saved now and will be
-            graded once the next patch has a week of games.
+            Nothing: the current rules, with pooling, hold up. Boots in a
+            patch&apos;s first hours get the same pooling check once there is a
+            second patch of boots data.
           </T>
         }
         l={
