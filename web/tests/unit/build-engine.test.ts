@@ -433,7 +433,10 @@ describe("build engine", () => {
     expect(ak.rules).toContain("nicheBuilds");
     // replay: Senna with Windspeaker's Blessing holding Ionian Boots, Ardent Censer and Staff of Flowing Water
     const se = go("Senna", [3070, 4011, 3158, 3504, 6616, 3114], [2104, 1029, 2010, 1095]);
-    expect(se.switched?.style).toBe("Enchanter");
+    // AramHex 16.23 (2026-11-27) gives Senna an enchanter build of her own, and it leads her card: then no switch is needed
+    const own = champs.find((x) => x.id === "Senna")!.builds?.[0]?.style;
+    if (own === "enchanter") expect(se.switched).toBeNull();
+    else expect(se.switched?.style).toBe("Enchanter");
     const p = se.path.map((x) => itemId(x.icon));
     for (const i of [3158, 3504, 6616]) expect(p).toContain(i);
     expect(p.filter((i) => k.boots.includes(i))).toEqual([3158]);
