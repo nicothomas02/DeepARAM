@@ -36,10 +36,12 @@ var DeepEngine = (() => {
     CRIT_CONVERTERS: () => CRIT_CONVERTERS,
     EMPOWERS: () => EMPOWERS,
     ENGINE_VERSION: () => ENGINE_VERSION,
+    FIRST_BUYS: () => FIRST_BUYS,
     FLASH_AUGMENTS: () => FLASH_AUGMENTS,
     HEADLINER_EXTRA_PICKS: () => HEADLINER_EXTRA_PICKS,
     HEALERS: () => HEALERS,
     KING_ME: () => KING_ME,
+    LATE_BUYS: () => LATE_BUYS,
     LEAN_IN: () => LEAN_IN,
     LUCKY_CAP: () => LUCKY_CAP,
     LUCKY_ODDS: () => LUCKY_ODDS,
@@ -83,15 +85,18 @@ var DeepEngine = (() => {
     augmentItemWhy: () => augmentItemWhy,
     breakpoints: () => breakpoints,
     buyNow: () => buyNow,
+    cardBuyOrder: () => cardBuyOrder,
     classBuild: () => classBuild,
     enemyMagic: () => enemyMagic,
     enemyStats: () => enemyStats,
     fillStart: () => fillStart,
+    firstBuyOrder: () => firstBuyOrder,
     headlinerKey: () => headlinerKey,
     heldForm: () => heldForm,
     itemId: () => itemId,
     itemRules: () => itemRules,
     keyIn: () => keyIn,
+    lateBuyOrder: () => lateBuyOrder,
     laterPicks: () => laterPicks,
     luckyBuild: () => luckyBuild,
     luckyOrder: () => luckyOrder,
@@ -2654,6 +2659,41 @@ var DeepEngine = (() => {
     }
   };
 
+  // src/lib/engine/first-buys.ts
+  var FIRST_BUYS = /* @__PURE__ */ new Set([3084, 3032, 6657, 6697, 6655]);
+  var LATE_BUYS = /* @__PURE__ */ new Set([3033, 3072, 3102, 3135, 3137, 3165, 3302, 6694, 8010]);
+  var base = (id) => id >= 1e5 ? id % 1e4 : id;
+  function firstBuyOrder(ids) {
+    const j = ids.findIndex((i) => FIRST_BUYS.has(base(i)));
+    return j > 0 ? [ids[j], ...ids.filter((_, n) => n !== j)] : ids;
+  }
+  function lateBuyOrder(list, id, isBoots, slots = 2, fixed = () => false) {
+    const open = list.map((x, i) => isBoots(x) || fixed(x) ? -1 : i).filter((i) => i >= 0);
+    const seq = open.map((i) => list[i]);
+    const out = [];
+    const held = [];
+    for (const x of seq) {
+      if (out.length < slots && LATE_BUYS.has(base(id(x)))) {
+        held.push(x);
+        continue;
+      }
+      out.push(x);
+      if (out.length >= slots && held.length) {
+        out.push(...held);
+        held.length = 0;
+      }
+    }
+    out.push(...held);
+    const res = [...list];
+    open.forEach((i, n) => {
+      res[i] = out[n];
+    });
+    return res;
+  }
+  function cardBuyOrder(ids, isBoots) {
+    return firstBuyOrder(lateBuyOrder(ids, (i) => i, isBoots));
+  }
+
   // src/data/breakpoints.json
   var breakpoints_default = { about: `Breakpoints: when this game's enemies are tanky enough that penetration or %-health items and augments are worth more
 than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g. Thread the Needle, BotRK").`, champions: { aatrox: [650, 38, 32, 114, 4.8, 2.05], ahri: [590, 21, 30, 104, 4.2, 1.3], akali: [600, 23, 37, 119, 4.7, 2.05], akshan: [610, 26, 33, 107, 4.7, 1.1], alistar: [685, 40, 32, 120, 4.7, 2.05], ambessa: [630, 35, 32, 110, 4.9, 2.05], amumu: [685, 33, 32, 94, 4, 2.05], anivia: [550, 19, 30, 92, 4.1, 1.3], annie: [560, 23, 30, 96, 4, 1.3], aphelios: [600, 26, 33, 102, 4.2, 1.1], ashe: [610, 26, 33, 101, 4.6, 1.1], aurelionsol: [600, 22, 30, 90, 4, 1.3], aurora: [607, 23, 32, 110, 4.5, 1.3], azir: [575, 25, 30, 108, 5, 1.3], bard: [630, 32, 30, 103, 4.7, 1.3], belveth: [580, 28, 32, 105, 5, 2.05], blitzcrank: [600, 37, 32, 109, 4.7, 2.05], brand: [570, 24, 30, 105, 4.2, 1.3], braum: [610, 35, 32, 112, 5, 2.05], briar: [625, 30, 32, 95, 4.5, 2.05], caitlyn: [580, 27, 33, 107, 4.7, 1.1], camille: [650, 35, 32, 99, 4.5, 2.05], cassiopeia: [610, 18, 32, 98, 4.7, 1.3], chogath: [644, 38, 32, 94, 4.5, 2.05], corki: [610, 27, 33, 100, 4.5, 1.1], darius: [652, 37, 32, 114, 5.2, 2.05], diana: [640, 31, 32, 109, 4.3, 2.05], draven: [675, 29, 33, 104, 4.5, 1.1], drmundo: [640, 32, 29, 103, 4.5, 2.3], ekko: [655, 32, 32, 99, 4.2, 2.05], elise: [620, 30, 30, 109, 4.5, 1.3], evelynn: [642, 37, 32, 98, 4.7, 2.05], ezreal: [600, 24, 33, 102, 4.2, 1.1], fiddlesticks: [650, 34, 30, 106, 4.7, 1.3], fiora: [620, 33, 32, 105, 4.7, 2.05], fizz: [640, 26, 32, 106, 4.6, 2.05], galio: [600, 24, 32, 126, 4.7, 2.05], gangplank: [630, 31, 32, 114, 4.7, 2.05], garen: [690, 38, 32, 98, 4.2, 1.55], gnar: [540, 32, 30, 79, 3.7, 1.3], gragas: [640, 38, 32, 115, 5, 2.05], graves: [625, 33, 33, 106, 4.6, 1.1], gwen: [620, 39, 32, 115, 4.9, 2.05], hecarim: [625, 32, 32, 106, 5.45, 2.05], heimerdinger: [558, 19, 30, 105, 4.2, 1.3], hwei: [580, 21, 30, 109, 4.7, 1.3], illaoi: [656, 35, 32, 115, 5, 2.05], irelia: [630, 36, 30, 115, 4.7, 2.05], ivern: [630, 27, 30, 99, 4.7, 1.3], janna: [570, 28, 30, 90, 4.5, 1.3], jarvaniv: [640, 36, 32, 104, 4.6, 2.05], jax: [650, 36, 32, 103, 4.2, 2.05], jayce: [590, 22, 30, 109, 5, 1.3], jhin: [655, 24, 33, 107, 4.7, 1.1], jinx: [610, 26, 33, 105, 4.2, 1.1], kaisa: [640, 25, 33, 102, 4.2, 1.1], kalista: [560, 24, 33, 114, 5.2, 1.1], karma: [630, 28, 30, 109, 5, 1.3], karthus: [620, 21, 30, 110, 4.7, 1.3], kassadin: [646, 21, 30, 113, 4, 1.3], katarina: [672, 32, 32, 108, 4.7, 2.05], kayle: [670, 26, 22, 92, 4.2, 1.3], kayn: [655, 38, 32, 103, 4.5, 2.05], kennen: [580, 29, 30, 98, 4.95, 1.3], khazix: [643, 32, 32, 99, 4.2, 2.05], kindred: [595, 29, 33, 104, 4.7, 1.1], kled: [410, 35, 28, 84, 5.2, 2.05], kogmaw: [635, 24, 33, 99, 4.45, 1.1], ksante: [625, 36, 30, 120, 5.2, 2.1], leblanc: [598, 22, 30, 108, 4.2, 1.3], leesin: [645, 36, 32, 108, 4.5, 2.05], leona: [646, 43, 32, 101, 4.8, 2.05], lillia: [605, 24, 32, 105, 4.5, 1.55], lissandra: [620, 22, 30, 110, 4.2, 1.3], locke: [620, 32, 32, 109, 4.2, 2.05], lucian: [641, 28, 33, 100, 4.2, 1.1], lulu: [565, 26, 30, 92, 4.6, 1.3], lux: [580, 21, 30, 99, 5.2, 1.3], malphite: [665, 40, 28, 104, 4.95, 2.05], malzahar: [580, 18, 30, 101, 4.7, 1.3], maokai: [665, 35, 32, 109, 5.2, 2.05], masteryi: [640, 33, 32, 105, 5, 2.05], mel: [590, 21, 30, 107, 5.4, 1.3], milio: [560, 26, 30, 88, 4.6, 1.3], missfortune: [625, 25, 33, 100, 4, 1.1], monkeyking: [610, 31, 28, 99, 4.7, 2.05], wukong: [610, 31, 28, 99, 4.7, 2.05], mordekaiser: [645, 37, 32, 104, 4.2, 2.05], morgana: [630, 25, 30, 104, 4.2, 1.3], naafiri: [610, 28, 32, 105, 4.2, 2.05], nami: [560, 29, 30, 88, 5.2, 1.3], nasus: [650, 34, 32, 104, 4.7, 2.05], nautilus: [646, 39, 32, 100, 4.95, 2.05], neeko: [610, 21, 30, 104, 5.2, 1.3], nidalee: [610, 32, 30, 109, 5, 1.45], nilah: [570, 27, 32, 101, 4.2, 2.05], nocturne: [640, 36, 32, 109, 4.2, 1.55], nunu: [610, 29, 32, 90, 4.2, 2.05], nunuwillump: [610, 29, 32, 90, 4.2, 2.05], olaf: [645, 35, 32, 119, 4.2, 2.05], orianna: [565, 20, 26, 110, 4.2, 1.3], ornn: [660, 33, 32, 109, 5.2, 2.05], pantheon: [650, 40, 28, 109, 4.95, 2.05], poppy: [610, 35, 32, 110, 5, 2.05], pyke: [670, 37, 32, 110, 4.7, 2.05], qiyana: [590, 31, 32, 115, 4.5, 2.05], quinn: [565, 28, 33, 107, 4.7, 1.1], rakan: [610, 30, 32, 99, 4.9, 2.05], rammus: [645, 35, 32, 100, 4.5, 2.05], reksai: [600, 35, 32, 99, 4.5, 2.05], rell: [620, 30, 28, 104, 4, 1.8], renata: [545, 27, 30, 94, 4.7, 1.3], renataglasc: [545, 27, 30, 94, 4.7, 1.3], renekton: [660, 35, 28, 111, 5.2, 2.05], rengar: [590, 34, 32, 104, 4.2, 2.05], riven: [630, 33, 32, 100, 4.4, 2.05], rumble: [640, 36, 28, 105, 4.7, 1.55], ryze: [620, 22, 32, 124, 4.7, 1.3], samira: [630, 26, 33, 108, 4.7, 1.1], sejuani: [630, 34, 32, 114, 5.45, 2.05], senna: [530, 25, 33, 89, 4, 1.1], seraphine: [570, 26, 30, 95, 4.2, 1.3], sett: [670, 33, 28, 114, 4.7, 2.05], shaco: [630, 30, 32, 99, 4, 2.05], shen: [610, 34, 32, 99, 4.2, 2.05], shyvana: [625, 35, 32, 95, 4, 2.05], singed: [650, 34, 32, 96, 4.2, 2.05], sion: [655, 36, 32, 95, 4.2, 2.05], sivir: [600, 30, 33, 104, 4, 1.1], skarner: [630, 33, 32, 110, 4.5, 2.05], smolder: [575, 24, 33, 100, 4, 1.1], sona: [550, 26, 30, 91, 4.2, 1.3], soraka: [605, 32, 30, 88, 5, 1.3], swain: [595, 23, 34, 99, 4.7, 1.55], sylas: [600, 29, 32, 122, 5.2, 2.55], syndra: [583, 25, 30, 100, 4, 1.3], tahmkench: [640, 39, 32, 103, 4.7, 2.05], taliyah: [550, 18, 28, 104, 4.7, 1.3], talon: [658, 30, 36, 109, 4.7, 2.05], taric: [645, 40, 28, 99, 4.3, 2.05], teemo: [615, 24, 30, 104, 4.5, 1.3], thresh: [620, 33, 30, 120, 0, 1.55], tristana: [640, 30, 33, 102, 4, 1.1], trundle: [650, 37, 32, 110, 4.5, 2.05], tryndamere: [696, 33, 32, 108, 4.8, 2.05], twistedfate: [604, 24, 30, 108, 4.35, 1.3], twitch: [630, 27, 33, 98, 4, 1.1], udyr: [664, 31, 32, 92, 4.7, 2.05], urgot: [655, 36, 32, 102, 5, 2.05], varus: [600, 24, 33, 105, 4, 1.1], vayne: [580, 23, 33, 98, 4.6, 1.1], veigar: [580, 18, 32, 108, 5.2, 1.3], velkoz: [590, 22, 30, 102, 4.7, 1.3], vex: [590, 23, 28, 104, 4.45, 1.3], vi: [655, 30, 32, 105, 4.7, 2.05], viego: [630, 34, 32, 109, 4.6, 2.05], viktor: [600, 23, 30, 105, 4.4, 1.3], vladimir: [600, 24, 30, 110, 4.5, 1.3], volibear: [650, 35, 32, 104, 5.2, 2.05], warwick: [620, 33, 32, 99, 4.4, 2.05], xayah: [630, 25, 33, 107, 4.2, 1.1], xerath: [575, 22, 30, 106, 4.7, 1.3], xinzhao: [620, 35, 32, 106, 4.4, 2.05], yasuo: [590, 32, 32, 110, 4.6, 2.05], yone: [620, 33, 32, 105, 4.6, 2.05], yorick: [650, 36, 32, 114, 4.5, 2.05], yunara: [590, 25, 33, 110, 4.4, 1.1], yuumi: [500, 25, 25, 69, 4.2, 1.1], zaahen: [640, 36, 32, 114, 5, 2.05], zac: [685, 33, 32, 109, 5.2, 2.05], zed: [654, 32, 29, 99, 4.7, 2.05], zeri: [600, 24, 33, 110, 4.2, 1.1], ziggs: [606, 21, 30, 106, 4.7, 1.3], zilean: [574, 24, 30, 96, 5, 1.3], zoe: [630, 21, 30, 106, 4.7, 1.3], zyra: [574, 29, 30, 93, 4.2, 1.3] }, items: { "1011": [380, 0, 0], "1028": [180, 0, 0], "1029": [0, 15, 0], "1031": [0, 40, 0], "1033": [0, 0, 20], "1054": [100, 0, 0], "1055": [80, 0, 0], "1056": [60, 0, 0], "1057": [0, 0, 40], "1082": [50, 0, 0], "1111": [0, 25, 20], "1120": [150, 8, 8], "2019": [0, 30, 0], "2021": [250, 0, 0], "2045": [380, 0, 0], "2049": [180, 0, 0], "2050": [300, 0, 0], "2051": [300, 0, 0], "2139": [30, 17.69, 12.06], "2140": [36, 12.69, 12.06], "2420": [0, 25, 0], "2421": [0, 25, 0], "2501": [550, 0, 0], "2502": [400, 50, 0], "2504": [400, 0, 80], "2510": [300, 0, 0], "2524": [200, 20, 20], "2525": [600, 0, 0], "2526": [200, 0, 0], "2530": [200, 0, 0], "3001": [0, 0, 45], "3002": [300, 45, 0], "3005": [0, 45, 0], "3010": [200, 0, 0], "3012": [200, 0, 0], "3022": [700, 0, 0], "3023": [0, 0, 40], "3024": [0, 45, 0], "3025": [0, 70, 0], "3026": [0, 50, 40], "3027": [450, 0, 0], "3028": [0, 0, 25], "3039": [500, 0, 0], "3041": [100, 0, 0], "3044": [200, 0, 0], "3047": [0, 25, 0], "3050": [250, 0, 0], "3052": [0, 20, 0], "3053": [400, 0, 0], "3054": [0, 55, 0], "3056": [350, 0, 0], "3058": [250, 80, 0], "3059": [250, 0, 60], "3060": [0, 30, 0], "3061": [900, 0, 0], "3063": [520, 0, 0], "3064": [0, 0, 76], "3065": [400, 0, 55], "3066": [200, 0, 0], "3067": [200, 0, 0], "3068": [450, 45, 0], "3069": [250, 0, 0], "3071": [200, 0, 0], "3073": [450, 45, 0], "3075": [0, 100, 0], "3076": [0, 30, 0], "3078": [250, 0, 0], "3079": [600, 0, 0], "3082": [0, 50, 0], "3083": [920, 0, 0], "3084": [500, 0, 0], "3091": [0, 0, 25], "3102": [450, 0, 55], "3105": [250, 20, 20], "3106": [0, 25, 0], "3107": [300, 20, 30], "3109": [0, 25, 0], "3110": [0, 95, 0], "3111": [0, 0, 25], "3112": [150, 0, 0], "3116": [500, 0, 0], "3119": [550, 0, 0], "3121": [550, 0, 0], "3132": [200, 0, 0], "3136": [200, 0, 0], "3138": [180, 0, 0], "3139": [0, 0, 45], "3140": [0, 0, 45], "3143": [500, 70, 0], "3147": [200, 0, 0], "3151": [300, 0, 0], "3152": [350, 0, 0], "3154": [0, 25, 0], "3155": [0, 0, 25], "3156": [0, 0, 40], "3157": [0, 50, 0], "3160": [0, 25, 0], "3161": [0, 50, 50], "3165": [350, 0, 0], "3173": [0, 0, 25], "3174": [0, 0, 40], "3177": [150, 0, 0], "3178": [250, 0, 0], "3181": [500, 0, 0], "3184": [150, 0, 0], "3190": [300, 35, 0], "3191": [0, 30, 0], "3193": [0, 55, 55], "3207": [500, 0, 0], "3211": [200, 0, 45], "3222": [0, 0, 40], "3512": [0, 50, 50], "3513": [140, 10, 10], "3514": [140, 10, 10], "3515": [140, 10, 10], "3516": [140, 10, 10], "3742": [350, 55, 0], "3748": [600, 0, 0], "3801": [200, 0, 0], "3803": [300, 0, 0], "3814": [250, 0, 0], "3850": [25, 0, 0], "3851": [70, 0, 0], "3853": [75, 0, 0], "3854": [50, 0, 0], "3855": [100, 0, 0], "3857": [250, 0, 0], "3858": [50, 0, 0], "3859": [100, 0, 0], "3860": [250, 0, 0], "3862": [25, 0, 0], "3863": [60, 0, 0], "3864": [75, 0, 0], "3866": [60, 0, 0], "3867": [200, 0, 0], "3869": [200, 0, 0], "3870": [200, 0, 0], "3871": [200, 0, 0], "3876": [200, 0, 0], "3877": [200, 0, 0], "4010": [350, 0, 0], "4011": [150, 0, 0], "4012": [300, 45, 45], "4013": [0, 30, 30], "4014": [600, 0, 0], "4401": [400, 0, 55], "4402": [400, 0, 0], "4403": [200, 20, 20], "4629": [350, 0, 0], "4632": [0, 0, 25], "4633": [350, 0, 0], "4635": [250, 0, 0], "4636": [300, 0, 0], "4637": [350, 0, 0], "4638": [150, 10, 15], "4641": [80, 0, 0], "4643": [250, 25, 30], "4644": [250, 0, 0], "6035": [300, 0, 40], "6333": [0, 50, 0], "6609": [450, 0, 0], "6610": [400, 0, 0], "6617": [200, 0, 0], "6620": [200, 0, 0], "6630": [400, 0, 0], "6631": [450, 0, 0], "6632": [300, 0, 0], "6653": [300, 0, 0], "6656": [250, 0, 0], "6657": [350, 0, 0], "6660": [150, 0, 0], "6662": [300, 50, 0], "6664": [400, 0, 40], "6665": [350, 45, 45], "6667": [350, 30, 30], "6668": [1e3, 0, 0], "6700": [0, 30, 0], "7102": [300, 0, 0], "7104": [200, 0, 0], "7109": [0, 25, 25], "7110": [400, 0, 0], "7111": [400, 0, 0], "7112": [500, 0, 0], "7114": [0, 35, 35], "7116": [400, 0, 0], "7118": [400, 0, 0], "7119": [500, 30, 30], "7122": [900, 0, 0], "8001": [650, 0, 0], "8002": [0, 50, 0], "8004": [800, 50, 100], "8005": [700, 0, 0], "8008": [600, 50, 0], "8010": [400, 0, 0], "8020": [350, 0, 45] }, finished: [1, 2, 3, 4, 5, 6, 7, 12, 2065, 2501, 2502, 2503, 2504, 2510, 2512, 2517, 2520, 2522, 2523, 2524, 2525, 2526, 2530, 3001, 3002, 3003, 3004, 3005, 3022, 3025, 3026, 3027, 3031, 3032, 3033, 3035, 3036, 3039, 3040, 3042, 3046, 3050, 3053, 3054, 3055, 3056, 3057, 3058, 3059, 3060, 3061, 3062, 3063, 3064, 3065, 3068, 3069, 3071, 3072, 3073, 3074, 3075, 3078, 3079, 3080, 3081, 3083, 3084, 3085, 3087, 3089, 3090, 3091, 3094, 3095, 3100, 3102, 3107, 3109, 3110, 3114, 3115, 3116, 3118, 3119, 3121, 3124, 3128, 3131, 3135, 3137, 3139, 3142, 3143, 3146, 3151, 3152, 3153, 3154, 3156, 3157, 3160, 3161, 3165, 3172, 3174, 3179, 3181, 3190, 3193, 3206, 3207, 3209, 3222, 3302, 3430, 3504, 3508, 3512, 3516, 3742, 3748, 3814, 4004, 4005, 4010, 4011, 4012, 4013, 4014, 4015, 4016, 4017, 4401, 4402, 4403, 4628, 4629, 4633, 4636, 4637, 4643, 4644, 4645, 4646, 6035, 6333, 6609, 6610, 6616, 6617, 6620, 6621, 6630, 6631, 6632, 6653, 6655, 6656, 6657, 6662, 6664, 6665, 6667, 6668, 6671, 6672, 6673, 6675, 6676, 6691, 6692, 6693, 6694, 6695, 6696, 6697, 6698, 6699, 6700, 6701, 7100, 7101, 7102, 7103, 7104, 7105, 7106, 7107, 7108, 7109, 7110, 7111, 7112, 7113, 7114, 7115, 7116, 7118, 7119, 7120, 7121, 7122, 7123, 7666, 8001, 8002, 8003, 8004, 8005, 8006, 8008, 8009, 8010, 8020], avgChampion: [615.1, 28.89, 31.32, 103.92, 4.5, 1.59], refItems: [[0, 0, 0], [142.5, 1, 0.4], [288.8, 6.9, 2.9], [409.6, 15.1, 7.2], [521, 24.8, 12.5], [644, 34.1, 18.6], [766.6, 39.6, 22.3]], cut: { hp: 1.097, armor: 1.169, mr: 1.197 }, teams: 2488 };
@@ -2668,6 +2708,9 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   var ENGINE_VERSION = "1.4.10";
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
   var STAT_BONUS = 22e4;
+  var STAT_BONUS_IDS = /* @__PURE__ */ new Set([6032]);
+  var TEAR_ITEMS = /* @__PURE__ */ new Set([3003, 3004, 3119, 2526]);
+  var CONSUMABLES = /* @__PURE__ */ new Set([2003, 2031, 2033, 2055, 2138, 2139, 2140, 2150, 2151, 2152, 3340, 3363, 3364, 2010, 2001]);
   var ADAPT = 1205;
   var RULES = {
     // Backed by data or the game's own rules: on.
@@ -2703,7 +2746,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     augmentConflicts: { source: "game data", on: true, why: "An augment that can't work with one you took goes last, with the reason (wiki augment text): Back to Basics seals your ultimate, so augments that need your ultimate cast are dead with it; ADAPt and EscAPADe convert opposite ways; you have two summoner spell slots, so Mark augments, Flash augments and augments that replace a spell can't all fit. Nico asked 2026-11-24; the longer list of possible anti-synergies is in research/augment-conflicts for his review." },
     slotFirst: { source: "game data", on: true, why: "Weapon of Destiny (when you take it), King Me (when you first enter the enemy gate) and Ornn's Masterwork (his own item at level 13; an ally's when he forges for them at levels 14-17) each upgrade the first eligible Legendary in slots 1-6 (wiki). The cue says which item to move to slot 1: for Weapon of Destiny the champion's best Weapon item (AramHex); for King Me and Ornn, estimated, the earliest item of your build path you own (+1,000 gold of stats goes on your most important item). Weapon of Destiny is only offered on the first two regular screens (archive: 136 of 136 picks outside random draws; never seen on K/DA's or Superfans' extra picks, estimated), so its cue only shows while it is on offer. Nico chose 2026-11-24." },
     hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
-    ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
+    ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot (else the place of an unbought item it can't be owned with, else the last unbought one), so the path shows what you own and never more than six items (2026-11-27 replay: 12% of moments listed too many)." },
     ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). Owning n finished items means the path's first n should be bought: one of those you skipped (for an item later in the path or off it) moves behind the rest, so Next moves on after the first buy that skips it (replay audit: Next stuck 8+ min with 3,500+ gold in 103 moments); boots too once bought past without starting them; two off-path items of the other damage type (one gets the sellMismatch tip: doubling down after one off-type buy lowers team damage share, archive) switch the rest of the build to the class-wide style build (AramHex, all champions) holding most of what you own, e.g. AP Zeri." },
     augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share, of the build's damage type unless ADAPt; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
     pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
@@ -2722,13 +2765,16 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23. Since rerollAll (2026-11-27) it applies only to rerolling the best card on offer." },
     rerollAll: { source: "game data", on: true, why: "Every card you won't take gets Reroll: each card can be rerolled once (wiki) and you keep the best card either way, so a reroll of any other card can only help (expected best of the screen never drops). The best card gets Reroll only when the average reroll at its rarity beats it by the minimum gain, else Take. Nico 2026-11-27: use all rerolls possible unless rerolling a good augment is estimated to be worse." },
     swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
-    shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
+    shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots (Stat Bonus takes none; not when you hold a part of the next item): a starter or stray part first, then a finished item off the path; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
     // No evidence either way: off until a test passes (Nico 2026-11-23, apply defaults).
     upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off: augmentShift moves items by how much earlier holders really buy them." },
     augmentShift: { source: "data", on: true, why: "Every augment pulls items earlier/later and in/out of the build by how players who took it really build, vs the same champion's players without it (10-player archive lobbies, EB-shrunk so thin pairs barely move; data/augment-item-shift.json). Nico 2026-11-24: all augments change build and order." },
     augmentReplan: { source: "assumption", on: false, why: "Other augments switch the build style (style tags, the other 3-vote build changers, the class-wide fallback build). Off until measured like Draw Your Sword -> Death's Dance." },
     shieldAugments: { source: "assumption", on: true, why: "An enemy with Big Brain or Don't Change the Channel lights the champion's own 'Vs shields' items (Serpent's Fang: Shield Reaver cuts shields gained by 50% melee / 25% ranged and the current shield on the first hit; wiki). Nico approved 2026-11-25 (he asked for it); estimated: the archive can't confirm it (Serpent's builders vs an enemy Big Brain: win -22 +/- 15 pts, n 26). Needs the app to pass enemy augments." },
     countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
+    firstBuys: { source: "data", on: true, why: "An item players buy as their first legendary 80%+ of the time (archive buy order, item_slots.json, 400+ buyers: Heartsteel, Yun Tal, Rod of Ages, Hubris, Luden's) goes first while you have no legendary, instead of a later slot (Nico 2026-11-27, Briar's Hubris shown 4th)." },
+    lateBuys: { source: "data", on: true, why: "Items 95%+ of their buyers take 3rd or later (archive buy order, item_slots.json, 100+ buyers: Void Staff, Serylda's, Terminus, Cryptbloom, Mortal Reminder, Bloodletter's, Bloodthirster, Banshee's, Morellonomicon; AramHex ordered cores put Void Staff, Serylda's and Mortal Reminder 3rd every time) wait until two legendaries are finished, unless an augment rule timed them (Nico 2026-11-27, Shaco's Void Staff 2nd)." },
+    boughtFirst: { source: "game data", on: true, why: "The path shows what you bought first, in inventory order, then the rest in Next's order, so an item bought early shows where you bought it (Nico 2026-11-27)." },
     stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
     attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
     selfHealWeight: { source: "assumption", on: false, why: "Count self-healers more for Vs healing. Off until tested." },
@@ -2743,13 +2789,13 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     const n = Number((String(icon ?? "").match(/(\d+)\.png$/) ?? [])[1]);
     return ICON_ID[n] ?? n % 1e4;
   };
-  var base = (id) => id % 1e4;
+  var base2 = (id) => id % 1e4;
   var TRANSFORMED_FROM = { 3040: 3003, 3042: 3004, 3121: 3119, 2530: 2526, 3160: 3154 };
-  var ownedId = (id) => TRANSFORMED_FROM[base(id)] ?? base(id);
+  var ownedId = (id) => TRANSFORMED_FROM[base2(id)] ?? base2(id);
   var TRANSFORMED_NAMES = { 3040: "Seraph's Embrace", 3042: "Muramana", 3121: "Fimbulwinter", 2530: "Diadem of Songs", 3160: "Feral Flare" };
   function heldForm(it, items, k) {
     const id = itemId(it.icon);
-    const held = items.map(base).find((x) => x !== id && ownedId(x) === ownedId(id));
+    const held = items.map(base2).find((x) => x !== id && ownedId(x) === ownedId(id));
     if (held === void 0) return it;
     const name = k?.recipes[held]?.[0] ?? TRANSFORMED_NAMES[held];
     return name ? { ...it, name, icon: it.icon ? it.icon.replace(/(\d*?)(\d{4})\.png$/, (_m, pre) => `${pre}${held}.png`) : it.icon } : it;
@@ -2765,11 +2811,11 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   var champKey = (s) => s.toLowerCase().replace(/[^a-z]/g, "");
   function itemRules(k) {
     const groups = /* @__PURE__ */ new Map();
-    (RULES.itemLimits.on ? k?.limits ?? [] : []).forEach((g, n) => g.forEach((id) => groups.set(base(id), [...groups.get(base(id)) ?? [], n])));
-    const subs = new Set((RULES.substitutes.on ? k?.substitutes ?? [] : []).map(([a, b]) => `${Math.min(base(a), base(b))}-${Math.max(base(a), base(b))}`));
+    (RULES.itemLimits.on ? k?.limits ?? [] : []).forEach((g, n) => g.forEach((id) => groups.set(base2(id), [...groups.get(base2(id)) ?? [], n])));
+    const subs = new Set((RULES.substitutes.on ? k?.substitutes ?? [] : []).map(([a, b]) => `${Math.min(base2(a), base2(b))}-${Math.max(base2(a), base2(b))}`));
     return {
-      clash: (a, b) => base(a) !== base(b) && (groups.get(base(a)) ?? []).some((g) => (groups.get(base(b)) ?? []).includes(g)),
-      substitute: (a, b) => subs.has(`${Math.min(base(a), base(b))}-${Math.max(base(a), base(b))}`)
+      clash: (a, b) => base2(a) !== base2(b) && (groups.get(base2(a)) ?? []).some((g) => (groups.get(base2(b)) ?? []).includes(g)),
+      substitute: (a, b) => subs.has(`${Math.min(base2(a), base2(b))}-${Math.max(base2(a), base2(b))}`)
     };
   }
   var COMBO_ODDS = 0.04;
@@ -3102,7 +3148,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       let ap = 0, ad = 0;
       if (RULES.itemDamageMix.on)
         for (const id of e.items) {
-          const g = k.items[String(base(id))] ?? [];
+          const g = k.items[String(base2(id))] ?? [];
           if (g.includes("ap") && !g.includes("ad")) ap += 1;
           if (g.includes("ad") && !g.includes("ap")) ad += 1;
         }
@@ -3125,8 +3171,8 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     const list = enemies.filter((e) => e.champ);
     const arch = (e) => fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? [];
     const count = (set) => list.filter((e) => arch(e).some((a) => set.has(a))).length;
-    const tags = (e) => e.items.flatMap((i) => k.items[String(base(i))] ?? []);
-    const owns = (e, set) => e.items.some((i) => set.has(base(i)));
+    const tags = (e) => e.items.flatMap((i) => k.items[String(base2(i))] ?? []);
+    const owns = (e, set) => e.items.some((i) => set.has(base2(i)));
     const tanky = list.filter((e) => arch(e).some((a) => TANKY.has(a)) || tags(e).filter((t) => t === "armor" || t === "mr").length >= 2).length;
     const crit = list.filter((e) => tags(e).filter((t) => t === "crit").length >= 2).length;
     const healers = list.filter((e) => HEALERS.has(champKey(e.champ)) || owns(e, SUSTAIN_ITEMS)).length;
@@ -3316,7 +3362,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
         });
       }
     const fits = (id) => {
-      const t = k.items[String(base(id))] ?? [];
+      const t = k.items[String(base2(id))] ?? [];
       return style === "tank" || t.includes(magic ? "ap" : "ad");
     };
     const ids = Object.keys(score).map(Number).filter(fits);
@@ -3371,7 +3417,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     if (!plan2) return { list: base0, style: null, core: null };
     const prefix = (base0[0]?.icon ?? "").replace(/\d+\.png$/, "");
     const mk = (id) => {
-      const b = ICON_ID[id] ?? base(id);
+      const b = ICON_ID[id] ?? base2(id);
       if (!k.recipes[b]) return null;
       const fin = id >= 22e4 || (k.recipes[b]?.[1] ?? 0) >= 2e3;
       return { name: k.recipes[b][0], icon: `${prefix}${ICON_ID[id] ? id : fin ? 22e4 + b : b}.png` };
@@ -3436,7 +3482,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   var METRIC_WORD = { damage: "damage to champions", healing: "healing", mitigated: "damage mitigated", cc: "crowd control", deaths: "deaths per 10 min" };
   function whyBest(id, champ, name, taken, why, profiles) {
     if (!RULES.whyBest.on) return null;
-    const b = base(id);
+    const b = base2(id);
     const aug = [...AUGMENT_ITEMS].sort((x, y) => y.rate - x.rate).find((p2) => p2.item === b && taken.includes(p2.augment));
     if (aug && RULES.augmentItems.on) return { text: augmentItemWhy(aug), kind: "augment" };
     const alias = keyIn(why?.follow, champ);
@@ -3487,15 +3533,15 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     [6653, "hp", "ap"],
     [4637, "hp", "ap"]
   ];
-  var growStat = (base2, per, lvl) => base2 + per * (lvl - 1) * (0.7025 + 0.0175 * (lvl - 1));
+  var growStat = (base3, per, lvl) => base3 + per * (lvl - 1) * (0.7025 + 0.0175 * (lvl - 1));
   function enemyStats(enemies, level = 18) {
     const list = enemies.filter((e) => e.champ && BP.champions[champKey(e.champ)]);
     if (!list.length) return null;
     const got = [0, 0, 0], usual = [0, 0, 0];
     for (const e of list) {
       const c = BP.champions[champKey(e.champ)], lvl = e.level ?? level;
-      const own = e.items.reduce((t, i) => t.map((x, j) => x + (BP.items[String(base(i))]?.[j] ?? 0)), [0, 0, 0]);
-      const n = Math.min(6, e.items.filter((i) => BP_FINISHED.has(base(i))).length);
+      const own = e.items.reduce((t, i) => t.map((x, j) => x + (BP.items[String(base2(i))]?.[j] ?? 0)), [0, 0, 0]);
+      const n = Math.min(6, e.items.filter((i) => BP_FINISHED.has(base2(i))).length);
       for (let j = 0; j < 3; j++) {
         got[j] += (growStat(c[j], c[j + 3], lvl) + own[j]) / list.length;
         usual[j] += (growStat(BP.avgChampion[j], BP.avgChampion[j + 3], lvl) + BP.refItems[n][j]) / list.length;
@@ -3597,7 +3643,9 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   }
   var CRIT_CONVERTERS = /* @__PURE__ */ new Set(["yasuo", "yone"]);
   function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, why: whyData, profiles }) {
-    const rules = itemRules(k);
+    const rules0 = itemRules(k);
+    const rules = { ...rules0, clash: (a, b) => !(TEAR_ITEMS.has(ownedId(a)) && TEAR_ITEMS.has(ownedId(b)) && ownedId(a) !== ownedId(b)) && rules0.clash(a, b) };
+    const stacking = game.items.map(base2).find((x) => TEAR_ITEMS.has(x));
     const used = /* @__PURE__ */ new Set();
     const applied = (r) => used.add(r);
     shiftTableFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
@@ -3618,7 +3666,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     if (slotRows && RULES.itemLimits.on) applied("itemLimits");
     let forced = null;
     if (RULES.ownedReplan.on && k && picks) {
-      const listed = new Set([...champ?.items ?? [], ...champ?.rest ?? [], ...(slotRows ?? []).flatMap((r) => [r.it, ...r.alts])].map((it) => itemId(it.icon)));
+      const listed = new Set([...champ?.items ?? [], ...champ?.rest ?? [], ...(slotRows ?? []).flatMap((r) => [r.it, ...r.alts])].map((it) => ownedId(itemId(it.icon))));
       const fin = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i));
       const off = fin.filter((i) => !listed.has(i));
       const tag = (i, t) => (k.items[String(i)] ?? []).includes(t);
@@ -3639,7 +3687,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       }
     }
     if (slotRows && k && RULES.ownedOffPath.on) {
-      const listed = new Set([...champ?.items ?? [], ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
+      const listed = new Set([...champ?.items ?? [], ...slotRows.map((r) => r.it)].map((it) => ownedId(itemId(it.icon))));
       const prefix = ((champ?.items ?? []).find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
       const extra = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !(k.boots ?? []).includes(i) && !listed.has(i));
       extra.forEach((i) => placedOff.add(i));
@@ -3792,18 +3840,13 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       }
     }
     const hasBoots = [...owned].some((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
-    const myBoots = [...owned].find((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
-    if (myBoots !== void 0 && k?.recipes[myBoots] && !build.some((it) => itemId(it.icon) === myBoots)) {
-      const at = build.findIndex((it) => bootIds.has(itemId(it.icon)));
-      if (at >= 0) build[at] = { name: k.recipes[myBoots][0], icon: (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "") + `${22e4 + myBoots}.png` };
-    }
     const isOwned = (it) => owned.has(itemId(it.icon)) || hasBoots && bootIds.has(itemId(it.icon));
     let next = build.filter((it) => !isOwned(it));
     const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i)).length;
     if (RULES.ownedReplan.on) {
       const buildIds = build.map((it) => itemId(it.icon));
       const fin = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i));
-      const n = fin.length;
+      const n = fin.filter((i) => !(RULES.firstBuys.on && FIRST_BUYS.has(i))).length;
       const nonBoot = build.filter((it) => !bootIds.has(itemId(it.icon)));
       const bootsAt = build.findIndex((it) => bootIds.has(itemId(it.icon)));
       const beforeBoots = bootsAt < 0 ? 0 : build.slice(0, bootsAt).filter((it) => !bootIds.has(itemId(it.icon))).length;
@@ -3882,6 +3925,13 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       next = [...next.filter((it) => !has(it, "as")), ...next.filter((it) => has(it, "as"))];
       applied("attackSpeedNudge");
     }
+    if (RULES.lateBuys.on && finished < 2 && next.some((it) => LATE_BUYS.has(ownedId(itemId(it.icon))))) {
+      const moved = lateBuyOrder(next, (it) => ownedId(itemId(it.icon)), (it) => bootIds.has(itemId(it.icon)), 2 - finished, (it) => timing.some((t) => t.item === it));
+      if (moved.some((it, i) => it !== next[i])) {
+        next = moved;
+        applied("lateBuys");
+      }
+    }
     const order = new Map(next.map((it, i) => [itemId(it.icon), i]));
     next = next.slice(0, 2);
     let coreItems = build.slice(0, coreLen);
@@ -3911,6 +3961,56 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       rest = path.slice(coreItems.length);
       const fromPath = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
       next = fromPath.slice(0, 2);
+    }
+    if (RULES.ownedOffPath.on && k) {
+      const inPathNow = new Set(path.map((it) => ownedId(itemId(it.icon))));
+      const prefix = (path.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+      const missing = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i) && !inPathNow.has(i));
+      for (const i of missing) {
+        const it = { name: k.recipes[i][0], icon: `${prefix}${22e4 + i}.png` };
+        const open1 = [...path.keys()].filter((j2) => !isOwned(path[j2]) && !bootIds.has(itemId(path[j2].icon)));
+        const bootsOpen = [...path.keys()].filter((j2) => !isOwned(path[j2]) && bootIds.has(itemId(path[j2].icon)));
+        const j = open1.find((x) => rules.clash(itemId(path[x].icon), i)) ?? (path.length < 6 ? void 0 : open1.at(-1) ?? bootsOpen.at(-1));
+        if (j === void 0 && path.length >= 6) break;
+        if (j === void 0) path.push(it);
+        else path[j] = it;
+        applied("ownedOffPath");
+      }
+      if (missing.length) {
+        coreItems = path.slice(0, coreItems.length);
+        rest = path.slice(coreItems.length);
+        const at = (it) => order.get(itemId(it.icon)) ?? Infinity;
+        next = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y)).slice(0, 2);
+      }
+    }
+    if (RULES.firstBuys.on && !finished && !timing.length && next[0] && !FIRST_BUYS.has(ownedId(itemId(next[0].icon)))) {
+      const fb = path.find((it) => !isOwned(it) && FIRST_BUYS.has(ownedId(itemId(it.icon))));
+      if (fb) {
+        next = [fb, ...next.filter((it) => it !== fb)].slice(0, 2);
+        const core0 = new Set(coreItems);
+        path.splice(0, path.length, fb, ...path.filter((it) => it !== fb));
+        coreItems = path.slice(0, Math.max(coreItems.length, ...path.map((it, i) => core0.has(it) ? i + 1 : 0)));
+        rest = path.slice(coreItems.length);
+        applied("firstBuys");
+      }
+    }
+    if (stacking !== void 0 && next.some((it) => TEAR_ITEMS.has(ownedId(itemId(it.icon))))) {
+      const at = (it) => order.get(itemId(it.icon)) ?? Infinity;
+      const open2 = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+      next = open2.filter((it) => !TEAR_ITEMS.has(ownedId(itemId(it.icon)))).slice(0, 2);
+      applied("itemLimits");
+    }
+    if (RULES.boughtFirst.on && path.some((it, i) => isOwned(it) && path.slice(0, i).some((x) => !isOwned(x)))) {
+      const slot = (it) => {
+        const j = game.items.findIndex((x) => ownedId(x) === ownedId(itemId(it.icon)) || bootIds.has(ownedId(x)) && bootIds.has(itemId(it.icon)));
+        return j < 0 ? 99 : j;
+      };
+      const have = path.filter(isOwned).sort((x, y) => slot(x) - slot(y));
+      const core0 = new Set(coreItems);
+      path.splice(0, path.length, ...have, ...path.filter((it) => !isOwned(it)));
+      coreItems = path.slice(0, Math.max(coreItems.length, ...path.map((it, i) => core0.has(it) ? i + 1 : 0)));
+      rest = path.slice(coreItems.length);
+      applied("boughtFirst");
     }
     const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
     const slotName = (i) => ord(slotRows?.[i]?.slot ?? first + i);
@@ -4003,14 +4103,25 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
     for (const t of [timing.find((x) => next[0] && x.item === next[0]) ?? timing[0]].filter(Boolean)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
     if (RULES.shopTips.on && k && next.length) {
-      const slots = game.items.filter((i) => (k.recipes[ownedId(i)]?.[1] ?? 0) > 0 && !bootIds.has(ownedId(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
-      const bootUpgrade = bootIds.has(itemId(next[0].icon)) && [...owned].some((i) => bootIds.has(i));
-      if (slots >= 6 && !bootUpgrade) {
-        const inBuild = new Set(build.map((it) => itemId(it.icon)));
-        const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !inBuild.has(i) && !bootIds.has(i));
-        const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
+      const slots = game.items.filter((i) => (k.recipes[ownedId(i)]?.[1] ?? 0) > 0 && !bootIds.has(ownedId(i)) && !STAT_BONUS_IDS.has(ownedId(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
+      const n0 = itemId(next[0].icon);
+      const bootUpgrade = bootIds.has(n0) && [...owned].some((i) => bootIds.has(i));
+      const parts = (id, acc = /* @__PURE__ */ new Set()) => {
+        for (const c of k.recipes[id]?.[2] ?? []) if (!acc.has(c)) {
+          acc.add(c);
+          parts(c, acc);
+        }
+        return acc;
+      };
+      const holdsPart = [...owned].some((i) => parts(n0).has(i));
+      if (slots >= 6 && !bootUpgrade && !holdsPart) {
+        const inBuild = new Set([...build, ...path].map((it) => ownedId(itemId(it.icon))));
+        const keep = new Set([...path.filter((it) => !isOwned(it)), ...all.filter((x) => x.why)].flatMap((it) => [itemId(it.icon), ...parts(itemId(it.icon))]));
+        const junk = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) > 0 && !inBuild.has(i) && !keep.has(i) && !bootIds.has(i) && !STAT_BONUS_IDS.has(i) && !CONSUMABLES.has(i)).sort((a, b) => ((k.recipes[a]?.[1] ?? 0) >= 2e3 ? 1 : 0) - ((k.recipes[b]?.[1] ?? 0) >= 2e3 ? 1 : 0) || (k.recipes[a]?.[1] ?? 0) - (k.recipes[b]?.[1] ?? 0));
+        const sell = junk.find((i) => !bootIds.has(n0) || (k.recipes[i]?.[1] ?? 0) < 2e3);
+        const cost = k.recipes[n0]?.[1] ?? Infinity;
         if (sell !== void 0 && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
-          tips.push({ rank: 3, kind: "sell", item: sell, text: `Full build: sell ${k.recipes[sell][0]} for ${next[0].name}.` });
+          tips.push({ rank: 3, kind: "sell", item: sell, text: `${(k.recipes[sell]?.[1] ?? 0) >= 2e3 ? "Full build" : "Inventory full"}: sell ${k.recipes[sell][0]} for ${next[0].name}.` });
       }
     }
     if (RULES.fullBuildShop.on && k && shop && !next.length) {

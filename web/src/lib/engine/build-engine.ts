@@ -23,14 +23,24 @@ import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
 import augmentConvertersData from "../../data/augment-converters.json";
 import augmentLeanInData from "../../data/augment-lean-in.json";
+import { FIRST_BUYS, LATE_BUYS, lateBuyOrder } from "./first-buys";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
+export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
 export const ENGINE_VERSION = "1.4.10";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
 const STAT_BONUS = 220000;
+/** The Stat Bonus anvil as the game reports it (Mayhem 6032): bought, but no inventory slot. */
+const STAT_BONUS_IDS = new Set([6032]);
+/** Potions, wards and other consumables: never sold for a slot (they're used up). */
+/** Tear items in their stacking form (Manaflow: the game's limit group, client item data): Archangel's Staff,
+ *  Manamune, Winter's Approach, Whispering Circlet. Their finished forms (Seraph's, Muramana, Fimbulwinter, Diadem)
+ *  leave the group, so a second, different one can follow. */
+const TEAR_ITEMS = new Set([3003, 3004, 3119, 2526]);
+const CONSUMABLES = new Set([2003, 2031, 2033, 2055, 2138, 2139, 2140, 2150, 2151, 2152, 3340, 3363, 3364, 2010, 2001]);
 /** ADAPt: converts bonus AD into AP, so AD items can fit an AP build. */
 const ADAPT = 1205;
 
@@ -73,7 +83,7 @@ export const RULES: Record<string, Rule> = {
   augmentConflicts: { source: "game data", on: true, why: "An augment that can't work with one you took goes last, with the reason (wiki augment text): Back to Basics seals your ultimate, so augments that need your ultimate cast are dead with it; ADAPt and EscAPADe convert opposite ways; you have two summoner spell slots, so Mark augments, Flash augments and augments that replace a spell can't all fit. Nico asked 2026-11-24; the longer list of possible anti-synergies is in research/augment-conflicts for his review." },
   slotFirst: { source: "game data", on: true, why: "Weapon of Destiny (when you take it), King Me (when you first enter the enemy gate) and Ornn's Masterwork (his own item at level 13; an ally's when he forges for them at levels 14-17) each upgrade the first eligible Legendary in slots 1-6 (wiki). The cue says which item to move to slot 1: for Weapon of Destiny the champion's best Weapon item (AramHex); for King Me and Ornn, estimated, the earliest item of your build path you own (+1,000 gold of stats goes on your most important item). Weapon of Destiny is only offered on the first two regular screens (archive: 136 of 136 picks outside random draws; never seen on K/DA's or Superfans' extra picks, estimated), so its cue only shows while it is on offer. Nico chose 2026-11-24." },
   hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
-  ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot, so the path shows what you own." },
+  ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot (else the place of an unbought item it can't be owned with, else the last unbought one), so the path shows what you own and never more than six items (2026-11-27 replay: 12% of moments listed too many)." },
   ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). Owning n finished items means the path's first n should be bought: one of those you skipped (for an item later in the path or off it) moves behind the rest, so Next moves on after the first buy that skips it (replay audit: Next stuck 8+ min with 3,500+ gold in 103 moments); boots too once bought past without starting them; two off-path items of the other damage type (one gets the sellMismatch tip: doubling down after one off-type buy lowers team damage share, archive) switch the rest of the build to the class-wide style build (AramHex, all champions) holding most of what you own, e.g. AP Zeri." },
   augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share, of the build's damage type unless ADAPt; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
@@ -92,13 +102,16 @@ export const RULES: Record<string, Rule> = {
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23. Since rerollAll (2026-11-27) it applies only to rerolling the best card on offer." },
   rerollAll: { source: "game data", on: true, why: "Every card you won't take gets Reroll: each card can be rerolled once (wiki) and you keep the best card either way, so a reroll of any other card can only help (expected best of the screen never drops). The best card gets Reroll only when the average reroll at its rarity beats it by the minimum gain, else Take. Nico 2026-11-27: use all rerolls possible unless rerolling a good augment is estimated to be worse." },
   swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
-  shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
+  shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots (Stat Bonus takes none; not when you hold a part of the next item): a starter or stray part first, then a finished item off the path; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
   // No evidence either way: off until a test passes (Nico 2026-11-23, apply defaults).
   upgradeNext: { source: "assumption", on: false, why: "'Upgrade X' means buy X next. Off: augmentShift moves items by how much earlier holders really buy them." },
   augmentShift: { source: "data", on: true, why: "Every augment pulls items earlier/later and in/out of the build by how players who took it really build, vs the same champion's players without it (10-player archive lobbies, EB-shrunk so thin pairs barely move; data/augment-item-shift.json). Nico 2026-11-24: all augments change build and order." },
   augmentReplan: { source: "assumption", on: false, why: "Other augments switch the build style (style tags, the other 3-vote build changers, the class-wide fallback build). Off until measured like Draw Your Sword -> Death's Dance." },
   shieldAugments: { source: "assumption", on: true, why: "An enemy with Big Brain or Don't Change the Channel lights the champion's own 'Vs shields' items (Serpent's Fang: Shield Reaver cuts shields gained by 50% melee / 25% ranged and the current shield on the first hit; wiki). Nico approved 2026-11-25 (he asked for it); estimated: the archive can't confirm it (Serpent's builders vs an enemy Big Brain: win -22 +/- 15 pts, n 26). Needs the app to pass enemy augments." },
   countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
+  firstBuys: { source: "data", on: true, why: "An item players buy as their first legendary 80%+ of the time (archive buy order, item_slots.json, 400+ buyers: Heartsteel, Yun Tal, Rod of Ages, Hubris, Luden's) goes first while you have no legendary, instead of a later slot (Nico 2026-11-27, Briar's Hubris shown 4th)." },
+  lateBuys: { source: "data", on: true, why: "Items 95%+ of their buyers take 3rd or later (archive buy order, item_slots.json, 100+ buyers: Void Staff, Serylda's, Terminus, Cryptbloom, Mortal Reminder, Bloodletter's, Bloodthirster, Banshee's, Morellonomicon; AramHex ordered cores put Void Staff, Serylda's and Mortal Reminder 3rd every time) wait until two legendaries are finished, unless an augment rule timed them (Nico 2026-11-27, Shaco's Void Staff 2nd)." },
+  boughtFirst: { source: "game data", on: true, why: "The path shows what you bought first, in inventory order, then the rest in Next's order, so an item bought early shows where you bought it (Nico 2026-11-27)." },
   stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
   attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
   selfHealWeight: { source: "assumption", on: false, why: "Count self-healers more for Vs healing. Off until tested." },
@@ -1446,7 +1459,12 @@ export function splitFor(order: string[] | undefined, split: OverlayChamp["skill
 export const CRIT_CONVERTERS = new Set(["yasuo", "yone"]);
 
 export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, why: whyData, profiles }: PlanInput): Plan {
-  const rules = itemRules(k);
+  // Two different Tear items can both be in the path (Nico 2026-11-27, his Ryze games: Archangel's turns into Seraph's,
+  // then a new Tear stacks for Winter's Approach): the game blocks only buying one while another is still stacking, so
+  // that one isn't Next until then (below). The same Tear item twice never (one id, one owned form).
+  const rules0 = itemRules(k);
+  const rules: ItemRules = { ...rules0, clash: (a, b) => !(TEAR_ITEMS.has(ownedId(a)) && TEAR_ITEMS.has(ownedId(b)) && ownedId(a) !== ownedId(b)) && rules0.clash(a, b) };
+  const stacking = game.items.map(base).find((x) => TEAR_ITEMS.has(x));
   const used = new Set<string>();
   const applied = (r: string) => used.add(r);
   shiftTableFor((game.enemies ?? []).filter((e) => (fit?.champions?.[keyIn(fit.champions, e.champ) ?? ""]?.[1] ?? []).some((a) => TANKY.has(a))).length);
@@ -1476,7 +1494,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // path, switch what's left to the class-wide style build that holds the most of what you own.
   let forced: { style: string; because: string; magic: boolean } | null = null;
   if (RULES.ownedReplan.on && k && picks) {
-    const listed = new Set([...(champ?.items ?? []), ...(champ?.rest ?? []), ...(slotRows ?? []).flatMap((r) => [r.it, ...r.alts])].map((it) => itemId(it.icon)));
+    const listed = new Set([...(champ?.items ?? []), ...(champ?.rest ?? []), ...(slotRows ?? []).flatMap((r) => [r.it, ...r.alts])].map((it) => ownedId(itemId(it.icon))));
     const fin = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i));
     const off = fin.filter((i) => !listed.has(i));
     const tag = (i: number, t: string) => (k.items[String(i)] ?? []).includes(t);
@@ -1500,7 +1518,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   }
   // Finished items you own that the path doesn't list take the first later slots you haven't filled.
   if (slotRows && k && RULES.ownedOffPath.on) {
-    const listed = new Set([...(champ?.items ?? []), ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
+    // as owned ids: a path that names Diadem of Songs lists the Whispering Circlet you hold (Karma got it twice)
+    const listed = new Set([...(champ?.items ?? []), ...slotRows.map((r) => r.it)].map((it) => ownedId(itemId(it.icon))));
     const prefix = ((champ?.items ?? []).find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
     const extra = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !(k.boots ?? []).includes(i) && !listed.has(i));
     extra.forEach((i) => placedOff.add(i));
@@ -1665,12 +1684,6 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA
   // 2026-11-24: "Build done" with plain Boots while the build's Sorcerer's Shoes were still owed).
   const hasBoots = [...owned].some((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
-  // boots you own are your boots: the path shows them in its boots place, not other boots you won't buy
-  const myBoots = [...owned].find((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
-  if (myBoots !== undefined && k?.recipes[myBoots] && !build.some((it) => itemId(it.icon) === myBoots)) {
-    const at = build.findIndex((it) => bootIds.has(itemId(it.icon)));
-    if (at >= 0) build[at] = { name: k.recipes[myBoots][0], icon: (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "") + `${220000 + myBoots}.png` };
-  }
   const isOwned = (it: Named) => owned.has(itemId(it.icon)) || (hasBoots && bootIds.has(itemId(it.icon)));
   let next = build.filter((it) => !isOwned(it));
   const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i)).length;
@@ -1682,7 +1695,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     // You own n finished items, so the path's first n (boots aside) should be bought: any of those you don't own was
     // skipped for something else (later in the path or off it) and moves behind the rest. Boots are skipped once you've
     // bought past their place without starting them (plain Boots owned means you're building them).
-    const n = fin.length;
+    // a first-buy item bought before the path's first item doesn't pass it over (firstBuys: Hubris then The Collector)
+    const n = fin.filter((i) => !(RULES.firstBuys.on && FIRST_BUYS.has(i))).length;
     const nonBoot = build.filter((it) => !bootIds.has(itemId(it.icon)));
     const bootsAt = build.findIndex((it) => bootIds.has(itemId(it.icon)));
     const beforeBoots = bootsAt < 0 ? 0 : build.slice(0, bootsAt).filter((it) => !bootIds.has(itemId(it.icon))).length;
@@ -1749,6 +1763,13 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const has = (it: Named, kind: string) => (k?.items[String(itemId(it.icon))] ?? []).includes(kind);
   const nearCap = RULES.attackSpeedNudge.on && aspd >= 4.5;
   if (nearCap) { next = [...next.filter((it) => !has(it, "as")), ...next.filter((it) => has(it, "as"))]; applied("attackSpeedNudge"); }
+  // Late buys (lateBuys): penetration and other late picks (Void Staff, Serylda's...: 95%+ of buyers take them 3rd or
+  // later, archive and AramHex cores) wait until you've finished two legendaries, unless an augment rule timed them
+  // (Nico 2026-11-27, Shaco's Void Staff 2nd). The site card uses the same order (first-buys.ts).
+  if (RULES.lateBuys.on && finished < 2 && next.some((it) => LATE_BUYS.has(ownedId(itemId(it.icon))))) {
+    const moved = lateBuyOrder(next, (it) => ownedId(itemId(it.icon)), (it) => bootIds.has(itemId(it.icon)), 2 - finished, (it) => timing.some((t) => t.item === it));
+    if (moved.some((it, i) => it !== next[i])) { next = moved; applied("lateBuys"); }
+  }
   const order = new Map(next.map((it, i) => [itemId(it.icon), i]));
   next = next.slice(0, 2);
 
@@ -1789,6 +1810,66 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const fromPath = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
     // (empty when you own the whole path: an item the path can't fit isn't Next; full-build advice takes over)
     next = fromPath.slice(0, 2);
+  }
+  // Every finished item you own stays in the path (ownedOffPath): one the path doesn't list takes the place of an
+  // unbought item it can't be owned with, else the last unbought one, so the path never asks for more than six items
+  // (2026-11-27 replay of 1,670 archived players: 12% of moments listed unbought items past a full inventory, e.g.
+  // Draven with Edge of Night bought off the path was told Hubris and Infinity Edge with one slot left).
+  if (RULES.ownedOffPath.on && k) {
+    const inPathNow = new Set(path.map((it) => ownedId(itemId(it.icon))));
+    const prefix = (path.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
+    const missing = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i) && !inPathNow.has(i));
+    for (const i of missing) {
+      const it: Named = { name: k.recipes[i][0], icon: `${prefix}${220000 + i}.png` };
+      // boots give way last: with six finished items there's no slot for them (never buying boots: archive +0.6 +- 1.7 pts)
+      const open1 = [...path.keys()].filter((j) => !isOwned(path[j]) && !bootIds.has(itemId(path[j].icon)));
+      const bootsOpen = [...path.keys()].filter((j) => !isOwned(path[j]) && bootIds.has(itemId(path[j].icon)));
+      const j = open1.find((x) => rules.clash(itemId(path[x].icon), i)) ?? (path.length < 6 ? undefined : open1.at(-1) ?? bootsOpen.at(-1));
+      if (j === undefined && path.length >= 6) break;
+      if (j === undefined) path.push(it);
+      else path[j] = it;
+      applied("ownedOffPath");
+    }
+    if (missing.length) {
+      coreItems = path.slice(0, coreItems.length);
+      rest = path.slice(coreItems.length);
+      const at = (it: Named) => order.get(itemId(it.icon)) ?? Infinity;
+      next = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y)).slice(0, 2);
+    }
+  }
+  // First buys (firstBuys): an item players buy as their first legendary 80%+ of the time is Next while you have no
+  // legendary yet (archive buy order, data/estimates/item_slots.json: Heartsteel 93%, Yun Tal 84%, Rod of Ages 83%,
+  // Hubris 82%, Luden's 81%), not after the core when a card's later slot holds it (Nico 2026-11-27, Briar's Hubris).
+  // The path shows it first too, as the site card does (first-buys.ts); the core keeps its items.
+  if (RULES.firstBuys.on && !finished && !timing.length && next[0] && !FIRST_BUYS.has(ownedId(itemId(next[0].icon)))) {
+    const fb = path.find((it) => !isOwned(it) && FIRST_BUYS.has(ownedId(itemId(it.icon))));
+    if (fb) {
+      next = [fb, ...next.filter((it) => it !== fb)].slice(0, 2);
+      const core0 = new Set(coreItems);
+      path.splice(0, path.length, fb, ...path.filter((it) => it !== fb));
+      coreItems = path.slice(0, Math.max(coreItems.length, ...path.map((it, i) => (core0.has(it) ? i + 1 : 0))));
+      rest = path.slice(coreItems.length);
+      applied("firstBuys");
+    }
+  }
+  // a second Tear item isn't Next while the one you hold is still stacking (the game won't sell it until that one turns)
+  if (stacking !== undefined && next.some((it) => TEAR_ITEMS.has(ownedId(itemId(it.icon))))) {
+    const at = (it: Named) => order.get(itemId(it.icon)) ?? Infinity;
+    const open2 = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
+    next = open2.filter((it) => !TEAR_ITEMS.has(ownedId(itemId(it.icon)))).slice(0, 2);
+    applied("itemLimits");
+  }
+  // What you bought comes first, in inventory order (boughtFirst), then what's left in Next's order: an item the path
+  // had later but you bought early shows where you bought it (Nico 2026-11-27, Briar's Hubris).
+  if (RULES.boughtFirst.on && path.some((it, i) => isOwned(it) && path.slice(0, i).some((x) => !isOwned(x)))) {
+    const slot = (it: Named) => { const j = game.items.findIndex((x) => ownedId(x) === ownedId(itemId(it.icon)) || (bootIds.has(ownedId(x)) && bootIds.has(itemId(it.icon)))); return j < 0 ? 99 : j; };
+    const have = path.filter(isOwned).sort((x, y) => slot(x) - slot(y));
+    const core0 = new Set(coreItems);
+    path.splice(0, path.length, ...have, ...path.filter((it) => !isOwned(it)));
+    // the core keeps its items (they may sit further back now)
+    coreItems = path.slice(0, Math.max(coreItems.length, ...path.map((it, i) => (core0.has(it) ? i + 1 : 0))));
+    rest = path.slice(coreItems.length);
+    applied("boughtFirst");
   }
   const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
   const slotName = (i: number) => ord(slotRows?.[i]?.slot ?? first + i);
@@ -1906,15 +1987,30 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   if (stack > 0) tips.push({ rank: 4, kind: "stacking", item: itemId(next[0].icon), text: `${next[0].name} stacks over time, so it goes first.` });
   for (const t of [timing.find((x) => next[0] && x.item === next[0]) ?? timing[0]].filter(Boolean)) tips.push({ rank: 4, kind: "timing", item: itemId(t.item.icon), text: `${t.item.name} next: ${t.because}.` });
   if (RULES.shopTips.on && k && next.length) {
-    const slots = game.items.filter((i) => (k.recipes[ownedId(i)]?.[1] ?? 0) > 0 && !bootIds.has(ownedId(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
+    // the Stat Bonus anvil takes no inventory slot (archive: 2,135 moments with six items and a Stat Bonus)
+    const slots = game.items.filter((i) => (k.recipes[ownedId(i)]?.[1] ?? 0) > 0 && !bootIds.has(ownedId(i)) && !STAT_BONUS_IDS.has(ownedId(i))).length + ([...owned].some((i) => bootIds.has(i)) ? 1 : 0);
     // upgrading boots you started takes no new slot: never sell for them (Neeko / Kai'Sa: sell a legendary for Sorcerer's Shoes)
-    const bootUpgrade = bootIds.has(itemId(next[0].icon)) && [...owned].some((i) => bootIds.has(i));
-    if (slots >= 6 && !bootUpgrade) {
-      const inBuild = new Set(build.map((it) => itemId(it.icon)));
-      const sell = [...owned].find((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !inBuild.has(i) && !bootIds.has(i));
-      const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
+    const n0 = itemId(next[0].icon);
+    const bootUpgrade = bootIds.has(n0) && [...owned].some((i) => bootIds.has(i));
+    // nor when you hold one of its parts: buying it uses that part's slot
+    const parts = (id: number, acc = new Set<number>()): Set<number> => { for (const c of k.recipes[id]?.[2] ?? []) if (!acc.has(c)) { acc.add(c); parts(c, acc); } return acc; };
+    const holdsPart = [...owned].some((i) => parts(n0).has(i));
+    if (slots >= 6 && !bootUpgrade && !holdsPart) {
+      const inBuild = new Set([...build, ...path].map((it) => ownedId(itemId(it.icon))));
+      // parts of path items you still have to buy are kept, and of situational items this game calls for (Executioner's
+      // Calling bought for anti-heal against healers)
+      const keep = new Set([...path.filter((it) => !isOwned(it)), ...all.filter((x) => x.why)].flatMap((it) => [itemId(it.icon), ...parts(itemId(it.icon))]));
+      // sell what loses least first: a starter or a stray part (a third of its price lost) before a finished item off
+      // the path (archive, full inventories: starters and parts are 1,458 of the 3,457 sells; 2026-11-27 replay: 1,529
+      // full-inventory moments had one and gold for the next item, and no tip because only 2,000+ gold items counted)
+      const junk = [...owned]
+        .filter((i) => (k.recipes[i]?.[1] ?? 0) > 0 && !inBuild.has(i) && !keep.has(i) && !bootIds.has(i) && !STAT_BONUS_IDS.has(i) && !CONSUMABLES.has(i))
+        .sort((a, b) => ((k.recipes[a]?.[1] ?? 0) >= 2000 ? 1 : 0) - ((k.recipes[b]?.[1] ?? 0) >= 2000 ? 1 : 0) || (k.recipes[a]?.[1] ?? 0) - (k.recipes[b]?.[1] ?? 0));
+      // never a finished item for boots (keeping boots isn't proven better than a legendary: never bought +0.6 +- 1.7 pts)
+      const sell = junk.find((i) => !bootIds.has(n0) || (k.recipes[i]?.[1] ?? 0) < 2000);
+      const cost = k.recipes[n0]?.[1] ?? Infinity;
       if (sell !== undefined && (game.gold ?? 0) + Math.round((k.recipes[sell]?.[1] ?? 0) * 0.7) >= cost)
-        tips.push({ rank: 3, kind: "sell", item: sell, text: `Full build: sell ${k.recipes[sell][0]} for ${next[0].name}.` });
+        tips.push({ rank: 3, kind: "sell", item: sell, text: `${(k.recipes[sell]?.[1] ?? 0) >= 2000 ? "Full build" : "Inventory full"}: sell ${k.recipes[sell][0]} for ${next[0].name}.` });
     }
   }
   // Full build (fullBuildShop): spend idle gold on a permanent Stat Bonus, else your damage type's elixir.
