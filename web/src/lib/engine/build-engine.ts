@@ -26,7 +26,7 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import breakpointData from "../../data/breakpoints.json";
 import coreStrictnessData from "../../data/core-strictness.json";
 
-export const ENGINE_VERSION = "1.4.9";
+export const ENGINE_VERSION = "1.4.10";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -1665,6 +1665,12 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Plain Boots and Slightly Magical Boots are tier 1: owning them still leaves the build's boots to buy (replay QA
   // 2026-11-24: "Build done" with plain Boots while the build's Sorcerer's Shoes were still owed).
   const hasBoots = [...owned].some((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
+  // boots you own are your boots: the path shows them in its boots place, not other boots you won't buy
+  const myBoots = [...owned].find((i) => bootIds.has(i) && !TIER1_BOOTS.has(i));
+  if (myBoots !== undefined && k?.recipes[myBoots] && !build.some((it) => itemId(it.icon) === myBoots)) {
+    const at = build.findIndex((it) => bootIds.has(itemId(it.icon)));
+    if (at >= 0) build[at] = { name: k.recipes[myBoots][0], icon: (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "") + `${220000 + myBoots}.png` };
+  }
   const isOwned = (it: Named) => owned.has(itemId(it.icon)) || (hasBoots && bootIds.has(itemId(it.icon)));
   let next = build.filter((it) => !isOwned(it));
   const finished = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i)).length;

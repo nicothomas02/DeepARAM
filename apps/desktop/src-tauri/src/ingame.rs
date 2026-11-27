@@ -36,23 +36,10 @@ const CHECK_EVERY: Duration = Duration::from_secs(5);
 const CHECK_IN_GAME: Duration = Duration::from_secs(2);
 /// How often the screen is read while an augment offer may be up: every 0.3 s with League in front (PC app
 /// 1.26.31); otherwise there's nothing to read, and the next read comes as soon as League is back in front.
-const SCAN_EVERY: Duration = Duration::from_millis(300);
 const FRONT_POLL: Duration = Duration::from_millis(100);
 const AWAY_WAIT: Duration = Duration::from_millis(1000);
-/// The first augment is picked in the game's first seconds...
-pub const START_FOR: f64 = 90.0;
-/// ...and one more at each of these levels (Mayhem: 1, 7, 11 and 15, from Nico).
-pub const AUGMENT_LEVELS: &[u64] = &[1, 7, 11, 15];
-/// How long after an augment level the screen is read for the offer (longer while an offer stays up).
-pub const SCAN_FOR: f64 = 60.0;
-/// Reads in a row without the offer before it counts as picked, and how long it must have been missing: a reroll's
-/// card flip can hide a card for a moment, which isn't a pick (PC app 1.26.31).
-const GONE_AFTER: u32 = 2;
-const GONE_FOR: Duration = Duration::from_millis(1500);
-/// How often the mouse is checked while an offer is up (only then), to see which card the player clicks.
+/// How often the mouse is checked while a screen may be up (only then), to see which card the player clicks.
 const CLICK_EVERY: Duration = Duration::from_millis(40);
-/// A click on a card counts as the pick only if the cards closed within this long of it.
-const PICK_WITHIN: Duration = Duration::from_secs(6);
 
 #[derive(Default)]
 pub struct State {
@@ -62,30 +49,15 @@ pub struct State {
     me: Option<String>,
     team: Option<String>,
     level: u64,
-    /// Augment screens owed: levels 7, 11 and 15 reached whose offer hasn't come yet. Mayhem only opens the screen
-    /// with the shop open (dead, or on the starting platform), so one reached while alive waits for the next death.
-    owed: u32,
-    /// The player is dead right now, and whether an offer was read during this death.
+    /// The player is dead right now.
     dead: bool,
-    saw_offer: bool,
-    /// Game time until which the screen is read for an augment offer.
-    scan_until: f64,
-    /// The game's first pick is done (its offer came and went).
-    first_done: bool,
-    /// The augments on offer right now, left to right, as read off the screen.
+    /// Which card was taken, from screen reads and clicks: the shared tracker (crates/augtrack), the same rules as
+    /// the owner's app (PC 1.26.58) and the same simulator gate.
+    track: augtrack::Tracker,
+    /// The tracker's clock starts with the game.
+    clock: Option<Instant>,
+    /// The augments on offer right now, left to right (what the companion shows).
     pub offer: Vec<i64>,
-    /// A reading that differs from the offer shown, waiting for a second read to agree.
-    pending: Vec<i64>,
-    /// Augments taken this game (learned from clicks): never part of an offer again.
-    taken: Vec<i64>,
-    /// The same cards with their centres across the screen, for the click watcher.
-    cards: Vec<(i64, f64)>,
-    /// The card under the player's last click while the offer was up, and when.
-    clicked: Option<(i64, Instant)>,
-    /// Reads in a row that found no offer after one was up.
-    gone: u32,
-    /// When the offer was first missed, for GONE_FOR.
-    gone_since: Option<Instant>,
     names: Option<Vec<(i64, String)>>,
     /// After-game review: this game's samples, champion strengths and the game's result.
     samples: Vec<Sample>,
@@ -107,25 +79,58 @@ pub fn my_row<'a>(me: &str, players: &'a [Value]) -> Option<&'a Value> {
     players.iter().find(|p| id(p, "riotId").as_deref() == Some(me) || id(p, "summonerName").as_deref() == Some(me))
 }
 
-/// Whether going from level `prev` to `level` passed an augment level. The first reading of a game
-/// (`prev` 0) only records the level, so opening the app mid-game doesn't start a read.
-#[cfg(test)]
-pub fn reached_augment_level(prev: u64, level: u64) -> bool {
-    augment_levels_passed(prev, level) > 0
+/// Seconds since the game started, on the tracker's clock.
+fn clock(s: &State) -> f64 {
+    s.clock.map_or(0.0, |c| c.elapsed().as_secs_f64())
 }
 
-/// How many augment levels going from `prev` to `level` passed (two at once still owe two screens).
-pub fn augment_levels_passed(prev: u64, level: u64) -> u32 {
-    if prev == 0 {
-        return 0;
+/// What the tracker decided since the last look: the companion shows offers and marks picks (no tap in game).
+fn publish(app: &AppHandle, events: Vec<augtrack::Event>) {
+    for e in events {
+        record(app, &e);
+        match e {
+            augtrack::Event::Offer(ids) => companion::show_offer(app, &ids),
+            augtrack::Event::Closed { pick, .. } => {
+                companion::show_offer(app, &[]);
+                if let Some(id) = pick {
+                    companion::auto_taken(app, id);
+                }
+            }
+            augtrack::Event::Late(id) => companion::auto_taken(app, id),
+            // a "close" that was a reroll's card flip: the companion keeps its mark until the next pick replaces it
+            augtrack::Event::Unmark(_) => {}
+        }
     }
-    AUGMENT_LEVELS.iter().filter(|l| **l > prev && **l <= level).count() as u32
 }
 
-/// Whether the screen should be read for an augment offer at this moment of the game: the first pick, just after an
-/// augment level, or while dead with a screen still owed (it opens with the shop).
-pub fn scanning(game_time: f64, first_done: bool, scan_until: f64, owed_and_dead: bool) -> bool {
-    (game_time < START_FOR && !first_done) || game_time < scan_until || owed_and_dead
+/// Owner test recording (off unless a file named `record-offers` is in the app's data folder; never on for the
+/// public): each offer's screen as a PNG plus a line per tracker event in offers/offers.jsonl, to replay offer
+/// screens to augment readers (ours and others) without a live game, and to check picks against the game's own
+/// post-game list.
+fn record(app: &AppHandle, e: &augtrack::Event) {
+    let Ok(base) = app.path().app_data_dir() else { return };
+    if !base.join("record-offers").exists() {
+        return;
+    }
+    let dir = base.join("offers");
+    let _ = std::fs::create_dir_all(&dir);
+    let ms = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| d.as_millis());
+    let line = match e {
+        augtrack::Event::Offer(ids) => {
+            let png = format!("{ms}.png");
+            let saved = augscan::save_game_frame(&dir.join(&png));
+            serde_json::json!({"t": ms, "offer": ids, "png": saved.then_some(png)})
+        }
+        augtrack::Event::Closed { cards, pick, replaced, cols } => {
+            serde_json::json!({"t": ms, "closed": cards, "pick": pick, "replaced": replaced, "cols": cols})
+        }
+        augtrack::Event::Unmark(id) => serde_json::json!({"t": ms, "unmark": id}),
+        augtrack::Event::Late(id) => serde_json::json!({"t": ms, "late": id}),
+    };
+    use std::io::Write;
+    if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(dir.join("offers.jsonl")) {
+        let _ = writeln!(f, "{line}");
+    }
 }
 
 /// The League client and the game serve their local APIs with Riot's own certificate, not one a public authority
@@ -174,18 +179,10 @@ fn start(app: &AppHandle, agent: &ureq::Agent) -> bool {
         s.me = Some(me);
         s.team = team;
         s.level = 0;
-        s.owed = 0;
         s.dead = false;
-        s.saw_offer = false;
-        s.scan_until = 0.0;
-        s.first_done = false;
+        s.track = augtrack::Tracker::new();
+        s.clock = Some(Instant::now());
         s.offer.clear();
-        s.cards.clear();
-        s.clicked = None;
-        s.pending.clear();
-        s.taken.clear();
-        s.gone = 0;
-        s.gone_since = None;
         s.samples.clear();
         s.next_sample = 0.0;
         s.result = None;
@@ -209,8 +206,7 @@ pub fn stop(app: &AppHandle) {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
         s.offer.clear();
-        s.cards.clear();
-        s.clicked = None;
+        s.track = augtrack::Tracker::new();
         (std::mem::take(&mut s.in_game), std::mem::take(&mut s.samples), s.result.take())
     };
     if was && samples.last().is_some_and(|s| s.t >= REVIEW_MIN_SECONDS) {
@@ -289,15 +285,11 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
     {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
-        if level > s.level {
-            let passed = augment_levels_passed(s.level, level);
-            if passed > 0 {
-                s.owed += passed;
-                s.scan_until = game_time + SCAN_FOR;
-            }
-            s.level = level;
-        }
-        died_or_respawned(&mut s, dead);
+        s.level = level;
+        s.dead = dead;
+        let now = clock(&s);
+        let width = augscan::game_window().map_or(1920.0, |(_, _, w, _)| f64::from(w));
+        s.track.game(now, game_time, level as u32, dead, augtrack::Headliner::None, width);
     }
     sample(app, agent, game_time, &players);
 }
@@ -315,133 +307,73 @@ fn names(app: &AppHandle) -> Option<Vec<(i64, String)>> {
     Some(names)
 }
 
-/// A death starts a fresh look for the owed screen; respawning after a death with no offer on screen means none was
-/// coming (the owed count is a guess from levels, so it can't wait forever).
-fn died_or_respawned(s: &mut State, dead: bool) {
-    if dead && !s.dead {
-        s.saw_offer = false;
-    } else if !dead && s.dead && !s.saw_offer && s.offer.is_empty() {
-        s.owed = 0;
-    }
-    s.dead = dead;
+/// The pointer as (x, how far down League's window 0-1), for the tracker.
+fn pointer() -> Option<(bool, f64, f64)> {
+    let (down, x, y) = augscan::mouse()?;
+    let (_, gy, _, gh) = augscan::game_window()?;
+    Some((down, f64::from(x), (f64::from(y) - f64::from(gy)) / f64::from(gh.max(1))))
 }
 
-/// Reads the screen once for an augment offer and tells the companion window when it changes.
-fn scan(app: &AppHandle, game_time: f64) {
+/// Reads the screen once and gives the tracker what it found (ids with their screen x) and where the pointer rests.
+fn scan(app: &AppHandle) {
     let Some(names) = names(app) else { return };
-    let Some(lines) = augscan::read_screen() else { return };
-    let cards = augscan::match_offer_at(&lines, &names);
-    let (changed, picked) = {
+    let read = augscan::read_screen().map(|lines| {
+        // a stray name plus three evenly spaced cards keeps the three (4 only with Maestro's even row)
+        let cards = augscan::check_four(augscan::match_offer_at(&lines, &names));
+        augtrack::Read {
+            ids: cards.iter().map(|c| c.0).collect(),
+            xs: cards.iter().map(|c| c.1).collect(),
+            from_window: false,
+            blank: false,
+        }
+    });
+    let cursor = pointer().map(|(_, x, y)| (x, y));
+    let events = {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
-        read_offer(&mut s, cards, game_time)
+        let now = clock(&s);
+        s.track.read(now, read, cursor);
+        s.offer = s.track.offer.clone();
+        std::mem::take(&mut s.track.events)
     };
-    if let Some(offer) = changed {
-        companion::show_offer(app, &offer);
-    }
-    if let Some(id) = picked {
-        companion::auto_taken(app, id);
-    }
+    publish(app, events);
 }
 
-/// One reading of the screen: the offer to show if it changed, and the pick if the offer just closed.
-/// Augments already taken can't be on offer (text outside the cards, like the player's own augment list, can name
-/// them), and a new offer counts only once two reads in a row agree on it (PC app 1.26.3).
-fn read_offer(s: &mut State, cards: Vec<(i64, f64)>, game_time: f64) -> (Option<Vec<i64>>, Option<i64>) {
-    let cards: Vec<(i64, f64)> = cards.into_iter().filter(|(id, _)| !s.taken.contains(id)).collect();
-    let cards = augscan::check_four(cards);
-    let found: Vec<i64> = cards.iter().map(|(id, _)| *id).collect();
-    if found.len() >= 2 {
-        s.gone = 0;
-        s.gone_since = None;
-        s.saw_offer = true;
-        // Still up (the player is thinking it over or rerolled): keep reading.
-        s.scan_until = s.scan_until.max(game_time + 10.0);
-        if s.offer == found {
-            s.cards = cards;
-            s.pending.clear();
-            return (None, None);
-        }
-        // A full row of evenly spaced cards (three, or Maestro's four) counts after one read (PC app 1.26.31); a
-        // pair of names still needs two reads in a row that agree.
-        let full = cards.len() >= 3 && augscan::evenly_spaced(&cards);
-        if !full && s.pending != found {
-            s.pending = found;
-            return (None, None);
-        }
-        // A new offer or a reroll: a click before it picked nothing.
-        s.pending.clear();
-        s.cards = cards;
-        s.clicked = None;
-        s.offer = found;
-        return (Some(s.offer.clone()), None);
-    }
-    s.pending.clear();
-    if s.offer.is_empty() {
-        return (None, None);
-    }
-    s.gone += 1;
-    let since = *s.gone_since.get_or_insert_with(Instant::now);
-    if s.gone < GONE_AFTER || since.elapsed() < GONE_FOR {
-        return (None, None);
-    }
-    s.gone_since = None;
-    // Picked: stop reading until the next augment level.
-    let picked = close_offer(s);
-    s.scan_until = 0.0;
-    (Some(Vec::new()), picked)
-}
-
-/// The offer is gone: the card clicked shortly before is the pick (the cards close on the click that picks).
-fn close_offer(s: &mut State) -> Option<i64> {
-    let was = std::mem::take(&mut s.offer);
-    s.cards.clear();
-    // The game's first pick isn't one of the owed screens.
-    if s.first_done {
-        s.owed = s.owed.saturating_sub(1);
-    }
-    s.first_done = true;
-    let picked = s.clicked.take().filter(|(id, at)| at.elapsed() <= PICK_WITHIN && was.contains(id)).map(|(id, _)| id);
-    if let Some(id) = picked {
-        s.taken.push(id);
-    }
-    picked
-}
-
-/// While an offer is up, notes which card each left click lands on. Read-only: it asks Windows where the pointer
-/// is and whether the button is down, as any app can; nothing is hooked, moved or sent to the game. Between offers
-/// it only checks, a few times a second, whether one is up.
+/// While a screen may be up, notes each left click on League's window for the tracker. Read-only: it asks the OS
+/// where the pointer is and whether the button is down, as any app can; nothing is hooked, moved or sent to the game.
 fn watch_clicks(app: AppHandle) {
     thread::spawn(move || {
         let mut was_down = false;
         loop {
-            let cards = app.state::<Shared>().lock().unwrap().cards.clone();
-            if cards.len() < 2 {
+            let watching = {
+                let s = app.state::<Shared>();
+                let s = s.lock().unwrap();
+                s.in_game && (s.track.window || !s.track.offer.is_empty())
+            };
+            if !watching {
                 was_down = false;
                 thread::sleep(Duration::from_millis(250));
                 continue;
             }
-            if let Some((down, x, y)) = augscan::mouse() {
-                // Only a click on League itself counts: a click in a window over the game isn't a pick.
-                if down && !was_down && augscan::league_in_front() {
-                    let on_cards = augscan::game_window().is_some_and(|(gx, gy, gw, gh)| {
-                        let (ax, ay, aw, ah) = augscan::card_area(gx, gy, gw, gh);
-                        x >= ax && x < ax + aw && y >= ay && y < ay + ah
-                    });
-                    let card = if on_cards { augscan::card_at(&cards, f64::from(x)) } else { None };
-                    // Clicking a card picks it, so the first card clicked counts: later clicks (the game going on
-                    // while the cards fade) don't replace it. A reroll changes the offer, which clears it.
+            let Some((down, x, y)) = pointer() else {
+                if augscan::mouse().is_none() {
+                    return; // no mouse to read on this OS yet
+                }
+                thread::sleep(CLICK_EVERY);
+                continue;
+            };
+            // Only a click on League itself counts: a click in a window over the game isn't a pick.
+            if down && !was_down && augscan::league_in_front() {
+                let events = {
                     let state = app.state::<Shared>();
                     let mut s = state.lock().unwrap();
-                    if s.clicked.is_none() {
-                        s.clicked = card.map(|id| (id, Instant::now()));
-                    }
-                }
-                was_down = down;
-            } else {
-                // No mouse to read (not Windows): nothing to watch.
-                return;
+                    let now = clock(&s);
+                    s.track.click(now, x, y);
+                    std::mem::take(&mut s.track.events)
+                };
+                publish(&app, events);
             }
+            was_down = down;
             thread::sleep(CLICK_EVERY);
         }
     });
@@ -454,7 +386,6 @@ pub fn watch(app: AppHandle) {
     thread::spawn(move || {
         let agent = local_agent();
         let mut last_check: Option<Instant> = None;
-        let mut game_time = 0.0;
         loop {
             let in_game = app.state::<Shared>().lock().unwrap().in_game;
             let every = if in_game { CHECK_IN_GAME } else { CHECK_EVERY };
@@ -462,7 +393,7 @@ pub fn watch(app: AppHandle) {
                 last_check = Some(Instant::now());
                 let stats = if enabled(&app) { live(&agent, "/gamestats") } else { None };
                 let mayhem = stats.as_ref().and_then(|s| s.get("gameMode")?.as_str()) == Some(MAYHEM_MODE);
-                game_time = stats.as_ref().and_then(|s| s.get("gameTime")?.as_f64()).unwrap_or(0.0);
+                let game_time = stats.as_ref().and_then(|s| s.get("gameTime")?.as_f64()).unwrap_or(0.0);
                 if mayhem && !in_game {
                     start(&app, &agent);
                 } else if mayhem {
@@ -474,26 +405,17 @@ pub fn watch(app: AppHandle) {
             let (in_game, read) = {
                 let state = app.state::<Shared>();
                 let s = state.lock().unwrap();
-                let now = game_time + last_check.map_or(0.0, |at| at.elapsed().as_secs_f64());
-                (s.in_game, s.in_game && scanning(now, s.first_done, s.scan_until, s.owed > 0 && s.dead))
+                (s.in_game, s.in_game && s.track.window)
             };
-            // The reading window closed with an offer still up (picked between two reads): it's gone now.
-            let left = {
-                let state = app.state::<Shared>();
-                let mut s = state.lock().unwrap();
-                (!read && !s.offer.is_empty()).then(|| close_offer(&mut s))
-            };
-            if let Some(picked) = left {
-                companion::show_offer(&app, &[]);
-                if let Some(id) = picked {
-                    companion::auto_taken(&app, id);
-                }
-            }
             if read && scan_on(&app) {
-                let now = game_time + last_check.map_or(0.0, |at| at.elapsed().as_secs_f64());
-                scan(&app, now);
+                scan(&app);
                 if augscan::league_in_front() {
-                    thread::sleep(SCAN_EVERY);
+                    let nap = {
+                        let s = app.state::<Shared>();
+                        let s = s.lock().unwrap();
+                        s.track.nap(clock(&s), true)
+                    };
+                    thread::sleep(Duration::from_secs_f64(nap));
                 } else {
                     // Away from League: read again the moment it's back in front.
                     let away = Instant::now();
@@ -518,83 +440,6 @@ mod tests {
         assert_eq!(champion_alias("game_character_displayname_MonkeyKing"), Some("MonkeyKing"));
         assert_eq!(champion_alias("game_character_displayname_"), None);
         assert_eq!(champion_alias("Wukong"), None);
-    }
-
-    #[test]
-    fn augment_levels_start_a_read() {
-        assert!(reached_augment_level(6, 7));
-        assert!(reached_augment_level(10, 12)); // two levels at once still counts 11
-        assert!(!reached_augment_level(7, 8));
-        assert!(!reached_augment_level(15, 18));
-        assert!(!reached_augment_level(0, 9)); // first reading of the game
-    }
-
-    #[test]
-    fn reads_only_while_an_offer_can_be_up() {
-        assert!(scanning(5.0, false, 0.0, false)); // the first pick
-        assert!(!scanning(5.0, true, 0.0, false)); // already picked
-        assert!(!scanning(START_FOR + 1.0, false, 0.0, false));
-        assert!(scanning(600.0, true, 640.0, false)); // after an augment level
-        assert!(!scanning(641.0, true, 640.0, false));
-        assert!(scanning(900.0, true, 640.0, true)); // dead with a screen owed
-    }
-
-    #[test]
-    fn an_offer_needs_two_matching_reads_unless_the_row_is_full_and_even() {
-        let mut s = State { first_done: true, taken: vec![9], ..Default::default() };
-        // Unevenly spaced (a stray name), so two reads in a row must agree.
-        let uneven = |ids: &[i64]| ids.iter().zip([100.0, 160.0, 700.0]).map(|(id, x)| (*id, x)).collect::<Vec<_>>();
-        assert_eq!(read_offer(&mut s, uneven(&[1, 2, 3]), 10.0), (None, None)); // first read: waits
-        assert_eq!(read_offer(&mut s, uneven(&[1, 2, 3]), 11.0), (Some(vec![1, 2, 3]), None));
-        // A full, evenly spaced row counts after one read (PC app 1.26.31); a taken augment named elsewhere doesn't
-        // count as a card.
-        let even = |ids: &[i64]| ids.iter().enumerate().map(|(i, id)| (*id, 100.0 + 400.0 * i as f64)).collect::<Vec<_>>();
-        assert_eq!(read_offer(&mut s, even(&[1, 4, 3]), 12.0), (Some(vec![1, 4, 3]), None));
-        // A reroll's flip: two misses inside 1.5 s aren't a close.
-        s.clicked = Some((4, Instant::now()));
-        assert_eq!(read_offer(&mut s, vec![], 13.0), (None, None));
-        assert_eq!(read_offer(&mut s, vec![], 13.3), (None, None));
-        assert!(!s.offer.is_empty());
-        // Missing for 1.5 s and two reads: closed, and the recent click on a card is the pick, never offered again.
-        s.gone_since = Some(Instant::now() - Duration::from_secs(2));
-        assert_eq!(read_offer(&mut s, vec![], 15.0), (Some(vec![]), Some(4)));
-        assert!(s.taken.contains(&4));
-    }
-
-    #[test]
-    fn owed_screens_wait_for_a_death() {
-        assert_eq!(augment_levels_passed(6, 7), 1);
-        assert_eq!(augment_levels_passed(10, 15), 2);
-        assert_eq!(augment_levels_passed(0, 9), 0);
-        // Level 7 reached alive: owed until the death that opens the shop.
-        let mut s = State { owed: 1, first_done: true, ..Default::default() };
-        died_or_respawned(&mut s, true);
-        assert!(s.dead && !s.saw_offer);
-        s.offer = vec![1, 2, 3];
-        s.saw_offer = true;
-        assert_eq!(close_offer(&mut s), None);
-        assert_eq!(s.owed, 0);
-        // A death with no offer on screen: nothing was coming, stop looking.
-        let mut s = State { owed: 1, first_done: true, ..Default::default() };
-        died_or_respawned(&mut s, true);
-        died_or_respawned(&mut s, false);
-        assert_eq!(s.owed, 0);
-        // The first pick doesn't use up an owed screen.
-        let mut s = State { owed: 1, offer: vec![1, 2], ..Default::default() };
-        close_offer(&mut s);
-        assert_eq!(s.owed, 1);
-    }
-
-    #[test]
-    fn a_recent_click_on_an_offered_card_is_the_pick() {
-        let mut s = State { offer: vec![1, 2, 3], clicked: Some((2, Instant::now())), ..Default::default() };
-        assert_eq!(close_offer(&mut s), Some(2));
-        assert!(s.offer.is_empty() && s.first_done && s.clicked.is_none());
-        // No click, or a click on a card no longer offered: no pick.
-        let mut s = State { offer: vec![1, 2, 3], ..Default::default() };
-        assert_eq!(close_offer(&mut s), None);
-        let mut s = State { offer: vec![1, 2, 3], clicked: Some((9, Instant::now())), ..Default::default() };
-        assert_eq!(close_offer(&mut s), None);
     }
 
     #[test]
