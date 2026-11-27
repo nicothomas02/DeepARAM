@@ -26,6 +26,16 @@ const MAYHEM_QUEUES: [u64; 2] = [2400, 2450];
 const CHECK_EVERY: Duration = Duration::from_secs(90);
 /// How many recent games to look through, and how many sent game ids to remember.
 const RECENT: usize = 20;
+/// When sharing is turned on, look further back once (the player's own games, which they just agreed to share), so
+/// one opt-in brings more than a single page of games and their trends start full.
+const BACKFILL: usize = 100;
+/// The client's match history is read a page at a time.
+const PAGE: usize = 20;
+/// The site takes up to 50 games a send (web/src/app/api/games/route.ts); stay under it.
+const SEND_MAX: usize = 40;
+/// How many times to try moving games shared by sign-in token to the key before giving up (each try sends the
+/// token, which the app otherwise never does).
+const MIGRATE_TRIES: u32 = 10;
 const KEEP_SENT: usize = 400;
 /// How many of the player's own games the trends keep.
 const KEEP_TRENDS: usize = 50;
@@ -44,6 +54,11 @@ struct State {
     key: String,
     /// Games shared before the key (by sign-in token) were moved to it, or there were none.
     migrated: bool,
+    /// Tries at that move so far. New games are shared under the key while it's pending, so a failing move never
+    /// stops sharing (before 0.3.17 it did).
+    migrate_tries: u32,
+    /// The one look further back since sharing was last turned on is done.
+    backfilled: bool,
     /// The player's own line from each recent Mayhem game, newest last, kept on this computer only: what the
     /// review's "Your trends" shows to players who share. Never sent anywhere.
     trends: Vec<Trend>,
@@ -127,6 +142,9 @@ pub fn set(app: &AppHandle, on: bool) {
     let sharing = app.state::<Sharing>();
     let was = sharing.update(|s| {
         s.asked = true;
+        if on && !s.enabled {
+            s.backfilled = false;
+        }
         std::mem::replace(&mut s.enabled, on)
     });
     if let Some(item) = sharing.item.lock().unwrap().as_ref() {
@@ -224,7 +242,7 @@ fn open_question(app: &AppHandle) {
         return;
     }
     let _ = WebviewWindowBuilder::new(app, "share", WebviewUrl::App("share.html".into()))
-        .title("Help improve DeepARAM")
+        .title("See your trends")
         .inner_size(460.0, 720.0)
         .resizable(false)
         .minimizable(false)
@@ -268,12 +286,15 @@ pub fn watch(app: AppHandle) {
                 (s.sent.iter().copied().collect(), s.trends.iter().map(|t| t.id).collect())
             };
             let me = lcu.get("/lol-summoner/v1/current-summoner").ok().and_then(|s| s["puuid"].as_str().map(String::from));
+            let backfilled = sharing.state.lock().unwrap().backfilled;
+            let Some(recent) = recent_mayhem(&lcu, if backfilled { RECENT } else { BACKFILL }) else { continue };
             let mut ids: Vec<u64> = pending.iter().map(|(id, _)| *id).collect();
-            ids.extend(recent_mayhem(&lcu));
-            // A game is read if it still has to be sent, or isn't in the player's trends yet.
-            ids.retain(|id| !sent.contains(id) || (me.is_some() && !traced.contains(id)));
-            ids.sort_unstable();
-            ids.dedup();
+            // Trends only want the newest games; older ones are read just to be sent.
+            let near: BTreeSet<u64> = ids.iter().chain(recent.iter().take(RECENT)).copied().collect();
+            ids.extend(recent);
+            // A game is read if it still has to be sent, or is recent and isn't in the player's trends yet.
+            ids.retain(|id| !sent.contains(id) || (me.is_some() && near.contains(id) && !traced.contains(id)));
+            let (ids, caught_up) = this_round(ids);
             let mut games = Vec::new();
             let mut done = Vec::new();
             let mut lines = Vec::new();
@@ -305,16 +326,24 @@ pub fn watch(app: AppHandle) {
             }
             let Some(key) = sharing.key() else { continue };
             // Once, for players who shared before the key: the sign-in token proves the account one last time so the
-            // site can move those games to the key. After that the token is never sent.
-            if !sharing.state.lock().unwrap().migrated {
-                let had = !sharing.state.lock().unwrap().sent.is_empty();
-                if had && send_to(&lcu, GAMES_URL, json!({ "action": "migrate", "key": key })).is_err() {
-                    continue;
-                }
-                sharing.update(|s| s.migrated = true);
+            // site can move those games to the key. After that the token is never sent. A failed move is tried again
+            // next round (at most MIGRATE_TRIES times) and never holds back new games.
+            let (migrated, had) = {
+                let s = sharing.state.lock().unwrap();
+                (s.migrated, !s.sent.is_empty())
+            };
+            if !migrated {
+                let ok = !had || send_to(&lcu, GAMES_URL, json!({ "action": "migrate", "key": key })).is_ok();
+                sharing.update(|s| {
+                    s.migrate_tries += 1;
+                    s.migrated = ok || s.migrate_tries >= MIGRATE_TRIES;
+                });
             }
             if !games.is_empty() && post(json!({ "action": "share", "key": key, "games": games })).is_err() {
                 continue;
+            }
+            if caught_up && !backfilled {
+                sharing.update(|s| s.backfilled = true);
             }
             for (_, tries) in pending.iter_mut() {
                 *tries += 1;
@@ -331,19 +360,46 @@ pub fn watch(app: AppHandle) {
     });
 }
 
-fn recent_mayhem(lcu: &Lcu) -> Vec<u64> {
-    let path = format!("/lol-match-history/v1/products/lol/current-summoner/matches?begIndex=0&endIndex={RECENT}");
-    let list = lcu.get(&path).unwrap_or(Value::Null);
-    list["games"]["games"]
-        .as_array()
-        .map(|games| {
-            games
-                .iter()
-                .filter(|g| g["queueId"].as_u64().is_some_and(|q| MAYHEM_QUEUES.contains(&q)))
-                .filter_map(|g| g["gameId"].as_u64())
-                .collect()
-        })
-        .unwrap_or_default()
+/// The Mayhem game ids among the player's last `count` games, newest first, read a page at a time and stopping at
+/// the end of their history. None when the first page can't be read (client still starting), so a backfill isn't
+/// marked done early.
+fn recent_mayhem(lcu: &Lcu, count: usize) -> Option<Vec<u64>> {
+    let mut ids = Vec::new();
+    let mut beg = 0;
+    while beg < count {
+        let end = (beg + PAGE).min(count);
+        let path = format!("/lol-match-history/v1/products/lol/current-summoner/matches?begIndex={beg}&endIndex={end}");
+        let Some(games) = lcu.get(&path).ok().and_then(|l| l["games"]["games"].as_array().cloned()) else {
+            if beg == 0 {
+                return None;
+            }
+            break;
+        };
+        ids.extend(mayhem_ids(&games));
+        if games.len() < end - beg {
+            break;
+        }
+        beg = end;
+    }
+    ids.sort_unstable_by(|a, b| b.cmp(a));
+    Some(ids)
+}
+
+fn mayhem_ids(games: &[Value]) -> Vec<u64> {
+    games
+        .iter()
+        .filter(|g| g["queueId"].as_u64().is_some_and(|q| MAYHEM_QUEUES.contains(&q)))
+        .filter_map(|g| g["gameId"].as_u64())
+        .collect()
+}
+
+/// The ids to read this round, newest first, at most what one send carries; true when nothing is left for later.
+fn this_round(mut ids: Vec<u64>) -> (Vec<u64>, bool) {
+    ids.sort_unstable_by(|a, b| b.cmp(a));
+    ids.dedup();
+    let caught_up = ids.len() <= SEND_MAX;
+    ids.truncate(SEND_MAX);
+    (ids, caught_up)
 }
 
 /// Posts to the site with the sharing key; no sign-in token.
@@ -590,6 +646,35 @@ fn base64(bytes: &[u8]) -> String {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn this_round_takes_newest_first_and_says_when_caught_up() {
+        let (ids, done) = this_round(vec![3, 1, 2, 3]);
+        assert_eq!(ids, vec![3, 2, 1]);
+        assert!(done);
+        let (ids, done) = this_round((1..=100).collect());
+        assert_eq!(ids.len(), SEND_MAX);
+        assert_eq!(ids[0], 100);
+        assert!(!done);
+    }
+
+    #[test]
+    fn mayhem_ids_keeps_only_mayhem_queues() {
+        let games = vec![
+            json!({"gameId": 1, "queueId": 2400}),
+            json!({"gameId": 2, "queueId": 450}),
+            json!({"gameId": 3, "queueId": 2450}),
+        ];
+        assert_eq!(mayhem_ids(&games), vec![1, 3]);
+    }
+
+    #[test]
+    fn old_state_files_load_with_new_fields_off() {
+        let old = r#"{"asked":true,"enabled":true,"sent":[1],"key":"","migrated":false}"#;
+        let s: State = serde_json::from_str(old).unwrap();
+        assert!(!s.backfilled);
+        assert_eq!(s.migrate_tries, 0);
+    }
 
     #[test]
     fn base64_matches_known_values() {
