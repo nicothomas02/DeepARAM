@@ -13,6 +13,7 @@ const overlayJSON = once(overlayGET), kindsJSON = once(kindsGET), picksJSON = on
 import {
   itemId,
   ownedId,
+  FIRST_BUYS,
   itemRules,
   LUCKY_TILT,
   luckyBuild,
@@ -260,8 +261,9 @@ describe("build engine", () => {
 
   it("puts a finished item you own off the path into the first open later slot", () => {
     const p = plan({ champ, kinds, picks, fit, game: game([], { items: [3006, 3031, 3075] }), taken: [] });
-    // owned items keep their places; the open ones follow Next's order (pathOrder), so the skipped 3rd item is last
-    expect(ids(p.path)).toEqual([3006, 3031, 3094, 3075, 6333, 3046]);
+    // what you bought comes first in inventory order (boughtFirst, Nico 2026-11-27); the open ones follow Next's order
+    // (pathOrder), so the skipped 3rd item is last
+    expect(ids(p.path)).toEqual([3006, 3031, 3075, 3094, 6333, 3046]);
     // Thornmail took the 3rd item's place: that one moves behind the rest (ownedReplan)
     expect(ids(p.next)[0]).toBe(3094);
   });
@@ -481,6 +483,22 @@ describe("build engine", () => {
     // six finished items and no boots: the boots give way, nothing is left to buy
     const mf = plan({ champ: champs.find((x) => x.id === "Graves")!, kinds: k, picks: p0, fit: null, game: { champ: "Graves", items: [126697, 6676, 3031, 3036, 6696, 6695] }, taken: [] });
     expect(mf.next).toEqual([]);
+  }, 30_000);
+
+  it("a first-buy item is Next before any legendary, and shows first once bought (firstBuys, boughtFirst: Briar's Hubris)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const briar = champs.find((x) => x.id === "Briar")!;
+    const at = (items: number[]) => plan({ champ: briar, kinds: k, picks: p0, fit: null, game: { champ: "Briar", items, gold: 3000 }, taken: [] });
+    expect(itemId(at([]).next[0].icon)).toBe(6697);
+    const bought = at([6697]);
+    expect(itemId(bought.path[0].icon)).toBe(6697);
+    // buying Hubris first doesn't pass over The Collector
+    expect(itemId(bought.next[0].icon)).toBe(6676);
+    // the list matches the archive's buy order file
+    const slots = JSON.parse(readFileSync(new URL("../../../data/estimates/item_slots.json", import.meta.url), "utf8")) as { all: Record<string, number[]> };
+    const first = Object.entries(slots.all).filter(([, v]) => v.reduce((a, b) => a + b, 0) >= 400 && v[0] / v.reduce((a, b) => a + b, 0) >= 0.8).map(([i]) => Number(i));
+    expect([...FIRST_BUYS].sort()).toEqual(first.sort());
   }, 30_000);
 
   it("a second, different Tear item follows only once the first has turned (Nico 2026-11-27, Ryze)", async () => {

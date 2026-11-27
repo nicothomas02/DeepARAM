@@ -36,6 +36,7 @@ var DeepEngine = (() => {
     CRIT_CONVERTERS: () => CRIT_CONVERTERS,
     EMPOWERS: () => EMPOWERS,
     ENGINE_VERSION: () => ENGINE_VERSION,
+    FIRST_BUYS: () => FIRST_BUYS,
     FLASH_AUGMENTS: () => FLASH_AUGMENTS,
     HEADLINER_EXTRA_PICKS: () => HEADLINER_EXTRA_PICKS,
     HEALERS: () => HEALERS,
@@ -2732,6 +2733,8 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     augmentReplan: { source: "assumption", on: false, why: "Other augments switch the build style (style tags, the other 3-vote build changers, the class-wide fallback build). Off until measured like Draw Your Sword -> Death's Dance." },
     shieldAugments: { source: "assumption", on: true, why: "An enemy with Big Brain or Don't Change the Channel lights the champion's own 'Vs shields' items (Serpent's Fang: Shield Reaver cuts shields gained by 50% melee / 25% ranged and the current shield on the first hit; wiki). Nico approved 2026-11-25 (he asked for it); estimated: the archive can't confirm it (Serpent's builders vs an enemy Big Brain: win -22 +/- 15 pts, n 26). Needs the app to pass enemy augments." },
     countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
+    firstBuys: { source: "data", on: true, why: "An item players buy as their first legendary 80%+ of the time (archive buy order, item_slots.json, 400+ buyers: Heartsteel, Yun Tal, Rod of Ages, Hubris, Luden's) goes first while you have no legendary, instead of a later slot (Nico 2026-11-27, Briar's Hubris shown 4th)." },
+    boughtFirst: { source: "game data", on: true, why: "The path shows what you bought first, in inventory order, then the rest in Next's order, so an item bought early shows where you bought it (Nico 2026-11-27)." },
     stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
     attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
     selfHealWeight: { source: "assumption", on: false, why: "Count self-healers more for Vs healing. Off until tested." },
@@ -3225,6 +3228,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     return [...best(out.filter((it) => it.aug && it.why)), ...best(out.filter((it) => !(it.aug && it.why)))];
   }
   var STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
+  var FIRST_BUYS = /* @__PURE__ */ new Set([3084, 3032, 6657, 6697, 6655]);
   var STACKING = /* @__PURE__ */ new Set([6697, 3084, 3070, 3004, 3003, 3119]);
   var BACK_TO_BASICS = /* @__PURE__ */ new Set([1004, 4]);
   var R_PASSIVE = /* @__PURE__ */ new Set(["ambessa", "annie", "belveth", "blitzcrank", "fiora", "galio", "gnar", "jax", "kayn", "khazix", "lux", "masteryi", "mel", "nidalee", "olaf", "pantheon", "reksai", "rengar", "ryze", "shyvana", "sona", "syndra", "teemo", "xinzhao", "zaahen"]);
@@ -3803,7 +3807,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     if (RULES.ownedReplan.on) {
       const buildIds = build.map((it) => itemId(it.icon));
       const fin = [...owned].filter((i) => (k?.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i));
-      const n = fin.length;
+      const n = fin.filter((i) => !(RULES.firstBuys.on && FIRST_BUYS.has(i))).length;
       const nonBoot = build.filter((it) => !bootIds.has(itemId(it.icon)));
       const bootsAt = build.findIndex((it) => bootIds.has(itemId(it.icon)));
       const beforeBoots = bootsAt < 0 ? 0 : build.slice(0, bootsAt).filter((it) => !bootIds.has(itemId(it.icon))).length;
@@ -3933,11 +3937,30 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
         next = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y)).slice(0, 2);
       }
     }
+    if (RULES.firstBuys.on && !finished && !timing.length && next[0] && !FIRST_BUYS.has(ownedId(itemId(next[0].icon)))) {
+      const fb = path.find((it) => !isOwned(it) && FIRST_BUYS.has(ownedId(itemId(it.icon))));
+      if (fb) {
+        next = [fb, ...next.filter((it) => it !== fb)].slice(0, 2);
+        applied("firstBuys");
+      }
+    }
     if (stacking !== void 0 && next.some((it) => TEAR_ITEMS.has(ownedId(itemId(it.icon))))) {
       const at = (it) => order.get(itemId(it.icon)) ?? Infinity;
       const open2 = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y));
       next = open2.filter((it) => !TEAR_ITEMS.has(ownedId(itemId(it.icon)))).slice(0, 2);
       applied("itemLimits");
+    }
+    if (RULES.boughtFirst.on && path.some((it, i) => isOwned(it) && path.slice(0, i).some((x) => !isOwned(x)))) {
+      const slot = (it) => {
+        const j = game.items.findIndex((x) => ownedId(x) === ownedId(itemId(it.icon)) || bootIds.has(ownedId(x)) && bootIds.has(itemId(it.icon)));
+        return j < 0 ? 99 : j;
+      };
+      const have = path.filter(isOwned).sort((x, y) => slot(x) - slot(y));
+      const core0 = new Set(coreItems);
+      path.splice(0, path.length, ...have, ...path.filter((it) => !isOwned(it)));
+      coreItems = path.slice(0, Math.max(coreItems.length, ...path.map((it, i) => core0.has(it) ? i + 1 : 0)));
+      rest = path.slice(coreItems.length);
+      applied("boughtFirst");
     }
     const first = coreItems.filter((it) => !bootIds.has(itemId(it.icon))).length + 1;
     const slotName = (i) => ord(slotRows?.[i]?.slot ?? first + i);
