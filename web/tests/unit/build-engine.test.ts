@@ -321,6 +321,11 @@ describe("build engine", () => {
     expect([3135, 4645]).toContain(ids(p.next)[0]);
     // one off-path AP item as your first legendary switches too (Nico 2026-11-28: AP Zeri starting Malignance)
     expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched?.style).toBeTruthy();
+    // an augment players build AP after counts too (augmentTypeSwitch: Witchful Thinking), with no AP item yet
+    const byAug = plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006] }), taken: [1097] });
+    expect(byAug.switched?.style).toBeTruthy();
+    expect(byAug.rules).toContain("augmentTypeSwitch");
+    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3031] }), taken: [1097] }).switched).toBeNull();
     // after a path item it doesn't (the sell tip handles a stray buy)
     expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3031, 3003] }), taken: [] }).switched).toBeNull();
   });

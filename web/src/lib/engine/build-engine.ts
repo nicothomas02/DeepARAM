@@ -21,6 +21,7 @@
 
 import augmentItemsData from "../../data/augment-items.json";
 import augmentShiftData from "../../data/augment-item-shift.json";
+import typeSwitchData from "../../data/augment-type-switch.json";
 import augmentConvertersData from "../../data/augment-converters.json";
 import augmentLeanInData from "../../data/augment-lean-in.json";
 import { FIRST_BUYS, LATE_BUYS, lateBuyOrder } from "./first-buys";
@@ -31,7 +32,7 @@ const BUY_SLOT = (BUY_SLOT_DATA as { items: Record<string, number> }).items;
 import coreStrictnessData from "../../data/core-strictness.json";
 
 export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
-export const ENGINE_VERSION = "1.4.18";
+export const ENGINE_VERSION = "1.4.19";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -68,6 +69,7 @@ export const RULES: Record<string, Rule> = {
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
   critCapAhead: { source: "assumption", on: true, why: "With a crit augment taken (It's Critical, Critical Rhythm, Zealot, Jeweled Gauntlet...), critCap looks ahead: live crit plus 25% for each unbought crit item earlier in the path; a crit item that would land at 100%+ gives way to its slot's best non-crit option before it's bought. Simulator (research/breakpoints/aug_breakpoints.py, estimated): with a crit augment a later crit item loses to a non-crit damage item (Axiom Arc, Serylda's, Bloodthirster); archive holders of those augments build the winner more or the loser less in 176 flips vs 53 against (augment-item-shift.json). Nico approved 2026-11-28 (card: 'Ship it, marked estimated')." },
+  augmentTypeSwitch: { source: "data", on: true, why: "An augment after which players build the other damage type counts as evidence for ownedReplan, like an off-type item: archive, all lobbies, holders who build the other type vs the rate expected from their champions (z >= 4, 15+ holders): Eureka 37/39 vs 16 expected, Marksmage 29/43 vs 14, Witchful Thinking 26/32 vs 13, Wooglet's 17/17 vs 8, Phenomenal Evil, From Downtown, Skilled Sniper to AP; Scopier Weapons to AD (augment-type-switch.json). Correlational: holders may take the augment because they planned the build. Nico asked 2026-11-28 ('can be augment too')." },
   sealedUlt: { source: "kit rule", on: true, why: "Back To Basics seals the ultimate for good (wiki: 'your ultimate ability is permanently sealed'), so an item whose passive or haste works through the ultimate (shop text names it: Axiom Arc, Malignance, Experimental Hexplate, Zeke's Convergence, Fiendhunter Bolts) loses that part; not yet bought, it leaves the path and the slot takes the champion's next listed item. For every champion: an R passive still works, but nothing casts the ultimate. Nico asked 2026-11-28 ('Axiom shouldn't be recommended after taking back to basics')." },
   jgCrit: { source: "data", on: true, why: "On a champion whose kit deals mostly magic damage (Simulator champion file), a default build with an AD crit item (Sylas: Infinity Edge + Essence Reaver, 12% of players) is a Jeweled Gauntlet build: without a crit augment taken, the plan takes the champion's best other style. Archive (all lobbies): players building 2+ AP items add an AD crit item 13% of the time with Jeweled Gauntlet vs 4.8% without; Jeweled Gauntlet holders build Infinity Edge +15.5 pts (z 14.9, augment-item-shift.json). Nico asked 2026-11-28 ('generic crit items recommended without jeweled gauntlet')." },
   critCap: { source: "kit rule", on: true, why: "At 100% crit or more (live crit chance), a crit item not yet bought in a later slot gives way to that slot's best non-crit option (the data's order; an item a taken augment pulls in, then a kit match, go first), whose stats and passive keep full value (Mayhem turns crit over 100% into 0.75 adaptive force per 1%, wiki). Not Yasuo or Yone: their passive also turns extra crit into AD. Archive too small to test overcap (-1.7 +- 3.7 pts). Nico approved 2026-11-24 as a tiebreak, 2026-11-27 as a firm swap." },
@@ -946,6 +948,9 @@ export const R_PASSIVE = new Set(["ambessa", "annie", "belveth", "blitzcrank", "
 export const BUILD_CHANGERS: Record<number, string[]> = { 1029: ["onhit"], 2018: ["ap"], 2123: ["ap"], 1388: ["ap"], 1205: ["ap"], 1206: ["lethality", "fighter"], 3049: ["tank"], 1324: ["tank"], 1353: ["tank"] };
 // Measured augment -> build switches (website thread, 2026-11-23): the only ones on.
 export const MEASURED_SWITCHES: Record<number, string> = { 1029: "onhit" };
+/** Augments after which players build the other damage type than their champion usually does (archive, z >= 4,
+ *  research/type-switch/augment_type_switch.py). */
+export const TYPE_SWITCH = (typeSwitchData as unknown as { augments: Record<string, { to: "ap" | "ad"; name: string; z: number }> }).augments;
 // Confirmed augment -> item follow patterns (data/augment-items.json, shared with the site's lib/build-plan.ts).
 export type AugmentItem = { augment: number; augmentName: string; item: number; itemName: string; rate: number; base: number; payoff: Record<string, number> | null; holders: number };
 /** A with-vs-without comparison needs enough augment games: pairs with fewer holders are dropped (2026-11-23, owner-games
@@ -1591,8 +1596,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   let slotRows = laterPicks(champ, owned, rules);
   const placedOff = new Set<number>();  // off-path items you own that ownedOffPath put in later slots
   if (slotRows && RULES.itemLimits.on) applied("itemLimits");
-  // Off the path (ownedReplan): two or more finished items the path doesn't list, of the other damage type than the
-  // path, switch what's left to the class-wide style build that holds the most of what you own.
+  // Off the path (ownedReplan): off-path items of the other damage type than the path, plus augments that point to that
+  // type, outnumbering the path items you own, switch what's left to the style build that holds the most of what you own.
   let forced: { style: string; because: string; magic: boolean } | null = null;
   if (RULES.ownedReplan.on && k && picks) {
     const listed = new Set([...(champ?.items ?? []), ...(champ?.rest ?? []), ...(slotRows ?? []).flatMap((r) => [r.it, ...r.alts])].map((it) => ownedId(itemId(it.icon))));
@@ -1601,22 +1606,36 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const tag = (i: number, t: string) => (k.items[String(i)] ?? []).includes(t);
     const magicOf = (ids: number[]) => ids.filter((i) => tag(i, "ap") && !tag(i, "ad")).length > ids.filter((i) => tag(i, "ad") && !tag(i, "ap")).length;
     const pathIds = [...listed].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i));
-    // Off-type items outnumber the path's (Nico 2026-11-28, AP Zeri starting Malignance: "instead of recommending to
-    // sell, go with build"): one is enough when it's your first legendary. Archive, all lobbies: a first legendary of
-    // the other damage type is followed by a second of that type 64% of the time (516 of 803), winning 49.8% vs 47.7%
-    // for those who go back (correlational). One stray buy after path items still gets the sell tip (sellMismatch).
-    if (off.length >= 1 && magicOf(fin) !== magicOf(pathIds)) {
-      const magic = magicOf(fin);
-      const inPath = fin.filter((i) => listed.has(i)).length;
-      let best: { st: string; hit: number } | null = null;
+    // Evidence of the other damage type outnumbers the path items you own (Nico 2026-11-28: AP Zeri starting
+    // Malignance, "instead of recommending to sell, go with build"; "doesn't have to be first item, can be augment too"):
+    // each finished item of that type you own off the path counts, and so does each augment you took after which
+    // players build that type (augment-type-switch.json, archive z >= 4: Eureka, Marksmage, Witchful Thinking...).
+    // Archive, all lobbies: a first legendary of the other type is followed by a second of that type 64% of the time
+    // (516 of 803), winning 49.8% vs 47.7% for those who go back (correlational). A stray buy after path items still
+    // gets the sell tip (sellMismatch).
+    const pathMagic = magicOf(pathIds);
+    const pure = (i: number) => (tag(i, "ap") && !tag(i, "ad") ? "ap" : tag(i, "ad") && !tag(i, "ap") ? "ad" : "");
+    const want = pathMagic ? "ad" : "ap";
+    const offTyped = off.filter((i) => pure(i) === want);
+    const switches = RULES.augmentTypeSwitch.on ? taken.filter((a) => TYPE_SWITCH[String(a)]?.to === want) : [];
+    const inPath = fin.filter((i) => listed.has(i)).length;
+    if (pathIds.length && offTyped.length + switches.length > inPath) {
+      const magic = want === "ap";
+      const ck = keyIn(picks.builds, game.champ);
+      const ownStyles = new Set((ck ? picks.builds![ck] : []).map((x) => x[0]));
+      let best: { st: string; hit: number; pref: number } | null = null;
       for (const st of [...new Set(Object.values(picks.builds ?? {}).flatMap((b) => b.map((x) => x[0])))]) {
+        if (st === "tank") continue;
         const cb = classBuild(picks, k, st, magic, rules);
         if (!cb) continue;
-        const ids = new Set([...cb[0], ...cb[1]]);
+        const ids = new Set([...cb[0], ...cb[1]].map(base));
         const hit = fin.filter((i) => ids.has(i)).length;
-        if (off.filter((i) => ids.has(i)).length >= Math.min(2, off.length) && hit > inPath && (!best || hit > best.hit || (hit === best.hit && magic && st === "ap" && best.st !== "ap"))) best = { st, hit };
+        const pref = (ownStyles.has(st) ? 2 : 0) + (magic && st === "ap" ? 1 : 0);
+        if (offTyped.filter((i) => ids.has(i)).length >= Math.min(2, offTyped.length) && hit + switches.length > inPath
+          && (!best || hit > best.hit || (hit === best.hit && pref > best.pref))) best = { st, hit, pref };
       }
-      if (best) forced = { style: best.st, magic, because: off.slice(0, 2).map((i) => k.recipes[i][0]).join(" + ") };
+      const why = [...offTyped.slice(0, 2).map((i) => k.recipes[i][0]), ...switches.slice(0, 1).map((a) => picks.augments[a]?.[0] ?? TYPE_SWITCH[String(a)].name)];
+      if (best) { forced = { style: best.st, magic, because: why.join(" + ") }; if (switches.length) applied("augmentTypeSwitch"); }
     }
   }
   // Finished items you own that the path doesn't list take the first later slots you haven't filled.
