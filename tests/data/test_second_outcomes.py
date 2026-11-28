@@ -105,3 +105,5 @@ def test_shipped_norms_leave_the_owner_out_and_need_enough_players():
     shipped = json.load(open(rsc.OUT))
     assert shipped["norms"] and all(v["n"] >= shipped["min_norm"] for v in shipped["norms"].values())
     assert set(next(iter(shipped["norms"].values()))["stats"]) == set(rsc.STATS)
+    assert set(shipped["subclass_of"].values()) <= set(shipped["subclass_norms"])  # every fallback has a pooled norm
+    assert all(shipped["score_of"][c] == v["score"] for c, v in shipped["champions"].items())

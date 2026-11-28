@@ -273,7 +273,9 @@ def main():
     champ_norms, sub_norms = norms(rows, subs)
     res = {"scores": {k: [[s, sg] for s, sg in v] for k, v in SCORES.items()}, "defaults": DEFAULT_BY_SUBCLASS,
            "min_cells": MIN_CELLS, "margin": MARGIN, "cells": len(means), "players": len(rows), "check": check,
-           "champions": out, "labels": LABELS, "min_norm": MIN_NORM, "norms": champ_norms, "subclass_norms": sub_norms}
+           "champions": out, "labels": LABELS, "min_norm": MIN_NORM, "norms": champ_norms, "subclass_norms": sub_norms,
+           "subclass_of": {str(c): v[0] for c, v in sorted(subs.items()) if v and v[0]},
+           "score_of": {str(c): pick_of(c) for c in sorted(set(subs) | {int(k) for k in out})}}
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(res, f, indent=1)
         f.write("\n")
