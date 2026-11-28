@@ -1037,6 +1037,13 @@ describe("crit cap (critCap)", () => {
     expect(atFar(0.6)).toContain("Infinity Edge");
     expect(atFar(1)).toContain("Lord Dominik's Regards");
     expect(atFar(1)).not.toContain("Infinity Edge");
+    // critCapAhead (Nico 2026-11-28): with a crit augment, unbought crit items ahead count (25% each)
+    const ahead = (taken: number[]) => plan({ champ: champ0, kinds, picks: null, fit: null, game: { champ: "Tristana", items: [3006], stats: [0.75, 1.5, 0], level: 9 }, taken } as never);
+    expect(ahead([]).path.map((x) => x.name)).toContain("Infinity Edge");
+    const it = ahead([1047]);
+    expect(it.path.map((x) => x.name)).toContain("Lord Dominik's Regards");
+    expect(it.rules).toContain("critCapAhead");
+    expect(plan({ champ: champ0, kinds, picks: null, fit: null, game: { champ: "Tristana", items: [3006], stats: [0.5, 1.5, 0], level: 9 }, taken: [1047] } as never).path.map((x) => x.name)).toContain("Infinity Edge");
   });
 });
 
