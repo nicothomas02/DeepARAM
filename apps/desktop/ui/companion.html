@@ -176,6 +176,7 @@
   .chips { display: flex; flex-wrap: wrap; gap: 6px; }
   .chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 999px; background: var(--raised); font-size: 13px; }
   .chip .up { color: var(--good); } .chip .down { color: var(--bad); } .chip .down svg { transform: rotate(180deg); }
+  #mattered .up { color: var(--good); } #mattered .down { color: var(--bad); } #mattered .down svg { transform: rotate(180deg); }
   .chg { display: flex; align-items: center; gap: 8px; } .chg img { width: 48px; height: 48px; border-radius: 8px; } .chg .d { margin-left: auto; font-size: 18px; font-weight: 700; }
   .chg .d.up, .chg .ok { color: var(--good); } .chg .d.down { color: var(--bad); }
   .trend { display: grid; grid-template-columns: 1fr 120px 52px 52px; align-items: center; gap: 8px; }
@@ -1193,6 +1194,7 @@
     setView(`
       ${hero(lastChamp, `<span class="${result === "Win" ? "ink" : ""}">${verdict}</span>`, "Game review")}
       <div id="recap"></div>
+      <div id="mattered"></div>
       <div id="changed"></div>
       ${traced ? `<h2 title="Predicted, not measured: an estimate from kills, towers, levels and team strength.">Chance to win</h2>
       ${chart(points, ffFrom)}` : ""}
@@ -1202,8 +1204,62 @@
       <div id="invite"></div>`);
     reviewPoints = points ?? [];
     renderRecap().finally(renderTrends);
+    renderMattered();
     if (result === "Win") inviteToShare();
   };
+
+  // Owner build only: "what mattered" after a game (data/estimates/role_scores.py, what_mattered). The app hands over
+  // the client's match-history game and your participant id; each stat of your champion's post-game score is compared
+  // with the typical player on that champion. Descriptive, not advice. Kept until the review shows.
+  let mattered = null;
+  const statsOf = (g, pid) => {
+    const parts = g?.participants ?? [];
+    if ((g?.gameDuration ?? 0) < 300 || parts.some((p) => p.stats?.gameEndedInEarlySurrender)) return null;
+    const me = parts.find((p) => p.participantId === pid);
+    if (!me) return null;
+    const team = {};
+    for (const p of parts) {
+      const t = (team[p.teamId] ??= {});
+      for (const k of ["totalDamageDealtToChampions", "totalHeal", "timeCCingOthers", "kills", "totalDamageTaken", "damageSelfMitigated"])
+        t[k] = (t[k] ?? 0) + (p.stats?.[k] ?? 0);
+    }
+    const s = me.stats ?? {}, tm = team[me.teamId], mins = g.gameDuration / 60, v = (k) => s[k] ?? 0;
+    const share = (k) => v(k) / (tm[k] || 1);
+    return {
+      champ: me.championId, win: s.win ? 1 : 0, deaths: v("deaths") / mins, assists: v("assists") / mins,
+      dmg_share: share("totalDamageDealtToChampions"), heal_share: share("totalHeal"), cc_share: share("timeCCingOthers"),
+      taken_share: share("totalDamageTaken"), mitig_share: share("damageSelfMitigated"), units_healed: v("totalUnitsHealed"),
+      kp: (v("kills") + v("assists")) / (tm.kills || 1), kda: (v("kills") + v("assists")) / Math.max(1, v("deaths")),
+    };
+  };
+  const matteredOf = (rs, g, pid) => {
+    const row = statsOf(g, pid);
+    const name = row && rs?.champions?.[row.champ];
+    const norm = row && rs?.norms?.[row.champ];
+    const spec = name && rs.scores?.[name];
+    if (!spec || !norm) return null; // No subclass map is published, so no pooled fallback here.
+    const z = (k) => { const [m, sd] = norm.stats?.[k] ?? [0, 0]; return sd > 0 ? (row[k] - m) / sd : 0; };
+    const stats = spec.filter(([k]) => k !== "win").map(([k, sign]) => ({ stat: k, label: rs.labels?.[k] ?? k, z: sign * z(k), you: row[k], typical: norm.stats?.[k]?.[0] }));
+    stats.sort((a, b) => Math.abs(b.z) - Math.abs(a.z));
+    return { z: spec.reduce((t, [k, sign]) => t + sign * z(k), 0) / spec.length, players: norm.n, stats };
+  };
+  window.whatMattered = async (g, pid) => {
+    try {
+      const rs = await (await fetch(`${SITE}/data/role-scores.json`, { cache: "no-cache" })).json();
+      mattered = matteredOf(rs, g, pid);
+    } catch { mattered = null; }
+    renderMattered();
+  };
+  function renderMattered() {
+    const box = document.getElementById("mattered");
+    if (!box || !mattered) return;
+    const m = mattered;
+    const num = (k, x) => x == null ? "" : /share|kp/.test(k) ? `${Math.round(x * 100)}%` : x.toFixed(k === "units_healed" ? 0 : 2);
+    const sd = (z) => `${z >= 0 ? "+" : "−"}${Math.abs(z).toFixed(1)}`;
+    const rows = m.stats.slice(0, 3).map((s) => `<div class="trend" title="${esc(`${s.label}: you ${num(s.stat, s.you)}, typical ${num(s.stat, s.typical)}`)}"><span>${esc(s.label)}</span><span></span><span class="num ${s.z >= 0 ? "up" : "down"}">${ico("up")}</span><span class="num">${sd(s.z)}</span></div>`).join("");
+    box.innerHTML = `<h2 title="Your game vs typical ${esc(lastChamp ?? "")} players (${m.players} players). In standard deviations, positive = better for this champion's role.">What mattered</h2>
+      <div class="box"><div class="trend" title="Arrows point up where you did better than is typical on this champion (fewer deaths counts as better)."><span><b>vs typical ${esc(lastChamp ?? "")} players</b> (${m.players})</span><span></span><span class="num ${m.z >= 0 ? "up" : "down"}">${ico("up")}</span><span class="num"><b>${sd(m.z)}</b></span></div>${rows}</div>`;
+  }
 
   // After a won game, now and then: a dismissible invitation to share match data (game data only, never names or
   // accounts). Never in game; at most once every two weeks, three times in all, and never again after "Don't ask".

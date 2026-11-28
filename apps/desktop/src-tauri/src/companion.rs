@@ -207,6 +207,7 @@ fn from_process() -> Option<(u16, String)> {
     None
 }
 
+#[derive(Clone)]
 struct Client {
     agent: ureq::Agent,
     base: String,
@@ -264,6 +265,38 @@ fn is_owner(client: &Client) -> Option<bool> {
         .read_json()
         .ok()?;
     Some(reply.get("available").and_then(Value::as_bool).unwrap_or(false))
+}
+
+/// The owner's post-game "what mattered" card (Nico approved 2026-11-28): the client's match-history game, which the
+/// role-score norms are built from (data/estimates/role_scores.py), handed to the companion with your participant id.
+/// The game can take a little while to appear after the end-of-game screen, so it's asked for a few times.
+fn what_mattered(app: &AppHandle, c: Client, game_id: i64) {
+    let app = app.clone();
+    thread::spawn(move || {
+        let puuid =
+            c.get("/lol-summoner/v1/current-summoner").and_then(|v| v.get("puuid")?.as_str().map(str::to_owned));
+        let Some(puuid) = puuid else { return };
+        for _ in 0..12 {
+            if let Some(game) = c.get(&format!("/lol-match-history/v1/games/{game_id}")) {
+                if let Some(pid) = participant_of(&game, &puuid) {
+                    let js = format!("window.whatMattered && window.whatMattered({game}, {pid})");
+                    crate::phone::push(&js);
+                    if let Some(win) = app.get_webview_window(LABEL) {
+                        let _ = win.eval(js);
+                    }
+                    return;
+                }
+            }
+            thread::sleep(Duration::from_secs(10));
+        }
+    });
+}
+
+/// Your participant id in a match-history game, by your account's puuid.
+fn participant_of(game: &Value, puuid: &str) -> Option<i64> {
+    game.get("participantIdentities")?.as_array()?.iter().find_map(|p| {
+        (p.get("player")?.get("puuid")?.as_str()? == puuid).then(|| p.get("participantId")?.as_i64()).flatten()
+    })
 }
 
 fn send(app: &AppHandle, script: String) {
@@ -718,6 +751,11 @@ pub fn watch(app: AppHandle) {
                         }
                         let result = block.as_ref().and_then(eog_result);
                         // Picks the live reading missed: the end-of-game list has them all (marking is idempotent).
+                        // Owner only: the client's match-history game for the post-game "what mattered" card.
+                        let owner = app.state::<Shared>().lock().unwrap().owner == Some(true);
+                        if let (true, Some(id)) = (owner, block.as_ref().and_then(|b| b.get("gameId")?.as_i64())) {
+                            what_mattered(&app, c.clone(), id);
+                        }
                         let picks = block.as_ref().map(eog_augments).unwrap_or_default();
                         if !picks.is_empty() {
                             let js = format!("window.eogPicks && window.eogPicks({})", json!(picks));
@@ -822,6 +860,9 @@ mod tests {
         let in_team = json!({"localPlayer": {"summonerId": 7, "stats": {}}, "teams": [{"players": [{"summonerId": 7, "stats": {"PLAYER_AUGMENT_1": "1048"}}]}]});
         assert_eq!(eog_augments(&in_team), vec![1048]);
         assert!(eog_augments(&json!({})).is_empty());
+        let game = json!({"participantIdentities": [{"participantId": 3, "player": {"puuid": "a"}}, {"participantId": 7, "player": {"puuid": "me"}}]});
+        assert_eq!(participant_of(&game, "me"), Some(7));
+        assert_eq!(participant_of(&game, "x"), None);
     }
 
     #[test]
