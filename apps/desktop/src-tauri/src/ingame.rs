@@ -122,6 +122,34 @@ fn input_log(app: &AppHandle, line: serde_json::Value) {
     }
 }
 
+/// Owner recording, for a screen read as only one or two cards (Nico 2026-11-28: the first round of a K/DA game was
+/// read one card at a time and never shown): every text line the reader saw, and a picture of the screen at most
+/// every 5 seconds (10 a game), so the miss can be seen and replayed.
+fn partial_read(app: &AppHandle, now: f64, lines: &[augscan::Line]) {
+    static LAST: std::sync::Mutex<(f64, u32)> = std::sync::Mutex::new((f64::NEG_INFINITY, 0));
+    let Ok(base) = app.path().app_data_dir() else { return };
+    if !base.join("record-offers").exists() {
+        return;
+    }
+    let seen: Vec<_> = lines.iter().take(60).map(|l| serde_json::json!([l.text, l.x, l.y, l.w, l.h])).collect();
+    let mut png = None;
+    {
+        let mut last = LAST.lock().unwrap();
+        if now < last.0 {
+            *last = (f64::NEG_INFINITY, 0); // a new game's clock
+        }
+        if now - last.0 >= 5.0 && last.1 < 10 {
+            let ms = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| d.as_millis());
+            let name = format!("{ms}-partial.png");
+            if augscan::save_game_frame(&base.join("offers").join(&name)) {
+                png = Some(name);
+            }
+            *last = (now, last.1 + 1);
+        }
+    }
+    input_log(app, serde_json::json!({"now": now, "lines": seen, "png": png}));
+}
+
 fn record(app: &AppHandle, e: &augtrack::Event) {
     let Ok(base) = app.path().app_data_dir() else { return };
     if !base.join("record-offers").exists() {
@@ -333,9 +361,13 @@ fn to_game(x: i32, y: i32) -> Option<(f64, f64)> {
 /// Reads the screen once and gives the tracker what it found (ids with their screen x) and where the pointer rests.
 fn scan(app: &AppHandle) {
     let Some(names) = names(app) else { return };
+    let mut partial: Option<Vec<augscan::Line>> = None;
     let read = augscan::read_screen().map(|lines| {
         // a stray name plus three evenly spaced cards keeps the three (4 only with Maestro's even row)
         let cards = augscan::check_four(augscan::match_offer_at(&lines, &names));
+        if cards.len() == 1 || cards.len() == 2 {
+            partial = Some(lines.clone());
+        }
         augtrack::Read {
             ids: cards.iter().map(|c| c.0).collect(),
             xs: cards.iter().map(|c| c.1).collect(),
@@ -355,9 +387,14 @@ fn scan(app: &AppHandle) {
         input_log(app, serde_json::json!({"now": now, "read": logged, "cursor": cursor}));
         s.track.read(now, read, cursor);
         s.offer = s.track.offer.clone();
-        std::mem::take(&mut s.track.events)
+        (std::mem::take(&mut s.track.events), now)
     };
+    let (events, now) = events;
     publish(app, events);
+    // after the tracker's turn, so the picture never holds it up
+    if let Some(lines) = &partial {
+        partial_read(app, now, lines);
+    }
 }
 
 /// While a screen may be up, notes each left click on League's window for the tracker. Read-only: it asks the OS
