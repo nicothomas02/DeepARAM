@@ -329,6 +329,9 @@ describe("build engine", () => {
     // never to a type the champion's own players don't build (typeShare under TYPE_MIN: IE on Ahri, Rabadon's on Camille)
     expect(plan({ champ: { ...champ, typeShare: { ap: 0.005, ad: 0.995 } }, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
     expect(plan({ champ: { ...champ, typeShare: { ap: 0.05, ad: 0.95 } }, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched?.style).toBeTruthy();
+    // nor to a style they don't build, even when the damage type passes (styleShare: crit Karthus, lethality Twisted Fate)
+    expect(plan({ champ: { ...champ, styleShare: { ap: 0.01, crit: 0.5, onhit: 0.1, lethality: 0.1, fighter: 0.3 } }, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+    expect(plan({ champ: { ...champ, styleShare: { ap: 0.05, crit: 0.5, onhit: 0.1, lethality: 0.1, fighter: 0.25 } }, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched?.style).toBeTruthy();
     // after a path item it doesn't (the sell tip handles a stray buy)
     expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3031, 3003] }), taken: [] }).switched).toBeNull();
   });
@@ -486,6 +489,9 @@ describe("build engine", () => {
     // a stray Infinity Edge after a path item (as a first legendary it re-plans instead: ownedReplan, AP Zeri)
     const first = itemId(ori.items!.find((it) => (k.recipes[itemId(it.icon)]?.[1] ?? 0) >= 2000 && !k.boots.includes(itemId(it.icon)))!.icon);
     expect(sell([3020, first, 3031], 3000)).toEqual([expect.objectContaining({ item: 3031 })]);
+    // the path no longer shows the item the tip says to sell (replay audit: 346 moments showed both)
+    const tipped = plan({ champ: ori, kinds: k, picks: p0, fit: null, game: { champ: "Orianna", items: [3020, first, 3031], gold: 3000, t: 30 }, taken: [] });
+    expect(tipped.path.map((x) => ownedId(itemId(x.icon)))).not.toContain(3031);
     expect(sell([3020, first, 3031], 0)).toHaveLength(0); // 70% of Infinity Edge alone doesn't buy the next legendary
     // as a first legendary too: Orianna's players don't build AD (typeShare), so no switch, the sell tip stays
     expect(sell([3020, 3031], 3000)).toEqual([expect.objectContaining({ item: 3031 })]);

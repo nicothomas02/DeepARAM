@@ -1,0 +1,61 @@
+{
+ "players": 9736,
+ "methods": {
+  "popular": {
+   "agree": 0.183,
+   "follow_pp": -0.7,
+   "se_pp": 1.2,
+   "followers": 2124,
+   "real": 0.55
+  },
+  "best_wr": {
+   "agree": 0.058,
+   "follow_pp": 4.0,
+   "se_pp": 4.0,
+   "followers": 161,
+   "real": 0.02
+  },
+  "real_full": {
+   "agree": 0.179,
+   "follow_pp": 1.5,
+   "se_pp": 1.5,
+   "followers": 1304,
+   "real": 0.84
+  },
+  "chain": {
+   "agree": 0.203,
+   "follow_pp": -0.9,
+   "se_pp": 1.3,
+   "followers": 1773,
+   "real": 0.81
+  },
+  "chain_wr": {
+   "agree": 0.164,
+   "follow_pp": 0.6,
+   "se_pp": 1.6,
+   "followers": 1093,
+   "real": 0.59
+  },
+  "cooc": {
+   "agree": 0.052,
+   "follow_pp": 1.5,
+   "se_pp": 3.9,
+   "followers": 163,
+   "real": 0.03
+  },
+  "beam": {
+   "agree": 0.051,
+   "follow_pp": 1.6,
+   "se_pp": 3.9,
+   "followers": 165,
+   "real": 0.06
+  },
+  "shrunk": {
+   "agree": 0.178,
+   "follow_pp": 1.8,
+   "se_pp": 1.5,
+   "followers": 1300,
+   "real": 0.84
+  }
+ }
+}

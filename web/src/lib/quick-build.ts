@@ -107,6 +107,7 @@ export type QuickBuild = {
   builds: (Pick<QuickBuild, "skills" | "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number; nearBest: boolean })[];
   /** Share of the champion's typed legendary buys that are AP and AD (a build-mix share, not a win or pick rate). */
   typeShare?: { ap: number; ad: number };
+  styleShare?: Record<string, number>;
 };
 
 /** No raw win or pick rates: the quick build feeds the public app's overlay (tests/unit/overlay-data.test.ts). */
@@ -254,6 +255,7 @@ export function quickBuilds(): QuickBuild[] {
         augments,
         builds,
         typeShare: p.typeShare,
+        styleShare: p.styleShare,
         ...(arch ? { archmage: arch } : {}),
         ...(AUGMENT_SKILLS[id] ? { augmentSkills: AUGMENT_SKILLS[id] } : {}),
         ...(CHAMPION_SPLITS[id] && !droppedSplits().has(id) ? { skillSplit: CHAMPION_SPLITS[id] } : {}),
