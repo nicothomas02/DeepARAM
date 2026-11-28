@@ -189,6 +189,9 @@ export type Style = {
 
 export type ChampionPage = {
   winRate: number;
+  /** Of the champion's finished-item buys of one damage type (pick rates over AramHex's item list), the share that is
+   *  AP and AD: whether its players build a type at all, for the apps' build switch (engine ownedReplan). */
+  typeShare: { ap: number; ad: number };
   skills: SkillRow[];
   starting: ItemRow[];
   /** The starter the top card shows: the best that builds into the best core, else none. */
@@ -638,6 +641,18 @@ export function championPage(alias: string): ChampionPage | null {
     starting,
     // The card shows a starter only when one fits its core; the full list below keeps every row.
     cardStart,
+    typeShare: (() => {
+      const AD = ["ad", "crit", "lethality", "onhit", "ability_ad"], AP = ["ap", "ap_onhit"];
+      const n = { ap: 0, ad: 0 };
+      for (const r of single) {
+        if (r.tier !== "legendary") continue;
+        const ro = itemRoles(r.items[0]);
+        const ap = ro.some((x) => AP.includes(x)), ad = ro.some((x) => AD.includes(x));
+        if (ap !== ad) n[ap ? "ap" : "ad"] += r.pickRate;
+      }
+      const t = n.ap + n.ad;
+      return t ? { ap: Math.round((n.ap / t) * 1000) / 1000, ad: Math.round((n.ad / t) * 1000) / 1000 } : { ap: 0, ad: 0 };
+    })(),
     boots: noBoots ? [] : boots,
     core,
     full,
