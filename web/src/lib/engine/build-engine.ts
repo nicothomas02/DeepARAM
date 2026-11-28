@@ -26,10 +26,12 @@ import augmentLeanInData from "../../data/augment-lean-in.json";
 import { FIRST_BUYS, LATE_BUYS, lateBuyOrder } from "./first-buys";
 import breakpointData from "../../data/breakpoints.json";
 import penBreakpointData from "../../data/pen-breakpoints.json";
+import BUY_SLOT_DATA from "../../data/item-buy-slot.json";
+const BUY_SLOT = (BUY_SLOT_DATA as { items: Record<string, number> }).items;
 import coreStrictnessData from "../../data/core-strictness.json";
 
 export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
-export const ENGINE_VERSION = "1.4.12";
+export const ENGINE_VERSION = "1.4.13";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -102,6 +104,7 @@ export const RULES: Record<string, Rule> = {
   // Design choices Nico hasn't picked yet: kept as they were.
   rerollMinGain: { source: "assumption", on: true, why: "Reroll advice needs +0.25 DeepScore points of expected gain. Nico approved 2026-11-23. Since rerollAll (2026-11-27) it applies only to rerolling the best card on offer." },
   rerollAll: { source: "game data", on: true, why: "Every card you won't take gets Reroll: each card can be rerolled once (wiki) and you keep the best card either way, so a reroll of any other card can only help (expected best of the screen never drops). The best card gets Reroll only when the average reroll at its rarity beats it by the minimum gain, else Take. Nico 2026-11-27: use all rerolls possible unless rerolling a good augment is estimated to be worse." },
+  swapsInPath: { source: "data", on: true, why: "A swap goes into the path itself, so Next and the parts to buy follow it: the item it clashes or substitutes with (or the last open one) drops out, and the swap takes the legendary slot its buyers usually buy it in (median slot, all champions, 30+ buyers in the archive's purchase timelines, all ten players), the items between it and the dropped one shifting a place. Already past that slot, it is the next buy. Nico asked for it 2026-11-28 (replace in the path, or push the rest back, whichever the reason supports)." },
   swapLastSlot: { source: "assumption", on: true, why: "A swap that clashes or substitutes with nothing replaces the last open slot. Display rule, Nico approved 2026-11-23." },
   shopTips: { source: "assumption", on: true, why: "Sell tip at 6 full slots (Stat Bonus takes none; not when you hold a part of the next item): a starter or stray part first, then a finished item off the path; buy-now names the priciest affordable part. Nico approved 2026-11-23." },
   // No evidence either way: off until a test passes (Nico 2026-11-23, apply defaults).
@@ -111,8 +114,8 @@ export const RULES: Record<string, Rule> = {
   shieldAugments: { source: "assumption", on: true, why: "An enemy with Big Brain or Don't Change the Channel lights the champion's own 'Vs shields' items (Serpent's Fang: Shield Reaver cuts shields gained by 50% melee / 25% ranged and the current shield on the first hit; wiki). Nico approved 2026-11-25 (he asked for it); estimated: the archive can't confirm it (Serpent's builders vs an enemy Big Brain: win -22 +/- 15 pts, n 26). Needs the app to pass enemy augments." },
   countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
   firstBuys: { source: "game data", on: true, why: "Items that grow while you hold them (item text: Heartsteel, Yun Tal, Rod of Ages, Hubris) go first while you have no legendary: each minute held earlier is more value. The archive agrees (82-93% of their buyers make each one their first legendary, item_slots.json). Nico 2026-11-27: Briar's Hubris shown 4th; find the reason, not a per-item list." },
-  lateBuys: { source: "game data", on: true, why: "Items with % armor or magic penetration (item text: Void Staff, Cryptbloom, Lord Dominik's, Mortal Reminder, Serylda's, Terminus) wait until two legendaries are finished, unless an augment rule timed them: penetration multiplies damage you already deal against resist the enemy has already built. Archive: 1-10% of buyers take them 1st or 2nd, and within a slot players take them earlier when enemies have more resist (z +1.7 to +5.9) and when they have more damage (Void Staff z +3.0, Lord Dominik's +3.4). AramHex cores put them 3rd. Against an unusually tanky team, breakpoints lights them as an option. Nico 2026-11-27: Shaco's Void Staff 2nd; find the reason, not a per-item list." },
-  penSecond: { source: "assumption", on: true, why: "Against a team whose magic resist is both tankier than usual (the breakpoints cut) and past the champion's simulated breakpoint, a magic pen item in the path (Void Staff, Cryptbloom) becomes the 2nd legendary. Simulator: vs the core's planned 2nd AP item, magic pen wins from about 70 enemy MR on the median champion (typical MR then: 44). Estimated: players almost never buy it 2nd, so the archive can't confirm it. Nico approved 2026-11-27 (he chose it on the card)." },
+  lateBuys: { source: "game data", on: true, why: "Items with % armor or magic penetration (item text: Void Staff, Cryptbloom, Lord Dominik's, Mortal Reminder, Serylda's, Terminus), and resist shred where the archive agrees it comes late (Bloodletter's; Nico 2026-11-28), wait until two legendaries are finished, unless an augment rule timed them: penetration multiplies damage you already deal against resist the enemy has already built. Archive: 1-10% of buyers take them 1st or 2nd, and within a slot players take them earlier when enemies have more resist (z +1.7 to +5.9) and when they have more damage (Void Staff z +3.0, Lord Dominik's +3.4). AramHex cores put them 3rd. Against an unusually tanky team, breakpoints lights them as an option. Nico 2026-11-27: Shaco's Void Staff 2nd; find the reason, not a per-item list." },
+  penSecond: { source: "assumption", on: true, why: "Against a team whose live resist (champions, levels, items held) is both tankier than usual (the breakpoints cut) and past the champion's simulated breakpoint, a pen or shred item in the path becomes the 2nd legendary. Simulator, vs the core's planned 2nd item of the same damage type, kept only where the item loses at the typical resist and wins above it (2026-11-28 rerun, 365 champion-item pairs): Void Staff 36 champions (median 70 MR; typical then 44), Cryptbloom 39 (120), Bloodletter's 2 (130; 23 of 36 never win to 250), Lord Dominik's 9 (100 armor; typical 53), Mortal Reminder 8 (80), Serylda's 5 (110), Terminus 7 (100), Black Cleaver 4 (180). Estimated: players almost never buy it 2nd, so the archive can't confirm it. Nico approved 2026-11-27 (he chose it on the card)." },
   boughtFirst: { source: "game data", on: true, why: "The path shows what you bought first, in inventory order, then the rest in Next's order, so an item bought early shows where you bought it (Nico 2026-11-27)." },
   stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
   attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
@@ -1282,15 +1285,20 @@ export function enemyStats(enemies: Enemy[], level = 18): { got: number[]; usual
 }
 
 const PEN_BP = (penBreakpointData as { champions: Record<string, Record<string, number>> }).champions;
-/** penSecond: the magic pen item (in `ids`) that should be the 2nd legendary this game, if any (estimated). */
+/** Which enemy resist each penetration or shred item answers (pen-breakpoints.json). */
+const PEN_STAT: Record<number, 1 | 2> = { 3135: 2, 3137: 2, 8010: 2, 3036: 1, 3033: 1, 6694: 1, 3302: 1, 3071: 1 };
+/** penSecond: the pen or shred item (in `ids`) that should be the 2nd legendary this game, if any (estimated). */
 export function penSecond(game: { champ: string; enemies?: Enemy[]; level?: number }, ids: number[]): { id: number; why: string } | null {
   const bp = PEN_BP[champKey(game.champ)];
   const st = bp ? enemyStats(game.enemies ?? [], game.level ?? 18) : null;
   if (!bp || !st) return null;
-  const mr = st.got[2], tanky = st.usual[2] * BP.cut.mr;
   for (const id of ids) {
-    const need = bp[String(id)];
-    if (need !== undefined && mr >= need && mr >= tanky) return { id, why: `Enemy magic resist about ${Math.round(mr)}: past ${need}, where penetration beats more AP as your 2nd item (simulator, estimated).` };
+    const need = bp[String(id)], j = PEN_STAT[id];
+    if (need === undefined || !j) continue;
+    // the enemy's live resist (champions, levels and the items they hold), tankier than usual and past the breakpoint
+    const got = st.got[j], tanky = st.usual[j] * (j === 2 ? BP.cut.mr : BP.cut.armor);
+    const name = j === 2 ? "magic resist" : "armor";
+    if (got >= need && got >= tanky) return { id, why: `Enemy ${name} about ${Math.round(got)}: past ${need}, where this beats your next damage item as your 2nd item (simulator, estimated).` };
   }
   return null;
 }
@@ -1791,7 +1799,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Penetration (lateBuys): % pen items (Void Staff, Serylda's...: they multiply damage you already have; 90%+ of buyers take them 3rd or
   // later, archive and AramHex cores) wait until you've finished two legendaries, unless an augment rule timed them
   // (Nico 2026-11-27, Shaco's Void Staff 2nd). The site card uses the same order (first-buys.ts).
-  // Magic pen 2nd (penSecond): vs a high-MR team past the champion's simulated breakpoint (estimated, Nico 2026-11-27).
+  // Pen or shred 2nd (penSecond): vs a high-resist team past the champion's simulated breakpoint (estimated, Nico 2026-11-27).
   const penNow = RULES.penSecond.on && finished < 2 ? penSecond(game, next.map((it) => ownedId(itemId(it.icon)))) : null;
   if (RULES.lateBuys.on && finished < 2 && next.some((it) => LATE_BUYS.has(ownedId(itemId(it.icon))))) {
     const moved = lateBuyOrder(next, (it) => ownedId(itemId(it.icon)), (it) => bootIds.has(itemId(it.icon)), 2 - finished, (it) => timing.some((t) => t.item === it) || ownedId(itemId(it.icon)) === penNow?.id);
@@ -1882,6 +1890,14 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       next = [fb, ...next.filter((it) => it !== fb)].slice(0, 2);
       const core0 = new Set(coreItems);
       path.splice(0, path.length, fb, ...path.filter((it) => it !== fb));
+      // a pen item made the 2nd legendary (penSecond) stays 2nd: right after the first buy
+      const pen = penWhy ? path.find((it) => ownedId(itemId(it.icon)) === penNow?.id) : undefined;
+      if (pen) {
+        path.splice(path.indexOf(pen), 1);
+        const at = path.findIndex((it, i) => i > 0 && !bootIds.has(itemId(it.icon)));
+        path.splice(at < 0 ? path.length : at, 0, pen);
+        next = [fb, pen];
+      }
       coreItems = path.slice(0, Math.max(coreItems.length, ...path.map((it, i) => (core0.has(it) ? i + 1 : 0))));
       rest = path.slice(coreItems.length);
       applied("firstBuys");
@@ -1966,6 +1982,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     if (ownedClash !== undefined && !path.some((p) => itemId(p.icon) === ownedClash && !isOwned(p))) {
       continue;
     }
+    // never two swaps of one limit group (Amumu with ADAPt: Dusk and Dawn and Lich Bane, both Spellblade)
+    if (swaps.some((x) => rules.clash(itemId(x.item.icon), id))) continue;
     if ((it.aug || it.proven || it.kit) && swaps.length < 2) {
       const r = target(id, claimed);
       if (r) claimed.add(r);
@@ -1979,8 +1997,50 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     }
   }
 
+  // Swaps go into the path itself (swapsInPath, Nico 2026-11-28), so Next and the parts to buy follow them: the item
+  // it clashes or substitutes with drops out (or the last open one), and the swap takes the legendary slot its buyers
+  // usually buy it in (median, data/estimates/item_slots.json), the items between shifting one place: a direct
+  // replacement when that is the dropped item's slot, else the rest of the build moves back or forward. Past that
+  // slot already, it's the next buy. Items without enough buyers take the dropped item's place.
+  const swapAt = new Map<Named, string>();
+  if (RULES.swapsInPath.on) {
+    const core0 = new Set(coreItems);
+    for (const s of swaps) {
+      const id = itemId(s.item.icon);
+      if (!s.replaces || isOwned(s.replaces) || path.some((p) => itemId(p.icon) === id)) continue;
+      const r = path.indexOf(s.replaces);
+      if (r < 0) continue;
+      const item: Named = { name: s.item.name, icon: s.item.icon };
+      path.splice(r, 1);
+      const slot = (BUY_SLOT as Record<string, number>)[String(ownedId(id))];
+      let at = r;
+      if (slot) {
+        const legs = [...path.keys()].filter((j) => !bootIds.has(itemId(path[j].icon)));
+        at = legs[slot - 1] ?? path.length;
+      }
+      at = Math.max(at, ...path.map((p, j) => (isOwned(p) ? j + 1 : 0)));
+      path.splice(at, 0, item);
+      swapAt.set(item, `${s.why} Instead of ${s.replaces.name}.`);
+      s.at = at;
+      applied("swapsInPath");
+    }
+    if (swapAt.size) {
+      for (const s of swaps) if (s.replaces) s.at = path.findIndex((p) => itemId(p.icon) === itemId(s.item.icon));
+      // the core keeps its items (they may sit further back now)
+      coreItems = path.slice(0, Math.max(Math.min(path.length, coreItems.length), ...path.map((it, i) => (core0.has(it) ? i + 1 : 0))));
+      rest = path.slice(coreItems.length);
+      // Next: the path's first unbought items, a swap in its path place among them
+      const at = (it: Named) => { if (!swapAt.has(it)) return order.get(itemId(it.icon)) ?? Infinity;
+        const after = path.slice(path.indexOf(it) + 1).find((p) => !isOwned(p) && !swapAt.has(p) && !bootIds.has(itemId(p.icon)));
+        return after ? (order.get(itemId(after.icon)) ?? Infinity) - 0.5 : Infinity; };
+      next = path.filter((it) => !isOwned(it)).sort((x, y) => at(x) - at(y) || path.indexOf(x) - path.indexOf(y)).slice(0, 2);
+      lit.splice(0, lit.length, ...path.map((it) => ({ item: it, why: swapAt.get(it) ?? (isPen(it) ? penWhy : reason(it)?.why ?? "") })).filter((x) => x.why));
+    }
+  }
+
   // Why each path item is there.
   const why = path.map((it, i) => {
+    if (swapAt.has(it)) return swapAt.get(it)!;
     if (isOwned(it)) return "You have it.";
     if (isPen(it)) return penWhy;
     const r = reason(it);

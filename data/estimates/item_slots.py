@@ -114,6 +114,31 @@ def main():
     with open(args.out, "w", encoding="utf-8") as f:
         json.dump(out, f, separators=(",", ":"))
     print(f"{used} games, {rows} player rows, {len(per)} champions -> {args.out}")
+    write_buy_slot(out)
+
+
+BUY_SLOT_OUT = os.path.join(ROOT, "web", "src", "data", "item-buy-slot.json")
+BUY_SLOT_MIN = 30
+
+
+def write_buy_slot(slots):
+    """The legendary slot buyers usually take each item in (median, all champions, 30+ buyers): where the build
+    engine places a swap in the path (swapsInPath). Small enough for the apps' engine bundle."""
+    med = {}
+    for i, c in slots["all"].items():
+        n = sum(c)
+        if n < BUY_SLOT_MIN:
+            continue
+        run = 0
+        for s, x in enumerate(c):
+            run += x
+            if run * 2 >= n:
+                med[i] = s + 1
+                break
+    with open(BUY_SLOT_OUT, "w", encoding="utf-8") as f:
+        json.dump({"_about": "Median legendary slot (1st to 6th) buyers first buy each item in, all champions, items with "
+                             f"{BUY_SLOT_MIN}+ buyers (from data/estimates/item_slots.json: " + slots["_about"].split(": counts from ")[-1].split(". Legendary")[0]
+                             + "). Read by the build engine to place a swap in the path (swapsInPath).", "items": med}, f, separators=(",", ":"))
 
 
 if __name__ == "__main__":

@@ -99,8 +99,6 @@
   .tip { margin-top: 8px; }
   .plan { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
   .plan .keys { font-size: 16px; } .plan .spells img { width: 36px; height: 36px; } .buildline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-left: auto; }
-  .corebox { position: relative; display: inline-flex; gap: 6px; padding: 14px 6px 5px; border: 1px dashed color-mix(in srgb, var(--muted) 45%, transparent); border-radius: 10px; background: color-mix(in srgb, var(--muted) 6%, transparent); align-items: flex-start; }
-  .corebox > .lbl { position: absolute; top: 2px; right: 8px; font-size: 9px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 
   .aug .num.big { font-size: 17px; white-space: nowrap; }
   .plan .keys b { color: var(--accent); }
@@ -410,8 +408,8 @@
     // Game plan for the champion you're on: skill order and first three items, one glance before loading in.
     const me = byId[mine];
     const plan = me && builds?.champions?.find((c) => c.id.toLowerCase() === me.toLowerCase());
-    // Most important first (Nico 2026-11-24): spells, then skills, then start › core (one grey dashed box: a suggestion,
-    // not a must, as on the site card) › the rest of the six-item path. No item twice (Mayhem and regular ids count as one).
+    // Most important first (Nico 2026-11-24): spells, then skills, then start › the six-item path (no Core box since
+    // 2026-11-28, as on the site card). No item twice (Mayhem and regular ids count as one).
     const seen = new Set();
     const once = (it) => { const k = (it.id ?? 0) % 10000; if (seen.has(k)) return false; seen.add(k); return true; };
     const ic = (it, pre = "") => `<img src="${SITE}${it.icon}" alt="" title="${pre}${esc(it.name)}">`;
@@ -420,7 +418,7 @@
     const planHtml = plan ? `<div class="box plan">
         ${(plan.spells ?? []).length ? `<span class="mates spells"${plan.spellWhy ? ` title="${esc(spellWhyText(plan.spellWhy, plan.name))}"` : ""}>${plan.spells.map((sp) => ic(sp)).join("")}</span>` : ""}
         <span class="keys"${plan.skillSplit ? ` title="${plan.skillSplit.weak ? "Your pick, weaker evidence" : "Your pick, estimated"}"` : ""}>${plan.skillSplit ? `<b>${plan.skillSplit.first}</b> to ${plan.skillSplit.points}, then ` : ""}${(plan.skills ?? []).map((x) => `<b>${x}</b>`).join(" › ")}</span>
-        <span class="buildline">${plan.start?.length ? `<span class="mates">${plan.start.map((it) => ic(it, "Start: ")).join("")}</span><span class="why">›</span>` : ""}${coreItems.length ? `<span class="corebox"><span class="lbl">Core</span><span class="mates">${coreItems.map((it) => ic(it)).join("")}</span></span>` : ""}${restItems.length ? `<span class="why">›</span><span class="mates">${restItems.map((it) => ic(it)).join("")}</span>` : ""}</span></div>` : "";
+        <span class="buildline">${plan.start?.length ? `<span class="mates">${plan.start.map((it) => ic(it, "Start: ")).join("")}</span><span class="why">›</span>` : ""}${coreItems.length + restItems.length ? `<span class="mates">${[...coreItems, ...restItems].map((it) => ic(it)).join("")}</span>` : ""}</span></div>` : "";
     // Team gap: one line, only once the whole team is in and only when something is missing.
     let gap = "", gapShort = "";
     const all = [...team, ...(me ? [me] : [])];
@@ -805,14 +803,15 @@
       return `<div class="deadshop" title="Dead: buy now (${esc(out.map((i) => k.recipes[i]?.[0] ?? i).join(", "))}), ${Math.round(left)} gold left">${out.map(pic).join("")}</div>`;
     })();
     const shown = p.path.map((it, i) => {
-      const sw = p.swaps.find((x) => x.replaces && itemId(x.replaces.icon) === itemId(it.icon));
+      // engine 1.4.13 (swapsInPath): the swap is in the path itself, in the slot its buyers usually take it
+      const sw = p.swaps.find((x) => x.replaces && itemId(x.item.icon) === itemId(it.icon));
       // The hover: the engine's tested "why it's best" line (Nico approved 2026-11-23) when there is one, else the slot reason.
       const r = p.reasons?.[i];
       // a swap's tile reads its one-word situation ("Vs AP", engine 1.4.12) instead of the slot number
       const pen = (p.rules ?? []).includes("penSecond") && /simulator, estimated/.test(p.why[i] ?? "");
-      return sw ? { it: { ...sw.item, icon: sw.item.icon ?? it.icon }, why: `${sw.why}\nInstead of ${it.name}`, sw: true, does: false, tag: sw.label }
-        : { it, why: r?.text ?? p.why[i] ?? "", sw: false, does: r?.kind === "does", tag: pen ? "Vs MR" : "" };
-    }).map((x, i) => ({ ...x, core: i < p.coreLen })).filter(({ it }) => { const k = itemId(it.icon ?? "") % 10000; if (seenIds.has(k)) return false; seenIds.add(k); return true; });
+      return sw ? { it, why: `${sw.why}\nInstead of ${sw.replaces.name}`, sw: true, does: false, tag: sw.label }
+        : { it, why: r?.text ?? p.why[i] ?? "", sw: false, does: r?.kind === "does", tag: pen ? (/Enemy armor/.test(p.why[i]) ? "Vs armor" : "Vs MR") : "" };
+    }).filter(({ it }) => { const k = itemId(it.icon ?? "") % 10000; if (seenIds.has(k)) return false; seenIds.add(k); return true; });
     const state = (it) => {
       const id = itemId(it.icon);
       return owned.has(id) || (hasBoots && bootIds.has(id)) ? " own" : id === nextId ? " nx" : "";
@@ -827,7 +826,8 @@
     };
     const ord = (n) => `${n}${n === 1 ? "st" : n === 2 ? "nd" : n === 3 ? "rd" : "th"}`;
     let n = 0;
-    // The core sits in one grey dashed box (Nico 2026-11-24, as the site card); the item being built reads "Building".
+    // No Core box (Nico 2026-11-28: the engine keeps must-have items and puts swaps where they fit itself); the item
+    // being built reads "Building".
     const tile = ({ it, why, sw, does, tag }) => {
       const boot = bootIds.has(itemId(it.icon));
       const slotN = boot ? "Boots" : ord(++n);
@@ -838,8 +838,7 @@
       const bar = nx ? `<i class="pbar"><b data-style="width:${Math.round(partsOwned(itemId(it.icon ?? "")) * 100)}%"></b></i>` : "";
       return `<div class="slot${st}${sw ? " sw" : ""}" title="${esc([`${nx ? "Building: " : ""}${it.name} · ${why}`, does ? "" : whatItDoes("items", itemId(it.icon ?? ""))].filter(Boolean).join("\n"))}">${nx ? ico("down", "arr") : ""}<img src="${src(it.icon ?? "")}" alt="" data-drop>${bar}<span>${lbl}</span></div>`;
     };
-    const coreT = shown.filter((x) => x.core).map(tile).join(""), restT = shown.filter((x) => !x.core).map(tile).join("");
-    const tiles = `${coreT ? `<div class="corebox"><span class="lbl">Core</span>${coreT}</div>` : ""}${restT}`;
+    const tiles = shown.map(tile).join("");
     // Swaps already sit in the path (dashed ring, reason on hover). Other options: icons only, reason on hover.
     const tipImg = (it, why) => (it?.icon ? `<img class="ii" src="${src(it.icon)}" alt="" title="${esc(`${it.name}: ${String(why ?? "").replace(/\.$/, "")}`)}" data-drop>` : "");
     // Extras: never an item already in the path, nor one that only replaces something you own (no item twice on screen).
@@ -851,7 +850,7 @@
       .map((x) => `${tipImg(x.item, `${x.why ?? ""}${x.replaces?.name ? `\nOption: take it instead of ${x.replaces.name}` : ""}`)}${x.replaces?.icon ? ` ${ico("swap")} <img class="ii fade" src="${src(x.replaces.icon)}" alt="" title="${esc(`Keep ${x.replaces.name} if this game doesn't call for it`)}" data-drop>` : ""}${x.label ? ` ${esc(x.label)}` : ""}`).join("");
     // Breakpoints (engine 1.4.0+): a stat threshold you've just passed, as an icon, an arrow and the stat.
     const bpIcon = (b) => b.kind === "augment" ? augIco(b.id) : itemImg(b.id);
-    // Not for an item already in the path (penSecond moves magic pen there itself, labelled "Vs MR").
+    // Not for an item already in the path (penSecond moves pen there itself, labelled "Vs MR" or "Vs armor").
     const bps = (p.breakpoints ?? []).filter((b) => b.passed && !(b.kind === "item" && inPath.has(b.id))).slice(0, 2).map((b) => `<div class="cue green" title="${esc(`${b.why} (estimated, simulator math)`)}">${bpIcon(b)} Vs ${b.stat === "mr" ? "MR" : b.stat === "hp" ? "HP" : "armor"}</div>`).join("");
     const lines = [
       p.switched ? `<div class="cue gold"${p.switched.because ? ` title="For ${esc(p.switched.because)}"` : ""}>${ico("swap")} ${esc(p.switched.style)}</div>` : "",

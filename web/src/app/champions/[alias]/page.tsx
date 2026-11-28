@@ -389,24 +389,17 @@ export default async function ChampionPage({
               <ItemIcon id={leadOf(core)!} info={info} named />
             </li>
           )}
-          {/* The core sits in one box (Nico 2026-11-24, same as the apps); the rest of the path follows outside it. */}
-          <li className="cp-core-box">
-            <small className="cp-core-label">
-              <T ns={NS}>Core items</T>
-            </small>
-            <ol className="cp-buy-order">
-              {cardBuyOrder(buildOrder(core), (i) => i === core.boots).map((id) => {
-                // A core item most players skip is flexible (mustCore, data/estimates/core_strictness.py, Nico 2026-11-25)
-                const cs = (coreStrictness as { champions: Record<string, { must: number[]; hold: Record<string, number> }> }).champions[c.alias];
-                const flex = !!cs && id !== core.boots && !cs.must.includes(id % 10000);
-                return (
-                  <li key={id} className={flex ? "cp-core-flex" : undefined} title={flex ? (cs.hold[String(id % 10000)] ? `Flexible: about ${Math.round(cs.hold[String(id % 10000)] * 100)}% of players finish it` : "Flexible: few players finish it") : undefined}>
-                    <ItemIcon id={id} info={info} named />
-                  </li>
-                );
-              })}
-            </ol>
-          </li>
+          {/* One path, no Core box (Nico 2026-11-28, same as the apps): the hover still says how many players finish a
+              core item most of them skip (mustCore, data/estimates/core_strictness.py). */}
+          {cardBuyOrder(buildOrder(core), (i) => i === core.boots).map((id) => {
+            const cs = (coreStrictness as { champions: Record<string, { must: number[]; hold: Record<string, number> }> }).champions[c.alias];
+            const flex = !!cs && id !== core.boots && !cs.must.includes(id % 10000);
+            return (
+              <li key={id} title={flex ? (cs.hold[String(id % 10000)] ? `Flexible: about ${Math.round(cs.hold[String(id % 10000)] * 100)}% of players finish it` : "Flexible: few players finish it") : undefined}>
+                <ItemIcon id={id} info={info} named />
+              </li>
+            );
+          })}
           {/* The full build (Nico, 2026-11-23): the core, then the best pick for each slot after it. */}
           {(core.full ?? []).filter((r) => r.items[0] !== leadOf(core)).map((r) => (
             <li key={r.items[0]} className="cp-full-pick">

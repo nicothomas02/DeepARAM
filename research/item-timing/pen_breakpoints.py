@@ -14,7 +14,7 @@ SIM = os.path.join(ROOT, "simulator", "mayhem_sim")
 # Archive medians at each legendary decision (owner archive, all ten players, 12k player rows; 2026-11-27):
 # decision for the Nth legendary -> (your level, enemy health, armor, MR)
 STATE = {2: (6, 1321, 53.0, 44.0), 3: (10, 2068, 75.8, 54.0), 4: (13, 2758, 98.4, 64.0)}
-PEN = {3135: "mr", 3137: "mr", 3036: "armor", 3033: "armor", 6694: "armor", 3302: "armor"}
+PEN = {3135: "mr", 3137: "mr", 8010: "mr", 3036: "armor", 3033: "armor", 6694: "armor", 3302: "armor", 3071: "armor"}  # % pen, plus resist shred (Bloodletter's, Black Cleaver; Nico 2026-11-28)
 lst = json.loads(subprocess.run([SIM, "--list", "--json"], capture_output=True, text=True, cwd=os.path.dirname(SIM)).stdout)
 KEY = {i["id"]: i["key"] for i in lst["items"] if i.get("modeled")}
 CH = {c.get("id") or c.get("key"): c for c in lst["champions"]} if isinstance(lst["champions"], list) else lst["champions"]
