@@ -2702,241 +2702,1965 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
 
   // src/data/pen-breakpoints.json
   var pen_breakpoints_default = {
-    _about: "Per champion: the enemy resist (MR for Void Staff 3135, Cryptbloom 3137, Bloodletter's Curse 8010; armor for Lord Dominik's 3036, Mortal Reminder 3033, Serylda's 6694, Terminus 3302, Black Cleaver 3071) from which the item beats the core's planned 2nd item of the same damage type, as the 2nd legendary. Simulator (research/item-timing/pen_breakpoints.py, fixed dummy at the archive's median 2nd-item state: level 6, 1,321 health, 53 armor, 44 MR). Kept only where it is a clear breakpoint: the item loses at the typical resist and wins above it. Estimated.",
+    _about: "Per champion and pen or shred item (MR: Void Staff 3135, Cryptbloom 3137, Bloodletter's 8010; armor: Lord Dominik's 3036, Mortal Reminder 3033, Serylda's 6694, Terminus 3302, Black Cleaver 3071): for the 1st to 4th legendary, the enemy resist from which it beats the core's planned item of the same damage type there (null: never to 250, or a different type). Simulator (research/item-timing/pen_breakpoints.py, fixed dummy at the archive's median state per decision; typical = that state's resist). The engine uses a slot only when it is a clear breakpoint (above typical). Estimated.",
+    typical: {
+      armor: [
+        29.6,
+        53,
+        75.8,
+        98.4
+      ],
+      mr: [
+        36.4,
+        44,
+        54,
+        64
+      ]
+    },
     champions: {
-      annie: {
-        "3135": 90,
-        "3137": 190
-      },
-      xerath: {
-        "3135": 70,
-        "3137": 130
-      },
       ahri: {
-        "3135": 80,
-        "3137": 120
-      },
-      fizz: {
-        "3137": 110
-      },
-      masteryi: {
-        "3036": 70,
-        "3033": 80,
-        "6694": 110,
-        "3302": 80,
-        "3071": 180
-      },
-      varus: {
-        "3036": 100,
-        "3033": 110,
-        "6694": 110
-      },
-      viktor: {
-        "3137": 130
-      },
-      ziggs: {
-        "3135": 70,
-        "3137": 90
-      },
-      lissandra: {
-        "3135": 70,
-        "3137": 90
-      },
-      diana: {
-        "3135": 70,
-        "3137": 120
-      },
-      syndra: {
-        "3137": 90
-      },
-      zoe: {
-        "3135": 70,
-        "3137": 60
-      },
-      kaisa: {
-        "3135": 100,
-        "3137": 50
-      },
-      seraphine: {
-        "3135": 70
-      },
-      sivir: {
-        "6694": 140,
-        "3302": 100
-      },
-      velkoz: {
-        "3137": 160
-      },
-      taliyah: {
-        "3137": 130
-      },
-      camille: {
-        "3036": 190
-      },
-      warwick: {
-        "3302": 70
-      },
-      nunu: {
-        "3135": 70,
-        "3137": 170
-      },
-      belveth: {
-        "3302": 190
-      },
-      jhin: {
-        "3033": 60,
-        "6694": 70
-      },
-      kindred: {
-        "3036": 60,
-        "3033": 70,
-        "3302": 150
-      },
-      tryndamere: {
-        "3071": 160
-      },
-      briar: {
-        "3036": 70,
-        "3033": 80
-      },
-      senna: {
-        "3036": 60,
-        "3033": 70,
-        "6694": 60,
-        "3302": 120,
-        "3071": 90
-      },
-      ekko: {
-        "3135": 70,
-        "3137": 150
-      },
-      morgana: {
-        "8010": 130
-      },
-      zilean: {
-        "3135": 80,
-        "3137": 140
-      },
-      azir: {
-        "3135": 150
-      },
-      evelynn: {
-        "3135": 70
-      },
-      karthus: {
-        "3137": 120
-      },
-      anivia: {
-        "3135": 50,
-        "3137": 70
-      },
-      kassadin: {
-        "3135": 70
-      },
-      irelia: {
-        "3036": 110,
-        "3033": 170,
-        "3302": 100,
-        "3071": 250
-      },
-      twistedfate: {
-        "3135": 70,
-        "3137": 130
-      },
-      karma: {
-        "3135": 70,
-        "3137": 80
-      },
-      veigar: {
-        "3135": 70,
-        "3137": 130
-      },
-      neeko: {
-        "3135": 70,
-        "3137": 110
-      },
-      aphelios: {
-        "3033": 70
-      },
-      blitzcrank: {
-        "3135": 110,
-        "3137": 70
-      },
-      malphite: {
-        "3135": 80,
-        "3137": 180
-      },
-      katarina: {
-        "3036": 100
-      },
-      elise: {
-        "3135": 80,
-        "3137": 70
-      },
-      orianna: {
-        "3137": 130
-      },
-      rumble: {
-        "3135": 70,
-        "3137": 70
-      },
-      leblanc: {
-        "3135": 70,
-        "3137": 100
-      },
-      vex: {
-        "3135": 70,
-        "3137": 130
-      },
-      nasus: {
-        "8010": 110
-      },
-      nidalee: {
-        "3135": 70
-      },
-      udyr: {
-        "3135": 90,
-        "3137": 210
-      },
-      yone: {
-        "3036": 230
-      },
-      gragas: {
-        "3135": 70,
-        "3137": 110
-      },
-      vladimir: {
-        "3135": 80
-      },
-      mel: {
-        "3137": 90
-      },
-      locke: {
-        "3135": 80,
-        "3137": 140
+        "3135": [
+          80,
+          80,
+          40,
+          50
+        ],
+        "3137": [
+          null,
+          120,
+          40,
+          null
+        ]
       },
       akali: {
-        "3135": 70,
-        "3137": 120
+        "3135": [
+          50,
+          70,
+          50,
+          60
+        ],
+        "3137": [
+          120,
+          120,
+          70,
+          null
+        ]
       },
-      kennen: {
-        "3135": 70,
-        "3137": 130
+      akshan: {
+        "3302": [
+          210,
+          null,
+          null,
+          null
+        ]
       },
-      lillia: {
-        "3137": 50
+      alistar: {
+        "3135": [
+          null,
+          null,
+          null,
+          80
+        ]
+      },
+      amumu: {
+        "3135": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      anivia: {
+        "3135": [
+          20,
+          50,
+          20,
+          20
+        ],
+        "3137": [
+          20,
+          70,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      annie: {
+        "3135": [
+          70,
+          90,
+          220,
+          50
+        ],
+        "3137": [
+          170,
+          190,
+          null,
+          null
+        ]
+      },
+      aphelios: {
+        "3033": [
+          null,
+          70,
+          20,
+          null
+        ]
+      },
+      ashe: {
+        "3033": [
+          null,
+          null,
+          null,
+          60
+        ],
+        "3135": [
+          20,
+          null,
+          null,
+          60
+        ],
+        "3137": [
+          20,
+          null,
+          null,
+          null
+        ],
+        "3302": [
+          null,
+          null,
+          null,
+          90
+        ]
+      },
+      aurelionsol: {
+        "3135": [
+          80,
+          20,
+          70,
+          40
+        ],
+        "3137": [
+          null,
+          20,
+          130,
+          null
+        ],
+        "8010": [
+          null,
+          20,
+          null,
+          null
+        ]
       },
       aurora: {
-        "3135": 70,
-        "3137": 120
+        "3135": [
+          60,
+          70,
+          50,
+          50
+        ],
+        "3137": [
+          120,
+          120,
+          70,
+          null
+        ]
+      },
+      azir: {
+        "3135": [
+          60,
+          150,
+          70,
+          20
+        ],
+        "3137": [
+          160,
+          null,
+          130,
+          null
+        ]
+      },
+      bard: {
+        "3135": [
+          80,
+          30,
+          110,
+          null
+        ]
+      },
+      belveth: {
+        "3033": [
+          null,
+          50,
+          null,
+          null
+        ],
+        "3036": [
+          null,
+          50,
+          null,
+          100
+        ],
+        "3302": [
+          20,
+          190,
+          null,
+          30
+        ]
+      },
+      blitzcrank: {
+        "3135": [
+          110,
+          110,
+          70,
+          60
+        ],
+        "3137": [
+          250,
+          70,
+          20,
+          null
+        ]
+      },
+      brand: {
+        "3135": [
+          null,
+          20,
+          70,
+          20
+        ],
+        "3137": [
+          null,
+          20,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          20,
+          null,
+          20
+        ]
+      },
+      briar: {
+        "3033": [
+          200,
+          80,
+          190,
+          null
+        ],
+        "3036": [
+          110,
+          70,
+          120,
+          20
+        ],
+        "3071": [
+          20,
+          60,
+          140,
+          20
+        ]
+      },
+      caitlyn: {
+        "3302": [
+          190,
+          null,
+          null,
+          null
+        ],
+        "6694": [
+          null,
+          null,
+          130,
+          null
+        ]
+      },
+      camille: {
+        "3033": [
+          60,
+          null,
+          20,
+          null
+        ],
+        "3036": [
+          50,
+          190,
+          20,
+          20
+        ]
+      },
+      cassiopeia: {
+        "3135": [
+          20,
+          20,
+          60,
+          90
+        ],
+        "8010": [
+          null,
+          20,
+          null,
+          null
+        ]
+      },
+      chogath: {
+        "3135": [
+          null,
+          null,
+          null,
+          50
+        ]
+      },
+      corki: {
+        "6694": [
+          null,
+          20,
+          60,
+          null
+        ]
+      },
+      darius: {
+        "3036": [
+          null,
+          null,
+          null,
+          20
+        ],
+        "3071": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      diana: {
+        "3135": [
+          50,
+          70,
+          50,
+          60
+        ],
+        "3137": [
+          120,
+          120,
+          20,
+          null
+        ]
+      },
+      draven: {
+        "6694": [
+          null,
+          null,
+          140,
+          null
+        ]
+      },
+      drmundo: {
+        "3135": [
+          null,
+          null,
+          null,
+          70
+        ]
+      },
+      ekko: {
+        "3135": [
+          80,
+          70,
+          40,
+          50
+        ],
+        "3137": [
+          null,
+          150,
+          40,
+          null
+        ]
+      },
+      elise: {
+        "3135": [
+          40,
+          80,
+          60,
+          60
+        ],
+        "3137": [
+          100,
+          70,
+          90,
+          null
+        ]
+      },
+      evelynn: {
+        "3135": [
+          40,
+          70,
+          60,
+          null
+        ]
+      },
+      ezreal: {
+        "3036": [
+          null,
+          null,
+          null,
+          90
+        ],
+        "3135": [
+          80,
+          20,
+          90,
+          110
+        ],
+        "3137": [
+          null,
+          20,
+          100,
+          null
+        ],
+        "6694": [
+          null,
+          null,
+          null,
+          100
+        ]
+      },
+      fiddlesticks: {
+        "3135": [
+          40,
+          20,
+          70,
+          30
+        ],
+        "3137": [
+          50,
+          20,
+          70,
+          null
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          80
+        ]
+      },
+      fiora: {
+        "3033": [
+          null,
+          20,
+          90,
+          null
+        ],
+        "3036": [
+          null,
+          20,
+          70,
+          20
+        ],
+        "3071": [
+          150,
+          50,
+          null,
+          20
+        ]
+      },
+      fizz: {
+        "3135": [
+          70,
+          40,
+          70,
+          40
+        ],
+        "3137": [
+          220,
+          110,
+          110,
+          null
+        ]
+      },
+      galio: {
+        "3135": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      gangplank: {
+        "6694": [
+          160,
+          null,
+          220,
+          null
+        ]
+      },
+      garen: {
+        "3033": [
+          190,
+          20,
+          null,
+          null
+        ],
+        "3036": [
+          160,
+          20,
+          null,
+          50
+        ],
+        "3071": [
+          80,
+          20,
+          null,
+          null
+        ],
+        "6694": [
+          80,
+          20,
+          null,
+          70
+        ]
+      },
+      gnar: {
+        "3036": [
+          null,
+          null,
+          null,
+          230
+        ]
+      },
+      gragas: {
+        "3135": [
+          60,
+          70,
+          50,
+          50
+        ],
+        "3137": [
+          180,
+          110,
+          20,
+          null
+        ]
+      },
+      graves: {
+        "6694": [
+          null,
+          null,
+          200,
+          null
+        ]
+      },
+      gwen: {
+        "3135": [
+          70,
+          null,
+          80,
+          30
+        ]
+      },
+      hecarim: {
+        "3033": [
+          40,
+          20,
+          30,
+          null
+        ],
+        "3036": [
+          30,
+          20,
+          30,
+          30
+        ],
+        "3071": [
+          100,
+          20,
+          20,
+          null
+        ],
+        "6694": [
+          60,
+          20,
+          20,
+          30
+        ]
+      },
+      heimerdinger: {
+        "3135": [
+          250,
+          20,
+          50,
+          60
+        ],
+        "3137": [
+          null,
+          20,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          20,
+          null,
+          null
+        ]
       },
       hwei: {
-        "3135": 70,
-        "3137": 130
+        "3135": [
+          40,
+          70,
+          80,
+          40
+        ],
+        "3137": [
+          110,
+          130,
+          120,
+          null
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      illaoi: {
+        "3036": [
+          null,
+          null,
+          null,
+          30
+        ]
+      },
+      irelia: {
+        "3033": [
+          20,
+          170,
+          20,
+          20
+        ],
+        "3036": [
+          20,
+          110,
+          20,
+          null
+        ],
+        "3071": [
+          null,
+          250,
+          30,
+          20
+        ],
+        "3135": [
+          null,
+          null,
+          null,
+          140
+        ],
+        "3302": [
+          20,
+          100,
+          20,
+          null
+        ]
+      },
+      janna: {
+        "3135": [
+          null,
+          null,
+          null,
+          50
+        ]
+      },
+      jax: {
+        "3033": [
+          90,
+          20,
+          70,
+          20
+        ],
+        "3036": [
+          70,
+          20,
+          50,
+          null
+        ],
+        "3302": [
+          20,
+          20,
+          null,
+          null
+        ]
+      },
+      jhin: {
+        "3033": [
+          110,
+          60,
+          20,
+          null
+        ],
+        "3036": [
+          100,
+          50,
+          20,
+          20
+        ],
+        "6694": [
+          120,
+          70,
+          20,
+          30
+        ]
+      },
+      jinx: {
+        "3033": [
+          null,
+          20,
+          null,
+          null
+        ],
+        "3302": [
+          220,
+          20,
+          null,
+          null
+        ],
+        "6694": [
+          null,
+          20,
+          null,
+          null
+        ]
+      },
+      kaisa: {
+        "3135": [
+          170,
+          100,
+          50,
+          120
+        ],
+        "3137": [
+          null,
+          50,
+          40,
+          null
+        ],
+        "3302": [
+          null,
+          null,
+          null,
+          30
+        ]
+      },
+      kalista: {
+        "3033": [
+          null,
+          null,
+          230,
+          null
+        ],
+        "3036": [
+          60,
+          null,
+          120,
+          20
+        ]
+      },
+      karma: {
+        "3135": [
+          50,
+          70,
+          50,
+          50
+        ],
+        "3137": [
+          130,
+          80,
+          60,
+          null
+        ]
+      },
+      karthus: {
+        "3137": [
+          90,
+          120,
+          null,
+          null
+        ]
+      },
+      kassadin: {
+        "3135": [
+          70,
+          70,
+          20,
+          50
+        ],
+        "3137": [
+          160,
+          20,
+          20,
+          null
+        ]
+      },
+      katarina: {
+        "3036": [
+          null,
+          100,
+          null,
+          null
+        ],
+        "3135": [
+          null,
+          null,
+          null,
+          200
+        ]
+      },
+      kayle: {
+        "3135": [
+          null,
+          20,
+          110,
+          70
+        ]
+      },
+      kennen: {
+        "3135": [
+          60,
+          70,
+          50,
+          50
+        ],
+        "3137": [
+          110,
+          130,
+          70,
+          null
+        ]
+      },
+      kindred: {
+        "3033": [
+          null,
+          70,
+          70,
+          null
+        ],
+        "3036": [
+          null,
+          60,
+          60,
+          30
+        ],
+        "3302": [
+          210,
+          150,
+          null,
+          190
+        ]
+      },
+      kled: {
+        "3036": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      kogmaw: {
+        "3036": [
+          null,
+          null,
+          null,
+          20
+        ],
+        "3135": [
+          null,
+          null,
+          null,
+          80
+        ]
+      },
+      leblanc: {
+        "3135": [
+          50,
+          70,
+          40,
+          50
+        ],
+        "3137": [
+          120,
+          100,
+          30,
+          null
+        ]
+      },
+      lillia: {
+        "3135": [
+          null,
+          30,
+          20,
+          20
+        ],
+        "3137": [
+          null,
+          50,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      lissandra: {
+        "3135": [
+          60,
+          70,
+          30,
+          40
+        ],
+        "3137": [
+          160,
+          90,
+          30,
+          null
+        ]
+      },
+      locke: {
+        "3135": [
+          100,
+          80,
+          90,
+          50
+        ],
+        "3137": [
+          null,
+          140,
+          70,
+          null
+        ]
+      },
+      lucian: {
+        "3033": [
+          210,
+          null,
+          null,
+          null
+        ],
+        "6694": [
+          160,
+          null,
+          100,
+          90
+        ]
       },
       lux: {
-        "3135": 70,
-        "3137": 130
+        "3135": [
+          50,
+          70,
+          70,
+          40
+        ],
+        "3137": [
+          100,
+          130,
+          70,
+          null
+        ]
+      },
+      malphite: {
+        "3135": [
+          50,
+          80,
+          50,
+          50
+        ],
+        "3137": [
+          130,
+          180,
+          60,
+          null
+        ]
+      },
+      malzahar: {
+        "3135": [
+          null,
+          30,
+          20,
+          70
+        ],
+        "3137": [
+          null,
+          20,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          null,
+          20,
+          null
+        ]
+      },
+      maokai: {
+        "3135": [
+          null,
+          null,
+          null,
+          60
+        ]
+      },
+      masteryi: {
+        "3033": [
+          null,
+          80,
+          80,
+          null
+        ],
+        "3036": [
+          null,
+          70,
+          60,
+          20
+        ],
+        "3071": [
+          null,
+          180,
+          null,
+          20
+        ],
+        "3302": [
+          160,
+          80,
+          190,
+          null
+        ],
+        "6694": [
+          null,
+          110,
+          130,
+          20
+        ]
+      },
+      mel: {
+        "3137": [
+          100,
+          90,
+          20,
+          null
+        ]
+      },
+      missfortune: {
+        "3033": [
+          null,
+          null,
+          null,
+          70
+        ],
+        "3135": [
+          null,
+          null,
+          null,
+          140
+        ]
+      },
+      mordekaiser: {
+        "3135": [
+          null,
+          40,
+          20,
+          20
+        ],
+        "8010": [
+          null,
+          null,
+          20,
+          null
+        ]
+      },
+      morgana: {
+        "3135": [
+          null,
+          30,
+          20,
+          50
+        ],
+        "3137": [
+          null,
+          40,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          130,
+          20,
+          null
+        ]
+      },
+      nasus: {
+        "3033": [
+          null,
+          null,
+          null,
+          180
+        ],
+        "3135": [
+          null,
+          20,
+          90,
+          60
+        ],
+        "3137": [
+          160,
+          20,
+          80,
+          null
+        ],
+        "8010": [
+          null,
+          110,
+          null,
+          230
+        ]
+      },
+      nautilus: {
+        "3135": [
+          null,
+          null,
+          null,
+          120
+        ]
+      },
+      neeko: {
+        "3135": [
+          50,
+          70,
+          50,
+          50
+        ],
+        "3137": [
+          120,
+          110,
+          70,
+          null
+        ]
+      },
+      nidalee: {
+        "3135": [
+          50,
+          70,
+          40,
+          50
+        ],
+        "3137": [
+          80,
+          20,
+          20,
+          null
+        ]
+      },
+      nunu: {
+        "3135": [
+          50,
+          70,
+          50,
+          50
+        ],
+        "3137": [
+          null,
+          170,
+          80,
+          null
+        ]
+      },
+      olaf: {
+        "3033": [
+          null,
+          20,
+          null,
+          null
+        ],
+        "3036": [
+          null,
+          20,
+          null,
+          30
+        ],
+        "3071": [
+          null,
+          20,
+          null,
+          110
+        ]
+      },
+      orianna: {
+        "3137": [
+          150,
+          130,
+          20,
+          null
+        ]
+      },
+      ornn: {
+        "3135": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      reksai: {
+        "3036": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      renata: {
+        "3137": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      renekton: {
+        "3033": [
+          70,
+          20,
+          null,
+          null
+        ],
+        "3036": [
+          60,
+          20,
+          null,
+          20
+        ],
+        "3071": [
+          40,
+          20,
+          null,
+          null
+        ],
+        "6694": [
+          30,
+          20,
+          null,
+          20
+        ]
+      },
+      rengar: {
+        "6694": [
+          90,
+          20,
+          150,
+          60
+        ]
+      },
+      rumble: {
+        "3135": [
+          50,
+          70,
+          30,
+          40
+        ],
+        "3137": [
+          60,
+          70,
+          20,
+          null
+        ]
+      },
+      senna: {
+        "3033": [
+          null,
+          70,
+          60,
+          null
+        ],
+        "3036": [
+          240,
+          60,
+          50,
+          30
+        ],
+        "3071": [
+          null,
+          90,
+          90,
+          70
+        ],
+        "3302": [
+          190,
+          120,
+          250,
+          null
+        ],
+        "6694": [
+          220,
+          60,
+          70,
+          40
+        ]
+      },
+      seraphine: {
+        "3135": [
+          20,
+          70,
+          40,
+          null
+        ],
+        "3137": [
+          20,
+          20,
+          20,
+          null
+        ],
+        "8010": [
+          20,
+          null,
+          50,
+          null
+        ]
+      },
+      sett: {
+        "3036": [
+          null,
+          null,
+          null,
+          50
+        ],
+        "6694": [
+          null,
+          null,
+          null,
+          50
+        ]
+      },
+      shaco: {
+        "3135": [
+          null,
+          null,
+          null,
+          60
+        ],
+        "6694": [
+          null,
+          null,
+          170,
+          60
+        ]
+      },
+      shyvana: {
+        "3135": [
+          null,
+          20,
+          null,
+          100
+        ],
+        "3137": [
+          40,
+          20,
+          50,
+          null
+        ],
+        "8010": [
+          null,
+          20,
+          null,
+          160
+        ]
+      },
+      singed: {
+        "3135": [
+          20,
+          20,
+          20,
+          40
+        ],
+        "8010": [
+          20,
+          null,
+          20,
+          null
+        ]
+      },
+      sion: {
+        "3036": [
+          null,
+          null,
+          null,
+          60
+        ]
+      },
+      sivir: {
+        "3033": [
+          null,
+          40,
+          null,
+          null
+        ],
+        "3302": [
+          190,
+          100,
+          20,
+          null
+        ],
+        "6694": [
+          null,
+          140,
+          null,
+          null
+        ]
+      },
+      smolder: {
+        "3071": [
+          null,
+          20,
+          null,
+          20
+        ],
+        "6694": [
+          null,
+          20,
+          200,
+          null
+        ]
+      },
+      swain: {
+        "3135": [
+          null,
+          20,
+          null,
+          20
+        ]
+      },
+      sylas: {
+        "3135": [
+          60,
+          40,
+          70,
+          80
+        ],
+        "3137": [
+          130,
+          20,
+          20,
+          null
+        ]
+      },
+      syndra: {
+        "3137": [
+          100,
+          90,
+          20,
+          null
+        ]
+      },
+      tahmkench: {
+        "3135": [
+          null,
+          null,
+          null,
+          40
+        ]
+      },
+      taliyah: {
+        "3137": [
+          180,
+          130,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          null,
+          20,
+          null
+        ]
+      },
+      teemo: {
+        "3135": [
+          60,
+          20,
+          70,
+          30
+        ],
+        "3137": [
+          150,
+          20,
+          100,
+          null
+        ]
+      },
+      thresh: {
+        "3135": [
+          null,
+          null,
+          null,
+          40
+        ]
+      },
+      tristana: {
+        "3302": [
+          200,
+          20,
+          170,
+          null
+        ]
+      },
+      trundle: {
+        "3033": [
+          null,
+          null,
+          null,
+          100
+        ],
+        "3135": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      tryndamere: {
+        "3033": [
+          null,
+          30,
+          150,
+          30
+        ],
+        "3036": [
+          null,
+          30,
+          110,
+          null
+        ],
+        "3071": [
+          null,
+          160,
+          null,
+          70
+        ],
+        "3302": [
+          null,
+          60,
+          null,
+          null
+        ]
+      },
+      twistedfate: {
+        "3036": [
+          null,
+          null,
+          null,
+          20
+        ],
+        "3135": [
+          60,
+          70,
+          50,
+          90
+        ],
+        "3137": [
+          160,
+          130,
+          110,
+          null
+        ]
+      },
+      twitch: {
+        "3033": [
+          null,
+          20,
+          80,
+          null
+        ],
+        "3036": [
+          null,
+          20,
+          60,
+          50
+        ],
+        "3302": [
+          null,
+          20,
+          null,
+          210
+        ]
+      },
+      udyr: {
+        "3033": [
+          null,
+          null,
+          null,
+          80
+        ],
+        "3135": [
+          130,
+          90,
+          30,
+          40
+        ],
+        "3137": [
+          null,
+          210,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          null,
+          20,
+          null
+        ]
+      },
+      urgot: {
+        "3071": [
+          null,
+          null,
+          null,
+          20
+        ]
+      },
+      varus: {
+        "3033": [
+          20,
+          110,
+          30,
+          null
+        ],
+        "3036": [
+          20,
+          100,
+          30,
+          50
+        ],
+        "6694": [
+          20,
+          110,
+          60,
+          100
+        ]
+      },
+      vayne: {
+        "3033": [
+          170,
+          20,
+          null,
+          null
+        ],
+        "3036": [
+          110,
+          20,
+          null,
+          80
+        ]
+      },
+      veigar: {
+        "3135": [
+          20,
+          70,
+          50,
+          20
+        ],
+        "3137": [
+          20,
+          130,
+          60,
+          null
+        ]
+      },
+      velkoz: {
+        "3137": [
+          null,
+          160,
+          20,
+          null
+        ]
+      },
+      vex: {
+        "3135": [
+          40,
+          70,
+          50,
+          50
+        ],
+        "3137": [
+          90,
+          130,
+          80,
+          null
+        ]
+      },
+      viktor: {
+        "3137": [
+          120,
+          130,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          null,
+          20,
+          null
+        ]
+      },
+      vladimir: {
+        "3135": [
+          40,
+          80,
+          60,
+          60
+        ],
+        "3137": [
+          20,
+          40,
+          30,
+          null
+        ]
+      },
+      volibear: {
+        "3135": [
+          null,
+          null,
+          100,
+          90
+        ],
+        "3137": [
+          null,
+          null,
+          120,
+          null
+        ]
+      },
+      warwick: {
+        "3135": [
+          null,
+          null,
+          null,
+          80
+        ],
+        "3302": [
+          null,
+          70,
+          20,
+          null
+        ]
+      },
+      xayah: {
+        "3302": [
+          230,
+          null,
+          null,
+          null
+        ]
+      },
+      xerath: {
+        "3135": [
+          60,
+          70,
+          240,
+          50
+        ],
+        "3137": [
+          150,
+          130,
+          null,
+          null
+        ]
+      },
+      xinzhao: {
+        "3033": [
+          null,
+          null,
+          100,
+          null
+        ],
+        "3036": [
+          null,
+          null,
+          70,
+          20
+        ],
+        "3071": [
+          null,
+          null,
+          60,
+          null
+        ],
+        "3302": [
+          null,
+          null,
+          null,
+          50
+        ]
+      },
+      yone: {
+        "3033": [
+          null,
+          null,
+          30,
+          null
+        ],
+        "3036": [
+          null,
+          230,
+          20,
+          60
+        ],
+        "3302": [
+          null,
+          null,
+          20,
+          null
+        ]
+      },
+      yorick: {
+        "6694": [
+          null,
+          null,
+          null,
+          40
+        ]
+      },
+      yunara: {
+        "3033": [
+          null,
+          20,
+          null,
+          null
+        ],
+        "3302": [
+          130,
+          20,
+          null,
+          null
+        ]
+      },
+      zaahen: {
+        "3033": [
+          40,
+          20,
+          null,
+          null
+        ],
+        "3036": [
+          40,
+          20,
+          null,
+          20
+        ],
+        "3071": [
+          40,
+          20,
+          null,
+          20
+        ]
+      },
+      zac: {
+        "3135": [
+          null,
+          null,
+          null,
+          30
+        ]
+      },
+      zeri: {
+        "3033": [
+          null,
+          null,
+          20,
+          null
+        ],
+        "3036": [
+          null,
+          null,
+          20,
+          20
+        ]
+      },
+      ziggs: {
+        "3135": [
+          40,
+          70,
+          30,
+          90
+        ],
+        "3137": [
+          60,
+          90,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          null,
+          20,
+          null
+        ]
+      },
+      zilean: {
+        "3135": [
+          60,
+          80,
+          40,
+          30
+        ],
+        "3137": [
+          130,
+          140,
+          60,
+          null
+        ]
+      },
+      zoe: {
+        "3135": [
+          40,
+          70,
+          40,
+          50
+        ],
+        "3137": [
+          60,
+          60,
+          30,
+          null
+        ]
+      },
+      zyra: {
+        "3135": [
+          70,
+          20,
+          20,
+          70
+        ],
+        "3137": [
+          170,
+          20,
+          20,
+          null
+        ],
+        "8010": [
+          null,
+          20,
+          null,
+          null
+        ]
       }
     }
   };
@@ -2952,7 +4676,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
 
   // src/lib/engine/build-engine.ts
   var BUY_SLOT = item_buy_slot_default.items;
-  var ENGINE_VERSION = "1.4.13";
+  var ENGINE_VERSION = "1.4.14";
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
   var STAT_BONUS = 22e4;
   var STAT_BONUS_IDS = /* @__PURE__ */ new Set([6032]);
@@ -3022,7 +4746,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
     firstBuys: { source: "game data", on: true, why: "Items that grow while you hold them (item text: Heartsteel, Yun Tal, Rod of Ages, Hubris) go first while you have no legendary: each minute held earlier is more value. The archive agrees (82-93% of their buyers make each one their first legendary, item_slots.json). Nico 2026-11-27: Briar's Hubris shown 4th; find the reason, not a per-item list." },
     lateBuys: { source: "game data", on: true, why: "Items with % armor or magic penetration (item text: Void Staff, Cryptbloom, Lord Dominik's, Mortal Reminder, Serylda's, Terminus), and resist shred where the archive agrees it comes late (Bloodletter's; Nico 2026-11-28), wait until two legendaries are finished, unless an augment rule timed them: penetration multiplies damage you already deal against resist the enemy has already built. Archive: 1-10% of buyers take them 1st or 2nd, and within a slot players take them earlier when enemies have more resist (z +1.7 to +5.9) and when they have more damage (Void Staff z +3.0, Lord Dominik's +3.4). AramHex cores put them 3rd. Against an unusually tanky team, breakpoints lights them as an option. Nico 2026-11-27: Shaco's Void Staff 2nd; find the reason, not a per-item list." },
-    penSecond: { source: "assumption", on: true, why: "Against a team whose live resist (champions, levels, items held) is both tankier than usual (the breakpoints cut) and past the champion's simulated breakpoint, a pen or shred item in the path becomes the 2nd legendary. Simulator, vs the core's planned 2nd item of the same damage type, kept only where the item loses at the typical resist and wins above it (2026-11-28 rerun, 365 champion-item pairs): Void Staff 36 champions (median 70 MR; typical then 44), Cryptbloom 39 (120), Bloodletter's 2 (130; 23 of 36 never win to 250), Lord Dominik's 9 (100 armor; typical 53), Mortal Reminder 8 (80), Serylda's 5 (110), Terminus 7 (100), Black Cleaver 4 (180). Estimated: players almost never buy it 2nd, so the archive can't confirm it. Nico approved 2026-11-27 (he chose it on the card)." },
+    penSecond: { source: "assumption", on: true, why: "A pen or shred item in the path takes the legendary slot the simulator clearly favours this game (Nico 2026-11-28: not only 2nd, 1st or 3rd depending on the game). Per champion and slot (1st to 4th), the enemy resist from which it beats the core's planned item of the same damage type there (research/item-timing/pen_breakpoints.py, fixed dummy at the archive's median state per decision; a slot counts only when the item loses at that slot's typical resist, MR 36/44/54/64, armor 30/53/76/98). This game's resist at a slot = that slot's typical times how tanky the enemy is now (live resist from champions, levels and held items, over usual). Earlier than its place: the earliest slot it wins, only vs a team tankier than usual (the breakpoints cut). Later: when it loses where it is and wins at a later slot. Clear slot breakpoints (1st/2nd/3rd/4th): Void Staff 43/36/23/19, Cryptbloom 38/39/23/0, Bloodletter's 0/2/0/3, Lord Dominik's 11/9/3/2, Mortal Reminder 10/8/7/2, Serylda's 8/5/9/2, Terminus 10/8/3/2, Black Cleaver 5/5/2/1. An item that grows while held still goes first. Archive: within a slot players buy pen earlier vs more enemy resist (z +1.7 to +5.9), the same direction; they almost never buy it 1st or 2nd, so the slot itself is estimated. Nico approved 2026-11-27 (he chose it on the card)." },
     boughtFirst: { source: "game data", on: true, why: "The path shows what you bought first, in inventory order, then the rest in Next's order, so an item bought early shows where you bought it (Nico 2026-11-27)." },
     stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
     attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
@@ -3798,20 +5522,42 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     }
     return { got, usual };
   }
-  var PEN_BP = pen_breakpoints_default.champions;
+  var PEN_DATA = pen_breakpoints_default;
+  var PEN_BP = PEN_DATA.champions;
   var PEN_STAT = { 3135: 2, 3137: 2, 8010: 2, 3036: 1, 3033: 1, 6694: 1, 3302: 1, 3071: 1 };
-  function penSecond(game, ids) {
+  var ORD = ["1st", "2nd", "3rd", "4th"];
+  function penSecond(game, ids, finished = 0, at = () => 3, from = finished + 1) {
     const bp = PEN_BP[champKey(game.champ)];
     const st = bp ? enemyStats(game.enemies ?? [], game.level ?? 18) : null;
     if (!bp || !st) return null;
     for (const id of ids) {
-      const need = bp[String(id)], j = PEN_STAT[id];
-      if (need === void 0 || !j) continue;
-      const got = st.got[j], tanky = st.usual[j] * (j === 2 ? BP.cut.mr : BP.cut.armor);
+      const w = bp[String(id)], j = PEN_STAT[id];
+      if (!w || !j) continue;
+      const typ = j === 2 ? PEN_DATA.typical.mr : PEN_DATA.typical.armor;
+      const got = st.got[j], q = got / st.usual[j], cut = j === 2 ? BP.cut.mr : BP.cut.armor;
       const name = j === 2 ? "magic resist" : "armor";
-      if (got >= need && got >= tanky) return { id, why: `Enemy ${name} about ${Math.round(got)}: past ${need}, where this beats your next damage item as your 2nd item (simulator, estimated).` };
+      const proj = (s) => typ[s - 1] * q;
+      const clear = (s) => w[s - 1] != null && w[s - 1] > typ[s - 1];
+      const wins = (s) => w[s - 1] != null && proj(s) >= w[s - 1];
+      const d = Math.max(at(id), from);
+      for (let s = from; s < d; s++)
+        if (clear(s) && q >= cut && wins(s))
+          return { id, slot: s, why: `Enemy ${name} about ${Math.round(got)}: it beats your planned item as your ${ORD[s - 1]} item from about ${w[s - 1]} (simulator, estimated).` };
+      if (d <= 4 && clear(d) && !wins(d)) {
+        for (let s = d + 1; s <= 4; s++)
+          if (wins(s)) return { id, slot: s, why: `Enemy ${name} only about ${Math.round(got)}: your planned item does more as your ${ORD[d - 1]}; this wins as your ${ORD[s - 1]} (simulator, estimated).` };
+      }
     }
     return null;
+  }
+  function placeAfter(list, it, n, leg) {
+    const rest = list.filter((x) => x !== it);
+    let at = 0, seen = 0;
+    while (at < rest.length && seen < n) {
+      if (leg(rest[at])) seen++;
+      at++;
+    }
+    return [...rest.slice(0, at), it, ...rest.slice(at)];
   }
   function breakpoints(enemies, level, magic, known, _pool = /* @__PURE__ */ new Set()) {
     if (!RULES.breakpoints.on) return [];
@@ -4197,19 +5943,23 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       applied("attackSpeedNudge");
     }
     const pathIds0 = new Set([...build.slice(0, coreLen), ...slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6)].map((it) => ownedId(itemId(it.icon))));
-    const penNow = RULES.penSecond.on && finished < 2 ? penSecond(game, next.map((it) => ownedId(itemId(it.icon))).filter((i) => pathIds0.has(i))) : null;
     if (RULES.lateBuys.on && finished < 2 && next.some((it) => LATE_BUYS.has(ownedId(itemId(it.icon))))) {
-      const moved = lateBuyOrder(next, (it) => ownedId(itemId(it.icon)), (it) => bootIds.has(itemId(it.icon)), 2 - finished, (it) => timing.some((t) => t.item === it) || ownedId(itemId(it.icon)) === penNow?.id);
+      const moved = lateBuyOrder(next, (it) => ownedId(itemId(it.icon)), (it) => bootIds.has(itemId(it.icon)), 2 - finished, (it) => timing.some((t) => t.item === it));
       if (moved.some((it, i) => it !== next[i])) {
         next = moved;
         applied("lateBuys");
       }
     }
+    const isLeg = (it) => !bootIds.has(itemId(it.icon));
+    const slotNow = (id) => {
+      const k2 = next.findIndex((it) => ownedId(itemId(it.icon)) === id);
+      return finished + 1 + next.slice(0, Math.max(0, k2)).filter(isLeg).length;
+    };
+    const lead = !finished && next.some((it) => FIRST_BUYS.has(ownedId(itemId(it.icon))) || STACKING.has(itemId(it.icon)));
+    const penNow = RULES.penSecond.on && finished < 4 && !timing.length ? penSecond(game, next.map((it) => ownedId(itemId(it.icon))).filter((i) => pathIds0.has(i)), finished, slotNow, finished + 1 + (lead ? 1 : 0)) : null;
     if (penNow) {
       const pen = next.find((it) => ownedId(itemId(it.icon)) === penNow.id);
-      const rest0 = next.filter((it) => it !== pen);
-      const at = finished === 0 ? rest0.findIndex((it) => !bootIds.has(itemId(it.icon))) + 1 : 0;
-      const moved = [...rest0.slice(0, at), pen, ...rest0.slice(at)];
+      const moved = placeAfter(next, pen, penNow.slot - 1 - finished, isLeg);
       if (moved.some((it, i) => it !== next[i])) {
         next = moved;
         applied("penSecond");
@@ -4274,11 +6024,9 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
         const core0 = new Set(coreItems);
         path.splice(0, path.length, fb, ...path.filter((it) => it !== fb));
         const pen = penWhy ? path.find((it) => ownedId(itemId(it.icon)) === penNow?.id) : void 0;
-        if (pen) {
-          path.splice(path.indexOf(pen), 1);
-          const at = path.findIndex((it, i) => i > 0 && !bootIds.has(itemId(it.icon)));
-          path.splice(at < 0 ? path.length : at, 0, pen);
-          next = [fb, pen];
+        if (pen && penNow) {
+          path.splice(0, path.length, ...placeAfter(path, pen, Math.max(1, penNow.slot - 1), (it) => !bootIds.has(itemId(it.icon))));
+          if (penNow.slot <= 2) next = [fb, pen];
         }
         coreItems = path.slice(0, Math.max(coreItems.length, ...path.map((it, i) => core0.has(it) ? i + 1 : 0)));
         rest = path.slice(coreItems.length);

@@ -21,7 +21,7 @@ DMG = {"ap", "ad", "crit", "lethality", "ability_ad", "onhit"}
 lst = json.loads(subprocess.run([SIM, "--list", "--json"], capture_output=True, text=True, cwd=os.path.dirname(SIM)).stdout)
 KEY = {i["id"]: i["key"] for i in lst["items"] if i.get("modeled")}
 ROLE = {i["id"]: set(i.get("roles") or [i.get("role")]) for i in lst["items"]}
-names = {int(v["key"]): k for k, v in json.load(open(os.path.join(ROOT, "web/public/assets/dd/16.23.1/data/en_US/champion.json")))["data"].items()}
+names = {int(v["key"]): k for k, v in json.load(open(sorted(__import__("glob").glob(os.path.join(ROOT, "web/public/assets/dd/*/data/en_US/champion.json")), key=lambda p: [int(x) for x in p.split("/dd/")[1].split("/")[0].split(".")])[-1]))["data"].items()}
 
 def dps(champ, items, st, **over):
     s = {**st, **over}
@@ -62,7 +62,18 @@ if __name__ == "__main__":
     out = sys.argv[sys.argv.index("--out") + 1] if "--out" in sys.argv else os.path.join(os.path.dirname(os.path.abspath(__file__)), "sweep.jsonl")
     procs = int(sys.argv[sys.argv.index("--procs") + 1]) if "--procs" in sys.argv else 4
     files = sorted(os.listdir(os.path.join(ROOT, "data/cn/builds")))
-    with open(out, "w") as fo, Pool(procs) as pool:
+    # resume: skip champions already in the output (a restart keeps what was done)
+    done = set()
+    if os.path.exists(out) and "--fresh" not in sys.argv:
+        for line in open(out):
+            try: done.add(json.loads(line)["champ"])
+            except ValueError: pass
+    def todo(f):
+        try: b = json.load(open(os.path.join(ROOT, "data/cn/builds", f)))
+        except ValueError: return True
+        return names.get(int(b["id"])) not in done if "id" in b else False
+    files = [f for f in files if todo(f)]
+    with open(out, "a" if done else "w") as fo, Pool(procs) as pool:
         for n, rows in enumerate(pool.imap_unordered(job, files)):
             for r in rows: fo.write(json.dumps(r) + "\n")
             fo.flush(); print(n, len(files), len(rows), flush=True)
