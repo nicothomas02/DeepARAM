@@ -1,0 +1,15543 @@
+{
+"typical": {
+"2": {
+"hp": 1321,
+"armor": 53.0,
+"mr": 44.0,
+"fight": 18
+},
+"3": {
+"hp": 2068,
+"armor": 75.8,
+"mr": 54.0,
+"fight": 18
+}
+},
+"range_p5_p95": {
+"2:hp": [
+1042,
+1872
+],
+"2:armor": [
+42.0,
+71.8
+],
+"2:mr": [
+37.0,
+56.0
+],
+"3:hp": [
+1546,
+2914
+],
+"3:armor": [
+57.8,
+107.4
+],
+"3:mr": [
+42.2,
+74.2
+]
+},
+"pairs_tested": 4327,
+"loses_at_typical": 2825,
+"breakpoints": [
+{
+"champ": "Annie",
+"item": 6653,
+"slot": 3,
+"vs": 3118,
+"typical": -24.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Annie",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -3.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Annie",
+"item": 4646,
+"slot": 3,
+"vs": 3118,
+"typical": -13.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Annie",
+"item": 3135,
+"slot": 3,
+"vs": 3118,
+"typical": -15.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Annie",
+"item": 3157,
+"slot": 3,
+"vs": 3118,
+"typical": -25.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Annie",
+"item": 3152,
+"slot": 3,
+"vs": 3118,
+"typical": -26.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Annie",
+"item": 3137,
+"slot": 3,
+"vs": 3118,
+"typical": -20.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Annie",
+"item": 4633,
+"slot": 3,
+"vs": 3118,
+"typical": -23.5,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xerath",
+"item": 4628,
+"slot": 3,
+"vs": 6655,
+"typical": -25.5,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xerath",
+"item": 3135,
+"slot": 3,
+"vs": 6655,
+"typical": -16.9,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xerath",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -3.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xerath",
+"item": 4646,
+"slot": 3,
+"vs": 6655,
+"typical": -18.7,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xerath",
+"item": 3137,
+"slot": 3,
+"vs": 6655,
+"typical": -23.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xerath",
+"item": 3003,
+"slot": 3,
+"vs": 6655,
+"typical": -3.7,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xerath",
+"item": 3100,
+"slot": 3,
+"vs": 6655,
+"typical": -22.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xerath",
+"item": 3031,
+"slot": 2,
+"vs": 4645,
+"typical": -9.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shyvana",
+"item": 4645,
+"slot": 3,
+"vs": 4633,
+"typical": -1.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shyvana",
+"item": 3089,
+"slot": 3,
+"vs": 4633,
+"typical": -0.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shyvana",
+"item": 3135,
+"slot": 3,
+"vs": 4633,
+"typical": -6.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shyvana",
+"item": 4646,
+"slot": 3,
+"vs": 4633,
+"typical": -6.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shyvana",
+"item": 3100,
+"slot": 3,
+"vs": 4633,
+"typical": -2.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shyvana",
+"item": 4629,
+"slot": 3,
+"vs": 4633,
+"typical": -0.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shyvana",
+"item": 3146,
+"slot": 3,
+"vs": 4633,
+"typical": -0.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kayle",
+"item": 3146,
+"slot": 3,
+"vs": 3089,
+"typical": -7.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ahri",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -3.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ahri",
+"item": 3118,
+"slot": 3,
+"vs": 6655,
+"typical": -3.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ahri",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -0.2,
+"stat": "mr",
+"dir": ">=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 2,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ahri",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -0.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ahri",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -0.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ahri",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ahri",
+"item": 4629,
+"slot": 3,
+"vs": 6655,
+"typical": -5.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ahri",
+"item": 3003,
+"slot": 2,
+"vs": 4645,
+"typical": -6.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ahri",
+"item": 3003,
+"slot": 3,
+"vs": 6655,
+"typical": -5.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ahri",
+"item": 3003,
+"slot": 3,
+"vs": 6655,
+"typical": -5.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 6696,
+"slot": 3,
+"vs": 6676,
+"typical": -4.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 3508,
+"slot": 3,
+"vs": 6676,
+"typical": -0.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 3508,
+"slot": 3,
+"vs": 6676,
+"typical": -0.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 3046,
+"slot": 2,
+"vs": 3036,
+"typical": -0.3,
+"stat": "armor",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 3046,
+"slot": 2,
+"vs": 3036,
+"typical": -0.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 3046,
+"slot": 2,
+"vs": 3036,
+"typical": -0.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 3046,
+"slot": 3,
+"vs": 6676,
+"typical": -2.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 6692,
+"slot": 2,
+"vs": 3036,
+"typical": -5.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 3095,
+"slot": 3,
+"vs": 6676,
+"typical": -0.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 3142,
+"slot": 2,
+"vs": 3036,
+"typical": -3.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 3142,
+"slot": 3,
+"vs": 6676,
+"typical": -4.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Graves",
+"item": 6694,
+"slot": 2,
+"vs": 3036,
+"typical": -2.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fizz",
+"item": 6655,
+"slot": 3,
+"vs": 4645,
+"typical": -7.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fizz",
+"item": 4646,
+"slot": 3,
+"vs": 4645,
+"typical": -6.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fizz",
+"item": 3118,
+"slot": 3,
+"vs": 4645,
+"typical": -9.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fizz",
+"item": 2503,
+"slot": 3,
+"vs": 4645,
+"typical": -5.6,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fizz",
+"item": 3146,
+"slot": 2,
+"vs": 3100,
+"typical": -1.6,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fizz",
+"item": 6657,
+"slot": 2,
+"vs": 3100,
+"typical": -10.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fizz",
+"item": 3003,
+"slot": 3,
+"vs": 4645,
+"typical": -8.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fizz",
+"item": 3004,
+"slot": 2,
+"vs": 3100,
+"typical": -5.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Volibear",
+"item": 4633,
+"slot": 3,
+"vs": 3089,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Volibear",
+"item": 3146,
+"slot": 2,
+"vs": 3087,
+"typical": -8.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Volibear",
+"item": 4646,
+"slot": 3,
+"vs": 3089,
+"typical": -3.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 6699,
+"slot": 2,
+"vs": 3036,
+"typical": -1.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 6699,
+"slot": 2,
+"vs": 3036,
+"typical": -1.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 6698,
+"slot": 3,
+"vs": 6676,
+"typical": -7.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 6333,
+"slot": 2,
+"vs": 3036,
+"typical": -2.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 6333,
+"slot": 2,
+"vs": 3036,
+"typical": -2.6,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 6696,
+"slot": 3,
+"vs": 6676,
+"typical": -0.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 6696,
+"slot": 3,
+"vs": 6676,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 6695,
+"slot": 2,
+"vs": 3036,
+"typical": -5.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 3074,
+"slot": 2,
+"vs": 3036,
+"typical": -0.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 3074,
+"slot": 2,
+"vs": 3036,
+"typical": -0.9,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 2512,
+"slot": 3,
+"vs": 6676,
+"typical": -5.1,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 3142,
+"slot": 2,
+"vs": 3036,
+"typical": -3.1,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 3142,
+"slot": 3,
+"vs": 6676,
+"typical": -3.8,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rengar",
+"item": 6694,
+"slot": 3,
+"vs": 6676,
+"typical": -7.5,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Viktor",
+"item": 6655,
+"slot": 3,
+"vs": 3135,
+"typical": -3.6,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Viktor",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Viktor",
+"item": 4646,
+"slot": 3,
+"vs": 3135,
+"typical": -2.7,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Viktor",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -18.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Viktor",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -0.2,
+"stat": "mr",
+"dir": ">=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Viktor",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -0.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Viktor",
+"item": 3118,
+"slot": 3,
+"vs": 3135,
+"typical": -4.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Viktor",
+"item": 3031,
+"slot": 2,
+"vs": 4645,
+"typical": -3.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Viktor",
+"item": 3003,
+"slot": 3,
+"vs": 3135,
+"typical": -5.0,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MasterYi",
+"item": 3508,
+"slot": 3,
+"vs": 3153,
+"typical": -1.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fiora",
+"item": 2517,
+"slot": 2,
+"vs": 6333,
+"typical": -0.1,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 3,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fiora",
+"item": 2517,
+"slot": 2,
+"vs": 6333,
+"typical": -0.1,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fiora",
+"item": 3033,
+"slot": 3,
+"vs": 3078,
+"typical": -0.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fiora",
+"item": 6676,
+"slot": 3,
+"vs": 3078,
+"typical": -1.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ziggs",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -0.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ziggs",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -0.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ziggs",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -6.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ziggs",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -4.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ziggs",
+"item": 3157,
+"slot": 3,
+"vs": 6653,
+"typical": -1.0,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 3,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ziggs",
+"item": 3157,
+"slot": 3,
+"vs": 6653,
+"typical": -1.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ziggs",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -7.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ziggs",
+"item": 6657,
+"slot": 3,
+"vs": 6653,
+"typical": -8.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ziggs",
+"item": 3102,
+"slot": 3,
+"vs": 6653,
+"typical": -1.0,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ziggs",
+"item": 3102,
+"slot": 3,
+"vs": 6653,
+"typical": -1.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hecarim",
+"item": 3004,
+"slot": 3,
+"vs": 6333,
+"typical": -7.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hecarim",
+"item": 6695,
+"slot": 3,
+"vs": 6333,
+"typical": -1.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hecarim",
+"item": 6695,
+"slot": 3,
+"vs": 6333,
+"typical": -1.3,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hecarim",
+"item": 6657,
+"slot": 2,
+"vs": 3161,
+"typical": -14.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 6676,
+"slot": 2,
+"vs": 3153,
+"typical": -0.2,
+"stat": "hp",
+"dir": "<=",
+"at": 1200,
+"archive": {
+"diff": -116.0,
+"z": 2.9,
+"n": 18,
+"verdict": "agrees"
+}
+},
+{
+"champ": "Varus",
+"item": 6676,
+"slot": 2,
+"vs": 3153,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 6694,
+"slot": 2,
+"vs": 3153,
+"typical": -6.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 4645,
+"slot": 3,
+"vs": 3302,
+"typical": -22.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3124,
+"slot": 2,
+"vs": 3153,
+"typical": -3.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3036,
+"slot": 2,
+"vs": 3153,
+"typical": -4.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3087,
+"slot": 2,
+"vs": 3153,
+"typical": -0.6,
+"stat": "hp",
+"dir": "<=",
+"at": 1200,
+"archive": {
+"diff": null,
+"z": null,
+"n": 3,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3087,
+"slot": 2,
+"vs": 3153,
+"typical": -0.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3814,
+"slot": 2,
+"vs": 3153,
+"typical": -7.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3814,
+"slot": 3,
+"vs": 3302,
+"typical": -3.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 6699,
+"slot": 2,
+"vs": 3153,
+"typical": -7.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 6699,
+"slot": 3,
+"vs": 3302,
+"typical": -3.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 6695,
+"slot": 2,
+"vs": 3153,
+"typical": -4.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 6695,
+"slot": 3,
+"vs": 3302,
+"typical": -2.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 4646,
+"slot": 2,
+"vs": 3153,
+"typical": -31.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 4646,
+"slot": 3,
+"vs": 3302,
+"typical": -25.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3142,
+"slot": 2,
+"vs": 3153,
+"typical": -2.1,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3142,
+"slot": 3,
+"vs": 3302,
+"typical": -0.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3142,
+"slot": 3,
+"vs": 3302,
+"typical": -0.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3033,
+"slot": 2,
+"vs": 3153,
+"typical": -5.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 2517,
+"slot": 2,
+"vs": 3153,
+"typical": -8.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 2517,
+"slot": 3,
+"vs": 3302,
+"typical": -6.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3072,
+"slot": 2,
+"vs": 3153,
+"typical": -0.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3072,
+"slot": 3,
+"vs": 3302,
+"typical": -1.6,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3100,
+"slot": 3,
+"vs": 3302,
+"typical": -24.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3146,
+"slot": 2,
+"vs": 3153,
+"typical": -13.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3146,
+"slot": 3,
+"vs": 3302,
+"typical": -10.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 2523,
+"slot": 2,
+"vs": 3153,
+"typical": -3.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 2523,
+"slot": 3,
+"vs": 3302,
+"typical": -0.5,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 2523,
+"slot": 3,
+"vs": 3302,
+"typical": -0.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 2523,
+"slot": 3,
+"vs": 3302,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3161,
+"slot": 2,
+"vs": 3153,
+"typical": -14.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3161,
+"slot": 3,
+"vs": 3302,
+"typical": -11.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Varus",
+"item": 3156,
+"slot": 2,
+"vs": 3153,
+"typical": -9.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 6696,
+"slot": 2,
+"vs": 3036,
+"typical": -0.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 6696,
+"slot": 3,
+"vs": 6676,
+"typical": -2.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 3153,
+"slot": 2,
+"vs": 3036,
+"typical": -0.1,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 3153,
+"slot": 2,
+"vs": 3036,
+"typical": -0.1,
+"stat": "armor",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 3153,
+"slot": 2,
+"vs": 3036,
+"typical": -0.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 3153,
+"slot": 3,
+"vs": 6676,
+"typical": -0.2,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 3153,
+"slot": 3,
+"vs": 6676,
+"typical": -0.2,
+"stat": "armor",
+"dir": ">=",
+"at": 80,
+"archive": {
+"diff": null,
+"z": null,
+"n": 5,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 3153,
+"slot": 3,
+"vs": 6676,
+"typical": -0.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 3153,
+"slot": 3,
+"vs": 6676,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 6695,
+"slot": 2,
+"vs": 3036,
+"typical": -3.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 6695,
+"slot": 3,
+"vs": 6676,
+"typical": -4.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 3142,
+"slot": 2,
+"vs": 3036,
+"typical": -0.9,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Draven",
+"item": 3142,
+"slot": 3,
+"vs": 6676,
+"typical": -2.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lissandra",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -4.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lissandra",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -9.6,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lissandra",
+"item": 6657,
+"slot": 3,
+"vs": 3157,
+"typical": -2.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lissandra",
+"item": 3165,
+"slot": 3,
+"vs": 3157,
+"typical": -2.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lissandra",
+"item": 3165,
+"slot": 3,
+"vs": 3157,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lissandra",
+"item": 3152,
+"slot": 3,
+"vs": 3157,
+"typical": -2.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lissandra",
+"item": 3152,
+"slot": 3,
+"vs": 3157,
+"typical": -2.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Quinn",
+"item": 3153,
+"slot": 2,
+"vs": 3036,
+"typical": -3.3,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Quinn",
+"item": 3153,
+"slot": 3,
+"vs": 6676,
+"typical": -1.1,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Diana",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -8.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Diana",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -6.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Diana",
+"item": 6655,
+"slot": 3,
+"vs": 4646,
+"typical": -3.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Diana",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -0.5,
+"stat": "mr",
+"dir": ">=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Diana",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -8.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 6655,
+"slot": 3,
+"vs": 3135,
+"typical": -6.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -3.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 4646,
+"slot": 3,
+"vs": 3135,
+"typical": -2.2,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -9.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 2503,
+"slot": 3,
+"vs": 3135,
+"typical": -7.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -12.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 3118,
+"slot": 3,
+"vs": 3135,
+"typical": -10.6,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 3137,
+"slot": 3,
+"vs": 3135,
+"typical": -0.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 3137,
+"slot": 3,
+"vs": 3135,
+"typical": -0.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -5.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 4628,
+"slot": 3,
+"vs": 3135,
+"typical": -1.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 4628,
+"slot": 3,
+"vs": 3135,
+"typical": -1.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 3031,
+"slot": 2,
+"vs": 4645,
+"typical": -6.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 3003,
+"slot": 2,
+"vs": 4645,
+"typical": -13.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 3003,
+"slot": 3,
+"vs": 3135,
+"typical": -10.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Syndra",
+"item": 3004,
+"slot": 2,
+"vs": 4645,
+"typical": -19.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "AurelionSol",
+"item": 6657,
+"slot": 2,
+"vs": 3116,
+"typical": -5.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zoe",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -3.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zoe",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -2.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zoe",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -2.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zoe",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -4.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zoe",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -4.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zoe",
+"item": 3165,
+"slot": 3,
+"vs": 6655,
+"typical": -5.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zyra",
+"item": 3165,
+"slot": 3,
+"vs": 6653,
+"typical": -1.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zyra",
+"item": 3165,
+"slot": 3,
+"vs": 6653,
+"typical": -1.8,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zyra",
+"item": 8010,
+"slot": 3,
+"vs": 6653,
+"typical": -3.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zyra",
+"item": 8010,
+"slot": 3,
+"vs": 6653,
+"typical": -3.2,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Seraphine",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -0.7,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Seraphine",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -12.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Seraphine",
+"item": 6657,
+"slot": 3,
+"vs": 6653,
+"typical": -7.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3153,
+"slot": 2,
+"vs": 6675,
+"typical": -0.6,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3153,
+"slot": 2,
+"vs": 6675,
+"typical": -0.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3153,
+"slot": 2,
+"vs": 6675,
+"typical": -0.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3072,
+"slot": 2,
+"vs": 6675,
+"typical": -4.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3072,
+"slot": 2,
+"vs": 6675,
+"typical": -4.1,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3085,
+"slot": 2,
+"vs": 6675,
+"typical": -10.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 6695,
+"slot": 2,
+"vs": 6675,
+"typical": -4.6,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 6695,
+"slot": 2,
+"vs": 6675,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 6694,
+"slot": 2,
+"vs": 6675,
+"typical": -9.0,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 6694,
+"slot": 2,
+"vs": 6675,
+"typical": -9.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3302,
+"slot": 2,
+"vs": 6675,
+"typical": -2.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3302,
+"slot": 2,
+"vs": 6675,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3124,
+"slot": 2,
+"vs": 6675,
+"typical": -3.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3124,
+"slot": 2,
+"vs": 6675,
+"typical": -3.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 2517,
+"slot": 2,
+"vs": 6675,
+"typical": -10.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3814,
+"slot": 2,
+"vs": 6675,
+"typical": -6.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3814,
+"slot": 2,
+"vs": 6675,
+"typical": -6.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3091,
+"slot": 2,
+"vs": 6675,
+"typical": -5.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 3091,
+"slot": 2,
+"vs": 6675,
+"typical": -5.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 2512,
+"slot": 2,
+"vs": 6675,
+"typical": -6.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 2512,
+"slot": 2,
+"vs": 6675,
+"typical": -6.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 6699,
+"slot": 2,
+"vs": 6675,
+"typical": -7.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sivir",
+"item": 6699,
+"slot": 2,
+"vs": 6675,
+"typical": -7.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 6333,
+"slot": 3,
+"vs": 3135,
+"typical": -1.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 4646,
+"slot": 2,
+"vs": 3089,
+"typical": -2.7,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 4646,
+"slot": 3,
+"vs": 3135,
+"typical": -0.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 2517,
+"slot": 3,
+"vs": 3135,
+"typical": -3.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 3085,
+"slot": 2,
+"vs": 3089,
+"typical": -0.4,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 3085,
+"slot": 2,
+"vs": 3089,
+"typical": -0.4,
+"stat": "mr",
+"dir": ">=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 3085,
+"slot": 3,
+"vs": 3135,
+"typical": -0.3,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 3085,
+"slot": 3,
+"vs": 3135,
+"typical": -0.3,
+"stat": "mr",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 3085,
+"slot": 3,
+"vs": 3135,
+"typical": -0.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 3085,
+"slot": 3,
+"vs": 3135,
+"typical": -0.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 4633,
+"slot": 3,
+"vs": 3135,
+"typical": -0.3,
+"stat": "mr",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gnar",
+"item": 4633,
+"slot": 3,
+"vs": 3135,
+"typical": -0.3,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -2.7,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -0.3,
+"stat": "mr",
+"dir": ">=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -0.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 3157,
+"slot": 3,
+"vs": 6655,
+"typical": -13.0,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 3157,
+"slot": 3,
+"vs": 6655,
+"typical": -13.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 3004,
+"slot": 2,
+"vs": 4645,
+"typical": -2.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 3004,
+"slot": 3,
+"vs": 6655,
+"typical": -3.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 6653,
+"slot": 3,
+"vs": 6655,
+"typical": -10.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 3102,
+"slot": 3,
+"vs": 6655,
+"typical": -13.0,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 3102,
+"slot": 3,
+"vs": 6655,
+"typical": -13.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 3165,
+"slot": 3,
+"vs": 6655,
+"typical": -5.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 6695,
+"slot": 3,
+"vs": 6655,
+"typical": -0.3,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 6695,
+"slot": 3,
+"vs": 6655,
+"typical": -0.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 6695,
+"slot": 3,
+"vs": 6655,
+"typical": -0.3,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 3003,
+"slot": 3,
+"vs": 6655,
+"typical": -5.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kaisa",
+"item": 4629,
+"slot": 3,
+"vs": 6655,
+"typical": -5.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -10.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 6655,
+"slot": 3,
+"vs": 3135,
+"typical": -9.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -11.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 2503,
+"slot": 3,
+"vs": 3135,
+"typical": -8.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 2503,
+"slot": 3,
+"vs": 3135,
+"typical": -8.1,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -14.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3118,
+"slot": 3,
+"vs": 3135,
+"typical": -12.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 4646,
+"slot": 3,
+"vs": 3135,
+"typical": -2.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -8.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 4628,
+"slot": 3,
+"vs": 3135,
+"typical": -2.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 4628,
+"slot": 3,
+"vs": 3135,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -9.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3137,
+"slot": 3,
+"vs": 3135,
+"typical": -3.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3137,
+"slot": 3,
+"vs": 3135,
+"typical": -3.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3115,
+"slot": 2,
+"vs": 4645,
+"typical": -1.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3115,
+"slot": 2,
+"vs": 4645,
+"typical": -1.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3100,
+"slot": 3,
+"vs": 3135,
+"typical": -0.6,
+"stat": "mr",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3100,
+"slot": 3,
+"vs": 3135,
+"typical": -0.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3100,
+"slot": 3,
+"vs": 3135,
+"typical": -0.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3003,
+"slot": 2,
+"vs": 4645,
+"typical": -13.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Velkoz",
+"item": 3003,
+"slot": 3,
+"vs": 3135,
+"typical": -11.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Camille",
+"item": 2517,
+"slot": 3,
+"vs": 6333,
+"typical": -3.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Camille",
+"item": 2517,
+"slot": 3,
+"vs": 6333,
+"typical": -3.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Camille",
+"item": 3161,
+"slot": 3,
+"vs": 6333,
+"typical": -6.3,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Camille",
+"item": 3036,
+"slot": 2,
+"vs": 3078,
+"typical": -12.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Camille",
+"item": 6676,
+"slot": 2,
+"vs": 3078,
+"typical": -11.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Camille",
+"item": 3033,
+"slot": 2,
+"vs": 3078,
+"typical": -13.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Camille",
+"item": 3031,
+"slot": 2,
+"vs": 3078,
+"typical": -5.5,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Taliyah",
+"item": 2503,
+"slot": 3,
+"vs": 3135,
+"typical": -1.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Taliyah",
+"item": 2503,
+"slot": 3,
+"vs": 3135,
+"typical": -1.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Taliyah",
+"item": 6655,
+"slot": 3,
+"vs": 3135,
+"typical": -6.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Taliyah",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -4.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Taliyah",
+"item": 4646,
+"slot": 3,
+"vs": 3135,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Taliyah",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -14.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Taliyah",
+"item": 6657,
+"slot": 3,
+"vs": 3135,
+"typical": -22.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Akshan",
+"item": 6696,
+"slot": 2,
+"vs": 3036,
+"typical": -1.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Akshan",
+"item": 6696,
+"slot": 3,
+"vs": 6676,
+"typical": -0.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Akshan",
+"item": 6696,
+"slot": 3,
+"vs": 6676,
+"typical": -0.1,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Warwick",
+"item": 4645,
+"slot": 3,
+"vs": 6333,
+"typical": -3.3,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Warwick",
+"item": 4645,
+"slot": 3,
+"vs": 6333,
+"typical": -3.3,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Warwick",
+"item": 2517,
+"slot": 2,
+"vs": 3153,
+"typical": -13.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Warwick",
+"item": 3074,
+"slot": 2,
+"vs": 3153,
+"typical": -13.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Warwick",
+"item": 3302,
+"slot": 2,
+"vs": 3153,
+"typical": -1.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Warwick",
+"item": 3124,
+"slot": 2,
+"vs": 3153,
+"typical": -0.1,
+"stat": "hp",
+"dir": "<=",
+"at": 1200,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Warwick",
+"item": 3124,
+"slot": 2,
+"vs": 3153,
+"typical": -0.1,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Warwick",
+"item": 3146,
+"slot": 2,
+"vs": 3153,
+"typical": -12.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Warwick",
+"item": 4646,
+"slot": 2,
+"vs": 3153,
+"typical": -23.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Warwick",
+"item": 4646,
+"slot": 3,
+"vs": 6333,
+"typical": -6.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Olaf",
+"item": 2517,
+"slot": 2,
+"vs": 6333,
+"typical": -4.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Teemo",
+"item": 6653,
+"slot": 2,
+"vs": 3118,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Teemo",
+"item": 3100,
+"slot": 3,
+"vs": 4645,
+"typical": -4.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Teemo",
+"item": 4646,
+"slot": 3,
+"vs": 4645,
+"typical": -5.0,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Teemo",
+"item": 4629,
+"slot": 2,
+"vs": 3118,
+"typical": -2.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Teemo",
+"item": 3146,
+"slot": 3,
+"vs": 4645,
+"typical": -7.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nunu",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -8.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nunu",
+"item": 6655,
+"slot": 3,
+"vs": 4646,
+"typical": -8.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nunu",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -3.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Belveth",
+"item": 3031,
+"slot": 3,
+"vs": 6672,
+"typical": -18.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Belveth",
+"item": 3036,
+"slot": 3,
+"vs": 6672,
+"typical": -22.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Belveth",
+"item": 6676,
+"slot": 3,
+"vs": 6672,
+"typical": -23.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Belveth",
+"item": 3072,
+"slot": 3,
+"vs": 6672,
+"typical": -24.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Belveth",
+"item": 3033,
+"slot": 3,
+"vs": 6672,
+"typical": -23.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Belveth",
+"item": 6695,
+"slot": 3,
+"vs": 6672,
+"typical": -26.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kindred",
+"item": 2523,
+"slot": 3,
+"vs": 3153,
+"typical": -5.3,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kindred",
+"item": 3087,
+"slot": 3,
+"vs": 3153,
+"typical": -5.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jhin",
+"item": 3033,
+"slot": 2,
+"vs": 6676,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jhin",
+"item": 3814,
+"slot": 2,
+"vs": 6676,
+"typical": -4.0,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jhin",
+"item": 6695,
+"slot": 2,
+"vs": 6676,
+"typical": -3.1,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jhin",
+"item": 3032,
+"slot": 2,
+"vs": 6676,
+"typical": -0.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jhin",
+"item": 3142,
+"slot": 2,
+"vs": 6676,
+"typical": -0.6,
+"stat": "hp",
+"dir": "<=",
+"at": 1200,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jhin",
+"item": 3142,
+"slot": 2,
+"vs": 6676,
+"typical": -0.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jhin",
+"item": 3139,
+"slot": 3,
+"vs": 3094,
+"typical": -0.1,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jhin",
+"item": 3139,
+"slot": 3,
+"vs": 3094,
+"typical": -0.1,
+"stat": "armor",
+"dir": ">=",
+"at": 80,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jhin",
+"item": 3139,
+"slot": 3,
+"vs": 3094,
+"typical": -0.1,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jhin",
+"item": 6694,
+"slot": 2,
+"vs": 6676,
+"typical": -1.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zeri",
+"item": 3072,
+"slot": 3,
+"vs": 3085,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zeri",
+"item": 4646,
+"slot": 3,
+"vs": 3085,
+"typical": -21.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ashe",
+"item": 3089,
+"slot": 3,
+"vs": 4628,
+"typical": -4.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ashe",
+"item": 4645,
+"slot": 3,
+"vs": 4628,
+"typical": -0.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ashe",
+"item": 2503,
+"slot": 3,
+"vs": 4628,
+"typical": -4.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ashe",
+"item": 4646,
+"slot": 3,
+"vs": 4628,
+"typical": -0.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ashe",
+"item": 6653,
+"slot": 3,
+"vs": 4628,
+"typical": -2.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ashe",
+"item": 6655,
+"slot": 3,
+"vs": 4628,
+"typical": -5.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ashe",
+"item": 3135,
+"slot": 3,
+"vs": 4628,
+"typical": -4.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jinx",
+"item": 6696,
+"slot": 3,
+"vs": 3036,
+"typical": -9.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jinx",
+"item": 6694,
+"slot": 3,
+"vs": 3036,
+"typical": -7.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jinx",
+"item": 3508,
+"slot": 3,
+"vs": 3036,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jinx",
+"item": 3139,
+"slot": 2,
+"vs": 3085,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Briar",
+"item": 3153,
+"slot": 2,
+"vs": 6676,
+"typical": -0.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Briar",
+"item": 6695,
+"slot": 2,
+"vs": 6676,
+"typical": -3.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MissFortune",
+"item": 4628,
+"slot": 2,
+"vs": 3089,
+"typical": -1.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MissFortune",
+"item": 3137,
+"slot": 3,
+"vs": 4645,
+"typical": -5.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MissFortune",
+"item": 6655,
+"slot": 3,
+"vs": 4645,
+"typical": -4.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MissFortune",
+"item": 4629,
+"slot": 3,
+"vs": 4645,
+"typical": -7.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MissFortune",
+"item": 3003,
+"slot": 3,
+"vs": 4645,
+"typical": -7.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MissFortune",
+"item": 2510,
+"slot": 2,
+"vs": 3089,
+"typical": -6.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MissFortune",
+"item": 2510,
+"slot": 3,
+"vs": 4645,
+"typical": -1.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MissFortune",
+"item": 4633,
+"slot": 3,
+"vs": 4645,
+"typical": -2.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MissFortune",
+"item": 3004,
+"slot": 3,
+"vs": 4645,
+"typical": -7.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "MissFortune",
+"item": 6675,
+"slot": 2,
+"vs": 3089,
+"typical": -1.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Viego",
+"item": 3153,
+"slot": 2,
+"vs": 3036,
+"typical": -2.6,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Tryndamere",
+"item": 6696,
+"slot": 2,
+"vs": 3153,
+"typical": -1.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 3087,
+"slot": 3,
+"vs": 3153,
+"typical": -3.2,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 3036,
+"slot": 2,
+"vs": 6676,
+"typical": -0.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 3033,
+"slot": 2,
+"vs": 6676,
+"typical": -2.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 2523,
+"slot": 3,
+"vs": 3153,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 3072,
+"slot": 3,
+"vs": 3153,
+"typical": -5.7,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 3071,
+"slot": 3,
+"vs": 3153,
+"typical": -1.8,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 6695,
+"slot": 2,
+"vs": 6676,
+"typical": -2.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 6695,
+"slot": 3,
+"vs": 3153,
+"typical": -4.3,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 3508,
+"slot": 3,
+"vs": 3153,
+"typical": -1.0,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 3508,
+"slot": 3,
+"vs": 3153,
+"typical": -1.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 3508,
+"slot": 3,
+"vs": 3153,
+"typical": -1.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 6696,
+"slot": 3,
+"vs": 3153,
+"typical": -0.2,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 6696,
+"slot": 3,
+"vs": 3153,
+"typical": -0.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 6696,
+"slot": 3,
+"vs": 3153,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 3814,
+"slot": 2,
+"vs": 6676,
+"typical": -4.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 3814,
+"slot": 3,
+"vs": 3153,
+"typical": -5.8,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 2517,
+"slot": 3,
+"vs": 3153,
+"typical": -9.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Senna",
+"item": 6694,
+"slot": 2,
+"vs": 6676,
+"typical": -0.9,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -4.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -7.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 6655,
+"slot": 3,
+"vs": 2510,
+"typical": -0.1,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 2,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 6655,
+"slot": 3,
+"vs": 2510,
+"typical": -0.1,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 2,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 6655,
+"slot": 3,
+"vs": 2510,
+"typical": -0.1,
+"stat": "mr",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 2,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 6655,
+"slot": 3,
+"vs": 2510,
+"typical": -0.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 6655,
+"slot": 3,
+"vs": 2510,
+"typical": -0.1,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 3157,
+"slot": 3,
+"vs": 2510,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 3152,
+"slot": 3,
+"vs": 2510,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -12.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 3118,
+"slot": 3,
+"vs": 2510,
+"typical": -3.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 3102,
+"slot": 3,
+"vs": 2510,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 4633,
+"slot": 3,
+"vs": 2510,
+"typical": -0.5,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 4633,
+"slot": 3,
+"vs": 2510,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -7.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 2503,
+"slot": 3,
+"vs": 2510,
+"typical": -1.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 2503,
+"slot": 3,
+"vs": 2510,
+"typical": -1.2,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 6653,
+"slot": 3,
+"vs": 2510,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 3031,
+"slot": 2,
+"vs": 4645,
+"typical": -8.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 4629,
+"slot": 3,
+"vs": 2510,
+"typical": -6.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 3087,
+"slot": 2,
+"vs": 4645,
+"typical": -7.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 3003,
+"slot": 2,
+"vs": 4645,
+"typical": -14.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ekko",
+"item": 3004,
+"slot": 2,
+"vs": 4645,
+"typical": -21.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 3153,
+"slot": 3,
+"vs": 6676,
+"typical": -0.8,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 6695,
+"slot": 2,
+"vs": 3036,
+"typical": -3.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 6695,
+"slot": 3,
+"vs": 6676,
+"typical": -4.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 3046,
+"slot": 3,
+"vs": 6676,
+"typical": -1.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 6694,
+"slot": 2,
+"vs": 3036,
+"typical": -3.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 6694,
+"slot": 3,
+"vs": 6676,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 3142,
+"slot": 2,
+"vs": 3036,
+"typical": -1.5,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 3142,
+"slot": 3,
+"vs": 6676,
+"typical": -1.7,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 3087,
+"slot": 2,
+"vs": 3036,
+"typical": -1.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 3087,
+"slot": 2,
+"vs": 3036,
+"typical": -1.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 3087,
+"slot": 3,
+"vs": 6676,
+"typical": -2.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lucian",
+"item": 4646,
+"slot": 2,
+"vs": 3036,
+"typical": -20.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 2510,
+"slot": 2,
+"vs": 6333,
+"typical": -3.1,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3146,
+"slot": 3,
+"vs": 3078,
+"typical": -13.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3091,
+"slot": 3,
+"vs": 3078,
+"typical": -3.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 4633,
+"slot": 2,
+"vs": 6333,
+"typical": -6.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3089,
+"slot": 2,
+"vs": 6333,
+"typical": -6.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 4645,
+"slot": 2,
+"vs": 6333,
+"typical": -3.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3115,
+"slot": 3,
+"vs": 3078,
+"typical": -4.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3302,
+"slot": 3,
+"vs": 3078,
+"typical": -5.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3087,
+"slot": 3,
+"vs": 3078,
+"typical": -3.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3124,
+"slot": 3,
+"vs": 3078,
+"typical": -3.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3135,
+"slot": 2,
+"vs": 6333,
+"typical": -8.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 6675,
+"slot": 3,
+"vs": 3078,
+"typical": -2.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3100,
+"slot": 2,
+"vs": 6333,
+"typical": -0.3,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3100,
+"slot": 2,
+"vs": 6333,
+"typical": -0.3,
+"stat": "hp",
+"dir": "<=",
+"at": 1200,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 3100,
+"slot": 2,
+"vs": 6333,
+"typical": -0.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 6676,
+"slot": 3,
+"vs": 3078,
+"typical": -0.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 4646,
+"slot": 2,
+"vs": 6333,
+"typical": -7.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Jax",
+"item": 4646,
+"slot": 3,
+"vs": 3078,
+"typical": -17.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 3165,
+"slot": 2,
+"vs": 6653,
+"typical": -8.6,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 6655,
+"slot": 2,
+"vs": 6653,
+"typical": -1.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 6655,
+"slot": 2,
+"vs": 6653,
+"typical": -1.8,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 8010,
+"slot": 2,
+"vs": 6653,
+"typical": -10.1,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 3118,
+"slot": 2,
+"vs": 6653,
+"typical": -6.1,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 4633,
+"slot": 2,
+"vs": 6653,
+"typical": -1.4,
+"stat": "hp",
+"dir": "<=",
+"at": 1200,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 4633,
+"slot": 2,
+"vs": 6653,
+"typical": -1.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 4633,
+"slot": 2,
+"vs": 6653,
+"typical": -1.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 3003,
+"slot": 2,
+"vs": 6653,
+"typical": -4.0,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 3003,
+"slot": 2,
+"vs": 6653,
+"typical": -4.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 4629,
+"slot": 2,
+"vs": 6653,
+"typical": -3.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 4629,
+"slot": 2,
+"vs": 6653,
+"typical": -3.5,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 2510,
+"slot": 2,
+"vs": 6653,
+"typical": -1.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Morgana",
+"item": 2510,
+"slot": 2,
+"vs": 6653,
+"typical": -1.6,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Singed",
+"item": 4629,
+"slot": 2,
+"vs": 6653,
+"typical": -5.5,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Singed",
+"item": 3152,
+"slot": 2,
+"vs": 6653,
+"typical": -4.3,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 4629,
+"slot": 2,
+"vs": 4645,
+"typical": -15.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 4629,
+"slot": 2,
+"vs": 4645,
+"typical": -15.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 4629,
+"slot": 3,
+"vs": 6655,
+"typical": -9.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -5.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -5.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -13.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -13.3,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3118,
+"slot": 3,
+"vs": 6655,
+"typical": -7.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -0.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -9.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -9.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3137,
+"slot": 3,
+"vs": 6655,
+"typical": -0.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3137,
+"slot": 3,
+"vs": 6655,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -6.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -6.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 4628,
+"slot": 3,
+"vs": 6655,
+"typical": -0.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 4628,
+"slot": 3,
+"vs": 6655,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 6653,
+"slot": 3,
+"vs": 6655,
+"typical": -0.8,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": 48.8,
+"z": 1.0,
+"n": 17,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 6653,
+"slot": 3,
+"vs": 6655,
+"typical": -0.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3165,
+"slot": 3,
+"vs": 6655,
+"typical": -9.1,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3003,
+"slot": 2,
+"vs": 4645,
+"typical": -15.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3003,
+"slot": 2,
+"vs": 4645,
+"typical": -15.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3003,
+"slot": 3,
+"vs": 6655,
+"typical": -9.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3004,
+"slot": 2,
+"vs": 4645,
+"typical": -10.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3004,
+"slot": 2,
+"vs": 4645,
+"typical": -10.6,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zilean",
+"item": 3004,
+"slot": 3,
+"vs": 6655,
+"typical": -6.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Anivia",
+"item": 2503,
+"slot": 2,
+"vs": 3089,
+"typical": -5.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Anivia",
+"item": 3157,
+"slot": 3,
+"vs": 3118,
+"typical": -2.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Anivia",
+"item": 3135,
+"slot": 2,
+"vs": 3089,
+"typical": -0.1,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Anivia",
+"item": 3135,
+"slot": 2,
+"vs": 3089,
+"typical": -0.1,
+"stat": "mr",
+"dir": ">=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Anivia",
+"item": 3135,
+"slot": 2,
+"vs": 3089,
+"typical": -0.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Anivia",
+"item": 3137,
+"slot": 2,
+"vs": 3089,
+"typical": -2.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Anivia",
+"item": 3137,
+"slot": 2,
+"vs": 3089,
+"typical": -2.1,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Anivia",
+"item": 4633,
+"slot": 2,
+"vs": 3089,
+"typical": -5.7,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Samira",
+"item": 6695,
+"slot": 2,
+"vs": 3036,
+"typical": -2.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Samira",
+"item": 6695,
+"slot": 3,
+"vs": 6676,
+"typical": -4.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Twitch",
+"item": 6676,
+"slot": 3,
+"vs": 3153,
+"typical": -0.3,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": -116.0,
+"z": 2.9,
+"n": 18,
+"verdict": "agrees"
+}
+},
+{
+"champ": "Kassadin",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -4.6,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kassadin",
+"item": 3003,
+"slot": 2,
+"vs": 4645,
+"typical": -4.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kassadin",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -3.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 4645,
+"slot": 2,
+"vs": 3036,
+"typical": -19.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 4645,
+"slot": 3,
+"vs": 6676,
+"typical": -22.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 3089,
+"slot": 2,
+"vs": 3036,
+"typical": -23.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 3135,
+"slot": 2,
+"vs": 3036,
+"typical": -23.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 6655,
+"slot": 2,
+"vs": 3036,
+"typical": -20.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 3142,
+"slot": 2,
+"vs": 3036,
+"typical": -4.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 3142,
+"slot": 3,
+"vs": 6676,
+"typical": -5.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 6695,
+"slot": 2,
+"vs": 3036,
+"typical": -6.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 4646,
+"slot": 2,
+"vs": 3036,
+"typical": -21.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 4646,
+"slot": 3,
+"vs": 6676,
+"typical": -24.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 3115,
+"slot": 2,
+"vs": 3036,
+"typical": -1.7,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 3100,
+"slot": 2,
+"vs": 3036,
+"typical": -20.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 6698,
+"slot": 2,
+"vs": 3036,
+"typical": -3.9,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 6696,
+"slot": 2,
+"vs": 3036,
+"typical": -2.7,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 3179,
+"slot": 2,
+"vs": 3036,
+"typical": -0.8,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 3072,
+"slot": 2,
+"vs": 3036,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 4628,
+"slot": 2,
+"vs": 3036,
+"typical": -19.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 6673,
+"slot": 2,
+"vs": 3036,
+"typical": -1.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 6675,
+"slot": 2,
+"vs": 3036,
+"typical": -3.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Shaco",
+"item": 6675,
+"slot": 3,
+"vs": 6676,
+"typical": -3.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 2517,
+"slot": 2,
+"vs": 3153,
+"typical": -7.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 2517,
+"slot": 3,
+"vs": 6333,
+"typical": -1.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 2517,
+"slot": 3,
+"vs": 6333,
+"typical": -1.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3074,
+"slot": 2,
+"vs": 3153,
+"typical": -3.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3161,
+"slot": 2,
+"vs": 3153,
+"typical": -13.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3161,
+"slot": 3,
+"vs": 6333,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 4645,
+"slot": 2,
+"vs": 3153,
+"typical": -17.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 4645,
+"slot": 3,
+"vs": 6333,
+"typical": -8.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3089,
+"slot": 2,
+"vs": 3153,
+"typical": -20.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3089,
+"slot": 3,
+"vs": 6333,
+"typical": -13.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3118,
+"slot": 2,
+"vs": 3153,
+"typical": -23.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3118,
+"slot": 3,
+"vs": 6333,
+"typical": -14.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3036,
+"slot": 2,
+"vs": 3153,
+"typical": -2.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3033,
+"slot": 2,
+"vs": 3153,
+"typical": -4.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 6695,
+"slot": 2,
+"vs": 3153,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 4646,
+"slot": 2,
+"vs": 3153,
+"typical": -19.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 4646,
+"slot": 3,
+"vs": 6333,
+"typical": -12.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3135,
+"slot": 2,
+"vs": 3153,
+"typical": -21.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Irelia",
+"item": 3135,
+"slot": 3,
+"vs": 6333,
+"typical": -12.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kalista",
+"item": 3087,
+"slot": 2,
+"vs": 3124,
+"typical": -2.2,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kalista",
+"item": 3031,
+"slot": 3,
+"vs": 3153,
+"typical": -0.3,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 4,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kalista",
+"item": 3031,
+"slot": 3,
+"vs": 3153,
+"typical": -0.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kalista",
+"item": 3031,
+"slot": 3,
+"vs": 3153,
+"typical": -0.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kalista",
+"item": 3036,
+"slot": 2,
+"vs": 3124,
+"typical": -1.6,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kalista",
+"item": 3046,
+"slot": 2,
+"vs": 3124,
+"typical": -10.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -2.7,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 4646,
+"slot": 3,
+"vs": 6655,
+"typical": -0.2,
+"stat": "mr",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 6,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 4646,
+"slot": 3,
+"vs": 6655,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -2.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 4628,
+"slot": 3,
+"vs": 6655,
+"typical": -4.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 3137,
+"slot": 3,
+"vs": 6655,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 3003,
+"slot": 3,
+"vs": 6655,
+"typical": -1.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 3302,
+"slot": 3,
+"vs": 6655,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 4629,
+"slot": 3,
+"vs": 6655,
+"typical": -14.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 2510,
+"slot": 3,
+"vs": 6655,
+"typical": -5.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 6676,
+"slot": 2,
+"vs": 4645,
+"typical": -0.4,
+"stat": "armor",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 6676,
+"slot": 2,
+"vs": 4645,
+"typical": -0.4,
+"stat": "mr",
+"dir": ">=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 6676,
+"slot": 2,
+"vs": 4645,
+"typical": -0.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 6676,
+"slot": 3,
+"vs": 6655,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 3036,
+"slot": 2,
+"vs": 4645,
+"typical": -5.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "TwistedFate",
+"item": 6695,
+"slot": 2,
+"vs": 4645,
+"typical": -5.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 3072,
+"slot": 3,
+"vs": 6676,
+"typical": -4.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 6695,
+"slot": 2,
+"vs": 3036,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 2523,
+"slot": 2,
+"vs": 3036,
+"typical": -0.2,
+"stat": "armor",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 2523,
+"slot": 2,
+"vs": 3036,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 3004,
+"slot": 2,
+"vs": 3036,
+"typical": -0.1,
+"stat": "armor",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": 0.7,
+"z": -0.3,
+"n": 19,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 3004,
+"slot": 2,
+"vs": 3036,
+"typical": -0.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 3814,
+"slot": 2,
+"vs": 3036,
+"typical": -4.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 6673,
+"slot": 2,
+"vs": 3036,
+"typical": -0.2,
+"stat": "armor",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 6673,
+"slot": 2,
+"vs": 3036,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 3087,
+"slot": 3,
+"vs": 6676,
+"typical": -0.1,
+"stat": "armor",
+"dir": ">=",
+"at": 80,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 3087,
+"slot": 3,
+"vs": 6676,
+"typical": -0.1,
+"stat": "mr",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 3087,
+"slot": 3,
+"vs": 6676,
+"typical": -0.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Corki",
+"item": 3087,
+"slot": 3,
+"vs": 6676,
+"typical": -0.1,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gangplank",
+"item": 4646,
+"slot": 2,
+"vs": 3036,
+"typical": -25.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gangplank",
+"item": 6699,
+"slot": 2,
+"vs": 3036,
+"typical": -6.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gangplank",
+"item": 3142,
+"slot": 2,
+"vs": 3036,
+"typical": -2.7,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gangplank",
+"item": 6694,
+"slot": 2,
+"vs": 3036,
+"typical": -3.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gangplank",
+"item": 6675,
+"slot": 2,
+"vs": 3036,
+"typical": -0.6,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Bard",
+"item": 4646,
+"slot": 3,
+"vs": 3089,
+"typical": -6.8,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -13.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -8.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -5.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -5.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -1.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -1.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -6.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 2503,
+"slot": 3,
+"vs": 4646,
+"typical": -5.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 2503,
+"slot": 3,
+"vs": 4646,
+"typical": -5.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -3.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -3.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 4628,
+"slot": 3,
+"vs": 4646,
+"typical": -0.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 4628,
+"slot": 3,
+"vs": 4646,
+"typical": -0.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 4629,
+"slot": 3,
+"vs": 4646,
+"typical": -9.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 3003,
+"slot": 2,
+"vs": 4645,
+"typical": -13.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Karma",
+"item": 3003,
+"slot": 3,
+"vs": 4646,
+"typical": -10.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -16.6,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -5.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -11.2,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 3137,
+"slot": 3,
+"vs": 6655,
+"typical": -0.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 4633,
+"slot": 3,
+"vs": 6655,
+"typical": -6.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 3115,
+"slot": 2,
+"vs": 4645,
+"typical": -0.2,
+"stat": "hp",
+"dir": "<=",
+"at": 1200,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 3115,
+"slot": 2,
+"vs": 4645,
+"typical": -0.2,
+"stat": "mr",
+"dir": ">=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 3115,
+"slot": 2,
+"vs": 4645,
+"typical": -0.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 3115,
+"slot": 2,
+"vs": 4645,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 4629,
+"slot": 3,
+"vs": 6655,
+"typical": -13.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -3.3,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 3004,
+"slot": 2,
+"vs": 4645,
+"typical": -9.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -11.3,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 4628,
+"slot": 3,
+"vs": 6655,
+"typical": -4.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Veigar",
+"item": 3146,
+"slot": 3,
+"vs": 6655,
+"typical": -6.5,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "XinZhao",
+"item": 3089,
+"slot": 3,
+"vs": 3087,
+"typical": -15.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "XinZhao",
+"item": 6692,
+"slot": 3,
+"vs": 3087,
+"typical": -0.5,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 2,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "XinZhao",
+"item": 6692,
+"slot": 3,
+"vs": 3087,
+"typical": -0.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "XinZhao",
+"item": 6692,
+"slot": 3,
+"vs": 3087,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "XinZhao",
+"item": 6676,
+"slot": 3,
+"vs": 3087,
+"typical": -0.8,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "XinZhao",
+"item": 3146,
+"slot": 3,
+"vs": 3087,
+"typical": -7.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "XinZhao",
+"item": 3033,
+"slot": 3,
+"vs": 3087,
+"typical": -1.0,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Swain",
+"item": 6653,
+"slot": 2,
+"vs": 4633,
+"typical": -2.1,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": 48.8,
+"z": 1.0,
+"n": 17,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Trundle",
+"item": 4646,
+"slot": 3,
+"vs": 6653,
+"typical": -8.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 3153,
+"slot": 3,
+"vs": 6675,
+"typical": -0.2,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 3153,
+"slot": 3,
+"vs": 6675,
+"typical": -0.2,
+"stat": "armor",
+"dir": ">=",
+"at": 80,
+"archive": {
+"diff": null,
+"z": null,
+"n": 5,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 3153,
+"slot": 3,
+"vs": 6675,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 3072,
+"slot": 3,
+"vs": 6675,
+"typical": -6.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 3085,
+"slot": 3,
+"vs": 6675,
+"typical": -6.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 6695,
+"slot": 3,
+"vs": 6675,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 3087,
+"slot": 3,
+"vs": 6675,
+"typical": -3.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 2523,
+"slot": 3,
+"vs": 6675,
+"typical": -1.7,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 2517,
+"slot": 3,
+"vs": 6675,
+"typical": -11.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 3156,
+"slot": 2,
+"vs": 3036,
+"typical": -12.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 3156,
+"slot": 3,
+"vs": 6675,
+"typical": -11.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Xayah",
+"item": 3302,
+"slot": 3,
+"vs": 6675,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Neeko",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -12.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Neeko",
+"item": 6655,
+"slot": 3,
+"vs": 4646,
+"typical": -8.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Neeko",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -12.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Neeko",
+"item": 2503,
+"slot": 3,
+"vs": 4646,
+"typical": -8.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Neeko",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -1.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Neeko",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -1.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Aphelios",
+"item": 3095,
+"slot": 3,
+"vs": 3036,
+"typical": -0.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Caitlyn",
+"item": 6696,
+"slot": 2,
+"vs": 3036,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Caitlyn",
+"item": 6696,
+"slot": 3,
+"vs": 6676,
+"typical": -0.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Caitlyn",
+"item": 6694,
+"slot": 2,
+"vs": 3036,
+"typical": -8.0,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Caitlyn",
+"item": 6694,
+"slot": 3,
+"vs": 6676,
+"typical": -5.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Caitlyn",
+"item": 3142,
+"slot": 2,
+"vs": 3036,
+"typical": -3.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Caitlyn",
+"item": 3142,
+"slot": 3,
+"vs": 6676,
+"typical": -3.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Caitlyn",
+"item": 3508,
+"slot": 2,
+"vs": 3036,
+"typical": -1.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sylas",
+"item": 4633,
+"slot": 2,
+"vs": 3100,
+"typical": -2.6,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sylas",
+"item": 6657,
+"slot": 2,
+"vs": 3100,
+"typical": -17.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sylas",
+"item": 4646,
+"slot": 3,
+"vs": 4645,
+"typical": -5.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sylas",
+"item": 4629,
+"slot": 2,
+"vs": 3100,
+"typical": -1.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sylas",
+"item": 6655,
+"slot": 2,
+"vs": 3100,
+"typical": -5.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sylas",
+"item": 6675,
+"slot": 2,
+"vs": 3100,
+"typical": -0.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sylas",
+"item": 3004,
+"slot": 2,
+"vs": 3100,
+"typical": -11.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Sylas",
+"item": 3118,
+"slot": 2,
+"vs": 3100,
+"typical": -6.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Blitzcrank",
+"item": 3118,
+"slot": 3,
+"vs": 4646,
+"typical": -1.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Blitzcrank",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -14.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Blitzcrank",
+"item": 3003,
+"slot": 3,
+"vs": 4646,
+"typical": -0.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 3118,
+"slot": 3,
+"vs": 4646,
+"typical": -8.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 6655,
+"slot": 3,
+"vs": 4646,
+"typical": -4.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -9.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -0.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -2.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 6696,
+"slot": 2,
+"vs": 4645,
+"typical": -2.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 6696,
+"slot": 3,
+"vs": 4646,
+"typical": -3.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 2503,
+"slot": 3,
+"vs": 4646,
+"typical": -1.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 2503,
+"slot": 3,
+"vs": 4646,
+"typical": -1.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 4629,
+"slot": 2,
+"vs": 4645,
+"typical": -15.7,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 4629,
+"slot": 3,
+"vs": 4646,
+"typical": -9.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -6.7,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 4628,
+"slot": 3,
+"vs": 4646,
+"typical": -0.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 4628,
+"slot": 3,
+"vs": 4646,
+"typical": -0.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 2510,
+"slot": 3,
+"vs": 4646,
+"typical": -3.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -2.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 3003,
+"slot": 3,
+"vs": 4646,
+"typical": -5.6,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malphite",
+"item": 3003,
+"slot": 3,
+"vs": 4646,
+"typical": -5.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Elise",
+"item": 6655,
+"slot": 3,
+"vs": 4646,
+"typical": -10.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Elise",
+"item": 6653,
+"slot": 2,
+"vs": 4645,
+"typical": -0.3,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": 48.8,
+"z": 1.0,
+"n": 17,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Elise",
+"item": 6653,
+"slot": 2,
+"vs": 4645,
+"typical": -0.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Elise",
+"item": 2503,
+"slot": 3,
+"vs": 4646,
+"typical": -3.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Elise",
+"item": 2503,
+"slot": 3,
+"vs": 4646,
+"typical": -3.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Elise",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -5.0,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Elise",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -5.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Elise",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -3.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -1.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 6655,
+"slot": 3,
+"vs": 3135,
+"typical": -6.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -5.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 4646,
+"slot": 3,
+"vs": 3135,
+"typical": -3.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -2.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 3118,
+"slot": 3,
+"vs": 3135,
+"typical": -7.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 2503,
+"slot": 3,
+"vs": 3135,
+"typical": -3.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -11.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 3137,
+"slot": 3,
+"vs": 3135,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -20.0,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -4.5,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 3003,
+"slot": 2,
+"vs": 4645,
+"typical": -4.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Orianna",
+"item": 3003,
+"slot": 3,
+"vs": 3135,
+"typical": -8.0,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 6333,
+"slot": 2,
+"vs": 3302,
+"typical": -8.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3146,
+"slot": 3,
+"vs": 6672,
+"typical": -19.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 4645,
+"slot": 3,
+"vs": 6672,
+"typical": -19.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 2517,
+"slot": 2,
+"vs": 3302,
+"typical": -6.5,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3089,
+"slot": 2,
+"vs": 3302,
+"typical": -3.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3089,
+"slot": 3,
+"vs": 6672,
+"typical": -22.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3115,
+"slot": 3,
+"vs": 6672,
+"typical": -12.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 4646,
+"slot": 2,
+"vs": 3302,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 4646,
+"slot": 3,
+"vs": 6672,
+"typical": -22.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3087,
+"slot": 3,
+"vs": 6672,
+"typical": -13.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3100,
+"slot": 2,
+"vs": 3302,
+"typical": -7.2,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3100,
+"slot": 3,
+"vs": 6672,
+"typical": -24.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3124,
+"slot": 3,
+"vs": 6672,
+"typical": -9.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 6695,
+"slot": 2,
+"vs": 3302,
+"typical": -4.0,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3074,
+"slot": 2,
+"vs": 3302,
+"typical": -7.1,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3135,
+"slot": 2,
+"vs": 3302,
+"typical": -5.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3135,
+"slot": 3,
+"vs": 6672,
+"typical": -21.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3157,
+"slot": 2,
+"vs": 3302,
+"typical": -11.2,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3157,
+"slot": 3,
+"vs": 6672,
+"typical": -27.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3031,
+"slot": 3,
+"vs": 6672,
+"typical": -8.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 6676,
+"slot": 3,
+"vs": 6672,
+"typical": -14.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3032,
+"slot": 3,
+"vs": 6672,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 4633,
+"slot": 2,
+"vs": 3302,
+"typical": -9.3,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 4633,
+"slot": 3,
+"vs": 6672,
+"typical": -22.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3036,
+"slot": 2,
+"vs": 3302,
+"typical": -0.7,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3036,
+"slot": 3,
+"vs": 6672,
+"typical": -13.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 2510,
+"slot": 2,
+"vs": 3302,
+"typical": -9.0,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 2510,
+"slot": 3,
+"vs": 6672,
+"typical": -21.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3814,
+"slot": 2,
+"vs": 3302,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3102,
+"slot": 2,
+"vs": 3302,
+"typical": -11.2,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Katarina",
+"item": 3102,
+"slot": 3,
+"vs": 6672,
+"typical": -27.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Cassiopeia",
+"item": 3135,
+"slot": 3,
+"vs": 3089,
+"typical": -0.1,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Cassiopeia",
+"item": 3135,
+"slot": 3,
+"vs": 3089,
+"typical": -0.1,
+"stat": "armor",
+"dir": ">=",
+"at": 80,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Cassiopeia",
+"item": 3135,
+"slot": 3,
+"vs": 3089,
+"typical": -0.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Cassiopeia",
+"item": 3135,
+"slot": 3,
+"vs": 3089,
+"typical": -0.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Brand",
+"item": 6676,
+"slot": 2,
+"vs": 6653,
+"typical": -1.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vayne",
+"item": 3031,
+"slot": 3,
+"vs": 3124,
+"typical": -7.5,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vayne",
+"item": 6676,
+"slot": 3,
+"vs": 3124,
+"typical": -12.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vayne",
+"item": 3036,
+"slot": 3,
+"vs": 3124,
+"typical": -9.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vayne",
+"item": 3046,
+"slot": 3,
+"vs": 3124,
+"typical": -8.8,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vayne",
+"item": 3508,
+"slot": 3,
+"vs": 3124,
+"typical": -0.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vayne",
+"item": 3033,
+"slot": 3,
+"vs": 3124,
+"typical": -10.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vayne",
+"item": 3078,
+"slot": 3,
+"vs": 3124,
+"typical": -9.5,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rumble",
+"item": 8010,
+"slot": 3,
+"vs": 6653,
+"typical": -0.7,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rumble",
+"item": 8010,
+"slot": 3,
+"vs": 6653,
+"typical": -0.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rumble",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -4.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rumble",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -4.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rumble",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -4.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rumble",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -1.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rumble",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -1.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rumble",
+"item": 3152,
+"slot": 3,
+"vs": 6653,
+"typical": -0.7,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rumble",
+"item": 3152,
+"slot": 3,
+"vs": 6653,
+"typical": -0.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Rumble",
+"item": 3152,
+"slot": 3,
+"vs": 6653,
+"typical": -0.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vex",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -4.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vex",
+"item": 6653,
+"slot": 3,
+"vs": 6655,
+"typical": -8.2,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vex",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -2.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vex",
+"item": 3137,
+"slot": 3,
+"vs": 6655,
+"typical": -2.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vex",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -12.0,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Leblanc",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -8.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Leblanc",
+"item": 3118,
+"slot": 3,
+"vs": 6655,
+"typical": -1.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Leblanc",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -8.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Leblanc",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -8.3,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Leblanc",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -1.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Leblanc",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -2.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Leblanc",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -2.5,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Leblanc",
+"item": 3146,
+"slot": 3,
+"vs": 6655,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Heimerdinger",
+"item": 3118,
+"slot": 3,
+"vs": 6653,
+"typical": -1.0,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Heimerdinger",
+"item": 4646,
+"slot": 3,
+"vs": 6653,
+"typical": -0.2,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Heimerdinger",
+"item": 4646,
+"slot": 3,
+"vs": 6653,
+"typical": -0.2,
+"stat": "mr",
+"dir": "<=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 6,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Heimerdinger",
+"item": 4646,
+"slot": 3,
+"vs": 6653,
+"typical": -0.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nidalee",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -4.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nidalee",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -1.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nidalee",
+"item": 3031,
+"slot": 2,
+"vs": 4645,
+"typical": -1.5,
+"stat": "mr",
+"dir": ">=",
+"at": 50,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nidalee",
+"item": 3031,
+"slot": 2,
+"vs": 4645,
+"typical": -1.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nasus",
+"item": 3165,
+"slot": 2,
+"vs": 3089,
+"typical": -1.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nasus",
+"item": 3165,
+"slot": 2,
+"vs": 3089,
+"typical": -1.2,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nasus",
+"item": 6655,
+"slot": 3,
+"vs": 4645,
+"typical": -4.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nasus",
+"item": 8010,
+"slot": 2,
+"vs": 3089,
+"typical": -1.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nasus",
+"item": 8010,
+"slot": 2,
+"vs": 3089,
+"typical": -1.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nasus",
+"item": 3137,
+"slot": 3,
+"vs": 4645,
+"typical": -1.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nasus",
+"item": 3137,
+"slot": 3,
+"vs": 4645,
+"typical": -1.9,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nasus",
+"item": 4646,
+"slot": 3,
+"vs": 4645,
+"typical": -3.1,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -8.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -8.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -3.9,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 6676,
+"slot": 2,
+"vs": 4645,
+"typical": -2.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 3036,
+"slot": 2,
+"vs": 4645,
+"typical": -5.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 2510,
+"slot": 2,
+"vs": 4645,
+"typical": -8.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 3157,
+"slot": 3,
+"vs": 6653,
+"typical": -0.2,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 3,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 3153,
+"slot": 2,
+"vs": 4645,
+"typical": -2.3,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 3153,
+"slot": 2,
+"vs": 4645,
+"typical": -2.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 6699,
+"slot": 2,
+"vs": 4645,
+"typical": -8.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 6699,
+"slot": 2,
+"vs": 4645,
+"typical": -8.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 6333,
+"slot": 2,
+"vs": 4645,
+"typical": -10.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 4633,
+"slot": 2,
+"vs": 4645,
+"typical": -10.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 2517,
+"slot": 2,
+"vs": 4645,
+"typical": -9.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 6695,
+"slot": 2,
+"vs": 4645,
+"typical": -7.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 3033,
+"slot": 2,
+"vs": 4645,
+"typical": -6.3,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 3072,
+"slot": 2,
+"vs": 4645,
+"typical": -5.0,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -10.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Udyr",
+"item": 3102,
+"slot": 3,
+"vs": 6653,
+"typical": -0.2,
+"stat": "hp",
+"dir": "<=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Yone",
+"item": 2517,
+"slot": 3,
+"vs": 6333,
+"typical": -2.4,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Yone",
+"item": 6675,
+"slot": 3,
+"vs": 6333,
+"typical": -0.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Yone",
+"item": 6675,
+"slot": 3,
+"vs": 6333,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -11.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -4.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -4.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -15.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -8.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 4633,
+"slot": 2,
+"vs": 4645,
+"typical": -12.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 4633,
+"slot": 3,
+"vs": 4646,
+"typical": -5.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 4629,
+"slot": 2,
+"vs": 4645,
+"typical": -15.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 4629,
+"slot": 3,
+"vs": 4646,
+"typical": -7.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -10.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -10.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 2503,
+"slot": 3,
+"vs": 4646,
+"typical": -5.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 2503,
+"slot": 3,
+"vs": 4646,
+"typical": -5.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -5.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 2510,
+"slot": 2,
+"vs": 4645,
+"typical": -10.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gragas",
+"item": 2510,
+"slot": 3,
+"vs": 4646,
+"typical": -4.1,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 3135,
+"slot": 2,
+"vs": 4633,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 3135,
+"slot": 3,
+"vs": 4629,
+"typical": -1.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 3135,
+"slot": 3,
+"vs": 4629,
+"typical": -1.1,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 6653,
+"slot": 3,
+"vs": 4629,
+"typical": -9.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 4646,
+"slot": 2,
+"vs": 4633,
+"typical": -3.4,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 4646,
+"slot": 3,
+"vs": 4629,
+"typical": -2.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 4646,
+"slot": 3,
+"vs": 4629,
+"typical": -2.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 3152,
+"slot": 2,
+"vs": 4633,
+"typical": -8.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 3152,
+"slot": 3,
+"vs": 4629,
+"typical": -9.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 6655,
+"slot": 2,
+"vs": 4633,
+"typical": -5.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Vladimir",
+"item": 6655,
+"slot": 3,
+"vs": 4629,
+"typical": -7.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -7.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 6655,
+"slot": 3,
+"vs": 3135,
+"typical": -6.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -3.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 2503,
+"slot": 2,
+"vs": 4645,
+"typical": -3.6,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 2503,
+"slot": 3,
+"vs": 3135,
+"typical": -2.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 2503,
+"slot": 3,
+"vs": 3135,
+"typical": -2.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -1.2,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -6.5,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 3137,
+"slot": 3,
+"vs": 3135,
+"typical": -1.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 3137,
+"slot": 3,
+"vs": 3135,
+"typical": -1.7,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -3.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -15.9,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 3003,
+"slot": 2,
+"vs": 4645,
+"typical": -8.2,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 4633,
+"slot": 3,
+"vs": 3135,
+"typical": -9.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mel",
+"item": 2510,
+"slot": 2,
+"vs": 4645,
+"typical": -3.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Locke",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -3.1,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Locke",
+"item": 4646,
+"slot": 3,
+"vs": 3089,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Locke",
+"item": 6655,
+"slot": 2,
+"vs": 4645,
+"typical": -3.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Locke",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -9.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Locke",
+"item": 3146,
+"slot": 3,
+"vs": 3089,
+"typical": -4.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Locke",
+"item": 3031,
+"slot": 3,
+"vs": 3089,
+"typical": -1.0,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Yunara",
+"item": 3153,
+"slot": 3,
+"vs": 3036,
+"typical": -0.9,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Yunara",
+"item": 3072,
+"slot": 2,
+"vs": 3085,
+"typical": -0.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Yunara",
+"item": 3072,
+"slot": 2,
+"vs": 3085,
+"typical": -0.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Yunara",
+"item": 6695,
+"slot": 2,
+"vs": 3085,
+"typical": -2.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Yunara",
+"item": 3146,
+"slot": 2,
+"vs": 3085,
+"typical": -4.5,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Yunara",
+"item": 3156,
+"slot": 2,
+"vs": 3085,
+"typical": -3.6,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mordekaiser",
+"item": 6653,
+"slot": 2,
+"vs": 4633,
+"typical": -11.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mordekaiser",
+"item": 3157,
+"slot": 2,
+"vs": 4633,
+"typical": -6.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Mordekaiser",
+"item": 3152,
+"slot": 2,
+"vs": 4633,
+"typical": -9.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Kennen",
+"item": 3153,
+"slot": 3,
+"vs": 4646,
+"typical": -3.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Akali",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -5.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Akali",
+"item": 3100,
+"slot": 3,
+"vs": 4646,
+"typical": -0.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Akali",
+"item": 4633,
+"slot": 3,
+"vs": 4646,
+"typical": -9.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Akali",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -10.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Akali",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -2.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Akali",
+"item": 2510,
+"slot": 3,
+"vs": 4646,
+"typical": -9.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Garen",
+"item": 3161,
+"slot": 2,
+"vs": 3046,
+"typical": -1.8,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gwen",
+"item": 3089,
+"slot": 2,
+"vs": 3115,
+"typical": -14.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gwen",
+"item": 3135,
+"slot": 2,
+"vs": 3115,
+"typical": -16.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gwen",
+"item": 3146,
+"slot": 2,
+"vs": 3115,
+"typical": -10.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gwen",
+"item": 3146,
+"slot": 3,
+"vs": 4645,
+"typical": -3.4,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Gwen",
+"item": 3100,
+"slot": 2,
+"vs": 3115,
+"typical": -16.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lillia",
+"item": 3157,
+"slot": 3,
+"vs": 4633,
+"typical": -2.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lillia",
+"item": 3102,
+"slot": 3,
+"vs": 4633,
+"typical": -2.4,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 6694,
+"slot": 3,
+"vs": 4645,
+"typical": -0.3,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 6694,
+"slot": 3,
+"vs": 4645,
+"typical": -0.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 3033,
+"slot": 3,
+"vs": 4645,
+"typical": -0.7,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 4646,
+"slot": 3,
+"vs": 4645,
+"typical": -4.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 3137,
+"slot": 3,
+"vs": 4645,
+"typical": -4.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 2510,
+"slot": 3,
+"vs": 4645,
+"typical": -4.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 3003,
+"slot": 2,
+"vs": 3118,
+"typical": -1.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 3003,
+"slot": 2,
+"vs": 3118,
+"typical": -1.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 6695,
+"slot": 3,
+"vs": 4645,
+"typical": -2.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 2503,
+"slot": 3,
+"vs": 4645,
+"typical": -4.3,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 3157,
+"slot": 2,
+"vs": 3118,
+"typical": -2.3,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 3156,
+"slot": 3,
+"vs": 4645,
+"typical": -3.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 3156,
+"slot": 3,
+"vs": 4645,
+"typical": -3.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 2523,
+"slot": 3,
+"vs": 4645,
+"typical": -1.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 6699,
+"slot": 3,
+"vs": 4645,
+"typical": -3.6,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 3074,
+"slot": 3,
+"vs": 4645,
+"typical": -2.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 3074,
+"slot": 3,
+"vs": 4645,
+"typical": -2.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 4629,
+"slot": 2,
+"vs": 3118,
+"typical": -1.9,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 4629,
+"slot": 2,
+"vs": 3118,
+"typical": -1.9,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Ezreal",
+"item": 3102,
+"slot": 2,
+"vs": 3118,
+"typical": -2.3,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nilah",
+"item": 3153,
+"slot": 2,
+"vs": 3036,
+"typical": -3.7,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nilah",
+"item": 3153,
+"slot": 3,
+"vs": 6676,
+"typical": -0.1,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nilah",
+"item": 3153,
+"slot": 3,
+"vs": 6676,
+"typical": -0.1,
+"stat": "armor",
+"dir": ">=",
+"at": 80,
+"archive": {
+"diff": null,
+"z": null,
+"n": 5,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Nilah",
+"item": 3153,
+"slot": 3,
+"vs": 6676,
+"typical": -0.1,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Aurora",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -2.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Aurora",
+"item": 3137,
+"slot": 3,
+"vs": 4646,
+"typical": -2.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Aurora",
+"item": 2510,
+"slot": 3,
+"vs": 4646,
+"typical": -6.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Aurora",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -2.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Aurora",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -2.0,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Zaahen",
+"item": 3161,
+"slot": 2,
+"vs": 6333,
+"typical": -5.1,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fiddlesticks",
+"item": 3157,
+"slot": 2,
+"vs": 3118,
+"typical": -5.3,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fiddlesticks",
+"item": 3152,
+"slot": 2,
+"vs": 3118,
+"typical": -4.0,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Fiddlesticks",
+"item": 3102,
+"slot": 2,
+"vs": 3118,
+"typical": -5.3,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malzahar",
+"item": 3118,
+"slot": 2,
+"vs": 6653,
+"typical": -1.6,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malzahar",
+"item": 6657,
+"slot": 3,
+"vs": 3116,
+"typical": -2.5,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Malzahar",
+"item": 3003,
+"slot": 2,
+"vs": 6653,
+"typical": -1.6,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 3135,
+"slot": 3,
+"vs": 2503,
+"typical": -3.8,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 1,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 3135,
+"slot": 3,
+"vs": 2503,
+"typical": -3.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 6655,
+"slot": 3,
+"vs": 2503,
+"typical": -5.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 3137,
+"slot": 3,
+"vs": 2503,
+"typical": -9.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 3157,
+"slot": 3,
+"vs": 2503,
+"typical": -14.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -4.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 4646,
+"slot": 3,
+"vs": 2503,
+"typical": -6.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -15.0,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 3102,
+"slot": 3,
+"vs": 2503,
+"typical": -14.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 4628,
+"slot": 3,
+"vs": 2503,
+"typical": -9.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 3100,
+"slot": 3,
+"vs": 2503,
+"typical": -2.6,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Hwei",
+"item": 3100,
+"slot": 3,
+"vs": 2503,
+"typical": -2.6,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 3118,
+"slot": 2,
+"vs": 4645,
+"typical": -3.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 3118,
+"slot": 3,
+"vs": 6655,
+"typical": -4.3,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 4646,
+"slot": 2,
+"vs": 4645,
+"typical": -4.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 4646,
+"slot": 3,
+"vs": 6655,
+"typical": -3.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 3135,
+"slot": 3,
+"vs": 6655,
+"typical": -1.1,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 3135,
+"slot": 3,
+"vs": 6655,
+"typical": -1.1,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 4628,
+"slot": 2,
+"vs": 4645,
+"typical": -8.7,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 3137,
+"slot": 2,
+"vs": 4645,
+"typical": -10.1,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 3137,
+"slot": 3,
+"vs": 6655,
+"typical": -0.8,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 3100,
+"slot": 2,
+"vs": 4645,
+"typical": -4.2,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 6657,
+"slot": 2,
+"vs": 4645,
+"typical": -14.8,
+"stat": "fight",
+"dir": ">=",
+"at": 30,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 4629,
+"slot": 2,
+"vs": 4645,
+"typical": -17.6,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Lux",
+"item": 4629,
+"slot": 3,
+"vs": 6655,
+"typical": -8.3,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Smolder",
+"item": 3153,
+"slot": 2,
+"vs": 3036,
+"typical": -1.5,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": 18.5,
+"z": 0.3,
+"n": 43,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Smolder",
+"item": 6695,
+"slot": 2,
+"vs": 3036,
+"typical": -3.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Smolder",
+"item": 6695,
+"slot": 3,
+"vs": 3508,
+"typical": -12.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Smolder",
+"item": 6696,
+"slot": 3,
+"vs": 3508,
+"typical": -3.0,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Smolder",
+"item": 6694,
+"slot": 3,
+"vs": 3508,
+"typical": -8.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Smolder",
+"item": 3071,
+"slot": 2,
+"vs": 3036,
+"typical": -0.3,
+"stat": "hp",
+"dir": ">=",
+"at": 1800,
+"archive": {
+"diff": null,
+"z": null,
+"n": 2,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Smolder",
+"item": 3095,
+"slot": 3,
+"vs": 3508,
+"typical": -0.5,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Smolder",
+"item": 3095,
+"slot": 3,
+"vs": 3508,
+"typical": -0.5,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "Smolder",
+"item": 3146,
+"slot": 2,
+"vs": 3036,
+"typical": -13.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3085,
+"slot": 3,
+"vs": 3302,
+"typical": -4.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 4645,
+"slot": 2,
+"vs": 3153,
+"typical": -8.6,
+"stat": "fight",
+"dir": "<=",
+"at": 10,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 4645,
+"slot": 3,
+"vs": 3302,
+"typical": -4.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3089,
+"slot": 2,
+"vs": 3153,
+"typical": -13.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3089,
+"slot": 3,
+"vs": 3302,
+"typical": -10.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 6653,
+"slot": 2,
+"vs": 3153,
+"typical": -21.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 6653,
+"slot": 3,
+"vs": 3302,
+"typical": -16.7,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3091,
+"slot": 3,
+"vs": 3302,
+"typical": -0.4,
+"stat": "hp",
+"dir": ">=",
+"at": 2400,
+"archive": {
+"diff": null,
+"z": null,
+"n": 6,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3091,
+"slot": 3,
+"vs": 3302,
+"typical": -0.4,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 2503,
+"slot": 3,
+"vs": 3302,
+"typical": -3.2,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 2503,
+"slot": 3,
+"vs": 3302,
+"typical": -3.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 6655,
+"slot": 3,
+"vs": 3302,
+"typical": -4.1,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 2510,
+"slot": 2,
+"vs": 3153,
+"typical": -16.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 2510,
+"slot": 3,
+"vs": 3302,
+"typical": -11.6,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3135,
+"slot": 2,
+"vs": 3153,
+"typical": -13.2,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3135,
+"slot": 3,
+"vs": 3302,
+"typical": -8.5,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 6675,
+"slot": 3,
+"vs": 3302,
+"typical": -7.5,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3087,
+"slot": 2,
+"vs": 3153,
+"typical": -0.1,
+"stat": "hp",
+"dir": "<=",
+"at": 1200,
+"archive": {
+"diff": null,
+"z": null,
+"n": 3,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3087,
+"slot": 2,
+"vs": 3153,
+"typical": -0.1,
+"stat": "fight",
+"dir": "<=",
+"at": 14,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 6676,
+"slot": 2,
+"vs": 3153,
+"typical": -5.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3157,
+"slot": 2,
+"vs": 3153,
+"typical": -20.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 4628,
+"slot": 2,
+"vs": 3153,
+"typical": -15.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 4628,
+"slot": 3,
+"vs": 3302,
+"typical": -10.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3072,
+"slot": 2,
+"vs": 3153,
+"typical": -8.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 4646,
+"slot": 2,
+"vs": 3153,
+"typical": -12.3,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 4646,
+"slot": 3,
+"vs": 3302,
+"typical": -9.8,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3137,
+"slot": 2,
+"vs": 3153,
+"typical": -18.6,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3137,
+"slot": 3,
+"vs": 3302,
+"typical": -12.4,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3146,
+"slot": 2,
+"vs": 3153,
+"typical": -8.8,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3146,
+"slot": 3,
+"vs": 3302,
+"typical": -7.8,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3046,
+"slot": 2,
+"vs": 3153,
+"typical": -5.9,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3046,
+"slot": 3,
+"vs": 3302,
+"typical": -0.8,
+"stat": "fight",
+"dir": ">=",
+"at": 22,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3046,
+"slot": 3,
+"vs": 3302,
+"typical": -0.8,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3102,
+"slot": 2,
+"vs": 3153,
+"typical": -20.3,
+"stat": "fight",
+"dir": "<=",
+"at": 4,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3100,
+"slot": 2,
+"vs": 3153,
+"typical": -15.0,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+},
+{
+"champ": "KogMaw",
+"item": 3100,
+"slot": 3,
+"vs": 3302,
+"typical": -9.9,
+"stat": "fight",
+"dir": "<=",
+"at": 7,
+"archive": {
+"diff": null,
+"z": null,
+"n": 0,
+"verdict": "can't tell"
+}
+}
+],
+"archive": {
+"2503:mr:>=": [
+null,
+null,
+2
+],
+"3046:armor:<=": [
+null,
+null,
+0
+],
+"3118:mr:>=": [
+null,
+null,
+0
+],
+"2517:hp:>=": [
+null,
+null,
+3
+],
+"3157:hp:<=": [
+null,
+null,
+3
+],
+"3102:hp:<=": [
+null,
+null,
+0
+],
+"6676:hp:<=": [
+-116.0,
+2.9,
+18
+],
+"3087:hp:<=": [
+null,
+null,
+3
+],
+"2523:hp:<=": [
+null,
+null,
+0
+],
+"3153:hp:>=": [
+18.5,
+0.3,
+43
+],
+"3153:armor:<=": [
+null,
+null,
+0
+],
+"3153:armor:>=": [
+null,
+null,
+5
+],
+"3100:mr:>=": [
+null,
+null,
+1
+],
+"3085:hp:>=": [
+null,
+null,
+0
+],
+"3085:mr:>=": [
+null,
+null,
+0
+],
+"3085:mr:<=": [
+null,
+null,
+0
+],
+"4633:mr:<=": [
+null,
+null,
+1
+],
+"3137:mr:>=": [
+null,
+null,
+0
+],
+"3157:hp:>=": [
+null,
+null,
+1
+],
+"3102:hp:>=": [
+null,
+null,
+0
+],
+"6695:hp:>=": [
+null,
+null,
+1
+],
+"3100:mr:<=": [
+null,
+null,
+0
+],
+"4645:hp:>=": [
+null,
+null,
+0
+],
+"3124:hp:<=": [
+null,
+null,
+0
+],
+"3142:hp:<=": [
+null,
+null,
+0
+],
+"3139:hp:>=": [
+null,
+null,
+0
+],
+"3139:armor:>=": [
+null,
+null,
+0
+],
+"3508:hp:<=": [
+null,
+null,
+0
+],
+"6696:hp:<=": [
+null,
+null,
+0
+],
+"6655:hp:>=": [
+null,
+null,
+2
+],
+"6655:hp:<=": [
+null,
+null,
+2
+],
+"6655:mr:<=": [
+null,
+null,
+2
+],
+"4633:hp:>=": [
+null,
+null,
+1
+],
+"3100:hp:>=": [
+null,
+null,
+0
+],
+"3100:hp:<=": [
+null,
+null,
+0
+],
+"4633:hp:<=": [
+null,
+null,
+0
+],
+"6653:hp:>=": [
+48.8,
+1.0,
+17
+],
+"3135:hp:>=": [
+null,
+null,
+1
+],
+"3135:mr:>=": [
+null,
+null,
+0
+],
+"3031:hp:<=": [
+null,
+null,
+4
+],
+"4646:mr:<=": [
+null,
+null,
+6
+],
+"6676:armor:<=": [
+null,
+null,
+1
+],
+"6676:mr:>=": [
+null,
+null,
+1
+],
+"2523:armor:<=": [
+null,
+null,
+0
+],
+"3004:armor:<=": [
+0.7,
+-0.3,
+19
+],
+"6673:armor:<=": [
+null,
+null,
+0
+],
+"3087:armor:>=": [
+null,
+null,
+0
+],
+"3087:mr:<=": [
+null,
+null,
+0
+],
+"3115:hp:<=": [
+null,
+null,
+0
+],
+"3115:mr:>=": [
+null,
+null,
+0
+],
+"6692:hp:>=": [
+null,
+null,
+2
+],
+"3137:hp:>=": [
+null,
+null,
+0
+],
+"3135:armor:>=": [
+null,
+null,
+0
+],
+"3152:hp:<=": [
+null,
+null,
+0
+],
+"3118:hp:<=": [
+null,
+null,
+1
+],
+"4646:hp:<=": [
+null,
+null,
+0
+],
+"3031:mr:>=": [
+null,
+null,
+0
+],
+"3071:hp:>=": [
+null,
+null,
+2
+],
+"3091:hp:>=": [
+null,
+null,
+6
+]
+}
+}
