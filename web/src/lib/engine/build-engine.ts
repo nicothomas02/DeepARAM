@@ -1800,7 +1800,10 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // later, archive and AramHex cores) wait until you've finished two legendaries, unless an augment rule timed them
   // (Nico 2026-11-27, Shaco's Void Staff 2nd). The site card uses the same order (first-buys.ts).
   // Pen or shred 2nd (penSecond): vs a high-resist team past the champion's simulated breakpoint (estimated, Nico 2026-11-27).
-  const penNow = RULES.penSecond.on && finished < 2 ? penSecond(game, next.map((it) => ownedId(itemId(it.icon)))) : null;
+  // only a pen item the path shows (core + later slots), not one past the six items Next's full order holds
+  // (archive replay 2026-11-28: Heimerdinger's Void Staff was moved in Next but never reached the path)
+  const pathIds0 = new Set([...build.slice(0, coreLen), ...(slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6))].map((it) => ownedId(itemId(it.icon))));
+  const penNow = RULES.penSecond.on && finished < 2 ? penSecond(game, next.map((it) => ownedId(itemId(it.icon))).filter((i) => pathIds0.has(i))) : null;
   if (RULES.lateBuys.on && finished < 2 && next.some((it) => LATE_BUYS.has(ownedId(itemId(it.icon))))) {
     const moved = lateBuyOrder(next, (it) => ownedId(itemId(it.icon)), (it) => bootIds.has(itemId(it.icon)), 2 - finished, (it) => timing.some((t) => t.item === it) || ownedId(itemId(it.icon)) === penNow?.id);
     if (moved.some((it, i) => it !== next[i])) { next = moved; applied("lateBuys"); }
@@ -1997,6 +2000,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     }
   }
 
+  // the rule only counts when the moved pen item is in the path the player sees
+  if (penWhy && !path.some((it) => ownedId(itemId(it.icon)) === penNow?.id)) { used.delete("penSecond"); penWhy = ""; }
   // Swaps go into the path itself (swapsInPath, Nico 2026-11-28), so Next and the parts to buy follow them: the item
   // it clashes or substitutes with drops out (or the last open one), and the swap takes the legendary slot its buyers
   // usually buy it in (median, data/estimates/item_slots.json), the items between shifting one place: a direct

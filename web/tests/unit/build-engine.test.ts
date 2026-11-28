@@ -535,7 +535,13 @@ describe("build engine", () => {
       const at = (enemies: typeof tanks, items: number[] = []) => plan({ champ: c, kinds: k, picks: p0, fit: null, game: { champ: c.id, items, enemies, level: 9 }, taken: [] });
       const legs = (p: ReturnType<typeof at>) => p.path.map((x) => ownedId(itemId(x.icon))).filter((i) => !k.boots.includes(i));
       const base = at(squishy);
-      const pen = legs(base).find((i) => [3135, 3137, 8010, 3036, 3033, 6694, 3302, 3071].includes(i));
+      const PENS = [3135, 3137, 8010, 3036, 3033, 6694, 3302, 3071];
+      // the rule is only reported when the moved item is in the path (archive replay 2026-11-28, Heimerdinger)
+      for (const items of [[], [3802, 1052, 1001]]) {
+        const q = at(tanks, items);
+        if (q.rules.includes("penSecond")) expect(legs(q).some((i) => PENS.includes(i)), `${c.id} ${items}`).toBe(true);
+      }
+      const pen = legs(base).find((i) => PENS.includes(i));
       if (!pen || !penSecond({ champ: c.id, enemies: tanks, level: 9 }, [pen])) continue;
       // squishy team: still waits for two legendaries
       expect(legs(base).indexOf(pen)).toBeGreaterThanOrEqual(2);

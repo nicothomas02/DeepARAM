@@ -4196,7 +4196,8 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       next = [...next.filter((it) => !has(it, "as")), ...next.filter((it) => has(it, "as"))];
       applied("attackSpeedNudge");
     }
-    const penNow = RULES.penSecond.on && finished < 2 ? penSecond(game, next.map((it) => ownedId(itemId(it.icon)))) : null;
+    const pathIds0 = new Set([...build.slice(0, coreLen), ...slotRows ? slotRows.map((r) => r.it) : build.slice(coreLen, 6)].map((it) => ownedId(itemId(it.icon))));
+    const penNow = RULES.penSecond.on && finished < 2 ? penSecond(game, next.map((it) => ownedId(itemId(it.icon))).filter((i) => pathIds0.has(i))) : null;
     if (RULES.lateBuys.on && finished < 2 && next.some((it) => LATE_BUYS.has(ownedId(itemId(it.icon))))) {
       const moved = lateBuyOrder(next, (it) => ownedId(itemId(it.icon)), (it) => bootIds.has(itemId(it.icon)), 2 - finished, (it) => timing.some((t) => t.item === it) || ownedId(itemId(it.icon)) === penNow?.id);
       if (moved.some((it, i) => it !== next[i])) {
@@ -4366,6 +4367,10 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       } else if (pointers.length < 1 && !swaps.some((x) => x.label === situationLabel(it.when))) {
         pointers.push({ item: it, why: it.why, replaces: target(id, claimed), label: situationLabel(it.when) });
       }
+    }
+    if (penWhy && !path.some((it) => ownedId(itemId(it.icon)) === penNow?.id)) {
+      used.delete("penSecond");
+      penWhy = "";
     }
     const swapAt = /* @__PURE__ */ new Map();
     if (RULES.swapsInPath.on) {
