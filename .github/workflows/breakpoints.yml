@@ -10,6 +10,11 @@ on:
     workflows: ["Patch day"]
     types: [completed]
   workflow_dispatch:
+    inputs:
+      wide:
+        description: "Also run the wide item sweep (research/breakpoints/sweep.py, about 2 hours) and commit its results"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -22,7 +27,7 @@ jobs:
   rerun:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
         with:
@@ -72,6 +77,19 @@ jobs:
             echo "Nothing changed"
           else
             git commit -m "Breakpoints for the new patch (simulator rerun)"
+            git pull --rebase --autostash
+            git push
+          fi
+      - name: Wide item sweep (by hand only)
+        if: github.event_name == 'workflow_dispatch' && inputs.wide
+        run: |
+          [ -x simulator/mayhem_sim ] || make -C simulator mayhem_sim
+          python3 research/breakpoints/sweep.py --procs 4 --fresh
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/breakpoints/sweep.jsonl
+          if ! git diff --cached --quiet; then
+            git commit -m "Wide breakpoint sweep (simulator)"
             git pull --rebase --autostash
             git push
           fi

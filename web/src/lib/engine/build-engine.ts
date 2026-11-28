@@ -31,7 +31,7 @@ const BUY_SLOT = (BUY_SLOT_DATA as { items: Record<string, number> }).items;
 import coreStrictnessData from "../../data/core-strictness.json";
 
 export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
-export const ENGINE_VERSION = "1.4.14";
+export const ENGINE_VERSION = "1.4.15";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -115,7 +115,7 @@ export const RULES: Record<string, Rule> = {
   countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
   firstBuys: { source: "game data", on: true, why: "Items that grow while you hold them (item text: Heartsteel, Yun Tal, Rod of Ages, Hubris) go first while you have no legendary: each minute held earlier is more value. The archive agrees (82-93% of their buyers make each one their first legendary, item_slots.json). Nico 2026-11-27: Briar's Hubris shown 4th; find the reason, not a per-item list." },
   lateBuys: { source: "game data", on: true, why: "Items with % armor or magic penetration (item text: Void Staff, Cryptbloom, Lord Dominik's, Mortal Reminder, Serylda's, Terminus), and resist shred where the archive agrees it comes late (Bloodletter's; Nico 2026-11-28), wait until two legendaries are finished, unless an augment rule timed them: penetration multiplies damage you already deal against resist the enemy has already built. Archive: 1-10% of buyers take them 1st or 2nd, and within a slot players take them earlier when enemies have more resist (z +1.7 to +5.9) and when they have more damage (Void Staff z +3.0, Lord Dominik's +3.4). AramHex cores put them 3rd. Against an unusually tanky team, breakpoints lights them as an option. Nico 2026-11-27: Shaco's Void Staff 2nd; find the reason, not a per-item list." },
-  penSecond: { source: "assumption", on: true, why: "A pen or shred item in the path takes the legendary slot the simulator clearly favours this game (Nico 2026-11-28: not only 2nd, 1st or 3rd depending on the game). Per champion and slot (1st to 4th), the enemy resist from which it beats the core's planned item of the same damage type there (research/item-timing/pen_breakpoints.py, fixed dummy at the archive's median state per decision; a slot counts only when the item loses at that slot's typical resist, MR 36/44/54/64, armor 30/53/76/98). This game's resist at a slot = that slot's typical times how tanky the enemy is now (live resist from champions, levels and held items, over usual). Earlier than its place: the earliest slot it wins, only vs a team tankier than usual (the breakpoints cut). Later: when it loses where it is and wins at a later slot. Clear slot breakpoints (1st/2nd/3rd/4th): Void Staff 43/36/23/19, Cryptbloom 38/39/23/0, Bloodletter's 0/2/0/3, Lord Dominik's 11/9/3/2, Mortal Reminder 10/8/7/2, Serylda's 8/5/9/2, Terminus 10/8/3/2, Black Cleaver 5/5/2/1. An item that grows while held still goes first. Archive: within a slot players buy pen earlier vs more enemy resist (z +1.7 to +5.9), the same direction; they almost never buy it 1st or 2nd, so the slot itself is estimated. Nico approved 2026-11-27 (he chose it on the card)." },
+  penSecond: { source: "assumption", on: true, why: "A pen or shred item in the path takes the legendary slot the simulator clearly favours this game (Nico 2026-11-28: not only 2nd, 1st or 3rd depending on the game). Per champion and slot (1st to 6th; Nico 2026-11-28 'What about 5th and 6th?'; the planned 4th to 6th are the champion's most built other items of that damage type), the enemy resist from which it beats the core's planned item of the same damage type there (research/item-timing/pen_breakpoints.py, fixed dummy at the archive's median state per decision; a slot counts only when the item loses at that slot's typical resist, MR 36/44/54/64/73/82, armor 30/53/76/98/118/133). This game's resist at a slot = that slot's typical times how tanky the enemy is now (live resist from champions, levels and held items, over usual). Earlier than its place: the earliest slot it wins, only vs a team tankier than usual (the breakpoints cut). Later: when it loses where it is and wins at a later slot. Clear slot breakpoints (1st to 6th): Void Staff 43/36/23/19/14/4, Cryptbloom 38/39/23/6/9/2, Bloodletter's 0/2/0/3/1/1, Lord Dominik's 11/9/3/3/3/0, Mortal Reminder 10/8/7/4/4/1, Serylda's 8/5/9/5/1/0, Terminus 10/8/3/4/2/0, Black Cleaver 5/5/2/1/1/0. It never leaves the build: a pen item losing at every later slot keeps its place (the data's). An item that grows while held still goes first. Archive: within a slot players buy pen earlier vs more enemy resist (z +1.7 to +5.9), the same direction; they almost never buy it 1st or 2nd, so the slot itself is estimated. Nico approved 2026-11-27 (he chose it on the card)." },
   boughtFirst: { source: "game data", on: true, why: "The path shows what you bought first, in inventory order, then the rest in Next's order, so an item bought early shows where you bought it (Nico 2026-11-27)." },
   stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
   attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
@@ -1288,10 +1288,10 @@ const PEN_DATA = penBreakpointData as unknown as { typical: { mr: number[]; armo
 const PEN_BP = PEN_DATA.champions;
 /** Which enemy resist each penetration or shred item answers (pen-breakpoints.json). */
 const PEN_STAT: Record<number, 1 | 2> = { 3135: 2, 3137: 2, 8010: 2, 3036: 1, 3033: 1, 6694: 1, 3302: 1, 3071: 1 };
-const ORD = ["1st", "2nd", "3rd", "4th"];
+const ORD = ["1st", "2nd", "3rd", "4th", "5th", "6th"];
 /**
  * penSecond (now any slot, Nico 2026-11-28: "it could also be 1st or 3rd depending on situation"): the legendary slot
- * a pen or shred item in `ids` should take this game, if the simulator clearly says so (estimated). `at(id)` is the
+ * a pen or shred item in `ids` should take this game (1st to 6th), if the simulator clearly says so (estimated). `at(id)` is the
  * slot it holds now (1-based, counting finished items). Per slot, the data holds the enemy resist from which the
  * item beats the core's planned item there; a slot counts only when it's a clear breakpoint (loses at that slot's
  * typical resist, wins above it). The enemy's resist at a later slot is projected from how tanky they are now (live
@@ -1315,8 +1315,8 @@ export function penSecond(game: { champ: string; enemies?: Enemy[]; level?: numb
     for (let s = from; s < d; s++)
       if (clear(s) && q >= cut && wins(s))
         return { id, slot: s, why: `Enemy ${name} about ${Math.round(got)}: it beats your planned item as your ${ORD[s - 1]} item from about ${w[s - 1]} (simulator, estimated).` };
-    if (d <= 4 && clear(d) && !wins(d))
-      for (let s = d + 1; s <= 4; s++)
+    if (d <= 6 && clear(d) && !wins(d))
+      for (let s = d + 1; s <= 6; s++)
         if (wins(s)) return { id, slot: s, why: `Enemy ${name} only about ${Math.round(got)}: your planned item does more as your ${ORD[d - 1]}; this wins as your ${ORD[s - 1]} (simulator, estimated).` };
   }
   return null;
@@ -1838,7 +1838,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const slotNow = (id: number) => { const k = next.findIndex((it) => ownedId(itemId(it.icon)) === id); return finished + 1 + next.slice(0, Math.max(0, k)).filter(isLeg).length; };
   // an item that grows while held goes first (firstBuys, stackingFirst): then the earliest pen slot is the 2nd
   const lead = !finished && next.some((it) => FIRST_BUYS.has(ownedId(itemId(it.icon))) || STACKING.has(itemId(it.icon)));
-  const penNow = RULES.penSecond.on && finished < 4 && !timing.length ? penSecond(game, next.map((it) => ownedId(itemId(it.icon))).filter((i) => pathIds0.has(i)), finished, slotNow, finished + 1 + (lead ? 1 : 0)) : null;
+  const penNow = RULES.penSecond.on && finished < 6 && !timing.length ? penSecond(game, next.map((it) => ownedId(itemId(it.icon))).filter((i) => pathIds0.has(i)), finished, slotNow, finished + 1 + (lead ? 1 : 0)) : null;
   if (penNow) {
     const pen = next.find((it) => ownedId(itemId(it.icon)) === penNow.id)!;
     const moved = placeAfter(next, pen, penNow.slot - 1 - finished, isLeg);

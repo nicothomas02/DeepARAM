@@ -17,7 +17,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 SIM = os.path.join(ROOT, "simulator", "mayhem_sim")
 # Archive medians at each legendary decision (owner archive, all ten players, 12k player rows per slot; 2026-11-28):
 # decision for the Nth legendary -> (your level, enemy health, armor, MR)
-STATE = {1: (1, 621, 29.6, 36.4), 2: (6, 1321, 53.0, 44.0), 3: (10, 2068, 75.8, 54.0), 4: (13, 2758, 98.4, 64.0)}
+STATE = {1: (1, 621, 29.6, 36.4), 2: (6, 1321, 53.0, 44.0), 3: (10, 2068, 75.8, 54.0), 4: (13, 2758, 98.4, 64.0), 5: (16, 3331, 118.4, 73.4), 6: (17, 3725, 132.6, 81.8)}
 PEN = {3135: "mr", 3137: "mr", 8010: "mr", 3036: "armor", 3033: "armor", 6694: "armor", 3302: "armor", 3071: "armor"}  # % pen, plus resist shred (Bloodletter's, Black Cleaver; Nico 2026-11-28)
 lst = json.loads(subprocess.run([SIM, "--list", "--json"], capture_output=True, text=True, cwd=os.path.dirname(SIM)).stdout)
 KEY = {i["id"]: i["key"] for i in lst["items"] if i.get("modeled")}
@@ -43,18 +43,20 @@ def pairs():
         boots = [r["items"][0] for r in (it.get("boots") or [])[:1]]
         other = {r["items"][0]: r.get("games", 0) for r in it.get("other") or []}
         champ = names.get(int(b["id"])) if "id" in b else None
-        # the 4th decision: the core has 3 items, so the planned 4th is the champion's most built other item of the
-        # pen item's damage type (data/cn/builds 'other', by games)
-        def fourth(pen):
+        # the 4th to 6th decisions: the core has 3 items, so the planned 4th, 5th and 6th are the champion's most built
+        # other items of the pen item's damage type (data/cn/builds 'other', by games; Nico 2026-11-28: "What about
+        # 5th and 6th?")
+        def later(pen, base):
             want = AP if PEN[pen] == "mr" else AD
+            out = []
             for r in sorted(it.get("other") or [], key=lambda r: -r.get("games", 0)):
                 x = r["items"][0]
-                if x not in core and x not in PEN and x in KEY and ROLE.get(x, set()) & want and x not in boots:
-                    return [x]
-            return []
+                if x not in base and x not in out and x not in PEN and x in KEY and ROLE.get(x, set()) & want and x not in boots:
+                    out.append(x)
+            return out[:6 - len(base)]
         for pen in PEN:
             if other.get(pen, 0) < 2000 or pen in core or not core or not champ: continue
-            core = core[:3] + (fourth(pen) if len(core) == 3 else [])
+            core = core[:3] + (later(pen, core[:3]) if len(core) >= 3 else [])
             if any(i not in KEY for i in core + boots + [pen]): continue
             yield champ, pen, core, boots
 
@@ -89,11 +91,11 @@ if __name__ == "__main__":
         for line in open(part):
             try: r = json.loads(line); done[(r["champ"], r["pen"])] = r
             except ValueError: pass
-    # an earlier run's rows without the 4th decision are kept for slots 1-3 and get only slot 4 (--slot4)
-    if "--slot4" in sys.argv and os.path.exists(out):
+    # --extend: an earlier run's rows keep their slots and get only the ones they lack
+    if "--extend" in sys.argv and os.path.exists(out):
         for r in json.load(open(out))["rows"]:
             done.setdefault((r["champ"], r["pen"]), r)
-    todo = [p for p in pairs() if (p[0], p[1]) not in done or ("--slot4" in sys.argv and len(p[2]) >= 4 and "4" not in {str(k) for k in done[(p[0], p[1])].get("wins_from", {})})]
+    todo = [p for p in pairs() if (p[0], p[1]) not in done or ("--extend" in sys.argv and any(str(k) not in {str(x) for x in done[(p[0], p[1])].get("wins_from", {})} for k in range(1, len(p[2]) + 1)))]
     with open(part, "a") as fo, Pool(procs) as pool:
         for r in pool.imap_unordered(job, [p + ((done[(p[0], p[1])],) if (p[0], p[1]) in done else ()) for p in todo]):
             done[(r["champ"], r["pen"])] = r

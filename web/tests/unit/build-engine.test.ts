@@ -531,7 +531,7 @@ describe("build engine", () => {
     const tanks = ["Galio", "Malphite", "Ornn", "Sion", "Braum"].map((c) => ({ champ: c, items: [2504, 3065, 3075, 3143], level: 9 }));
     const squishy = ["Lux", "Ezreal", "Jinx", "Ahri", "Sona"].map((c) => ({ champ: c, items: [], level: 9 }));
     const PENS = [3135, 3137, 8010, 3036, 3033, 6694, 3302, 3071];
-    const ORD = ["1st", "2nd", "3rd", "4th"];
+    const ORD = ["1st", "2nd", "3rd", "4th", "5th", "6th"];
     const seen = { earlier: 0, later: 0, mr: 0, armor: 0 };
     for (const c of champs) {
       const at = (enemies: typeof tanks, items: number[] = []) => plan({ champ: c, kinds: k, picks: p0, fit: null, game: { champ: c.id, items, enemies, level: 9 }, taken: [] });
@@ -544,7 +544,7 @@ describe("build engine", () => {
         expect(i, `${c.id}`).toBeGreaterThanOrEqual(0);
         const why = p.why[i];
         // it sits in the slot its reason names
-        const named = [...why.matchAll(/(1st|2nd|3rd|4th)/g)].map((m) => m[1]).at(-1)!;
+        const named = [...why.matchAll(/(1st|2nd|3rd|4th|5th|6th)/g)].map((m) => m[1]).at(-1)!;
         expect(legs(p).indexOf(ownedId(itemId(p.path[i].icon))) + 1, `${c.id}: ${why}`).toBe(ORD.indexOf(named) + 1);
         seen[/only about/.test(why) ? "later" : "earlier"]++;
         seen[/armor/.test(why) ? "armor" : "mr"]++;
