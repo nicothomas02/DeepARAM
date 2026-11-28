@@ -28,6 +28,11 @@ on half of each champion's cells and scored on the other half added +0.017 (posi
 30+ cells). Profile clusters (k-means on damage / taken / heal / CC shares) added only +0.01, so Riot's subclasses
 stay the groups. Wins alone: 0.15.
 
+Post-game card ("what mattered", owner app): role_scores.json also carries each champion's typical player (mean and SD
+of every score stat over the other players in the archive, the owner left out; MIN_NORM+ players, else pooled over the
+champion's main subclass). what_mattered(game, participant_id) turns one finished game into the champion's score z
+and each stat's z (higher = better, deaths already flipped), biggest first.
+
 Usage: python3 data/estimates/role_scores.py /path/to/DeepARAM-PC/archive
 Standard library only. Only aggregates are written.
 """
@@ -76,8 +81,40 @@ def default_score(champ, subs):
     return DEFAULT_BY_SUBCLASS.get(s[0], "damage")
 
 
+def game_rows(g):
+    """One row per player of a League client match-history game (the archive's and the client's format), remakes
+    left out ([]): champion, augments, items and the stats the scores use. Also used for one finished game (the
+    post-game card, what_mattered)."""
+    parts = g.get("participants") or []
+    if g.get("gameDuration", 0) < 300 or any(p["stats"].get("gameEndedInEarlySurrender") for p in parts):
+        return []
+    mins = g["gameDuration"] / 60
+    team = collections.defaultdict(collections.Counter)
+    for p in parts:
+        for key in ("totalDamageDealtToChampions", "totalHeal", "timeCCingOthers", "kills", "totalDamageTaken",
+                    "damageSelfMitigated"):
+            team[p["teamId"]][key] += p["stats"].get(key, 0)
+    puuid = {i["participantId"]: (i.get("player") or {}).get("puuid") for i in g.get("participantIdentities") or []}
+    out = []
+    for p in parts:
+        s, tm = p["stats"], team[p["teamId"]]
+        share = lambda key: s.get(key, 0) / (tm[key] or 1)
+        out.append({"champ": p["championId"], "pid": p.get("participantId"), "puuid": puuid.get(p.get("participantId")),
+                    "augs": {s.get(f"playerAugment{i}") for i in range(1, 7)} - {0, None},
+                    "items": {s.get(f"item{i}") for i in range(6)} - {0, None},
+                    "win": 1 if s.get("win") else 0, "deaths": s.get("deaths", 0) / mins,
+                    "dmg_share": share("totalDamageDealtToChampions"), "heal_share": share("totalHeal"),
+                    "cc_share": share("timeCCingOthers"), "taken_share": share("totalDamageTaken"),
+                    "mitig_share": share("damageSelfMitigated"), "units_healed": s.get("totalUnitsHealed", 0),
+                    "assists": s.get("assists", 0) / mins,
+                    "kp": (s.get("kills", 0) + s.get("assists", 0)) / (tm["kills"] or 1),
+                    "kda": (s.get("kills", 0) + s.get("assists", 0)) / max(1, s.get("deaths", 0))})
+    return out
+
+
 def player_rows(archive):
-    """One row per player per game (remakes left out): champion, augments, items and the stats the scores use."""
+    """game_rows for every archived game. The owner (the one player in every game) is flagged and the account ids
+    are dropped."""
     gdir = os.path.join(archive, "games")
     out = []
     for f in sorted(os.listdir(gdir)):
@@ -85,27 +122,10 @@ def player_rows(archive):
             g = json.load(gzip.open(os.path.join(gdir, f)))
         except (OSError, ValueError):
             continue
-        parts = g.get("participants") or []
-        if g.get("gameDuration", 0) < 300 or any(p["stats"].get("gameEndedInEarlySurrender") for p in parts):
-            continue
-        mins = g["gameDuration"] / 60
-        team = collections.defaultdict(collections.Counter)
-        for p in parts:
-            for key in ("totalDamageDealtToChampions", "totalHeal", "timeCCingOthers", "kills", "totalDamageTaken",
-                        "damageSelfMitigated"):
-                team[p["teamId"]][key] += p["stats"].get(key, 0)
-        for p in parts:
-            s, tm = p["stats"], team[p["teamId"]]
-            share = lambda key: s.get(key, 0) / (tm[key] or 1)
-            out.append({"champ": p["championId"], "augs": {s.get(f"playerAugment{i}") for i in range(1, 7)} - {0, None},
-                        "items": {s.get(f"item{i}") for i in range(6)} - {0, None},
-                        "win": 1 if s.get("win") else 0, "deaths": s.get("deaths", 0) / mins,
-                        "dmg_share": share("totalDamageDealtToChampions"), "heal_share": share("totalHeal"),
-                        "cc_share": share("timeCCingOthers"), "taken_share": share("totalDamageTaken"),
-                        "mitig_share": share("damageSelfMitigated"), "units_healed": s.get("totalUnitsHealed", 0),
-                        "assists": s.get("assists", 0) / mins,
-                        "kp": (s.get("kills", 0) + s.get("assists", 0)) / (tm["kills"] or 1),
-                        "kda": (s.get("kills", 0) + s.get("assists", 0)) / max(1, s.get("deaths", 0))})
+        out.extend(game_rows(g))
+    owner = collections.Counter(r["puuid"] for r in out if r["puuid"]).most_common(1)
+    for r in out:
+        r["owner"] = bool(owner) and r.pop("puuid") == owner[0][0]
     return out
 
 
@@ -125,6 +145,61 @@ def standardise(rows):
 def score(r, name):
     spec = SCORES[name]
     return sum(sign * r[key + "_z"] for key, sign in spec) / len(spec)
+
+
+MIN_NORM = 20
+LABELS = {"win": "Win", "dmg_share": "Damage share", "heal_share": "Healing share", "units_healed": "Allies healed",
+          "assists": "Assists per minute", "kp": "Kill participation", "cc_share": "Crowd control share",
+          "deaths": "Deaths per minute", "taken_share": "Damage taken share", "mitig_share": "Damage mitigated share",
+          "kda": "KDA"}
+
+
+def norms(rows, subs):
+    """The typical player per champion: mean and SD of every score stat over the OTHER players (owner left out), with
+    MIN_NORM+ players; else the same over the champion's main subclass, marked pooled."""
+    def stats(rs_):
+        out = {}
+        for key in STATS:
+            vals = [r[key] for r in rs_]
+            m = sum(vals) / len(vals)
+            sd = math.sqrt(sum((v - m) ** 2 for v in vals) / max(1, len(vals) - 1)) or 1
+            out[key] = [round(m, 4), round(sd, 4)]
+        return out
+    by, by_sub = collections.defaultdict(list), collections.defaultdict(list)
+    for r in rows:
+        if not r.get("owner"):
+            by[r["champ"]].append(r)
+            by_sub[(subs.get(r["champ"]) or ("",))[0]].append(r)
+    champs = {str(c): {"n": len(v), "stats": stats(v)} for c, v in sorted(by.items()) if len(v) >= MIN_NORM}
+    pooled = {k: {"n": len(v), "stats": stats(v)} for k, v in sorted(by_sub.items()) if k and len(v) >= MIN_NORM}
+    return champs, pooled
+
+
+def what_mattered(game, participant_id, res=None, subs=None):
+    """The post-game card's numbers for one player of a finished game (client match-history format): their
+    champion's score vs the typical player on that champion (other players in the archive), and each stat of that
+    score as a z, biggest first. None for a remake or a champion with no norm. Win is part of the score but not
+    listed (the player knows it)."""
+    res = res if res is not None else cm.load(OUT)
+    row = next((r for r in game_rows(game) if r["pid"] == participant_id), None)
+    if row is None:
+        return None
+    champ = row["champ"]
+    subs = subs if subs is not None else subclasses()
+    name = ((res.get("champions") or {}).get(str(champ)) or {}).get("score") or default_score(champ, subs)
+    norm, pooled = (res.get("norms") or {}).get(str(champ)), None
+    if norm is None:
+        pooled = (subs.get(champ) or ("",))[0]
+        norm = (res.get("subclass_norms") or {}).get(pooled)
+    if norm is None:
+        return None
+    zs = {key: (row[key] - m) / sd for key, (m, sd) in norm["stats"].items()}
+    spec = SCORES[name]
+    stats = [{"stat": key, "label": LABELS[key], "z": round(sign * zs[key], 2), "you": round(row[key], 4),
+              "typical": norm["stats"][key][0]} for key, sign in spec if key != "win"]
+    stats.sort(key=lambda x: -abs(x["z"]))
+    return {"champion": champ, "score": name, "z": round(sum(sign * zs[key] for key, sign in spec) / len(spec), 2),
+            "players": norm["n"], "pooled": pooled, "stats": stats}
 
 
 def public_leads():
@@ -195,9 +270,10 @@ def main():
                       ("with champion switches (in sample)", lambda m: m[3][pick_of(m[0][0])])):
         v = wcorr([fn(m) for m in means], [m[2] for m in means], [m[1] for m in means])
         check[label] = round(v, 3) if v is not None else None
+    champ_norms, sub_norms = norms(rows, subs)
     res = {"scores": {k: [[s, sg] for s, sg in v] for k, v in SCORES.items()}, "defaults": DEFAULT_BY_SUBCLASS,
            "min_cells": MIN_CELLS, "margin": MARGIN, "cells": len(means), "players": len(rows), "check": check,
-           "champions": out}
+           "champions": out, "labels": LABELS, "min_norm": MIN_NORM, "norms": champ_norms, "subclass_norms": sub_norms}
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(res, f, indent=1)
         f.write("\n")
