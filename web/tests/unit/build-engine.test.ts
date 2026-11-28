@@ -319,8 +319,10 @@ describe("build engine", () => {
     expect(p.rules).toContain("ownedReplan");
     expect(ids(p.path)).toEqual(expect.arrayContaining([3003, 3089, 3135]));
     expect([3135, 4645]).toContain(ids(p.next)[0]);
-    // one off-path AP item doesn't switch (archive: doubling down after one off-type buy lowers damage share)
-    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+    // one off-path AP item as your first legendary switches too (Nico 2026-11-28: AP Zeri starting Malignance)
+    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched?.style).toBeTruthy();
+    // after a path item it doesn't (the sell tip handles a stray buy)
+    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3031, 3003] }), taken: [] }).switched).toBeNull();
   });
 
   it("an augment whose holders rush an item puts it in the core and makes it Next (augmentRush)", () => {
@@ -473,8 +475,11 @@ describe("build engine", () => {
     const ori = champs.find((x) => x.id === "Orianna")!;
     const sell = (items: number[], gold: number, taken: number[] = []) =>
       plan({ champ: ori, kinds: k, picks: p0, fit: null, game: { champ: "Orianna", items, gold, t: 30 }, taken }).tips.filter((t) => t.kind === "sell");
-    expect(sell([3020, 3031], 3000)).toEqual([expect.objectContaining({ item: 3031 })]);
-    expect(sell([3020, 3031], 0)).toHaveLength(0); // 70% of Infinity Edge alone doesn't buy the next legendary
+    // a stray Infinity Edge after a path item (as a first legendary it re-plans instead: ownedReplan, AP Zeri)
+    const first = itemId(ori.items!.find((it) => (k.recipes[itemId(it.icon)]?.[1] ?? 0) >= 2000 && !k.boots.includes(itemId(it.icon)))!.icon);
+    expect(sell([3020, first, 3031], 3000)).toEqual([expect.objectContaining({ item: 3031 })]);
+    expect(sell([3020, first, 3031], 0)).toHaveLength(0); // 70% of Infinity Edge alone doesn't buy the next legendary
+    expect(sell([3020, 3031], 3000)).toHaveLength(0);
     expect(sell([3031], 3000, [1205])).toHaveLength(0); // ADAPt turns its AD into AP
     expect(sell([3089], 3000)).toHaveLength(0); // on-type item
   }, 30_000);

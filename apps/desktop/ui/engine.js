@@ -5642,7 +5642,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
 
   // src/lib/engine/build-engine.ts
   var BUY_SLOT = item_buy_slot_default.items;
-  var ENGINE_VERSION = "1.4.17";
+  var ENGINE_VERSION = "1.4.18";
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
   var STAT_BONUS = 22e4;
   var STAT_BONUS_IDS = /* @__PURE__ */ new Set([6032]);
@@ -5687,7 +5687,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     slotFirst: { source: "game data", on: true, why: "Weapon of Destiny (when you take it), King Me (when you first enter the enemy gate) and Ornn's Masterwork (his own item at level 13; an ally's when he forges for them at levels 14-17) each upgrade the first eligible Legendary in slots 1-6 (wiki). The cue says which item to move to slot 1: for Weapon of Destiny the champion's best Weapon item (AramHex); for King Me and Ornn, estimated, the earliest item of your build path you own (+1,000 gold of stats goes on your most important item). Weapon of Destiny is only offered on the first two regular screens (archive: 136 of 136 picks outside random draws; never seen on K/DA's or Superfans' extra picks, estimated), so its cue only shows while it is on offer. Nico chose 2026-11-24." },
     hasteMath: { source: "game data", on: true, why: "Cooldowns shorten by haste / (100 + haste): a note, not advice." },
     ownedOffPath: { source: "game data", on: true, why: "A finished item you bought that isn't in the path takes the first open later slot (else the place of an unbought item it can't be owned with, else the last unbought one), so the path shows what you own and never more than six items (2026-11-27 replay: 12% of moments listed too many)." },
-    ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). Owning n finished items means the path's first n should be bought: one of those you skipped (for an item later in the path or off it) moves behind the rest, so Next moves on after the first buy that skips it (replay audit: Next stuck 8+ min with 3,500+ gold in 103 moments); boots too once bought past without starting them; two off-path items of the other damage type (one gets the sellMismatch tip: doubling down after one off-type buy lowers team damage share, archive) switch the rest of the build to the class-wide style build (AramHex, all champions) holding most of what you own, e.g. AP Zeri." },
+    ownedReplan: { source: "data", on: true, why: "Buying off the path re-plans what's left, like a build-changing augment (Nico approved 2026-11-24, replay QA: 'Next' stuck on Malignance for 19 minutes). Owning n finished items means the path's first n should be bought: one of those you skipped (for an item later in the path or off it) moves behind the rest, so Next moves on after the first buy that skips it (replay audit: Next stuck 8+ min with 3,500+ gold in 103 moments); boots too once bought past without starting them; two off-path items of the other damage type (one gets the sellMismatch tip: doubling down after one off-type buy lowers team damage share, archive) switch the rest of the build to the class-wide style build (AramHex, all champions) holding most of what you own, e.g. AP Zeri; one is enough when it outnumbers the path items you own, e.g. a first legendary (Nico 2026-11-28: AP Zeri starting Malignance; archive: 64% of off-type first legendaries are followed by another of that type)." },
     augmentRush: { source: "data", on: true, why: "An augment whose holders build one item far more and earlier (real lobbies, augment-item-shift: build z >= 3, early z >= 2, +15 pts build share, of the build's damage type unless ADAPt; 21 pairs, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's -> Zhonya's, Ultra Hydra -> a Hydra) puts it in the core and makes it Next. Nico 2026-11-24: the core should change when an augment calls for rushing an item; small augments don't churn it." },
     pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
     converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
@@ -6699,7 +6699,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       const tag = (i, t) => (k.items[String(i)] ?? []).includes(t);
       const magicOf = (ids) => ids.filter((i) => tag(i, "ap") && !tag(i, "ad")).length > ids.filter((i) => tag(i, "ad") && !tag(i, "ap")).length;
       const pathIds = [...listed].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i));
-      if (off.length >= 2 && magicOf(fin) !== magicOf(pathIds)) {
+      if (off.length >= 1 && magicOf(fin) !== magicOf(pathIds)) {
         const magic = magicOf(fin);
         const inPath2 = fin.filter((i) => listed.has(i)).length;
         let best = null;
@@ -6708,7 +6708,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
           if (!cb) continue;
           const ids = /* @__PURE__ */ new Set([...cb[0], ...cb[1]]);
           const hit = fin.filter((i) => ids.has(i)).length;
-          if (off.filter((i) => ids.has(i)).length >= 2 && hit > inPath2 && (!best || hit > best.hit)) best = { st, hit };
+          if (off.filter((i) => ids.has(i)).length >= Math.min(2, off.length) && hit > inPath2 && (!best || hit > best.hit || hit === best.hit && magic && st === "ap" && best.st !== "ap")) best = { st, hit };
         }
         if (best) forced = { style: best.st, magic, because: off.slice(0, 2).map((i) => k.recipes[i][0]).join(" + ") };
       }
