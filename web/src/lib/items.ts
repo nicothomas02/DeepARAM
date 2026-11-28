@@ -106,6 +106,9 @@ export function itemParts(id: number): number[] {
 }
 
 /** When to buy this item, from its shop text (lib/situations.ts), or null for a general item. */
+/** An item's shop text (HTML), or "" when the game data doesn't have it. */
+export const itemDescription = (id: number): string => recipeMap().get(id)?.description ?? "";
+
 export const itemSituation = (id: number): Situation | null => {
   const r = recipeMap().get(id);
   return r ? situationFor(r.description ?? "", r.categories ?? []) : null;

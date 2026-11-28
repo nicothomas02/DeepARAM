@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { situationFor } from "@/lib/situations";
+import { situationFor, woundsBy, woundsFit } from "@/lib/situations";
 import { situational } from "@/lib/card-score";
 
 describe("situationFor", () => {
@@ -28,5 +28,24 @@ describe("situational", () => {
       { situation: "a", options: [{ items: [1] }, { items: [3] }] },
       { situation: "b", options: [{ items: [2] }] },
     ]);
+  });
+});
+
+describe("woundsFit (Nico 2026-11-28: Thornmail on Nami)", () => {
+  const thorn = "<passive>Thorns</passive> When struck by an Attack, deal magic damage to the attacker and apply 40% Wounds for 3 seconds if they are a champion.";
+  const morello = "<passive>Grievous Wounds</passive> Dealing magic damage to champions applies 40% Wounds for 3 seconds.";
+  const mortal = "<passive>Grievous Wounds</passive> Dealing physical damage applies 40% Wounds to enemy champions for 3 seconds.";
+  it("reads how an item applies Wounds", () => {
+    expect([woundsBy(thorn), woundsBy(morello), woundsBy(mortal), woundsBy("75 Ability Power")]).toEqual(["struck", "magic", "physical", null]);
+  });
+  it("keeps anti-heal only where its Wounds reach enemies", () => {
+    const enchanter = { physical: false, tank: false }, tank = { physical: true, tank: true };
+    expect(woundsFit(thorn, enchanter)).toBe(false);
+    expect(woundsFit(morello, enchanter)).toBe(true);
+    expect(woundsFit(mortal, enchanter)).toBe(false);
+    expect(woundsFit(thorn, tank)).toBe(true);
+    expect(woundsFit(mortal, tank)).toBe(true);
+    expect(woundsFit(thorn, null)).toBe(true);
+    expect(woundsFit("75 Ability Power", enchanter)).toBe(true);
   });
 });

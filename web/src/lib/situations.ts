@@ -32,3 +32,24 @@ export function situationFor(description: string, categories: string[]): Situati
   if (has("Armor") && !has("SpellDamage")) return "physical";
   return null;
 }
+
+/** How an anti-heal item applies its Wounds, from its shop text: on the holder's physical or magic damage, or when the
+ *  holder is struck by an attack (Thornmail). Null when it applies none. */
+export function woundsBy(description: string): "physical" | "magic" | "struck" | null {
+  const d = description.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ");
+  if (!/\bWounds\b/.test(d)) return null;
+  if (/when struck by an? (basic )?attack/i.test(d)) return "struck";
+  if (/dealing physical damage/i.test(d)) return "physical";
+  if (/dealing magic damage/i.test(d)) return "magic";
+  return null;
+}
+
+/** Whether an anti-heal item's Wounds reach enemies for this champion (Nico 2026-11-28: Thornmail on Nami): its
+ *  physical or magic damage, or being struck by attacks for a champion that takes more of its team's damage than most.
+ *  Items without Wounds, or champions without traits, always fit. */
+export function woundsFit(description: string, traits: { physical: boolean; tank: boolean } | null): boolean {
+  const by = woundsBy(description);
+  if (!by || !traits) return true;
+  return by === "struck" ? traits.tank : by === "physical" ? traits.physical : !traits.physical;
+}
+

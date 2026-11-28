@@ -9,7 +9,8 @@ import { alongCore, bestRow, buildOrder, canLead, gamesOf, ITEM_FOLLOWING, later
 
 export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
-import type { Situation } from "./situations";
+import { woundsFit, type Situation } from "./situations";
+import { championTraits } from "./why-best";
 import { augmentSwaps, buyingOrder, restOfBuild, rushParts, startFirst, starterFits, styleCores, upgradeSwaps, type AugmentSwap } from "./build-plan";
 import { orderedCores } from "./champion-history";
 import {
@@ -18,6 +19,7 @@ import {
   itemParts,
   itemRecipe,
   itemRoles,
+  itemDescription,
   itemSituation,
   itemTier,
   ranked,
@@ -288,6 +290,7 @@ export function championPage(alias: string): ChampionPage | null {
   });
 
   const raw = readRepoJson<Builds>(`data/cn/builds/${id}.json`);
+  const traits = championTraits(id);
   const early = earlyBuilds(id);
   // The early-window blend (101's builds right after its window restarts) only stands in for 101 lists: where AramHex
   // supplies a list (sources["items.core"] / ["items.other"]), its real patch counts stay (2026-11-23: the blend was
@@ -574,7 +577,7 @@ export function championPage(alias: string): ChampionPage | null {
           const nicheOf = a.niche ? { niche: true, triggers: a.triggers ?? [] } : {};
           if (a === mainArch)
             return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: true,
-              core: core[0], start: cardStart, situational: situationalItems(core[0], single, full), augmentSwaps: swapsFor(core[0]), rush: rushParts(core[0].items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
+              core: core[0], start: cardStart, situational: situationalItems(core[0], single, full, traits), augmentSwaps: swapsFor(core[0]), rush: rushParts(core[0].items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
           const coreIds = (a.core ?? []).map(known);
           // A style whose core already holds boots (Bel'Veth: Gluttonous Greaves) gets no second pair.
           const coreHasBoots = coreIds.some((i) => itemTier(i) === "boots");
@@ -592,7 +595,7 @@ export function championPage(alias: string): ChampionPage | null {
           // A niche build with no start of its own begins like the champion's card (its players' starts aren't known apart).
           const start = st ?? (own && fits(row)(own) && !driven(own) ? own : null) ?? estimatedStart({ ...row, items: ordered }) ?? (a.niche ? cardStart : null);
           return { style: a.style, share: a.share, games: a.games, winRate: a.win_rate, deepScore: sc.deepScore ?? 50, main: false, ...nicheOf,
-            core: c, start, situational: situationalItems(c, single, full), augmentSwaps: swapsFor(c), rush: rushParts(c.items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
+            core: c, start, situational: situationalItems(c, single, full, traits), augmentSwaps: swapsFor(c), rush: rushParts(c.items[0], itemRecipe), augments: augs, skills: skillsFor(a.style) };
         });
   // AP Ashe follows AramHex's Archmage guide (Nico 2026-11-24): the haste route, from her AP build's own items.
   const apArch = id === ASHE ? archetypes.find((a) => a.style === "ap") : undefined;
@@ -631,9 +634,9 @@ export function championPage(alias: string): ChampionPage | null {
     full,
     items: noBoots ? single.filter((r) => r.tier !== "boots") : single,
     ...earlierSingles(id, raw, new Set(single.map((r) => r.items[0] % 10000)), (i) => all.has(i) && !rewards.has(i) && !(noBoots && itemTier(i) === "boots")),
-    situational: situationalItems(core[0], single, full),
+    situational: situationalItems(core[0], single, full, traits),
     // A tab per real build style (tank and AP Alistar), each with its own situational items.
-    buildStyles: styleCores(core, itemClasses).map((s) => ({ ...s, situational: situationalItems(s.core, single, full), rush: rushParts(s.core.items[0], itemRecipe) })),
+    buildStyles: styleCores(core, itemClasses).map((s) => ({ ...s, situational: situationalItems(s.core, single, full, traits), rush: rushParts(s.core.items[0], itemRecipe) })),
     rush: core[0] ? rushParts(core[0].items[0], itemRecipe) : [],
     swaps: upgradeSwaps(
       [...augments].sort((x, y) => y.pickRate - x.pickRate),
@@ -768,10 +771,16 @@ function afterCore(core: ItemRow, single: ItemRow[], full: ItemRow[], keepClashe
 /** Situational items after a core: one row per situation with its items (lib/situations.ts, picked from the pool
  *  bought with this core first), best DeepScore at the top in each row and rows by their best item (Nico 2026-11-24:
  *  "sort by best at top"). */
-function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[]): SituationRow[] {
+function situationalItems(core: ItemRow | undefined, single: ItemRow[], full: ItemRow[], traits: { physical: boolean; tank: boolean } | null = null): SituationRow[] {
   if (!core) return [];
   const ds = (r: ItemRow) => r.deepScore ?? -Infinity;
-  return situational(sameStyle(afterCore(core, single, full, true), core.items, itemClasses), itemSituation)
+  // Anti-heal only where its Wounds reach enemies for this champion (woundsFit; Nico 2026-11-28, Thornmail on Nami).
+  // Physical or magic by the core's damage items when it has any (AP Shaco's core is magic), else the champion's kit.
+  const ad = core.items.filter((i) => itemRoles(i).some((x) => ["ad", "crit", "lethality", "onhit", "ability_ad"].includes(x))).length;
+  const ap = core.items.filter((i) => itemRoles(i).some((x) => x === "ap" || x === "ap_onhit")).length;
+  const fit = traits && { ...traits, physical: ad || ap ? ad > ap : traits.physical };
+  const pool = afterCore(core, single, full, true).filter((r) => woundsFit(itemDescription(r.items[0]), fit));
+  return situational(sameStyle(pool, core.items, itemClasses), itemSituation)
     .map((s) => ({ ...s, options: [...s.options].sort((x, y) => ds(y) - ds(x)) }))
     .sort((x, y) => ds(y.options[0]) - ds(x.options[0]));
 }
