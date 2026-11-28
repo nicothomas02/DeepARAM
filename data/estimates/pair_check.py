@@ -5,18 +5,21 @@ The pairs come from confirmed mechanics (Ethereal Weapon + Mystic Punch...), not
 2026-11-25: prune the pairs that show no lift as data grows.
 
 Test per pair, on every archived player (the owner's games included; augments are the game's, not a habit): an
-interaction contrast within champions, I = both - A only - B only + neither, on three outcomes, each standardised
-within the champion: the win, the player's share of their team's damage to champions, and deaths per minute
-(sign flipped). The lead is their mean. A pair that feeds itself should land above what its two augments add alone.
-Correlational and estimated: players who hold both may differ in other ways.
+interaction contrast within champions, I = both - A only - B only + neither, on one performance score per player.
+The score is each champion's validated post-game score from role_scores.py (role_scores.json): the mean of post-game
+stats standardised within the champion, picked by Riot's subclass (Enchanter -> support score: healing, units healed,
+assists, kill participation, CC share, deaths; Specialist -> bruiser score; everyone else -> win + damage share -
+deaths) and switched per champion only where its own cells clearly track public results better (Blitzcrank, Shaco,
+Zeri -> support; Jayce -> frontline on 2026-11-27). A pair that feeds itself should land above what its two augments
+add alone. Correlational and estimated: players who hold both may differ in other ways.
 
-Why these three (research/calibration, 2026-11-27): on 2,645 champion x augment cells of the archive, the holders'
-mean of (win + damage share - deaths) / 3 tracks the public win-rate lead of that augment on that champion with
-r 0.27, against 0.13 for the win alone and 0.22 for the old (damage per minute + win) / 2. Damage share beats damage
-per minute because it removes the game's pace, which all ten players share.
+Why (research/calibration, 2026-11-27, 4,708 champion x augment and champion x item cells): the holders' mean score
+tracks the public win-rate lead of that choice with r 0.33 (subclass defaults 0.315, damage for everyone 0.25, the win
+alone 0.15). On enchanters damage share is the wrong signal (good choices go with LESS damage). A generic grade-style
+score (KDA, damage, taken, KP, CS, gold, objectives, like Riot's S grades) scores 0.16 and is not used.
 
 Verdict per pair:
-  prune     >= MIN_BOTH holders of both and the interaction clearly the wrong way (mean of the three z <= Z_PRUNE for a
+  prune     >= MIN_BOTH holders of both and the interaction clearly the wrong way (score contrast z <= Z_PRUNE for a
             pair that helps; >= -Z_PRUNE for a pair marked as clashing)
   keep      enough holders and not clearly the wrong way
 
@@ -31,13 +34,13 @@ Standard library only. Only aggregates are written.
 """
 
 import collections
-import gzip
 import json
 import math
 import os
 import sys
 
 import common as cm
+import role_scores
 
 OUT = os.path.join(cm.HERE, "pair_check.json")
 RULES = os.path.join(cm.HERE, "augment_synergy_rules.json")
@@ -45,24 +48,19 @@ MIN_BOTH = 30
 Z_PRUNE = -2.0
 
 
-def rows(archive):
-    gdir = os.path.join(archive, "games")
-    out = []
-    for f in sorted(os.listdir(gdir)):
-        try:
-            g = json.load(gzip.open(os.path.join(gdir, f)))
-        except (OSError, ValueError):
-            continue
-        mins = max(1.0, g.get("gameDuration", 0) / 60)
-        team_dmg = collections.Counter()
-        for p in g["participants"]:
-            team_dmg[p["teamId"]] += p["stats"].get("totalDamageDealtToChampions", 0)
-        for p in g["participants"]:
-            s = p["stats"]
-            out.append({"champ": p["championId"], "augs": {s.get(f"playerAugment{i}") for i in range(1, 7)} - {0, None},
-                        "win": 1 if s.get("win") else 0,
-                        "dmg_share": s.get("totalDamageDealtToChampions", 0) / (team_dmg[p["teamId"]] or 1),
-                        "deaths": s.get("deaths", 0) / mins})
+def score_rows(data, picks):
+    """Each row's performance score (r["score"]) on its champion's pick from role_scores.json, plus r["win_z"]."""
+    role_scores.standardise(data)
+    for r in data:
+        r["score"] = role_scores.score(r, picks.get(r["champ"]) or "damage")
+
+
+def score_picks(subs=None):
+    """{champion id: score name}: role_scores.json where present, else the subclass default."""
+    subs = subs if subs is not None else role_scores.subclasses()
+    saved = cm.load(role_scores.OUT)["champions"] if os.path.exists(role_scores.OUT) else {}
+    out = {c: role_scores.default_score(c, subs) for c in subs}
+    out.update({int(c): v["score"] for c, v in saved.items()})
     return out
 
 
@@ -81,21 +79,19 @@ def contrast(rs, a, b, key):
     return (round(est / math.sqrt(var), 2) if var > 0 else None), len(cells[(True, True)])
 
 
+def role_mix(champs, picks):
+    """How the champions that took the pair are scored: {score name: count}."""
+    return dict(collections.Counter(picks.get(c) or "damage" for c in champs)) if champs else None
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     archive = args[0] if args else os.environ.get("DEEPARAM_ARCHIVE", os.path.expanduser("~/deeparam-pc/archive"))
     keys = {k: v["id"] for k, v in cm.load(os.path.join(cm.REPO, "simulator", "data", "augments.json"))["augments"].items()}
     rules = cm.load(RULES)
-    data = rows(archive)
-    by = collections.defaultdict(list)
-    for r in data:
-        by[r["champ"]].append(r)
-    for rs in by.values():
-        for key in ("win", "dmg_share", "deaths"):
-            m = sum(r[key] for r in rs) / len(rs)
-            sd = math.sqrt(sum((r[key] - m) ** 2 for r in rs) / max(1, len(rs) - 1)) or 1
-            for r in rs:
-                r[key + "_z"] = (r[key] - m) / sd
+    data = role_scores.player_rows(archive)
+    picks = score_picks()
+    score_rows(data, picks)
     out = []
     for p in rules["pairs"]:
         a, b = keys.get(p["a"]), keys.get(p["b"])
@@ -106,19 +102,17 @@ def main():
         # only the champions that ever took both, so the contrast compares like with like
         champs = {r["champ"] for r in data if a in r["augs"] and b in r["augs"]}
         rs = [r for r in data if r["champ"] in champs]
-        zw, n = contrast(rs, a, b, "win_z")
-        zd, _ = contrast(rs, a, b, "dmg_share_z")
-        zx, _ = contrast(rs, a, b, "deaths_z")
-        lead = round((zw + zd - zx) / 3, 2) if None not in (zw, zd, zx) else None
+        lead, n = contrast(rs, a, b, "score")
+        zw, _ = contrast(rs, a, b, "win_z")
         if n < MIN_BOTH or lead is None:
             verdict = "too few"
         elif sign * lead <= Z_PRUNE:
             verdict = "prune"
         else:
             verdict = "keep"
-        out.append({"a": p["a"], "b": p["b"], "ids": [a, b], "points": p.get("points"), "both": n, "z_win": zw, "z_dmg_share": zd, "z_deaths": zx,
+        out.append({"a": p["a"], "b": p["b"], "ids": [a, b], "points": p.get("points"), "both": n, "z_win": zw, "scores": role_mix(champs, picks),
                     "z_lead": lead, "verdict": verdict})
-    res = {"min_both": MIN_BOTH, "z_prune": Z_PRUNE, "players": len(data), "pairs": out}
+    res = {"min_both": MIN_BOTH, "z_prune": Z_PRUNE, "players": len(data), "non_damage_scores": sum(v != "damage" for v in picks.values()), "pairs": out}
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(res, f, indent=1)
         f.write("\n")
