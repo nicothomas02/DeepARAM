@@ -176,11 +176,11 @@ pub fn card_area(left: i32, top: i32, width: i32, height: i32) -> (i32, i32, i32
     (left + width / 10, top + height / 10, width * 8 / 10, height * 6 / 10)
 }
 
-/// The top strip of the game's window, right of the scoreboard: where the start-of-game announcement and a
-/// headliner's own HUD panel sit (K/DA's "COLLECT ALL CARDS", top right; NicoPC 2026-11-28).
+/// The top strip of the game's window: the start-of-game announcement (top left, "Bit Rush Riven") and the
+/// headliner's own HUD panel (top right, K/DA's "COLLECT ALL CARDS"; NicoPC 2026-11-28).
 #[cfg_attr(not(windows), allow(dead_code))]
 pub fn hud_area(left: i32, top: i32, width: i32, height: i32) -> (i32, i32, i32, i32) {
-    (left + width / 5, top, width * 4 / 5, height * 18 / 100)
+    (left, top, width, height * 27 / 100)
 }
 
 /// Text lines in the HUD strip (hud_area), for the headliner (headliner.rs). None while League isn't in front.

@@ -4,7 +4,8 @@
 //! reads what the headliner shows, strongest signal first. A port of the old PC app's live-window/headliner.py:
 //!   1. the start-of-game announcement: a text line that is just the headliner's name (the card area's reads in the
 //!      first 90 s, and the HUD strip);
-//!   2. K/DA's HUD panel, "COLLECT ALL CARDS", top right the whole game (seen on NicoPC 2026-11-28, Riven game);
+//!   2. the headliner's own HUD panel, top right the whole game (NicoPC 2026-11-28): K/DA "COLLECT ALL CARDS",
+//!      Arcade "COLLECT COINS BY GETTING TAKEDOWNS"; the announcement's title sits top left ("Bit Rush Riven");
 //!   3. Pentakill's own cards on offer (HEAVY / POWER / THRASH / DOOM, client ids 3170-3173);
 //!   4. Superfans' level cap of 21: anyone at level 20 or more.
 //!
@@ -16,7 +17,8 @@ const HEADLINERS: &[(&str, &str, &[&str])] = &[
     ("commandline", "Command Line", &["commandline"]),
     ("maestro", "Maestro", &["maestro"]),
     ("heartsteel", "HEARTSTEEL", &["heartsteel"]),
-    ("kda", "K/DA", &["kda"]),
+    // no plain "kda": players carry it as a name tag ("KDA nico", NicoPC 2026-11-28); K/DA is found by its panel
+    ("kda", "K/DA", &[]),
     ("superfans", "Superfans", &["superfans"]),
     ("pentakill", "Pentakill", &["pentakill"]),
     ("truedamage", "True Damage", &["truedamage"]),
@@ -54,8 +56,19 @@ fn distance(a: &str, b: &str) -> usize {
 /// exactly; longer ones allow one misread letter (two from 10 letters).
 pub fn from_line(text: &str) -> Option<&'static str> {
     let n = norm(text);
-    if n == "collectallcards" || distance(&n, "collectallcards") <= 2 {
+    // the headliner's own HUD panel, top right all game (NicoPC 2026-11-28)
+    if n.starts_with("collectallcards") || distance(&n, "collectallcards") <= 2 {
         return Some("K/DA");
+    }
+    if n.starts_with("collectcoins") {
+        return Some("Arcade");
+    }
+    // the start announcement's title, "<band> <champion>" ("Bit Rush Riven", top left): a long band name first
+    if let Some((_, name, _)) = HEADLINERS
+        .iter()
+        .find(|(_, _, aliases)| aliases.iter().any(|a| a.len() >= 7 && n.starts_with(a) && n.len() <= a.len() + 14))
+    {
+        return Some(name);
     }
     if n.len() < 3 || n.len() > 16 {
         return None;
@@ -87,7 +100,7 @@ impl Detector {
     pub fn lines<'a>(&mut self, texts: impl IntoIterator<Item = &'a str>) {
         for t in texts {
             if let Some(h) = from_line(t) {
-                self.set(h, if h == "K/DA" && norm(t).len() > 6 { "K/DA's card panel" } else { "announcement" });
+                self.set(h, if norm(t).starts_with("collect") { "its HUD panel" } else { "announcement" });
             }
         }
     }
@@ -123,7 +136,12 @@ mod tests {
 
     #[test]
     fn names_from_the_announcement() {
-        assert_eq!(from_line("K/DA"), Some("K/DA"));
+        assert_eq!(from_line("K/DA"), None);
+        assert_eq!(from_line("KD A"), None);
+        assert_eq!(from_line("KDA nico"), None);
+        assert_eq!(from_line("Bit Rush Riven"), Some("Arcade"));
+        assert_eq!(from_line("COLLECT COINS BY GETTING TAKEDOWNS"), Some("Arcade"));
+        assert_eq!(from_line("We're Bit Rush. Got soundtracks and extra lives for you."), None);
         assert_eq!(from_line("Command Line"), Some("Command Line"));
         assert_eq!(from_line("HEARTSTEEL"), Some("HEARTSTEEL"));
         assert_eq!(from_line("HEARTSTEFL"), Some("HEARTSTEEL"));
@@ -138,7 +156,7 @@ mod tests {
         let mut d = Detector::default();
         d.lines(["45 vs 42", "COLLECT ALL CARDS", "REWARD"]);
         assert_eq!(d.name, Some("K/DA"));
-        assert_eq!(d.how, Some("K/DA's card panel"));
+        assert_eq!(d.how, Some("its HUD panel"));
         assert_eq!(d.for_tracker(), augtrack::Headliner::Kda);
         assert_eq!(from_line("COLLECT ALL CARD5"), Some("K/DA"));
     }
