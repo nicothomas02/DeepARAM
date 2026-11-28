@@ -641,5 +641,16 @@
  "End of the Line": "Fin de trayecto",
  "Smoke Screen": "Pantalla de humo",
  "Quickdraw": "Disparo veloz",
- "Collateral Damage": "Daño colateral"
+ "Collateral Damage": "Daño colateral",
+ "Triple Buster Shot Espresso": "Espresso triple Tiro destructor",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana deja de atacar y vive para un solo botón: Tiro destructor ahora golpea a tres a la vez, y la pared donde aterrizan duele mucho más que la bala de cañón.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Haz un Salto misil a su lado, apunta para que el empuje acabe en una pared y pulsa R sobre el del medio. Relánzala tras cada muerte, sal de un salto y espera a la siguiente ronda.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "Quedan tres disparos, todos salen volando por la pared, y la bala de cañón solo era la espuma de encima",
+ "Buster Shot": "Tiro destructor",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "Una bala de cañón que empuja a su objetivo y a todos los de al lado. Normalmente es su botón de pánico, aquí es todo el plan.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "Disparo triple, tirado en Tiro destructor, lo lanza contra dos enemigos más, y Reacción en cadena estampa a quien choque con una pared con hasta 2000 de daño mágico, porque inflige un 250 % en una definitiva. Hora de la matanza repite el 40 % de todo como daño verdadero 5 segundos después, y RISE da un Tiro destructor nuevo tras una muerte, hasta dos veces.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "El estampido es daño fijo, así que solo la penetración mágica lo mejora: Bastón del Vacío, Botas de hechicero, Llamasombría y Sobrecarga tormentosa borran hasta 70 de resistencia mágica. Malignidad adelanta la siguiente ronda y Sombrero mortal de Rabadon engorda la bala de cañón.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "Tu habilidad elegida afecta a 2 enemigos adicionales frente a ti. Objetivos adicionales alcanzados: las unidades reciben menos daño del mismo hechizo.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "Tras lanzar tu definitiva, marca a todos los enemigos y almacena el 40 % del daño que les infliges. Pasados 5 segundos, detona el daño almacenado (8 segundos de reutilización).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "Si usas la habilidad elegida para matar a un campeón enemigo, puedes volver a lanzarla. Cada relanzamiento posterior inflige daño adicional."
 }

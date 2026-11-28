@@ -641,5 +641,16 @@
  "End of the Line": "Itt a vége",
  "Smoke Screen": "Füstgránát",
  "Quickdraw": "Félreugrás",
- "Collateral Damage": "Robbanó lövedék"
+ "Collateral Damage": "Robbanó lövedék",
+ "Triple Buster Shot Espresso": "Hármas Óriási lövés eszpresszó",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana abbahagyja a sima támadást, és egyetlen gombért él: az Óriási lövés most három embert talál el egyszerre, a fal pedig, amibe csapódnak, sokkal jobban fáj, mint maga az ágyúgolyó.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Rakétaugrással ugorj melléjük, célozz úgy, hogy az ellökés falban végződjön, és nyomj R-t a középsőre. Minden kill után használd újra, aztán ugorj ki, és várd a következő kört.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "Még három lövés, mindenki a falon át távozik, az ágyúgolyó meg csak a hab volt a tetején",
+ "Buster Shot": "Óriási lövés",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "Egy ágyúgolyó, ami hátralöki a célpontot és mindenkit mellette. Általában vészgomb, most ez a teljes terv.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "A Hármas lövés az Óriási lövésre téve két további ellenfelet is eltalál vele, a Láncreakció pedig akár 2000 varázssebzéssel csapja falhoz azt, aki nekiütközik, mert ultin 250%-ot okoz. Az Eljött a gyilok ideje 5 másodperccel később megismétli az egész 40%-át valós sebzésként, a Felemelkedés pedig kill után új Óriási lövést ad, legfeljebb kétszer.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "A falnak csapódás fix sebzés, így csak a varázsáthatolás növeli: Az Üresség botja, Varázslók cipője, Árnyékláng és Viharhullám akár 70 varázsellenállást töröl. A Rosszindulat gyorsabban hozza a következő kört, Rabadon halálsüvege pedig meghízlalja az ágyúgolyót.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "A kiválasztott képességed 2 további ellenfelet céloz meg előtted. Eltalált további célpontok: az egységek kevesebb sebzést kapnak ugyanattól a varázslattól.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "Az ultid elsütése után megjelölsz minden ellenfelet, és eltárolod a nekik okozott sebzés 40%-át. 5 másodperc múlva az eltárolt sebzés felrobban (8 másodperc várakozási idő).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "Ha a kiválasztott képességgel megölsz egy ellenséges bajnokot, újra elsütheted. Minden további újrahasználat extra sebzést okoz."
 }

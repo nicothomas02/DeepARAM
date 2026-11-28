@@ -641,5 +641,16 @@
  "End of the Line": "Fine della corsa",
  "Smoke Screen": "Cortina fumogena",
  "Quickdraw": "Attacco impetuoso",
- "Collateral Damage": "Danni collaterali"
+ "Collateral Damage": "Danni collaterali",
+ "Triple Buster Shot Espresso": "Triplo Espresso di Palla di cannone",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana smette di attaccare e vive per un solo tasto: la Palla di cannone ora colpisce tre nemici insieme, e il muro su cui atterrano fa molto più male della palla stessa.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Salto del razzo al loro fianco, mira in modo che il knockback finisca contro un muro e premi R su quello in mezzo. Rilancia dopo ogni kill, poi salta via e aspetta il prossimo giro.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "Ancora tre colpi, tutti escono attraverso il muro, e la palla di cannone era solo la schiuma sopra",
+ "Buster Shot": "Palla di cannone",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "Una palla di cannone che scaraventa via il bersaglio e chiunque gli stia accanto. Di solito è il suo tasto del panico, qui è tutto il piano.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "Triplo colpo, scelto sulla Palla di cannone, la spara contro altri due nemici, e Reazione a catena sbatte chiunque colpisca un muro con fino a 2000 danni magici, perché infligge il 250% su un'ultimate. L'ora fatale ripete il 40% di tutto come danni puri 5 secondi dopo, e RISE dà una nuova Palla di cannone dopo una kill, fino a due volte.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "Lo schianto è un danno fisso, quindi solo la penetrazione magica lo aumenta: Bastone del Vuoto, Calzari del mago, Ombrofiamma e Apice della tempesta cancellano fino a 70 resistenza magica. Malignità accelera il giro successivo e Copricapo di Rabadon ingrassa la palla di cannone.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "L'abilità scelta colpisce 2 nemici aggiuntivi davanti a te. Bersagli aggiuntivi colpiti: le unità subiscono meno danni dallo stesso incantesimo.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "Dopo aver lanciato la tua Ultimate, marchi tutti i nemici e accumuli il 40% dei danni che infliggi loro. Dopo 5 secondi, i danni accumulati detonano (8 secondi di ricarica).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "Se usi l'abilità scelta per uccidere un campione nemico, puoi rilanciarla. Ogni rilancio successivo infligge danni aggiuntivi."
 }

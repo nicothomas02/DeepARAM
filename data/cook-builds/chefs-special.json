@@ -1,627 +1,627 @@
 {
-  "id": "yasuo-sweeping-broom",
-  "title": "Sweeping Broom",
-  "champion": "Yasuo",
-  "champion_name": "Yasuo",
-  "chef": "2026-11-23",
-  "why": "Yasuo seals his own Last Breath and goes full Ability Power, because the little dash he uses to get around was secretly his biggest spell.",
-  "play": "Max Sweeping Blade first, then Steel Tempest. Dash through four minions to warm up, then through every champion once: each one can be dashed again after 6 seconds, exactly as long as a Trusty Weapon stack lasts.",
+  "id": "tristana-triple-buster-shot-espresso",
+  "title": "Triple Buster Shot Espresso",
+  "champion": "Tristana",
+  "champion_name": "Tristana",
+  "chef": "2026-11-27",
+  "why": "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.",
+  "play": "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.",
   "items": [
-    "Rabadon's Deathcap",
     "Void Staff",
     "Shadowflame",
     "Stormsurge",
-    "Riftmaker",
+    "Malignance",
+    "Rabadon's Deathcap",
     "Sorcerer's Shoes"
   ],
   "core": 4,
-  "tagline": "He sealed his own ult and grabbed a broom: the dash cleans up the whole team now.",
+  "tagline": "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top",
   "how": [
     [
-      "Sweeping Blade",
-      "130 magic damage plus 60% of his Ability Power at rank 5, on a 0.1-second cooldown. Every dash adds 25% for 5 seconds, up to 4 times, so a warmed-up dash is 260 plus 120% Ability Power."
+      "Buster Shot",
+      "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan."
     ],
     [
       "Augments",
-      "Back To Basics seals Last Breath for 35% more ability damage, and Trusty Weapon, rolled on Sweeping Blade, adds 5% per champion he dashes through: five champions in, each dash scales with 200% of his Ability Power. Mighty Shield turns his Flow shield into Ability Power, and Hand of Baron adds 25% Adaptive Force on top."
+      "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice."
     ],
     [
       "Items",
-      "Rabadon's Deathcap is 130 Ability Power and 30% more of all of it, and Shadowflame, Stormsurge and Riftmaker pile on the rest. Void Staff and Sorcerer's Shoes make sure nobody's Magic Resist gets a say."
+      "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball."
     ]
   ],
-  "champion_icon": "/embed/fun/cook-builds/icons/champions/157.png",
+  "champion_icon": "/embed/fun/cook-builds/icons/champions/18.png",
   "augments": [
     {
-      "name": "Back To Basics",
+      "name": "Tripleshot",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Your Ultimate Ability is sealed. Gain 35% Ability Damage, Healing, Shielding, and 70 Ability Haste.",
-      "icon": "/embed/fun/cook-builds/icons/augments/back-to-basics.png",
-      "id": 1004
+      "text": "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.",
+      "icon": "/embed/fun/cook-builds/icons/augments/tripleshot.png",
+      "id": 2054
     },
     {
-      "name": "Trusty Weapon",
-      "rarity": "Silver",
+      "name": "Chain Reaction",
+      "rarity": "Gold",
       "core": true,
-      "text": "Striking enemy champions with the chosen ability forges a bond of Friendship.the chosen ability gains temporarily increased damage based on your level of Friendship.",
-      "icon": "/embed/fun/cook-builds/icons/augments/trusty-weapon.png",
-      "id": 2136
+      "text": "If a target Knocked Back by the chosen ability hits another champion, they are Knocked Up and dealt damage. When colliding with terrain, the Knock Up duration is extended and they are dealt bonus damage.",
+      "icon": "/embed/fun/cook-builds/icons/augments/chain-reaction.png",
+      "id": 2078
     },
     {
-      "name": "Mighty Shield",
-      "rarity": "Silver",
+      "name": "It's Killing Time",
+      "rarity": "Gold",
       "core": true,
-      "text": "Gain Adaptive Force for 3 seconds when you gain a Shield (5 seconds Cooldown).",
-      "icon": "/embed/fun/cook-builds/icons/augments/mighty-shield.png",
-      "id": 1314
+      "text": "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).",
+      "icon": "/embed/fun/cook-builds/icons/augments/it-s-killing-time.png",
+      "id": 1211
     },
     {
-      "name": "Hand of Baron",
+      "name": "RISE",
       "rarity": "Prismatic",
       "core": true,
-      "text": "Gain 25% Adaptive Force. Nearby allied minions are greatly empowered.",
-      "icon": "/embed/fun/cook-builds/icons/augments/hand-of-baron.png",
-      "id": 1389
+      "text": "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.",
+      "icon": "/embed/fun/cook-builds/icons/augments/rise.png",
+      "id": 3159
     }
   ],
   "href": "/kitchen#chefs-special",
   "archive_href": "/kitchen#chef-archive",
-  "share_href": "/kitchen/2026-11-23",
-  "share_image": "/embed/fun/cook-builds/share/yasuo-sweeping-broom.png",
+  "share_href": "/kitchen/2026-11-27",
+  "share_image": "/embed/fun/cook-builds/share/tristana-triple-buster-shot-espresso.png",
   "item_ids": [
-    3089,
     3135,
     4645,
     4646,
-    4633,
+    3118,
+    3089,
     3020
   ],
   "i18n": {
     "ar": {
-      "title": "المكنسة الكاسحة",
-      "why": "ياسو يختم النفس الأخير الخاص به بنفسه ويتحول إلى قوة قدرات كاملة، لأن الاندفاعة الصغيرة التي يتنقل بها كانت سراً أكبر تعويذاته.",
-      "play": "ارفع النصل الكاسح أولاً ثم عاصفة الفولاذ. اندفع عبر أربعة جنود للإحماء، ثم عبر كل بطل مرة واحدة: يمكن الاندفاع عبر كل منهم مجدداً بعد 6 ثوانٍ، وهي بالضبط مدة تراكم السلاح الموثوق.",
-      "tagline": "ختم ألتيميته بنفسه وأمسك مكنسة: الاندفاعة الآن تنظّف الفريق كله.",
+      "title": "إسبريسو الطلقة الساحقة الثلاثي",
+      "why": "تريستانا توقفت عن الهجوم وصارت تعيش لزر واحد: الطلقة الساحقة الآن تضرب ثلاثة دفعة وحدة، والجدار اللي يرتطمون فيه يوجع أكثر بكثير من قذيفة المدفع.",
+      "play": "اقفز بالقفزة الصاروخية إلى جانبهم، صوّب بحيث ينتهي الدفع عند جدار، واضغط R على اللي في النص. أعد الإطلاق بعد كل قتلة، ثم اقفز بعيداً وانتظر الجولة التالية.",
+      "tagline": "باقي ثلاث طلقات، الكل يطلع من الجدار، وقذيفة المدفع كانت مجرد الرغوة فوق القهوة",
       "how": [
         [
-          "النصل الكاسح",
-          "130 ضرر سحري زائد 60% من قوة قدراته عند الرتبة 5، مع فترة تهدئة 0.1 ثانية. كل اندفاعة تضيف 25% لمدة 5 ثوانٍ، حتى 4 مرات، فتصبح الاندفاعة المُحماة 260 زائد 120% من قوة القدرات."
+          "الطلقة الساحقة",
+          "قذيفة مدفع تدفع هدفها وكل من بجانبه بعيداً. عادةً هي زر الذعر عندها، وهنا هي الخطة كلها."
         ],
         [
           "التعزيزات",
-          "العودة إلى الجذور تختم النفس الأخير مقابل 35% ضرر قدرات إضافي، والسلاح الموثوق، المسحوب على النصل الكاسح، يضيف 5% لكل بطل يندفع عبره: مع خمسة أبطال، تتضاعف كل اندفاعة مع 200% من قوة قدراته. الدرع الجبار يحوّل درع التدفق لديه إلى قوة قدرات، ويد البارون تضيف 25% قوة تكيفية فوق ذلك."
+          "الضربة الثلاثية، لو جاءتك على الطلقة الساحقة، تطلقها على عدوين إضافيين، وسلسلة التفاعلات تضرب أي شخص يرتطم بجدار بما يصل إلى 2000 ضرر سحري، لأنها تسبب 250% على القدرة القصوى. حان وقت القتل يكرر 40% من كل شيء كضرر حقيقي بعد 5 ثوانٍ، والصعود يمنحك طلقة ساحقة جديدة بعد القتل، حتى مرتين."
         ],
         [
           "العتاد",
-          "قبعة موت رابادون تعطي 130 قوة قدرات و30% زيادة على كل شيء، ولهيب الأشباح والمد العاصف وصانع الصدوع يضيفون الباقي. وصولجان الفويد وحذاء المشعوذ يضمنان ألا يكون لمقاومة السحر عند أحد أي رأي."
+          "الارتطام ضرر ثابت، فالاختراق السحري وحده يزيده: صولجان الفويد، حذاء المشعوذ، لهيب الأشباح، والمد العاصف تمحو حتى 70 مقاومة سحرية. الخبث يقرّب الجولة التالية وقبعة موت رابادون تسمّن القذيفة."
         ]
       ],
       "augments": [
-        "قدرتك القصوى مختومة. تكسب 35% ضرر قدرات وشفاء وتدريع و70 تسارع قدرات.",
-        "إصابة أبطال الأعداء بالقدرة المختارة تنسج رابطة صداقة. تكتسب القدرة المختارة ضرراً مرتفعاً مؤقتاً بحسب مستوى صداقتك.",
-        "تكسب القوة التكيفية لمدة 3 ثواني عند كسب درع (وقت التهدئة 5 ثواني).",
-        "تكسب 25% قوة تكيفية. يتم تعزيز الجنود الحلفاء القريبين بشكل كبير."
+        "قدرتك المختارة تستهدف عدوين إضافيين أمامك. الأهداف الإضافية المصابة: تتلقى الوحدات ضرراً أقل من نفس التعويذة.",
+        "إذا اصطدم هدف دفعته القدرة المختارة ببطل آخر، يُقذف في الهواء ويتلقى ضررًا. عند الاصطدام بالتضاريس تطول مدة القذف ويتلقى ضررًا إضافيًا.",
+        "بعد استخدام قدرتك القصوى، علّم كل الأعداء وخزّن 40% من الضرر الذي تلحقه بهم. بعد 5 ثوانٍ، فجّر الضرر المخزّن (فترة تهدئة 8 ثوانٍ).",
+        "إذا استخدمت القدرة المختارة لقتل بطل عدو، يمكنك إعادة إطلاقها. كل إعادة إطلاق لاحقة تسبب ضرراً إضافياً."
       ]
     },
     "cs": {
-      "title": "Zametací koště",
-      "why": "Yasuo zapečetí svůj vlastní Poslední dech a jde naplno na sílu schopností, protože malý dash, kterým se pohybuje, byl tajně jeho největší kouzlo.",
-      "play": "Nejdřív vymaxuj Rozmáchlou čepel, pak Ocelovou bouři. Pro zahřátí proběhni čtyřmi miniony, pak každým šampionem jednou: každého lze znovu proběhnout po 6 sekundách, přesně tak dlouho, jak trvá jeden stack Věrné zbraně.",
-      "tagline": "Sám si zapečetil ultimátku a popadl koště: dash teď vymete celý tým.",
+      "title": "Trojité Rozbíječ espresso",
+      "why": "Tristana přestane útočit a žije jen pro jedno tlačítko: Rozbíječ teď zasáhne tři lidi najednou a zeď, o kterou se rozplácnou, bolí mnohem víc než dělová koule.",
+      "play": "Raketovým skokem se dostaň na jejich stranu, zamiř tak, aby odhození skončilo u zdi, a zmáčkni R na toho uprostřed. Po každém zabití seslej znovu, pak vyskoč ven a čekej na další kolo.",
+      "tagline": "Zbývají tři rány, všichni vylétnou zdí ven a dělová koule byla jen pěna navrch",
       "how": [
         [
-          "Rozmáchlá čepel",
-          "130 magických zranění plus 60 % jeho síly schopností na ranku 5, s odpočtem 0,1 sekundy. Každý dash přidá na 5 sekund 25 %, až 4krát, takže zahřátý dash dá 260 plus 120 % síly schopností."
+          "Rozbíječ",
+          "Dělová koule, která odhodí cíl i všechny kolem něj. Normálně je to její panické tlačítko, tady je to celý plán."
         ],
         [
           "Augmenty",
-          "Zpět k základům zapečetí Poslední dech za 35 % bonusových zranění schopností a Věrná zbraň, hozená na Rozmáchlou čepel, přidá 5 % za každého šampiona, kterým proběhne: s pěti šampiony ve hře škáluje každý dash z 200 % jeho síly schopností. Mocný štít promění jeho štít z Toku v sílu schopností a Baronova ruka přihodí navrch 25 % adaptivní síly."
+          "Trojitý výstřel, hozený na Rozbíječ, ho vystřelí na další dva nepřátele a Řetězová reakce rozplácne každého, kdo narazí do zdi, až za 2000 magického poškození, protože u ultimátu dává 250 %. Čas zabíjet o 5 sekund později zopakuje 40 % všeho jako pravé poškození a POVSTAŇ dá po zabití nový Rozbíječ, až dvakrát."
         ],
         [
           "Předměty",
-          "Rabadonův smrtící klobouk dává 130 síly schopností a o 30 % víc ze všeho, a Stínový plamen, Nával bouře a Tvůrce Žlebu přihodí zbytek. Hůl Prázdnoty a Kouzelníkovy boty se postarají, aby magická odolnost nikoho neměla slovo."
+          "Náraz je pevné poškození, takže ho zvětší jen magická penetrace: Hůl Prázdnoty, Kouzelníkovy boty, Stínový plamen a Nával bouře smažou až 70 magické odolnosti. Zhoubnost přinese další kolo dřív a Rabadonův smrtící klobouk vykrmí dělovou kouli."
         ]
       ],
       "augments": [
-        "Tvá ultimátní schopnost je zapečetěna. Získáš 35 % zranění schopností, léčení, štítů a 70 zrychlení schopností.",
-        "Zasažení nepřátelských šampionů vybranou schopností vytvoří pouto přátelství. Vybraná schopnost dočasně získá zvýšené zranění podle tvé úrovně přátelství.",
-        "Získáš Adaptivní sílu na 3 sekundy, když získáš Štít (cooldown 5 sekund).",
-        "Získáš 25 % adaptivní síly. Spojenečtí miniony poblíž jsou výrazně posíleni."
+        "Tvoje zvolená schopnost zasáhne 2 další nepřátele před tebou. Zasažené další cíle: jednotky utrží od stejného kouzla menší poškození.",
+        "Pokud cíl odhozený zvolenou schopností narazí do jiného šampiona, je vyhozen do vzduchu a utrpí poškození. Při nárazu do terénu se doba vyhození prodlouží a cíl utrpí bonusové poškození.",
+        "Po seslání tvého ultimátu označ všechny nepřátele a ukládej 40 % poškození, které jim způsobíš. Po 5 sekundách uložené poškození vybuchne (8 sekund prodleva).",
+        "Pokud zvolenou schopností zabiješ nepřátelského šampiona, můžeš ji seslat znovu. Každé další opakované seslání způsobí dodatečné poškození."
       ]
     },
     "de": {
-      "title": "Kehrbesen",
-      "why": "Yasuo versiegelt sein eigenes Windschwert und geht voll auf Fähigkeitsstärke, weil der kleine Dash, mit dem er sich fortbewegt, heimlich sein größter Zauber war.",
-      "play": "Zuerst Sausende Klinge maximieren, dann Stahlsturm. Dash durch vier Vasallen zum Aufwärmen, dann einmal durch jeden Champion: Jeder kann nach 6 Sekunden erneut gedasht werden, genau so lange, wie ein Stapel Bewährte Waffe hält.",
-      "tagline": "Er hat sein eigenes Ult versiegelt und einen Besen geschnappt: Der Dash fegt jetzt das ganze Team weg.",
+      "title": "Dreifacher Donnerschuss-Espresso",
+      "why": "Tristana hört auf anzugreifen und lebt nur noch für einen Knopf: Donnerschuss trifft jetzt drei Leute auf einmal, und die Wand, gegen die sie knallen, tut viel mehr weh als die Kanonenkugel.",
+      "play": "Spring per Raketensprung an ihre Seite, ziele so, dass der Rückstoß an einer Wand endet, und drück R auf den in der Mitte. Nach jedem Kill nochmal casten, dann raus springen und auf die nächste Runde warten.",
+      "tagline": "Noch drei Schuss, alle fliegen durch die Wand, und die Kanonenkugel war nur der Milchschaum obendrauf",
       "how": [
         [
-          "Sausende Klinge",
-          "130 magischer Schaden plus 60% seiner Fähigkeitsstärke auf Rang 5, bei 0,1 Sekunden Abklingzeit. Jeder Dash gibt 5 Sekunden lang 25% dazu, bis zu 4-mal, also ist ein aufgewärmter Dash 260 plus 120% Fähigkeitsstärke."
+          "Donnerschuss",
+          "Eine Kanonenkugel, die ihr Ziel und alle daneben wegschleudert. Normalerweise ist sie ihr Notfallknopf, hier ist sie der ganze Plan."
         ],
         [
           "Augments",
-          "Zurück zu den Wurzeln versiegelt Windschwert für 35% mehr Fähigkeitsschaden, und Bewährte Waffe, auf Sausende Klinge gewürfelt, gibt 5% pro Champion, durch den er dasht: Bei fünf Champions skaliert jeder Dash mit 200% seiner Fähigkeitsstärke. Mächtiger Schild macht aus seinem Fluss-Schild Fähigkeitsstärke, und Hand des Barons legt noch 25% Adaptive Kraft obendrauf."
+          "Dreifachschuss, auf Donnerschuss gewürfelt, feuert ihn auf zwei weitere Gegner, und Kettenreaktion knallt jeden, der gegen eine Wand fliegt, mit bis zu 2000 magischem Schaden, weil sie bei einer Ultimate 250 % austeilt. Zeit fürs Töten wiederholt 40 % von allem 5 Sekunden später als wahren Schaden, und RISE gibt nach einem Kill einen frischen Donnerschuss, bis zu zweimal."
         ],
         [
           "Gegenstände",
-          "Rabadons Todeshaube gibt 130 Fähigkeitsstärke und 30% mehr von allem, und Schattenflamme, Sturmblitz und Kluftformer packen den Rest drauf. Leerenstab und Zaubererschuhe sorgen dafür, dass niemandes Magieresistenz mitreden darf."
+          "Der Aufprall ist fester Schaden, also macht nur magische Durchdringung ihn größer: Leerenstab, Zaubererschuhe, Schattenflamme und Sturmblitz löschen bis zu 70 Magieresistenz aus. Bösartigkeit bringt die nächste Runde schneller und Rabadons Todeshaube macht die Kanonenkugel fetter."
         ]
       ],
       "augments": [
-        "Deine ultimative Fähigkeit ist versiegelt. Du erhältst 35% Fähigkeitsschaden, Heilung, Schilde und 70 Fähigkeitseile.",
-        "Wenn du gegnerische Champions mit der gewählten Fähigkeit triffst, entsteht ein Band der Freundschaft. Die gewählte Fähigkeit erhält vorübergehend erhöhten Schaden, basierend auf deiner Stufe der Freundschaft.",
-        "Erhalte 3 Sekunden lang Adaptive Kraft, wenn du einen Schild erhältst (5 Sekunden Abklingzeit).",
-        "Du erhältst 25% Adaptive Kraft. Verbündete Vasallen in der Nähe werden stark gestärkt."
+        "Deine gewählte Fähigkeit trifft 2 zusätzliche Gegner vor dir. Zusätzliche Ziele getroffen: Einheiten erleiden weniger Schaden durch denselben Zauber.",
+        "Wenn ein Ziel, das von der gewählten Fähigkeit zurückgestoßen wurde, mit einem anderen Champion kollidiert, wird es hochgeschleudert und erleidet Schaden. Bei einer Kollision mit Terrain wird die Dauer verlängert und es erleidet Bonusschaden.",
+        "Markiere nach dem Wirken deiner Ultimate alle Gegner und speichere 40 % des Schadens, den du ihnen zufügst. Nach 5 Sekunden wird der gespeicherte Schaden freigesetzt (8 Sekunden Abklingzeit).",
+        "Wenn du mit der gewählten Fähigkeit einen gegnerischen Champion tötest, kannst du sie erneut wirken. Jedes weitere erneute Wirken verursacht zusätzlichen Schaden."
       ]
     },
     "el": {
-      "title": "Σκούπα Σάρωσης",
-      "why": "Ο Υασούο σφραγίζει τη δική του Τελευταία Πνοή και πηγαίνει full Δύναμη Ικανότητας, γιατί το μικρό dash που κάνει για να κινείται ήταν κρυφά το μεγαλύτερο ξόρκι του.",
-      "play": "Μάξαρε πρώτα τη Σαρωτική Λεπίδα και μετά την Ατσάλινη Καταιγίδα. Κάνε dash μέσα από τέσσερα minions για ζέσταμα και μετά μέσα από κάθε πρωταθλητή μία φορά: ο καθένας μπορεί να περαστεί ξανά μετά από 6 δευτερόλεπτα, ακριβώς όσο διαρκεί ένα στοίβαγμα Αξιόπιστου Όπλου.",
-      "tagline": "Σφράγισε μόνος του το ult και έπιασε σκούπα: το dash τώρα καθαρίζει όλη την ομάδα.",
+      "title": "Τριπλό Εσπρέσο Υπερ-Βολή",
+      "why": "Η Τριστάνα σταματά να επιτίθεται και ζει για ένα κουμπί: η Υπερ-Βολή χτυπά πλέον τρεις μαζί, και ο τοίχος όπου προσγειώνονται πονάει πολύ περισσότερο από το βλήμα.",
+      "play": "Κάνε Άλμα Ρουκέτας στο πλάι τους, σημάδεψε ώστε η ώθηση να καταλήγει σε τοίχο και πάτα R σε αυτόν στη μέση. Ξαναρίξε μετά από κάθε σκοτωμό, μετά πήδα έξω και περίμενε τον επόμενο γύρο.",
+      "tagline": "Τρεις βολές ακόμα, όλοι βγαίνουν μέσα από τον τοίχο, και το βλήμα ήταν απλώς ο αφρός από πάνω",
       "how": [
         [
-          "Σαρωτική Λεπίδα",
-          "130 μαγική ζημιά συν 60% της Δύναμης Ικανότητάς του στη βαθμίδα 5, με χρόνο επαναφοράς 0,1 δευτερολέπτου. Κάθε dash προσθέτει 25% για 5 δευτερόλεπτα, έως 4 φορές, οπότε ένα ζεσταμένο dash είναι 260 συν 120% Δύναμη Ικανότητας."
+          "Υπερ-Βολή",
+          "Ένα βλήμα που εκτοξεύει τον στόχο και όσους βρίσκονται δίπλα του. Συνήθως είναι το κουμπί πανικού της, εδώ είναι ολόκληρο το σχέδιο."
         ],
         [
           "Ενισχύσεις",
-          "Η Επιστροφή στα Βασικά σφραγίζει την Τελευταία Πνοή για 35% περισσότερη ζημιά ικανοτήτων, και το Αξιόπιστο Όπλο, ριγμένο στη Σαρωτική Λεπίδα, προσθέτει 5% για κάθε πρωταθλητή που διασχίζει: με πέντε πρωταθλητές, κάθε dash κλιμακώνεται με 200% της Δύναμης Ικανότητάς του. Η Πανίσχυρη Ασπίδα μετατρέπει την ασπίδα Ροής του σε Δύναμη Ικανότητας και το Χέρι του Βαρόνου προσθέτει από πάνω 25% Προσαρμοστική Δύναμη."
+          "Η Τριπλή Βολή, που ήρθε πάνω στην Υπερ-Βολή, την εκτοξεύει σε δύο ακόμα εχθρούς, και η Αλυσιδωτή Αντίδραση τσακίζει όποιον χτυπήσει σε τοίχο με έως και 2000 μαγική ζημιά, γιατί προκαλεί 250% σε απόλυτη ικανότητα. Το Ήρθε Το Τέλος επαναλαμβάνει το 40% όλων ως πραγματική ζημιά 5 δευτερόλεπτα αργότερα, και το ΕΞΥΨΩΣΟΥ δίνει καινούργια Υπερ-Βολή μετά από σκοτωμό, έως δύο φορές."
         ],
         [
           "Αντικείμενα",
-          "Το Καπέλο του Ράμπαντον δίνει 130 Δύναμη Ικανότητας και 30% παραπάνω από όλα, και η Φλόγα της Σκιάς, το Ξέσπασμα Καταιγίδας και ο Διχαστής προσθέτουν τα υπόλοιπα. Η Ράβδος του Κενού και τα Παπούτσια Μάγου φροντίζουν να μη λέει κανείς η Αντίσταση Μαγείας του τίποτα."
+          "Το τσάκισμα είναι σταθερή ζημιά, οπότε μόνο η μαγική διείσδυση το μεγαλώνει: Ράβδος του Κενού, Παπούτσια Μάγου, Φλόγα της Σκιάς και Ξέσπασμα Καταιγίδας σβήνουν έως και 70 μαγική αντίσταση. Η Κακοήθεια φέρνει τον επόμενο γύρο πιο νωρίς και το Καπέλο του Ράμπαντον παχαίνει το βλήμα."
         ]
       ],
       "augments": [
-        "Η απόλυτη ικανότητά σου είναι σφραγισμένη. Αποκτάς 35% Ζημιά Ικανοτήτων, Θεραπεία, Ασπίδες και 70 Επιτάχυνση Ικανοτήτων.",
-        "Όταν χτυπάς εχθρικούς πρωταθλητές με την επιλεγμένη ικανότητα, δημιουργείται δεσμός Φιλίας. Η επιλεγμένη ικανότητα αποκτά προσωρινά αυξημένη ζημιά ανάλογα με το επίπεδο Φιλίας σου.",
-        "Κερδίζεις Προσαρμοστική Δύναμη για 3 δευτερόλεπτα όταν παίρνεις Ασπίδα (5 δευτερόλεπτα Χρόνος Επαναφοράς).",
-        "Αποκτάς 25% Προσαρμοστική Δύναμη. Τα κοντινά συμμαχικά minions ενισχύονται πολύ."
+        "Η επιλεγμένη ικανότητά σου στοχεύει 2 επιπλέον εχθρούς μπροστά σου. Επιπλέον στόχοι που χτυπήθηκαν: οι μονάδες δέχονται λιγότερη ζημιά από το ίδιο ξόρκι.",
+        "Αν ένας στόχος που απωθείται από την επιλεγμένη ικανότητα χτυπήσει άλλον ήρωα, εκτινάσσεται στον αέρα και δέχεται ζημιά. Όταν συγκρούεται με το έδαφος, η διάρκεια της εκτίναξης αυξάνεται και δέχεται επιπλέον ζημιά.",
+        "Αφού ρίξεις την απόλυτη ικανότητά σου, σημάδεψε όλους τους εχθρούς και αποθήκευσε το 40% της ζημιάς που τους προκαλείς. Μετά από 5 δευτερόλεπτα, πυροδότησε την αποθηκευμένη ζημιά (χρόνος επαναφοράς 8 δευτερόλεπτα).",
+        "Αν χρησιμοποιήσεις την επιλεγμένη ικανότητα για να σκοτώσεις εχθρικό ήρωα, μπορείς να την ξαναρίξεις. Κάθε επόμενη επανάληψη προκαλεί επιπλέον ζημιά."
       ]
     },
     "es-MX": {
-      "title": "Escoba Barredora",
-      "why": "Yasuo sella su propio Último Aliento y se va con todo al poder de habilidad, porque el dash con el que se mueve en realidad era su hechizo más fuerte.",
-      "play": "Sube primero Hoja al Viento y luego Tempestad de Acero. Haz dash por cuatro minions para calentar y luego por cada campeón una vez: cada uno se puede atravesar otra vez a los 6 segundos, justo lo que dura una acumulación de Arma Confiable.",
-      "tagline": "Selló su propia definitiva y agarró una escoba: ahora el dash barre a todo el equipo.",
+      "title": "Espresso Triple Tiro Destructor",
+      "why": "Tristana deja de atacar y vive para un solo botón: Tiro Destructor ahora golpea a tres a la vez, y la pared donde caen duele mucho más que la bala de cañón.",
+      "play": "Haz un Salto Cohete a su lado, apunta para que el empujón termine en una pared y presiona R sobre el de en medio. Relánzala después de cada baja, sal de un salto y espera la siguiente ronda.",
+      "tagline": "Faltan tres disparos, todos salen volando por la pared, y la bala de cañón solo era la espuma de encima",
       "how": [
         [
-          "Hoja al Viento",
-          "130 de daño mágico más 60 % de su poder de habilidad en rango 5, con 0.1 segundos de enfriamiento. Cada dash suma 25 % durante 5 segundos, hasta 4 veces, así que un dash calentado es 260 más 120 % de poder de habilidad."
+          "Tiro Destructor",
+          "Una bala de cañón que empuja a su objetivo y a todos los de al lado. Normalmente es su botón de pánico, aquí es todo el plan."
         ],
         [
           "Aumentos",
-          "De Vuelta a lo Básico sella Último Aliento por 35 % más de daño de habilidad, y Arma Confiable, tirada en Hoja al Viento, suma 5 % por cada campeón que atraviesa: con cinco campeones, cada dash escala con 200 % de su poder de habilidad. Escudo Poderoso convierte su escudo de Flujo en poder de habilidad, y Mano del Barón agrega 25 % de fuerza adaptativa encima."
+          "Disparo Triple, tirado en Tiro Destructor, lo lanza contra dos enemigos más, y Reacción en Cadena estampa a quien choque con una pared con hasta 2000 de daño mágico, porque hace 250 % en una definitiva. Es Hora de Matar repite el 40 % de todo como daño verdadero 5 segundos después, y ASCIENDE da un Tiro Destructor nuevo tras una baja, hasta dos veces."
         ],
         [
           "Objetos",
-          "Sombrero Mortífero de Rabadon da 130 de poder de habilidad y 30 % más de todo, y Lumbría, Descarga Tormentosa y Agrietador ponen el resto. Báculo del Vacío y Botas del Hechicero se aseguran de que la resistencia mágica de nadie opine."
+          "El estampido es daño fijo, así que solo la penetración mágica lo aumenta: Báculo del Vacío, Botas del Hechicero, Lumbría y Descarga Tormentosa borran hasta 70 de resistencia mágica. Maldad adelanta la siguiente ronda y Sombrero Mortífero de Rabadon engorda la bala de cañón."
         ]
       ],
       "augments": [
-        "Tu habilidad definitiva está sellada. Obtienes 35 % de daño de habilidad, curación, escudos y 70 de celeridad de habilidad.",
-        "Golpear a campeones enemigos con la habilidad elegida forja un vínculo de amistad. La habilidad elegida gana daño aumentado temporalmente según tu nivel de amistad.",
-        "Obtén fuerza adaptativa durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento).",
-        "Obtienes 25 % de fuerza adaptativa. Los minions aliados cercanos reciben un gran potenciamiento."
+        "Tu habilidad elegida afecta a 2 enemigos adicionales frente a ti. Objetivos adicionales impactados: las unidades reciben menos daño del mismo hechizo.",
+        "Si un objetivo empujado por la habilidad elegida choca con otro campeón, queda derribado y recibe daño. Al chocar con el terreno, el derribo dura más y recibe daño adicional.",
+        "Después de lanzar tu definitiva, marca a todos los enemigos y almacena el 40 % del daño que les infliges. Después de 5 segundos, detona el daño almacenado (8 segundos de reutilización).",
+        "Si usas la habilidad elegida para eliminar a un campeón enemigo, puedes volver a lanzarla. Cada relanzamiento posterior inflige daño adicional."
       ]
     },
     "es": {
-      "title": "Escoba Barredora",
-      "why": "Yasuo sella su propio Último aliento y se pasa a poder de habilidad total, porque el dash con el que se mueve era en secreto su mayor hechizo.",
-      "play": "Sube primero Hoja cortante y luego Tempestad de acero. Haz dash a través de cuatro súbditos para calentar y luego a través de cada campeón una vez: cada uno puede atravesarse de nuevo tras 6 segundos, justo lo que dura una acumulación de Arma de confianza.",
-      "tagline": "Selló su propia definitiva y cogió una escoba: ahora el dash barre a todo el equipo.",
+      "title": "Espresso triple Tiro destructor",
+      "why": "Tristana deja de atacar y vive para un solo botón: Tiro destructor ahora golpea a tres a la vez, y la pared donde aterrizan duele mucho más que la bala de cañón.",
+      "play": "Haz un Salto misil a su lado, apunta para que el empuje acabe en una pared y pulsa R sobre el del medio. Relánzala tras cada muerte, sal de un salto y espera a la siguiente ronda.",
+      "tagline": "Quedan tres disparos, todos salen volando por la pared, y la bala de cañón solo era la espuma de encima",
       "how": [
         [
-          "Hoja cortante",
-          "130 de daño mágico más el 60 % de su poder de habilidad en rango 5, con 0,1 segundos de reutilización. Cada dash añade un 25 % durante 5 segundos, hasta 4 veces, así que un dash calentado es 260 más 120 % de poder de habilidad."
+          "Tiro destructor",
+          "Una bala de cañón que empuja a su objetivo y a todos los de al lado. Normalmente es su botón de pánico, aquí es todo el plan."
         ],
         [
           "Aumentos",
-          "Vuelta a lo básico sella Último aliento para un 35 % más de daño de habilidad, y Arma de confianza, asignada a Hoja cortante, añade un 5 % por cada campeón atravesado: con cinco campeones, cada dash escala con el 200 % de su poder de habilidad. Escudo de fuerza convierte su escudo de Flujo en poder de habilidad, y Mano del Barón suma un 25 % de fuerza adaptable encima."
+          "Disparo triple, tirado en Tiro destructor, lo lanza contra dos enemigos más, y Reacción en cadena estampa a quien choque con una pared con hasta 2000 de daño mágico, porque inflige un 250 % en una definitiva. Hora de la matanza repite el 40 % de todo como daño verdadero 5 segundos después, y RISE da un Tiro destructor nuevo tras una muerte, hasta dos veces."
         ],
         [
           "Objetos",
-          "Sombrero mortal de Rabadon da 130 de poder de habilidad y un 30 % más de todo, y Llamasombría, Sobrecarga tormentosa y Creagrietas ponen el resto. Bastón del Vacío y Botas de hechicero se aseguran de que la resistencia mágica de nadie tenga voz ni voto."
+          "El estampido es daño fijo, así que solo la penetración mágica lo mejora: Bastón del Vacío, Botas de hechicero, Llamasombría y Sobrecarga tormentosa borran hasta 70 de resistencia mágica. Malignidad adelanta la siguiente ronda y Sombrero mortal de Rabadon engorda la bala de cañón."
         ]
       ],
       "augments": [
-        "Tu habilidad definitiva está sellada. Obtienes un 35 % de daño de habilidad, curación, escudos y 70 de celeridad de habilidad.",
-        "Golpear a campeones enemigos con la habilidad elegida forja un vínculo de amistad. La habilidad elegida obtiene daño aumentado temporalmente según tu nivel de amistad.",
-        "Obtén fuerza adaptable durante 3 segundos cuando ganes un escudo (5 segundos de enfriamiento).",
-        "Obtienes un 25 % de fuerza adaptable. Los súbditos aliados cercanos reciben un gran potenciamiento."
+        "Tu habilidad elegida afecta a 2 enemigos adicionales frente a ti. Objetivos adicionales alcanzados: las unidades reciben menos daño del mismo hechizo.",
+        "Si un objetivo empujado por la habilidad elegida choca con otro campeón, queda derribado y recibe daño. Al chocar con el terreno, el derribo dura más y recibe daño adicional.",
+        "Tras lanzar tu definitiva, marca a todos los enemigos y almacena el 40 % del daño que les infliges. Pasados 5 segundos, detona el daño almacenado (8 segundos de reutilización).",
+        "Si usas la habilidad elegida para matar a un campeón enemigo, puedes volver a lanzarla. Cada relanzamiento posterior inflige daño adicional."
       ]
     },
     "fr": {
-      "title": "Coup de balai",
-      "why": "Yasuo scelle son propre Dernier soupir et passe full puissance magique, parce que le petit dash qui lui sert à se déplacer était en secret son plus gros sort.",
-      "play": "Monte Cercle tranchant en premier, puis Tempête d'acier. Dash à travers quatre sbires pour s'échauffer, puis à travers chaque champion une fois : chacun peut être retraversé après 6 secondes, exactement la durée d'une pile de Compétence préférée.",
-      "tagline": "Il a scellé son propre ult et pris un balai : le dash nettoie toute l'équipe maintenant.",
+      "title": "Triple espresso Tir à impact",
+      "why": "Tristana arrête d'attaquer et ne vit plus que pour un seul bouton : Tir à impact touche maintenant trois personnes d'un coup, et le mur sur lequel elles atterrissent fait bien plus mal que le boulet.",
+      "play": "Fais un Saut roquette à leurs côtés, vise pour que le recul se termine contre un mur, et appuie sur R sur celui du milieu. Relance après chaque kill, puis saute pour sortir et attends la prochaine manche.",
+      "tagline": "Plus que trois tirs, tout le monde sort par le mur, et le boulet n'était que la mousse sur le dessus",
       "how": [
         [
-          "Cercle tranchant",
-          "130 dégâts magiques plus 60 % de sa puissance magique au rang 5, avec 0,1 seconde de délai de récupération. Chaque dash ajoute 25 % pendant 5 secondes, jusqu'à 4 fois, donc un dash échauffé inflige 260 plus 120 % de puissance magique."
+          "Tir à impact",
+          "Un boulet de canon qui repousse sa cible et tous ceux à côté. Normalement c'est son bouton de panique, ici c'est tout le plan."
         ],
         [
           "Augments",
-          "Retour aux bases scelle Dernier soupir pour 35 % de dégâts de compétence en plus, et Compétence préférée, tirée sur Cercle tranchant, ajoute 5 % par champion traversé : à cinq champions, chaque dash évolue avec 200 % de sa puissance magique. Puissant bouclier transforme son bouclier de Flux en puissance magique, et Main du baron ajoute 25 % de force adaptative par-dessus."
+          "Triple coup, roulé sur Tir à impact, le tire sur deux ennemis de plus, et Réaction en chaîne écrase quiconque touche un mur avec jusqu'à 2000 dégâts magiques, car elle inflige 250 % sur une ultime. Coups de grâce répète 40 % de tout en dégâts bruts 5 secondes plus tard, et ASCENSION donne un nouveau Tir à impact après un kill, jusqu'à deux fois."
         ],
         [
           "Objets",
-          "La Coiffe de Rabadon donne 130 de puissance magique et 30 % de plus sur le total, et Flamme-ombre, Onde orageuse et Créateur de failles font le reste. Le Bâton du vide et les Chaussures de sorcier font en sorte que la résistance magique de personne n'ait son mot à dire."
+          "L'écrasement inflige des dégâts fixes, donc seule la pénétration magique l'augmente : Bâton du vide, Chaussures de sorcier, Flamme-ombre et Onde orageuse effacent jusqu'à 70 de résistance magique. Malfaisance rapproche la manche suivante et Coiffe de Rabadon engraisse le boulet."
         ]
       ],
       "augments": [
-        "Votre compétence ultime est scellée. Gagnez 35 % de dégâts de compétence, de soins, de boucliers et 70 d’accélération de compétence.",
-        "Toucher des champions ennemis avec la compétence choisie crée un lien d'amitié. La compétence choisie gagne temporairement des dégâts accrus selon votre niveau d'amitié.",
-        "Gagnez de la force adaptative pendant 3 secondes quand vous gagnez un bouclier (5 secondes de délai de récupération).",
-        "Gagnez 25 % de force adaptative. Les sbires alliés proches sont grandement renforcés."
+        "Ta capacité choisie cible 2 ennemis supplémentaires devant toi. Cibles supplémentaires touchées : les unités subissent moins de dégâts du même sort.",
+        "Si une cible repoussée par la compétence choisie percute un autre champion, elle est projetée dans les airs et subit des dégâts. En cas de collision avec le terrain, la durée de projection est prolongée et elle subit des dégâts bonus.",
+        "Après avoir lancé ton ultime, marque tous les ennemis et stocke 40 % des dégâts que tu leur infliges. Après 5 secondes, fais détoner les dégâts stockés (8 secondes de délai de récupération).",
+        "Si tu utilises la capacité choisie pour tuer un champion ennemi, tu peux la relancer. Chaque relance suivante inflige des dégâts supplémentaires."
       ]
     },
     "hu": {
-      "title": "Söprűs Penge",
-      "why": "Yasuo lepecsételi a saját Utolsó leheletét, és teljes Képességerőre vált, mert a kis iramodás, amivel közlekedik, titokban a legnagyobb varázslata volt.",
-      "play": "Először a Kaszáló pengét maxold, utána az Acélviharet. Iramodj át négy minyonon bemelegítésnek, aztán minden bajnokon egyszer: mindegyiken újra át lehet iramodni 6 másodperc után, pontosan addig, amíg egy Megbízható fegyver töltet tart.",
-      "tagline": "Saját maga pecsételte le az ultiját, és seprűt ragadott: a dash most az egész csapatot kisöpri.",
+      "title": "Hármas Óriási lövés eszpresszó",
+      "why": "Tristana abbahagyja a sima támadást, és egyetlen gombért él: az Óriási lövés most három embert talál el egyszerre, a fal pedig, amibe csapódnak, sokkal jobban fáj, mint maga az ágyúgolyó.",
+      "play": "Rakétaugrással ugorj melléjük, célozz úgy, hogy az ellökés falban végződjön, és nyomj R-t a középsőre. Minden kill után használd újra, aztán ugorj ki, és várd a következő kört.",
+      "tagline": "Még három lövés, mindenki a falon át távozik, az ágyúgolyó meg csak a hab volt a tetején",
       "how": [
         [
-          "Kaszáló penge",
-          "130 varázssebzés plusz a Képességerő 60%-a az 5. szinten, 0.1 másodperces várakozási idővel. Minden iramodás 25%-ot ad 5 másodpercig, legfeljebb 4-szer, így egy bemelegedett iramodás 260 plusz 120% Képességerő."
+          "Óriási lövés",
+          "Egy ágyúgolyó, ami hátralöki a célpontot és mindenkit mellette. Általában vészgomb, most ez a teljes terv."
         ],
         [
           "Bővítések",
-          "A Vissza az alapokhoz lepecsételi az Utolsó leheletet 35%-kal több képességsebzésért, a Megbízható fegyver pedig, a Kaszáló pengére gurítva, 5%-ot ad minden bajnokért, akin átiramodik: öt bajnoknál minden iramodás a Képességerő 200%-ával skálázódik. A Hatalmas pajzs a Flow pajzsát Képességerővé alakítja, a Baron jobbkeze pedig 25% Adaptív erőt dob még hozzá."
+          "A Hármas lövés az Óriási lövésre téve két további ellenfelet is eltalál vele, a Láncreakció pedig akár 2000 varázssebzéssel csapja falhoz azt, aki nekiütközik, mert ultin 250%-ot okoz. Az Eljött a gyilok ideje 5 másodperccel később megismétli az egész 40%-át valós sebzésként, a Felemelkedés pedig kill után új Óriási lövést ad, legfeljebb kétszer."
         ],
         [
           "Tárgyak",
-          "Rabadon halálsüvege 130 Képességerő és még 30%-kal több az egészből, az Árnyékláng, a Viharhullám és a Szurdokhasító pedig ráhord a maradékra. Az Üresség botja és a Varázslók cipője gondoskodik róla, hogy senki Varázsellenállásának ne legyen beleszólása."
+          "A falnak csapódás fix sebzés, így csak a varázsáthatolás növeli: Az Üresség botja, Varázslók cipője, Árnyékláng és Viharhullám akár 70 varázsellenállást töröl. A Rosszindulat gyorsabban hozza a következő kört, Rabadon halálsüvege pedig meghízlalja az ágyúgolyót."
         ]
       ],
       "augments": [
-        "A Végső képességed le van pecsételve. Kapsz 35% képességsebzést, gyógyítást, pajzsot és 70 képességgyorsítást.",
-        "Ha az ellenséges bajnokokat eltalálod a kiválasztott képességgel, Barátság köteléke szövődik. A kiválasztott képesség átmenetileg nagyobb sebzést okoz a Barátság szintje alapján.",
-        "Adaptív erőt kapsz 3 másodpercre, amikor Pajzsot szerzel (5 másodperc várakozási idő).",
-        "Kapsz 25% Adaptív erőt. A közeli szövetséges minyonok nagyon megerősödnek."
+        "A kiválasztott képességed 2 további ellenfelet céloz meg előtted. Eltalált további célpontok: az egységek kevesebb sebzést kapnak ugyanattól a varázslattól.",
+        "Ha a választott képességgel hátralökött célpont egy másik hősnek ütközik, felröppen és sebzést szenved. Terepnek ütközve a felröpítés tovább tart, és bónuszsebzést szenved.",
+        "Az ultid elsütése után megjelölsz minden ellenfelet, és eltárolod a nekik okozott sebzés 40%-át. 5 másodperc múlva az eltárolt sebzés felrobban (8 másodperc várakozási idő).",
+        "Ha a kiválasztott képességgel megölsz egy ellenséges bajnokot, újra elsütheted. Minden további újrahasználat extra sebzést okoz."
       ]
     },
     "id": {
-      "title": "Sweeping Broom",
-      "why": "Yasuo menyegel Last Breath miliknya sendiri dan full Ability Power, karena dash kecil yang dia pakai buat keliling ternyata diam-diam skill terkuatnya.",
-      "play": "Max Sweeping Blade dulu, baru Steel Tempest. Dash lewati empat minion buat pemanasan, lalu lewati tiap champion sekali: masing-masing bisa di-dash lagi setelah 6 detik, persis selama satu stack Trusty Weapon bertahan.",
-      "tagline": "Dia segel ult-nya sendiri dan ambil sapu: dash-nya sekarang menyapu bersih satu tim.",
+      "title": "Triple Buster Shot Espresso",
+      "why": "Tristana berhenti menyerang biasa dan hidup demi satu tombol: Buster Shot sekarang kena tiga orang sekaligus, dan tembok tempat mereka mendarat jauh lebih sakit daripada bola meriamnya.",
+      "play": "Rocket Jump ke sisi mereka, bidik supaya knockback-nya berakhir di tembok, lalu tekan R ke yang di tengah. Cast ulang setiap habis kill, lalu lompat keluar dan tunggu ronde berikutnya.",
+      "tagline": "Tiga tembakan lagi, semua keluar lewat tembok, dan bola meriamnya cuma busa di atas",
       "how": [
         [
-          "Sweeping Blade",
-          "130 damage sihir ditambah 60% Ability Power-nya di rank 5, dengan cooldown 0.1 detik. Tiap dash menambah 25% selama 5 detik, sampai 4 kali, jadi dash yang sudah panas itu 260 plus 120% Ability Power."
+          "Buster Shot",
+          "Bola meriam yang melempar targetnya dan semua orang di sampingnya. Biasanya ini tombol panik, sekarang ini seluruh rencananya."
         ],
         [
           "Augment",
-          "Back To Basics menyegel Last Breath demi 35% damage skill lebih besar, dan Trusty Weapon, yang di-roll di Sweeping Blade, menambah 5% per champion yang ditembus: lima champion kemudian, tiap dash skala dengan 200% Ability Power-nya. Mighty Shield mengubah shield Flow-nya jadi Ability Power, dan Hand of Baron menambah 25% Adaptive Force lagi."
+          "Tripleshot, yang di-roll di Buster Shot, menembakkannya ke dua musuh lagi, dan Chain Reaction membanting siapa pun yang kena tembok dengan hingga 2000 magic damage, karena ia memberi 250% pada ultimate. It's Killing Time mengulang 40% dari semuanya sebagai true damage 5 detik kemudian, dan RISE memberi Buster Shot baru setelah kill, maksimal dua kali."
         ],
         [
           "Item",
-          "Rabadon's Deathcap itu 130 Ability Power plus 30% lebih banyak dari semuanya, dan Shadowflame, Stormsurge, serta Riftmaker menumpuk sisanya. Void Staff dan Sorcerer's Shoes memastikan Magic Resist siapa pun nggak ikut campur."
+          "Bantingannya flat damage, jadi cuma magic penetration yang bikin lebih besar: Void Staff, Sorcerer's Shoes, Shadowflame, dan Stormsurge menghapus hingga 70 magic resist. Malignance mempercepat ronde berikutnya dan Rabadon's Deathcap bikin bola meriamnya makin gemuk."
         ]
       ],
       "augments": [
-        "Ultimate Ability kamu tersegel. Dapatkan 35% Ability Damage, Healing, Shielding, dan 70 Ability Haste.",
-        "Menyerang champion musuh dengan skill terpilih membentuk ikatan Friendship. Skill terpilih mendapat damage tambahan sementara berdasarkan level Friendship kamu.",
-        "Dapatkan Adaptive Force selama 3 detik saat kamu mendapat Shield (cooldown 5 detik).",
-        "Dapatkan 25% Adaptive Force. Minion sekutu di sekitar jadi jauh lebih kuat."
+        "Kemampuan pilihanmu menargetkan 2 musuh tambahan di depanmu. Target Tambahan yang Terkena: Unit menerima damage lebih kecil dari spell yang sama.",
+        "Jika target yang terkena Knock Back oleh ability pilihan menabrak champion lain, mereka terkena Knock Up dan menerima damage. Saat menabrak terrain, durasi Knock Up diperpanjang dan mereka menerima damage bonus.",
+        "Setelah memakai Ultimate, tandai semua musuh dan simpan 40% damage yang kamu berikan kepada mereka. Setelah 5 detik, ledakkan damage yang tersimpan (Cooldown 8 detik).",
+        "Jika kamu memakai kemampuan pilihan untuk membunuh champion musuh, kamu bisa Recast-nya. Setiap Recast berikutnya memberi damage tambahan."
       ]
     },
     "it": {
-      "title": "Scopa Spazzante",
-      "why": "Yasuo sigilla il suo stesso Ultimo respiro e passa a Potere abilità totale, perché il piccolo scatto che usa per spostarsi era in segreto il suo incantesimo più forte.",
-      "play": "Porta al massimo prima Colpo di taglio, poi Tempesta d'acciaio. Scatta attraverso quattro minion per scaldarti, poi attraverso ogni campione una volta: ognuno può essere attraversato di nuovo dopo 6 secondi, esattamente quanto dura un accumulo di Arma fidata.",
-      "tagline": "Si è sigillato l'ultimate da solo e ha preso una scopa: ora lo scatto spazza via tutta la squadra.",
+      "title": "Triplo Espresso di Palla di cannone",
+      "why": "Tristana smette di attaccare e vive per un solo tasto: la Palla di cannone ora colpisce tre nemici insieme, e il muro su cui atterrano fa molto più male della palla stessa.",
+      "play": "Salto del razzo al loro fianco, mira in modo che il knockback finisca contro un muro e premi R su quello in mezzo. Rilancia dopo ogni kill, poi salta via e aspetta il prossimo giro.",
+      "tagline": "Ancora tre colpi, tutti escono attraverso il muro, e la palla di cannone era solo la schiuma sopra",
       "how": [
         [
-          "Colpo di taglio",
-          "130 danni magici più il 60% del suo Potere abilità al rango 5, con un tempo di ricarica di 0.1 secondi. Ogni scatto aggiunge il 25% per 5 secondi, fino a 4 volte, quindi uno scatto a regime fa 260 più il 120% di Potere abilità."
+          "Palla di cannone",
+          "Una palla di cannone che scaraventa via il bersaglio e chiunque gli stia accanto. Di solito è il suo tasto del panico, qui è tutto il piano."
         ],
         [
           "Potenziamenti",
-          "Ritorno alle origini sigilla Ultimo respiro per il 35% di danni abilità in più, e Arma fidata, assegnata a Colpo di taglio, aggiunge il 5% per ogni campione attraversato: cinque campioni dopo, ogni scatto scala con il 200% del suo Potere abilità. Scudo possente trasforma lo scudo Flow in Potere abilità, e Mano del Barone aggiunge un altro 25% di Forza adattiva."
+          "Triplo colpo, scelto sulla Palla di cannone, la spara contro altri due nemici, e Reazione a catena sbatte chiunque colpisca un muro con fino a 2000 danni magici, perché infligge il 250% su un'ultimate. L'ora fatale ripete il 40% di tutto come danni puri 5 secondi dopo, e RISE dà una nuova Palla di cannone dopo una kill, fino a due volte."
         ],
         [
           "Oggetti",
-          "Copricapo di Rabadon dà 130 Potere abilità e il 30% in più di tutto il resto, e Ombrofiamma, Apice della tempesta e Araldo del Vuoto si occupano del resto. Bastone del Vuoto e Calzari del mago fanno in modo che la Resistenza magica di nessuno abbia voce in capitolo."
+          "Lo schianto è un danno fisso, quindi solo la penetrazione magica lo aumenta: Bastone del Vuoto, Calzari del mago, Ombrofiamma e Apice della tempesta cancellano fino a 70 resistenza magica. Malignità accelera il giro successivo e Copricapo di Rabadon ingrassa la palla di cannone."
         ]
       ],
       "augments": [
-        "La tua abilità suprema è sigillata. Ottieni il 35% di danni abilità, cure, scudi e 70 di Velocità abilità.",
-        "Colpire i campioni nemici con l'abilità scelta forgia un legame di Amicizia. L'abilità scelta ottiene temporaneamente danni aumentati in base al tuo livello di Amicizia.",
-        "Ottieni forza adattiva per 3 secondi quando ottieni uno scudo (5 secondi di ricarica).",
-        "Ottieni il 25% di Forza adattiva. I minion alleati vicini ricevono un grande potenziamento."
+        "L'abilità scelta colpisce 2 nemici aggiuntivi davanti a te. Bersagli aggiuntivi colpiti: le unità subiscono meno danni dallo stesso incantesimo.",
+        "Se un bersaglio respinto dall'abilità scelta urta un altro campione, viene lanciato in aria e subisce danni. Quando urta il terreno, la durata del lancio aumenta e subisce danni bonus.",
+        "Dopo aver lanciato la tua Ultimate, marchi tutti i nemici e accumuli il 40% dei danni che infliggi loro. Dopo 5 secondi, i danni accumulati detonano (8 secondi di ricarica).",
+        "Se usi l'abilità scelta per uccidere un campione nemico, puoi rilanciarla. Ogni rilancio successivo infligge danni aggiuntivi."
       ]
     },
     "ja": {
-      "title": "スウィーピング・ほうき",
-      "why": "ヤスオは自分の鬼哭啾々を封印してフルAPに。移動用のちょっとしたダッシュが、実は最強のスペルだったから。",
-      "play": "まず風薙ぎをマックスにして、次に抜刀。ミニオン4体をダッシュで抜けてウォームアップしたら、あとは各チャンピオンを1回ずつ抜ける。同じ相手にも6秒後にまたダッシュでき、頼れる武器のスタックが続く時間とぴったり同じ。",
-      "tagline": "自分でウルトを封印してほうきを握った：今やダッシュが敵チームを丸ごと掃除する。",
+      "title": "トリプル・バスターショット・エスプレッソ",
+      "why": "トリスターナは普通の攻撃をやめて、ボタンひとつに命をかける。バスターショットが一度に3人に当たり、叩きつけられる壁のダメージは砲弾本体よりずっと痛い。",
+      "play": "ロケットジャンプで敵の横に飛んで、ノックバックが壁に当たるように狙い、真ん中の敵にRを押そう。キルするたびに撃ち直して、ジャンプで離脱して次のラウンドを待とう。",
+      "tagline": "あと3発、全員壁を突き抜けて退場、砲弾はただの上に乗ったフォームだった",
       "how": [
         [
-          "風薙ぎ",
-          "ランク5で魔法ダメージ130+APの60%、クールダウンは0.1秒。ダッシュするたびに5秒間25%が加算され、最大4回まで。つまり温まったダッシュは260+AP120%。"
+          "バスターショット",
+          "対象とその周りの敵をまとめて吹き飛ばす砲弾。普段は緊急回避ボタンだけど、今回は作戦のすべて。"
         ],
         [
           "オーグメント",
-          "初志貫徹で鬼哭啾々を封印してアビリティダメージ35%アップ。風薙ぎに乗せた頼れる武器は、ダッシュで抜けたチャンピオン1体につき5%を追加し、5体抜いた時点でダッシュ1回ごとにAPの200%で強化される。マイティシールドはフローのシールドをAPに変換し、バロンの牙がさらに適応力25%を上乗せ。"
+          "バスターショットに乗せたトリプルショットで、さらに2体の敵にも発射。連鎖反応は、壁に当たった敵に最大2000の魔法ダメージを叩きつけ、ウルトに対しては250%の威力になる。殺戮の時は5秒後にその40%を確定ダメージとして繰り返し、昇れはキル後に新しいバスターショットをくれる(最大2回)。"
         ],
         [
           "アイテム",
-          "ラバドン デスキャップはAP130に加えて全体の30%増。シャドウフレイム、ストームサージ、リフトメーカーが残りを盛る。ヴォイド スタッフとソーサラー シューズで、相手の魔法防御の出番はなし。"
+          "叩きつけは固定ダメージなので、伸ばせるのは魔法防御貫通だけ。ヴォイド スタッフ、ソーサラー シューズ、シャドウフレイム、ストームサージで最大70の魔法防御を消せる。マリグナンスで次のラウンドが早まり、ラバドン デスキャップで砲弾がさらに太る。"
         ]
       ],
       "augments": [
-        "アルティメットアビリティが封印される。アビリティダメージ、回復量、シールド量が35%増加し、スキルヘイストが70増加する。",
-        "選択したアビリティで敵チャンピオンにダメージを与えると、友情の絆が生まれる。友情レベルに応じて、選択したアビリティの与ダメージが一時的に増加する。",
-        "シールドを獲得すると3秒間アダプティブフォースを獲得する(クールダウン5秒)。",
-        "適応力が25%増加する。付近の味方ミニオンが大幅に強化される。"
+        "選んだスキルが、前方の敵2体を追加で対象にする。追加ターゲット命中時:ユニットが同じスペルから受けるダメージが減少する。",
+        "選択したスキルでノックバックされた対象が別のチャンピオンに衝突すると、ノックアップされてダメージを受ける。地形に衝突した場合、ノックアップ効果時間が延長され、追加ダメージを受ける。",
+        "ウルトを使用した後、すべての敵にマークをつけ、彼らに与えたダメージの40%を蓄積する。5秒後、蓄積したダメージが爆発する(クールダウン8秒)。",
+        "選んだスキルでチャンピオンをキルした場合、再発動できる。以降の再発動ごとに追加ダメージを与える。"
       ]
     },
     "ko": {
-      "title": "싹쓸이 빗자루",
-      "why": "야스오가 자신의 최후의 숨결을 봉인하고 풀 AP로 갑니다. 이동용으로 쓰던 작은 돌진이 사실 가장 큰 주문이었거든요.",
-      "play": "질풍검을 먼저 마스터하고, 그다음 강철 폭풍. 미니언 네 마리를 뚫으며 몸을 풀고, 챔피언은 한 명씩 한 번씩 뚫으세요. 각 챔피언은 6초 뒤에 다시 뚫을 수 있는데, 믿음직한 무기 중첩이 유지되는 시간과 딱 같습니다.",
-      "tagline": "궁극기를 스스로 봉인하고 빗자루를 들었다: 이제 대시가 적 팀을 통째로 쓸어버린다.",
+      "title": "트리플 대구경 탄환 에스프레소",
+      "why": "트리스타나는 공격을 멈추고 버튼 하나에 목숨을 건다. 대구경 탄환이 이제 세 명을 동시에 맞히고, 부딪히는 벽은 포탄보다 훨씬 아프다.",
+      "play": "로켓 점프로 적 옆으로 이동하고, 넉백이 벽에 닿게 조준한 뒤 가운데 적에게 R을 누르자. 처치할 때마다 다시 쓰고, 점프로 빠져나와 다음 라운드를 기다리자.",
+      "tagline": "세 발 남았고, 다들 벽을 뚫고 퇴장하고, 포탄은 그냥 위에 얹은 거품이었다",
       "how": [
         [
-          "질풍검",
-          "5랭크에서 마법 피해 130에 AP의 60%, 재사용 대기시간은 0.1초. 돌진할 때마다 5초 동안 25%가 추가되며 최대 4번 중첩되므로, 예열된 돌진은 260에 AP의 120%입니다."
+          "대구경 탄환",
+          "대상과 그 옆의 모두를 날려 버리는 포탄. 보통은 비상 탈출 버튼이지만, 여기선 이게 작전의 전부."
         ],
         [
           "증강",
-          "기본으로 돌아가기는 최후의 숨결을 봉인하는 대신 스킬 피해량을 35% 높여 주고, 질풍검에 뽑은 믿음직한 무기는 돌진으로 지나간 챔피언 한 명당 5%를 더합니다. 다섯 명째에는 돌진마다 AP의 200%만큼 강해집니다. 강력한 방패는 Flow 보호막을 AP로 바꿔 주고, 남작의 도움이 적응형 능력치 25%를 더해 줍니다."
+          "대구경 탄환에 건 3연발은 적 두 명을 더 맞히고, 연쇄 반응은 벽에 부딪힌 적에게 최대 2000의 마법 피해를 꽂는다. 궁극기에는 250%가 적용되기 때문이다. 처형 시간은 그 전부의 40%를 5초 뒤에 고정 피해로 반복하고, RISE는 처치 후 새 대구경 탄환을 주며 최대 두 번이다."
         ],
         [
           "아이템",
-          "라바돈의 죽음모자는 AP 130에 전체 AP의 30%를 더해 주고, 그림자불꽃, 폭풍 쇄도, 균열 생성기가 나머지를 쌓아 줍니다. 공허의 지팡이와 마법사의 신발 덕분에 상대의 마법 저항력은 끼어들 틈이 없습니다."
+          "충돌 피해는 고정 피해라서 마법 관통력만 키워 준다. 공허의 지팡이, 마법사의 신발, 그림자불꽃, 폭풍 쇄도로 마법 저항력을 최대 70까지 지울 수 있다. 악의는 다음 라운드를 앞당기고, 라바돈의 죽음모자는 포탄을 더 크게 키운다."
         ]
       ],
       "augments": [
-        "궁극기가 봉인됩니다. 스킬 피해량, 회복량, 보호막량이 35% 증가하고 스킬 가속이 70 증가합니다.",
-        "선택한 스킬로 적 챔피언을 공격하면 우정의 유대가 생깁니다. 우정 단계에 따라 선택한 스킬의 피해량이 일시적으로 증가합니다.",
-        "보호막을 얻으면 3초 동안 적응형 능력치를 얻습니다(재사용 대기시간 5초).",
-        "적응형 능력치가 25% 증가합니다. 근처 아군 미니언이 크게 강화됩니다."
+        "선택한 스킬이 앞에 있는 적 2명을 추가로 대상으로 삼습니다. 추가 대상 적중: 같은 주문에서 유닛이 받는 피해가 줄어듭니다.",
+        "선택한 스킬로 밀려난 대상이 다른 챔피언과 충돌하면 공중으로 띄워지고 피해를 입습니다. 지형과 충돌하면 공중에 뜨는 시간이 늘어나고 추가 피해를 입습니다.",
+        "궁극기를 사용한 후 모든 적에게 표식을 남기고 그들에게 입힌 피해의 40%를 저장합니다. 5초 후 저장된 피해가 폭발합니다(재사용 대기시간 8초).",
+        "선택한 스킬로 적 챔피언을 처치하면 다시 사용할 수 있습니다. 이후 다시 사용할 때마다 추가 피해를 입힙니다."
       ]
     },
     "pl": {
-      "title": "Zamiatająca Miotła",
-      "why": "Yasuo pieczętuje własne Ostatnie Tchnienie i idzie w pełną Moc umiejętności, bo mały zryw, którym się przemieszcza, był po cichu jego największym czarem.",
-      "play": "Najpierw maksuj Zamaszyste Cięcie, potem Nawałnicę Stali. Przemknij przez czterech stronników na rozgrzewkę, a potem przez każdego bohatera raz: przez każdego można przemknąć ponownie po 6 sekundach, dokładnie tyle, ile trwa ładunek Zaufanej Broni.",
-      "tagline": "Sam zapieczętował swoje ult i chwycił miotłę: teraz dash zamiata całą drużynę.",
+      "title": "Potrójne Espresso Niszczącego Strzału",
+      "why": "Tristana przestaje atakować i żyje dla jednego przycisku: Niszczący Strzał trafia teraz trzy osoby naraz, a ściana, o którą się rozbijają, boli znacznie bardziej niż sama kula armatnia.",
+      "play": "Rakietowy Skok na ich stronę, wyceluj tak, żeby odepchnięcie skończyło się na ścianie, i wciśnij R na tego w środku. Powtarzaj po każdym zabójstwie, potem wyskocz i czekaj na następną rundę.",
+      "tagline": "Zostały trzy strzały, wszyscy wychodzą przez ścianę, a kula armatnia była tylko pianką na wierzchu",
       "how": [
         [
-          "Zamaszyste Cięcie",
-          "130 obrażeń magicznych plus 60% jego Mocy umiejętności na 5. poziomie, z czasem odnowienia 0.1 sekundy. Każdy zryw dodaje 25% na 5 sekund, do 4 razy, więc rozgrzany zryw to 260 plus 120% Mocy umiejętności."
+          "Niszczący Strzał",
+          "Kula armatnia, która odrzuca cel i wszystkich obok niego. Zwykle to jej przycisk paniki, tu to cały plan."
         ],
         [
           "Wzmocnienia",
-          "Szkoła Podstawowa pieczętuje Ostatnie Tchnienie za 35% więcej obrażeń umiejętności, a Zaufana Broń, wylosowana na Zamaszyste Cięcie, dodaje 5% za każdego bohatera, przez którego przemknie: przy pięciu bohaterach każdy zryw skaluje się z 200% jego Mocy umiejętności. Potężna Tarcza zamienia jego tarczę Flow w Moc umiejętności, a Namiestnik Barona dorzuca 25% Siły adaptacyjnej."
+          "Trójstrzał, nałożony na Niszczący Strzał, wystrzeliwuje go w dwóch kolejnych wrogów, a Reakcja Łańcuchowa wbija każdego, kto uderzy w ścianę, za maksymalnie 2000 obrażeń magicznych, bo zadaje 250% na ultimie. Czas na Mord powtarza 40% tego wszystkiego jako obrażenia nieuchronne 5 sekund później, a POWSTAŃ daje nowy Niszczący Strzał po zabójstwie, maksymalnie dwa razy."
         ],
         [
           "Przedmioty",
-          "Zabójczy Kapelusz Rabadona to 130 Mocy umiejętności i 30% więcej z całości, a Płomień Cienia, Przepływ Burzy i Szczelinotwórca dokładają resztę. Kostur Pustki i Obuwie Maga dbają o to, żeby czyjaś Odporność na magię nie miała nic do powiedzenia."
+          "Uderzenie to stałe obrażenia, więc zwiększa je tylko przebicie magii: Kostur Pustki, Obuwie Maga, Płomień Cienia i Przepływ Burzy kasują do 70 odporności na magię. Złowrogość przyspiesza następną rundę, a Zabójczy Kapelusz Rabadona tuczy kulę armatnią."
         ]
       ],
       "augments": [
-        "Twoja umiejętność ostateczna jest zapieczętowana. Zyskujesz 35% obrażeń umiejętności, leczenia, tarcz i 70 przyspieszenia umiejętności.",
-        "Trafianie wrogich bohaterów wybraną umiejętnością tworzy więź Przyjaźni. Wybrana umiejętność czasowo zyskuje zwiększone obrażenia zależnie od poziomu Przyjaźni.",
-        "Zyskaj siłę adaptacyjną na 3 sekundy, gdy zyskasz tarczę (5 sekund czasu odnowienia).",
-        "Zyskujesz 25% Siły adaptacyjnej. Pobliscy sojuszniczy stronnicy są znacznie wzmocnieni."
+        "Wybrana umiejętność celuje w 2 dodatkowych wrogów przed tobą. Trafione dodatkowe cele: jednostki otrzymują mniej obrażeń od tego samego czaru.",
+        "Jeśli cel odepchnięty przez wybraną umiejętność uderzy w innego bohatera, zostaje podrzucony i otrzymuje obrażenia. Przy zderzeniu z terenem podrzucenie trwa dłużej i cel otrzymuje dodatkowe obrażenia.",
+        "Po użyciu Ultimate oznacz wszystkich wrogów i zachowaj 40% zadanych im obrażeń. Po 5 sekundach zgromadzone obrażenia eksplodują (8 sekund odnowienia).",
+        "Jeśli użyjesz wybranej umiejętności, by zabić wrogiego bohatera, możesz użyć jej ponownie. Każde kolejne ponowne użycie zadaje dodatkowe obrażenia."
       ]
     },
     "pt-BR": {
-      "title": "Vassoura Varredora",
-      "why": "Yasuo sela o próprio Último Suspiro e vai de Poder de Habilidade total, porque o dashzinho que ele usa pra se locomover era, secretamente, o maior feitiço dele.",
-      "play": "Evolua Espada Ágil primeiro, depois Tempestade de Aço. Dê dash por quatro tropas pra aquecer, depois por cada campeão uma vez: cada um pode levar dash de novo após 6 segundos, exatamente o tempo que um acúmulo de Arma de Confiança dura.",
-      "tagline": "Ele selou a própria ult e pegou uma vassoura: agora o dash varre o time inteiro.",
+      "title": "Triplo Tiro Destruidor Espresso",
+      "why": "Tristana para de atacar e vive por um botão só: o Tiro Destruidor agora acerta três ao mesmo tempo, e a parede onde eles caem dói muito mais que a bala de canhão.",
+      "play": "Salto-foguete pro lado deles, mire pro repulsão terminar na parede e aperte R no do meio. Reconjure a cada abate, depois salte pra fora e espere a próxima rodada.",
+      "tagline": "Faltam três tiros, todo mundo sai pela parede, e a bala de canhão era só a espuma por cima",
       "how": [
         [
-          "Espada Ágil",
-          "130 de dano mágico mais 60% do Poder de Habilidade dele no nível 5, com 0.1 segundo de recarga. Cada dash soma 25% por 5 segundos, até 4 vezes, então um dash aquecido dá 260 mais 120% de Poder de Habilidade."
+          "Tiro Destruidor",
+          "Uma bala de canhão que arremessa o alvo e todo mundo do lado. Normalmente é o botão de pânico dela, aqui é o plano inteiro."
         ],
         [
           "Aumentos",
-          "Voltando ao Básico sela o Último Suspiro por 35% a mais de dano de habilidade, e Arma de Confiança, sorteada em Espada Ágil, soma 5% por campeão atravessado: com cinco campeões, cada dash escala com 200% do Poder de Habilidade dele. Escudo Poderoso transforma o escudo de Flow em Poder de Habilidade, e Mão do Barão acrescenta 25% de Força Adaptativa."
+          "Tiro Triplo, aplicado no Tiro Destruidor, dispara ele em mais dois inimigos, e Reação em Cadeia esmaga quem bater na parede com até 2000 de dano mágico, porque causa 250% numa ultimate. Hora do Massacre repete 40% de tudo como dano verdadeiro 5 segundos depois, e ASCENDA dá um novo Tiro Destruidor após um abate, até duas vezes."
         ],
         [
           "Itens",
-          "Capuz da Morte de Rabadon são 130 de Poder de Habilidade e 30% a mais de tudo isso, e Chama Sombria, Ápice da Tempestade e Criafendas empilham o resto. Cajado do Vazio e Sapatos do Feiticeiro garantem que a Resistência Mágica de ninguém dê pitaco."
+          "O esmagamento é dano fixo, então só a penetração mágica o aumenta: Cajado do Vazio, Sapatos do Feiticeiro, Chama Sombria e Ápice da Tempestade eliminam até 70 de resistência mágica. Malevolência acelera a próxima rodada e Capuz da Morte de Rabadon engorda a bala de canhão."
         ]
       ],
       "augments": [
-        "Sua Habilidade Suprema está selada. Ganhe 35% de Dano de Habilidade, Cura, Escudo e 70 de Aceleração de Habilidade.",
-        "Atingir campeões inimigos com a habilidade escolhida forja um laço de Amizade. A habilidade escolhida ganha dano aumentado temporariamente com base no seu nível de Amizade.",
-        "Ganhe Força Adaptativa por 3 segundos ao ganhar um Escudo (5 segundos de recarga).",
-        "Ganhe 25% de Força Adaptativa. Tropas aliadas próximas ficam muito mais fortes."
+        "Sua habilidade escolhida atinge 2 inimigos adicionais à sua frente. Alvos Adicionais Atingidos: as unidades recebem menos dano do mesmo feitiço.",
+        "Se um alvo empurrado pela habilidade escolhida colidir com outro campeão, ele é arremessado ao ar e sofre dano. Ao colidir com o terreno, a duração do arremesso aumenta e ele sofre dano bônus.",
+        "Depois de lançar sua Ultimate, marque todos os inimigos e armazene 40% do dano que causar a eles. Após 5 segundos, detone o dano armazenado (8 segundos de recarga).",
+        "Se você usar a habilidade escolhida para matar um campeão inimigo, poderá reconjurá-la. Cada reconjuração seguinte causa dano adicional."
       ]
     },
     "ro": {
-      "title": "Mătura Măturătoare",
-      "why": "Yasuo își sigilează singur Ultima răsuflare și merge full Ability Power, pentru că micul dash cu care se plimbă era de fapt cea mai mare vrajă a lui.",
-      "play": "Maximizează întâi Vânt tăios, apoi Furtună de oțel. Dash prin patru minioni ca încălzire, apoi prin fiecare campion o dată: fiecare poate fi traversat din nou după 6 secunde, fix cât ține un stack de Armă de încredere.",
-      "tagline": "Și-a sigilat singur ultimate-ul și a pus mâna pe o mătură: acum dash-ul mătură toată echipa.",
+      "title": "Espresso Ghiuleaua Triplă",
+      "why": "Tristana nu mai dă atacuri de bază și trăiește pentru un singur buton: Ghiuleaua lovește acum trei oameni deodată, iar zidul în care aterizează doare mult mai tare decât ghiuleaua.",
+      "play": "Fă Săritura rachetei lângă ei, țintește așa încât împingerea să se termine într-un zid și apasă R pe cel din mijloc. Refolosește după fiecare kill, apoi sari afară și așteaptă runda următoare.",
+      "tagline": "Încă trei lovituri, toți ies prin zid, iar ghiuleaua a fost doar spuma de deasupra",
       "how": [
         [
-          "Vânt tăios",
-          "130 de daune magice plus 60% din Puterea Abilităților la rangul 5, cu un cooldown de 0,1 secunde. Fiecare dash adaugă 25% timp de 5 secunde, de până la 4 ori, așa că un dash încălzit dă 260 plus 120% Putere a Abilităților."
+          "Ghiuleaua",
+          "O ghiulea care aruncă în spate ținta și pe toți cei de lângă ea. De obicei e butonul ei de panică, aici e tot planul."
         ],
         [
           "Augmentări",
-          "Înapoi la origini sigilează Ultima răsuflare pentru 35% daune de abilitate în plus, iar Arma de încredere, trasă pe Vânt tăios, adaugă 5% pentru fiecare campion prin care face dash: după cinci campioni, fiecare dash scalează cu 200% din Puterea lui a Abilităților. Scut strașnic își transformă scutul Flow în Putere a Abilităților, iar Mâna Baronului adaugă peste toate 25% Forță adaptivă."
+          "Lovitură triplă, aplicată pe Ghiuleaua, o trage în încă doi inamici, iar Reacție în lanț lovește de zid pe oricine se ciocnește de el cu până la 2000 de daune magice, fiindcă dă 250% pe o ultimă abilitate. Anotimpul morții repetă 40% din toate acestea ca daune adevărate după 5 secunde, iar TRIUMFĂ îți dă o Ghiulea nouă după un kill, de până la două ori."
         ],
         [
           "Obiecte",
-          "Pălăria malefică a lui Rabadon e 130 Putere a Abilităților și încă 30% din tot ce ai, iar Flacăra întunericului, Furtună dezlănțuită și Creator de rifturi adaugă restul. Sceptrul Vidului și Cizmele vrăjitorului se asigură că Rezistența Magică a nimănui nu are niciun cuvânt de spus."
+          "Izbitura are daune fixe, deci o mărește doar penetrarea magică: Sceptrul Vidului, Cizmele vrăjitorului, Flacăra întunericului și Furtună dezlănțuită șterg până la 70 de rezistență magică. Nocivitate aduce runda următoare mai repede, iar Pălăria malefică a lui Rabadon îngrașă ghiuleaua."
         ]
       ],
       "augments": [
-        "Abilitatea ta supremă este sigilată. Primești 35% Daune de abilitate, Vindecare, Scuturi și 70 Grăbire a abilităților.",
-        "Lovirea campionilor inamici cu abilitatea aleasă creează o legătură de Prietenie. Abilitatea aleasă primește daune crescute temporar, în funcție de nivelul Prieteniei.",
-        "Primești Forță adaptivă timp de 3 secunde când primești un Scut (5 secunde timp de reîncărcare).",
-        "Primești 25% Forță adaptivă. Minionii aliați din apropiere devin mult mai puternici."
+        "Abilitatea aleasă lovește 2 inamici suplimentari din fața ta. Ținte suplimentare lovite: unitățile primesc mai puține daune de la aceeași vrajă.",
+        "Dacă o țintă împinsă de abilitatea aleasă lovește alt campion, este aruncată în aer și suferă daune. La coliziunea cu terenul, aruncarea durează mai mult și suferă daune bonus.",
+        "După ce folosești Ultimate, marchezi toți inamicii și stochezi 40% din daunele pe care le provoci. După 5 secunde, detonezi daunele stocate (timp de reactivare de 8 secunde).",
+        "Dacă folosești abilitatea aleasă ca să elimini un campion inamic, o poți refolosi. Fiecare refolosire ulterioară provoacă daune suplimentare."
       ]
     },
     "ru": {
-      "title": "Метла-сметалка",
-      "why": "Ясуо сам запечатывает свой Последний вздох и уходит в чистую силу умений, ведь маленький рывок, на котором он ездит по карте, тайно был его главным заклинанием.",
-      "play": "Сначала качайте Стремительный клинок, потом Стальную бурю. Для разогрева рвитесь через четырёх миньонов, потом через каждого чемпиона по разу: каждого можно пройти снова через 6 секунд, ровно столько же держится заряд Верного оружия.",
-      "tagline": "Сам запечатал свой ульт и взял метлу: теперь рывок сметает всю команду.",
+      "title": "Тройной эспрессо «Вышибной заряд»",
+      "why": "Тристана больше не бьёт обычными атаками и живёт ради одной кнопки: Вышибной заряд теперь попадает сразу по троим, а стена, в которую они влетают, бьёт куда больнее самого ядра.",
+      "play": "Ракетным прыжком оказывайся рядом с ними, целься так, чтобы отбрасывание закончилось у стены, и жми R на того, кто в середине. Применяй снова после каждого убийства, потом выпрыгивай и жди следующий раунд.",
+      "tagline": "Осталось три выстрела, все вылетают через стену, а ядро было просто пенкой сверху",
       "how": [
         [
-          "Стремительный клинок",
-          "130 магического урона плюс 60% силы умений на 5-м ранге при перезарядке 0,1 секунды. Каждый рывок добавляет 25% на 5 секунд, до 4 раз, так что разогретый рывок наносит 260 плюс 120% силы умений."
+          "Вышибной заряд",
+          "Пушечное ядро, которое отбрасывает цель и всех рядом с ней. Обычно это её кнопка паники, а тут это весь план."
         ],
         [
           "Аугменты",
-          "Возвращение к основам запечатывает Последний вздох ради +35% урона умений, а Верное оружие, выпавшее на Стремительный клинок, добавляет 5% за каждого чемпиона, через которого он рванулся: после пяти чемпионов каждый рывок масштабируется от 200% его силы умений. Могучий щит превращает щит Потока в силу умений, а Длань Барона сверху добавляет 25% адаптивной силы."
+          "Тройной выстрел, применённый на Вышибной заряд, отправляет его ещё в двух врагов, а Цепная реакция впечатывает в стену любого, кто в неё врезался, нанося до 2000 магического урона, ведь на ультимейте она даёт 250%. Время убивать повторяет 40% всего этого как чистый урон через 5 секунд, а ВОСХОЖДЕНИЕ даёт свежий Вышибной заряд после убийства, до двух раз."
         ],
         [
           "Предметы",
-          "Смертельная шляпа Рабадона даёт 130 силы умений и ещё 30% ко всей остальной, а Сумрачное пламя, Штормовой прилив и Творец разломов добавляют всё остальное. Посох Бездны и Сапоги чародея гарантируют, что чужое сопротивление магии вообще не имеет права голоса."
+          "Удар о стену наносит фиксированный урон, так что усилить его может только магическое проникновение: Посох Бездны, Сапоги чародея, Сумрачное пламя и Штормовой прилив убирают до 70 магического сопротивления. Пагубность приближает следующий раунд, а Смертельная шляпа Рабадона откармливает ядро."
         ]
       ],
       "augments": [
-        "Ваше ультимативное умение запечатано. Вы получаете 35% к урону умений, исцелению, щитам и 70 к ускорению умений.",
-        "Нанесение урона вражеским чемпионам выбранным умением скрепляет узы Дружбы. Выбранное умение временно получает повышенный урон в зависимости от вашего уровня Дружбы.",
-        "Получай Адаптивную силу на 3 секунды, когда получаешь Щит (перезарядка 5 секунд).",
-        "Вы получаете 25% адаптивной силы. Находящиеся рядом союзные миньоны значительно усиливаются."
+        "Выбранная способность поражает 2 дополнительных врагов перед вами. Дополнительные цели: юниты получают меньше урона от того же заклинания.",
+        "Если цель, отброшенная выбранным умением, сталкивается с другим чемпионом, она подбрасывается и получает урон. При столкновении с рельефом подбрасывание длится дольше и цель получает дополнительный урон.",
+        "После применения ультимейта помечает всех врагов и накапливает 40% урона, который вы им наносите. Через 5 секунд накопленный урон взрывается (перезарядка 8 секунд).",
+        "Если вы убиваете вражеского чемпиона выбранной способностью, её можно применить повторно. Каждое последующее повторное применение наносит дополнительный урон."
       ]
     },
     "th": {
-      "title": "Sweeping Broom",
-      "why": "Yasuo ผนึก Last Breath ของตัวเองแล้วไปเล่น Ability Power เต็มตัว เพราะดาชเล็กๆ ที่เขาใช้เดินทางอยู่ทุกวัน จริงๆ แล้วคือสกิลที่แรงที่สุดของเขามาตลอด",
-      "play": "อัป Sweeping Blade ก่อน แล้วค่อย Steel Tempest ดาชผ่านมินเนียน 4 ตัวเพื่อวอร์มอัป แล้วดาชผ่านแชมเปี้ยนทุกตัวคนละครั้ง ตัวหนึ่งดาชซ้ำได้อีกหลังจาก 6 วินาที ซึ่งนานเท่ากับที่ stack ของ Trusty Weapon อยู่พอดี",
-      "tagline": "ผนึกอัลติตัวเองแล้วคว้าไม้กวาด: ตอนนี้แดชกวาดล้างทั้งทีม",
+      "title": "Triple Buster Shot Espresso",
+      "why": "Tristana เลิกตีธรรมดาแล้วอยู่เพื่อปุ่มเดียว: Buster Shot โดนสามคนพร้อมกัน และกำแพงที่พวกเขาไปกระแทกเจ็บกว่ากระสุนปืนใหญ่เยอะ",
+      "play": "Rocket Jump ไปข้างๆ พวกมัน เล็งให้แรงผลักไปจบที่กำแพง แล้วกด R ใส่คนที่อยู่ตรงกลาง กดซ้ำหลังฆ่าทุกครั้ง จากนั้นกระโดดออกแล้วรอรอบต่อไป",
+      "tagline": "เหลืออีกสามนัด ทุกคนออกทางกำแพง และกระสุนปืนใหญ่ก็เป็นแค่ฟองนมด้านบน",
       "how": [
         [
-          "Sweeping Blade",
-          "ดาเมจเวท 130 บวก 60% ของ Ability Power ที่แรงก์ 5 คูลดาวน์ 0.1 วินาที ทุกครั้งที่ดาชจะเพิ่ม 25% เป็นเวลา 5 วินาที สูงสุด 4 ครั้ง ดังนั้นดาชที่วอร์มอัปแล้วจะได้ 260 บวก 120% Ability Power"
+          "Buster Shot",
+          "กระสุนปืนใหญ่ที่ผลักเป้าหมายและทุกคนข้างๆ ให้กระเด็นออกไป ปกติเป็นปุ่มเอาตัวรอดของเธอ แต่ตรงนี้คือแผนทั้งหมด"
         ],
         [
           "Augment",
-          "Back To Basics ผนึก Last Breath เพื่อเพิ่มดาเมจสกิล 35% ส่วน Trusty Weapon ที่สุ่มได้บน Sweeping Blade จะเพิ่ม 5% ต่อแชมเปี้ยนที่เขาดาชผ่าน ดาชผ่านห้าตัวแล้ว ทุกดาชจะสเกลด้วย 200% ของ Ability Power ของเขา Mighty Shield เปลี่ยนโล่ Flow ให้เป็น Ability Power และ Hand of Baron เพิ่ม Adaptive Force อีก 25% ซ้อนเข้าไป"
+          "Tripleshot ที่ติดบน Buster Shot ยิงมันใส่ศัตรูอีกสองคน และ Chain Reaction กระแทกใครก็ตามที่ชนกำแพงด้วยความเสียหายเวทสูงสุด 2000 เพราะมันให้ 250% กับอัลติเมต It's Killing Time ทำซ้ำ 40% ของทั้งหมดเป็นความเสียหายจริงอีก 5 วินาทีต่อมา และ RISE ให้ Buster Shot ใหม่หลังฆ่า ได้สูงสุดสองครั้ง"
         ],
         [
           "ไอเทม",
-          "Rabadon's Deathcap ให้ Ability Power 130 และเพิ่มอีก 30% ของทั้งหมด ส่วน Shadowflame, Stormsurge และ Riftmaker ช่วยกองที่เหลือ Void Staff กับ Sorcerer's Shoes ทำให้ไม่มีใครมีสิทธิ์พูดเรื่อง Magic Resist"
+          "การกระแทกเป็นความเสียหายคงที่ ดังนั้นมีแค่การทะลุเวทที่ทำให้แรงขึ้น: Void Staff, Sorcerer's Shoes, Shadowflame และ Stormsurge ลบเกราะเวทได้สูงสุด 70 Malignance ทำให้รอบถัดไปมาเร็วขึ้น และ Rabadon's Deathcap ทำให้กระสุนปืนใหญ่อ้วนขึ้น"
         ]
       ],
       "augments": [
-        "สกิลอัลติเมทของคุณถูกผนึก ได้รับ 35% Ability Damage, Healing, Shielding และ 70 Ability Haste",
-        "การโจมตีแชมเปี้ยนศัตรูด้วยสกิลที่เลือกจะสร้างสายสัมพันธ์แห่งมิตรภาพ สกิลที่เลือกจะได้รับดาเมจเพิ่มชั่วคราวตามระดับมิตรภาพของคุณ",
-        "ได้รับ Adaptive Force นาน 3 วินาทีเมื่อคุณได้รับโล่ (คูลดาวน์ 5 วินาที)",
-        "ได้รับ 25% Adaptive Force มินเนียนพันธมิตรที่อยู่ใกล้ๆ แข็งแกร่งขึ้นอย่างมาก"
+        "สกิลที่เลือกจะโจมตีศัตรูเพิ่มอีก 2 คนที่อยู่ข้างหน้าคุณ จำนวนเป้าหมายเพิ่มเติมที่โดน: ยูนิตจะรับความเสียหายจากสเปลเดียวกันน้อยลง",
+        "หากเป้าหมายที่ถูก Knock Back จากสกิลที่เลือกชนแชมเปี้ยนอีกตัว จะถูก Knock Up และได้รับดาเมจ เมื่อชนกับภูมิประเทศ ระยะเวลา Knock Up จะนานขึ้นและได้รับดาเมจโบนัส",
+        "หลังจากใช้อัลติเมต ทำเครื่องหมายศัตรูทั้งหมดและเก็บ 40% ของความเสียหายที่คุณสร้างให้พวกมัน หลังจาก 5 วินาที ระเบิดความเสียหายที่เก็บไว้ (คูลดาวน์ 8 วินาที)",
+        "ถ้าคุณใช้สกิลที่เลือกฆ่าแชมเปี้ยนศัตรู คุณสามารถใช้ซ้ำได้ การใช้ซ้ำแต่ละครั้งถัดไปสร้างความเสียหายเพิ่ม"
       ]
     },
     "tr": {
-      "title": "Süpüren Süpürge",
-      "why": "Yasuo kendi Son Nefes'ini mühürleyip tam Yetenek Gücü'ne geçiyor, çünkü ortalıkta gezmek için kullandığı o küçük atılma aslında en büyük büyüsüymüş.",
-      "play": "Önce Atılgan Kılıç'ı, sonra Çelik Fırtına'yı maksla. Isınmak için dört minyonun içinden atıl, sonra her şampiyonun içinden bir kez: her biri 6 saniye sonra tekrar kullanılabilir, yani tam olarak bir Güvenilir Silah yığınının süresi kadar.",
-      "tagline": "Kendi ultisini mühürledi ve bir süpürge kaptı: artık atılma bütün takımı süpürüyor.",
+      "title": "Üçlü Gülle Atışı Espresso",
+      "why": "Tristana artık saldırmayı bırakıp tek bir tuş için yaşıyor: Gülle Atışı artık üç kişiye birden vuruyor ve çarptıkları duvar gülleden çok daha fazla acıtıyor.",
+      "play": "Roket Atlayışı ile yanlarına zıpla, geri itmenin bir duvarda bitmesi için nişan al ve ortadaki kişiye R'ye bas. Her öldürmeden sonra tekrar kullan, sonra dışarı zıpla ve sıradaki raundu bekle.",
+      "tagline": "Üç atış kaldı, herkes duvardan çıkıyor ve gülle sadece üstündeki köpüktü",
       "how": [
         [
-          "Atılgan Kılıç",
-          "5. seviyede 130 büyü hasarı artı Yetenek Gücü'nün %60'ı, bekleme süresi 0,1 saniye. Her atılma 5 saniyeliğine %25 ekler, 4 kereye kadar; yani ısınmış bir atılma 260 artı %120 Yetenek Gücü vurur."
+          "Gülle Atışı",
+          "Hedefini ve yanındaki herkesi uzağa fırlatan bir gülle. Normalde panik tuşu, burada ise bütün plan."
         ],
         [
           "Güçlendirmeler",
-          "Temeli Sağlam, Son Nefes'i mühürleyip %35 daha fazla yetenek hasarı verir; Atılgan Kılıç'a denk gelen Güvenilir Silah ise içinden geçtiği her şampiyon için %5 ekler: beş şampiyon sonra her atılma Yetenek Gücü'nün %200'üyle ölçeklenir. Kudretli Kalkan Flow kalkanını Yetenek Gücü'ne çevirir, Baron'un Yaveri de üstüne %25 Uyarlanabilir Güç ekler."
+          "Gülle Atışı'na gelen Üçlü Atış onu iki düşmana daha atar, Zincirleme Reaksiyon da duvara çarpan herkese 2000'e kadar büyü hasarı çakar, çünkü ultide %250 verir. Katliam Vakti bunun hepsinin %40'ını 5 saniye sonra gerçek hasar olarak tekrarlar, YÜKSEL ise öldürmeden sonra yepyeni bir Gülle Atışı verir, en fazla iki kez."
         ],
         [
           "Eşyalar",
-          "Rabadon'un Şapkası 130 Yetenek Gücü verir ve hepsinin üstüne %30 daha ekler; Gölgealev, Yıldırım Asası ve Vadiyaran da geri kalanını yığar. Hiçlik Değneği ile Sihirbaz Pabuçları da kimsenin Büyü Direnci'nin söz hakkı olmamasını sağlar."
+          "Çarpma sabit hasardır, yani onu sadece büyü delme büyütür: Hiçlik Değneği, Sihirbaz Pabuçları, Gölgealev ve Yıldırım Asası 70'e kadar büyü direncini siler. Habaset sıradaki raundu yaklaştırır, Rabadon'un Şapkası da gülleyi şişmanlatır."
         ]
       ],
       "augments": [
-        "Ulti yeteneğin mühürlendi. %35 Yetenek Hasarı, İyileştirme, Kalkan ve 70 Yetenek Hızlandırma kazanırsın.",
-        "Seçilen yetenekle düşman şampiyonlara vurmak bir Dostluk bağı oluşturur. Seçilen yetenek, Dostluk seviyene göre geçici olarak artan hasar kazanır.",
-        "Kalkan kazandığında 3 saniyeliğine Uyarlanabilir Güç kazanırsın (5 saniye Bekleme Süresi).",
-        "%25 Uyarlanabilir Güç kazanırsın. Yakındaki müttefik minyonlar büyük ölçüde güçlenir."
+        "Seçtiğin yetenek önündeki 2 düşmana daha vurur. Vurulan Ek Hedefler: Birimler aynı büyüden daha az hasar alır.",
+        "Seçilen yetenekle geri itilen bir hedef başka bir şampiyona çarparsa havaya savrulur ve hasar alır. Araziye çarptığında savrulma süresi uzar ve ek hasar alır.",
+        "Ultini kullandıktan sonra tüm düşmanları işaretle ve onlara verdiğin hasarın %40'ını depola. 5 saniye sonra depolanan hasarı patlat (8 saniye bekleme süresi).",
+        "Seçtiğin yetenekle bir düşman şampiyonu öldürürsen onu tekrar kullanabilirsin. Sonraki her tekrar kullanım ek hasar verir."
       ]
     },
     "vi": {
-      "title": "Chổi Quét Sạch",
-      "why": "Yasuo tự niêm phong Trăng Trối của mình và chơi full Sức Mạnh Phép Thuật, vì cú lướt nhỏ xíu hắn dùng để di chuyển hóa ra lại là chiêu mạnh nhất của hắn.",
-      "play": "Tối đa Quét Kiếm trước, rồi đến Bão Kiếm. Lướt qua bốn lính để khởi động, sau đó lướt qua mỗi tướng một lần: mỗi tướng có thể bị lướt lại sau 6 giây, đúng bằng thời gian một cộng dồn Vũ Khí Tin Cậy kéo dài.",
-      "tagline": "Tự phong ấn chiêu cuối rồi vớ lấy cây chổi: giờ cú lướt quét sạch cả đội.",
+      "title": "Espresso Ba Đại Bác Đẩy Lùi",
+      "why": "Tristana thôi đánh thường và sống vì đúng một nút: Đại Bác Đẩy Lùi giờ trúng ba người cùng lúc, và bức tường họ đập vào đau hơn quả đạn nhiều.",
+      "play": "Phóng Nhảy Tên Lửa sang bên họ, canh sao cho cú đẩy lùi kết thúc ở một bức tường, rồi bấm R vào người ở giữa. Dùng lại sau mỗi lần hạ gục, rồi nhảy ra ngoài chờ vòng tiếp theo.",
+      "tagline": "Còn ba phát, ai cũng đi ra bằng đường tường, còn quả đạn chỉ là lớp bọt bên trên",
       "how": [
         [
-          "Quét Kiếm",
-          "130 sát thương phép cộng 60% Sức Mạnh Phép Thuật ở cấp 5, với thời gian hồi chiêu 0,1 giây. Mỗi cú lướt cộng thêm 25% trong 5 giây, tối đa 4 lần, nên một cú lướt đã khởi động sẽ gây 260 cộng 120% Sức Mạnh Phép Thuật."
+          "Đại Bác Đẩy Lùi",
+          "Một quả đạn đại bác hất văng mục tiêu và mọi người bên cạnh. Bình thường là nút báo động của cô ấy, ở đây nó là cả kế hoạch."
         ],
         [
           "Lõi nâng cấp",
-          "Đơn Giản Hóa niêm phong Trăng Trối để tăng 35% sát thương kỹ năng, còn Vũ Khí Tin Cậy, quay trúng Quét Kiếm, cộng thêm 5% cho mỗi tướng hắn lướt qua: lướt qua năm tướng thì mỗi cú lướt tăng theo 200% Sức Mạnh Phép Thuật của hắn. Lá Chắn Hùng Mạnh biến lá chắn Flow thành Sức Mạnh Phép Thuật, còn Baron Chi Viện cộng thêm 25% Sức Mạnh Thích Ứng."
+          "Tam Kích, áp lên Đại Bác Đẩy Lùi, bắn nó vào thêm hai kẻ địch, và Phản Ứng Dây Chuyền đập bất kỳ ai va tường với tối đa 2000 sát thương phép, vì nó gây 250% với chiêu cuối. Đến Giờ Đồ Sát lặp lại 40% tất cả số đó dưới dạng sát thương chuẩn 5 giây sau, còn RISE tặng một Đại Bác Đẩy Lùi mới sau khi hạ gục, tối đa hai lần."
         ],
         [
           "Trang bị",
-          "Mũ Phù Thủy Rabadon cho 130 Sức Mạnh Phép Thuật và tăng thêm 30% toàn bộ chỉ số đó, còn Ngọn Lửa Hắc Hóa, Quyền Trượng Bão Tố và Quyền Trượng Ác Thần chất nốt phần còn lại. Trượng Hư Vô và Giày Pháp Sư đảm bảo Kháng Phép của ai cũng chẳng có tiếng nói."
+          "Cú đập là sát thương cố định, nên chỉ xuyên kháng phép mới làm nó to hơn: Trượng Hư Vô, Giày Pháp Sư, Ngọn Lửa Hắc Hóa và Quyền Trượng Bão Tố xóa tới 70 kháng phép. Hỏa Khuẩn đưa vòng tiếp theo đến sớm hơn, còn Mũ Phù Thủy Rabadon làm quả đạn to ra."
         ]
       ],
       "augments": [
-        "Kỹ năng Tối thượng của bạn bị niêm phong. Nhận 35% Sát Thương Kỹ Năng, Hồi Máu, Lá Chắn và 70 Tốc Độ Hồi Chiêu.",
-        "Đánh tướng địch bằng kỹ năng đã chọn sẽ tạo nên mối liên kết Tình Bạn. Kỹ năng đã chọn tạm thời tăng sát thương dựa trên cấp độ Tình Bạn của bạn.",
-        "Nhận Sức Mạnh Thích Ứng trong 3 giây khi bạn nhận Lá Chắn (thời gian hồi 5 giây).",
-        "Nhận 25% Sức Mạnh Thích Ứng. Lính đồng minh gần đó được tăng cường mạnh mẽ."
+        "Kỹ năng bạn chọn nhắm thêm 2 kẻ địch phía trước bạn. Số Mục Tiêu Bổ Sung Trúng Chiêu: Các đơn vị nhận ít sát thương hơn từ cùng một phép.",
+        "Nếu mục tiêu bị đẩy lùi bởi kỹ năng đã chọn va vào tướng khác, chúng bị hất tung và chịu sát thương. Khi va vào địa hình, thời gian hất tung được kéo dài và chúng chịu thêm sát thương.",
+        "Sau khi dùng Chiêu Cuối, đánh dấu tất cả kẻ địch và tích trữ 40% sát thương bạn gây ra cho chúng. Sau 5 giây, kích nổ lượng sát thương đã tích trữ (thời gian hồi 8 giây).",
+        "Nếu bạn dùng kỹ năng đã chọn để hạ gục một tướng địch, bạn có thể dùng lại nó. Mỗi lần dùng lại tiếp theo gây thêm sát thương."
       ]
     },
     "zh-CN": {
-      "title": "横扫扫帚",
-      "why": "疾风剑豪亲手封印了自己的狂风绝息斩，全力堆法强，因为他平时用来赶路的那个小位移，其实一直是他最强的技能。",
-      "play": "先升满踏前斩，再升斩钢闪。先穿过四个小兵热身，再穿过每个英雄一次：每个英雄6秒后可以再次被穿过，正好和一层可靠武器的持续时间一样长。",
-      "tagline": "亲手封印了自己的大招，抄起一把扫帚：现在冲刺能把整支队伍扫干净。",
+      "title": "三重毁灭射击特浓咖啡",
+      "why": "麦林炮手不再平A，只为一个键而活：毁灭射击现在一次命中三个人，而他们撞上的那面墙比炮弹疼多了。",
+      "play": "火箭跳跃到他们身边，瞄准让击退正好把人撞向墙，然后对中间那个按R。每次击杀后再次释放，然后跳出来等下一轮。",
+      "tagline": "还剩三发，大家都从墙里出去了，而炮弹只是上面的奶泡",
       "how": [
         [
-          "踏前斩",
-          "5级时造成130魔法伤害，外加60%法术强度，冷却时间0.1秒。每次位移持续5秒叠加25%，最多4次，所以热身后的一次位移就是260外加120%法术强度。"
+          "毁灭射击",
+          "一发炮弹，把目标和身边所有人都击飞。平时是她的保命键，这里却是整个计划。"
         ],
         [
           "海克斯强化",
-          "回归基本功封印狂风绝息斩，换取35%额外技能伤害；而在踏前斩上抽到的可靠武器，会让他每穿过一名英雄就多出5%：穿过五名英雄后，每次位移都按他200%的法术强度成长。强力护盾把他的Flow护盾变成法术强度，男爵之手再额外送上25%适应之力。"
+          "附在毁灭射击上的三重射击会把它再打向两名敌人，连锁反应则让撞墙的人吃下最高2000点魔法伤害，因为它对终极技能造成250%。杀戮时间到了会在5秒后把这一切的40%作为真实伤害再来一遍，登峰造极境则在击杀后给你一发新的毁灭射击，最多两次。"
         ],
         [
           "装备",
-          "灭世者的死亡之帽提供130法术强度，并让全部法强再提高30%，影焰、风暴狂涌和裂隙制造者负责堆满剩下的。虚空之杖和法师之靴则确保没人的魔法抗性有发言权。"
+          "撞墙伤害是固定值，所以只有法术穿透能让它更高：虚空之杖、法师之靴、影焰和风暴狂涌最多可无视70点魔法抗性。残疫让下一轮来得更快，灭世者的死亡之帽则让炮弹更肥。"
         ]
       ],
       "augments": [
-        "你的终极技能被封印。获得35%技能伤害、治疗效果、护盾效果，以及70技能急速。",
-        "用所选技能击中敌方英雄会缔结友谊的羁绊。所选技能会根据你的友谊等级临时获得额外伤害。",
-        "获得护盾时,获得3秒适应之力(冷却时间5秒)。",
-        "获得25%适应之力。附近的友军小兵得到大幅强化。"
+        "你选择的技能会额外攻击你前方的2名敌人。额外命中目标：单位受到同一法术的伤害降低。",
+        "如果被所选技能击退的目标撞到另一名英雄，他们会被击飞并受到伤害。撞到地形时，击飞持续时间会延长，并受到额外伤害。",
+        "施放终极技能后，标记所有敌人，并储存你对他们造成伤害的40%。5秒后，引爆储存的伤害（8秒冷却时间）。",
+        "如果你用所选技能击杀了敌方英雄，可以再次施放它。之后每次再次施放都会造成额外伤害。"
       ]
     },
     "zh-TW": {
-      "title": "橫掃掃把",
-      "why": "犽宿親手封印了自己的奪命氣息，全力堆法強，因為他平常拿來趕路的那個小位移，其實一直都是他最強的技能。",
-      "play": "先點滿刃敵千軍，再點鋼鐵暴雪。先穿過四隻小兵熱身，再穿過每位英雄一次：每位英雄6秒後可以再被穿過，剛好跟一層可靠武器的持續時間一樣長。",
-      "tagline": "親手封印了自己的大招，抄起一把掃把：現在衝刺能把整支隊伍掃乾淨。",
+      "title": "三重毀滅射擊特濃咖啡",
+      "why": "崔絲塔娜不再普攻，只為一個按鍵而活：毀滅射擊現在一次命中三個人，而他們撞上的那面牆比砲彈痛多了。",
+      "play": "火箭跳躍到他們身邊，瞄準讓擊退剛好把人撞向牆，然後對中間那個按R。每次擊殺後再次施放，然後跳出來等下一輪。",
+      "tagline": "還剩三發，大家都從牆裡出去了，而砲彈只是上面的奶泡",
       "how": [
         [
-          "刃敵千軍",
-          "5級時造成130魔法傷害，外加60%法術強度，冷卻時間0.1秒。每次位移持續5秒疊加25%，最多4次，所以熱身後的一次位移就是260外加120%法術強度。"
+          "毀滅射擊",
+          "一發砲彈，把目標和身邊所有人都擊飛。平常是她的保命鍵，這裡卻是整個計畫。"
         ],
         [
           "強化",
-          "基本功夫封印奪命氣息，換取35%額外技能傷害；而在刃敵千軍上抽到的可靠武器，會讓他每穿過一位英雄就多出5%：穿過五位英雄後，每次位移都按他200%的法術強度成長。巨大盾牌把他的Flow護盾變成法術強度，巴龍之爪再額外送上25%適應之力。"
+          "附在毀滅射擊上的三連射會把它再打向兩名敵人，連鎖反應則讓撞牆的人吃下最高2000點魔法傷害，因為它對終極技能造成250%。殺戮時間會在5秒後把這一切的40%當作真實傷害再來一遍，崛起則在擊殺後給你一發新的毀滅射擊，最多兩次。"
         ],
         [
           "裝備",
-          "死亡之帽提供130法術強度，並讓全部法強再提高30%，黯影之炎、雷霆風暴和峽谷製造者負責堆滿剩下的。虛空之杖和法師之靴則確保沒人的魔法防禦有發言權。"
+          "撞牆傷害是固定值，所以只有法術穿透能讓它更高：虛空之杖、法師之靴、黯影之炎和雷霆風暴最多可無視70點魔法防禦。惡意讓下一輪來得更快，死亡之帽則讓砲彈更肥。"
         ]
       ],
       "augments": [
-        "你的終極技能被封印。獲得35%技能傷害、治療效果、護盾效果，以及70技能加速。",
-        "用所選技能擊中敵方英雄會締結友誼的羈絆。所選技能會根據你的友誼等級暫時獲得額外傷害。",
-        "獲得護盾時,獲得3秒適應之力(冷卻時間5秒)。",
-        "獲得25%適應之力。附近的友軍小兵得到大幅強化。"
+        "你選擇的技能會額外攻擊你前方的2名敵人。額外命中目標：單位受到同一法術的傷害降低。",
+        "如果被所選技能擊退的目標撞上另一名英雄，他們會被擊飛並受到傷害。撞上地形時，擊飛持續時間會延長，並受到額外傷害。",
+        "施放終極技能後，標記所有敵人，並儲存你對他們造成傷害的40%。5秒後，引爆儲存的傷害（8秒冷卻時間）。",
+        "如果你用所選技能擊殺了敵方英雄，可以再次施放它。之後每次再次施放都會造成額外傷害。"
       ]
     }
   }

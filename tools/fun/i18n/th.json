@@ -641,5 +641,16 @@
  "End of the Line": "End of the Line",
  "Smoke Screen": "Smoke Screen",
  "Quickdraw": "Quickdraw",
- "Collateral Damage": "Collateral Damage"
+ "Collateral Damage": "Collateral Damage",
+ "Triple Buster Shot Espresso": "Triple Buster Shot Espresso",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana เลิกตีธรรมดาแล้วอยู่เพื่อปุ่มเดียว: Buster Shot โดนสามคนพร้อมกัน และกำแพงที่พวกเขาไปกระแทกเจ็บกว่ากระสุนปืนใหญ่เยอะ",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Rocket Jump ไปข้างๆ พวกมัน เล็งให้แรงผลักไปจบที่กำแพง แล้วกด R ใส่คนที่อยู่ตรงกลาง กดซ้ำหลังฆ่าทุกครั้ง จากนั้นกระโดดออกแล้วรอรอบต่อไป",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "เหลืออีกสามนัด ทุกคนออกทางกำแพง และกระสุนปืนใหญ่ก็เป็นแค่ฟองนมด้านบน",
+ "Buster Shot": "Buster Shot",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "กระสุนปืนใหญ่ที่ผลักเป้าหมายและทุกคนข้างๆ ให้กระเด็นออกไป ปกติเป็นปุ่มเอาตัวรอดของเธอ แต่ตรงนี้คือแผนทั้งหมด",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "Tripleshot ที่ติดบน Buster Shot ยิงมันใส่ศัตรูอีกสองคน และ Chain Reaction กระแทกใครก็ตามที่ชนกำแพงด้วยความเสียหายเวทสูงสุด 2000 เพราะมันให้ 250% กับอัลติเมต It's Killing Time ทำซ้ำ 40% ของทั้งหมดเป็นความเสียหายจริงอีก 5 วินาทีต่อมา และ RISE ให้ Buster Shot ใหม่หลังฆ่า ได้สูงสุดสองครั้ง",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "การกระแทกเป็นความเสียหายคงที่ ดังนั้นมีแค่การทะลุเวทที่ทำให้แรงขึ้น: Void Staff, Sorcerer's Shoes, Shadowflame และ Stormsurge ลบเกราะเวทได้สูงสุด 70 Malignance ทำให้รอบถัดไปมาเร็วขึ้น และ Rabadon's Deathcap ทำให้กระสุนปืนใหญ่อ้วนขึ้น",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "สกิลที่เลือกจะโจมตีศัตรูเพิ่มอีก 2 คนที่อยู่ข้างหน้าคุณ จำนวนเป้าหมายเพิ่มเติมที่โดน: ยูนิตจะรับความเสียหายจากสเปลเดียวกันน้อยลง",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "หลังจากใช้อัลติเมต ทำเครื่องหมายศัตรูทั้งหมดและเก็บ 40% ของความเสียหายที่คุณสร้างให้พวกมัน หลังจาก 5 วินาที ระเบิดความเสียหายที่เก็บไว้ (คูลดาวน์ 8 วินาที)",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "ถ้าคุณใช้สกิลที่เลือกฆ่าแชมเปี้ยนศัตรู คุณสามารถใช้ซ้ำได้ การใช้ซ้ำแต่ละครั้งถัดไปสร้างความเสียหายเพิ่ม"
 }

@@ -641,5 +641,16 @@
  "End of the Line": "End of the Line",
  "Smoke Screen": "Smoke Screen",
  "Quickdraw": "Quickdraw",
- "Collateral Damage": "Collateral Damage"
+ "Collateral Damage": "Collateral Damage",
+ "Triple Buster Shot Espresso": "Triple Buster Shot Espresso",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana berhenti menyerang biasa dan hidup demi satu tombol: Buster Shot sekarang kena tiga orang sekaligus, dan tembok tempat mereka mendarat jauh lebih sakit daripada bola meriamnya.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Rocket Jump ke sisi mereka, bidik supaya knockback-nya berakhir di tembok, lalu tekan R ke yang di tengah. Cast ulang setiap habis kill, lalu lompat keluar dan tunggu ronde berikutnya.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "Tiga tembakan lagi, semua keluar lewat tembok, dan bola meriamnya cuma busa di atas",
+ "Buster Shot": "Buster Shot",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "Bola meriam yang melempar targetnya dan semua orang di sampingnya. Biasanya ini tombol panik, sekarang ini seluruh rencananya.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "Tripleshot, yang di-roll di Buster Shot, menembakkannya ke dua musuh lagi, dan Chain Reaction membanting siapa pun yang kena tembok dengan hingga 2000 magic damage, karena ia memberi 250% pada ultimate. It's Killing Time mengulang 40% dari semuanya sebagai true damage 5 detik kemudian, dan RISE memberi Buster Shot baru setelah kill, maksimal dua kali.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "Bantingannya flat damage, jadi cuma magic penetration yang bikin lebih besar: Void Staff, Sorcerer's Shoes, Shadowflame, dan Stormsurge menghapus hingga 70 magic resist. Malignance mempercepat ronde berikutnya dan Rabadon's Deathcap bikin bola meriamnya makin gemuk.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "Kemampuan pilihanmu menargetkan 2 musuh tambahan di depanmu. Target Tambahan yang Terkena: Unit menerima damage lebih kecil dari spell yang sama.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "Setelah memakai Ultimate, tandai semua musuh dan simpan 40% damage yang kamu berikan kepada mereka. Setelah 5 detik, ledakkan damage yang tersimpan (Cooldown 8 detik).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "Jika kamu memakai kemampuan pilihan untuk membunuh champion musuh, kamu bisa Recast-nya. Setiap Recast berikutnya memberi damage tambahan."
 }

@@ -641,5 +641,16 @@
  "End of the Line": "To Koniec!",
  "Smoke Screen": "Zasłona Dymna",
  "Quickdraw": "Rozpęd",
- "Collateral Damage": "Obrażenia Przypadkowe"
+ "Collateral Damage": "Obrażenia Przypadkowe",
+ "Triple Buster Shot Espresso": "Potrójne Espresso Niszczącego Strzału",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana przestaje atakować i żyje dla jednego przycisku: Niszczący Strzał trafia teraz trzy osoby naraz, a ściana, o którą się rozbijają, boli znacznie bardziej niż sama kula armatnia.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Rakietowy Skok na ich stronę, wyceluj tak, żeby odepchnięcie skończyło się na ścianie, i wciśnij R na tego w środku. Powtarzaj po każdym zabójstwie, potem wyskocz i czekaj na następną rundę.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "Zostały trzy strzały, wszyscy wychodzą przez ścianę, a kula armatnia była tylko pianką na wierzchu",
+ "Buster Shot": "Niszczący Strzał",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "Kula armatnia, która odrzuca cel i wszystkich obok niego. Zwykle to jej przycisk paniki, tu to cały plan.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "Trójstrzał, nałożony na Niszczący Strzał, wystrzeliwuje go w dwóch kolejnych wrogów, a Reakcja Łańcuchowa wbija każdego, kto uderzy w ścianę, za maksymalnie 2000 obrażeń magicznych, bo zadaje 250% na ultimie. Czas na Mord powtarza 40% tego wszystkiego jako obrażenia nieuchronne 5 sekund później, a POWSTAŃ daje nowy Niszczący Strzał po zabójstwie, maksymalnie dwa razy.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "Uderzenie to stałe obrażenia, więc zwiększa je tylko przebicie magii: Kostur Pustki, Obuwie Maga, Płomień Cienia i Przepływ Burzy kasują do 70 odporności na magię. Złowrogość przyspiesza następną rundę, a Zabójczy Kapelusz Rabadona tuczy kulę armatnią.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "Wybrana umiejętność celuje w 2 dodatkowych wrogów przed tobą. Trafione dodatkowe cele: jednostki otrzymują mniej obrażeń od tego samego czaru.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "Po użyciu Ultimate oznacz wszystkich wrogów i zachowaj 40% zadanych im obrażeń. Po 5 sekundach zgromadzone obrażenia eksplodują (8 sekund odnowienia).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "Jeśli użyjesz wybranej umiejętności, by zabić wrogiego bohatera, możesz użyć jej ponownie. Każde kolejne ponowne użycie zadaje dodatkowe obrażenia."
 }
