@@ -378,6 +378,15 @@ pub fn auto_taken(app: &AppHandle, id: i64) {
     }
 }
 
+/// A pick marked from the HUD's augment icons (ingame.rs, hud.rs), in place of `replaced` when that was marked wrongly.
+pub fn hud_taken(app: &AppHandle, id: i64, replaced: Option<i64>) {
+    let js = format!("window.hudTaken && window.hudTaken({id}, {})", replaced.map_or("null".into(), |r| r.to_string()));
+    crate::phone::push(&js);
+    if let Some(win) = app.get_webview_window(LABEL) {
+        let _ = win.eval(js);
+    }
+}
+
 /// Which monitor the window goes full screen on: one that doesn't hold the game (or, without a game window to
 /// go by, isn't the main monitor, where League runs). None with a single monitor. Monitors are (x, y, w, h).
 pub fn other_monitor(monitors: &[(i32, i32, u32, u32)], game: Option<(i32, i32)>, primary: usize) -> Option<usize> {

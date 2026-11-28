@@ -65,6 +65,8 @@ pub struct State {
     /// choice is recorded: its text and pictures, to learn what the choice looks like (Nico 2026-11-28).
     anvils: usize,
     anvil_until: f64,
+    /// The last HUD check's answer (hud.rs): a pick is marked from the HUD only when two checks in a row agree.
+    hud_seen: Option<(usize, i64)>,
     names: Option<Vec<(i64, String)>>,
     /// After-game review: this game's samples, champion strengths and the game's result.
     samples: Vec<Sample>,
@@ -104,6 +106,7 @@ fn publish(app: &AppHandle, events: Vec<augtrack::Event>) {
                 }
             }
             augtrack::Event::Late(id) => companion::auto_taken(app, id),
+            augtrack::Event::Hud { pick, replaced } => companion::hud_taken(app, pick, replaced),
             // a "close" that was a reroll's card flip: the companion keeps its mark until the next pick replaces it
             augtrack::Event::Unmark(_) => {}
         }
@@ -176,6 +179,7 @@ fn record(app: &AppHandle, e: &augtrack::Event) {
         }
         augtrack::Event::Unmark(id) => serde_json::json!({"t": ms, "unmark": id}),
         augtrack::Event::Late(id) => serde_json::json!({"t": ms, "late": id}),
+        augtrack::Event::Hud { pick, replaced } => serde_json::json!({"t": ms, "hud": pick, "replaced": replaced}),
     };
     use std::io::Write;
     if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(dir.join("offers.jsonl")) {
@@ -237,6 +241,7 @@ fn start(app: &AppHandle, agent: &ureq::Agent) -> bool {
         s.ticks = 0;
         s.anvils = 0;
         s.anvil_until = f64::NEG_INFINITY;
+        s.hud_seen = None;
         s.samples.clear();
         s.next_sample = 0.0;
         s.result = None;
@@ -348,6 +353,20 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
         s.headliner.name.is_none() && s.ticks % 3 == 1
     };
     let hud = if look { augscan::read_hud() } else { None };
+    // The HUD's augment icons every third tick (the other two) while a round was offered in the last 90 s and no
+    // screen is up: confirms the round's pick, or catches one the card screen missed (hud.rs). Not with Pentakill,
+    // whose own cards may take slots too (not seen yet).
+    let check = {
+        let state = app.state::<Shared>();
+        let s = state.lock().unwrap();
+        let cards = s.track.round_cards();
+        (s.ticks % 3 == 2 && s.track.offer.is_empty() && !cards.is_empty() && s.headliner.name != Some("Pentakill"))
+            .then_some(cards)
+    };
+    let shown = check.and_then(|cards| Some((augscan::hud_slots()?, cards))).map(|(slots, cards)| {
+        let filled = slots.iter().take_while(|v| crate::hud::filled(v)).count();
+        (filled, crate::hud::last_pick(&slots, &cards), cards)
+    });
     {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
@@ -367,6 +386,15 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
             input_log(app, serde_json::json!({"now": now, "anvil": anvils}));
         }
         s.anvils = s.anvils.max(anvils);
+        if let Some((filled, pick, cards)) = shown {
+            if s.hud_seen != pick || pick.is_some() {
+                input_log(app, serde_json::json!({"now": now, "hud": filled, "shows": pick.map(|p| p.1), "round": cards}));
+            }
+            if let (Some((n, id)), true) = (pick, s.hud_seen == pick) {
+                s.track.hud(n, id);
+            }
+            s.hud_seen = pick;
+        }
         let width = augscan::game_window().map_or(1920.0, |(_, _, w, _)| f64::from(w));
         let hl = s.headliner.for_tracker();
         s.track.game(now, game_time, level as u32, dead, hl, width);

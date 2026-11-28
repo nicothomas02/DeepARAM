@@ -191,6 +191,14 @@ pub fn read_hud() -> Option<Vec<Line>> {
     None
 }
 
+/// The six HUD augment slots (hud.rs), each as the vector it is compared as. None while League isn't in front.
+pub fn hud_slots() -> Option<Vec<Vec<f32>>> {
+    #[cfg(windows)]
+    return win::hud_slots();
+    #[cfg(not(windows))]
+    None
+}
+
 /// Halves a BGRA picture (each pixel the average of four), for screens wider than the recognizer reads well.
 #[cfg_attr(not(windows), allow(dead_code))]
 pub fn halve(px: &[u8], w: usize, h: usize) -> (Vec<u8>, usize, usize) {
@@ -485,6 +493,20 @@ mod win {
     pub fn read_hud() -> Option<Vec<Line>> {
         let (gx, gy, gw, gh) = game_window()?;
         read_area(hud_area(gx, gy, gw, gh))
+    }
+
+    pub fn hud_slots() -> Option<Vec<Vec<f32>>> {
+        let (gx, gy, gw, gh) = game_window()?;
+        if !league_in_front() || gw < 640 {
+            return None;
+        }
+        (0..6)
+            .map(|k| {
+                let (l, t, s) = crate::hud::slot_square(gw, gh, k);
+                // an all-dark copy (exclusive Fullscreen) just reads as empty slots
+                capture(gx + l, gy + t, s, s, s, s).map(|px| crate::hud::thumb(&px, s as usize))
+            })
+            .collect()
     }
 
     fn read_area((x, y, w, h): (i32, i32, i32, i32)) -> Option<Vec<Line>> {

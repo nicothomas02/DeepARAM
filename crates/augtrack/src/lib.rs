@@ -110,6 +110,8 @@ pub enum Event {
     Unmark(i64),
     /// A pick was marked late (the click came just after the close was read)
     Late(i64),
+    /// A pick marked from the HUD's augment icons: the round's pick was missed, or `replaced` was marked wrongly
+    Hud { pick: i64, replaced: Option<i64> },
 }
 
 #[derive(Clone, Debug)]
@@ -170,6 +172,8 @@ pub struct Tracker {
     burst_until: f64,
     started: bool,
     now: f64,
+    /// Every screen accepted, with when
+    screens: Vec<(f64, Vec<i64>)>,
 }
 
 impl Tracker {
@@ -196,7 +200,9 @@ impl Tracker {
     pub fn nap(&self, now: f64, in_front: bool) -> f64 {
         // an offer on screen, or the shop open with a round owed: read nonstop (Nico 2026-11-28, "augment rounds
         // should capture continuously"), so a reroll and the pick right after it are seen
-        if now < self.burst_until || (in_front && (!self.offer.is_empty() || (self.owed > 0 && self.dead))) {
+        if now < self.burst_until
+            || (in_front && (!self.offer.is_empty() || (self.owed > 0 && self.dead)))
+        {
             0.15
         } else if self.window && in_front {
             0.3
@@ -430,6 +436,7 @@ impl Tracker {
             if rerolled {
                 self.last_click = None;
                 self.card_clicks.clear();
+                self.screens.push((now, ids.clone()));
                 self.events.push(Event::Offer(ids));
             }
         } else if ids != self.offer {
@@ -489,6 +496,7 @@ impl Tracker {
                 }
             }
             self.early_clicks.clear();
+            self.screens.push((now, ids.clone()));
             self.events.push(Event::Offer(ids));
         }
     }
@@ -609,7 +617,10 @@ impl Tracker {
                 .filter(|c| {
                     // seen before the click (up to 4 s), never only after it: clicks before a screen are play
                     // (Riven 2026-11-28: clicks while alive just before death picked a card that came 2 s later)
-                    at - c.2 < 4.0 && c.2 - at <= 0.5 && !self.picked.contains(&c.0) && !stale.contains(&c.0)
+                    at - c.2 < 4.0
+                        && c.2 - at <= 0.5
+                        && !self.picked.contains(&c.0)
+                        && !stale.contains(&c.0)
                 })
                 .collect();
             let here: Vec<&&(i64, f64, f64)> =
@@ -697,6 +708,50 @@ impl Tracker {
                 self.events.push(Event::Late(cards[k]));
             }
         }
+    }
+
+    /// The cards of the screens offered in the last 90 s (the round just played, rerolls included; Pentakill's own
+    /// cards left out), for the HUD check.
+    pub fn round_cards(&self) -> Vec<i64> {
+        let mut out: Vec<i64> = Vec::new();
+        for (at, ids) in &self.screens {
+            if self.now - at < 90.0 {
+                for &a in ids {
+                    if !is_band(a) && !out.contains(&a) {
+                        out.push(a);
+                    }
+                }
+            }
+        }
+        out
+    }
+
+    /// The HUD's newest augment slot shows `shown`, one of `round_cards()`, with `filled` slots in all (the app's
+    /// hud.rs). It becomes this round's pick: it replaces a different card of the same round marked as picked (a
+    /// wrong mark; only the newest pick), or is added when fewer picks are known than slots are filled (a missed pick).
+    pub fn hud(&mut self, filled: usize, shown: i64) {
+        if !self.offer.is_empty() || self.picked.contains(&shown) {
+            return;
+        }
+        let round = self.round_cards();
+        if !round.contains(&shown) {
+            return;
+        }
+        // only the newest pick can be this round's (an earlier round's card read again must stay)
+        let last = self.picked.len().checked_sub(1);
+        let replaced = if let Some(p) = last.filter(|&p| round.contains(&self.picked[p])) {
+            Some(std::mem::replace(&mut self.picked[p], shown))
+        } else if self.picked.len() < filled {
+            self.picked.push(shown);
+            None
+        } else {
+            return;
+        };
+        self.auto_pick = Some(shown);
+        self.events.push(Event::Hud {
+            pick: shown,
+            replaced,
+        });
     }
 
     /// The post-game list (exact): replaces what was read live.

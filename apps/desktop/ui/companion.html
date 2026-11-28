@@ -979,6 +979,17 @@
     renderItems();
   };
 
+  // The HUD's augment icons showed this round's pick (the card screen missed it, or `replaced` was marked wrongly).
+  window.hudTaken = (id, replaced) => {
+    if (!game) return;
+    const t = getTaken(game).filter((x) => x !== replaced);
+    if (t.includes(id)) return;
+    lastScreen = [];
+    setTaken(game, [...t, id]);
+    renderAugments();
+    renderItems();
+  };
+
   // Bought anything yet (Poro-Snax, which ARAM hands out, doesn't count)?
   const bought = (g) => (g.items ?? []).some((i) => i % 10000 !== 2052);
 
