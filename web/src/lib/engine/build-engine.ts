@@ -32,7 +32,7 @@ const BUY_SLOT = (BUY_SLOT_DATA as { items: Record<string, number> }).items;
 import coreStrictnessData from "../../data/core-strictness.json";
 
 export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
-export const ENGINE_VERSION = "1.4.21";
+export const ENGINE_VERSION = "1.4.22";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -170,6 +170,8 @@ export type OverlayChamp = {
   /** Starts above the starting gold, best first, with their cost (site lib/quick-build.ts richStarts). */
   richStarts?: { start: Named[]; cost: number }[];
   start?: Named[];
+  /** Share of the champion's typed legendary buys that are AP and AD (site lib/champion-page.ts typeShare). */
+  typeShare?: { ap: number; ad: number };
   /** Build styles, best DeepScore first; nearBest: its win rate's 95% range overlaps the best's (Feeling lucky). */
   builds?: (Partial<OverlayChamp> & { style: string; share: number; deepScore?: number; nearBest?: boolean })[];
 };
@@ -937,6 +939,9 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
 // ---------------------------------------------------------------------------------------------------------------
 // Build path
 
+/** The least share of a champion's typed legendary buys a damage type needs before the build can switch to it: the
+ *  same 3% a build style needs to count (data/estimates/build_archetypes.json min_share). */
+export const TYPE_MIN = 0.03;
 /** The damage type each build style stands for; tank stands for neither. */
 export const STYLE_TYPE: Record<string, "ap" | "ad"> = { ap: "ap", enchanter: "ap", crit: "ad", onhit: "ad", lethality: "ad", fighter: "ad" };
 export const STYLE_NAMES: Record<string, string> = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
@@ -1618,12 +1623,20 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     // (516 of 803), winning 49.8% vs 47.7% for those who go back (correlational). A stray buy after path items still
     // gets the sell tip (sellMismatch).
     const pathMagic = magicOf(pathIds);
+    // a path of neither type (tank, most supports) has nothing to switch away from
+    const typed = (t: string) => pathIds.filter((i) => tag(i, t) && !tag(i, t === "ap" ? "ad" : "ap")).length;
+    const pathTyped = typed("ap") !== typed("ad");
     const pure = (i: number) => (tag(i, "ap") && !tag(i, "ad") ? "ap" : tag(i, "ad") && !tag(i, "ap") ? "ad" : "");
     const want = pathMagic ? "ad" : "ap";
     const offTyped = off.filter((i) => pure(i) === want);
     const switches = RULES.augmentTypeSwitch.on ? taken.filter((a) => TYPE_SWITCH[String(a)]?.to === want) : [];
     const inPath = fin.filter((i) => listed.has(i)).length;
-    if (pathIds.length && offTyped.length + switches.length > inPath) {
+    // Only to a damage type the champion's own players build (typeShare, AramHex item buys, at least TYPE_MIN as for a
+    // build style) or to one of the champion's own build styles; replay sweep 2026-11-28: Infinity Edge on Ahri switched her to a crit marksman build, Rabadon's on
+    // Camille to AP, Witchful Thinking on Braum to a mage build). AP Zeri passes (4.9% of her buys).
+    const ownShare = champ0?.typeShare?.[want];
+    const typeOk = ownShare === undefined || ownShare >= TYPE_MIN;
+    if (pathTyped && offTyped.length + switches.length > inPath) {
       const magic = want === "ap";
       const ck = keyIn(picks.builds, game.champ);
       const ownStyles = new Set((ck ? picks.builds![ck] : []).map((x) => x[0]));
@@ -1631,6 +1644,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       for (const st of [...new Set(Object.values(picks.builds ?? {}).flatMap((b) => b.map((x) => x[0])))]) {
         // only styles of the evidence's damage type (replay audit 2026-11-28: Witchful Thinking switched Twitch to "AD")
         if ((STYLE_TYPE[st] ?? "") !== want) continue;
+        // a style of the champion's own (Senna's enchanter build) counts even when the type's share is small
+        if (!typeOk && !ownStyles.has(st)) continue;
         const cb = classBuild(picks, k, st, magic, rules);
         if (!cb) continue;
         const ids = new Set([...cb[0], ...cb[1]].map(base));

@@ -326,6 +326,9 @@ describe("build engine", () => {
     expect(byAug.switched?.style).toBeTruthy();
     expect(byAug.rules).toContain("augmentTypeSwitch");
     expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3031] }), taken: [1097] }).switched).toBeNull();
+    // never to a type the champion's own players don't build (typeShare under TYPE_MIN: IE on Ahri, Rabadon's on Camille)
+    expect(plan({ champ: { ...champ, typeShare: { ap: 0.005, ad: 0.995 } }, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+    expect(plan({ champ: { ...champ, typeShare: { ap: 0.05, ad: 0.95 } }, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched?.style).toBeTruthy();
     // after a path item it doesn't (the sell tip handles a stray buy)
     expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3031, 3003] }), taken: [] }).switched).toBeNull();
   });
@@ -484,7 +487,8 @@ describe("build engine", () => {
     const first = itemId(ori.items!.find((it) => (k.recipes[itemId(it.icon)]?.[1] ?? 0) >= 2000 && !k.boots.includes(itemId(it.icon)))!.icon);
     expect(sell([3020, first, 3031], 3000)).toEqual([expect.objectContaining({ item: 3031 })]);
     expect(sell([3020, first, 3031], 0)).toHaveLength(0); // 70% of Infinity Edge alone doesn't buy the next legendary
-    expect(sell([3020, 3031], 3000)).toHaveLength(0);
+    // as a first legendary too: Orianna's players don't build AD (typeShare), so no switch, the sell tip stays
+    expect(sell([3020, 3031], 3000)).toEqual([expect.objectContaining({ item: 3031 })]);
     expect(sell([3031], 3000, [1205])).toHaveLength(0); // ADAPt turns its AD into AP
     expect(sell([3089], 3000)).toHaveLength(0); // on-type item
   }, 30_000);

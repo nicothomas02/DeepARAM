@@ -79,6 +79,7 @@ var DeepEngine = (() => {
     TIER_ODDS: () => TIER_ODDS,
     TRANSFORMED_FROM: () => TRANSFORMED_FROM,
     TRANSMUTE: () => TRANSMUTE,
+    TYPE_MIN: () => TYPE_MIN,
     TYPE_SWITCH: () => TYPE_SWITCH,
     ULTIMATE_AUGMENTS: () => ULTIMATE_AUGMENTS,
     UPGRADES: () => UPGRADES,
@@ -5721,7 +5722,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
 
   // src/lib/engine/build-engine.ts
   var BUY_SLOT = item_buy_slot_default.items;
-  var ENGINE_VERSION = "1.4.21";
+  var ENGINE_VERSION = "1.4.22";
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
   var STAT_BONUS = 22e4;
   var STAT_BONUS_IDS = /* @__PURE__ */ new Set([6032]);
@@ -6289,6 +6290,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     const best = (list2) => [...list2].sort((x, y) => (y.deepScore ?? -Infinity) - (x.deepScore ?? -Infinity));
     return [...best(out.filter((it) => it.aug && it.why)), ...best(out.filter((it) => !(it.aug && it.why)))];
   }
+  var TYPE_MIN = 0.03;
   var STYLE_TYPE = { ap: "ap", enchanter: "ap", crit: "ad", onhit: "ad", lethality: "ad", fighter: "ad" };
   var STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
   var STACKING = /* @__PURE__ */ new Set([6697, 3084, 3070, 3004, 3003, 3119]);
@@ -6782,18 +6784,23 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       const magicOf = (ids) => ids.filter((i) => tag(i, "ap") && !tag(i, "ad")).length > ids.filter((i) => tag(i, "ad") && !tag(i, "ap")).length;
       const pathIds = [...listed].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i));
       const pathMagic = magicOf(pathIds);
+      const typed = (t) => pathIds.filter((i) => tag(i, t) && !tag(i, t === "ap" ? "ad" : "ap")).length;
+      const pathTyped = typed("ap") !== typed("ad");
       const pure = (i) => tag(i, "ap") && !tag(i, "ad") ? "ap" : tag(i, "ad") && !tag(i, "ap") ? "ad" : "";
       const want = pathMagic ? "ad" : "ap";
       const offTyped = off.filter((i) => pure(i) === want);
       const switches = RULES.augmentTypeSwitch.on ? taken.filter((a) => TYPE_SWITCH[String(a)]?.to === want) : [];
       const inPath2 = fin.filter((i) => listed.has(i)).length;
-      if (pathIds.length && offTyped.length + switches.length > inPath2) {
+      const ownShare = champ0?.typeShare?.[want];
+      const typeOk = ownShare === void 0 || ownShare >= TYPE_MIN;
+      if (pathTyped && offTyped.length + switches.length > inPath2) {
         const magic = want === "ap";
         const ck = keyIn(picks.builds, game.champ);
         const ownStyles = new Set((ck ? picks.builds[ck] : []).map((x) => x[0]));
         let best = null;
         for (const st of [...new Set(Object.values(picks.builds ?? {}).flatMap((b) => b.map((x) => x[0])))]) {
           if ((STYLE_TYPE[st] ?? "") !== want) continue;
+          if (!typeOk && !ownStyles.has(st)) continue;
           const cb = classBuild(picks, k, st, magic, rules);
           if (!cb) continue;
           const ids = new Set([...cb[0], ...cb[1]].map(base2));
