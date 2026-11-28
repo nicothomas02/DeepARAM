@@ -1057,6 +1057,18 @@ describe("crit cap (critCap)", () => {
   });
 });
 
+describe("a switch to the most played style when the card shows another (baseStyle)", () => {
+  it("Ashe's crit card with Marksmage switches to her own AP build (AP is 92% of her games)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const ashe = champs.find((x) => x.id === "Ashe")!;
+    const r = plan({ champ: ashe, kinds: k, picks: p0, fit: null, game: { champ: "Ashe", items: [] }, taken: [1129] });
+    expect(r.switched?.style).toBe("AP");
+    expect(r.switched?.classWide).toBe(false);
+    expect(plan({ champ: ashe, kinds: k, picks: p0, fit: null, game: { champ: "Ashe", items: [] }, taken: [] }).switched).toBeNull();
+  }, 30_000);
+});
+
 describe("Back To Basics seals ultimate items (sealedUlt)", () => {
   it("drops Axiom Arc from core and later slots once Back To Basics is taken, keeps one you own", async () => {
     const { plan } = await import("@/lib/engine/build-engine");

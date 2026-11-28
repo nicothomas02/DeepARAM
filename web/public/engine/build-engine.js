@@ -5720,7 +5720,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
 
   // src/lib/engine/build-engine.ts
   var BUY_SLOT = item_buy_slot_default.items;
-  var ENGINE_VERSION = "1.4.19";
+  var ENGINE_VERSION = "1.4.20";
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
   var STAT_BONUS = 22e4;
   var STAT_BONUS_IDS = /* @__PURE__ */ new Set([6032]);
@@ -6397,7 +6397,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     const rest = pickFree(ids.filter((id) => !byCore.includes(id)).sort((a, b) => score[b] - score[a]), 5, byCore);
     return byCore.length === 3 ? [byCore, rest] : null;
   }
-  function pickBuild(base0, picks, k, champ, taken, owned, rules, forced = null) {
+  function pickBuild(base0, picks, k, champ, taken, owned, rules, forced = null, baseStyle = null) {
     if (!k || !picks) return { list: base0, style: null, core: null };
     if (!forced && (!(RULES.augmentReplan.on || RULES.measuredReplan.on) || !taken.length)) return { list: base0, style: null, core: null };
     const ck = keyIn(picks.builds, champ);
@@ -6425,7 +6425,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     for (const [x, n] of cands) {
       st = x;
       byItems = !!forced && x === forced.style && !votes[x];
-      if (styles[0]?.[0] === x) return { list: base0, style: null, core: null };
+      if ((baseStyle ?? styles[0]?.[0]) === x) return { list: base0, style: null, core: null };
       found = styles.find(([y]) => y === x);
       plan2 = found ? [found[2].slice(0, 1), found[3], found[4]] : null;
       if (!plan2 && n >= 3 && (RULES.augmentReplan.on || byItems)) {
@@ -6867,7 +6867,8 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       });
     }
     const baseList = [...champ?.items ?? [], ...slotRows ? slotRows.map((r) => r.it) : champ?.rest ?? []].filter((it, i, a) => a.findIndex((x) => itemId(x.icon) === itemId(it.icon)) === i);
-    const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules, forced);
+    const baseStyle = (champ?.builds ?? []).find((b) => b.items?.[0] && champ?.items?.[0] && itemId(b.items[0].icon) === itemId(champ.items[0].icon))?.style ?? null;
+    const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules, forced, baseStyle);
     if (picked.style) {
       slotRows = null;
       applied(picked.niche ? "nicheBuilds" : forced && picked.because === forced.because ? "ownedReplan" : RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan");
