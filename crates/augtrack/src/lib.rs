@@ -191,10 +191,12 @@ impl Tracker {
         self.rounds = rounds;
     }
 
-    /// Seconds until the next read: 0.15 just after a click on the cards, 0.3 while a screen may be up and League is
-    /// in front, else 1.
+    /// Seconds until the next read: 0.15 just after a click on the cards, while an offer is up or while dead with a
+    /// round owed; 0.3 while a screen may be up and League is in front, else 1.
     pub fn nap(&self, now: f64, in_front: bool) -> f64 {
-        if now < self.burst_until {
+        // an offer on screen, or the shop open with a round owed: read nonstop (Nico 2026-11-28, "augment rounds
+        // should capture continuously"), so a reroll and the pick right after it are seen
+        if now < self.burst_until || (in_front && (!self.offer.is_empty() || (self.owed > 0 && self.dead))) {
             0.15
         } else if self.window && in_front {
             0.3
