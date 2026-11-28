@@ -63,3 +63,16 @@ xcodebuild build -project DeepARAM.xcodeproj -scheme DeepARAM -destination 'plat
 
 To test background patch checks in the simulator, pause the app in the debugger and run
 `e -l objc -- (void)[[BGTaskScheduler sharedScheduler] _simulateLaunchForTaskWithIdentifier:@"com.deeparam.app.refresh"]`.
+
+## Game companion (owner only)
+
+The PC app can serve a live companion page over home Wi-Fi (off unless the `phone-companion` file is in the PC app's data folder).
+To link the iPhone app to it, open the companion address in Safari and tap "Open in the DeepARAM app". The app then:
+
+- shows the companion full screen when a Mayhem game reaches champion select, and hides it after the game;
+- keeps the screen awake only while the companion is showing and the app is open;
+- shows a Live Activity (Lock Screen, Dynamic Island, StandBy) with the champion, level, K/D/A, next augment level and next items. It updates only while the app is open, because nothing pushes to it from outside.
+
+More, then "Game companion", opens it by hand; "Unlink this PC" forgets the address.
+
+Installing with a free Apple ID: choose your personal team under Signing & Capabilities for both targets. Apps signed this way expire after 7 days; run again from Xcode to renew. If Xcode refuses the push notification or App Group capabilities for a personal team, remove them for that build (Live Activities started from the app still work).

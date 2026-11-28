@@ -1,0 +1,2206 @@
+{
+ "scores": {
+  "damage": [
+   [
+    "win",
+    1
+   ],
+   [
+    "dmg_share",
+    1
+   ],
+   [
+    "deaths",
+    -1
+   ]
+  ],
+  "support": [
+   [
+    "win",
+    1
+   ],
+   [
+    "heal_share",
+    1
+   ],
+   [
+    "units_healed",
+    1
+   ],
+   [
+    "assists",
+    1
+   ],
+   [
+    "kp",
+    1
+   ],
+   [
+    "cc_share",
+    1
+   ],
+   [
+    "deaths",
+    -1
+   ]
+  ],
+  "frontline": [
+   [
+    "win",
+    1
+   ],
+   [
+    "taken_share",
+    1
+   ],
+   [
+    "mitig_share",
+    1
+   ],
+   [
+    "cc_share",
+    1
+   ],
+   [
+    "kp",
+    1
+   ],
+   [
+    "deaths",
+    -1
+   ]
+  ],
+  "kda": [
+   [
+    "win",
+    1
+   ],
+   [
+    "kda",
+    1
+   ],
+   [
+    "kp",
+    1
+   ],
+   [
+    "deaths",
+    -1
+   ]
+  ],
+  "bruiser": [
+   [
+    "win",
+    1
+   ],
+   [
+    "dmg_share",
+    1
+   ],
+   [
+    "taken_share",
+    1
+   ],
+   [
+    "kda",
+    1
+   ],
+   [
+    "deaths",
+    -1
+   ]
+  ]
+ },
+ "defaults": {
+  "Enchanter": "support",
+  "Specialist": "bruiser"
+ },
+ "min_cells": 30,
+ "margin": 0.2,
+ "cells": 4708,
+ "players": 12410,
+ "check": {
+  "win": 0.148,
+  "damage for everyone": 0.254,
+  "subclass defaults": 0.315,
+  "with champion switches (in sample)": 0.33
+ },
+ "champions": {
+  "1": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 20,
+   "r": {
+    "damage": 0.304,
+    "support": 0.304,
+    "frontline": 0.457,
+    "kda": 0.339,
+    "bruiser": 0.438
+   }
+  },
+  "2": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 11,
+   "r": {
+    "damage": 0.22,
+    "support": 0.285,
+    "frontline": 0.242,
+    "kda": 0.271,
+    "bruiser": 0.08
+   }
+  },
+  "3": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 37,
+   "r": {
+    "damage": 0.213,
+    "support": -0.05,
+    "frontline": -0.03,
+    "kda": -0.061,
+    "bruiser": 0.162
+   }
+  },
+  "4": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 42,
+   "r": {
+    "damage": 0.608,
+    "support": 0.315,
+    "frontline": 0.227,
+    "kda": 0.601,
+    "bruiser": 0.657
+   }
+  },
+  "5": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 23,
+   "r": {
+    "damage": 0.36,
+    "support": -0.044,
+    "frontline": -0.067,
+    "kda": -0.02,
+    "bruiser": 0.142
+   }
+  },
+  "6": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 13,
+   "r": {
+    "damage": 0.36,
+    "support": 0.115,
+    "frontline": 0.001,
+    "kda": 0.156,
+    "bruiser": 0.284
+   }
+  },
+  "7": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 23,
+   "r": {
+    "damage": 0.322,
+    "support": 0.444,
+    "frontline": 0.512,
+    "kda": 0.503,
+    "bruiser": 0.426
+   }
+  },
+  "8": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 27,
+   "r": {
+    "damage": 0.157,
+    "support": -0.078,
+    "frontline": -0.144,
+    "kda": -0.022,
+    "bruiser": -0.001
+   }
+  },
+  "9": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 16,
+   "r": {
+    "damage": 0.204,
+    "support": 0.131,
+    "frontline": 0.226,
+    "kda": 0.047,
+    "bruiser": 0.278
+   }
+  },
+  "10": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 28,
+   "r": {
+    "damage": 0.075,
+    "support": 0.247,
+    "frontline": 0.243,
+    "kda": 0.149,
+    "bruiser": 0.23
+   }
+  },
+  "11": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 19,
+   "r": {
+    "damage": -0.351,
+    "support": -0.502,
+    "frontline": -0.465,
+    "kda": -0.311,
+    "bruiser": -0.431
+   }
+  },
+  "12": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 23,
+   "r": {
+    "damage": 0.156,
+    "support": 0.37,
+    "frontline": 0.47,
+    "kda": 0.303,
+    "bruiser": 0.525
+   }
+  },
+  "13": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 24,
+   "r": {
+    "damage": 0.264,
+    "support": 0.169,
+    "frontline": 0.303,
+    "kda": 0.172,
+    "bruiser": 0.338
+   }
+  },
+  "14": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 36,
+   "r": {
+    "damage": 0.73,
+    "support": 0.594,
+    "frontline": 0.67,
+    "kda": 0.626,
+    "bruiser": 0.771
+   }
+  },
+  "15": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 44,
+   "r": {
+    "damage": 0.414,
+    "support": 0.273,
+    "frontline": 0.215,
+    "kda": 0.251,
+    "bruiser": 0.397
+   }
+  },
+  "16": {
+   "score": "support",
+   "default": "support",
+   "cells": 31,
+   "r": {
+    "damage": 0.533,
+    "support": 0.452,
+    "frontline": 0.118,
+    "kda": 0.586,
+    "bruiser": 0.417
+   }
+  },
+  "17": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 37,
+   "r": {
+    "damage": 0.308,
+    "support": 0.339,
+    "frontline": 0.106,
+    "kda": 0.264,
+    "bruiser": 0.315
+   }
+  },
+  "18": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 34,
+   "r": {
+    "damage": 0.232,
+    "support": 0.167,
+    "frontline": 0.165,
+    "kda": 0.156,
+    "bruiser": 0.329
+   }
+  },
+  "19": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 14,
+   "r": {
+    "damage": -0.236,
+    "support": -0.464,
+    "frontline": -0.304,
+    "kda": -0.333,
+    "bruiser": -0.15
+   }
+  },
+  "20": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 19,
+   "r": {
+    "damage": -0.381,
+    "support": 0.602,
+    "frontline": 0.689,
+    "kda": 0.325,
+    "bruiser": 0.439
+   }
+  },
+  "21": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 53,
+   "r": {
+    "damage": 0.612,
+    "support": 0.69,
+    "frontline": 0.619,
+    "kda": 0.615,
+    "bruiser": 0.625
+   }
+  },
+  "22": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 52,
+   "r": {
+    "damage": 0.447,
+    "support": -0.205,
+    "frontline": 0.191,
+    "kda": 0.034,
+    "bruiser": 0.481
+   }
+  },
+  "23": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 13,
+   "r": {
+    "damage": 0.267,
+    "support": -0.578,
+    "frontline": -0.645,
+    "kda": -0.27,
+    "bruiser": -0.522
+   }
+  },
+  "24": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 15,
+   "r": {
+    "damage": 0.5,
+    "support": 0.337,
+    "frontline": 0.427,
+    "kda": 0.508,
+    "bruiser": 0.32
+   }
+  },
+  "25": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 41,
+   "r": {
+    "damage": 0.411,
+    "support": 0.316,
+    "frontline": 0.296,
+    "kda": 0.407,
+    "bruiser": 0.467
+   }
+  },
+  "26": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 25,
+   "r": {
+    "damage": 0.397,
+    "support": 0.25,
+    "frontline": 0.352,
+    "kda": 0.279,
+    "bruiser": 0.454
+   }
+  },
+  "27": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 42,
+   "r": {
+    "damage": 0.356,
+    "support": 0.364,
+    "frontline": 0.115,
+    "kda": 0.374,
+    "bruiser": 0.304
+   }
+  },
+  "28": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 11,
+   "r": {
+    "damage": 0.662,
+    "support": 0.726,
+    "frontline": 0.454,
+    "kda": 0.542,
+    "bruiser": 0.643
+   }
+  },
+  "29": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 37,
+   "r": {
+    "damage": 0.351,
+    "support": 0.137,
+    "frontline": 0.272,
+    "kda": 0.314,
+    "bruiser": 0.437
+   }
+  },
+  "30": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 38,
+   "r": {
+    "damage": 0.321,
+    "support": 0.237,
+    "frontline": 0.369,
+    "kda": 0.09,
+    "bruiser": 0.448
+   }
+  },
+  "31": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 32,
+   "r": {
+    "damage": 0.163,
+    "support": 0.112,
+    "frontline": 0.27,
+    "kda": 0.144,
+    "bruiser": 0.32
+   }
+  },
+  "32": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 33,
+   "r": {
+    "damage": 0.398,
+    "support": 0.12,
+    "frontline": 0.405,
+    "kda": 0.323,
+    "bruiser": 0.51
+   }
+  },
+  "33": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 14,
+   "r": {
+    "damage": 0.438,
+    "support": 0.296,
+    "frontline": 0.244,
+    "kda": 0.326,
+    "bruiser": 0.241
+   }
+  },
+  "34": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 15,
+   "r": {
+    "damage": -0.035,
+    "support": 0.177,
+    "frontline": 0.118,
+    "kda": 0.072,
+    "bruiser": 0.083
+   }
+  },
+  "35": {
+   "score": "support",
+   "default": "damage",
+   "cells": 48,
+   "r": {
+    "damage": 0.567,
+    "support": 0.808,
+    "frontline": 0.742,
+    "kda": 0.738,
+    "bruiser": 0.649
+   }
+  },
+  "36": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 25,
+   "r": {
+    "damage": 0.321,
+    "support": 0.219,
+    "frontline": 0.279,
+    "kda": 0.209,
+    "bruiser": 0.387
+   }
+  },
+  "37": {
+   "score": "support",
+   "default": "support",
+   "cells": 28,
+   "r": {
+    "damage": 0.034,
+    "support": 0.565,
+    "frontline": 0.299,
+    "kda": 0.544,
+    "bruiser": 0.113
+   }
+  },
+  "38": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 16,
+   "r": {
+    "damage": -0.0,
+    "support": 0.198,
+    "frontline": 0.16,
+    "kda": 0.036,
+    "bruiser": 0.103
+   }
+  },
+  "39": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 33,
+   "r": {
+    "damage": 0.701,
+    "support": 0.473,
+    "frontline": 0.472,
+    "kda": 0.515,
+    "bruiser": 0.621
+   }
+  },
+  "40": {
+   "score": "support",
+   "default": "support",
+   "cells": 22,
+   "r": {
+    "damage": 0.216,
+    "support": 0.481,
+    "frontline": 0.011,
+    "kda": 0.537,
+    "bruiser": 0.24
+   }
+  },
+  "41": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 37,
+   "r": {
+    "damage": 0.072,
+    "support": -0.58,
+    "frontline": -0.072,
+    "kda": -0.479,
+    "bruiser": 0.147
+   }
+  },
+  "42": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 28,
+   "r": {
+    "damage": 0.333,
+    "support": 0.291,
+    "frontline": 0.332,
+    "kda": 0.245,
+    "bruiser": 0.379
+   }
+  },
+  "43": {
+   "score": "support",
+   "default": "support",
+   "cells": 36,
+   "r": {
+    "damage": -0.498,
+    "support": 0.78,
+    "frontline": 0.203,
+    "kda": 0.604,
+    "bruiser": -0.454
+   }
+  },
+  "44": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 7,
+   "r": {
+    "damage": 0.011,
+    "support": -0.164,
+    "frontline": -0.321,
+    "kda": -0.176,
+    "bruiser": -0.269
+   }
+  },
+  "45": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 27,
+   "r": {
+    "damage": -0.02,
+    "support": -0.123,
+    "frontline": 0.236,
+    "kda": -0.057,
+    "bruiser": 0.089
+   }
+  },
+  "48": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 31,
+   "r": {
+    "damage": 0.154,
+    "support": -0.247,
+    "frontline": -0.178,
+    "kda": -0.35,
+    "bruiser": -0.009
+   }
+  },
+  "50": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 35,
+   "r": {
+    "damage": 0.074,
+    "support": -0.047,
+    "frontline": -0.043,
+    "kda": 0.031,
+    "bruiser": 0.09
+   }
+  },
+  "51": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 39,
+   "r": {
+    "damage": 0.46,
+    "support": 0.477,
+    "frontline": 0.65,
+    "kda": 0.277,
+    "bruiser": 0.637
+   }
+  },
+  "53": {
+   "score": "support",
+   "default": "damage",
+   "cells": 45,
+   "r": {
+    "damage": 0.087,
+    "support": 0.425,
+    "frontline": 0.385,
+    "kda": 0.408,
+    "bruiser": 0.412
+   }
+  },
+  "54": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 53,
+   "r": {
+    "damage": 0.376,
+    "support": 0.497,
+    "frontline": 0.523,
+    "kda": 0.42,
+    "bruiser": 0.499
+   }
+  },
+  "55": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 46,
+   "r": {
+    "damage": 0.429,
+    "support": 0.354,
+    "frontline": -0.091,
+    "kda": 0.426,
+    "bruiser": 0.144
+   }
+  },
+  "56": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 10,
+   "r": {
+    "damage": -0.114,
+    "support": 0.099,
+    "frontline": -0.217,
+    "kda": -0.123,
+    "bruiser": -0.121
+   }
+  },
+  "57": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 31,
+   "r": {
+    "damage": 0.15,
+    "support": 0.03,
+    "frontline": 0.12,
+    "kda": 0.039,
+    "bruiser": 0.2
+   }
+  },
+  "58": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 19,
+   "r": {
+    "damage": 0.155,
+    "support": 0.138,
+    "frontline": -0.247,
+    "kda": 0.226,
+    "bruiser": -0.005
+   }
+  },
+  "59": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 31,
+   "r": {
+    "damage": 0.331,
+    "support": 0.376,
+    "frontline": 0.364,
+    "kda": 0.382,
+    "bruiser": 0.409
+   }
+  },
+  "60": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 28,
+   "r": {
+    "damage": -0.14,
+    "support": -0.038,
+    "frontline": -0.159,
+    "kda": -0.189,
+    "bruiser": -0.186
+   }
+  },
+  "61": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 32,
+   "r": {
+    "damage": -0.008,
+    "support": 0.191,
+    "frontline": 0.047,
+    "kda": 0.14,
+    "bruiser": -0.005
+   }
+  },
+  "62": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 17,
+   "r": {
+    "damage": -0.138,
+    "support": -0.129,
+    "frontline": -0.168,
+    "kda": -0.207,
+    "bruiser": -0.204
+   }
+  },
+  "63": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 38,
+   "r": {
+    "damage": 0.27,
+    "support": 0.282,
+    "frontline": 0.296,
+    "kda": 0.254,
+    "bruiser": 0.369
+   }
+  },
+  "64": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 32,
+   "r": {
+    "damage": 0.247,
+    "support": 0.206,
+    "frontline": 0.151,
+    "kda": 0.23,
+    "bruiser": 0.177
+   }
+  },
+  "67": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 44,
+   "r": {
+    "damage": 0.263,
+    "support": -0.033,
+    "frontline": -0.106,
+    "kda": 0.073,
+    "bruiser": 0.159
+   }
+  },
+  "68": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 18,
+   "r": {
+    "damage": 0.177,
+    "support": -0.149,
+    "frontline": -0.038,
+    "kda": 0.218,
+    "bruiser": 0.4
+   }
+  },
+  "69": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 16,
+   "r": {
+    "damage": 0.416,
+    "support": 0.017,
+    "frontline": 0.236,
+    "kda": 0.28,
+    "bruiser": 0.378
+   }
+  },
+  "72": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 10,
+   "r": {
+    "damage": -0.705,
+    "support": -0.072,
+    "frontline": 0.113,
+    "kda": -0.234,
+    "bruiser": 0.187
+   }
+  },
+  "74": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 26,
+   "r": {
+    "damage": 0.165,
+    "support": -0.048,
+    "frontline": 0.089,
+    "kda": -0.005,
+    "bruiser": 0.188
+   }
+  },
+  "75": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 22,
+   "r": {
+    "damage": 0.257,
+    "support": 0.407,
+    "frontline": 0.266,
+    "kda": 0.276,
+    "bruiser": 0.445
+   }
+  },
+  "76": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 29,
+   "r": {
+    "damage": 0.289,
+    "support": 0.252,
+    "frontline": 0.136,
+    "kda": 0.249,
+    "bruiser": 0.317
+   }
+  },
+  "77": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 17,
+   "r": {
+    "damage": 0.191,
+    "support": 0.223,
+    "frontline": -0.095,
+    "kda": -0.024,
+    "bruiser": -0.287
+   }
+  },
+  "78": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 24,
+   "r": {
+    "damage": 0.104,
+    "support": 0.227,
+    "frontline": 0.44,
+    "kda": 0.246,
+    "bruiser": 0.399
+   }
+  },
+  "79": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 25,
+   "r": {
+    "damage": 0.418,
+    "support": -0.539,
+    "frontline": -0.493,
+    "kda": -0.335,
+    "bruiser": -0.287
+   }
+  },
+  "80": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 27,
+   "r": {
+    "damage": 0.254,
+    "support": 0.079,
+    "frontline": 0.078,
+    "kda": 0.038,
+    "bruiser": 0.18
+   }
+  },
+  "81": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 61,
+   "r": {
+    "damage": 0.4,
+    "support": 0.432,
+    "frontline": 0.47,
+    "kda": 0.423,
+    "bruiser": 0.514
+   }
+  },
+  "82": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 21,
+   "r": {
+    "damage": 0.129,
+    "support": 0.374,
+    "frontline": 0.472,
+    "kda": 0.342,
+    "bruiser": 0.575
+   }
+  },
+  "83": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 6,
+   "r": {
+    "damage": -0.174,
+    "support": 0.04,
+    "frontline": 0.153,
+    "kda": -0.05,
+    "bruiser": -0.098
+   }
+  },
+  "84": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 29,
+   "r": {
+    "damage": 0.196,
+    "support": -0.053,
+    "frontline": -0.218,
+    "kda": -0.003,
+    "bruiser": -0.098
+   }
+  },
+  "85": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 14,
+   "r": {
+    "damage": 0.271,
+    "support": 0.407,
+    "frontline": 0.166,
+    "kda": 0.41,
+    "bruiser": 0.279
+   }
+  },
+  "86": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 24,
+   "r": {
+    "damage": 0.159,
+    "support": -0.328,
+    "frontline": -0.437,
+    "kda": -0.258,
+    "bruiser": -0.324
+   }
+  },
+  "89": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 27,
+   "r": {
+    "damage": -0.218,
+    "support": -0.183,
+    "frontline": -0.272,
+    "kda": -0.3,
+    "bruiser": -0.337
+   }
+  },
+  "90": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 22,
+   "r": {
+    "damage": -0.06,
+    "support": -0.181,
+    "frontline": 0.016,
+    "kda": -0.129,
+    "bruiser": -0.077
+   }
+  },
+  "91": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 17,
+   "r": {
+    "damage": 0.398,
+    "support": 0.472,
+    "frontline": 0.411,
+    "kda": 0.383,
+    "bruiser": 0.474
+   }
+  },
+  "92": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 18,
+   "r": {
+    "damage": -0.382,
+    "support": -0.082,
+    "frontline": -0.356,
+    "kda": -0.052,
+    "bruiser": -0.264
+   }
+  },
+  "96": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 29,
+   "r": {
+    "damage": 0.007,
+    "support": -0.056,
+    "frontline": 0.096,
+    "kda": 0.136,
+    "bruiser": -0.049
+   }
+  },
+  "98": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 32,
+   "r": {
+    "damage": 0.202,
+    "support": -0.036,
+    "frontline": -0.025,
+    "kda": 0.127,
+    "bruiser": 0.264
+   }
+  },
+  "99": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 40,
+   "r": {
+    "damage": 0.345,
+    "support": 0.245,
+    "frontline": 0.126,
+    "kda": 0.321,
+    "bruiser": 0.254
+   }
+  },
+  "101": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 31,
+   "r": {
+    "damage": 0.001,
+    "support": 0.009,
+    "frontline": -0.083,
+    "kda": -0.119,
+    "bruiser": -0.1
+   }
+  },
+  "102": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 25,
+   "r": {
+    "damage": -0.036,
+    "support": 0.1,
+    "frontline": 0.143,
+    "kda": -0.043,
+    "bruiser": 0.111
+   }
+  },
+  "103": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 46,
+   "r": {
+    "damage": -0.078,
+    "support": 0.033,
+    "frontline": -0.141,
+    "kda": 0.034,
+    "bruiser": -0.109
+   }
+  },
+  "104": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 26,
+   "r": {
+    "damage": 0.42,
+    "support": 0.378,
+    "frontline": 0.492,
+    "kda": 0.43,
+    "bruiser": 0.593
+   }
+  },
+  "105": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 23,
+   "r": {
+    "damage": 0.534,
+    "support": -0.233,
+    "frontline": -0.425,
+    "kda": 0.117,
+    "bruiser": -0.007
+   }
+  },
+  "106": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 26,
+   "r": {
+    "damage": 0.126,
+    "support": -0.254,
+    "frontline": -0.283,
+    "kda": -0.251,
+    "bruiser": -0.111
+   }
+  },
+  "107": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 32,
+   "r": {
+    "damage": 0.45,
+    "support": -0.451,
+    "frontline": -0.311,
+    "kda": 0.015,
+    "bruiser": 0.055
+   }
+  },
+  "110": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 49,
+   "r": {
+    "damage": -0.033,
+    "support": 0.004,
+    "frontline": -0.061,
+    "kda": -0.02,
+    "bruiser": -0.022
+   }
+  },
+  "111": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 36,
+   "r": {
+    "damage": -0.018,
+    "support": -0.077,
+    "frontline": -0.06,
+    "kda": -0.114,
+    "bruiser": -0.043
+   }
+  },
+  "112": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 24,
+   "r": {
+    "damage": 0.295,
+    "support": -0.006,
+    "frontline": -0.023,
+    "kda": 0.138,
+    "bruiser": 0.2
+   }
+  },
+  "113": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 9,
+   "r": {
+    "damage": -0.472,
+    "support": -0.334,
+    "frontline": -0.3,
+    "kda": -0.63,
+    "bruiser": -0.214
+   }
+  },
+  "114": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 12,
+   "r": {
+    "damage": 0.044,
+    "support": -0.184,
+    "frontline": -0.526,
+    "kda": -0.102,
+    "bruiser": -0.158
+   }
+  },
+  "115": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 29,
+   "r": {
+    "damage": -0.196,
+    "support": -0.138,
+    "frontline": -0.183,
+    "kda": -0.212,
+    "bruiser": -0.208
+   }
+  },
+  "117": {
+   "score": "support",
+   "default": "support",
+   "cells": 24,
+   "r": {
+    "damage": -0.203,
+    "support": -0.043,
+    "frontline": 0.12,
+    "kda": 0.09,
+    "bruiser": -0.072
+   }
+  },
+  "119": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 27,
+   "r": {
+    "damage": 0.295,
+    "support": 0.227,
+    "frontline": 0.449,
+    "kda": 0.283,
+    "bruiser": 0.586
+   }
+  },
+  "120": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 29,
+   "r": {
+    "damage": -0.029,
+    "support": -0.06,
+    "frontline": -0.376,
+    "kda": -0.084,
+    "bruiser": -0.193
+   }
+  },
+  "121": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 24,
+   "r": {
+    "damage": 0.261,
+    "support": -0.022,
+    "frontline": 0.192,
+    "kda": 0.15,
+    "bruiser": 0.199
+   }
+  },
+  "122": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 31,
+   "r": {
+    "damage": 0.132,
+    "support": 0.139,
+    "frontline": -0.033,
+    "kda": 0.199,
+    "bruiser": 0.247
+   }
+  },
+  "126": {
+   "score": "frontline",
+   "default": "damage",
+   "cells": 39,
+   "r": {
+    "damage": 0.009,
+    "support": 0.229,
+    "frontline": 0.33,
+    "kda": 0.02,
+    "bruiser": 0.115
+   }
+  },
+  "127": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 19,
+   "r": {
+    "damage": 0.485,
+    "support": 0.229,
+    "frontline": 0.341,
+    "kda": 0.171,
+    "bruiser": 0.407
+   }
+  },
+  "131": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 23,
+   "r": {
+    "damage": 0.204,
+    "support": 0.621,
+    "frontline": 0.629,
+    "kda": 0.517,
+    "bruiser": 0.717
+   }
+  },
+  "133": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 15,
+   "r": {
+    "damage": 0.563,
+    "support": 0.385,
+    "frontline": 0.153,
+    "kda": 0.491,
+    "bruiser": 0.629
+   }
+  },
+  "134": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 42,
+   "r": {
+    "damage": 0.168,
+    "support": 0.182,
+    "frontline": 0.177,
+    "kda": 0.146,
+    "bruiser": 0.066
+   }
+  },
+  "136": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 43,
+   "r": {
+    "damage": 0.44,
+    "support": 0.33,
+    "frontline": 0.361,
+    "kda": 0.361,
+    "bruiser": 0.387
+   }
+  },
+  "141": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 23,
+   "r": {
+    "damage": -0.019,
+    "support": -0.132,
+    "frontline": -0.249,
+    "kda": -0.142,
+    "bruiser": -0.242
+   }
+  },
+  "142": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 26,
+   "r": {
+    "damage": 0.264,
+    "support": 0.58,
+    "frontline": 0.429,
+    "kda": 0.35,
+    "bruiser": 0.362
+   }
+  },
+  "143": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 23,
+   "r": {
+    "damage": 0.313,
+    "support": 0.305,
+    "frontline": -0.017,
+    "kda": 0.428,
+    "bruiser": 0.407
+   }
+  },
+  "145": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 53,
+   "r": {
+    "damage": 0.399,
+    "support": 0.326,
+    "frontline": -0.165,
+    "kda": 0.463,
+    "bruiser": 0.359
+   }
+  },
+  "147": {
+   "score": "support",
+   "default": "support",
+   "cells": 41,
+   "r": {
+    "damage": 0.394,
+    "support": 0.337,
+    "frontline": 0.228,
+    "kda": 0.408,
+    "bruiser": 0.368
+   }
+  },
+  "150": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 17,
+   "r": {
+    "damage": 0.28,
+    "support": -0.021,
+    "frontline": 0.303,
+    "kda": 0.08,
+    "bruiser": 0.287
+   }
+  },
+  "154": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 21,
+   "r": {
+    "damage": 0.127,
+    "support": 0.139,
+    "frontline": 0.284,
+    "kda": 0.122,
+    "bruiser": 0.235
+   }
+  },
+  "157": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 30,
+   "r": {
+    "damage": 0.214,
+    "support": 0.149,
+    "frontline": 0.204,
+    "kda": 0.205,
+    "bruiser": 0.156
+   }
+  },
+  "161": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 30,
+   "r": {
+    "damage": 0.245,
+    "support": 0.302,
+    "frontline": 0.423,
+    "kda": 0.19,
+    "bruiser": 0.333
+   }
+  },
+  "163": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 19,
+   "r": {
+    "damage": -0.143,
+    "support": -0.223,
+    "frontline": -0.259,
+    "kda": -0.259,
+    "bruiser": -0.144
+   }
+  },
+  "164": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 8,
+   "r": {
+    "damage": 0.781,
+    "support": 0.329,
+    "frontline": -0.072,
+    "kda": 0.552,
+    "bruiser": 0.617
+   }
+  },
+  "166": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 34,
+   "r": {
+    "damage": 0.38,
+    "support": 0.089,
+    "frontline": 0.084,
+    "kda": 0.238,
+    "bruiser": 0.267
+   }
+  },
+  "200": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 20,
+   "r": {
+    "damage": -0.151,
+    "support": -0.523,
+    "frontline": -0.326,
+    "kda": -0.328,
+    "bruiser": -0.138
+   }
+  },
+  "201": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 16,
+   "r": {
+    "damage": -0.227,
+    "support": -0.08,
+    "frontline": -0.124,
+    "kda": -0.107,
+    "bruiser": -0.167
+   }
+  },
+  "202": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 42,
+   "r": {
+    "damage": 0.269,
+    "support": 0.357,
+    "frontline": 0.309,
+    "kda": 0.363,
+    "bruiser": 0.379
+   }
+  },
+  "203": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 25,
+   "r": {
+    "damage": 0.375,
+    "support": 0.423,
+    "frontline": 0.23,
+    "kda": 0.458,
+    "bruiser": 0.352
+   }
+  },
+  "221": {
+   "score": "support",
+   "default": "damage",
+   "cells": 39,
+   "r": {
+    "damage": 0.146,
+    "support": 0.408,
+    "frontline": 0.386,
+    "kda": 0.218,
+    "bruiser": 0.327
+   }
+  },
+  "222": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 38,
+   "r": {
+    "damage": 0.24,
+    "support": 0.022,
+    "frontline": 0.02,
+    "kda": 0.063,
+    "bruiser": 0.194
+   }
+  },
+  "223": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 29,
+   "r": {
+    "damage": 0.673,
+    "support": -0.058,
+    "frontline": -0.187,
+    "kda": 0.264,
+    "bruiser": 0.549
+   }
+  },
+  "233": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 27,
+   "r": {
+    "damage": 0.02,
+    "support": -0.107,
+    "frontline": -0.097,
+    "kda": -0.227,
+    "bruiser": -0.02
+   }
+  },
+  "234": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 21,
+   "r": {
+    "damage": 0.614,
+    "support": -0.128,
+    "frontline": -0.409,
+    "kda": 0.396,
+    "bruiser": 0.505
+   }
+  },
+  "235": {
+   "score": "support",
+   "default": "support",
+   "cells": 50,
+   "r": {
+    "damage": 0.378,
+    "support": 0.879,
+    "frontline": 0.791,
+    "kda": 0.833,
+    "bruiser": 0.595
+   }
+  },
+  "236": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 41,
+   "r": {
+    "damage": 0.376,
+    "support": 0.108,
+    "frontline": 0.422,
+    "kda": 0.097,
+    "bruiser": 0.435
+   }
+  },
+  "238": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 32,
+   "r": {
+    "damage": 0.423,
+    "support": 0.454,
+    "frontline": 0.323,
+    "kda": 0.281,
+    "bruiser": 0.454
+   }
+  },
+  "240": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 8,
+   "r": {
+    "damage": 0.098,
+    "support": -0.355,
+    "frontline": 0.106,
+    "kda": -0.432,
+    "bruiser": 0.137
+   }
+  },
+  "245": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 29,
+   "r": {
+    "damage": 0.587,
+    "support": 0.395,
+    "frontline": 0.167,
+    "kda": 0.596,
+    "bruiser": 0.588
+   }
+  },
+  "246": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 40,
+   "r": {
+    "damage": 0.458,
+    "support": 0.281,
+    "frontline": 0.314,
+    "kda": 0.394,
+    "bruiser": 0.408
+   }
+  },
+  "254": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 12,
+   "r": {
+    "damage": 0.341,
+    "support": 0.169,
+    "frontline": 0.327,
+    "kda": 0.215,
+    "bruiser": 0.275
+   }
+  },
+  "266": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 31,
+   "r": {
+    "damage": 0.439,
+    "support": 0.314,
+    "frontline": 0.232,
+    "kda": 0.42,
+    "bruiser": 0.39
+   }
+  },
+  "267": {
+   "score": "support",
+   "default": "support",
+   "cells": 44,
+   "r": {
+    "damage": 0.072,
+    "support": 0.466,
+    "frontline": 0.273,
+    "kda": 0.534,
+    "bruiser": 0.214
+   }
+  },
+  "268": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 20,
+   "r": {
+    "damage": -0.117,
+    "support": -0.032,
+    "frontline": 0.306,
+    "kda": -0.384,
+    "bruiser": 0.108
+   }
+  },
+  "350": {
+   "score": "support",
+   "default": "support",
+   "cells": 34,
+   "r": {
+    "damage": -0.058,
+    "support": 0.377,
+    "frontline": -0.038,
+    "kda": 0.357,
+    "bruiser": 0.08
+   }
+  },
+  "360": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 24,
+   "r": {
+    "damage": 0.559,
+    "support": 0.477,
+    "frontline": 0.627,
+    "kda": 0.435,
+    "bruiser": 0.647
+   }
+  },
+  "412": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 32,
+   "r": {
+    "damage": 0.325,
+    "support": 0.326,
+    "frontline": 0.443,
+    "kda": 0.39,
+    "bruiser": 0.355
+   }
+  },
+  "420": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 18,
+   "r": {
+    "damage": 0.651,
+    "support": 0.357,
+    "frontline": 0.427,
+    "kda": 0.491,
+    "bruiser": 0.511
+   }
+  },
+  "421": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 4,
+   "r": {
+    "damage": 0.607,
+    "support": 0.676,
+    "frontline": 0.243,
+    "kda": 0.834,
+    "bruiser": 0.342
+   }
+  },
+  "427": {
+   "score": "support",
+   "default": "support",
+   "cells": 9,
+   "r": {
+    "damage": 0.054,
+    "support": 0.526,
+    "frontline": -0.187,
+    "kda": 0.632,
+    "bruiser": 0.038
+   }
+  },
+  "429": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 22,
+   "r": {
+    "damage": -0.318,
+    "support": -0.41,
+    "frontline": -0.084,
+    "kda": -0.218,
+    "bruiser": -0.266
+   }
+  },
+  "432": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 16,
+   "r": {
+    "damage": -0.061,
+    "support": 0.496,
+    "frontline": 0.216,
+    "kda": 0.304,
+    "bruiser": -0.04
+   }
+  },
+  "497": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 11,
+   "r": {
+    "damage": 0.352,
+    "support": 0.696,
+    "frontline": 0.677,
+    "kda": 0.574,
+    "bruiser": 0.513
+   }
+  },
+  "498": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 40,
+   "r": {
+    "damage": 0.414,
+    "support": 0.344,
+    "frontline": 0.316,
+    "kda": 0.388,
+    "bruiser": 0.477
+   }
+  },
+  "516": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 14,
+   "r": {
+    "damage": 0.081,
+    "support": -0.095,
+    "frontline": 0.055,
+    "kda": -0.09,
+    "bruiser": -0.053
+   }
+  },
+  "517": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 29,
+   "r": {
+    "damage": 0.099,
+    "support": -0.063,
+    "frontline": -0.124,
+    "kda": -0.017,
+    "bruiser": -0.027
+   }
+  },
+  "518": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 16,
+   "r": {
+    "damage": 0.307,
+    "support": 0.251,
+    "frontline": 0.188,
+    "kda": 0.165,
+    "bruiser": 0.267
+   }
+  },
+  "523": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 23,
+   "r": {
+    "damage": -0.037,
+    "support": 0.015,
+    "frontline": 0.353,
+    "kda": -0.061,
+    "bruiser": 0.077
+   }
+  },
+  "526": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 22,
+   "r": {
+    "damage": 0.205,
+    "support": -0.053,
+    "frontline": -0.013,
+    "kda": 0.09,
+    "bruiser": 0.19
+   }
+  },
+  "555": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 31,
+   "r": {
+    "damage": 0.262,
+    "support": 0.154,
+    "frontline": -0.123,
+    "kda": 0.341,
+    "bruiser": 0.182
+   }
+  },
+  "711": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 14,
+   "r": {
+    "damage": 0.416,
+    "support": 0.544,
+    "frontline": 0.33,
+    "kda": 0.383,
+    "bruiser": 0.384
+   }
+  },
+  "777": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 23,
+   "r": {
+    "damage": 0.04,
+    "support": -0.022,
+    "frontline": 0.045,
+    "kda": 0.002,
+    "bruiser": -0.033
+   }
+  },
+  "799": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 8,
+   "r": {
+    "damage": -0.472,
+    "support": -0.39,
+    "frontline": -0.694,
+    "kda": -0.406,
+    "bruiser": -0.401
+   }
+  },
+  "800": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 41,
+   "r": {
+    "damage": 0.344,
+    "support": 0.41,
+    "frontline": 0.364,
+    "kda": 0.318,
+    "bruiser": 0.385
+   }
+  },
+  "804": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 49,
+   "r": {
+    "damage": 0.339,
+    "support": 0.305,
+    "frontline": 0.25,
+    "kda": 0.256,
+    "bruiser": 0.404
+   }
+  },
+  "805": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 24,
+   "r": {
+    "damage": 0.225,
+    "support": 0.109,
+    "frontline": 0.142,
+    "kda": -0.077,
+    "bruiser": 0.178
+   }
+  },
+  "875": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 31,
+   "r": {
+    "damage": 0.461,
+    "support": 0.215,
+    "frontline": 0.361,
+    "kda": 0.307,
+    "bruiser": 0.497
+   }
+  },
+  "876": {
+   "score": "bruiser",
+   "default": "bruiser",
+   "cells": 38,
+   "r": {
+    "damage": 0.101,
+    "support": 0.129,
+    "frontline": 0.096,
+    "kda": 0.096,
+    "bruiser": 0.145
+   }
+  },
+  "887": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 26,
+   "r": {
+    "damage": 0.196,
+    "support": 0.347,
+    "frontline": 0.147,
+    "kda": 0.141,
+    "bruiser": 0.208
+   }
+  },
+  "888": {
+   "score": "support",
+   "default": "support",
+   "cells": 18,
+   "r": {
+    "damage": 0.65,
+    "support": 0.545,
+    "frontline": 0.51,
+    "kda": 0.582,
+    "bruiser": 0.673
+   }
+  },
+  "893": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 46,
+   "r": {
+    "damage": 0.344,
+    "support": 0.113,
+    "frontline": 0.068,
+    "kda": 0.233,
+    "bruiser": 0.259
+   }
+  },
+  "895": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 10,
+   "r": {
+    "damage": -0.001,
+    "support": 0.4,
+    "frontline": 0.332,
+    "kda": 0.202,
+    "bruiser": 0.234
+   }
+  },
+  "897": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 12,
+   "r": {
+    "damage": 0.384,
+    "support": 0.246,
+    "frontline": 0.061,
+    "kda": 0.203,
+    "bruiser": 0.153
+   }
+  },
+  "901": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 39,
+   "r": {
+    "damage": 0.334,
+    "support": 0.144,
+    "frontline": 0.087,
+    "kda": 0.196,
+    "bruiser": 0.303
+   }
+  },
+  "902": {
+   "score": "support",
+   "default": "support",
+   "cells": 24,
+   "r": {
+    "damage": -0.551,
+    "support": 0.608,
+    "frontline": 0.587,
+    "kda": 0.49,
+    "bruiser": -0.033
+   }
+  },
+  "904": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 14,
+   "r": {
+    "damage": -0.229,
+    "support": -0.286,
+    "frontline": -0.25,
+    "kda": -0.488,
+    "bruiser": -0.397
+   }
+  },
+  "910": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 22,
+   "r": {
+    "damage": 0.603,
+    "support": 0.505,
+    "frontline": 0.483,
+    "kda": 0.556,
+    "bruiser": 0.612
+   }
+  },
+  "950": {
+   "score": "damage",
+   "default": "damage",
+   "cells": 17,
+   "r": {
+    "damage": 0.137,
+    "support": 0.2,
+    "frontline": 0.149,
+    "kda": 0.063,
+    "bruiser": 0.132
+   }
+  }
+ }
+}

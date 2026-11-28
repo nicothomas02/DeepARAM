@@ -7,6 +7,7 @@ struct RootView: View {
     @StateObject private var pages = PageStore()
     @State private var selection = SiteTab.home.id
     @State private var morePath: [SiteTab] = []
+    @ObservedObject private var companion = CompanionStore.shared
 
     var body: some View {
         TabView(selection: tabBinding) {
@@ -20,6 +21,21 @@ struct RootView: View {
                 .tag("more")
         }
         .onOpenURL { url in open(url) }
+        // Champion select or a Mayhem game on the PC: the companion comes to the front by itself (nothing to tap).
+        .onChange(of: companion.view) { _, view in
+            if view == "pick" || view == "game" { companion.shown = true }
+        }
+        .onAppear { companion.loadIfNeeded() }
+        // The owner's game companion over everything, once his PC's page has been linked (Companion.swift). It stays
+        // in place while hidden, so the page keeps following the PC.
+        .overlay {
+            if companion.isSetUp {
+                CompanionView(store: companion)
+                    .opacity(companion.shown ? 1 : 0)
+                    .allowsHitTesting(companion.shown)
+                    .accessibilityHidden(!companion.shown)
+            }
+        }
         .onContinueUserActivity(NSUserActivityTypeBrowsingWeb) { activity in
             if let url = activity.webpageURL { open(url) }
         }
@@ -49,6 +65,10 @@ struct RootView: View {
     /// Opens a site link (from a notification, a shortcut or a deeparam.com link) in the tab it
     /// belongs to: a main tab, or a page under More. Anything else opens on Home.
     private func open(_ link: URL) {
+        if link.scheme == "deeparam", link.host == "companion" {
+            if companion.setUp(from: link) { companion.shown = true }
+            return
+        }
         guard let url = Site.pageURL(forAppLink: link) else { return }
         let tab = SiteTab.tab(for: url) ?? .home
         if SiteTab.more.contains(tab) {
