@@ -641,6 +641,8 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         "skills": skills,
         // The augments on offer right now, read off the screen (empty when no pick is on).
         "offer": app.state::<ingame::Shared>().lock().unwrap().offer.clone(),
+        // This game's headliner once the app has seen it (headliner.rs), for the augment ranking and the items.
+        "headliner": app.state::<ingame::Shared>().lock().unwrap().headliner.name,
         "live": null,
     });
     if owner {

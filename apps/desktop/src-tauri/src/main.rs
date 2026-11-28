@@ -3,6 +3,7 @@
 
 mod augscan;
 mod companion;
+mod headliner;
 mod ingame;
 mod phone;
 mod procs;

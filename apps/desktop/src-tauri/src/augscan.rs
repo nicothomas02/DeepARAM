@@ -176,6 +176,21 @@ pub fn card_area(left: i32, top: i32, width: i32, height: i32) -> (i32, i32, i32
     (left + width / 10, top + height / 10, width * 8 / 10, height * 6 / 10)
 }
 
+/// The top strip of the game's window, right of the scoreboard: where the start-of-game announcement and a
+/// headliner's own HUD panel sit (K/DA's "COLLECT ALL CARDS", top right; NicoPC 2026-11-28).
+#[cfg_attr(not(windows), allow(dead_code))]
+pub fn hud_area(left: i32, top: i32, width: i32, height: i32) -> (i32, i32, i32, i32) {
+    (left + width / 5, top, width * 4 / 5, height * 18 / 100)
+}
+
+/// Text lines in the HUD strip (hud_area), for the headliner (headliner.rs). None while League isn't in front.
+pub fn read_hud() -> Option<Vec<Line>> {
+    #[cfg(windows)]
+    return win::read_hud();
+    #[cfg(not(windows))]
+    None
+}
+
 /// Halves a BGRA picture (each pixel the average of four), for screens wider than the recognizer reads well.
 #[cfg_attr(not(windows), allow(dead_code))]
 pub fn halve(px: &[u8], w: usize, h: usize) -> (Vec<u8>, usize, usize) {
@@ -332,7 +347,7 @@ mod win {
         },
     };
 
-    use super::{card_area, halve, is_blank, Line};
+    use super::{card_area, halve, hud_area, is_blank, Line};
 
     /// The recognizer reads pictures up to about 2,600 pixels across; wider screens are halved first.
     const MAX_WIDTH: usize = 2000;
@@ -463,11 +478,19 @@ mod win {
     }
 
     pub fn read_screen() -> Option<Vec<Line>> {
+        let (gx, gy, gw, gh) = game_window()?;
+        read_area(card_area(gx, gy, gw, gh))
+    }
+
+    pub fn read_hud() -> Option<Vec<Line>> {
+        let (gx, gy, gw, gh) = game_window()?;
+        read_area(hud_area(gx, gy, gw, gh))
+    }
+
+    fn read_area((x, y, w, h): (i32, i32, i32, i32)) -> Option<Vec<Line>> {
         if !league_in_front() {
             return None;
         }
-        let (gx, gy, gw, gh) = game_window()?;
-        let (x, y, w, h) = card_area(gx, gy, gw, gh);
         if w < 64 || h < 64 {
             return None;
         }

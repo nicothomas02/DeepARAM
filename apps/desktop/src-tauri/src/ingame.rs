@@ -58,6 +58,9 @@ pub struct State {
     clock: Option<Instant>,
     /// The augments on offer right now, left to right (what the companion shows).
     pub offer: Vec<i64>,
+    /// This game's headliner, once the app has seen it (headliner.rs).
+    pub headliner: crate::headliner::Detector,
+    ticks: u64,
     names: Option<Vec<(i64, String)>>,
     /// After-game review: this game's samples, champion strengths and the game's result.
     samples: Vec<Sample>,
@@ -226,6 +229,8 @@ fn start(app: &AppHandle, agent: &ureq::Agent) -> bool {
         s.track = augtrack::Tracker::new();
         s.clock = Some(Instant::now());
         s.offer.clear();
+        s.headliner = crate::headliner::Detector::default();
+        s.ticks = 0;
         s.samples.clear();
         s.next_sample = 0.0;
         s.result = None;
@@ -325,14 +330,32 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
     let row = me.as_deref().and_then(|me| my_row(me, &players));
     let level = row.and_then(|r| r.get("level")?.as_u64()).unwrap_or(0);
     let dead = row.and_then(|r| r.get("isDead")?.as_bool()).unwrap_or(false);
+    let top = players.iter().filter_map(|p| p.get("level")?.as_u64()).max().unwrap_or(0);
+    // The HUD strip every third tick (about 6 s) until the headliner is known: its announcement, or its own panel.
+    let look = {
+        let state = app.state::<Shared>();
+        let mut s = state.lock().unwrap();
+        s.ticks += 1;
+        s.headliner.name.is_none() && s.ticks % 3 == 1
+    };
+    let hud = if look { augscan::read_hud() } else { None };
     {
         let state = app.state::<Shared>();
         let mut s = state.lock().unwrap();
         s.level = level;
         s.dead = dead;
+        let was = s.headliner.name;
+        s.headliner.top_level(top);
+        if let Some(lines) = &hud {
+            s.headliner.lines(lines.iter().map(|l| l.text.as_str()));
+        }
         let now = clock(&s);
+        if s.headliner.name != was {
+            input_log(app, serde_json::json!({"now": now, "headliner": [s.headliner.name, s.headliner.how]}));
+        }
         let width = augscan::game_window().map_or(1920.0, |(_, _, w, _)| f64::from(w));
-        s.track.game(now, game_time, level as u32, dead, augtrack::Headliner::None, width);
+        let hl = s.headliner.for_tracker();
+        s.track.game(now, game_time, level as u32, dead, hl, width);
         drop(s);
         input_log(app, serde_json::json!({"now": now, "game": [game_time, level, dead, width]}));
     }
@@ -362,7 +385,9 @@ fn to_game(x: i32, y: i32) -> Option<(f64, f64)> {
 fn scan(app: &AppHandle) {
     let Some(names) = names(app) else { return };
     let mut partial: Option<Vec<augscan::Line>> = None;
+    let mut texts: Option<Vec<String>> = None;
     let read = augscan::read_screen().map(|lines| {
+        texts = Some(lines.iter().map(|l| l.text.clone()).collect());
         // a stray name plus three evenly spaced cards keeps the three (4 only with Maestro's even row)
         let cards = augscan::check_four(augscan::match_offer_at(&lines, &names));
         if cards.len() == 1 || cards.len() == 2 {
@@ -386,6 +411,17 @@ fn scan(app: &AppHandle) {
             .map(|r| serde_json::json!({"ids": r.ids, "xs": r.xs, "from_window": r.from_window, "blank": r.blank}));
         input_log(app, serde_json::json!({"now": now, "read": logged, "cursor": cursor}));
         let had = read.is_some();
+        // the announcement shows in the card area at the start; Pentakill's own cards name it later
+        let was = s.headliner.name;
+        if let Some(r) = &read {
+            s.headliner.cards(&r.ids);
+        }
+        if let (Some(lines), true) = (&texts, s.track.window) {
+            s.headliner.lines(lines.iter().map(String::as_str));
+        }
+        if s.headliner.name != was {
+            input_log(app, serde_json::json!({"now": now, "headliner": [s.headliner.name, s.headliner.how]}));
+        }
         s.track.read(now, read, cursor);
         s.offer = s.track.offer.clone();
         // a round owed, the shop open (dead) and no offer read: a screen may be up that the reader can't see; pictures
