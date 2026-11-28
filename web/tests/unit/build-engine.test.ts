@@ -58,6 +58,8 @@ import {
   RUSH_LIFT,
   stickerValue,
   STICKERS,
+  KIT_PAIR_RATE,
+  AUGMENT_ITEMS,
 } from "@/lib/engine/build-engine";
 import { bundleEngine, ENGINE_OUT } from "../../scripts/build-engine.mjs";
 
@@ -67,7 +69,7 @@ const item = (id: number, extra: object = {}) => ({ name: `#${id}`, icon: icon(i
 const kinds: Kinds = {
   champions: { lux: 0.95, brand: 0.95, annie: 0.9, jinx: 0.05, ashe: 0.1, garen: 0.1 },
   items: {
-    3031: ["ad", "crit"], 3046: ["as", "crit"], 3087: ["as", "crit"], 3094: ["as", "crit"], 3036: ["ad", "armorpen"],
+    3031: ["ad", "crit"], 3046: ["as", "crit"], 3087: ["ad", "as", "crit"], 3094: ["as", "crit"], 3036: ["ad", "armorpen"],
     3302: ["armor", "mr", "as"], 6333: ["ad", "armor"], 3065: ["mr"], 3075: ["armor"], 3003: ["ap"],
   },
   boots: [3006],
@@ -334,16 +336,39 @@ describe("build engine", () => {
   });
 
   it("an augment whose holders rush an item puts it in the core and makes it Next (augmentRush)", () => {
-    const shift = Object.entries(AUGMENT_SHIFT).flatMap(([a, m]) => Object.entries(m).filter(([i, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT && kinds.recipes[i] === undefined).map(([i]) => [Number(a), Number(i)]));
+    const shift = Object.entries(AUGMENT_SHIFT).flatMap(([a, m]) => Object.entries(m).filter(([i, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT && kinds.recipes[i] === undefined).map(([i]) => [Number(a), Number(i)]))
+      .filter(([a, i]) => !AUGMENT_ITEMS.some((x) => x.augment === a && x.item === i && x.rate >= KIT_PAIR_RATE));
     expect(shift.length).toBeGreaterThan(0);
     const [aug, id] = shift[0];
-    const k2 = { ...kinds, recipes: { ...kinds.recipes, [String(id)]: [`#${id}`, 3000, []] } } as Kinds;
+    const k2 = { ...kinds, items: { ...kinds.items, [String(id)]: ["ad"] }, recipes: { ...kinds.recipes, [String(id)]: [`#${id}`, 3000, []] } } as Kinds;
     const p = plan({ champ, kinds: k2, picks, fit, game: game([], { items: [3006] }), taken: [aug] });
     expect(ids(p.next)[0]).toBe(id);
     expect(ids(p.path.slice(0, p.coreLen))).toContain(id);
     expect(p.path).toHaveLength(6);
     expect(p.rules).toContain("augmentRush");
+    // kitFit: an item with no damage type joins only from the champion's own builds (Rejuvenation put Unending Despair on Jinx)
+    const k3 = { ...k2, items: { ...k2.items, [String(id)]: ["armor"] } } as Kinds;
+    expect(plan({ champ, kinds: k3, picks, fit, game: game([], { items: [3006] }), taken: [aug] }).rules).not.toContain("augmentRush");
+    const listed = { ...champ, rest: [...(champ.rest ?? []), { name: `#${id}`, icon: `${220000 + id}.png` }] };
+    expect(plan({ champ: listed, kinds: k3, picks, fit, game: game([], { items: [3006] }), taken: [aug] }).rules).toContain("augmentRush");
+    // nor a type its players don't build
+    expect(plan({ champ: { ...champ, typeShare: { ap: 0.99, ad: 0.01 } }, kinds: k2, picks, fit, game: game([], { items: [3006] }), taken: [aug] }).rules).not.toContain("augmentRush");
+    // nor a mana item on a champion without mana (Tear items on Katarina, Zac, Rumble)
+    const k4 = { ...k2, items: { ...k2.items, [String(id)]: ["ad", "mana"] }, manaless: [champ.id] } as Kinds;
+    expect(plan({ champ, kinds: k4, picks, fit, game: game([], { items: [3006] }), taken: [aug] }).rules).not.toContain("augmentRush");
   });
+
+  it("an augment never adds an item that doesn't fit the kit (kitFit, 2026-11-28 replay of every archived moment)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const path = (c: string, taken: number[]) => ids(plan({ champ: champs.find((x) => x.id === c)!, kinds: k, picks: p0, fit: null, game: { champ: c, items: [], level: 9 }, taken }).path);
+    const TEAR = [3003, 3004, 3040, 3042, 3119, 3121];
+    expect(k.manaless).toEqual(expect.arrayContaining(["Katarina", "Zac", "Rumble", "Vladimir"]));
+    expect(k.manaless).not.toContain("Lux");
+    expect(path("Jinx", [1067])).not.toContain(2502); // Rejuvenation: Unending Despair
+    for (const [c, a] of [["Katarina", 3059], ["Zac", 1205], ["Rumble", 1205], ["Katarina", 1205]] as const)
+      expect(path(c, [a]).filter((i) => TEAR.includes(i)), `${c} ${a}`).toEqual([]);
+  }, 30_000);
 
   it("a rushed item must fit the build's damage type unless ADAPt converts it", () => {
     const wooglets = Object.entries(AUGMENT_SHIFT).find(([, m]) => (m["3157"]?.[4] ?? 0) >= RUSH_Z_BUILD && (m["3157"]?.[5] ?? 0) >= RUSH_Z_EARLY)?.[0];

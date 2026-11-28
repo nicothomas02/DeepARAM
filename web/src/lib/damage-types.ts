@@ -15,7 +15,7 @@ export type DamageTypes = {
   /** alias -> the share of the champion's damage that's magic, 0 to 1 (Data Dragon's attack and magic ratings) */
   champions: Record<string, number>;
   /** item id (last four digits, so Mayhem's copies match) -> what it gives: "ad", "ap", "armor", "mr", "crit", "as",
-   *  "haste", "armorpen", "magicpen", "ult" (works through the ultimate) */
+   *  "haste", "armorpen", "magicpen", "mana", "ult" (works through the ultimate) */
   items: Record<string, string[]>;
   /** boots ids (last four digits), to tell whether the player has bought boots yet */
   boots: number[];
@@ -25,9 +25,11 @@ export type DamageTypes = {
   limits: number[][];
   /** Role substitutes, rarely built together: a swap replaces its substitute (data/item-substitutes.json). */
   substitutes: number[][];
+  /** Champions that don't use mana (Data Dragon partype other than "Mana": Energy, Fury, Blood Well, none...). */
+  manaless: string[];
 };
 
-type DdChampion = { info: { attack: number; magic: number } };
+type DdChampion = { partype?: string; info: { attack: number; magic: number } };
 type DdItem = {
   name?: string;
   tags?: string[];
@@ -51,6 +53,7 @@ const KIND: [string, string[]][] = [
   ["haste", ["AbilityHaste", "CooldownReduction"]],
   ["armorpen", ["ArmorPenetration"]],
   ["magicpen", ["MagicPenetration"]],
+  ["mana", ["Mana"]],
 ];
 
 export function damageTypes(): DamageTypes {
@@ -73,6 +76,7 @@ export function damageTypes(): DamageTypes {
       .filter((g) => !UNENFORCED.has(g.group))
       .map((g) => [...new Set(g.items.map((i) => (i >= 100000 ? i % 10000 : i)))]),
     substitutes: substitutes.pairs,
+    manaless: [],
   };
   // The measured split (data/estimates/damage_types.json: physical and magic damage to champions in archived Mayhem
   // games, all ten players, the site's own "Damage type" numbers) where a champion has MEASURED_GAMES games; else Data
@@ -84,6 +88,8 @@ export function damageTypes(): DamageTypes {
       "data/estimates/damage_types.json",
     )?.champions ?? {};
   for (const [alias, cid] of Object.entries(championIds as Record<string, number>)) {
+    const dd = byLower.get(alias.toLowerCase());
+    if (dd?.partype !== undefined && dd.partype !== "Mana") out.manaless.push(alias);
     const m = measured[String(cid)];
     if (m && m.games >= MEASURED_GAMES && m.physical + m.magic > 0) {
       out.champions[alias] = Math.round((m.magic / (m.physical + m.magic)) * 100) / 100;

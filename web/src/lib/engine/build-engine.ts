@@ -32,7 +32,7 @@ const BUY_SLOT = (BUY_SLOT_DATA as { items: Record<string, number> }).items;
 import coreStrictnessData from "../../data/core-strictness.json";
 
 export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
-export const ENGINE_VERSION = "1.4.22";
+export const ENGINE_VERSION = "1.4.23";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -97,6 +97,7 @@ export const RULES: Record<string, Rule> = {
   pathOnce: { source: "game data", on: true, why: "An item shows once in the path: a later slot that repeats an earlier item takes its next option." },
   converterItems: { source: "kit rule", on: true, why: "Converter augments change what a stat is worth (augment text, wiki): ADAPt turns bonus AD into AP, EscAPADe AP into AD, Jeweled Gauntlet lets abilities crit, Ethereal Weapon and Double Tap apply on-hit, Purist - Caster turns attack speed into haste, No Mana, No Problem turns item mana into AP... The item of the re-priced kind its holders build most (augment-item-shift, pull >= 0.05, z >= 3) that fits the champion's damage type (or a taken ADAPt/EscAPADe converts it) joins the core. Nico 2026-11-24: kit rules go on unless data contradicts; archive check (data/estimates/augment_converters.py, within champion, difference in differences): damage share +1.7 +- 0.6 pts pooled, win rate within noise, none worse." },
   sellMismatch: { source: "data", on: true, why: "One finished item of the other damage type (pure AD on an AP build or the reverse, no ADAPt/EscAPADe): sell it when its 70% sell value plus your gold buys the next path item now. Archive, within champion: one such item in the first three legendaries goes with -2.0 +- 0.3 pts of team damage share (two: -4.3, three: -5.4), win rate flat (+0.1 +- 3.1). Nico 2026-11-24 asked for sell pushback when it's worth it; the 'buys it now' line is estimated." },
+  kitFit: { source: "data", on: true, why: "An item an augment adds (augmentRush, converterItems, leanIn, augment swaps) must fit the champion: one its own builds list (any style, later slots), or of a damage type its players build (typeShare at least TYPE_MIN; with ADAPt or EscAPADe, which convert one type into the other, either type). An item with no damage type (tank, support) only from its own builds or a confirmed pair most holders follow (augment-items, rate 50%+: Steel Your Heart -> Heartsteel), and never a mana item on a champion without mana (even one its builds list). Nico 2026-11-28: items must fit the kit. Replay of every archived moment (2026-11-28): Rejuvenation put Unending Despair on Jinx (AD holders build it no more than other AD players: 1 of 35 vs 93 of 5,233), Ravenous Bind put Spirit Visage on Zilean and Brand (206), No Mana, No Problem and ADAPt put Tear items on Katarina, Zac and Rumble." },
   leanIn: { source: "kit rule", on: true, why: "Augments whose own number grows with a stat (Lich Brain: AP from bonus health; Armored Impact, Porcupine, Courage of the Colossus, Ravenous Bind, Rejuvenation, Sap Magic) put the item their holders build most that gives that stat into the core, preferring one that also gives the champion's damage type (Lich Brain on a mage: Riftmaker). Pairs where archive players following an augment's pull did clearly worse (damage share or win below zero by 3 SE: tested only on champions that normally build the item, so it isn't forcing it on champions that can't use it: Dual Wield -> Blade of the Ruined King, Magic Missile -> Shadowflame; a loss on win rate alone needs 20+ matched holders, which cleared Critical Healing -> Moonstone) lose the augment's push, only vs 0-1 enemy frontliners where the loss isn't seen vs 2+ (BotRK is best vs high health, Nico 2026-11-24); the item stays wherever the champion's own build has it. Nico 2026-11-24 (kit rules on unless data contradicts); data/estimates/augment_lean_in.py, 645 pair tests: only All For You -> Moonstone Renewer passes 3 SE as a measured gain." },
   ccCounters: { source: "kit rule", on: true, why: "3+ enemies built to lock you down (Catcher/Vanguard) light up tenacity and cleanse items (Mercury's Treads, Quicksilver Sash, Mercurial Scimitar, Silvermere Dawn) as a swap. Nico 2026-11-20: Mayhem has more CC than SR; 2026-11-24 approved enemy-aware swaps when damage mix or CC clearly calls for it. Untestable so far (match data has no CC-received stat; 3+ engage -> QSS had 5 buyers), so estimated." },
   vowPartner: { source: "kit rule", on: true, why: "Knight's Vow heals its owner for 12% of the damage the pledged (Worthy) ally deals to champions (item text, Data Dragon 16.23), so on a frontliner or enchanter, with 2+ enemy frontliners (Warden/Vanguard/Juggernaut) and an ally whose kit hits max health (Vayne, Kog'Maw, Varus...) or a marksman, it lights up as a swap: pledge to that ally. Archive, within champion: each enemy frontliner adds +1.1 +- 0.3 pts of team damage share for max-health kits and +0.7 +- 0.2 for marksmen (assassins -0.8, artillery -0.7), so the heal grows with exactly that matchup. The heal itself isn't measured (estimated). Nico 2026-11-24 asked for unconventional mechanism ideas; his example (Knight's Vow on the max-health champion itself) doesn't work: the item heals its owner from the ally's damage, not the damage dealer." },
@@ -205,6 +206,8 @@ export type Kinds = {
   recipes: Record<string, [string, number, number[]]>;
   limits?: number[][];
   substitutes?: number[][];
+  /** Champions that don't use mana (Data Dragon partype). */
+  manaless?: string[];
 };
 /** team-fit.json */
 export type Fit = { champions: Record<string, [number, string[]]> };
@@ -942,6 +945,8 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
 /** The least share of a champion's typed legendary buys a damage type needs before the build can switch to it: the
  *  same 3% a build style needs to count (data/estimates/build_archetypes.json min_share). */
 export const TYPE_MIN = 0.03;
+/** kitFit: a confirmed augment -> item pair at least this share of holders build counts as fitting any champion. */
+export const KIT_PAIR_RATE = 0.5;
 /** The damage type each build style stands for; tank stands for neither. */
 export const STYLE_TYPE: Record<string, "ap" | "ad"> = { ap: "ap", enchanter: "ap", crit: "ad", onhit: "ad", lethality: "ad", fighter: "ad" };
 export const STYLE_NAMES: Record<string, string> = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
@@ -1751,11 +1756,33 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const rushed: { item: Named; by: number }[] = [];
   const converted: { item: Named; by: number; does: string }[] = [];
   const must = mustHave(game.champ);
+  // Kit fit (kitFit): what an augment adds must suit the champion (rule text above).
+  const ownIds = new Set([champ0, ...(champ0?.builds ?? [])].flatMap((b) => [...(b?.items ?? []), ...(b?.rest ?? []), ...(b?.full ?? []),
+    ...(b?.later ?? []), ...(b?.laterSlots ?? []).flatMap((x) => x.items)]).map((it) => ownedId(itemId(it.icon))));
+  const noMana = !!k?.manaless?.some((a) => champKey(a) === champKey(game.champ));
+  const kitFit = (i: number) => {
+    if (!RULES.kitFit.on || !k) return true;
+    const t = k.items[String(i)] ?? [];
+    if (noMana && t.includes("mana")) return false;
+    if (ownIds.has(ownedId(i))) return true;
+    // a confirmed pair most holders follow (data/augment-items.json, rate 50%+: Steel Your Heart -> Heartsteel 99%,
+    // Armored Impact -> Thornmail 64%) is archive-backed for any champion
+    if (AUGMENT_ITEMS.some((x) => x.rate >= KIT_PAIR_RATE && taken.includes(x.augment) && ownedId(x.item) === ownedId(i))) return true;
+    const p = t.includes("ap") && !t.includes("ad") ? "ap" : t.includes("ad") && !t.includes("ap") ? "ad" : "";
+    if (!p) return false;
+    // ADAPt and EscAPADe turn one type into the other, so either type then works
+    if (taken.some((a) => TO_AP.has(a) || TO_AD.has(a))) return true;
+    const e = p;
+    const share = champ0?.typeShare?.[e];
+    if (share !== undefined) return share >= TYPE_MIN;
+    const magic = (Object.entries(k.champions).find(([a]) => champKey(a) === champKey(game.champ))?.[1] ?? 0.5) > 0.5;
+    return e === (magic ? "ap" : "ad");
+  };
   if (RULES.augmentRush.on && k) {
     const prefix = (build.find((it) => it.icon)?.icon ?? "").replace(/\d+\.png$/, "");
     for (const a of taken) {
       const top = Object.entries(AUGMENT_SHIFT[String(a)] ?? {})
-        .filter(([i, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT && !!k.recipes[i])
+        .filter(([i, v]) => v[4] >= RUSH_Z_BUILD && v[5] >= RUSH_Z_EARLY && v[0] >= RUSH_LIFT && !!k.recipes[i] && kitFit(Number(i)))
         .sort((x, y) => y[1][4] - x[1][4])[0];
       if (!top) continue;
       const id = Number(top[0]);
@@ -1812,7 +1839,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const ids = build.map((it) => itemId(it.icon));
       // already building one of its items: nothing to add
       if (cv.items.some((i) => ids.includes(i) || owned.has(i))) continue;
-      const id = cv.items.find((i) => k.recipes[i] && fitsType(i) && !(sealed && (k.items[String(i)] ?? []).includes("ult")) && ![...owned, ...ids].some((o) => rules.clash(o, i)));
+      const id = cv.items.find((i) => k.recipes[i] && fitsType(i) && kitFit(i) && !(sealed && (k.items[String(i)] ?? []).includes("ult")) && ![...owned, ...ids].some((o) => rules.clash(o, i)));
       if (id === undefined) continue;
       const it: Named = { name: k.recipes[id][0], icon: `${prefix}${220000 + id}.png` };
       // it takes the last core place you haven't bought and no other augment claimed; that item moves just past the core
@@ -2115,6 +2142,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     }
     // never two swaps of one limit group (Amumu with ADAPt: Dusk and Dawn and Lich Bane, both Spellblade)
     if (swaps.some((x) => rules.clash(itemId(x.item.icon), id))) continue;
+    // an augment's swap must fit the kit too (kitFit: Manamune with ADAPt on Katarina, who has no mana)
+    if (it.aug && !it.proven && !it.kit && !kitFit(id)) { applied("kitFit"); continue; }
     if ((it.aug || it.proven || it.kit) && swaps.length < 2) {
       const r = target(id, claimed);
       if (r) claimed.add(r);
