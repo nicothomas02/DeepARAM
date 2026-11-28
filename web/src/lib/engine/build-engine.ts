@@ -32,7 +32,7 @@ const BUY_SLOT = (BUY_SLOT_DATA as { items: Record<string, number> }).items;
 import coreStrictnessData from "../../data/core-strictness.json";
 
 export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
-export const ENGINE_VERSION = "1.4.20";
+export const ENGINE_VERSION = "1.4.21";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -937,6 +937,8 @@ export function situational(champ: OverlayChamp | undefined, k: Kinds, fit: Fit 
 // ---------------------------------------------------------------------------------------------------------------
 // Build path
 
+/** The damage type each build style stands for; tank stands for neither. */
+export const STYLE_TYPE: Record<string, "ap" | "ad"> = { ap: "ap", enchanter: "ap", crit: "ad", onhit: "ad", lethality: "ad", fighter: "ad" };
 export const STYLE_NAMES: Record<string, string> = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
 // Items that grow with time or takedowns: first while no legendary is finished (PC 1.22.0, under audit).
 export const STACKING = new Set([6697, 3084, 3070, 3004, 3003, 3119]);
@@ -1627,7 +1629,8 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const ownStyles = new Set((ck ? picks.builds![ck] : []).map((x) => x[0]));
       let best: { st: string; hit: number; pref: number } | null = null;
       for (const st of [...new Set(Object.values(picks.builds ?? {}).flatMap((b) => b.map((x) => x[0])))]) {
-        if (st === "tank") continue;
+        // only styles of the evidence's damage type (replay audit 2026-11-28: Witchful Thinking switched Twitch to "AD")
+        if ((STYLE_TYPE[st] ?? "") !== want) continue;
         const cb = classBuild(picks, k, st, magic, rules);
         if (!cb) continue;
         const ids = new Set([...cb[0], ...cb[1]].map(base));
@@ -2252,7 +2255,9 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     const type = own0.length && own0.every((t) => t === own0[0]) ? own0[0] : "";
     // and never an item the champion's own data lists anywhere (Statikk Shiv on Teemo)
     const lists = [champ0, ...(champ0?.builds ?? [])].flatMap((b) => [...(b?.items ?? []), ...(b?.rest ?? []), ...(b?.full ?? []), ...(b?.later ?? []), ...(b?.laterSlots ?? []).flatMap((x) => x.items)]);
-    const known = new Set(lists.map((it) => itemId(it.icon)));
+    // as owned (base) ids: the lists carry Mayhem ids (223094), owned items base ones (replay audit 2026-11-28: 444
+    // moments sold an item the path keeps, e.g. Twisted Fate's Rapid Firecannon)
+    const known = new Set(lists.map((it) => ownedId(itemId(it.icon))));
     const converts = taken.some((a) => (type === "ap" ? TO_AP : TO_AD).has(a));
     const off = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2000 && !bootIds.has(i) && type && pure(i) && pure(i) !== type && !known.has(i));
     const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;

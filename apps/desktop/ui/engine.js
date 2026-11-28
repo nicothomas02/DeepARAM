@@ -74,6 +74,7 @@ var DeepEngine = (() => {
     STAT_GOLD: () => STAT_GOLD,
     STICKERS: () => STICKERS,
     STYLE_NAMES: () => STYLE_NAMES,
+    STYLE_TYPE: () => STYLE_TYPE,
     SUSTAIN_ITEMS: () => SUSTAIN_ITEMS,
     TIER_ODDS: () => TIER_ODDS,
     TRANSFORMED_FROM: () => TRANSFORMED_FROM,
@@ -5720,7 +5721,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
 
   // src/lib/engine/build-engine.ts
   var BUY_SLOT = item_buy_slot_default.items;
-  var ENGINE_VERSION = "1.4.20";
+  var ENGINE_VERSION = "1.4.21";
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
   var STAT_BONUS = 22e4;
   var STAT_BONUS_IDS = /* @__PURE__ */ new Set([6032]);
@@ -6288,6 +6289,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     const best = (list2) => [...list2].sort((x, y) => (y.deepScore ?? -Infinity) - (x.deepScore ?? -Infinity));
     return [...best(out.filter((it) => it.aug && it.why)), ...best(out.filter((it) => !(it.aug && it.why)))];
   }
+  var STYLE_TYPE = { ap: "ap", enchanter: "ap", crit: "ad", onhit: "ad", lethality: "ad", fighter: "ad" };
   var STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
   var STACKING = /* @__PURE__ */ new Set([6697, 3084, 3070, 3004, 3003, 3119]);
   var BACK_TO_BASICS = /* @__PURE__ */ new Set([1004, 4]);
@@ -6791,7 +6793,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
         const ownStyles = new Set((ck ? picks.builds[ck] : []).map((x) => x[0]));
         let best = null;
         for (const st of [...new Set(Object.values(picks.builds ?? {}).flatMap((b) => b.map((x) => x[0])))]) {
-          if (st === "tank") continue;
+          if ((STYLE_TYPE[st] ?? "") !== want) continue;
           const cb = classBuild(picks, k, st, magic, rules);
           if (!cb) continue;
           const ids = new Set([...cb[0], ...cb[1]].map(base2));
@@ -7351,7 +7353,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       const own0 = cores.flat().map((it) => pure(itemId(it.icon))).filter(Boolean);
       const type = own0.length && own0.every((t) => t === own0[0]) ? own0[0] : "";
       const lists = [champ0, ...champ0?.builds ?? []].flatMap((b) => [...b?.items ?? [], ...b?.rest ?? [], ...b?.full ?? [], ...b?.later ?? [], ...(b?.laterSlots ?? []).flatMap((x) => x.items)]);
-      const known = new Set(lists.map((it) => itemId(it.icon)));
+      const known = new Set(lists.map((it) => ownedId(itemId(it.icon))));
       const converts = taken.some((a) => (type === "ap" ? TO_AP : TO_AD).has(a));
       const off = [...owned].filter((i) => (k.recipes[i]?.[1] ?? 0) >= 2e3 && !bootIds.has(i) && type && pure(i) && pure(i) !== type && !known.has(i));
       const cost = k.recipes[itemId(next[0].icon)]?.[1] ?? Infinity;
