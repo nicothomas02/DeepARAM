@@ -11,10 +11,21 @@ struct MoreView: View {
     @AppStorage(PatchAlerts.enabledKey) private var alertsOn = false
     @ObservedObject private var haptics = Haptics.shared
     @State private var alertsDenied = false
+    @ObservedObject private var companion = CompanionStore.shared
 
     var body: some View {
         NavigationStack(path: $path) {
             List {
+                // The owner's game companion (Companion.swift), once linked from his PC's page.
+                if companion.isSetUp {
+                    Section {
+                        Button { companion.shown = true } label: { Label("Game companion", systemImage: "gamecontroller.fill") }
+                            .foregroundStyle(.primary)
+                        Button("Unlink this PC", role: .destructive) { companion.forget() }
+                    } footer: {
+                        Text("Opens by itself in Mayhem champion select and games while the app is open.")
+                    }
+                }
                 Section {
                     ForEach(SiteTab.more) { tab in
                         NavigationLink(value: tab) { Label(tab.title, systemImage: tab.symbol) }
