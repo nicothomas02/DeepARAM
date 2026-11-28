@@ -332,6 +332,7 @@
   }
 
   window.showPick = async ({ allies, mine, bench, rerolls = 0, playable = [] }) => {
+    viewNow = "pick";
     lastGame = null;
     lastPick = { allies, mine, bench, rerolls, playable };
     const [d, du] = await Promise.all([loadFit(), loadDuos()]);
@@ -474,6 +475,8 @@
   let picks = null, builds = null, kinds = null;
   // What changed the game (post-game only): each finished buy and augment taken, with what the app called then.
   let calls = [], appCall = null, lastNext = -1, reviewPoints = [];
+  // The path's next two items by name (for the iPhone app's Live Activity, window.companionState).
+  let nextNames = [];
   const loadKinds = () => kinds ?? (kinds = fetch(`${SITE}/data/damage-types.json`).then((r) => r.json()).catch(() => null));
   const loadPicks = () => picks ?? (picks = fetch(`${SITE}/data/augment-picks.json`).then((r) => r.json()).catch(() => null));
   const loadBuilds = () => builds ?? (builds = fetch(`${SITE}/data/overlay.json`).then((r) => r.json()).catch(() => null));
@@ -506,6 +509,8 @@
   const itemId = (icon) => Number((icon.match(/(\d+)\.png$/) ?? [])[1]) % 10000;
   // No taps in game (Nico 2026-11-24: "Mayhem is fast-paced and can't afford it"): nothing here waits on a click.
   let game = null, reached = {}, offer = [], closedAt = null;
+  // Which view is up: "idle", "pick", "game" or "over" (for the iPhone app, window.companionState).
+  let viewNow = "idle";
   // Augment screens owed: levels 7/11/15 reached while watching whose screen hasn't come yet. A screen only opens with
   // the shop open (dead, or on the spawn platform), so one reached while alive waits for the next death (wiki).
   let owed = 0, sawOffer = false;
@@ -810,6 +815,7 @@
     const nextId = p.next[0] ? itemId(p.next[0].icon) : -1;
     const seenIds = new Set();
     lastNext = nextId;
+    nextNames = p.next.slice(0, 2).map((x) => x.name).filter(Boolean);
     // Dead, shop open: exactly what to buy with your gold toward the next item, icons only. The whole item if your
     // parts make up the rest, else its missing parts, most expensive first.
     const deadShop = (() => {
@@ -887,6 +893,7 @@
   }
 
   window.showGame = (g) => {
+    viewNow = "game";
     const prev = game;
     game = g;
     if (!prev || prev.champ !== g.champ) { calls = []; appCall = null; }
@@ -1024,6 +1031,14 @@
       renderItems();
     }
   });
+  // For the iPhone app around the phone companion (apps/ios Companion.swift): what's on screen, in a few words, after
+  // each update: the view, and in a game the champion, level, dead, game time, whether an augment pick is up or owed,
+  // the next item's name, the owner's win chance and kills/deaths/assists.
+  window.companionState = () => {
+    if (!game) return { view: viewNow };
+    return { view: "game", champ: game.champ, level: game.level, dead: !!game.dead, t: game.t ?? 0, pick: offer.length > 0 || owed > 0,
+      next: nextNames, win: game.live?.win ?? null, kda: game.kda ?? null };
+  };
   // The phone companion (owner's PC, src-tauri/src/phone.rs) takes the window's settings, so both recommend the same:
   // the window reports them when it opens and on every switch; the phone applies them as they come.
   const prefsNow = () => ({ lucky, bracket, ownedOnly, onlyPatch });
@@ -1128,6 +1143,7 @@
   });
 
   window.showOver = () => {
+    viewNow = "over";
     game = null;
     takenNow = null; planSkills = null; planSkillsKey = "";
     resetTrack();
@@ -1157,6 +1173,7 @@
   };
 
   window.showReview = ({ points, turns, ffFrom, result }) => {
+    viewNow = "over";
     game = null;
     takenNow = null; planSkills = null; planSkillsKey = "";
     // A section shows only when it has something in it (PC app 1.26.24): no chart, no surrender call, without a trace.

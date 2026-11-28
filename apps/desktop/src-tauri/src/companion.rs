@@ -587,10 +587,16 @@ fn live_game(app: &AppHandle, agent: &ureq::Agent, fit: &HashMap<String, f64>, o
         .iter()
         .map(|k| data.get("activePlayer").and_then(|p| p.get("championStats")?.get(*k)?.as_f64()).unwrap_or(0.0))
         .collect();
+    let kda: Vec<u64> = ["kills", "deaths", "assists"]
+        .iter()
+        .map(|k| row.get("scores").and_then(|s| s.get(*k)).and_then(Value::as_u64).unwrap_or(0))
+        .collect();
     let mut game = json!({
         "t": t,
         "champ": champ,
         "level": row.get("level").and_then(Value::as_u64).unwrap_or(0),
+        // Kills, deaths and assists, for the phone companion's Live Activity (apps/ios Companion.swift).
+        "kda": kda,
         "dead": row.get("isDead").and_then(Value::as_bool).unwrap_or(false),
         "items": items,
         "enemies": enemies,
