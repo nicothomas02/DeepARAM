@@ -661,6 +661,16 @@
   // The site's tier colours (S red, A orange, B yellow, C blue, D grey), on the number alone (Nico: one value).
   const tierCls = (ds) => `t-${deepTier(ds).toLowerCase()}`;
 
+  // Owner recording (main.rs shown_log): what the companion shows, a line each time it changes. The app writes it
+  // only on the owner's PC; elsewhere the call does nothing.
+  const shownLast = {};
+  const logShown = (kind, v) => {
+    const s = JSON.stringify(v);
+    if (shownLast[kind] === s || !window.__TAURI_INTERNALS__) return;
+    shownLast[kind] = s;
+    window.__TAURI_INTERNALS__.invoke("shown_log", { line: { kind, ...v } }).catch(() => {});
+  };
+
   async function renderAugments() {
     const box = document.getElementById("augs");
     if (!box || !game) return;
@@ -726,6 +736,7 @@
     };
     // What you took, learned from the card you clicked (no tap needed): shown, nothing to press.
     const took = taken.length ? `<div class="taken"><span class="tag">Taken</span>${taken.map((id) => `<span class="chip aug" data-r="${d.augments[id]?.[1] ?? ""}">${augIcon(id)}${esc(name(id))}</span>`).join("")}</div>` : "";
+    if (offered.length) logShown("augs", { offer: offered.map((a) => a.id), take: offered.filter((a, i) => i === 0 || ties.includes(a.id)).map((a) => a.id), reroll: advice.card ?? null, score: offered.map((a) => (typeof a.score === "number" ? gameDeep(d, ck, a.score / 100) : null)), taken });
     // Narrow window: the cards go first while they're up (most important on top).
     document.querySelector(".cols")?.classList.toggle("offer-up", offered.length > 0);
     box.innerHTML = `${took}
@@ -845,6 +856,7 @@
       return sw ? { it, why: `${sw.why}\nInstead of ${sw.replaces.name}`, sw: true, does: false, tag: sw.label }
         : { it, why: r?.text ?? p.why[i] ?? "", sw: false, does: r?.kind === "does", tag: pen ? `${/only about/.test(p.why[i]) ? "Low" : "Vs"} ${/Enemy armor/.test(p.why[i]) ? "armor" : "MR"}` : "" };
     }).filter(({ it }) => { const k = itemId(it.icon ?? "") % 10000; if (seenIds.has(k)) return false; seenIds.add(k); return true; });
+    logShown("items", { path: shown.map(({ it, sw }) => (sw ? -1 : 1) * itemId(it.icon ?? "")), next: nextId, taken: getTaken(game) });
     const state = (it) => {
       const id = itemId(it.icon);
       return owned.has(id) || (hasBoots && bootIds.has(id)) ? " own" : id === nextId ? " nx" : "";

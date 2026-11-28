@@ -140,6 +140,24 @@ fn owner_pc(app: AppHandle) -> bool {
     app.path().app_data_dir().is_ok_and(|d| d.join("record-offers").exists())
 }
 
+/// Owner recording: what the companion showed (its augment picks on a screen, the item path), a line each time it
+/// changes, to offers/shown.jsonl with the wall clock, so the capture review shows it beside each round (Nico
+/// 2026-11-28). Nothing is written without the `record-offers` file.
+#[tauri::command]
+fn shown_log(app: AppHandle, line: serde_json::Value) {
+    let Ok(base) = app.path().app_data_dir() else { return };
+    if !base.join("record-offers").exists() {
+        return;
+    }
+    let dir = base.join("offers");
+    let _ = std::fs::create_dir_all(&dir);
+    let ms = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| d.as_millis());
+    use std::io::Write;
+    if let Ok(mut f) = std::fs::OpenOptions::new().create(true).append(true).open(dir.join("shown.jsonl")) {
+        let _ = writeln!(f, "{}", serde_json::json!({"t": ms, "shown": line}));
+    }
+}
+
 #[tauri::command]
 fn flash_key(app: AppHandle) -> &'static str {
     if app.state::<Store>().saved.lock().unwrap().flash_on_f {
@@ -532,6 +550,7 @@ fn main() {
             sharing::my_trends,
             flash_key,
             owner_pc,
+            shown_log,
             phone::companion_prefs
         ])
         // Must come first: a second launch focuses the running app instead of opening another.
