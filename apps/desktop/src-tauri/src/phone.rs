@@ -72,6 +72,7 @@ pub fn game_ended(app: &AppHandle, eog: &serde_json::Value) {
     let _ = std::fs::create_dir_all(&dir);
     let _ = std::fs::write(dir.join("eog.json"), eog.to_string());
     let _ = std::fs::write(dir.join("last-game.txt"), id.to_string());
+    crate::replay::after_game(app);
 }
 
 /// A new champion select: the last game's files (offers.jsonl, screens.jsonl, the offer pictures, eog.json) move
@@ -101,6 +102,9 @@ pub fn file_last_game(app: &AppHandle) {
         }
     }
     let _ = std::fs::remove_file(dir.join("last-game.txt"));
+    // Any Mayhem game still without its post-game stats in the replay (the client is open in champion select).
+    let app = app.clone();
+    std::thread::spawn(move || crate::replay::save_matches(&app));
 }
 
 fn recording_dir(app: &AppHandle) -> Option<std::path::PathBuf> {

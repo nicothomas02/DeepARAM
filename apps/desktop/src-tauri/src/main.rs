@@ -8,6 +8,7 @@ mod hud;
 mod ingame;
 mod phone;
 mod procs;
+mod replay;
 mod review;
 mod sharing;
 mod updater;
@@ -444,6 +445,8 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     )?;
     let companion_menu = Submenu::with_items(app, "Mayhem companion", true, &[&comp, &scan, &second, &gpu, &flash])?;
     let share = sharing::menu_item(app)?;
+    // The owner's replay window: every game on this PC, newest first (Nico 2026-11-28).
+    let replay_item = MenuItem::with_id(app, "replay", "Replay my games", true, None::<&str>)?;
     let menu = Menu::with_items(
         app,
         &[
@@ -465,6 +468,9 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
     if autostart_available() {
         menu.append(&auto)?;
     }
+    if owner_pc(app.clone()) {
+        menu.insert(&replay_item, 1)?;
+    }
     menu.append_items(&[&sep()?, &quit])?;
 
     let notes_item = notes.clone();
@@ -476,6 +482,7 @@ fn build_tray(app: &AppHandle) -> tauri::Result<()> {
         .show_menu_on_left_click(false)
         .on_menu_event(move |app, event| match event.id().as_ref() {
             "open" => show(app),
+            "replay" => replay::open(app),
             "tier" => go(app, "/tier-list"),
             "sim" => go(app, "/simulator"),
             "patches" => go(app, "/patches"),
@@ -551,6 +558,10 @@ fn main() {
             flash_key,
             owner_pc,
             shown_log,
+            replay::replay_games,
+            replay::replay_game,
+            replay::replay_png,
+            replay::replay_history,
             phone::companion_prefs
         ])
         // Must come first: a second launch focuses the running app instead of opening another.

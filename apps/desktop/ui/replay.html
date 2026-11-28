@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DeepARAM replay</title>
+<style>
+  /* The owner's replay window (src-tauri/src/replay.rs): every game on this PC, newest first, with the screens the
+     app read, what it marked, the augment really taken, and the companion played back as it looked at the time. */
+  @font-face { font-family: "Mona Sans"; font-style: normal; font-weight: 200 900; font-display: swap; src: url(fonts/mona-sans-latin.woff2) format("woff2"); }
+  :root { color-scheme: dark; --bg: #090b0f; --surface: #11151c; --raised: #181d26; --fg: #e8ecf2; --muted: #8b94a3; --line: #222936;
+    --accent: #5cc0ff; --accent-soft: #0f2533; --good: #4cc98b; --bad: #f0776f; --gold: #e0b45c;
+    --good-soft: #10261b; --bad-soft: #2c1513; --gold-soft: #2a2112; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); }
+  body { font: 14px/1.45 "Mona Sans", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif; display: flex; flex-direction: column; }
+  header { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  header h1 { font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 0 8px 0 0; }
+  button, select { font: inherit; background: var(--raised); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; cursor: pointer; }
+  button:hover { border-color: var(--accent); } button:disabled { opacity: .45; cursor: default; }
+  button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .sub { color: var(--muted); font-size: 12px; }
+  #mine { flex: 1; display: grid; grid-template-columns: 300px 1fr; min-height: 0; }
+  #list { overflow-y: auto; border-right: 1px solid var(--line); padding: 8px; display: grid; gap: 4px; align-content: start; }
+  .g { display: grid; grid-template-columns: 36px 1fr auto; gap: 8px; align-items: center; text-align: left; padding: 6px 8px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); width: 100%; }
+  .g img.ch { width: 36px; height: 36px; border-radius: 8px; background: var(--raised); }
+  .g .nm { font-weight: 600; display: flex; gap: 6px; align-items: baseline; }
+  .g .augs { display: flex; gap: 2px; margin-top: 2px; } .g .augs img { width: 16px; height: 16px; border-radius: 4px; }
+  .g .res { font-weight: 700; font-size: 12px; } .win { color: var(--good); } .loss { color: var(--bad); }
+  .g[aria-pressed="true"] { border-color: var(--accent); color: var(--fg); }
+  .dots { display: flex; gap: 3px; justify-content: flex-end; margin-top: 4px; }
+  .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--line); } .dots i.on { background: var(--accent); }
+  #game { overflow-y: auto; padding: 14px 18px 60px; display: grid; gap: 14px; align-content: start; }
+  .head { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px; display: grid; gap: 10px; }
+  .head .top { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .head .top img { width: 48px; height: 48px; border-radius: 10px; }
+  .head .champ { font-size: 18px; font-weight: 700; }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font: 600 11px "Mona Sans", system-ui, sans-serif; letter-spacing: .05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+  .tg { color: var(--good); background: var(--good-soft); } .tb { color: var(--bad); background: var(--bad-soft); }
+  .tw { color: var(--gold); background: var(--gold-soft); } .ti { color: var(--accent); background: var(--accent-soft); }
+  .tm { color: var(--muted); background: var(--raised); }
+  .aug { display: inline-flex; align-items: center; gap: 6px; padding: 3px 8px 3px 3px; border-radius: 8px; background: var(--raised); font-size: 13px; }
+  .aug img { width: 24px; height: 24px; border-radius: 6px; flex: none; }
+  .row { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .items img { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--line); }
+  .items img.swap { border: 2px dashed var(--gold); }
+  section > h2 { font-size: 12px; font-weight: 600; color: var(--muted); margin: 0 0 8px; text-transform: uppercase; letter-spacing: .05em; }
+  .player { display: grid; gap: 8px; }
+  .player iframe { width: 100%; height: 640px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); }
+  .controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .controls input[type=range] { flex: 1; min-width: 160px; accent-color: var(--accent); }
+  .controls time { font-variant-numeric: tabular-nums; min-width: 9em; color: var(--muted); font-size: 12px; }
+  .round { border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 8px; }
+  .rhead { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .verdict { display: grid; grid-template-columns: auto 1fr; gap: 4px 10px; font-size: 13px; align-items: center; }
+  .verdict b { color: var(--muted); font-weight: 500; }
+  .cards { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+  .cards .lbl { color: var(--muted); font-size: 12px; width: 4em; }
+  .card { display: inline-flex; align-items: center; gap: 5px; padding: 3px 7px 3px 3px; border-radius: 7px; background: var(--surface); border: 1px solid var(--line); font-size: 12px; }
+  .card img { width: 22px; height: 22px; border-radius: 5px; }
+  .card.took { border-color: var(--good); } .card.mark { border-style: dashed; border-color: var(--bad); } .card.took.mark { border-style: solid; }
+  .card .call { font: 700 10px system-ui, sans-serif; letter-spacing: .05em; text-transform: uppercase; padding: 1px 5px; border-radius: 999px; }
+  .card .sc { color: var(--muted); font-variant-numeric: tabular-nums; }
+  .shot { display: block; padding: 0; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; cursor: zoom-in; background: var(--raised); width: 100%; max-width: 900px; aspect-ratio: 16 / 9; }
+  .shot img { display: block; width: 100%; height: 100%; object-fit: contain; }
+  .shot span { display: grid; place-items: center; height: 100%; color: var(--muted); font-size: 12px; }
+  .partials { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 6px; }
+  .legend { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--muted); align-items: center; }
+  .legend i { display: inline-block; width: 14px; height: 10px; border-radius: 3px; border: 1px solid var(--good); vertical-align: -1px; margin-right: 4px; }
+  .legend i.m { border: 1px dashed var(--bad); }
+  #older { flex: 1; display: none; min-height: 0; }
+  #older iframe { width: 100%; height: 100%; border: 0; }
+  .empty { color: var(--muted); padding: 24px; }
+  dialog { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100vh; }
+  dialog::backdrop { background: rgb(0 0 0 / .85); }
+  dialog img { display: block; max-width: 100vw; max-height: 100vh; }
+  @media (max-width: 760px) { #mine { grid-template-columns: 1fr; grid-template-rows: 220px 1fr; } #list { border-right: 0; border-bottom: 1px solid var(--line); } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Replay</h1>
+  <button type="button" id="tab-mine" aria-pressed="true">My games</button>
+  <button type="button" id="tab-older" aria-pressed="false">Older games (to Nov 27)</button>
+  <button type="button" id="rand">Random game</button>
+  <button type="button" id="reload">Refresh</button>
+  <span class="sub" id="status"></span>
+</header>
+<div id="mine"><nav id="list" aria-label="Games"></nav><main id="game"><p class="empty">Loading your games…</p></main></div>
+<div id="older"></div>
+<dialog id="big"><img id="bigimg" alt="Full-size game screen"></dialog>
+<script>
+  const SITE = "https://deeparam.com";
+  const T = window.__TAURI_INTERNALS__;
+  const call = (cmd, args) => (T ? T.invoke(cmd, args) : Promise.reject(new Error("not in the app")));
+  const el = (t, cls, txt) => { const e = document.createElement(t); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+  const img = (src, cls, alt = "") => { const i = el("img", cls); i.src = src; i.alt = alt; i.loading = "lazy"; i.addEventListener("error", () => i.remove()); return i; };
+  const status = document.getElementById("status");
+  const big = document.getElementById("big"), bigimg = document.getElementById("bigimg");
+  big.addEventListener("click", () => big.close());
+
+  // Names and icons from the site (the same feeds the companion reads).
+  let champs = {}, augNames = {}, itemNames = {}, itemPrefix = SITE + "/assets/dd/16.23.1/img/item/";
+  const feeds = Promise.all(["team-fit", "overlay", "augment-picks", "damage-types"].map((f) => fetch(`${SITE}/data/${f}.json`).then((r) => r.json()).catch(() => null)))
+    .then(([fit, ov, picks, kinds]) => {
+      const names = Object.fromEntries((ov?.champions ?? []).map((c) => [c.id, c.name]));
+      champs = Object.fromEntries(Object.entries(fit?.ids ?? {}).map(([alias, id]) => [id, { alias, name: names[alias] ?? alias.replace(/([a-z])([A-Z])/g, "$1 $2") }]));
+      augNames = Object.fromEntries(Object.entries(picks?.augments ?? {}).map(([id, a]) => [id, a[0]]));
+      itemNames = Object.fromEntries(Object.entries(kinds?.recipes ?? {}).map(([id, r]) => [id, r[0]]));
+      const icon = ov?.champions?.find((c) => c.items?.[0]?.icon)?.items[0].icon;
+      if (icon) itemPrefix = SITE + icon.replace(/\d+\.png$/, "");
+    });
+  const champ = (id) => champs[id] ?? { alias: "", name: id ? `Champion ${id}` : "Unknown champion" };
+  const champImg = (id, cls) => (champ(id).alias ? img(`${SITE}/icons/champions/${encodeURIComponent(champ(id).alias)}.webp`, cls) : el("span", cls));
+  const augName = (id) => augNames[id] ?? `#${id}`;
+  const aug = (id, cls = "aug") => { const b = el("span", cls); b.append(img(`${SITE}/icons/augments/${id}.webp`), el("span", null, augName(id))); return b; };
+  const itemImg = (id) => {
+    const base = Math.abs(id) % 10000, i = img(itemPrefix + (base < 10000 ? 220000 + base : base) + ".png", Math.sign(id) < 0 ? "swap" : "", itemNames[base] ?? `#${base}`);
+    i.title = (itemNames[base] ?? `#${base}`) + (id < 0 ? " (swap)" : "");
+    i.onerror = () => { i.onerror = () => i.remove(); i.src = itemPrefix + base + ".png"; };
+    return i;
+  };
+  const day = (ms) => new Date(ms).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  const hm = (ms) => new Date(ms).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+  const hms = (ms) => new Date(ms).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit", second: "2-digit" });
+  const mins = (s) => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, "0")}`;
+
+  // What a game has: post-game stats, offer screens read, the companion's screens, what the app picked.
+  const KINDS = [["stats", "Post-game stats", (f) => f.includes("match.json") || f.includes("eog.json")],
+    ["reads", "Augment screens read", (f) => f.includes("offers.jsonl")],
+    ["pics", "Screenshots", (f) => f.some((n) => n.endsWith(".png"))],
+    ["app", "App view recording", (f) => f.includes("screens.jsonl")],
+    ["calls", "What the app told you", (f) => f.includes("shown.jsonl")]];
+  const has = (g) => Object.fromEntries(KINDS.map(([k, , t]) => [k, t(g.files ?? [])]));
+
+  let games = [], current = -1;
+  async function loadList() {
+    const was = games[current]?.id;
+    status.textContent = "Reading your games…";
+    try { games = await call("replay_games"); } catch (e) { games = []; }
+    await feeds;
+    const list = document.getElementById("list"); list.replaceChildren();
+    if (!games.length) { document.getElementById("game").replaceChildren(el("p", "empty", "No games here yet. Each Mayhem game shows up after it ends.")); status.textContent = ""; return; }
+    games.forEach((g, i) => {
+      const b = el("button", "g"); b.type = "button";
+      const mid = el("div"), nm = el("div", "nm");
+      nm.append(el("span", null, g.id === "current" ? "This game" : champ(g.champ).name), el("span", "sub", g.at && g.at < 9e15 ? `${day(g.at)} ${hm(g.at)}` : ""));
+      const augs = el("div", "augs"); (g.augs ?? []).forEach((a) => augs.append(img(`${SITE}/icons/augments/${a}.webp`)));
+      mid.append(nm, augs);
+      const right = el("div"), h = has(g);
+      right.append(el("div", "res " + (g.win === true ? "win" : g.win === false ? "loss" : "sub"), g.win === true ? "Win" : g.win === false ? "Loss" : g.id === "current" ? "Live" : "—"));
+      const dots = el("div", "dots"); KINDS.forEach(([k, label]) => { const d = el("i", h[k] ? "on" : ""); d.title = label + (h[k] ? "" : ": missing"); dots.append(d); });
+      right.append(dots);
+      b.append(champImg(g.champ, "ch"), mid, right);
+      b.addEventListener("click", () => show(i));
+      list.append(b);
+    });
+    status.textContent = `${games.length} games`;
+    // A refresh keeps the game being watched (and the player's place in it).
+    const still = games.findIndex((g) => g.id === was);
+    if (was && still >= 0) { current = still; [...document.querySelectorAll(".g")].forEach((c, k) => c.setAttribute("aria-pressed", String(k === still))); return; }
+    let start = 0;
+    try { const s = localStorage.getItem("replay-game"); const k = games.findIndex((g) => g.id === s); if (k >= 0) start = k; } catch (e) {}
+    show(start);
+  }
+
+  // Rounds from the tracker's lines: each offer screen until it closed, with the app's marks and the true pick.
+  function rounds(d, truth) {
+    const out = []; let cur = null;
+    for (const e of d.offers) {
+      if (!cur) cur = { start: e.t, screens: [], closed: null, marks: [] };
+      if (e.offer) cur.screens.push({ t: e.t, cards: e.offer, png: e.png });
+      else if (e.closed) { cur.closed = e; out.push(cur); cur = null; }
+      else if (e.late || e.hud) (cur ?? out[out.length - 1])?.marks.push(e);
+    }
+    if (cur) out.push(cur);
+    const partials = d.files.filter((n) => n.endsWith("-partial.png")).map((n) => [parseInt(n), n]).sort((a, b) => a[0] - b[0]);
+    let prevEnd = 0;
+    return out.map((r) => {
+      const end = r.closed ? r.closed.t : r.start;
+      const cards = [...new Set([...r.screens.flatMap((s) => s.cards), ...(r.closed?.closed ?? [])])];
+      let marked = r.closed?.pick ?? null;
+      for (const m of r.marks) marked = m.hud || m.late || marked;
+      const pics = partials.filter(([t]) => prevEnd < t && t <= end + 20000).map(([, n]) => n);
+      prevEnd = end;
+      return { ...r, end, cards, marked, truth: truth.find((a) => cards.includes(a)) ?? null, partials: pics };
+    });
+  }
+  const shownNear = (d, kind, t, after, match) => {
+    let before = null;
+    for (const s of d.shown) {
+      const v = s.shown; if (v.kind !== kind || (match && !match(v))) continue;
+      if (s.t >= t && s.t <= t + after) return v;
+      if (s.t < t) before = v;
+    }
+    return kind === "items" ? before : null;
+  };
+
+  // A saved picture, read from this PC only when it scrolls into view.
+  const seen = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { seen.unobserve(e.target); e.target.load(); } }), { rootMargin: "400px" });
+  function shot(id, name, alt) {
+    const b = el("button", "shot"); b.type = "button"; b.setAttribute("aria-label", "Open " + alt + " full size");
+    b.append(el("span", null, "Loading picture…"));
+    b.load = () => call("replay_png", { id, name }).then((src) => { if (!src) { b.firstChild.textContent = "Picture not saved"; return; } const i = el("img"); i.src = src; i.alt = alt; b.replaceChildren(i); b.onclick = () => { bigimg.src = src; big.showModal(); }; }).catch(() => (b.firstChild.textContent = "Picture not saved"));
+    seen.observe(b);
+    return b;
+  }
+
+  // The companion as it looked: its recorded screens played into the real page, which runs cut off from the app.
+  function player(lines) {
+    const box = el("section", "player"); box.append(el("h2", null, "What the app showed"));
+    const frame = el("iframe"); frame.title = "The companion as it looked at this moment";
+    const ctl = el("div", "controls"), prev = el("button", null, "◀"), next = el("button", null, "▶"), range = el("input"), time = el("time");
+    prev.type = next.type = "button"; prev.setAttribute("aria-label", "Previous screen"); next.setAttribute("aria-label", "Next screen");
+    range.type = "range"; range.min = 0; range.max = lines.length - 1; range.setAttribute("aria-label", "Moment in the game");
+    const jump = el("select"); jump.setAttribute("aria-label", "Jump to");
+    jump.append(new Option("Jump to…", ""));
+    lines.forEach((l, i) => {
+      const f = l.js.match(/^window\.(\w+)/)?.[1];
+      if (f === "showPick" && !(lines[i - 1]?.js ?? "").startsWith("window.showPick")) jump.append(new Option(`Champion select ${hms(l.t)}`, i));
+      if (l.js.includes("showOffer(")) jump.append(new Option(`Augment offer ${hms(l.t)}`, i));
+      if (f === "showReview") jump.append(new Option(`Post-game review ${hms(l.t)}`, i));
+    });
+    ctl.append(prev, range, next, time, jump);
+    box.append(ctl, frame);
+    let applied = -1, target = 0, ready = null;
+    const start = () => { applied = -1; ready = new Promise((ok) => { frame.onload = ok; }); frame.src = "companion.html?replay"; };
+    const gameClock = (js) => { const m = js.match(/"t":(\d+(?:\.\d+)?)/); return m && js.startsWith("window.showGame") ? ` · game ${mins(+m[1])}` : ""; };
+    async function go(i) {
+      target = Math.max(0, Math.min(lines.length - 1, i)); range.value = target;
+      time.textContent = hms(lines[target].t) + gameClock(lines[target].js);
+      if (target < applied) start();
+      await ready; if (target !== +range.value) return;
+      const w = frame.contentWindow;
+      for (let k = applied + 1; k <= target; k++) { try { w.eval(lines[k].js); } catch (e) {} }
+      applied = target;
+    }
+    range.addEventListener("input", () => go(+range.value));
+    prev.addEventListener("click", () => go(target - 1));
+    next.addEventListener("click", () => go(target + 1));
+    jump.addEventListener("change", () => { if (jump.value !== "") go(+jump.value); jump.value = ""; });
+    start();
+    const first = lines.findIndex((l) => l.js.startsWith("window.showGame"));
+    go(first >= 0 ? first : 0);
+    return box;
+  }
+
+  async function show(i) {
+    current = i;
+    const g = games[i], root = document.getElementById("game");
+    [...document.querySelectorAll(".g")].forEach((c, k) => c.setAttribute("aria-pressed", String(k === i)));
+    try { localStorage.setItem("replay-game", g.id); } catch (e) {}
+    root.replaceChildren(el("p", "empty", "Loading…"));
+    let d; try { d = await call("replay_game", { id: g.id }); } catch (e) { d = null; }
+    if (current !== i) return;
+    if (!d) { root.replaceChildren(el("p", "empty", "This game's files couldn't be read.")); return; }
+    root.replaceChildren();
+    const truth = g.augs ?? [], h = has(g);
+    const head = el("div", "head"), top = el("div", "top"), left = el("div");
+    left.append(el("div", "champ", g.id === "current" ? `This game${g.champ ? " · " + champ(g.champ).name : ""}` : champ(g.champ).name));
+    const hl = Array.isArray(d.headliner) ? d.headliner[0] : d.headliner;
+    left.append(el("div", "sub", [g.at && g.at < 9e15 ? `${day(g.at)} ${hm(g.at)}` : "", g.secs ? mins(g.secs) : "", g.kda ? g.kda.join(" / ") : "", hl ? `Headliner: ${hl}` : ""].filter(Boolean).join(" · ")));
+    top.append(champImg(g.champ), left);
+    if (g.win != null) top.append(el("span", "tag " + (g.win ? "tg" : "tb"), g.win ? "Win" : "Loss"));
+    head.append(top);
+    const tags = el("div", "tags");
+    KINDS.forEach(([k, label]) => tags.append(el("span", "tag " + (h[k] ? "ti" : "tm"), h[k] ? label : "No " + label.toLowerCase())));
+    head.append(tags);
+    const rs = h.reads ? rounds(d, truth) : [];
+    if (truth.length) {
+      const row = el("div", "row");
+      truth.forEach((a) => {
+        const b = aug(a);
+        if (h.reads) { const ok = rs.some((r) => r.marked === a), read = rs.some((r) => r.truth === a); b.append(el("span", "tag " + (ok ? "tg" : read ? "tw" : "tb"), ok ? "caught" : read ? "missed" : "not read")); }
+        row.append(b);
+      });
+      head.append(el("div", "sub", "Your augments, in order" + (h.reads ? ` · ${rs.filter((r) => r.truth && r.marked === r.truth).length} of ${truth.length} caught by the app` : "")), row);
+    }
+    if (g.items?.length) { const it = el("div", "row items"); g.items.forEach((x) => it.append(itemImg(x))); head.append(el("div", "sub", "Final items"), it); }
+    if (!h.stats) head.append(el("div", "sub", "Post-game stats come from the League client: they're saved the next time it's open."));
+    root.append(head);
+
+    if (d.screens.length) root.append(player(d.screens));
+
+    if (rs.length) {
+      const sec = el("section"); sec.append(el("h2", null, "Augment rounds"));
+      const lg = el("div", "legend"); lg.innerHTML = '<span><i></i>You took</span><span><i class="m"></i>App marked</span>';
+      lg.append(el("span", "tag tg", "Take"), el("span", "tag ti", "Reroll"), el("span", null, "what the app told you"));
+      sec.append(lg);
+      rs.forEach((r, k) => {
+        const box = el("article", "round"), rh = el("div", "rhead");
+        const [v, cls] = !r.closed ? ["Still open", "ti"] : !truth.length ? ["Your pick not known yet", "tm"] : r.truth == null ? [r.marked ? "Wrong, real pick never read" : "Real pick never read", "tb"] : r.marked === r.truth ? ["Caught", "tg"] : r.marked ? ["Marked wrong", "tb"] : ["Missed pick", "tw"];
+        rh.append(el("strong", null, "Round " + (k + 1)), el("span", "sub", hms(r.start)), el("span", "tag " + cls, v));
+        const vd = el("div", "verdict");
+        vd.append(el("b", null, "You took"), r.truth ? aug(r.truth) : el("span", "sub", truth.length ? "not on any screen the app read" : "waiting for the post-game stats"), el("b", null, "App marked"), r.marked ? aug(r.marked) : el("span", "sub", "nothing"));
+        box.append(rh, vd);
+        r.screens.forEach((s, j) => {
+          const row = el("div", "cards"); row.append(el("span", "lbl", j ? "Reroll" : "Read"));
+          const app = shownNear(d, "augs", s.t, 4000, (v) => (v.offer ?? []).some((c) => s.cards.includes(c)));
+          s.cards.forEach((c) => {
+            const cd = aug(c, "card");
+            if (c === r.truth) cd.classList.add("took");
+            if (c === r.marked) cd.classList.add("mark");
+            if (app) {
+              const at = (app.offer ?? []).indexOf(c), sc = at >= 0 ? app.score?.[at] : null;
+              if (sc != null) cd.append(el("span", "sc", String(sc)));
+              if (app.reroll === c) cd.append(el("span", "call ti", "Reroll"));
+              else if ((app.take ?? []).includes(c)) cd.append(el("span", "call tg", "Take"));
+            }
+            row.append(cd);
+          });
+          box.append(row);
+          if (s.png) box.append(shot(g.id, s.png, `Round ${k + 1} screen at ${hms(s.t)}`));
+        });
+        const path = shownNear(d, "items", r.end, 8000);
+        if (path?.path?.length) { const pr = el("div", "row items"); pr.append(el("span", "sub", "App's build after this round:")); path.path.forEach((x) => pr.append(itemImg(x))); box.append(pr); }
+        if (r.partials.length) {
+          box.append(el("div", "sub", "Pictures taken when only part of a screen was read"));
+          const ps = el("div", "partials"); r.partials.forEach((n) => ps.append(shot(g.id, n, `Partial capture at ${hms(parseInt(n))}`))); box.append(ps);
+        }
+        sec.append(box);
+      });
+      root.append(sec);
+    } else if (!d.screens.length) {
+      root.append(el("p", "empty", "The app didn't record this game, so only its post-game stats are here."));
+    }
+  }
+
+  // Older games: the old PC app's archive replayed through the app's code on GitHub, one page from the owner feed.
+  let olderLoaded = false;
+  async function showOlder() {
+    const box = document.getElementById("older");
+    if (olderLoaded) return;
+    olderLoaded = true;
+    box.replaceChildren(el("p", "empty", "Loading older games (the first time downloads them)…"));
+    let html = null; try { html = await call("replay_history"); } catch (e) {}
+    if (!html) { olderLoaded = false; box.replaceChildren(el("p", "empty", "Older games aren't downloaded yet. They come from your private feed; try again in a minute.")); return; }
+    const f = el("iframe"); f.title = "Older games"; f.srcdoc = html; box.replaceChildren(f);
+  }
+  const tabMine = document.getElementById("tab-mine"), tabOlder = document.getElementById("tab-older");
+  function tab(older) {
+    tabMine.setAttribute("aria-pressed", String(!older)); tabOlder.setAttribute("aria-pressed", String(older));
+    document.getElementById("mine").style.display = older ? "none" : "";
+    document.getElementById("older").style.display = older ? "block" : "none";
+    document.getElementById("rand").disabled = older;
+    if (older) showOlder();
+  }
+  tabMine.addEventListener("click", () => tab(false));
+  tabOlder.addEventListener("click", () => tab(true));
+  document.getElementById("rand").addEventListener("click", () => { const others = games.map((_, i) => i).filter((i) => i !== current); if (others.length) show(others[Math.floor(Math.random() * others.length)]); });
+  document.getElementById("reload").addEventListener("click", () => { olderLoaded = false; loadList(); });
+  window.addEventListener("focus", () => { if (Date.now() - (window._lastList ?? 0) > 60000) { window._lastList = Date.now(); loadList(); } });
+  window._lastList = Date.now();
+  loadList();
+</script>
+</body>
+</html>

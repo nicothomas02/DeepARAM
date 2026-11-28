@@ -302,7 +302,7 @@ pub fn watch(app: AppHandle) {
     });
 }
 
-fn recent_mayhem(lcu: &Lcu) -> Vec<u64> {
+pub(crate) fn recent_mayhem(lcu: &Lcu) -> Vec<u64> {
     let path = format!("/lol-match-history/v1/products/lol/current-summoner/matches?begIndex=0&endIndex={RECENT}");
     let list = lcu.get(&path).unwrap_or(Value::Null);
     list["games"]["games"]
@@ -461,14 +461,14 @@ fn ymd(secs: u64) -> String {
 }
 
 /// The League client's local API on this computer, read-only.
-struct Lcu {
+pub(crate) struct Lcu {
     base: String,
     auth: String,
     agent: ureq::Agent,
 }
 
 impl Lcu {
-    fn find() -> Option<Self> {
+    pub(crate) fn find() -> Option<Self> {
         let (port, password) = lockfile().or_else(command_line)?;
         // The client serves its local API with Riot's own certificate; the connection never leaves 127.0.0.1.
         let agent = ureq::Agent::config_builder()
@@ -483,7 +483,7 @@ impl Lcu {
         })
     }
 
-    fn get(&self, path: &str) -> Result<Value, ()> {
+    pub(crate) fn get(&self, path: &str) -> Result<Value, ()> {
         self.agent
             .get(format!("{}{path}", self.base))
             .header("Authorization", &self.auth)
@@ -553,7 +553,7 @@ fn command_line() -> Option<(String, String)> {
     })
 }
 
-fn base64(bytes: &[u8]) -> String {
+pub(crate) fn base64(bytes: &[u8]) -> String {
     const ABC: &[u8; 64] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     let mut out = String::new();
     for chunk in bytes.chunks(3) {

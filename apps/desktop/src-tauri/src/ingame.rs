@@ -388,7 +388,10 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
         s.anvils = s.anvils.max(anvils);
         if let Some((filled, pick, cards)) = shown {
             if s.hud_seen != pick || pick.is_some() {
-                input_log(app, serde_json::json!({"now": now, "hud": filled, "shows": pick.map(|p| p.1), "round": cards}));
+                input_log(
+                    app,
+                    serde_json::json!({"now": now, "hud": filled, "shows": pick.map(|p| p.1), "round": cards}),
+                );
             }
             if let (Some((n, id)), true) = (pick, s.hud_seen == pick) {
                 s.track.hud(n, id);

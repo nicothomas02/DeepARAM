@@ -216,10 +216,13 @@
   // items, enemies, offer}) during a game (offer: the augments on offer, read off the screen), showOffer(ids) the
   // moment the offer changes, and showReview({points, turns, ffFrom, result}) after it. In game the build is the focus;
   // the owner's chance to win and surrender call sit small under it, and the chart over the game waits for the review.
+  // Played back in the owner's replay window (?replay): the page shows a recorded game and never talks to the app,
+  // so nothing it renders is logged again as what the app showed.
+  const TAURI = new URLSearchParams(location.search).has("replay") ? null : window.__TAURI_INTERNALS__;
   const SITE = "https://deeparam.com";
   // The app's answer to a question the page asks it (the window), or the same answer over Wi-Fi (the owner's phone
   // companion, src-tauri/src/phone.rs, which has no app calls of its own).
-  const appAsk = (cmd) => (window.__TAURI_INTERNALS__ ? window.__TAURI_INTERNALS__.invoke(cmd) : window.phoneInvoke ? window.phoneInvoke(cmd) : Promise.reject());
+  const appAsk = (cmd) => (TAURI ? TAURI.invoke(cmd) : window.phoneInvoke ? window.phoneInvoke(cmd) : Promise.reject());
   const view = document.getElementById("view");
   const pct = (p) => `${Math.round(p * 100)}%`;
   const pts = (n) => (Math.abs(n) < 0.0005 ? "0.0" : `${n > 0 ? "+" : "−"}${Math.abs(n * 100).toFixed(1)}`);
@@ -238,7 +241,7 @@
 </div>`; // no full screen button: F11 does it (Nico 2026-11-27)
   // Full screen from the button, F11 or Esc; the app answers with the state it ended in, which labels the button.
   let isFull = false;
-  window.fullScreen = (on) => window.__TAURI_INTERNALS__?.invoke("companion_fullscreen", { on: on ?? null })
+  window.fullScreen = (on) => TAURI?.invoke("companion_fullscreen", { on: on ?? null })
     .then((full) => { isFull = full; document.querySelectorAll(".hero .fs").forEach((b) => (b.textContent = full ? "Exit full screen" : "Full screen")); })
     .catch((e) => console.error("fullscreen", e));
   // The app went full screen by itself (second monitor): relabel the button.
@@ -666,9 +669,9 @@
   const shownLast = {};
   const logShown = (kind, v) => {
     const s = JSON.stringify(v);
-    if (shownLast[kind] === s || !window.__TAURI_INTERNALS__) return;
+    if (shownLast[kind] === s || !TAURI) return;
     shownLast[kind] = s;
-    window.__TAURI_INTERNALS__.invoke("shown_log", { line: { kind, ...v } }).catch(() => {});
+    TAURI.invoke("shown_log", { line: { kind, ...v } }).catch(() => {});
   };
 
   async function renderAugments() {
@@ -1072,11 +1075,11 @@
   // The phone companion (owner's PC, src-tauri/src/phone.rs) takes the window's settings, so both recommend the same:
   // the window reports them when it opens and on every switch; the phone applies them as they come.
   const prefsNow = () => ({ lucky, bracket, ownedOnly, onlyPatch });
-  const sendPrefs = () => window.__TAURI_INTERNALS__?.invoke("companion_prefs", { prefs: prefsNow() }).catch(() => {});
+  const sendPrefs = () => TAURI?.invoke("companion_prefs", { prefs: prefsNow() }).catch(() => {});
   sendPrefs();
   document.addEventListener("click", (e) => { if (e.target.closest?.(".chip.pt, .chip.own, .chip.br, .chip.lucky")) sendPrefs(); });
   // The owner's defaults (Nico 2026-11-28): Top 5% and Feeling lucky, set once on his PC; what he picks later sticks.
-  window.__TAURI_INTERNALS__?.invoke("owner_pc").then((own) => {
+  TAURI?.invoke("owner_pc").then((own) => {
     let done = true;
     try { done = localStorage.getItem("ownerDefaults") === "1"; } catch {}
     if (!own || done) return;
@@ -1175,7 +1178,7 @@
   document.addEventListener("error", (e) => { const im = e.target; if (!im.matches?.("img[data-drop]")) return; if (im.dataset.alt) { const a = im.dataset.alt; im.dataset.alt = ""; im.src = a; } else im.remove(); }, true);
   // Esc leaves full screen, F11 flips it.
   addEventListener("keydown", (e) => {
-    if ((e.key === "Escape" || e.key === "F11") && window.__TAURI_INTERNALS__) {
+    if ((e.key === "Escape" || e.key === "F11") && TAURI) {
       e.preventDefault();
       fullScreen(e.key === "F11" ? !isFull : false);
     }
@@ -1306,8 +1309,8 @@
   // accounts). Never in game; at most once every two weeks, three times in all, and never again after "Don't ask".
   async function inviteToShare() {
     const box = document.getElementById("invite");
-    if (!box || !window.__TAURI_INTERNALS__) return;
-    const invoke = (cmd, args) => window.__TAURI_INTERNALS__.invoke(cmd, args);
+    if (!box || !TAURI) return;
+    const invoke = (cmd, args) => TAURI.invoke(cmd, args);
     let st = { n: 0, at: 0, never: false };
     try { st = { ...st, ...JSON.parse(localStorage.getItem("shareInvite") ?? "{}") }; } catch {}
     if (st.never || st.n >= 3 || Date.now() - st.at < 14 * 864e5) return;
@@ -1383,8 +1386,8 @@
   }
   async function renderTrends() {
     const box = document.getElementById("trends");
-    if (!box || !window.__TAURI_INTERNALS__) return;
-    const invoke = (cmd, args) => window.__TAURI_INTERNALS__.invoke(cmd, args);
+    if (!box || !TAURI) return;
+    const invoke = (cmd, args) => TAURI.invoke(cmd, args);
     const log = logFollow();
     const t = await invoke("my_trends").catch(() => null);
     if (!t) return;

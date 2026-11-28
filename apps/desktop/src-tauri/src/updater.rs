@@ -89,7 +89,7 @@ pub fn script(setup: &str, app: &str, hidden: &str) -> String {
 
 /// A GitHub request; with the owner's key for the private feed. A file asks for its bytes (`raw`), not its details.
 #[cfg(windows)]
-fn get(url: &str, key: Option<&str>, raw: bool) -> Option<ureq::http::Response<ureq::Body>> {
+pub(crate) fn get(url: &str, key: Option<&str>, raw: bool) -> Option<ureq::http::Response<ureq::Body>> {
     let accept = if raw { "application/octet-stream" } else { "application/vnd.github+json" };
     let req = ureq::get(url).header("User-Agent", "DeepARAM-app").header("Accept", accept);
     match key {
@@ -100,7 +100,7 @@ fn get(url: &str, key: Option<&str>, raw: bool) -> Option<ureq::http::Response<u
 
 /// The owner's read-only key, saved by him (never shown or logged).
 #[cfg(windows)]
-fn owner_key(app: &AppHandle) -> Option<String> {
+pub(crate) fn owner_key(app: &AppHandle) -> Option<String> {
     let dir = app.path().app_data_dir().ok()?;
     let k = std::fs::read_to_string(dir.join("owner-feed-token.txt")).ok()?;
     let k = k.trim();
