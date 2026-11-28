@@ -69,3 +69,41 @@ def test_role_scores_switch_only_on_clear_evidence():
             assert v["cells"] >= shipped["min_cells"]
             assert v["r"][v["score"]] - v["r"][v["default"]] >= shipped["margin"]
     assert shipped["check"]["subclass defaults"] > shipped["check"]["win"]  # the scores beat the win alone
+
+
+def _lcu_game():
+    parts, ids = [], []
+    for i in range(10):
+        team = 100 if i < 5 else 200
+        parts.append({"participantId": i + 1, "teamId": team, "championId": 16 if i == 0 else 1 + i,
+                      "stats": {"win": team == 100, "totalDamageDealtToChampions": 1000 * (i % 5 + 1), "totalHeal": 5000 if i == 0 else 500,
+                                "totalUnitsHealed": 4 if i == 0 else 1, "deaths": 2, "kills": 2, "assists": 10 if i == 0 else 3,
+                                "timeCCingOthers": 10}})
+        ids.append({"participantId": i + 1, "player": {"puuid": f"p{i}"}})
+    return {"gameDuration": 1200, "participants": parts, "participantIdentities": ids}
+
+
+def test_what_mattered_compares_with_the_typical_player():
+    g = _lcu_game()
+    rows = rsc.game_rows(g)
+    assert len(rows) == 10 and rows[0]["pid"] == 1
+    typical = {k: [rows[0][k] * 0.5 if k != "deaths" else rows[0][k] * 2, 0.1] for k in rsc.STATS}
+    res = {"champions": {"16": {"score": "support"}}, "norms": {"16": {"n": 40, "stats": typical}}, "subclass_norms": {}}
+    out = rsc.what_mattered(g, 1, res, subs={16: ("Enchanter",)})
+    assert out["score"] == "support" and out["players"] == 40 and out["pooled"] is None
+    assert "win" not in {s["stat"] for s in out["stats"]}
+    assert all(s["z"] > 0 for s in out["stats"])  # better than typical on every stat (deaths flipped)
+    assert [abs(s["z"]) for s in out["stats"]] == sorted((abs(s["z"]) for s in out["stats"]), reverse=True)
+    # no norm for the champion: falls back to its subclass, marked pooled
+    res2 = {"champions": {}, "norms": {}, "subclass_norms": {"Enchanter": {"n": 300, "stats": typical}}}
+    assert rsc.what_mattered(g, 1, res2, subs={16: ("Enchanter",)})["pooled"] == "Enchanter"
+    g["gameDuration"] = 200  # remake
+    assert rsc.what_mattered(g, 1, res, subs={16: ("Enchanter",)}) is None
+
+
+def test_shipped_norms_leave_the_owner_out_and_need_enough_players():
+    shipped = json.load(open(rsc.OUT))
+    assert shipped["norms"] and all(v["n"] >= shipped["min_norm"] for v in shipped["norms"].values())
+    assert set(next(iter(shipped["norms"].values()))["stats"]) == set(rsc.STATS)
+    assert set(shipped["subclass_of"].values()) <= set(shipped["subclass_norms"])  # every fallback has a pooled norm
+    assert all(shipped["score_of"][c] == v["score"] for c, v in shipped["champions"].items())
