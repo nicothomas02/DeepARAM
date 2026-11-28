@@ -3698,7 +3698,7 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
         "3033": [
           90,
           20,
-          70,
+          60,
           20,
           20,
           20
