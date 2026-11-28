@@ -102,6 +102,10 @@ describe("realFullPicks", () => {
   it("returns null when no followed build holds the core", () => {
     expect(realFullPicks(core, [row([1, 2, 8, 9, 4, 5], 0.05, 90)], single, undefined, isBoots)).toBeNull();
   });
+  it("skips a build whose items past the core don't fit it (critFits: crit after an ability core)", () => {
+    const builds = [row([1, 2, 3, 9, 4, 5], 0.04, 60), row([1, 2, 3, 9, 6, 7], 0.03, 80)];
+    expect(realFullPicks(core, builds, single, undefined, isBoots, 6, (i) => i !== 7)?.map((r) => r.items[0]).sort()).toEqual([4, 5]);
+  });
 });
 
 describe("augment cross-champion prior", () => {
