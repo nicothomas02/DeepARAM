@@ -1,0 +1,1289 @@
+[
+{
+"champ": "Graves",
+"slot": 2,
+"vs": 3036,
+"new": {
+"no_ff": -7.9,
+"ff": -7.9
+},
+"old": {
+"no_ff": -7.9,
+"ff": -7.9
+}
+},
+{
+"champ": "Graves",
+"slot": 3,
+"vs": 6676,
+"new": {
+"no_ff": -7.4,
+"ff": -8.6
+},
+"old": {
+"no_ff": -7.4,
+"ff": -8.6
+}
+},
+{
+"champ": "Graves",
+"slot": 4,
+"vs": 3072,
+"new": {
+"no_ff": 5.4,
+"ff": 7.8
+},
+"old": {
+"no_ff": 5.3,
+"ff": 7.7
+}
+},
+{
+"champ": "Rengar",
+"slot": 2,
+"vs": 3036,
+"new": {
+"no_ff": 2.2,
+"ff": -0.1
+},
+"old": {
+"no_ff": 1.8,
+"ff": -1.5
+}
+},
+{
+"champ": "Rengar",
+"slot": 3,
+"vs": 6676,
+"new": {
+"no_ff": -3.4,
+"ff": -1.7
+},
+"old": {
+"no_ff": -4.3,
+"ff": -4.1
+}
+},
+{
+"champ": "Rengar",
+"slot": 4,
+"vs": 6699,
+"new": {
+"no_ff": 4.6,
+"ff": 7.3
+},
+"old": {
+"no_ff": 5.2,
+"ff": 5.5
+}
+},
+{
+"champ": "Varus",
+"slot": 2,
+"vs": 3153,
+"new": {
+"no_ff": -21.0,
+"ff": -21.3
+},
+"old": {
+"no_ff": -21.0,
+"ff": -21.3
+}
+},
+{
+"champ": "Varus",
+"slot": 3,
+"vs": 3302,
+"new": {
+"no_ff": -0.0,
+"ff": 0.7
+},
+"old": {
+"no_ff": -0.0,
+"ff": 0.7
+}
+},
+{
+"champ": "Varus",
+"slot": 4,
+"vs": 6676,
+"new": {
+"no_ff": -7.9,
+"ff": -5.0
+},
+"old": {
+"no_ff": -8.0,
+"ff": -7.1
+}
+},
+{
+"champ": "Draven",
+"slot": 2,
+"vs": 3036,
+"new": {
+"no_ff": -9.2,
+"ff": -9.2
+},
+"old": {
+"no_ff": -9.2,
+"ff": -10.5
+}
+},
+{
+"champ": "Draven",
+"slot": 3,
+"vs": 6676,
+"new": {
+"no_ff": -7.9,
+"ff": -6.0
+},
+"old": {
+"no_ff": -7.0,
+"ff": -7.0
+}
+},
+{
+"champ": "Draven",
+"slot": 4,
+"vs": 3072,
+"new": {
+"no_ff": -12.4,
+"ff": 5.8
+},
+"old": {
+"no_ff": -12.6,
+"ff": -2.5
+}
+},
+{
+"champ": "Hecarim",
+"slot": 2,
+"vs": 3161,
+"new": {
+"no_ff": -1.6,
+"ff": 0.5
+},
+"old": {
+"no_ff": -1.6,
+"ff": 0.5
+}
+},
+{
+"champ": "Hecarim",
+"slot": 3,
+"vs": 6333,
+"new": {
+"no_ff": 7.8,
+"ff": 6.5
+},
+"old": {
+"no_ff": 7.8,
+"ff": 6.5
+}
+},
+{
+"champ": "Hecarim",
+"slot": 4,
+"vs": 6692,
+"new": {
+"no_ff": -1.8,
+"ff": -0.2
+},
+"old": {
+"no_ff": -1.8,
+"ff": -0.2
+}
+},
+{
+"champ": "Khazix",
+"slot": 2,
+"vs": 6699,
+"new": {
+"no_ff": 6.3,
+"ff": 6.4
+},
+"old": {
+"no_ff": 6.3,
+"ff": 6.4
+}
+},
+{
+"champ": "Khazix",
+"slot": 3,
+"vs": 6694,
+"new": {
+"no_ff": -7.5,
+"ff": -7.3
+},
+"old": {
+"no_ff": -7.5,
+"ff": -7.3
+}
+},
+{
+"champ": "Khazix",
+"slot": 4,
+"vs": 6695,
+"new": {
+"no_ff": 4.8,
+"ff": 7.5
+},
+"old": {
+"no_ff": 4.7,
+"ff": 4.4
+}
+},
+{
+"champ": "Kayn",
+"slot": 2,
+"vs": 6333,
+"new": {
+"no_ff": 4.9,
+"ff": 3.6
+},
+"old": {
+"no_ff": 4.9,
+"ff": 3.6
+}
+},
+{
+"champ": "Kayn",
+"slot": 3,
+"vs": 6676,
+"new": {
+"no_ff": -4.0,
+"ff": -3.6
+},
+"old": {
+"no_ff": -4.0,
+"ff": -3.6
+}
+},
+{
+"champ": "Kayn",
+"slot": 4,
+"vs": 6699,
+"new": {
+"no_ff": 8.9,
+"ff": 9.7
+},
+"old": {
+"no_ff": 8.1,
+"ff": 8.5
+}
+},
+{
+"champ": "Akshan",
+"slot": 2,
+"vs": 3036,
+"new": {
+"no_ff": -5.9,
+"ff": -5.0
+},
+"old": {
+"no_ff": -5.9,
+"ff": -5.0
+}
+},
+{
+"champ": "Akshan",
+"slot": 3,
+"vs": 6676,
+"new": {
+"no_ff": -6.0,
+"ff": -6.0
+},
+"old": {
+"no_ff": -6.0,
+"ff": -6.2
+}
+},
+{
+"champ": "Akshan",
+"slot": 4,
+"vs": 3153,
+"new": {
+"no_ff": -16.4,
+"ff": -9.2
+},
+"old": {
+"no_ff": -15.6,
+"ff": -9.9
+}
+},
+{
+"champ": "Jhin",
+"slot": 2,
+"vs": 6676,
+"new": {
+"no_ff": -5.9,
+"ff": -6.2
+},
+"old": {
+"no_ff": -5.9,
+"ff": -6.2
+}
+},
+{
+"champ": "Jhin",
+"slot": 3,
+"vs": 3094,
+"new": {
+"no_ff": 15.9,
+"ff": 15.1
+},
+"old": {
+"no_ff": 15.9,
+"ff": 15.2
+}
+},
+{
+"champ": "Jhin",
+"slot": 4,
+"vs": 3036,
+"new": {
+"no_ff": -12.8,
+"ff": -14.2
+},
+"old": {
+"no_ff": -12.7,
+"ff": -15.5
+}
+},
+{
+"champ": "MissFortune",
+"slot": 2,
+"vs": 3089,
+"new": {
+"no_ff": 7.5,
+"ff": 10.8
+},
+"old": {
+"no_ff": 7.5,
+"ff": 10.7
+}
+},
+{
+"champ": "MissFortune",
+"slot": 3,
+"vs": 4645,
+"new": {
+"no_ff": 5.1,
+"ff": 9.2
+},
+"old": {
+"no_ff": 5.3,
+"ff": 9.4
+}
+},
+{
+"champ": "MissFortune",
+"slot": 4,
+"vs": 6676,
+"new": {
+"no_ff": -2.3,
+"ff": -2.1
+},
+"old": {
+"no_ff": -2.2,
+"ff": -2.2
+}
+},
+{
+"champ": "Ashe",
+"slot": 2,
+"vs": 4005,
+"new": {
+"no_ff": 60.6,
+"ff": 68.0
+},
+"old": {
+"no_ff": 61.5,
+"ff": 68.8
+}
+},
+{
+"champ": "Ashe",
+"slot": 3,
+"vs": 4628,
+"new": {
+"no_ff": 40.6,
+"ff": 44.1
+},
+"old": {
+"no_ff": 40.5,
+"ff": 42.0
+}
+},
+{
+"champ": "Ashe",
+"slot": 4,
+"vs": 3153,
+"new": {
+"no_ff": -34.4,
+"ff": -31.1
+},
+"old": {
+"no_ff": -34.1,
+"ff": -32.6
+}
+},
+{
+"champ": "Jinx",
+"slot": 2,
+"vs": 3085,
+"new": {
+"no_ff": 8.2,
+"ff": 9.0
+},
+"old": {
+"no_ff": 8.2,
+"ff": 9.0
+}
+},
+{
+"champ": "Jinx",
+"slot": 3,
+"vs": 3036,
+"new": {
+"no_ff": -13.9,
+"ff": -13.7
+},
+"old": {
+"no_ff": -13.9,
+"ff": -13.7
+}
+},
+{
+"champ": "Jinx",
+"slot": 4,
+"vs": 6676,
+"new": {
+"no_ff": -4.4,
+"ff": -3.3
+},
+"old": {
+"no_ff": -4.6,
+"ff": -6.7
+}
+},
+{
+"champ": "Tryndamere",
+"slot": 2,
+"vs": 3153,
+"new": {
+"no_ff": -17.9,
+"ff": -14.7
+},
+"old": {
+"no_ff": -18.0,
+"ff": -15.2
+}
+},
+{
+"champ": "Tryndamere",
+"slot": 3,
+"vs": 3046,
+"new": {
+"no_ff": -15.1,
+"ff": -14.3
+},
+"old": {
+"no_ff": -15.3,
+"ff": -16.5
+}
+},
+{
+"champ": "Tryndamere",
+"slot": 4,
+"vs": 6675,
+"new": {
+"no_ff": 5.9,
+"ff": 9.1
+},
+"old": {
+"no_ff": 5.5,
+"ff": 3.2
+}
+},
+{
+"champ": "Lucian",
+"slot": 2,
+"vs": 3036,
+"new": {
+"no_ff": -5.4,
+"ff": -5.1
+},
+"old": {
+"no_ff": -5.4,
+"ff": -5.1
+}
+},
+{
+"champ": "Lucian",
+"slot": 3,
+"vs": 6676,
+"new": {
+"no_ff": -0.1,
+"ff": -0.4
+},
+"old": {
+"no_ff": -0.1,
+"ff": -0.4
+}
+},
+{
+"champ": "Lucian",
+"slot": 4,
+"vs": 3508,
+"new": {
+"no_ff": -2.2,
+"ff": 0.1
+},
+"old": {
+"no_ff": -1.9,
+"ff": -0.6
+}
+},
+{
+"champ": "Zed",
+"slot": 2,
+"vs": 6699,
+"new": {
+"no_ff": 11.1,
+"ff": 12.7
+},
+"old": {
+"no_ff": 10.4,
+"ff": 11.0
+}
+},
+{
+"champ": "Zed",
+"slot": 3,
+"vs": 6694,
+"new": {
+"no_ff": -8.0,
+"ff": -7.7
+},
+"old": {
+"no_ff": -8.4,
+"ff": -8.6
+}
+},
+{
+"champ": "Zed",
+"slot": 4,
+"vs": 2517,
+"new": {
+"no_ff": 19.9,
+"ff": 24.7
+},
+"old": {
+"no_ff": 15.2,
+"ff": 14.0
+}
+},
+{
+"champ": "Qiyana",
+"slot": 2,
+"vs": 6676,
+"new": {
+"no_ff": -1.6,
+"ff": -2.1
+},
+"old": {
+"no_ff": -1.6,
+"ff": -2.1
+}
+},
+{
+"champ": "Qiyana",
+"slot": 3,
+"vs": 6694,
+"new": {
+"no_ff": -5.3,
+"ff": -6.1
+},
+"old": {
+"no_ff": -5.3,
+"ff": -6.2
+}
+},
+{
+"champ": "Qiyana",
+"slot": 4,
+"vs": 2517,
+"new": {
+"no_ff": 14.5,
+"ff": 14.0
+},
+"old": {
+"no_ff": 13.7,
+"ff": 11.9
+}
+},
+{
+"champ": "Vi",
+"slot": 2,
+"vs": 6333,
+"new": {
+"no_ff": 8.0,
+"ff": 11.1
+},
+"old": {
+"no_ff": 8.0,
+"ff": 11.1
+}
+},
+{
+"champ": "Vi",
+"slot": 3,
+"vs": 3031,
+"new": {
+"no_ff": -6.0,
+"ff": -5.3
+},
+"old": {
+"no_ff": -6.1,
+"ff": -5.4
+}
+},
+{
+"champ": "Vi",
+"slot": 4,
+"vs": 3036,
+"new": {
+"no_ff": -17.4,
+"ff": -13.8
+},
+"old": {
+"no_ff": -17.8,
+"ff": -16.8
+}
+},
+{
+"champ": "Karthus",
+"slot": 2,
+"vs": 4645,
+"new": {
+"no_ff": -20.1,
+"ff": -19.1
+},
+"old": {
+"no_ff": -20.1,
+"ff": -19.1
+}
+},
+{
+"champ": "Karthus",
+"slot": 3,
+"vs": 3135,
+"new": {
+"no_ff": -22.1,
+"ff": -22.8
+},
+"old": {
+"no_ff": -22.1,
+"ff": -22.8
+}
+},
+{
+"champ": "Karthus",
+"slot": 4,
+"vs": 3031,
+"new": {
+"no_ff": -1.1,
+"ff": -1.7
+},
+"old": {
+"no_ff": -1.1,
+"ff": -1.7
+}
+},
+{
+"champ": "Gangplank",
+"slot": 2,
+"vs": 3036,
+"new": {
+"no_ff": -4.0,
+"ff": -3.9
+},
+"old": {
+"no_ff": -3.6,
+"ff": -3.8
+}
+},
+{
+"champ": "Gangplank",
+"slot": 3,
+"vs": 3508,
+"new": {
+"no_ff": -6.4,
+"ff": -5.5
+},
+"old": {
+"no_ff": -6.5,
+"ff": -6.6
+}
+},
+{
+"champ": "Gangplank",
+"slot": 4,
+"vs": 6676,
+"new": {
+"no_ff": -2.3,
+"ff": -0.3
+},
+"old": {
+"no_ff": -2.3,
+"ff": -2.7
+}
+},
+{
+"champ": "Caitlyn",
+"slot": 2,
+"vs": 3036,
+"new": {
+"no_ff": -7.5,
+"ff": -9.4
+},
+"old": {
+"no_ff": -7.5,
+"ff": -9.4
+}
+},
+{
+"champ": "Caitlyn",
+"slot": 3,
+"vs": 6676,
+"new": {
+"no_ff": -7.5,
+"ff": -7.6
+},
+"old": {
+"no_ff": -7.5,
+"ff": -7.6
+}
+},
+{
+"champ": "Caitlyn",
+"slot": 4,
+"vs": 3032,
+"new": {
+"no_ff": -8.0,
+"ff": -10.8
+},
+"old": {
+"no_ff": -8.4,
+"ff": -11.3
+}
+},
+{
+"champ": "Malphite",
+"slot": 2,
+"vs": 4645,
+"new": {
+"no_ff": -12.6,
+"ff": -11.2
+},
+"old": {
+"no_ff": -12.6,
+"ff": -11.2
+}
+},
+{
+"champ": "Malphite",
+"slot": 3,
+"vs": 4646,
+"new": {
+"no_ff": -13.0,
+"ff": -11.3
+},
+"old": {
+"no_ff": -13.0,
+"ff": -11.3
+}
+},
+{
+"champ": "Malphite",
+"slot": 4,
+"vs": 2501,
+"new": {
+"no_ff": 0.5,
+"ff": 0.1
+},
+"old": {
+"no_ff": 0.5,
+"ff": 0.1
+}
+},
+{
+"champ": "Pyke",
+"slot": 2,
+"vs": 6676,
+"new": {
+"no_ff": 0.8,
+"ff": 2.1
+},
+"old": {
+"no_ff": 0.8,
+"ff": 1.4
+}
+},
+{
+"champ": "Pyke",
+"slot": 3,
+"vs": 6699,
+"new": {
+"no_ff": 9.0,
+"ff": 11.1
+},
+"old": {
+"no_ff": 8.5,
+"ff": 7.3
+}
+},
+{
+"champ": "Pyke",
+"slot": 4,
+"vs": 3142,
+"new": {
+"no_ff": 4.0,
+"ff": 5.5
+},
+"old": {
+"no_ff": 3.9,
+"ff": 2.2
+}
+},
+{
+"champ": "Nocturne",
+"slot": 2,
+"vs": 3073,
+"new": {
+"no_ff": 1.1,
+"ff": 2.5
+},
+"old": {
+"no_ff": 1.1,
+"ff": 2.5
+}
+},
+{
+"champ": "Nocturne",
+"slot": 3,
+"vs": 3031,
+"new": {
+"no_ff": -15.0,
+"ff": -14.6
+},
+"old": {
+"no_ff": -15.0,
+"ff": -14.6
+}
+},
+{
+"champ": "Nocturne",
+"slot": 4,
+"vs": 3036,
+"new": {
+"no_ff": -17.9,
+"ff": -16.4
+},
+"old": {
+"no_ff": -17.9,
+"ff": -16.4
+}
+},
+{
+"champ": "JarvanIV",
+"slot": 2,
+"vs": 6333,
+"new": {
+"no_ff": 5.9,
+"ff": 4.7
+},
+"old": {
+"no_ff": 5.9,
+"ff": 4.7
+}
+},
+{
+"champ": "JarvanIV",
+"slot": 3,
+"vs": 3031,
+"new": {
+"no_ff": -6.5,
+"ff": -5.2
+},
+"old": {
+"no_ff": -6.5,
+"ff": -5.2
+}
+},
+{
+"champ": "JarvanIV",
+"slot": 4,
+"vs": 3036,
+"new": {
+"no_ff": -11.7,
+"ff": -14.4
+},
+"old": {
+"no_ff": -11.5,
+"ff": -14.5
+}
+},
+{
+"champ": "MonkeyKing",
+"slot": 2,
+"vs": 3036,
+"new": {
+"no_ff": -3.2,
+"ff": -3.8
+},
+"old": {
+"no_ff": -3.2,
+"ff": -3.8
+}
+},
+{
+"champ": "MonkeyKing",
+"slot": 3,
+"vs": 6676,
+"new": {
+"no_ff": -4.7,
+"ff": -3.6
+},
+"old": {
+"no_ff": -5.3,
+"ff": -4.7
+}
+},
+{
+"champ": "MonkeyKing",
+"slot": 4,
+"vs": 6610,
+"new": {
+"no_ff": 7.8,
+"ff": 10.9
+},
+"old": {
+"no_ff": 7.3,
+"ff": 8.4
+}
+},
+{
+"champ": "LeeSin",
+"slot": 2,
+"vs": 6676,
+"new": {
+"no_ff": -0.8,
+"ff": -0.2
+},
+"old": {
+"no_ff": -0.5,
+"ff": -0.9
+}
+},
+{
+"champ": "LeeSin",
+"slot": 3,
+"vs": 6692,
+"new": {
+"no_ff": -4.6,
+"ff": -2.9
+},
+"old": {
+"no_ff": -5.3,
+"ff": -5.7
+}
+},
+{
+"champ": "LeeSin",
+"slot": 4,
+"vs": 2517,
+"new": {
+"no_ff": 4.5,
+"ff": 7.6
+},
+"old": {
+"no_ff": 4.0,
+"ff": 4.5
+}
+},
+{
+"champ": "Ambessa",
+"slot": 2,
+"vs": 6333,
+"new": {
+"no_ff": 6.5,
+"ff": 6.7
+},
+"old": {
+"no_ff": 6.4,
+"ff": 6.2
+}
+},
+{
+"champ": "Ambessa",
+"slot": 3,
+"vs": 3161,
+"new": {
+"no_ff": 10.0,
+"ff": 9.9
+},
+"old": {
+"no_ff": 9.9,
+"ff": 7.5
+}
+},
+{
+"champ": "Ambessa",
+"slot": 4,
+"vs": 6692,
+"new": {
+"no_ff": 0.5,
+"ff": 2.7
+},
+"old": {
+"no_ff": 0.8,
+"ff": 0.6
+}
+},
+{
+"champ": "Ezreal",
+"slot": 2,
+"vs": 3118,
+"new": {
+"no_ff": 5.5,
+"ff": 7.7
+},
+"old": {
+"no_ff": 5.5,
+"ff": 7.7
+}
+},
+{
+"champ": "Ezreal",
+"slot": 3,
+"vs": 4645,
+"new": {
+"no_ff": 1.0,
+"ff": 4.2
+},
+"old": {
+"no_ff": 1.2,
+"ff": 3.3
+}
+},
+{
+"champ": "Ezreal",
+"slot": 4,
+"vs": 3078,
+"new": {
+"no_ff": -6.3,
+"ff": -6.0
+},
+"old": {
+"no_ff": -6.7,
+"ff": -7.5
+}
+},
+{
+"champ": "Sett",
+"slot": 2,
+"vs": 3083,
+"new": {
+"no_ff": 8.7,
+"ff": 14.9
+},
+"old": {
+"no_ff": 7.9,
+"ff": 13.1
+}
+},
+{
+"champ": "Sett",
+"slot": 3,
+"vs": 3084,
+"new": {
+"no_ff": -4.1,
+"ff": -1.2
+},
+"old": {
+"no_ff": -3.9,
+"ff": -1.9
+}
+},
+{
+"champ": "Sett",
+"slot": 4,
+"vs": 3053,
+"new": {
+"no_ff": 1.2,
+"ff": 1.1
+},
+"old": {
+"no_ff": 0.8,
+"ff": 0.3
+}
+},
+{
+"champ": "Zaahen",
+"slot": 2,
+"vs": 6333,
+"new": {
+"no_ff": 7.5,
+"ff": 8.5
+},
+"old": {
+"no_ff": 7.5,
+"ff": 8.5
+}
+},
+{
+"champ": "Zaahen",
+"slot": 3,
+"vs": 6610,
+"new": {
+"no_ff": 10.6,
+"ff": 11.0
+},
+"old": {
+"no_ff": 9.5,
+"ff": 9.4
+}
+},
+{
+"champ": "Zaahen",
+"slot": 4,
+"vs": 3161,
+"new": {
+"no_ff": 12.1,
+"ff": 15.0
+},
+"old": {
+"no_ff": 9.0,
+"ff": 10.0
+}
+},
+{
+"champ": "Talon",
+"slot": 2,
+"vs": 6699,
+"new": {
+"no_ff": 6.7,
+"ff": 6.7
+},
+"old": {
+"no_ff": 6.7,
+"ff": 6.7
+}
+},
+{
+"champ": "Talon",
+"slot": 3,
+"vs": 3036,
+"new": {
+"no_ff": -12.8,
+"ff": -11.4
+},
+"old": {
+"no_ff": -12.3,
+"ff": -11.4
+}
+},
+{
+"champ": "Talon",
+"slot": 4,
+"vs": 6694,
+"new": {
+"no_ff": 0.4,
+"ff": 2.5
+},
+"old": {
+"no_ff": -0.6,
+"ff": -0.8
+}
+},
+{
+"champ": "Riven",
+"slot": 2,
+"vs": 2517,
+"new": {
+"no_ff": 12.4,
+"ff": 13.4
+},
+"old": {
+"no_ff": 11.5,
+"ff": 11.5
+}
+},
+{
+"champ": "Riven",
+"slot": 3,
+"vs": 3161,
+"new": {
+"no_ff": 14.0,
+"ff": 17.1
+},
+"old": {
+"no_ff": 13.6,
+"ff": 12.6
+}
+},
+{
+"champ": "Riven",
+"slot": 4,
+"vs": 6692,
+"new": {
+"no_ff": 2.7,
+"ff": 6.0
+},
+"old": {
+"no_ff": 1.0,
+"ff": 2.1
+}
+},
+{
+"champ": "Naafiri",
+"slot": 2,
+"vs": 6676,
+"new": {
+"no_ff": 0.9,
+"ff": -1.3
+},
+"old": {
+"no_ff": 0.6,
+"ff": -1.8
+}
+},
+{
+"champ": "Naafiri",
+"slot": 3,
+"vs": 6699,
+"new": {
+"no_ff": 5.9,
+"ff": 7.4
+},
+"old": {
+"no_ff": 6.7,
+"ff": 5.9
+}
+},
+{
+"champ": "Naafiri",
+"slot": 4,
+"vs": 2517,
+"new": {
+"no_ff": 7.5,
+"ff": 9.1
+},
+"old": {
+"no_ff": 8.0,
+"ff": 7.5
+}
+}
+]

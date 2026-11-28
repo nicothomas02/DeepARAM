@@ -112,6 +112,7 @@ Settings: `start_distance`, `enemy_spread` (fight), `dodge_chance` 0.75, `reacti
 | `attack_cdr_pct` | basic abilities' cooldowns drop by this share on each attack |
 | `bolts`, `bolts_ad` | extra bolts per attack at this share of AD |
 | `execute` | kills targets under this share of max HP |
+| `kill_refund_r`, `kill_refund_r_lethality` | a kill refunds this share of the ultimate's total cooldown, plus per Lethality (Axiom Arc; assists not counted) |
 | `spellblade_*` | next attack after a cast deals base/bonus AD or AP; `spellblade_cd` |
 | `storm_every`, `storm_magic` | magic damage every Nth attack |
 | `onhit_cur_hp`, `onhit_own_hp`, `onhit_magic(_ap)` | on-hit damage |
