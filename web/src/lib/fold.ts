@@ -18,9 +18,17 @@ export const hangulInitials = (s: string) =>
 /** True when the query is only Hangul consonants (ㄱ-ㅎ), with or without spaces. */
 export const isInitialsQuery = (q: string) => /^[ㄱ-ㅎ\s]+$/.test(q) && /[ㄱ-ㅎ]/.test(q);
 
-/** Whether `text` contains `q`, where a query of bare Hangul consonants also matches names by their initials. */
+/** Accents and apostrophes dropped, Hangul kept whole: "Épée" and "epee" match, "Kai'Sa" and "kaisa" too. */
+const plain = (s: string) =>
+  s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f'\u2019]/g, "")
+    .normalize("NFC");
+
+/** Whether `text` contains `q`, ignoring accents and apostrophes; a query of bare Hangul consonants also matches
+ *  names by their initials. */
 export function textMatches(text: string, q: string) {
-  if (text.includes(q)) return true;
+  if (text.includes(q) || plain(text).includes(plain(q))) return true;
   if (!isInitialsQuery(q)) return false;
   const want = q.replace(/\s/g, "");
   return hangulInitials(text).replace(/\s/g, "").includes(want);

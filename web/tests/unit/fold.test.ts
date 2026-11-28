@@ -22,4 +22,12 @@ describe("search folding", () => {
     expect(textMatches("아리", "ㅋㅇㅌㄹ")).toBe(false);
     expect(textMatches("caitlyn", "cait")).toBe(true);
   });
+
+  it("finds names in tables and lists without their accents or apostrophes", () => {
+    expect(textMatches("dégainez votre épée", "epee")).toBe(true);
+    expect(textMatches("kai'sa", "kaisa")).toBe(true);
+    expect(textMatches("draw your sword", "épée")).toBe(false);
+    expect(textMatches("아리", "아리")).toBe(true);
+    expect(textMatches("아리", "아")).toBe(true);
+  });
 });
