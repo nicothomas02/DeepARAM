@@ -52,7 +52,7 @@
   "3142": {"key": "youmuus", "roles": ["lethality"]},
   "6695": {"key": "serpents_fang", "roles": ["lethality"]},
   "6694": {"key": "seryldas", "roles": ["lethality", "ability_ad"]},
-  "6696": {"key": "axiom_arc", "roles": ["lethality"]},
+  "6696": {"key": "axiom_arc", "roles": ["lethality"], "effects": {"kill_refund_r": 0.10, "kill_refund_r_lethality": 0.0025}, "confidence": "likely"},
   "3179": {"key": "umbral_glaive", "roles": ["lethality"]},
   "3814": {"key": "edge_of_night", "roles": ["lethality"]},
   "4004": {"key": "spectral_cutlass", "roles": ["lethality"]},

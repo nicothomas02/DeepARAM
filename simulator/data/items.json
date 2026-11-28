@@ -911,8 +911,11 @@
     "ah": 20,
     "lethality": 18
    },
-   "effects": {},
-   "confidence": "verified"
+   "effects": {
+    "kill_refund_r": 0.1,
+    "kill_refund_r_lethality": 0.0025
+   },
+   "confidence": "likely"
   },
   "umbral_glaive": {
    "id": 3179,

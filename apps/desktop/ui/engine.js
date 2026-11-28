@@ -33,6 +33,7 @@ var DeepEngine = (() => {
     COMBO_ODDS: () => COMBO_ODDS,
     CONVERTERS: () => CONVERTERS,
     CORE_STRICTNESS: () => CORE_STRICTNESS,
+    CRIT_AUGMENTS: () => CRIT_AUGMENTS,
     CRIT_CONVERTERS: () => CRIT_CONVERTERS,
     EMPOWERS: () => EMPOWERS,
     ENGINE_VERSION: () => ENGINE_VERSION,
@@ -5640,7 +5641,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
 
   // src/lib/engine/build-engine.ts
   var BUY_SLOT = item_buy_slot_default.items;
-  var ENGINE_VERSION = "1.4.15";
+  var ENGINE_VERSION = "1.4.16";
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
   var STAT_BONUS = 22e4;
   var STAT_BONUS_IDS = /* @__PURE__ */ new Set([6032]);
@@ -5662,6 +5663,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     destinyFirst: { source: "data", on: true, why: "AramHex: the champion's best Weapon of Destiny item, made the first legendary; when the path lacks it, it takes the last unbought core place first (2026-11-25: 31 of 172 champions' best Weapon was missing from their path)." },
     upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
     archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
+    critCapAhead: { source: "assumption", on: true, why: "With a crit augment taken (It's Critical, Critical Rhythm, Zealot, Jeweled Gauntlet...), critCap looks ahead: live crit plus 25% for each unbought crit item earlier in the path; a crit item that would land at 100%+ gives way to its slot's best non-crit option before it's bought. Simulator (research/breakpoints/aug_breakpoints.py, estimated): with a crit augment a later crit item loses to a non-crit damage item (Axiom Arc, Serylda's, Bloodthirster); archive holders of those augments build the winner more or the loser less in 176 flips vs 53 against (augment-item-shift.json). Nico approved 2026-11-28 (card: 'Ship it, marked estimated')." },
     critCap: { source: "kit rule", on: true, why: "At 100% crit or more (live crit chance), a crit item not yet bought in a later slot gives way to that slot's best non-crit option (the data's order; an item a taken augment pulls in, then a kit match, go first), whose stats and passive keep full value (Mayhem turns crit over 100% into 0.75 adaptive force per 1%, wiki). Not Yasuo or Yone: their passive also turns extra crit into AD. Archive too small to test overcap (-1.7 +- 3.7 pts). Nico approved 2026-11-24 as a tiebreak, 2026-11-27 as a firm swap." },
     skillSplits: { source: "assumption", on: true, why: "Katarina and Kayn put 3 points in Q before maxing E (Katarina) or W (Kayn). Nico approved 2026-11-24 (his pick) after a one-time regular ARAM cross-check: the only two intentional splits that beat the champion's best standard order at levels 10 and 15 (800+ games each). Azir and Soraka (Q to 3, then max W) added by Nico the same day as weaker evidence: they lead at both levels but within luck. Dr. Mundo (Q to 3, then E), Ashe (W to 3, then Q) and Rumble (E to 3, then Q) added by Nico for their kit logic; about even on win rate. Kha'Zix and Sona (Q to 3, then W), Vayne and Smolder (W to 3, then Q) chosen by Nico too: about even, with a kit reason. Shown as estimated; no stats of its own." },
     pentakillBuild: { source: "assumption", on: true, why: "Pentakill's Empowers (HEAVY Q, POWER W, THRASH E: +20 haste and +10%) follow the ability your CURRENT build maxes first when the build switched style (e.g. AP Ashe): the champion's real-game Empower ranking (AramHex) is for its usual build. Not when the switched build maxes the same ability. 2026-11-25 check: the usual max-first ability is the champion's best Empower for 123 of 173 champions; for 38 the data clearly prefers another (z >= 3, e.g. Kai'Sa W, Malphite W, Trundle Q), and those keep the data pick on their usual build. Kit logic, estimated. Nico approved 2026-11-25 (he asked for it)." },
@@ -6622,6 +6624,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     return { order: onFirst ? [split.first, ...order.filter((x) => x !== split.first)] : order, split: void 0, tipped: true };
   }
   var CRIT_CONVERTERS = /* @__PURE__ */ new Set(["yasuo", "yone"]);
+  var CRIT_AUGMENTS = /* @__PURE__ */ new Set([1047, 1048, 1118, 1328, 2010, 3123, 1077, 1080, 1415, 1092, 2009]);
   function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, why: whyData, profiles }) {
     let penWhy = "";
     const rules0 = itemRules(k);
@@ -6686,26 +6689,32 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
         }
       slotRows = slotRows.filter((r) => owned.has(itemId(r.it.icon)) || ![...owned].some((o) => rules.clash(o, itemId(r.it.icon))));
     }
-    const critNow = (game.stats ?? [])[0] ?? 0;
-    if (slotRows && k && RULES.critCap.on && (critNow > 2 ? critNow / 100 : critNow) >= 0.995 && !CRIT_CONVERTERS.has(champKey(game.champ))) {
+    const critRaw = (game.stats ?? [])[0] ?? 0;
+    const critNow = critRaw > 2 ? critRaw / 100 : critRaw;
+    const ahead = RULES.critCapAhead.on && taken.some((a) => CRIT_AUGMENTS.has(a));
+    if (slotRows && k && RULES.critCap.on && (critNow >= 0.995 || ahead) && !CRIT_CONVERTERS.has(champKey(game.champ))) {
       const isCrit = (it) => (k.items[String(itemId(it.icon))] ?? []).includes("crit");
+      const coreCrit = (champ?.items ?? []).filter((it) => isCrit(it) && !owned.has(itemId(it.icon))).length;
       const synergy = (it) => {
         const w = RULES.whyBest.on ? whyBest(itemId(it.icon), game.champ, it.name, taken, whyData, profiles)?.kind : void 0;
         return (w === "augment" ? 4 : w === "kit" ? 2 : 0) + (isCrit(it) ? 0 : 1);
       };
       const usedIds = new Set([...champ?.items ?? [], ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon)));
       const pathIds = () => [...champ?.items ?? [], ...slotRows.map((r) => r.it)].map((it) => itemId(it.icon));
-      for (const r of slotRows) {
+      for (const [n, r] of slotRows.entries()) {
         if (owned.has(itemId(r.it.icon)) || !isCrit(r.it)) continue;
+        const before = coreCrit + slotRows.slice(0, n).filter((x) => isCrit(x.it) && !owned.has(itemId(x.it.icon))).length;
+        const live = critNow >= 0.995;
+        if (!live && !(ahead && critNow + 0.25 * before >= 0.995)) continue;
         const list = [...r.alts, ...(champ?.laterSlots ?? []).find((s) => s.slot === r.slot)?.items ?? []];
         const held = pathIds().filter((i) => i !== itemId(r.it.icon));
-        const better = list.filter((x, n) => !isCrit(x) && list.findIndex((y) => itemId(y.icon) === itemId(x.icon)) === n && !usedIds.has(itemId(x.icon)) && ![...owned, ...held].some((o) => rules.clash(o, itemId(x.icon)))).map((x, n) => ({ x, n })).sort((a, b) => synergy(b.x) - synergy(a.x) || a.n - b.n)[0]?.x;
+        const better = list.filter((x, n2) => !isCrit(x) && list.findIndex((y) => itemId(y.icon) === itemId(x.icon)) === n2 && !usedIds.has(itemId(x.icon)) && ![...owned, ...held].some((o) => rules.clash(o, itemId(x.icon)))).map((x, n2) => ({ x, n: n2 })).sort((a, b) => synergy(b.x) - synergy(a.x) || a.n - b.n)[0]?.x;
         if (!better) continue;
         usedIds.delete(itemId(r.it.icon));
         usedIds.add(itemId(better.icon));
         r.alts = [r.it, ...r.alts.filter((x) => x !== better)].slice(0, 2);
         r.it = better;
-        applied("critCap");
+        applied(live ? "critCap" : "critCapAhead");
       }
     }
     if (slotRows && RULES.pathOnce.on) {

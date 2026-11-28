@@ -2156,6 +2156,13 @@ private:
             for (size_t i = 0; i < readyAt_.size(); ++i)
                 if (ch_.abilities[i].slot != 'R' && readyAt_[i] < 1e17)
                     readyAt_[i] = std::min(readyAt_[i], t_ + get(fx_, "kill_reset_basics"));
+        // Axiom Arc (Flux): a takedown refunds part of the ultimate's total cooldown (10% + 0.25% per Lethality, 26.9).
+        // Kills only: assists on enemies an ally finishes are not seen here, so this undercounts takedowns.
+        if (get(fx_, "kill_refund_r") > 0)
+            for (size_t i = 0; i < readyAt_.size(); ++i)
+                if (ch_.abilities[i].slot == 'R' && readyAt_[i] > t_ && readyAt_[i] < 1e17)
+                    readyAt_[i] = std::max(t_, readyAt_[i] - (get(fx_, "kill_refund_r") + get(fx_, "kill_refund_r_lethality") * lethality_) *
+                                                             cooldownOf(ch_.abilities[i]));
         // Spiritual Purification: a takedown blasts nearby enemies for a share of their current Health.
         if (get(fx_, "kill_blast_cur_hp") > 0)
             for (Enemy* o : near(target->pos, get(fx_, "kill_blast_radius", 500)))

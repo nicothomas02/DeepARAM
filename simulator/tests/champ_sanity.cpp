@@ -417,6 +417,21 @@ int main(int argc, char** argv) {
     try { runTrials(lib, *ahri, Build{{"not_an_item"}, {}}, sc, 0, 1); } catch (...) { threw = true; }
     CHECK(threw, "unknown item ids are rejected");
 
+    {
+        // Axiom Arc (Flux): kills refund part of the ultimate's cooldown, so the ultimate deals more over a fight.
+        const ChampionKit* zed = lib.find("Zed");
+        Library noFlux = lib;
+        noFlux.items.at("axiom_arc").effects.erase("kill_refund_r");
+        const Build ax{{"axiom_arc", "collector"}, {}};
+        const Scenario zsc = lib.scenarioFor(*zed);
+        auto ultDamage = [&](const Library& l) {
+            double r = 0;
+            for (const auto& f : runTrials(l, *zed, ax, zsc, 0, 600)) r += f.bySource[SrcR];
+            return r;
+        };
+        CHECK(zed && ultDamage(lib) > ultDamage(noFlux), "Axiom Arc's takedown refund lets the ultimate deal more");
+    }
+
     std::printf("\n%s (%d failure%s)\n", failures ? "FAILED" : "PASSED", failures, failures == 1 ? "" : "s");
     return failures ? 1 : 0;
 }
