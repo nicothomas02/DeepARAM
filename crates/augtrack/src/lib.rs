@@ -605,7 +605,9 @@ impl Tracker {
                 .col_seen
                 .iter()
                 .filter(|c| {
-                    (c.2 - at).abs() < 4.0 && !self.picked.contains(&c.0) && !stale.contains(&c.0)
+                    // seen before the click (up to 4 s), never only after it: clicks before a screen are play
+                    // (Riven 2026-11-28: clicks while alive just before death picked a card that came 2 s later)
+                    at - c.2 < 4.0 && c.2 - at <= 0.5 && !self.picked.contains(&c.0) && !stale.contains(&c.0)
                 })
                 .collect();
             let here: Vec<&&(i64, f64, f64)> =
