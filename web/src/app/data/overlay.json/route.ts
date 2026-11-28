@@ -11,7 +11,7 @@ export const dynamic = "force-static";
 
 export function GET() {
   const destiny = new Map(destinyByChampion().map((r) => [r.champion, { name: r.item.name, icon: r.item.icon || null }]));
-  const champions = quickBuilds().map(({ id, name, skills, spells, spellWhy, start, items, rest, full, later, laterSlots, situational, rush, swaps, augments, builds, archmage, augmentSkills, augmentStarts, richStarts, typeShare }) => ({
+  const champions = quickBuilds().map(({ id, name, skills, spells, spellWhy, start, items, rest, full, later, laterSlots, situational, rush, swaps, augments, builds, archmage, augmentSkills, augmentStarts, richStarts, typeShare, styleShare }) => ({
     id,
     name,
     icon: `/icons/champions/${id}.webp`,
@@ -43,6 +43,8 @@ export function GET() {
     ...(richStarts ? { richStarts } : {}),
     // How the champion's typed legendary buys split between AP and AD: the build switch only goes to a type they build.
     ...(typeShare ? { typeShare } : {}),
+    // The same per build style (crit, onhit, lethality, ap, fighter): the switch only goes to a style they build.
+    ...(styleShare ? { styleShare } : {}),
     // The champion's best Weapon of Destiny item (real games): the build engine makes it the first legendary once
     // Weapon of Destiny is taken.
     destiny: destiny.get(id) ?? null,

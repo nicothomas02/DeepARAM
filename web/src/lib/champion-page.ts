@@ -192,6 +192,8 @@ export type ChampionPage = {
   /** Of the champion's finished-item buys of one damage type (pick rates over AramHex's item list), the share that is
    *  AP and AD: whether its players build a type at all, for the apps' build switch (engine ownedReplan). */
   typeShare: { ap: number; ad: number };
+  /** Share of the champion's styled legendary buys per build style (crit, onhit, lethality, ap, fighter). */
+  styleShare: Record<string, number>;
   skills: SkillRow[];
   starting: ItemRow[];
   /** The starter the top card shows: the best that builds into the best core, else none. */
@@ -277,6 +279,17 @@ export function windowJson<T>(rel: string): T | null {
 }
 
 const RARITIES = ["prismatic", "gold", "silver"] as const;
+
+/** An item's build styles from its simulator roles (research/type-switch/style_cutoff.py uses the same split). */
+export function itemStyles(ro: string[]): string[] {
+  const r = new Set(ro), out: string[] = [];
+  if (r.has("crit")) out.push("crit");
+  if (r.has("onhit") || r.has("ap_onhit")) out.push("onhit");
+  if (r.has("lethality")) out.push("lethality");
+  if (r.has("ap") || r.has("ap_onhit") || r.has("ap_tank")) out.push("ap");
+  if ((r.has("ad") || r.has("ability_ad")) && !r.has("crit") && !r.has("lethality") && !r.has("onhit")) out.push("fighter");
+  return out;
+}
 
 export function championPage(alias: string): ChampionPage | null {
   const id = IDS[alias];
@@ -652,6 +665,20 @@ export function championPage(alias: string): ChampionPage | null {
       }
       const t = n.ap + n.ad;
       return t ? { ap: Math.round((n.ap / t) * 1000) / 1000, ad: Math.round((n.ad / t) * 1000) / 1000 } : { ap: 0, ad: 0 };
+    })(),
+    // Per style (Nico 2026-11-28 replay: one Infinity Edge switched Karthus and Shyvana to crit, Scopier Weapons gave
+    // Twisted Fate lethality; their damage type passed, the style itself is 0.2-2% of their buys).
+    styleShare: (() => {
+      const n: Record<string, number> = { crit: 0, onhit: 0, lethality: 0, ap: 0, fighter: 0 };
+      let t = 0;
+      for (const r of single) {
+        if (r.tier !== "legendary") continue;
+        const st = itemStyles(itemRoles(r.items[0]));
+        if (!st.length) continue;
+        t += r.pickRate;
+        for (const x of st) n[x] += r.pickRate;
+      }
+      return Object.fromEntries(Object.entries(n).map(([x, v]) => [x, t ? Math.round((v / t) * 1000) / 1000 : 0]));
     })(),
     boots: noBoots ? [] : boots,
     core,
