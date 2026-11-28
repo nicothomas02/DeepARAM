@@ -641,5 +641,16 @@
  "End of the Line": "エンドライン",
  "Smoke Screen": "スモークスクリーン",
  "Quickdraw": "クイックドロー",
- "Collateral Damage": "コラテラルダメージ"
+ "Collateral Damage": "コラテラルダメージ",
+ "Triple Buster Shot Espresso": "トリプル・バスターショット・エスプレッソ",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "トリスターナは普通の攻撃をやめて、ボタンひとつに命をかける。バスターショットが一度に3人に当たり、叩きつけられる壁のダメージは砲弾本体よりずっと痛い。",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "ロケットジャンプで敵の横に飛んで、ノックバックが壁に当たるように狙い、真ん中の敵にRを押そう。キルするたびに撃ち直して、ジャンプで離脱して次のラウンドを待とう。",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "あと3発、全員壁を突き抜けて退場、砲弾はただの上に乗ったフォームだった",
+ "Buster Shot": "バスターショット",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "対象とその周りの敵をまとめて吹き飛ばす砲弾。普段は緊急回避ボタンだけど、今回は作戦のすべて。",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "バスターショットに乗せたトリプルショットで、さらに2体の敵にも発射。連鎖反応は、壁に当たった敵に最大2000の魔法ダメージを叩きつけ、ウルトに対しては250%の威力になる。殺戮の時は5秒後にその40%を確定ダメージとして繰り返し、昇れはキル後に新しいバスターショットをくれる(最大2回)。",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "叩きつけは固定ダメージなので、伸ばせるのは魔法防御貫通だけ。ヴォイド スタッフ、ソーサラー シューズ、シャドウフレイム、ストームサージで最大70の魔法防御を消せる。マリグナンスで次のラウンドが早まり、ラバドン デスキャップで砲弾がさらに太る。",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "選んだスキルが、前方の敵2体を追加で対象にする。追加ターゲット命中時:ユニットが同じスペルから受けるダメージが減少する。",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "ウルトを使用した後、すべての敵にマークをつけ、彼らに与えたダメージの40%を蓄積する。5秒後、蓄積したダメージが爆発する(クールダウン8秒)。",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "選んだスキルでチャンピオンをキルした場合、再発動できる。以降の再発動ごとに追加ダメージを与える。"
 }

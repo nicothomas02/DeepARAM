@@ -641,5 +641,16 @@
  "End of the Line": "Fim da Linha",
  "Smoke Screen": "Cortina de Fumaça",
  "Quickdraw": "Saque Rápido",
- "Collateral Damage": "Efeito Colateral"
+ "Collateral Damage": "Efeito Colateral",
+ "Triple Buster Shot Espresso": "Triplo Tiro Destruidor Espresso",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana para de atacar e vive por um botão só: o Tiro Destruidor agora acerta três ao mesmo tempo, e a parede onde eles caem dói muito mais que a bala de canhão.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Salto-foguete pro lado deles, mire pro repulsão terminar na parede e aperte R no do meio. Reconjure a cada abate, depois salte pra fora e espere a próxima rodada.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "Faltam três tiros, todo mundo sai pela parede, e a bala de canhão era só a espuma por cima",
+ "Buster Shot": "Tiro Destruidor",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "Uma bala de canhão que arremessa o alvo e todo mundo do lado. Normalmente é o botão de pânico dela, aqui é o plano inteiro.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "Tiro Triplo, aplicado no Tiro Destruidor, dispara ele em mais dois inimigos, e Reação em Cadeia esmaga quem bater na parede com até 2000 de dano mágico, porque causa 250% numa ultimate. Hora do Massacre repete 40% de tudo como dano verdadeiro 5 segundos depois, e ASCENDA dá um novo Tiro Destruidor após um abate, até duas vezes.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "O esmagamento é dano fixo, então só a penetração mágica o aumenta: Cajado do Vazio, Sapatos do Feiticeiro, Chama Sombria e Ápice da Tempestade eliminam até 70 de resistência mágica. Malevolência acelera a próxima rodada e Capuz da Morte de Rabadon engorda a bala de canhão.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "Sua habilidade escolhida atinge 2 inimigos adicionais à sua frente. Alvos Adicionais Atingidos: as unidades recebem menos dano do mesmo feitiço.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "Depois de lançar sua Ultimate, marque todos os inimigos e armazene 40% do dano que causar a eles. Após 5 segundos, detone o dano armazenado (8 segundos de recarga).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "Se você usar a habilidade escolhida para matar um campeão inimigo, poderá reconjurá-la. Cada reconjuração seguinte causa dano adicional."
 }

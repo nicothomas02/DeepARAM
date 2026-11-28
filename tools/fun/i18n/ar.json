@@ -641,5 +641,16 @@
  "End of the Line": "نهاية الرحلة",
  "Smoke Screen": "الستار الدخاني",
  "Quickdraw": "السحب السريع",
- "Collateral Damage": "الأضرار الجانبية"
+ "Collateral Damage": "الأضرار الجانبية",
+ "Triple Buster Shot Espresso": "إسبريسو الطلقة الساحقة الثلاثي",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "تريستانا توقفت عن الهجوم وصارت تعيش لزر واحد: الطلقة الساحقة الآن تضرب ثلاثة دفعة وحدة، والجدار اللي يرتطمون فيه يوجع أكثر بكثير من قذيفة المدفع.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "اقفز بالقفزة الصاروخية إلى جانبهم، صوّب بحيث ينتهي الدفع عند جدار، واضغط R على اللي في النص. أعد الإطلاق بعد كل قتلة، ثم اقفز بعيداً وانتظر الجولة التالية.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "باقي ثلاث طلقات، الكل يطلع من الجدار، وقذيفة المدفع كانت مجرد الرغوة فوق القهوة",
+ "Buster Shot": "الطلقة الساحقة",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "قذيفة مدفع تدفع هدفها وكل من بجانبه بعيداً. عادةً هي زر الذعر عندها، وهنا هي الخطة كلها.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "الضربة الثلاثية، لو جاءتك على الطلقة الساحقة، تطلقها على عدوين إضافيين، وسلسلة التفاعلات تضرب أي شخص يرتطم بجدار بما يصل إلى 2000 ضرر سحري، لأنها تسبب 250% على القدرة القصوى. حان وقت القتل يكرر 40% من كل شيء كضرر حقيقي بعد 5 ثوانٍ، والصعود يمنحك طلقة ساحقة جديدة بعد القتل، حتى مرتين.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "الارتطام ضرر ثابت، فالاختراق السحري وحده يزيده: صولجان الفويد، حذاء المشعوذ، لهيب الأشباح، والمد العاصف تمحو حتى 70 مقاومة سحرية. الخبث يقرّب الجولة التالية وقبعة موت رابادون تسمّن القذيفة.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "قدرتك المختارة تستهدف عدوين إضافيين أمامك. الأهداف الإضافية المصابة: تتلقى الوحدات ضرراً أقل من نفس التعويذة.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "بعد استخدام قدرتك القصوى، علّم كل الأعداء وخزّن 40% من الضرر الذي تلحقه بهم. بعد 5 ثوانٍ، فجّر الضرر المخزّن (فترة تهدئة 8 ثوانٍ).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "إذا استخدمت القدرة المختارة لقتل بطل عدو، يمكنك إعادة إطلاقها. كل إعادة إطلاق لاحقة تسبب ضرراً إضافياً."
 }

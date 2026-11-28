@@ -1113,6 +1113,44 @@
       ],
       "play": "Max Sweeping Blade first, then Steel Tempest. Dash through four minions to warm up, then through every champion once: each one can be dashed again after 6 seconds, exactly as long as a Trusty Weapon stack lasts.",
       "chef": "2026-11-23"
+    },
+    {
+      "id": "tristana-triple-buster-shot-espresso",
+      "champion": "Tristana",
+      "title": "Triple Buster Shot Espresso",
+      "tagline": "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top",
+      "augments": [
+        "Tripleshot",
+        "Chain Reaction",
+        "It's Killing Time",
+        "RISE"
+      ],
+      "core": 4,
+      "items": [
+        "Void Staff",
+        "Shadowflame",
+        "Stormsurge",
+        "Malignance",
+        "Rabadon's Deathcap",
+        "Sorcerer's Shoes"
+      ],
+      "why": "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.",
+      "how": [
+        [
+          "Buster Shot",
+          "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan."
+        ],
+        [
+          "Augments",
+          "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice."
+        ],
+        [
+          "Items",
+          "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball."
+        ]
+      ],
+      "play": "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.",
+      "chef": "2026-11-27"
     }
   ]
 }

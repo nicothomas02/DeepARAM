@@ -641,5 +641,16 @@
  "End of the Line": "人在江湖",
  "Smoke Screen": "隻手遮天",
  "Quickdraw": "猛龍過江",
- "Collateral Damage": "龍爭虎鬥"
+ "Collateral Damage": "龍爭虎鬥",
+ "Triple Buster Shot Espresso": "三重毀滅射擊特濃咖啡",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "崔絲塔娜不再普攻，只為一個按鍵而活：毀滅射擊現在一次命中三個人，而他們撞上的那面牆比砲彈痛多了。",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "火箭跳躍到他們身邊，瞄準讓擊退剛好把人撞向牆，然後對中間那個按R。每次擊殺後再次施放，然後跳出來等下一輪。",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "還剩三發，大家都從牆裡出去了，而砲彈只是上面的奶泡",
+ "Buster Shot": "毀滅射擊",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "一發砲彈，把目標和身邊所有人都擊飛。平常是她的保命鍵，這裡卻是整個計畫。",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "附在毀滅射擊上的三連射會把它再打向兩名敵人，連鎖反應則讓撞牆的人吃下最高2000點魔法傷害，因為它對終極技能造成250%。殺戮時間會在5秒後把這一切的40%當作真實傷害再來一遍，崛起則在擊殺後給你一發新的毀滅射擊，最多兩次。",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "撞牆傷害是固定值，所以只有法術穿透能讓它更高：虛空之杖、法師之靴、黯影之炎和雷霆風暴最多可無視70點魔法防禦。惡意讓下一輪來得更快，死亡之帽則讓砲彈更肥。",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "你選擇的技能會額外攻擊你前方的2名敵人。額外命中目標：單位受到同一法術的傷害降低。",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "施放終極技能後，標記所有敵人，並儲存你對他們造成傷害的40%。5秒後，引爆儲存的傷害（8秒冷卻時間）。",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "如果你用所選技能擊殺了敵方英雄，可以再次施放它。之後每次再次施放都會造成額外傷害。"
 }

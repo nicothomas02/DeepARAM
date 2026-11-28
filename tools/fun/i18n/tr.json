@@ -641,5 +641,16 @@
  "End of the Line": "Yolun Sonu",
  "Smoke Screen": "Sis Perdesi",
  "Quickdraw": "Hızlı Tetik",
- "Collateral Damage": "Parça Tesiri"
+ "Collateral Damage": "Parça Tesiri",
+ "Triple Buster Shot Espresso": "Üçlü Gülle Atışı Espresso",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana artık saldırmayı bırakıp tek bir tuş için yaşıyor: Gülle Atışı artık üç kişiye birden vuruyor ve çarptıkları duvar gülleden çok daha fazla acıtıyor.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Roket Atlayışı ile yanlarına zıpla, geri itmenin bir duvarda bitmesi için nişan al ve ortadaki kişiye R'ye bas. Her öldürmeden sonra tekrar kullan, sonra dışarı zıpla ve sıradaki raundu bekle.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "Üç atış kaldı, herkes duvardan çıkıyor ve gülle sadece üstündeki köpüktü",
+ "Buster Shot": "Gülle Atışı",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "Hedefini ve yanındaki herkesi uzağa fırlatan bir gülle. Normalde panik tuşu, burada ise bütün plan.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "Gülle Atışı'na gelen Üçlü Atış onu iki düşmana daha atar, Zincirleme Reaksiyon da duvara çarpan herkese 2000'e kadar büyü hasarı çakar, çünkü ultide %250 verir. Katliam Vakti bunun hepsinin %40'ını 5 saniye sonra gerçek hasar olarak tekrarlar, YÜKSEL ise öldürmeden sonra yepyeni bir Gülle Atışı verir, en fazla iki kez.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "Çarpma sabit hasardır, yani onu sadece büyü delme büyütür: Hiçlik Değneği, Sihirbaz Pabuçları, Gölgealev ve Yıldırım Asası 70'e kadar büyü direncini siler. Habaset sıradaki raundu yaklaştırır, Rabadon'un Şapkası da gülleyi şişmanlatır.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "Seçtiğin yetenek önündeki 2 düşmana daha vurur. Vurulan Ek Hedefler: Birimler aynı büyüden daha az hasar alır.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "Ultini kullandıktan sonra tüm düşmanları işaretle ve onlara verdiğin hasarın %40'ını depola. 5 saniye sonra depolanan hasarı patlat (8 saniye bekleme süresi).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "Seçtiğin yetenekle bir düşman şampiyonu öldürürsen onu tekrar kullanabilirsin. Sonraki her tekrar kullanım ek hasar verir."
 }

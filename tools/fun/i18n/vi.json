@@ -641,5 +641,16 @@
  "End of the Line": "Đạn Xuyên Mục Tiêu",
  "Smoke Screen": "Bom Mù",
  "Quickdraw": "Rút Súng Nhanh",
- "Collateral Damage": "Đạn Nổ Thần Công"
+ "Collateral Damage": "Đạn Nổ Thần Công",
+ "Triple Buster Shot Espresso": "Espresso Ba Đại Bác Đẩy Lùi",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana thôi đánh thường và sống vì đúng một nút: Đại Bác Đẩy Lùi giờ trúng ba người cùng lúc, và bức tường họ đập vào đau hơn quả đạn nhiều.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Phóng Nhảy Tên Lửa sang bên họ, canh sao cho cú đẩy lùi kết thúc ở một bức tường, rồi bấm R vào người ở giữa. Dùng lại sau mỗi lần hạ gục, rồi nhảy ra ngoài chờ vòng tiếp theo.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "Còn ba phát, ai cũng đi ra bằng đường tường, còn quả đạn chỉ là lớp bọt bên trên",
+ "Buster Shot": "Đại Bác Đẩy Lùi",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "Một quả đạn đại bác hất văng mục tiêu và mọi người bên cạnh. Bình thường là nút báo động của cô ấy, ở đây nó là cả kế hoạch.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "Tam Kích, áp lên Đại Bác Đẩy Lùi, bắn nó vào thêm hai kẻ địch, và Phản Ứng Dây Chuyền đập bất kỳ ai va tường với tối đa 2000 sát thương phép, vì nó gây 250% với chiêu cuối. Đến Giờ Đồ Sát lặp lại 40% tất cả số đó dưới dạng sát thương chuẩn 5 giây sau, còn RISE tặng một Đại Bác Đẩy Lùi mới sau khi hạ gục, tối đa hai lần.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "Cú đập là sát thương cố định, nên chỉ xuyên kháng phép mới làm nó to hơn: Trượng Hư Vô, Giày Pháp Sư, Ngọn Lửa Hắc Hóa và Quyền Trượng Bão Tố xóa tới 70 kháng phép. Hỏa Khuẩn đưa vòng tiếp theo đến sớm hơn, còn Mũ Phù Thủy Rabadon làm quả đạn to ra.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "Kỹ năng bạn chọn nhắm thêm 2 kẻ địch phía trước bạn. Số Mục Tiêu Bổ Sung Trúng Chiêu: Các đơn vị nhận ít sát thương hơn từ cùng một phép.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "Sau khi dùng Chiêu Cuối, đánh dấu tất cả kẻ địch và tích trữ 40% sát thương bạn gây ra cho chúng. Sau 5 giây, kích nổ lượng sát thương đã tích trữ (thời gian hồi 8 giây).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "Nếu bạn dùng kỹ năng đã chọn để hạ gục một tướng địch, bạn có thể dùng lại nó. Mỗi lần dùng lại tiếp theo gây thêm sát thương."
 }

@@ -641,5 +641,16 @@
  "End of the Line": "Capăt de linie",
  "Smoke Screen": "Ecran de fum",
  "Quickdraw": "Tir rapid",
- "Collateral Damage": "Victime colaterale"
+ "Collateral Damage": "Victime colaterale",
+ "Triple Buster Shot Espresso": "Espresso Ghiuleaua Triplă",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana nu mai dă atacuri de bază și trăiește pentru un singur buton: Ghiuleaua lovește acum trei oameni deodată, iar zidul în care aterizează doare mult mai tare decât ghiuleaua.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Fă Săritura rachetei lângă ei, țintește așa încât împingerea să se termine într-un zid și apasă R pe cel din mijloc. Refolosește după fiecare kill, apoi sari afară și așteaptă runda următoare.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "Încă trei lovituri, toți ies prin zid, iar ghiuleaua a fost doar spuma de deasupra",
+ "Buster Shot": "Ghiuleaua",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "O ghiulea care aruncă în spate ținta și pe toți cei de lângă ea. De obicei e butonul ei de panică, aici e tot planul.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "Lovitură triplă, aplicată pe Ghiuleaua, o trage în încă doi inamici, iar Reacție în lanț lovește de zid pe oricine se ciocnește de el cu până la 2000 de daune magice, fiindcă dă 250% pe o ultimă abilitate. Anotimpul morții repetă 40% din toate acestea ca daune adevărate după 5 secunde, iar TRIUMFĂ îți dă o Ghiulea nouă după un kill, de până la două ori.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "Izbitura are daune fixe, deci o mărește doar penetrarea magică: Sceptrul Vidului, Cizmele vrăjitorului, Flacăra întunericului și Furtună dezlănțuită șterg până la 70 de rezistență magică. Nocivitate aduce runda următoare mai repede, iar Pălăria malefică a lui Rabadon îngrașă ghiuleaua.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "Abilitatea aleasă lovește 2 inamici suplimentari din fața ta. Ținte suplimentare lovite: unitățile primesc mai puține daune de la aceeași vrajă.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "După ce folosești Ultimate, marchezi toți inamicii și stochezi 40% din daunele pe care le provoci. După 5 secunde, detonezi daunele stocate (timp de reactivare de 8 secunde).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "Dacă folosești abilitatea aleasă ca să elimini un campion inamic, o poți refolosi. Fiecare refolosire ulterioară provoacă daune suplimentare."
 }

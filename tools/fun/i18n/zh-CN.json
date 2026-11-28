@@ -641,5 +641,16 @@
  "End of the Line": "穷途末路",
  "Smoke Screen": "烟幕弹",
  "Quickdraw": "快速拔枪",
- "Collateral Damage": "终极爆弹"
+ "Collateral Damage": "终极爆弹",
+ "Triple Buster Shot Espresso": "三重毁灭射击特浓咖啡",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "麦林炮手不再平A，只为一个键而活：毁灭射击现在一次命中三个人，而他们撞上的那面墙比炮弹疼多了。",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "火箭跳跃到他们身边，瞄准让击退正好把人撞向墙，然后对中间那个按R。每次击杀后再次释放，然后跳出来等下一轮。",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "还剩三发，大家都从墙里出去了，而炮弹只是上面的奶泡",
+ "Buster Shot": "毁灭射击",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "一发炮弹，把目标和身边所有人都击飞。平时是她的保命键，这里却是整个计划。",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "附在毁灭射击上的三重射击会把它再打向两名敌人，连锁反应则让撞墙的人吃下最高2000点魔法伤害，因为它对终极技能造成250%。杀戮时间到了会在5秒后把这一切的40%作为真实伤害再来一遍，登峰造极境则在击杀后给你一发新的毁灭射击，最多两次。",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "撞墙伤害是固定值，所以只有法术穿透能让它更高：虚空之杖、法师之靴、影焰和风暴狂涌最多可无视70点魔法抗性。残疫让下一轮来得更快，灭世者的死亡之帽则让炮弹更肥。",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "你选择的技能会额外攻击你前方的2名敌人。额外命中目标：单位受到同一法术的伤害降低。",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "施放终极技能后，标记所有敌人，并储存你对他们造成伤害的40%。5秒后，引爆储存的伤害（8秒冷却时间）。",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "如果你用所选技能击杀了敌方英雄，可以再次施放它。之后每次再次施放都会造成额外伤害。"
 }

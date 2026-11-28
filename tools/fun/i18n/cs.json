@@ -641,5 +641,16 @@
  "End of the Line": "Konečná",
  "Smoke Screen": "Kouřová clona",
  "Quickdraw": "Tasit",
- "Collateral Damage": "Vedlejší škody"
+ "Collateral Damage": "Vedlejší škody",
+ "Triple Buster Shot Espresso": "Trojité Rozbíječ espresso",
+ "Tristana stops attacking and lives for one button: Buster Shot now hits three people at once, and the wall they land on hurts far more than the cannonball did.": "Tristana přestane útočit a žije jen pro jedno tlačítko: Rozbíječ teď zasáhne tři lidi najednou a zeď, o kterou se rozplácnou, bolí mnohem víc než dělová koule.",
+ "Rocket Jump to their side, aim so the knockback ends in a wall, and press R on the one in the middle. Recast after every kill, then jump out and wait for the next round.": "Raketovým skokem se dostaň na jejich stranu, zamiř tak, aby odhození skončilo u zdi, a zmáčkni R na toho uprostřed. Po každém zabití seslej znovu, pak vyskoč ven a čekej na další kolo.",
+ "Three shots to go, everyone exits through the wall, and the cannonball was just the foam on top": "Zbývají tři rány, všichni vylétnou zdí ven a dělová koule byla jen pěna navrch",
+ "Buster Shot": "Rozbíječ",
+ "A cannonball that knocks its target and everyone beside them away. Normally it's her panic button, here it's the whole plan.": "Dělová koule, která odhodí cíl i všechny kolem něj. Normálně je to její panické tlačítko, tady je to celý plán.",
+ "Tripleshot, rolled on Buster Shot, fires it at two more enemies, and Chain Reaction slams anyone who hits a wall for up to 2000 magic damage, because it deals 250% on an ultimate. It's Killing Time repeats 40% of all of it as true damage 5 seconds later, and RISE gives a fresh Buster Shot after a kill, up to twice.": "Trojitý výstřel, hozený na Rozbíječ, ho vystřelí na další dva nepřátele a Řetězová reakce rozplácne každého, kdo narazí do zdi, až za 2000 magického poškození, protože u ultimátu dává 250 %. Čas zabíjet o 5 sekund později zopakuje 40 % všeho jako pravé poškození a POVSTAŇ dá po zabití nový Rozbíječ, až dvakrát.",
+ "The slam is flat damage, so only magic penetration makes it bigger: Void Staff, Sorcerer's Shoes, Shadowflame and Stormsurge erase up to 70 magic resist. Malignance brings the next round sooner and Rabadon's Deathcap fattens the cannonball.": "Náraz je pevné poškození, takže ho zvětší jen magická penetrace: Hůl Prázdnoty, Kouzelníkovy boty, Stínový plamen a Nával bouře smažou až 70 magické odolnosti. Zhoubnost přinese další kolo dřív a Rabadonův smrtící klobouk vykrmí dělovou kouli.",
+ "Your chosen ability targets 2 additional enemies in front of you. Additional Targets Hit: Units take less damage from the same spell.": "Tvoje zvolená schopnost zasáhne 2 další nepřátele před tebou. Zasažené další cíle: jednotky utrží od stejného kouzla menší poškození.",
+ "After casting your Ultimate, mark all enemies and store 40% of damage you deal to them. After 5 seconds, detonate the stored damage (8 second Cooldown).": "Po seslání tvého ultimátu označ všechny nepřátele a ukládej 40 % poškození, které jim způsobíš. Po 5 sekundách uložené poškození vybuchne (8 sekund prodleva).",
+ "If you use the chosen ability to kill an enemy champion, you may Recast it. Each subsequentRecastdeals additional damage.": "Pokud zvolenou schopností zabiješ nepřátelského šampiona, můžeš ji seslat znovu. Každé další opakované seslání způsobí dodatečné poškození."
 }
