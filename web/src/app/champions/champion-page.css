@@ -1924,33 +1924,6 @@ html[data-view="simple"] .cp-fold:not([data-open]) > .cp-fold-body {
   display: inline-flex;
   align-items: center;
 }
-.cp-game ol.cp-buy-order > li.cp-core-box {
-  position: relative;
-  padding: 1.15rem 0.45rem 0.3rem;
-  /* Grey, not gold: the core is a suggestion, not a must (Nico 2026-11-24). */
-  border: 1px dashed color-mix(in srgb, var(--muted) 45%, transparent);
-  border-radius: 10px;
-  background: color-mix(in srgb, var(--muted) 6%, transparent);
-}
-/* A core item most players skip: flexible, augments and buys may replace it (mustCore). */
-.cp-game .cp-core-box li.cp-core-flex {
-  opacity: 0.62;
-}
-.cp-game .cp-core-box > ol.cp-buy-order {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-}
-.cp-core-label {
-  position: absolute;
-  top: 0.15rem;
-  left: 0.55rem;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
 .cp-game ol.cp-buy-order > li + li::before {
   content: "›";
   margin: 0 0.3rem;

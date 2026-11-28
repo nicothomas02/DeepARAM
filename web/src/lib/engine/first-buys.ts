@@ -13,8 +13,10 @@ export const FIRST_BUYS = new Set([3084, 3032, 6657, 6697]);
  *  1-10% of buyers take them 1st or 2nd (Void Staff 2.6%, Lord Dominik's 9.3%), and within the same slot players take
  *  them earlier when the enemy has more resist (archive frames, z +1.7 to +5.9) and when they already have more of the
  *  damage stat (Void Staff z +3.0, Lord Dominik's z +3.4). AramHex's ordered cores put them 3rd (Lord Dominik's 95%).
- *  They come after the first two legendaries (Nico 2026-11-27, Shaco's Void Staff 2nd). */
-export const LATE_BUYS = new Set([3033, 3036, 3135, 3137, 3302, 6694]);
+ *  They come after the first two legendaries (Nico 2026-11-27, Shaco's Void Staff 2nd). Resist shred works the same
+ *  way (Nico 2026-11-28: Bloodletter's Curse); a shred item joins only where the archive agrees it comes late
+ *  (Bloodletter's 4.2% 1st or 2nd; Black Cleaver 36% and Malignance 78% are bought early for their other stats). */
+export const LATE_BUYS = new Set([3033, 3036, 3135, 3137, 3302, 6694, 8010]);
 
 /** Mayhem copies (223031) count as the item (3031). */
 const base = (id: number) => (id >= 100000 ? id % 10000 : id);

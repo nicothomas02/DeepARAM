@@ -18,6 +18,7 @@ import {
   cardBuyOrder,
   LATE_BUYS,
   lateBuyOrder,
+  penSecond,
   itemRules,
   LUCKY_TILT,
   luckyBuild,
@@ -168,6 +169,13 @@ describe("build engine", () => {
   it("swaps in a proven counter for the last open slot vs a magic-heavy team", () => {
     const p = plan({ champ, kinds, picks, fit, game: game(["Lux", "Brand", "Annie"]), taken: [] });
     expect(p.swaps.map((s) => [itemId(s.item.icon), s.kind, itemId(s.replaces?.icon)])).toEqual([[3065, "proven", 6333]]);
+    // swapsInPath: it goes into the path itself, as the 3rd legendary (its buyers' median slot), the rest moving back
+    expect(ids(p.path)).toEqual([3006, 3031, 3046, 3065, 3036, 3094]);
+    expect(p.rules).toContain("swapsInPath");
+    expect(p.why[3]).toMatch(/Instead of/);
+    // already holding the first two legendaries: it's the next buy
+    const later = plan({ champ, kinds, picks, fit, game: { ...game(["Lux", "Brand", "Annie"]), items: [3031, 3046, 3036] }, taken: [] });
+    expect(ids(later.next)[0]).toBe(3065);
   });
 
   it("replaces the item a counter can't be owned with, not the last slot", () => {
@@ -504,8 +512,10 @@ describe("build engine", () => {
     const dd = JSON.parse(readFileSync(new URL("../../public/assets/dd/16.23.1/data/en_US/item.json", import.meta.url), "utf8")) as { data: Record<string, { name: string; description: string; gold: { total: number; purchasable: boolean }; maps?: Record<string, boolean> }> };
     const text = (i: number) => dd.data[String(i)].description.replace(/<[^>]+>/g, " ");
     const pen = Object.entries(dd.data).filter(([i, v]) => Number(i) < 100000 && v.maps?.["12"] !== false && v.gold.purchasable && v.gold.total >= 2200 && /\d+%\s+(Magic|Armor) Penetration/.test(v.description.replace(/<[^>]+>/g, " "))).map(([i]) => Number(i));
-    expect([...LATE_BUYS].sort()).toEqual(pen.sort());
     const share = (i: number, n: number) => { const v = slots.all[String(i)]; const t = v.reduce((a, b) => a + b, 0); return v.slice(0, n).reduce((a, b) => a + b, 0) / t; };
+    // resist shred items join where the archive agrees they come late (Bloodletter's yes; Black Cleaver, Malignance no)
+    const shred = Object.entries(dd.data).filter(([i, v]) => Number(i) < 100000 && v.maps?.["12"] !== false && v.gold.purchasable && v.gold.total >= 2200 && /reduc\w*\s+(their|the target.s)?\s*(Magic Resist|Armor)/i.test(v.description.replace(/<[^>]+>/g, " "))).map(([i]) => Number(i)).filter((i) => share(i, 2) <= 0.1);
+    expect([...LATE_BUYS].sort()).toEqual([...new Set([...pen, ...shred])].sort());
     for (const i of LATE_BUYS) expect(share(i, 2)).toBeLessThanOrEqual(0.1);
     // growing items: the text says they grow, and 80%+ of buyers make them the first legendary
     expect(text(3084)).toMatch(/max Health/);
@@ -514,6 +524,37 @@ describe("build engine", () => {
     expect(text(6697)).toMatch(/per champion killed/);
     for (const i of FIRST_BUYS) expect(share(i, 1)).toBeGreaterThanOrEqual(0.8);
   }, 30_000);
+
+  it("pen or shred becomes the 2nd item vs a high-resist team past the champion's simulated breakpoint (penSecond)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const tanks = ["Galio", "Malphite", "Ornn", "Sion", "Braum"].map((c) => ({ champ: c, items: [2504, 3065, 3075, 3143], level: 9 }));
+    const squishy = ["Lux", "Ezreal", "Jinx", "Ahri", "Sona"].map((c) => ({ champ: c, items: [], level: 9 }));
+    const checked = { mr: 0, armor: 0 };
+    for (const c of champs) {
+      const at = (enemies: typeof tanks, items: number[] = []) => plan({ champ: c, kinds: k, picks: p0, fit: null, game: { champ: c.id, items, enemies, level: 9 }, taken: [] });
+      const legs = (p: ReturnType<typeof at>) => p.path.map((x) => ownedId(itemId(x.icon))).filter((i) => !k.boots.includes(i));
+      const base = at(squishy);
+      const PENS = [3135, 3137, 8010, 3036, 3033, 6694, 3302, 3071];
+      // the rule is only reported when the moved item is in the path (archive replay 2026-11-28, Heimerdinger)
+      for (const items of [[], [3802, 1052, 1001]]) {
+        const q = at(tanks, items);
+        if (q.rules.includes("penSecond")) expect(legs(q).some((i) => PENS.includes(i)), `${c.id} ${items}`).toBe(true);
+      }
+      const pen = legs(base).find((i) => PENS.includes(i));
+      if (!pen || !penSecond({ champ: c.id, enemies: tanks, level: 9 }, [pen])) continue;
+      // squishy team: still waits for two legendaries
+      expect(legs(base).indexOf(pen)).toBeGreaterThanOrEqual(2);
+      // tanky team: 2nd legendary, marked as estimated
+      const p = at(tanks);
+      expect(legs(p).indexOf(pen), c.id).toBe(1);
+      const why = p.why[p.path.findIndex((x) => ownedId(itemId(x.icon)) === pen)];
+      expect(why).toMatch(/estimated/);
+      checked[/Enemy armor/.test(why) ? "armor" : "mr"]++;
+    }
+    expect(checked.mr).toBeGreaterThan(0);
+    expect(checked.armor).toBeGreaterThan(0);
+  }, 60_000);
 
   it("penetration items (Void Staff...) wait until two legendaries are finished, on every champion (lateBuys: Shaco)", async () => {
     const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;

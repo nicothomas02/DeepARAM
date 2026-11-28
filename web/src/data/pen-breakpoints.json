@@ -1,0 +1,239 @@
+{
+"_about": "Per champion: the enemy resist (MR for Void Staff 3135, Cryptbloom 3137, Bloodletter's Curse 8010; armor for Lord Dominik's 3036, Mortal Reminder 3033, Serylda's 6694, Terminus 3302, Black Cleaver 3071) from which the item beats the core's planned 2nd item of the same damage type, as the 2nd legendary. Simulator (research/item-timing/pen_breakpoints.py, fixed dummy at the archive's median 2nd-item state: level 6, 1,321 health, 53 armor, 44 MR). Kept only where it is a clear breakpoint: the item loses at the typical resist and wins above it. Estimated.",
+"champions": {
+"annie": {
+"3135": 90,
+"3137": 190
+},
+"xerath": {
+"3135": 70,
+"3137": 130
+},
+"ahri": {
+"3135": 80,
+"3137": 120
+},
+"fizz": {
+"3137": 110
+},
+"masteryi": {
+"3036": 70,
+"3033": 80,
+"6694": 110,
+"3302": 80,
+"3071": 180
+},
+"varus": {
+"3036": 100,
+"3033": 110,
+"6694": 110
+},
+"viktor": {
+"3137": 130
+},
+"ziggs": {
+"3135": 70,
+"3137": 90
+},
+"lissandra": {
+"3135": 70,
+"3137": 90
+},
+"diana": {
+"3135": 70,
+"3137": 120
+},
+"syndra": {
+"3137": 90
+},
+"zoe": {
+"3135": 70,
+"3137": 60
+},
+"kaisa": {
+"3135": 100,
+"3137": 50
+},
+"seraphine": {
+"3135": 70
+},
+"sivir": {
+"6694": 140,
+"3302": 100
+},
+"velkoz": {
+"3137": 160
+},
+"taliyah": {
+"3137": 130
+},
+"camille": {
+"3036": 190
+},
+"warwick": {
+"3302": 70
+},
+"nunu": {
+"3135": 70,
+"3137": 170
+},
+"belveth": {
+"3302": 190
+},
+"jhin": {
+"3033": 60,
+"6694": 70
+},
+"kindred": {
+"3036": 60,
+"3033": 70,
+"3302": 150
+},
+"tryndamere": {
+"3071": 160
+},
+"briar": {
+"3036": 70,
+"3033": 80
+},
+"senna": {
+"3036": 60,
+"3033": 70,
+"6694": 60,
+"3302": 120,
+"3071": 90
+},
+"ekko": {
+"3135": 70,
+"3137": 150
+},
+"morgana": {
+"8010": 130
+},
+"zilean": {
+"3135": 80,
+"3137": 140
+},
+"azir": {
+"3135": 150
+},
+"evelynn": {
+"3135": 70
+},
+"karthus": {
+"3137": 120
+},
+"anivia": {
+"3135": 50,
+"3137": 70
+},
+"kassadin": {
+"3135": 70
+},
+"irelia": {
+"3036": 110,
+"3033": 170,
+"3302": 100,
+"3071": 250
+},
+"twistedfate": {
+"3135": 70,
+"3137": 130
+},
+"karma": {
+"3135": 70,
+"3137": 80
+},
+"veigar": {
+"3135": 70,
+"3137": 130
+},
+"neeko": {
+"3135": 70,
+"3137": 110
+},
+"aphelios": {
+"3033": 70
+},
+"blitzcrank": {
+"3135": 110,
+"3137": 70
+},
+"malphite": {
+"3135": 80,
+"3137": 180
+},
+"katarina": {
+"3036": 100
+},
+"elise": {
+"3135": 80,
+"3137": 70
+},
+"orianna": {
+"3137": 130
+},
+"rumble": {
+"3135": 70,
+"3137": 70
+},
+"leblanc": {
+"3135": 70,
+"3137": 100
+},
+"vex": {
+"3135": 70,
+"3137": 130
+},
+"nasus": {
+"8010": 110
+},
+"nidalee": {
+"3135": 70
+},
+"udyr": {
+"3135": 90,
+"3137": 210
+},
+"yone": {
+"3036": 230
+},
+"gragas": {
+"3135": 70,
+"3137": 110
+},
+"vladimir": {
+"3135": 80
+},
+"mel": {
+"3137": 90
+},
+"locke": {
+"3135": 80,
+"3137": 140
+},
+"akali": {
+"3135": 70,
+"3137": 120
+},
+"kennen": {
+"3135": 70,
+"3137": 130
+},
+"lillia": {
+"3137": 50
+},
+"aurora": {
+"3135": 70,
+"3137": 120
+},
+"hwei": {
+"3135": 70,
+"3137": 130
+},
+"lux": {
+"3135": 70,
+"3137": 130
+}
+}
+}
