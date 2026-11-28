@@ -59,7 +59,7 @@ describe.skipIf(!FILE)("engine on real archived games", () => {
       if (legend.length <= 6) for (const i of legend) bad("owned legendary dropped", pathSet.has(i), `${i} path ${p}`);
       if (penOn && out.rules.includes("penSecond")) {
         bump("_penSecond");
-        bad("penSecond without a lit reason", out.lit.some((l) => /magic resist about/.test(l.why)));
+        bad("penSecond without a lit reason", out.lit.some((l) => /^Enemy [a-z ]+ about \d+/.test(l.why)));
       }
       if (n % 9 === 0) {
         const rich = plan({ ...input, game: { ...input.game, gold: (input.game.gold ?? 0) + 2000 } });
