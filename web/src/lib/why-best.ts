@@ -16,6 +16,26 @@ const base = (i: number) => (i >= 100000 ? i % 10000 : i);
 
 type Champ = { champion_id: number; ranged: boolean; cn?: { damage_taken_share?: number; phys_share?: number } };
 
+/** A champion's kit traits against the champions' average (as in whyBestData): deals mostly physical damage, takes
+ *  more of its team's damage than most. Null when the champion has no data. */
+let traitCache: Map<number, { physical: boolean; tank: boolean }> | null = null;
+export function championTraits(championId: number): { physical: boolean; tank: boolean } | null {
+  if (!traitCache) {
+    // read once: the file is large and every champion page asks
+    const champs = readRepoJson<{ champions: Champ[] }>("simulator/data/champions.json")?.champions ?? [];
+    const mean = (f: (c: Champ) => number | undefined) => {
+      const v = champs.map(f).filter((x): x is number => typeof x === "number");
+      return v.reduce((a, b) => a + b, 0) / (v.length || 1);
+    };
+    const phys = mean((x) => x.cn?.phys_share), tank = mean((x) => x.cn?.damage_taken_share);
+    traitCache = new Map();
+    for (const c of champs)
+      if (c.cn?.phys_share !== undefined && c.cn.damage_taken_share !== undefined)
+        traitCache.set(c.champion_id, { physical: c.cn.phys_share > phys, tank: c.cn.damage_taken_share > tank });
+  }
+  return traitCache.get(championId) ?? null;
+}
+
 export function whyBestData(): WhyData {
   const follow: WhyData["follow"] = {};
   const items = aramhexLatest<Record<string, { all: [number, number]; items: Record<string, [number, number]> }>>("items") ?? {};
