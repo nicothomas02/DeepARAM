@@ -1,0 +1,42 @@
+name: Augment breakpoints
+
+# Augment stat breakpoints (research/breakpoints/aug_breakpoints.py): does holding a stat augment (crit, haste,
+# attack speed, AP, pen) change which item the simulator puts next, per champion and buy slot? Research only: commits
+# research/breakpoints/aug_sweep.jsonl; nothing in the engine reads it until a clear, archive-checked rule ships.
+# By hand only (about an hour on 4 cores).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: aug-breakpoints
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Simulator
+        run: make -C simulator mayhem_sim
+      - name: Sweep
+        run: |
+          python3 research/breakpoints/aug_breakpoints.py --procs "$(nproc)" --fresh
+          python3 research/breakpoints/aug_analyse.py > research/breakpoints/aug_flips.txt
+          head -3 research/breakpoints/aug_flips.txt
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research/breakpoints/aug_sweep.jsonl research/breakpoints/aug_flips.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "Augment stat breakpoints sweep (simulator)"
+            git pull --rebase --autostash
+            git push
+          fi
