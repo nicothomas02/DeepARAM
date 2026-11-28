@@ -14,12 +14,19 @@ import augmentItems from "@/data/augment-items.json";
 const FILE = process.env.ENGINE_SANITY_STEPS;
 type Raw = { g: number; champ: string; taken: number[]; game: GameState };
 const JEWELED = new Set([1048, 48]);
+/** Tear items: they stack and scale with mana spent, so a champion with no mana never fills them. */
+const TEAR = new Set([3003, 3004, 3040, 3042, 3119, 3121]);
 
 describe.skipIf(!FILE)("engine sanity on real archived games", () => {
   it("flags nonsensical recommendations", async () => {
     const champs = ((await overlayGET().json()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsGET().json()) as Kinds, picks = (await picksGET().json()) as Picks & { styles?: Record<string, string[]>; builds?: Record<string, [string, number, number[], number[], number[], number[]?][]> }, fit = (await fitGET().json()) as Fit;
     const byId = new Map(champs.map((c) => [c.id.toLowerCase(), c]));
+    // each champion's resource (Data Dragon partype: Mana, Energy, Fury, None...)
+    const ddDir = join(process.cwd(), "public/assets/dd");
+    const ddVer = existsSync(ddDir) ? (JSON.parse(readFileSync(join(process.cwd(), "src/data/dd-version.json"), "utf8")) as { version?: string }).version : undefined;
+    const ddChamps = ddVer && existsSync(join(ddDir, ddVer, "data/en_US/champion.json")) ? (JSON.parse(readFileSync(join(ddDir, ddVer, "data/en_US/champion.json"), "utf8")) as { data: Record<string, { partype: string }> }).data : {};
+    const resource = new Map(Object.entries(ddChamps).map(([kk, v]) => [kk.toLowerCase(), v.partype]));
     const raw = JSON.parse(readFileSync(FILE!, "utf8")) as Raw[];
     const tags = (id: number) => new Set(k.items[String(ownedId(id))] ?? []);
     const dmg = (id: number) => { const t = tags(id); const ad = t.has("ad") || t.has("crit") || t.has("armorpen"); const ap = t.has("ap") || t.has("magicpen"); return ad && !ap ? "ad" : ap && !ad ? "ap" : ad && ap ? "hybrid" : "none"; };
@@ -88,6 +95,9 @@ describe.skipIf(!FILE)("engine sanity on real archived games", () => {
       }
       // 5. Back To Basics: an unbought item that leans on the ultimate
       if (s.taken.some((a) => BACK_TO_BASICS.has(a))) for (const i of open) if (tags(i).has("ult")) flag("ult item with Back To Basics", champ.id, `${i} ${at}`);
+      // 8. Tear items on a champion without mana
+      const res = resource.get(champ.id.toLowerCase());
+      if (res !== undefined && res !== "Mana") for (const i of open) if (TEAR.has(i)) flag(`mana item on a ${res || "resourceless"} champion`, champ.id, `${i} ${at}`);
       // 6. an augment whose players nearly all build one item (Steel Your Heart -> Heartsteel), item missing
       for (const p of pairs) if (s.taken.includes(p.augment) && !path.includes(p.item) && !owned.has(p.item) && open.length > 0 && kn.has(p.item)) flag(`augment item missing (${p.augmentName} -> ${p.itemName})`, champ.id, at);
       // 7. an augment after which players build the other damage type, and the path still has none of it
