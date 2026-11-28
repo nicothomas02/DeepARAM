@@ -61,6 +61,10 @@ pub struct State {
     /// This game's headliner, once the app has seen it (headliner.rs).
     pub headliner: crate::headliner::Detector,
     ticks: u64,
+    /// Stat Bonus anvils bought this game (Mayhem item 6032), and until when (tracker clock) a new one's stat
+    /// choice is recorded: its text and pictures, to learn what the choice looks like (Nico 2026-11-28).
+    anvils: usize,
+    anvil_until: f64,
     names: Option<Vec<(i64, String)>>,
     /// After-game review: this game's samples, champion strengths and the game's result.
     samples: Vec<Sample>,
@@ -231,6 +235,8 @@ fn start(app: &AppHandle, agent: &ureq::Agent) -> bool {
         s.offer.clear();
         s.headliner = crate::headliner::Detector::default();
         s.ticks = 0;
+        s.anvils = 0;
+        s.anvil_until = f64::NEG_INFINITY;
         s.samples.clear();
         s.next_sample = 0.0;
         s.result = None;
@@ -331,6 +337,9 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
     let level = row.and_then(|r| r.get("level")?.as_u64()).unwrap_or(0);
     let dead = row.and_then(|r| r.get("isDead")?.as_bool()).unwrap_or(false);
     let top = players.iter().filter_map(|p| p.get("level")?.as_u64()).max().unwrap_or(0);
+    let anvils = row
+        .and_then(|r| r.get("items")?.as_array().cloned())
+        .map_or(0, |items| items.iter().filter(|i| i.get("itemID").and_then(Value::as_i64) == Some(6032)).count());
     // The HUD strip every third tick (about 6 s) until the headliner is known: its announcement, or its own panel.
     let look = {
         let state = app.state::<Shared>();
@@ -353,6 +362,11 @@ fn tick(app: &AppHandle, agent: &ureq::Agent, game_time: f64) {
         if s.headliner.name != was {
             input_log(app, serde_json::json!({"now": now, "headliner": [s.headliner.name, s.headliner.how]}));
         }
+        if anvils > s.anvils {
+            s.anvil_until = now + 20.0;
+            input_log(app, serde_json::json!({"now": now, "anvil": anvils}));
+        }
+        s.anvils = s.anvils.max(anvils);
         let width = augscan::game_window().map_or(1920.0, |(_, _, w, _)| f64::from(w));
         let hl = s.headliner.for_tracker();
         s.track.game(now, game_time, level as u32, dead, hl, width);
@@ -428,6 +442,13 @@ fn scan(app: &AppHandle) {
         // keep coming every few seconds (Nico 2026-11-28: "capturing continuous in select"), for the recording
         if partial.is_none() && had && s.track.owed > 0 && s.track.offer.is_empty() && s.dead {
             partial = Some(Vec::new());
+        }
+        // a Stat Bonus anvil just bought: its stat choice, as read and pictured
+        if now < s.anvil_until && s.track.offer.is_empty() {
+            if let Some(t) = &texts {
+                input_log(app, serde_json::json!({"now": now, "anvil_lines": t}));
+            }
+            partial.get_or_insert_with(Vec::new);
         }
         (std::mem::take(&mut s.track.events), now)
     };
@@ -514,7 +535,7 @@ pub fn watch(app: AppHandle) {
             let (in_game, read) = {
                 let state = app.state::<Shared>();
                 let s = state.lock().unwrap();
-                (s.in_game, s.in_game && s.track.window)
+                (s.in_game, s.in_game && (s.track.window || clock(&s) < s.anvil_until))
             };
             if read && scan_on(&app) {
                 scan(&app);
