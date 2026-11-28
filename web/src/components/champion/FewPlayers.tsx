@@ -39,7 +39,7 @@ export const FEW_SITUATION = "It is a situational pick on this card ({situation}
 
 export type SpellWhy = { verdict: "holds" | "tie" | "mixed"; template: string | null; key: string; ability: string; edge: number | null; patches: number };
 
-/** `augment`: the augment most of its buyers take (lib/build-plan.ts ITEM_CHANGERS), named in the reason.
+/** `augment`: the augment most of its buyers take (lib/augment-swaps.ts ITEM_CHANGERS), named in the reason.
  *  `spellPickRate`: a spell pair without Flash; the reason names its pick rate. `spellWhy` + `champion` (alias, English
  *  name): the champion's own reason for that pair. */
 export default function FewPlayers({

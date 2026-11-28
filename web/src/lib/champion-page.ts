@@ -11,7 +11,8 @@ export { bestRow, buildOrder, scoreRows, type ItemRow, type Rated };
 import { SIMULATOR_IN_STATS } from "./sim-policy";
 import { woundsFit, type Situation } from "./situations";
 import { championTraits } from "./why-best";
-import { augmentSwaps, buyingOrder, restOfBuild, rushParts, startFirst, starterFits, styleCores, upgradeSwaps, type AugmentSwap } from "./build-plan";
+import { buyingOrder, restOfBuild, rushParts, startFirst, starterFits, styleCores, upgradeSwaps } from "./build-plan";
+import { augmentSwaps, type AugmentSwap } from "./augment-swaps";
 import { orderedCores } from "./champion-history";
 import {
   ITEM_TIERS,
@@ -109,7 +110,7 @@ export type BuildOption = {
   core: ItemRow;
   start: ItemRow | null;
   situational: SituationRow[];
-  /** Items to swap in once you take certain augments (lib/build-plan.ts augmentSwaps). */
+  /** Items to swap in once you take certain augments (lib/augment-swaps.ts augmentSwaps). */
   augmentSwaps: AugmentSwap[];
   rush: number[];
   /** Augments whose official build tags fit the style (or have none), most picked first: estimated. */
@@ -521,7 +522,7 @@ export function championPage(alias: string): ChampionPage | null {
     const kept = withoutClashes(picks.map((r) => r.items[0]), buildOrder(row));
     return { ...row, later, ...(bySlot ? { slots: bySlot } : {}), full: picks.filter((r) => kept.includes(r.items[0])) };
   };
-  // Augment-triggered swaps for a core (lib/build-plan.ts augmentSwaps): rule-based tips, labelled as such.
+  // Augment-triggered swaps for a core (lib/augment-swaps.ts augmentSwaps): rule-based tips, labelled as such.
   const legendaryPool = single.filter((r) => r.tier === "legendary");
   // Best item DeepScore first among the augment tips too (Nico 2026-11-24: "sort by best at top").
   const swapScore = new Map(scoreSingles(legendaryPool).map((r) => [r.items[0], r.deepScore ?? -Infinity]));

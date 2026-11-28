@@ -1,6 +1,6 @@
 // Re-ranking a champion's augments once a visitor marks the ones they took (components/champion/AugmentTable.tsx):
 // each other augment gains its estimated synergy with those (lib/augment-synergy.ts reads the pairs on the server).
-import { COMBO_CAP, COMBO_ODDS } from "./engine/build-engine";
+import { COMBO_CAP, COMBO_ODDS } from "./engine/combo";
 
 export type SynergyPair = {
   a: number;
