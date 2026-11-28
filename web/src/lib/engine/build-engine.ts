@@ -31,7 +31,7 @@ const BUY_SLOT = (BUY_SLOT_DATA as { items: Record<string, number> }).items;
 import coreStrictnessData from "../../data/core-strictness.json";
 
 export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
-export const ENGINE_VERSION = "1.4.16";
+export const ENGINE_VERSION = "1.4.17";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -68,6 +68,8 @@ export const RULES: Record<string, Rule> = {
   upgradeLabel: { source: "game data", on: true, why: "An 'Upgrade X' augment upgrades X: said on X's line, the order doesn't change." },
   archmageRoute: { source: "kit rule", on: true, why: "AP Ashe with Archmage: Hawkshot and R refresh each other from enough Ability Haste (AramHex's guide; refunds land on abilities on cooldown, Nico chose 2026-11-24). The build reaches that haste first with the fewest of AP Ashe's own items, then the rest by DeepScore; Hawkshot stays at the rank that needs the least haste. Nico asked for it 2026-11-24." },
   critCapAhead: { source: "assumption", on: true, why: "With a crit augment taken (It's Critical, Critical Rhythm, Zealot, Jeweled Gauntlet...), critCap looks ahead: live crit plus 25% for each unbought crit item earlier in the path; a crit item that would land at 100%+ gives way to its slot's best non-crit option before it's bought. Simulator (research/breakpoints/aug_breakpoints.py, estimated): with a crit augment a later crit item loses to a non-crit damage item (Axiom Arc, Serylda's, Bloodthirster); archive holders of those augments build the winner more or the loser less in 176 flips vs 53 against (augment-item-shift.json). Nico approved 2026-11-28 (card: 'Ship it, marked estimated')." },
+  sealedUlt: { source: "kit rule", on: true, why: "Back To Basics seals the ultimate for good (wiki: 'your ultimate ability is permanently sealed'), so an item whose passive or haste works through the ultimate (shop text names it: Axiom Arc, Malignance, Experimental Hexplate, Zeke's Convergence, Fiendhunter Bolts) loses that part; not yet bought, it leaves the path and the slot takes the champion's next listed item. For every champion: an R passive still works, but nothing casts the ultimate. Nico asked 2026-11-28 ('Axiom shouldn't be recommended after taking back to basics')." },
+  jgCrit: { source: "data", on: true, why: "On a champion whose kit deals mostly magic damage (Simulator champion file), a default build with an AD crit item (Sylas: Infinity Edge + Essence Reaver, 12% of players) is a Jeweled Gauntlet build: without a crit augment taken, the plan takes the champion's best other style. Archive (all lobbies): players building 2+ AP items add an AD crit item 13% of the time with Jeweled Gauntlet vs 4.8% without; Jeweled Gauntlet holders build Infinity Edge +15.5 pts (z 14.9, augment-item-shift.json). Nico asked 2026-11-28 ('generic crit items recommended without jeweled gauntlet')." },
   critCap: { source: "kit rule", on: true, why: "At 100% crit or more (live crit chance), a crit item not yet bought in a later slot gives way to that slot's best non-crit option (the data's order; an item a taken augment pulls in, then a kit match, go first), whose stats and passive keep full value (Mayhem turns crit over 100% into 0.75 adaptive force per 1%, wiki). Not Yasuo or Yone: their passive also turns extra crit into AD. Archive too small to test overcap (-1.7 +- 3.7 pts). Nico approved 2026-11-24 as a tiebreak, 2026-11-27 as a firm swap." },
   skillSplits: { source: "assumption", on: true, why: "Katarina and Kayn put 3 points in Q before maxing E (Katarina) or W (Kayn). Nico approved 2026-11-24 (his pick) after a one-time regular ARAM cross-check: the only two intentional splits that beat the champion's best standard order at levels 10 and 15 (800+ games each). Azir and Soraka (Q to 3, then max W) added by Nico the same day as weaker evidence: they lead at both levels but within luck. Dr. Mundo (Q to 3, then E), Ashe (W to 3, then Q) and Rumble (E to 3, then Q) added by Nico for their kit logic; about even on win rate. Kha'Zix and Sona (Q to 3, then W), Vayne and Smolder (W to 3, then Q) chosen by Nico too: about even, with a kit reason. Shown as estimated; no stats of its own." },
   pentakillBuild: { source: "assumption", on: true, why: "Pentakill's Empowers (HEAVY Q, POWER W, THRASH E: +20 haste and +10%) follow the ability your CURRENT build maxes first when the build switched style (e.g. AP Ashe): the champion's real-game Empower ranking (AramHex) is for its usual build. Not when the switched build maxes the same ability. 2026-11-25 check: the usual max-first ability is the champion's best Empower for 123 of 173 champions; for 38 the data clearly prefers another (z >= 3, e.g. Kai'Sa W, Malphite W, Trundle Q), and those keep the data pick on their usual build. Kit logic, estimated. Nico approved 2026-11-25 (he asked for it)." },
@@ -1519,6 +1521,27 @@ export const CRIT_CONVERTERS = new Set(["yasuo", "yone"]);
 /** Augments that give crit chance (simulator/data/augments.json stats.crit, 25% or more): critCapAhead looks ahead with one. */
 export const CRIT_AUGMENTS = new Set([1047, 1048, 1118, 1328, 2010, 3123, 1077, 1080, 1415, 1092, 2009]);
 
+/** The champion's lists without the items `gated` says lose their value (sealedUlt): a gated core item gives its place
+ *  to the first ungated item of the later lists not already in the core; later lists, and each build style, drop them. */
+export function withoutGated<T extends Partial<OverlayChamp>>(champ: T, gated: (it: Named) => boolean, rules: ItemRules): T {
+  const id = (it: Named) => itemId(it.icon);
+  const pool = [...(champ.full ?? []), ...(champ.laterSlots ?? []).flatMap((s) => s.items), ...(champ.rest ?? []), ...(champ.later ?? [])]
+    .filter((x) => x?.icon && !gated(x));
+  const keep = (champ.items ?? []).filter((x) => !gated(x));
+  const core: Named[] = [];
+  for (const it of champ.items ?? []) {
+    if (!gated(it)) { core.push(it); continue; }
+    const sub = pool.find((x) => ![...core, ...keep].some((c) => id(c) === id(x) || rules.clash(id(c), id(x))));
+    if (sub) core.push(sub);
+  }
+  const drop = (l?: Named[]) => l?.filter((x) => !gated(x) && !core.some((c) => id(c) === id(x)));
+  return {
+    ...champ, items: core, rest: drop(champ.rest), full: drop(champ.full), later: drop(champ.later),
+    laterSlots: champ.laterSlots?.map((s) => ({ ...s, items: drop(s.items) ?? [] })),
+    builds: champ.builds?.map((b) => withoutGated(b, gated, rules)),
+  };
+}
+
 export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, why: whyData, profiles }: PlanInput): Plan {
   // Two different Tear items can both be in the path (Nico 2026-11-27, his Ryze games: Archangel's turns into Seraph's,
   // then a new Tear stacks for Winter's Approach): the game blocks only buying one while another is still stacking, so
@@ -1546,8 +1569,24 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // A skill order that changes with an augment you took (Gwen with Ethereal Weapon).
   const augSkill = RULES.augmentSkills.on ? champ0?.augmentSkills?.find((a) => taken.includes(a.augment)) : undefined;
   if (augSkill) applied("augmentSkills");
-  const champ: OverlayChamp | undefined = augSkill && champ2 ? { ...champ2, skills: augSkill.skills } : champ2;
+  const champ3: OverlayChamp | undefined = augSkill && champ2 ? { ...champ2, skills: augSkill.skills } : champ2;
   const owned: Set<number> = new OwnedItems(game.items);
+  const tagsOf = (it: Named) => (it?.icon && k?.items[String(itemId(it.icon))]) || [];
+  // A magic kit's crit build waits for a crit augment (jgCrit): Sylas's Infinity Edge build is a Jeweled Gauntlet build.
+  const adCrit = (it: Named) => tagsOf(it).includes("crit") && !tagsOf(it).includes("ap");
+  const magicKit = whyData?.traits?.[keyIn(whyData.traits, game.champ) ?? ""]?.physical === false;
+  let champ4 = champ3;
+  if (RULES.jgCrit.on && k && champ3 && magicKit && !taken.some((a) => CRIT_AUGMENTS.has(a)) && (champ3.items ?? []).some(adCrit)
+    && !(champ3.items ?? []).some((it) => adCrit(it) && owned.has(itemId(it.icon)))) {
+    const other = (champ3.builds ?? []).filter((b) => b.items?.length && !b.items.some(adCrit)).sort((a, b) => (b.deepScore ?? 0) - (a.deepScore ?? 0))[0];
+    if (other) { champ4 = { ...champ3, ...other, id: champ3.id, builds: champ3.builds, destiny: champ3.destiny, skills: other.skills ?? champ3.skills }; applied("jgCrit"); }
+  }
+  // Back To Basics seals the ultimate (sealedUlt): items that work through it leave the path until owned.
+  const sealed = RULES.sealedUlt.on && !!k && taken.some((a) => BACK_TO_BASICS.has(a));
+  const ultGated = (it: Named) => sealed && !!it?.icon && !owned.has(itemId(it.icon)) && tagsOf(it).includes("ult");
+  const lists4 = champ4 ? [...(champ4.items ?? []), ...(champ4.rest ?? []), ...(champ4.full ?? []), ...(champ4.laterSlots ?? []).flatMap((x) => x.items)] : [];
+  const champ: OverlayChamp | undefined = sealed && champ4 && lists4.some(ultGated) ? withoutGated(champ4, ultGated, rules) : champ4;
+  if (champ !== champ4) applied("sealedUlt");
   const bootIds = new Set(k?.boots ?? []);
   let slotRows = laterPicks(champ, owned, rules);
   const placedOff = new Set<number>();  // off-path items you own that ownedOffPath put in later slots
@@ -1654,6 +1693,14 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   const picked = pickBuild(baseList, picks, k, game.champ, taken, owned, rules, forced);
   if (picked.style) { slotRows = null; applied(picked.niche ? "nicheBuilds" : forced && picked.because === forced.because ? "ownedReplan" : RULES.augmentReplan.on ? "augmentReplan" : "measuredReplan"); }
   const build = [...picked.list];
+  // a style re-plan's list can bring an ultimate item back (sealedUlt): it takes the next listed item instead
+  if (sealed) for (let j = build.length - 1; j >= 0; j--) {
+    if (!ultGated(build[j])) continue;
+    const pool = [...(champ?.full ?? []), ...(champ?.laterSlots ?? []).flatMap((x) => x.items), ...(champ?.rest ?? []), ...(champ?.later ?? [])];
+    const sub = pool.find((x) => x?.icon && !ultGated(x) && !build.some((b) => itemId(b.icon) === itemId(x.icon) || rules.clash(itemId(b.icon), itemId(x.icon))));
+    if (sub) build.splice(j, 1, sub); else build.splice(j, 1);
+    applied("sealedUlt");
+  }
   const coreLen = picked.core ?? (champ?.items ?? []).length;
   // Rush (augmentRush): an augment whose holders build one item far more AND earlier (augment-item-shift.json, real
   // lobbies: build z >= 3, early z >= 2, +15 pts build share, e.g. Upgrade Stormsurge -> Stormsurge +52 pts, Wooglet's
@@ -1670,6 +1717,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       if (!top) continue;
       const id = Number(top[0]);
       if (owned.has(id) || [...owned].some((o) => o !== id && rules.clash(o, id))) continue;
+      if (sealed && (k.items[top[0]] ?? []).includes("ult")) continue;
       // only an item of the build's damage type (no Wooglet's -> Zhonya's on an AD build) unless ADAPt converts it
       const t = k.items[top[0]] ?? [];
       const pathAp = build.filter((x) => (k.items[String(itemId(x.icon))] ?? []).includes("ap") && !(k.items[String(itemId(x.icon))] ?? []).includes("ad")).length;
@@ -1721,7 +1769,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
       const ids = build.map((it) => itemId(it.icon));
       // already building one of its items: nothing to add
       if (cv.items.some((i) => ids.includes(i) || owned.has(i))) continue;
-      const id = cv.items.find((i) => k.recipes[i] && fitsType(i) && ![...owned, ...ids].some((o) => rules.clash(o, i)));
+      const id = cv.items.find((i) => k.recipes[i] && fitsType(i) && !(sealed && (k.items[String(i)] ?? []).includes("ult")) && ![...owned, ...ids].some((o) => rules.clash(o, i)));
       if (id === undefined) continue;
       const it: Named = { name: k.recipes[id][0], icon: `${prefix}${220000 + id}.png` };
       // it takes the last core place you haven't bought and no other augment claimed; that item moves just past the core
@@ -1968,7 +2016,7 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
   // Situational: lit items in the path explain themselves; the rest become swaps (augment-driven or proven) or
   // pointers.
   const inPath = new Set(path.map((it) => itemId(it.icon)));
-  const all = k ? situational(champ, k, fit, game.enemies ?? [], taken, owned, augName) : [];
+  const all = (k ? situational(champ, k, fit, game.enemies ?? [], taken, owned, augName) : []).filter((x) => !ultGated(x));
   // Headliners that feed one situation (headlinerItems): candle shields (La Ilusion) and stronger health relics (Cafe
   // Cuties) light the champion's own anti-shield / anti-heal pick as a pointer, never a swap.
   const hlWhy: Record<string, [string, string]> = { lailusion: ["Vs shields", "La Ilusion: candles shield the enemy team."], cafecuties: ["Vs healing", "Cafe Cuties: health relics heal more."] };

@@ -1047,6 +1047,59 @@ describe("crit cap (critCap)", () => {
   });
 });
 
+describe("Back To Basics seals ultimate items (sealedUlt)", () => {
+  it("drops Axiom Arc from core and later slots once Back To Basics is taken, keeps one you own", async () => {
+    const { plan } = await import("@/lib/engine/build-engine");
+    const icon = (id: number) => `/assets/dd/16.23.1/img/item/${220000 + id}.png`;
+    const champ0 = {
+      id: "Zed", skills: ["Q", "E", "W"],
+      items: [{ name: "Gluttonous Greaves", icon: icon(3008) }, { name: "Axiom Arc", icon: icon(6696) }, { name: "Voltaic Cyclosword", icon: icon(6699) }],
+      laterSlots: [{ slot: 3, items: [{ name: "Malignance", icon: icon(3118) }, { name: "Serylda's Grudge", icon: icon(6694) }] },
+        { slot: 4, items: [{ name: "Edge of Night", icon: icon(3814) }, { name: "Youmuu's Ghostblade", icon: icon(3142) }] }],
+    };
+    const kinds = {
+      champions: { Zed: 0.1 },
+      items: { "6696": ["ad", "haste", "armorpen", "ult"], "6699": ["ad", "armorpen"], "3118": ["ap", "haste", "ult"], "6694": ["ad", "armorpen"], "3814": ["ad", "armorpen"], "3142": ["ad", "armorpen"] },
+      boots: [3008],
+      recipes: { "6696": ["Axiom Arc", 3000, []], "6699": ["Voltaic Cyclosword", 3000, []], "3118": ["Malignance", 2700, []], "6694": ["Serylda's Grudge", 3200, []], "3814": ["Edge of Night", 2900, []], "3142": ["Youmuu's Ghostblade", 2800, []], "3008": ["Gluttonous Greaves", 1100, []] },
+    } as never;
+    const at = (taken: number[], items: number[] = []) => plan({ champ: champ0, kinds, picks: null, fit: null, game: { champ: "Zed", items, level: 9 }, taken } as never);
+    expect(at([]).path.map((x) => x.name)).toContain("Axiom Arc");
+    const b = at([1004]);
+    expect(b.path.map((x) => x.name)).not.toContain("Axiom Arc");
+    expect(b.path.map((x) => x.name)).not.toContain("Malignance");
+    expect(b.path.map((x) => x.name)).toContain("Serylda's Grudge");
+    expect(b.rules).toContain("sealedUlt");
+    // already bought: it stays
+    expect(at([1004], [6696]).path.map((x) => x.name)).toContain("Axiom Arc");
+  });
+});
+
+describe("a magic kit's crit build waits for a crit augment (jgCrit)", () => {
+  it("Sylas without Jeweled Gauntlet takes his AP style; with it keeps Infinity Edge", async () => {
+    const { plan } = await import("@/lib/engine/build-engine");
+    const icon = (id: number) => `/assets/dd/16.23.1/img/item/${220000 + id}.png`;
+    const crit = [{ name: "Void Staff", icon: icon(3135) }, { name: "Infinity Edge", icon: icon(3031) }];
+    const ap = [{ name: "Lich Bane", icon: icon(3100) }, { name: "Shadowflame", icon: icon(4645) }];
+    const champ0 = { id: "Sylas", skills: ["W", "Q", "E"], items: crit, builds: [{ style: "crit", share: 0.12, deepScore: 71, items: crit }, { style: "ap", share: 0.88, deepScore: 38, items: ap }] };
+    const kinds = {
+      champions: { Sylas: 0.7 },
+      items: { "3135": ["ap", "magicpen"], "3031": ["ad", "crit"], "3100": ["ap", "haste"], "4645": ["ap", "magicpen"] },
+      boots: [],
+      recipes: { "3135": ["Void Staff", 3000, []], "3031": ["Infinity Edge", 3500, []], "3100": ["Lich Bane", 3200, []], "4645": ["Shadowflame", 3200, []] },
+    } as never;
+    const why = { follow: {}, kit: {}, traits: { Sylas: { physical: false, tank: false, melee: true } } };
+    const at = (taken: number[], physical = false) => plan({ champ: champ0, kinds, picks: null, fit: null, game: { champ: "Sylas", items: [], level: 3 }, taken,
+      why: { ...why, traits: { Sylas: { ...why.traits.Sylas, physical } } } } as never);
+    const no = at([]);
+    expect(no.path.map((x) => x.name)).toEqual(expect.arrayContaining(["Lich Bane", "Shadowflame"]));
+    expect(no.path.map((x) => x.name)).not.toContain("Infinity Edge");
+    expect(no.rules).toContain("jgCrit");
+    expect(at([1048]).path.map((x) => x.name)).toContain("Infinity Edge");
+    expect(at([], true).path.map((x) => x.name)).toContain("Infinity Edge");
+  });
+});
+
 describe("augments tip a weaker split (splitAugments)", () => {
   it("maxes the favored ability and keeps the split otherwise", async () => {
     const { splitFor } = await import("@/lib/engine/build-engine");
