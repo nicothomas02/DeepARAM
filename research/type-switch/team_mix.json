@@ -1,0 +1,32 @@
+{
+ "players": 8147,
+ "flex_champions": 10,
+ "heavy_team": {
+  "diff_pts": 3.3,
+  "se_pts": 7.9,
+  "z": 0.41,
+  "other_type": 94,
+  "same_type": 53
+ },
+ "heavy_team_no_enemy_tank": {
+  "diff_pts": 15.0,
+  "se_pts": 6.1,
+  "z": 2.46,
+  "other_type": 47,
+  "same_type": 19
+ },
+ "heavy_ad_team": {
+  "diff_pts": 9.6,
+  "se_pts": 10.9,
+  "z": 0.88,
+  "other_type": 44,
+  "same_type": 37
+ },
+ "heavy_ad_team_no_enemy_tank": {
+  "diff_pts": 6.0,
+  "se_pts": 12.1,
+  "z": 0.5,
+  "other_type": 14,
+  "same_type": 9
+ }
+}
