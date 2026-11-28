@@ -525,35 +525,34 @@ describe("build engine", () => {
     for (const i of FIRST_BUYS) expect(share(i, 1)).toBeGreaterThanOrEqual(0.8);
   }, 30_000);
 
-  it("pen or shred becomes the 2nd item vs a high-resist team past the champion's simulated breakpoint (penSecond)", async () => {
+  it("pen or shred takes the slot the simulator favours: earlier vs a tanky team, later vs a squishy one (penSecond)", async () => {
     const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
     const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
     const tanks = ["Galio", "Malphite", "Ornn", "Sion", "Braum"].map((c) => ({ champ: c, items: [2504, 3065, 3075, 3143], level: 9 }));
     const squishy = ["Lux", "Ezreal", "Jinx", "Ahri", "Sona"].map((c) => ({ champ: c, items: [], level: 9 }));
-    const checked = { mr: 0, armor: 0 };
+    const PENS = [3135, 3137, 8010, 3036, 3033, 6694, 3302, 3071];
+    const ORD = ["1st", "2nd", "3rd", "4th"];
+    const seen = { earlier: 0, later: 0, mr: 0, armor: 0 };
     for (const c of champs) {
       const at = (enemies: typeof tanks, items: number[] = []) => plan({ champ: c, kinds: k, picks: p0, fit: null, game: { champ: c.id, items, enemies, level: 9 }, taken: [] });
       const legs = (p: ReturnType<typeof at>) => p.path.map((x) => ownedId(itemId(x.icon))).filter((i) => !k.boots.includes(i));
-      const base = at(squishy);
-      const PENS = [3135, 3137, 8010, 3036, 3033, 6694, 3302, 3071];
-      // the rule is only reported when the moved item is in the path (archive replay 2026-11-28, Heimerdinger)
-      for (const items of [[], [3802, 1052, 1001]]) {
-        const q = at(tanks, items);
-        if (q.rules.includes("penSecond")) expect(legs(q).some((i) => PENS.includes(i)), `${c.id} ${items}`).toBe(true);
+      for (const [team, items] of [[tanks, []], [squishy, []], [tanks, [3802, 1052, 1001]]] as const) {
+        const p = at(team as typeof tanks, items as unknown as number[]);
+        if (!p.rules.includes("penSecond")) continue;
+        // the rule is only reported when the moved item is in the path (archive replay 2026-11-28, Heimerdinger)
+        const i = p.path.findIndex((x) => PENS.includes(ownedId(itemId(x.icon))) && /simulator, estimated/.test(p.why[p.path.indexOf(x)]));
+        expect(i, `${c.id}`).toBeGreaterThanOrEqual(0);
+        const why = p.why[i];
+        // it sits in the slot its reason names
+        const named = [...why.matchAll(/(1st|2nd|3rd|4th)/g)].map((m) => m[1]).at(-1)!;
+        expect(legs(p).indexOf(ownedId(itemId(p.path[i].icon))) + 1, `${c.id}: ${why}`).toBe(ORD.indexOf(named) + 1);
+        seen[/only about/.test(why) ? "later" : "earlier"]++;
+        seen[/armor/.test(why) ? "armor" : "mr"]++;
       }
-      const pen = legs(base).find((i) => PENS.includes(i));
-      if (!pen || !penSecond({ champ: c.id, enemies: tanks, level: 9 }, [pen])) continue;
-      // squishy team: still waits for two legendaries
-      expect(legs(base).indexOf(pen)).toBeGreaterThanOrEqual(2);
-      // tanky team: 2nd legendary, marked as estimated
-      const p = at(tanks);
-      expect(legs(p).indexOf(pen), c.id).toBe(1);
-      const why = p.why[p.path.findIndex((x) => ownedId(itemId(x.icon)) === pen)];
-      expect(why).toMatch(/estimated/);
-      checked[/Enemy armor/.test(why) ? "armor" : "mr"]++;
     }
-    expect(checked.mr).toBeGreaterThan(0);
-    expect(checked.armor).toBeGreaterThan(0);
+    expect(seen.earlier).toBeGreaterThan(0);
+    expect(seen.mr).toBeGreaterThan(0);
+    expect(seen.armor).toBeGreaterThan(0);
   }, 60_000);
 
   it("penetration items (Void Staff...) wait until two legendaries are finished, on every champion (lateBuys: Shaco)", async () => {

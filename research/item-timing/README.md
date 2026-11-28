@@ -34,3 +34,16 @@ clear: the planned 2nd item is the same damage type, the pen item loses at the t
 "Wins already at typical" is a stat-package effect (the pen item simply out-damages the planned item), not a resist
 breakpoint, so it isn't shipped. Bloodletter's barely ever pays as a 2nd item: its shred needs stacks, and the dummy
 fight at level 6 rarely gets there. Estimated: players almost never buy these 2nd, so the archive can't confirm them.
+
+## 2026-11-28: every slot, not only 2nd
+
+Nico: "Pen wouldn't just be 2nd, it could also be 1st or 3rd depending on situation". The run now compares the pen
+or shred item with the planned item at the 1st, 2nd, 3rd and 4th decision (the 4th planned item is the champion's
+most built other item of that damage type) and sweeps the resist at each. Clear slot breakpoints
+(1st/2nd/3rd/4th): Void Staff 43/36/23/19, Cryptbloom 38/39/23/0, Bloodletter's 0/2/0/3, Lord Dominik's 11/9/3/2,
+Mortal Reminder 10/8/7/2, Serylda's 8/5/9/2, Terminus 10/8/3/2, Black Cleaver 5/5/2/1 (132 champions). The engine
+(penSecond) projects this game's resist at each slot from how tanky the enemy is now and moves the item to the slot
+that wins: earlier vs a tanky team, later vs a squishy one.
+
+Note: the team-average resist real games reach is narrow (5th-95th percentile at the 2nd decision: MR 37-56, armor
+42-72), so most of these fire only against unusually tanky teams.
