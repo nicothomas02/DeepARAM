@@ -75,6 +75,7 @@ var DeepEngine = (() => {
     STAT_GOLD: () => STAT_GOLD,
     STICKERS: () => STICKERS,
     STYLE_NAMES: () => STYLE_NAMES,
+    STYLE_SHARE: () => STYLE_SHARE,
     STYLE_TYPE: () => STYLE_TYPE,
     SUSTAIN_ITEMS: () => SUSTAIN_ITEMS,
     TIER_ODDS: () => TIER_ODDS,
@@ -5723,7 +5724,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
 
   // src/lib/engine/build-engine.ts
   var BUY_SLOT = item_buy_slot_default.items;
-  var ENGINE_VERSION = "1.4.23";
+  var ENGINE_VERSION = "1.4.24";
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
   var STAT_BONUS = 22e4;
   var STAT_BONUS_IDS = /* @__PURE__ */ new Set([6032]);
@@ -6294,6 +6295,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   }
   var TYPE_MIN = 0.03;
   var KIT_PAIR_RATE = 0.5;
+  var STYLE_SHARE = { ap: "ap", enchanter: "ap", crit: "crit", onhit: "onhit", lethality: "lethality", fighter: "fighter" };
   var STYLE_TYPE = { ap: "ap", enchanter: "ap", crit: "ad", onhit: "ad", lethality: "ad", fighter: "ad" };
   var STYLE_NAMES = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
   var STACKING = /* @__PURE__ */ new Set([6697, 3084, 3070, 3004, 3003, 3119]);
@@ -6804,6 +6806,8 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
         for (const st of [...new Set(Object.values(picks.builds ?? {}).flatMap((b) => b.map((x) => x[0])))]) {
           if ((STYLE_TYPE[st] ?? "") !== want) continue;
           if (!typeOk && !ownStyles.has(st)) continue;
+          const stShare = champ0?.styleShare?.[STYLE_SHARE[st] ?? ""];
+          if (stShare !== void 0 && stShare < TYPE_MIN && !ownStyles.has(st)) continue;
           const cb = classBuild(picks, k, st, magic, rules);
           if (!cb) continue;
           const ids = new Set([...cb[0], ...cb[1]].map(base2));
@@ -7397,6 +7401,13 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       if (type && !converts && off.length === 1 && pure(itemId(next[0].icon)) !== pure(off[0]) && (game.gold ?? 0) + Math.round((k.recipes[off[0]]?.[1] ?? 0) * 0.7) >= cost) {
         tips.push({ rank: 2, kind: "sell", item: off[0], text: `Sell ${k.recipes[off[0]][0]} for ${next[0].name}: it doesn't fit this build.` });
         applied("sellMismatch");
+        const j = path.findIndex((it) => ownedId(itemId(it.icon)) === off[0]);
+        if (j >= 0 && placedOff.has(off[0])) {
+          const row = (slotRows ?? []).find((r) => ownedId(itemId(r.it.icon)) === off[0]);
+          const back = row?.alts.find((x) => !path.some((it) => itemId(it.icon) === itemId(x.icon)) && ownedId(itemId(x.icon)) !== off[0]);
+          if (back) path[j] = back;
+          else if (j >= coreItems.length) path.splice(j, 1);
+        }
       }
     }
     tips.sort((x, y) => x.rank - y.rank);

@@ -32,7 +32,7 @@ const BUY_SLOT = (BUY_SLOT_DATA as { items: Record<string, number> }).items;
 import coreStrictnessData from "../../data/core-strictness.json";
 
 export { FIRST_BUYS, LATE_BUYS, firstBuyOrder, lateBuyOrder, cardBuyOrder } from "./first-buys";
-export const ENGINE_VERSION = "1.4.23";
+export const ENGINE_VERSION = "1.4.24";
 /** Tier-1 boots (Boots, Slightly Magical Boots): owning them doesn't fill the build's boots slot. */
 const TIER1_BOOTS = new Set([1001, 2422]);
 /** Mayhem's Stat Bonus anvil (750 gold, permanent stat, level 9+). */
@@ -173,6 +173,8 @@ export type OverlayChamp = {
   start?: Named[];
   /** Share of the champion's typed legendary buys that are AP and AD (site lib/champion-page.ts typeShare). */
   typeShare?: { ap: number; ad: number };
+  /** Share of the champion's styled legendary buys per build style (site lib/champion-page.ts styleShare). */
+  styleShare?: Record<string, number>;
   /** Build styles, best DeepScore first; nearBest: its win rate's 95% range overlaps the best's (Feeling lucky). */
   builds?: (Partial<OverlayChamp> & { style: string; share: number; deepScore?: number; nearBest?: boolean })[];
 };
@@ -948,6 +950,8 @@ export const TYPE_MIN = 0.03;
 /** kitFit: a confirmed augment -> item pair at least this share of holders build counts as fitting any champion. */
 export const KIT_PAIR_RATE = 0.5;
 /** The damage type each build style stands for; tank stands for neither. */
+/** The styleShare key a build style is measured by (enchanter builds are AP items). */
+export const STYLE_SHARE: Record<string, string> = { ap: "ap", enchanter: "ap", crit: "crit", onhit: "onhit", lethality: "lethality", fighter: "fighter" };
 export const STYLE_TYPE: Record<string, "ap" | "ad"> = { ap: "ap", enchanter: "ap", crit: "ad", onhit: "ad", lethality: "ad", fighter: "ad" };
 export const STYLE_NAMES: Record<string, string> = { crit: "Crit", onhit: "On-hit", ap: "AP", lethality: "Lethality", fighter: "AD", tank: "Tank", enchanter: "Enchanter" };
 // Items that grow with time or takedowns: first while no legendary is finished (PC 1.22.0, under audit).
@@ -1651,6 +1655,10 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
         if ((STYLE_TYPE[st] ?? "") !== want) continue;
         // a style of the champion's own (Senna's enchanter build) counts even when the type's share is small
         if (!typeOk && !ownStyles.has(st)) continue;
+        // and the style itself (crit, lethality...) at least TYPE_MIN of their styled buys (replay 2026-11-28: one
+        // Infinity Edge switched Karthus to crit at 0.3% crit buys; Scopier Weapons gave Twisted Fate lethality at 0.2%)
+        const stShare = champ0?.styleShare?.[STYLE_SHARE[st] ?? ""];
+        if (stShare !== undefined && stShare < TYPE_MIN && !ownStyles.has(st)) continue;
         const cb = classBuild(picks, k, st, magic, rules);
         if (!cb) continue;
         const ids = new Set([...cb[0], ...cb[1]].map(base));
@@ -2308,6 +2316,14 @@ export function plan({ champ: champ0, kinds: k, picks, fit, game, taken, lucky, 
     if (type && !converts && off.length === 1 && pure(itemId(next[0].icon)) !== pure(off[0]) && (game.gold ?? 0) + Math.round((k.recipes[off[0]]?.[1] ?? 0) * 0.7) >= cost) {
       tips.push({ rank: 2, kind: "sell", item: off[0], text: `Sell ${k.recipes[off[0]][0]} for ${next[0].name}: it doesn't fit this build.` });
       applied("sellMismatch");
+      // the path no longer keeps what the tip sells (replay audit 2026-11-28: ownedOffPath placed it in a later slot in
+      // 346 moments, so the card showed the item the tip said to sell); the item it displaced comes back
+      const j = path.findIndex((it) => ownedId(itemId(it.icon)) === off[0]);
+      if (j >= 0 && placedOff.has(off[0])) {
+        const row = (slotRows ?? []).find((r) => ownedId(itemId(r.it.icon)) === off[0]);
+        const back = row?.alts.find((x) => !path.some((it) => itemId(it.icon) === itemId(x.icon)) && ownedId(itemId(x.icon)) !== off[0]);
+        if (back) path[j] = back; else if (j >= coreItems.length) path.splice(j, 1);
+      }
     }
   }
   tips.sort((x, y) => x.rank - y.rank);
