@@ -1052,6 +1052,15 @@
   const sendPrefs = () => window.__TAURI_INTERNALS__?.invoke("companion_prefs", { prefs: prefsNow() }).catch(() => {});
   sendPrefs();
   document.addEventListener("click", (e) => { if (e.target.closest?.(".chip.pt, .chip.own, .chip.br, .chip.lucky")) sendPrefs(); });
+  // The owner's defaults (Nico 2026-11-28): Top 5% and Feeling lucky, set once on his PC; what he picks later sticks.
+  window.__TAURI_INTERNALS__?.invoke("owner_pc").then((own) => {
+    let done = true;
+    try { done = localStorage.getItem("ownerDefaults") === "1"; } catch {}
+    if (!own || done) return;
+    window.applyPrefs({ lucky: true, bracket: "high" });
+    try { localStorage.setItem("ownerDefaults", "1"); } catch {}
+    sendPrefs();
+  }).catch(() => {});
   window.applyPrefs = (p) => {
     if (!p || typeof p !== "object") return;
     const was = JSON.stringify(prefsNow());

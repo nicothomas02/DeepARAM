@@ -131,6 +131,13 @@ struct Saved {
 }
 
 /// Which key Flash goes on in recommended spell pairs: "D" (default) or "F" (the tray's "Flash on F").
+/// The owner's PC (its `record-offers` file): the companion sets his defaults once (Top 5%, Feeling lucky; Nico
+/// 2026-11-28), and his later choices stick.
+#[tauri::command]
+fn owner_pc(app: AppHandle) -> bool {
+    app.path().app_data_dir().is_ok_and(|d| d.join("record-offers").exists())
+}
+
 #[tauri::command]
 fn flash_key(app: AppHandle) -> &'static str {
     if app.state::<Store>().saved.lock().unwrap().flash_on_f {
@@ -522,6 +529,7 @@ fn main() {
             sharing::my_record,
             sharing::my_trends,
             flash_key,
+            owner_pc,
             phone::companion_prefs
         ])
         // Must come first: a second launch focuses the running app instead of opening another.
