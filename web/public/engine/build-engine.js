@@ -2702,19 +2702,23 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
 
   // src/data/pen-breakpoints.json
   var pen_breakpoints_default = {
-    _about: "Per champion and pen or shred item (MR: Void Staff 3135, Cryptbloom 3137, Bloodletter's 8010; armor: Lord Dominik's 3036, Mortal Reminder 3033, Serylda's 6694, Terminus 3302, Black Cleaver 3071): for the 1st to 4th legendary, the enemy resist from which it beats the core's planned item of the same damage type there (null: never to 250, or a different type). Simulator (research/item-timing/pen_breakpoints.py, fixed dummy at the archive's median state per decision; typical = that state's resist). The engine uses a slot only when it is a clear breakpoint (above typical). Estimated.",
+    _about: "Per champion and pen or shred item (MR: Void Staff 3135, Cryptbloom 3137, Bloodletter's 8010; armor: Lord Dominik's 3036, Mortal Reminder 3033, Serylda's 6694, Terminus 3302, Black Cleaver 3071): for the 1st to 6th legendary, the enemy resist from which it beats the core's planned item of the same damage type there (null: never to 250, or a different type). Simulator (research/item-timing/pen_breakpoints.py, fixed dummy at the archive's median state per decision; typical = that state's resist). The engine uses a slot only when it is a clear breakpoint (above typical). Estimated.",
     typical: {
       armor: [
         29.6,
         53,
         75.8,
-        98.4
+        98.4,
+        118.4,
+        132.6
       ],
       mr: [
         36.4,
         44,
         54,
-        64
+        64,
+        73.4,
+        81.8
       ]
     },
     champions: {
@@ -2723,13 +2727,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           80,
           80,
           40,
+          50,
+          50,
           50
         ],
         "3137": [
           null,
           120,
           40,
-          null
+          60,
+          20,
+          20
         ]
       },
       akali: {
@@ -2737,13 +2745,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           50,
           70,
           50,
+          60,
+          50,
           60
         ],
         "3137": [
           120,
           120,
           70,
-          null
+          60,
+          50,
+          60
         ]
       },
       akshan: {
@@ -2751,7 +2763,9 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           210,
           null,
           null,
-          null
+          null,
+          null,
+          20
         ]
       },
       alistar: {
@@ -2759,7 +2773,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          80
+          80,
+          50,
+          50
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          40,
+          20,
+          20
         ]
       },
       amumu: {
@@ -2767,7 +2791,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          20
+          20,
+          70,
+          60
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          20,
+          80,
+          70
         ]
       },
       anivia: {
@@ -2775,19 +2809,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           20,
           50,
           20,
-          20
+          20,
+          20,
+          60
         ],
         "3137": [
           20,
           70,
           20,
-          null
+          20,
+          20,
+          60
         ],
         "8010": [
           null,
           null,
           null,
-          20
+          20,
+          20,
+          null
         ]
       },
       annie: {
@@ -2795,12 +2835,24 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           70,
           90,
           220,
-          50
+          50,
+          60,
+          70
         ],
         "3137": [
           170,
           190,
           null,
+          20,
+          20,
+          60
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          null,
+          20,
           null
         ]
       },
@@ -2809,6 +2861,8 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           70,
           20,
+          null,
+          null,
           null
         ]
       },
@@ -2817,25 +2871,49 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          60
+          60,
+          150,
+          30
+        ],
+        "3036": [
+          null,
+          null,
+          null,
+          50,
+          110,
+          30
         ],
         "3135": [
           20,
           null,
           null,
-          60
+          60,
+          110,
+          160
         ],
         "3137": [
           20,
           null,
           null,
+          50,
+          120,
           null
         ],
         "3302": [
           null,
           null,
           null,
-          90
+          90,
+          null,
+          80
+        ],
+        "6694": [
+          null,
+          null,
+          null,
+          90,
+          null,
+          80
         ]
       },
       aurelionsol: {
@@ -2843,18 +2921,24 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           80,
           20,
           70,
-          40
+          40,
+          20,
+          30
         ],
         "3137": [
           null,
           20,
           130,
-          null
+          40,
+          20,
+          40
         ],
         "8010": [
           null,
           20,
           null,
+          null,
+          20,
           null
         ]
       },
@@ -2863,13 +2947,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           60,
           70,
           50,
+          50,
+          60,
           50
         ],
         "3137": [
           120,
           120,
           70,
-          null
+          50,
+          50,
+          20
         ]
       },
       azir: {
@@ -2877,13 +2965,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           60,
           150,
           70,
-          20
+          20,
+          20,
+          30
         ],
         "3137": [
           160,
           null,
           130,
-          null
+          20,
+          20,
+          30
         ]
       },
       bard: {
@@ -2891,7 +2983,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           80,
           30,
           110,
-          null
+          null,
+          70,
+          50
+        ],
+        "3302": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          30
         ]
       },
       belveth: {
@@ -2899,19 +3001,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           50,
           null,
+          null,
+          20,
           null
         ],
         "3036": [
           null,
           50,
           null,
-          100
+          100,
+          20,
+          null
         ],
         "3302": [
           20,
           190,
           null,
-          30
+          30,
+          20,
+          null
         ]
       },
       blitzcrank: {
@@ -2919,12 +3027,16 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           110,
           110,
           70,
-          60
+          60,
+          50,
+          null
         ],
         "3137": [
           250,
           70,
           20,
+          40,
+          40,
           null
         ]
       },
@@ -2933,19 +3045,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           70,
-          20
+          20,
+          50,
+          40
         ],
         "3137": [
           null,
           20,
           20,
-          null
+          20,
+          40,
+          30
         ],
         "8010": [
           null,
           20,
           null,
-          20
+          20,
+          null,
+          null
         ]
       },
       briar: {
@@ -2953,19 +3071,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           200,
           80,
           190,
-          null
+          20,
+          70,
+          20
         ],
         "3036": [
           110,
           70,
           120,
+          20,
+          50,
           20
         ],
         "3071": [
           20,
           60,
           140,
-          20
+          20,
+          80,
+          40
         ]
       },
       caitlyn: {
@@ -2973,13 +3097,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           190,
           null,
           null,
-          null
+          null,
+          20,
+          20
         ],
         "6694": [
           null,
           null,
           130,
-          null
+          null,
+          110,
+          50
         ]
       },
       camille: {
@@ -2987,11 +3115,15 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           60,
           null,
           20,
-          null
+          20,
+          20,
+          20
         ],
         "3036": [
           50,
           190,
+          20,
+          20,
           20,
           20
         ]
@@ -3001,11 +3133,15 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           20,
           20,
           60,
-          90
+          90,
+          50,
+          50
         ],
         "8010": [
           null,
           20,
+          null,
+          null,
           null,
           null
         ]
@@ -3015,7 +3151,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
+          50,
+          80,
           50
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          20,
+          60,
+          30
         ]
       },
       corki: {
@@ -3023,21 +3169,35 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           60,
-          null
+          160,
+          50,
+          80
         ]
       },
       darius: {
+        "3033": [
+          null,
+          null,
+          null,
+          20,
+          110,
+          50
+        ],
         "3036": [
           null,
           null,
           null,
-          20
+          20,
+          80,
+          50
         ],
         "3071": [
           null,
           null,
           null,
-          20
+          20,
+          90,
+          60
         ]
       },
       diana: {
@@ -3045,13 +3205,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           50,
           70,
           50,
-          60
+          60,
+          60,
+          50
         ],
         "3137": [
           120,
           120,
           20,
-          null
+          50,
+          60,
+          20
         ]
       },
       draven: {
@@ -3059,15 +3223,27 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           140,
-          null
+          60,
+          100,
+          70
         ]
       },
       drmundo: {
+        "3036": [
+          null,
+          null,
+          null,
+          20,
+          20,
+          20
+        ],
         "3135": [
           null,
           null,
           null,
-          70
+          70,
+          100,
+          100
         ]
       },
       ekko: {
@@ -3075,13 +3251,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           80,
           70,
           40,
+          50,
+          60,
           50
         ],
         "3137": [
           null,
           150,
           40,
-          null
+          20,
+          50,
+          20
         ]
       },
       elise: {
@@ -3089,13 +3269,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           40,
           80,
           60,
-          60
+          60,
+          null,
+          50
         ],
         "3137": [
           100,
           70,
           90,
-          null
+          20,
+          null,
+          60
         ]
       },
       evelynn: {
@@ -3103,33 +3287,51 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           40,
           70,
           60,
-          null
+          null,
+          50,
+          50
         ]
       },
       ezreal: {
+        "3033": [
+          null,
+          null,
+          null,
+          120,
+          70,
+          80
+        ],
         "3036": [
           null,
           null,
           null,
-          90
+          90,
+          60,
+          60
         ],
         "3135": [
           80,
           20,
           90,
-          110
+          110,
+          140,
+          50
         ],
         "3137": [
           null,
           20,
           100,
-          null
+          150,
+          100,
+          20
         ],
         "6694": [
           null,
           null,
           null,
-          100
+          100,
+          50,
+          70
         ]
       },
       fiddlesticks: {
@@ -3137,19 +3339,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           40,
           20,
           70,
-          30
+          30,
+          30,
+          20
         ],
         "3137": [
           50,
           20,
           70,
-          null
+          20,
+          20,
+          20
         ],
         "8010": [
           null,
           null,
           null,
-          80
+          80,
+          20,
+          20
         ]
       },
       fiora: {
@@ -3157,18 +3365,24 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           90,
-          null
+          20,
+          20,
+          20
         ],
         "3036": [
           null,
           20,
           70,
+          20,
+          20,
           20
         ],
         "3071": [
           150,
           50,
           null,
+          20,
+          20,
           20
         ]
       },
@@ -3177,13 +3391,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           70,
           40,
           70,
-          40
+          40,
+          50,
+          50
         ],
         "3137": [
           220,
           110,
           110,
-          null
+          30,
+          60,
+          50
         ]
       },
       galio: {
@@ -3191,15 +3409,35 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          20
+          20,
+          70,
+          80
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          40,
+          60,
+          60
         ]
       },
       gangplank: {
+        "3137": [
+          null,
+          null,
+          null,
+          20,
+          20,
+          null
+        ],
         "6694": [
           160,
           null,
           220,
-          null
+          110,
+          100,
+          70
         ]
       },
       garen: {
@@ -3207,25 +3445,33 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           190,
           20,
           null,
-          null
+          60,
+          20,
+          20
         ],
         "3036": [
           160,
           20,
           null,
-          50
+          50,
+          20,
+          20
         ],
         "3071": [
           80,
           20,
           null,
-          null
+          90,
+          20,
+          20
         ],
         "6694": [
           80,
           20,
           null,
-          70
+          70,
+          30,
+          20
         ]
       },
       gnar: {
@@ -3233,7 +3479,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          230
+          230,
+          null,
+          20
+        ],
+        "3302": [
+          null,
+          null,
+          null,
+          40,
+          null,
+          20
         ]
       },
       gragas: {
@@ -3241,13 +3497,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           60,
           70,
           50,
-          50
+          50,
+          70,
+          60
         ],
         "3137": [
           180,
           110,
           20,
-          null
+          50,
+          60,
+          50
         ]
       },
       graves: {
@@ -3255,7 +3515,9 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           200,
-          null
+          50,
+          110,
+          60
         ]
       },
       gwen: {
@@ -3263,7 +3525,9 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           70,
           null,
           80,
-          30
+          30,
+          90,
+          20
         ]
       },
       hecarim: {
@@ -3271,25 +3535,33 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           40,
           20,
           30,
-          null
+          30,
+          70,
+          60
         ],
         "3036": [
           30,
           20,
           30,
-          30
+          30,
+          60,
+          50
         ],
         "3071": [
           100,
           20,
           20,
-          null
+          30,
+          80,
+          80
         ],
         "6694": [
           60,
           20,
           20,
-          30
+          30,
+          70,
+          60
         ]
       },
       heimerdinger: {
@@ -3297,19 +3569,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           250,
           20,
           50,
-          60
+          60,
+          70,
+          30
         ],
         "3137": [
           null,
           20,
           20,
-          null
+          30,
+          20,
+          20
         ],
         "8010": [
           null,
           20,
           null,
-          null
+          null,
+          null,
+          20
         ]
       },
       hwei: {
@@ -3317,17 +3595,23 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           40,
           70,
           80,
+          40,
+          40,
           40
         ],
         "3137": [
           110,
           130,
           120,
-          null
+          20,
+          20,
+          20
         ],
         "8010": [
           null,
           null,
+          null,
+          20,
           null,
           20
         ]
@@ -3337,7 +3621,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          30
+          30,
+          20,
+          20
+        ],
+        "3071": [
+          null,
+          null,
+          null,
+          20,
+          20,
+          20
         ]
       },
       irelia: {
@@ -3345,31 +3639,41 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           20,
           170,
           20,
+          20,
+          20,
           20
         ],
         "3036": [
           20,
           110,
           20,
-          null
+          20,
+          20,
+          20
         ],
         "3071": [
           null,
           250,
           30,
+          20,
+          110,
           20
         ],
         "3135": [
           null,
           null,
           null,
-          140
+          140,
+          40,
+          20
         ],
         "3302": [
           20,
           100,
           20,
-          null
+          20,
+          110,
+          20
         ]
       },
       janna: {
@@ -3377,7 +3681,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          50
+          50,
+          80,
+          80
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          40,
+          60,
+          70
         ]
       },
       jax: {
@@ -3385,19 +3699,33 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           90,
           20,
           70,
+          20,
+          20,
           20
         ],
         "3036": [
           70,
           20,
           50,
-          null
+          20,
+          20,
+          20
+        ],
+        "3135": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          20
         ],
         "3302": [
           20,
           20,
           null,
-          null
+          20,
+          20,
+          20
         ]
       },
       jhin: {
@@ -3405,19 +3733,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           110,
           60,
           20,
-          null
+          20,
+          80,
+          40
         ],
         "3036": [
           100,
           50,
           20,
-          20
+          20,
+          60,
+          40
         ],
         "6694": [
           120,
           70,
           20,
-          30
+          30,
+          80,
+          50
         ]
       },
       jinx: {
@@ -3425,11 +3759,15 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           null,
+          null,
+          null,
           null
         ],
         "3302": [
           220,
           20,
+          null,
+          null,
           null,
           null
         ],
@@ -3437,27 +3775,51 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           null,
-          null
+          150,
+          100,
+          90
         ]
       },
       kaisa: {
+        "3033": [
+          null,
+          null,
+          null,
+          null,
+          100,
+          null
+        ],
+        "3036": [
+          null,
+          null,
+          null,
+          null,
+          90,
+          null
+        ],
         "3135": [
           170,
           100,
           50,
-          120
+          120,
+          60,
+          null
         ],
         "3137": [
           null,
           50,
           40,
+          160,
+          60,
           null
         ],
         "3302": [
           null,
           null,
           null,
-          30
+          30,
+          20,
+          130
         ]
       },
       kalista: {
@@ -3465,12 +3827,16 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           230,
-          null
+          20,
+          20,
+          20
         ],
         "3036": [
           60,
           null,
           120,
+          20,
+          20,
           20
         ]
       },
@@ -3479,19 +3845,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           50,
           70,
           50,
-          50
+          50,
+          60,
+          60
         ],
         "3137": [
           130,
           80,
           60,
-          null
+          50,
+          50,
+          20
         ]
       },
       karthus: {
         "3137": [
           90,
           120,
+          null,
+          null,
           null,
           null
         ]
@@ -3501,13 +3873,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           70,
           70,
           20,
-          50
+          50,
+          110,
+          30
         ],
         "3137": [
           160,
           20,
           20,
-          null
+          30,
+          110,
+          20
         ]
       },
       katarina: {
@@ -3515,13 +3891,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           100,
           null,
-          null
+          20,
+          20,
+          20
         ],
         "3135": [
           null,
           null,
           null,
-          200
+          200,
+          120,
+          60
         ]
       },
       kayle: {
@@ -3529,7 +3909,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           110,
-          70
+          70,
+          20,
+          20
+        ],
+        "3302": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          40
         ]
       },
       kennen: {
@@ -3537,13 +3927,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           60,
           70,
           50,
-          50
+          50,
+          20,
+          20
         ],
         "3137": [
           110,
           130,
           70,
-          null
+          50,
+          50,
+          50
         ]
       },
       kindred: {
@@ -3551,19 +3945,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           70,
           70,
-          null
+          40,
+          100,
+          120
         ],
         "3036": [
           null,
           60,
           60,
-          30
+          30,
+          70,
+          90
         ],
         "3302": [
           210,
           150,
           null,
-          190
+          190,
+          null,
+          null
         ]
       },
       kled: {
@@ -3571,13 +3971,33 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
+          20,
+          70,
+          20
+        ],
+        "3071": [
+          null,
+          null,
+          null,
+          20,
+          80,
           20
         ]
       },
       kogmaw: {
+        "3033": [
+          null,
+          null,
+          null,
+          20,
+          null,
+          20
+        ],
         "3036": [
           null,
           null,
+          null,
+          20,
           null,
           20
         ],
@@ -3585,7 +4005,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          80
+          80,
+          50,
+          20
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          null,
+          60,
+          20
         ]
       },
       leblanc: {
@@ -3593,13 +4023,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           50,
           70,
           40,
-          50
+          50,
+          50,
+          60
         ],
         "3137": [
           120,
           100,
           30,
-          null
+          20,
+          20,
+          20
         ]
       },
       lillia: {
@@ -3607,19 +4041,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           30,
           20,
+          20,
+          90,
           20
         ],
         "3137": [
           null,
           50,
           20,
-          null
+          20,
+          110,
+          20
         ],
         "8010": [
           null,
           null,
           null,
-          20
+          20,
+          null,
+          null
         ]
       },
       lissandra: {
@@ -3627,13 +4067,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           60,
           70,
           30,
+          40,
+          40,
           40
         ],
         "3137": [
           160,
           90,
           30,
-          null
+          40,
+          30,
+          30
         ]
       },
       locke: {
@@ -3641,18 +4085,24 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           100,
           80,
           90,
-          50
+          50,
+          50,
+          60
         ],
         "3137": [
           null,
           140,
           70,
-          null
+          20,
+          20,
+          50
         ]
       },
       lucian: {
         "3033": [
           210,
+          null,
+          null,
           null,
           null,
           null
@@ -3661,7 +4111,9 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           160,
           null,
           100,
-          90
+          90,
+          70,
+          60
         ]
       },
       lux: {
@@ -3669,13 +4121,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           50,
           70,
           70,
-          40
+          40,
+          50,
+          70
         ],
         "3137": [
           100,
           130,
           70,
-          null
+          20,
+          20,
+          60
         ]
       },
       malphite: {
@@ -3683,13 +4139,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           50,
           80,
           50,
+          50,
+          60,
           50
         ],
         "3137": [
           130,
           180,
           60,
-          null
+          20,
+          50,
+          20
         ]
       },
       malzahar: {
@@ -3697,18 +4157,24 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           30,
           20,
-          70
+          70,
+          50,
+          40
         ],
         "3137": [
           null,
           20,
           20,
-          null
+          70,
+          40,
+          20
         ],
         "8010": [
           null,
           null,
           20,
+          null,
+          null,
           null
         ]
       },
@@ -3717,7 +4183,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          60
+          60,
+          130,
+          20
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          40,
+          90,
+          20
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          200
         ]
       },
       masteryi: {
@@ -3725,11 +4209,15 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           80,
           80,
-          null
+          20,
+          80,
+          20
         ],
         "3036": [
           null,
           70,
+          60,
+          20,
           60,
           20
         ],
@@ -3737,18 +4225,24 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           180,
           null,
-          20
+          20,
+          null,
+          30
         ],
         "3302": [
           160,
           80,
           190,
-          null
+          20,
+          null,
+          20
         ],
         "6694": [
           null,
           110,
           130,
+          20,
+          150,
           20
         ]
       },
@@ -3757,6 +4251,8 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           100,
           90,
           20,
+          null,
+          null,
           null
         ]
       },
@@ -3765,13 +4261,49 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
+          70,
+          120,
           70
+        ],
+        "3036": [
+          null,
+          null,
+          null,
+          60,
+          90,
+          60
         ],
         "3135": [
           null,
           null,
           null,
-          140
+          140,
+          20,
+          20
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          150,
+          20,
+          20
+        ],
+        "6694": [
+          null,
+          null,
+          null,
+          50,
+          90,
+          70
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          null,
+          20,
+          null
         ]
       },
       mordekaiser: {
@@ -3779,12 +4311,16 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           40,
           20,
-          20
+          20,
+          60,
+          50
         ],
         "8010": [
           null,
           null,
           20,
+          null,
+          null,
           null
         ]
       },
@@ -3793,19 +4329,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           30,
           20,
-          50
+          50,
+          70,
+          30
         ],
         "3137": [
           null,
           40,
           20,
-          null
+          50,
+          60,
+          20
         ],
         "8010": [
           null,
           130,
           20,
-          null
+          null,
+          null,
+          30
         ]
       },
       nasus: {
@@ -3813,25 +4355,41 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          180
+          180,
+          null,
+          20
+        ],
+        "3036": [
+          null,
+          null,
+          null,
+          120,
+          150,
+          20
         ],
         "3135": [
           null,
           20,
           90,
-          60
+          60,
+          20,
+          30
         ],
         "3137": [
           160,
           20,
           80,
-          null
+          30,
+          20,
+          20
         ],
         "8010": [
           null,
           110,
           null,
-          230
+          230,
+          20,
+          null
         ]
       },
       nautilus: {
@@ -3839,7 +4397,9 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          120
+          120,
+          70,
+          70
         ]
       },
       neeko: {
@@ -3847,13 +4407,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           50,
           70,
           50,
+          50,
+          50,
           50
         ],
         "3137": [
           120,
           110,
           70,
-          null
+          50,
+          20,
+          20
         ]
       },
       nidalee: {
@@ -3861,13 +4425,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           50,
           70,
           40,
-          50
+          50,
+          70,
+          60
         ],
         "3137": [
           80,
           20,
           20,
-          null
+          20,
+          60,
+          50
         ]
       },
       nunu: {
@@ -3875,13 +4443,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           50,
           70,
           50,
+          50,
+          50,
           50
         ],
         "3137": [
           null,
           170,
           80,
-          null
+          50,
+          50,
+          50
         ]
       },
       olaf: {
@@ -3889,19 +4461,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           null,
-          null
+          40,
+          20,
+          20
         ],
         "3036": [
           null,
           20,
           null,
-          30
+          30,
+          20,
+          20
         ],
         "3071": [
           null,
           20,
           null,
-          110
+          110,
+          30,
+          20
         ]
       },
       orianna: {
@@ -3909,6 +4487,8 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           150,
           130,
           20,
+          null,
+          null,
           null
         ]
       },
@@ -3917,7 +4497,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          20
+          20,
+          80,
+          null
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          20,
+          20,
+          80
         ]
       },
       reksai: {
@@ -3925,6 +4515,8 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
+          20,
+          60,
           20
         ]
       },
@@ -3933,7 +4525,9 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          20
+          20,
+          20,
+          null
         ]
       },
       renekton: {
@@ -3941,33 +4535,51 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           70,
           20,
           null,
-          null
+          20,
+          50,
+          20
         ],
         "3036": [
           60,
           20,
           null,
+          20,
+          40,
           20
         ],
         "3071": [
           40,
           20,
           null,
-          null
+          20,
+          50,
+          20
         ],
         "6694": [
           30,
           20,
           null,
+          20,
+          40,
           20
         ]
       },
       rengar: {
+        "3137": [
+          null,
+          null,
+          null,
+          null,
+          230,
+          20
+        ],
         "6694": [
           90,
           20,
           150,
-          60
+          60,
+          90,
+          70
         ]
       },
       rumble: {
@@ -3975,13 +4587,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           50,
           70,
           30,
-          40
+          40,
+          50,
+          30
         ],
         "3137": [
           60,
           70,
           20,
-          null
+          20,
+          40,
+          20
         ]
       },
       senna: {
@@ -3989,31 +4605,41 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           70,
           60,
-          null
+          30,
+          20,
+          20
         ],
         "3036": [
           240,
           60,
           50,
-          30
+          30,
+          20,
+          20
         ],
         "3071": [
           null,
           90,
           90,
-          70
+          70,
+          30,
+          20
         ],
         "3302": [
           190,
           120,
           250,
-          null
+          150,
+          20,
+          20
         ],
         "6694": [
           220,
           60,
           70,
-          40
+          40,
+          20,
+          20
         ]
       },
       seraphine: {
@@ -4021,33 +4647,59 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           20,
           70,
           40,
-          null
+          null,
+          50,
+          40
         ],
         "3137": [
           20,
           20,
           20,
-          null
+          60,
+          50,
+          20
         ],
         "8010": [
           20,
           null,
           50,
-          null
+          null,
+          null,
+          20
         ]
       },
       sett: {
+        "3033": [
+          null,
+          null,
+          null,
+          60,
+          80,
+          20
+        ],
         "3036": [
           null,
           null,
           null,
-          50
+          50,
+          70,
+          20
+        ],
+        "3071": [
+          null,
+          null,
+          null,
+          40,
+          70,
+          20
         ],
         "6694": [
           null,
           null,
           null,
-          50
+          50,
+          60,
+          40
         ]
       },
       shaco: {
@@ -4055,13 +4707,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          60
+          60,
+          null,
+          120
         ],
         "6694": [
           null,
           null,
           170,
-          60
+          60,
+          90,
+          100
         ]
       },
       shyvana: {
@@ -4069,19 +4725,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           null,
-          100
+          100,
+          null,
+          50
         ],
         "3137": [
           40,
           20,
           50,
-          null
+          20,
+          20,
+          20
         ],
         "8010": [
           null,
           20,
           null,
-          160
+          160,
+          null,
+          20
         ]
       },
       singed: {
@@ -4089,21 +4751,35 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           20,
           20,
           20,
-          40
+          40,
+          90,
+          30
         ],
         "8010": [
           20,
           null,
           20,
+          null,
+          null,
           null
         ]
       },
       sion: {
+        "3033": [
+          null,
+          null,
+          null,
+          70,
+          110,
+          20
+        ],
         "3036": [
           null,
           null,
           null,
-          60
+          60,
+          80,
+          20
         ]
       },
       sivir: {
@@ -4111,19 +4787,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           40,
           null,
+          null,
+          null,
           null
         ],
         "3302": [
           190,
           100,
           20,
+          null,
+          160,
           null
         ],
         "6694": [
           null,
           140,
           null,
-          null
+          null,
+          70,
+          110
         ]
       },
       smolder: {
@@ -4131,13 +4813,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           null,
-          20
+          20,
+          20,
+          60
         ],
         "6694": [
           null,
           20,
           200,
-          null
+          20,
+          20,
+          50
         ]
       },
       swain: {
@@ -4145,7 +4831,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           null,
-          20
+          20,
+          20,
+          40
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          null,
+          20,
+          null
         ]
       },
       sylas: {
@@ -4153,13 +4849,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           60,
           40,
           70,
-          80
+          80,
+          20,
+          20
         ],
         "3137": [
           130,
           20,
           20,
-          null
+          20,
+          20,
+          20
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          null,
+          20,
+          20
         ]
       },
       syndra: {
@@ -4167,6 +4875,8 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           100,
           90,
           20,
+          null,
+          null,
           null
         ]
       },
@@ -4175,7 +4885,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          40
+          40,
+          50,
+          50
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          60,
+          100,
+          80
         ]
       },
       taliyah: {
@@ -4183,12 +4903,16 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           180,
           130,
           20,
+          null,
+          null,
           null
         ],
         "8010": [
           null,
           null,
           20,
+          null,
+          null,
           null
         ]
       },
@@ -4197,13 +4921,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           60,
           20,
           70,
-          30
+          30,
+          40,
+          null
         ],
         "3137": [
           150,
           20,
           100,
+          20,
+          40,
           null
+        ],
+        "3302": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          110
         ]
       },
       thresh: {
@@ -4211,7 +4947,9 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          40
+          40,
+          30,
+          70
         ]
       },
       tristana: {
@@ -4219,6 +4957,8 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           200,
           20,
           170,
+          null,
+          null,
           null
         ]
       },
@@ -4227,9 +4967,45 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          100
+          100,
+          null,
+          20
+        ],
+        "3036": [
+          null,
+          null,
+          null,
+          80,
+          240,
+          20
+        ],
+        "3071": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          20
         ],
         "3135": [
+          null,
+          null,
+          null,
+          20,
+          20,
+          80
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          30,
+          90,
+          110
+        ],
+        "3302": [
+          null,
+          null,
           null,
           null,
           null,
@@ -4241,25 +5017,41 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           30,
           150,
-          30
+          30,
+          30,
+          50
         ],
         "3036": [
           null,
           30,
           110,
-          null
+          20,
+          30,
+          50
         ],
         "3071": [
           null,
           160,
           null,
-          70
+          70,
+          20,
+          50
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          null,
+          30,
+          null
         ],
         "3302": [
           null,
           60,
           null,
-          null
+          140,
+          20,
+          100
         ]
       },
       twistedfate: {
@@ -4267,18 +5059,32 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          20
+          20,
+          null,
+          null
         ],
         "3135": [
           60,
           70,
           50,
-          90
+          90,
+          50,
+          70
         ],
         "3137": [
           160,
           130,
           110,
+          80,
+          20,
+          50
+        ],
+        "3302": [
+          null,
+          null,
+          null,
+          20,
+          null,
           null
         ]
       },
@@ -4287,19 +5093,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           80,
-          null
+          60,
+          30,
+          100
         ],
         "3036": [
           null,
           20,
           60,
-          50
+          50,
+          30,
+          80
         ],
         "3302": [
           null,
           20,
           null,
-          210
+          210,
+          220,
+          null
         ]
       },
       udyr: {
@@ -4307,22 +5119,38 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
+          80,
+          190,
           80
+        ],
+        "3036": [
+          null,
+          null,
+          null,
+          70,
+          130,
+          70
         ],
         "3135": [
           130,
           90,
           30,
-          40
+          40,
+          50,
+          70
         ],
         "3137": [
           null,
           210,
           20,
-          null
+          20,
+          20,
+          50
         ],
         "8010": [
           null,
+          null,
+          20,
           null,
           20,
           null
@@ -4333,7 +5161,9 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          20
+          20,
+          20,
+          130
         ]
       },
       varus: {
@@ -4341,19 +5171,41 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           20,
           110,
           30,
-          null
+          70,
+          160,
+          20
         ],
         "3036": [
           20,
           100,
           30,
-          50
+          50,
+          110,
+          20
+        ],
+        "3135": [
+          null,
+          null,
+          null,
+          null,
+          170,
+          70
+        ],
+        "3137": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          120
         ],
         "6694": [
           20,
           110,
           60,
-          100
+          100,
+          null,
+          40
         ]
       },
       vayne: {
@@ -4361,13 +5213,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           170,
           20,
           null,
+          100,
+          40,
           null
         ],
         "3036": [
           110,
           20,
           null,
-          80
+          80,
+          30,
+          130
         ]
       },
       veigar: {
@@ -4375,13 +5231,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           20,
           70,
           50,
-          20
+          20,
+          50,
+          50
         ],
         "3137": [
           20,
           130,
           60,
-          null
+          20,
+          20,
+          20
         ]
       },
       velkoz: {
@@ -4389,6 +5249,16 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           160,
           20,
+          null,
+          null,
+          null
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          null,
+          150,
           null
         ]
       },
@@ -4397,13 +5267,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           40,
           70,
           50,
+          50,
+          60,
           50
         ],
         "3137": [
           90,
           130,
           80,
-          null
+          20,
+          60,
+          20
         ]
       },
       viktor: {
@@ -4411,12 +5285,16 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           120,
           130,
           20,
+          null,
+          null,
           null
         ],
         "8010": [
           null,
           null,
           20,
+          null,
+          null,
           null
         ]
       },
@@ -4425,13 +5303,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           40,
           80,
           60,
-          60
+          60,
+          40,
+          50
         ],
         "3137": [
           20,
           40,
           30,
-          null
+          60,
+          30,
+          20
+        ],
+        "8010": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          20
         ]
       },
       volibear: {
@@ -4439,12 +5329,24 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           100,
-          90
+          90,
+          40,
+          null
         ],
         "3137": [
           null,
           null,
           120,
+          120,
+          40,
+          null
+        ],
+        "3302": [
+          null,
+          null,
+          null,
+          null,
+          20,
           null
         ]
       },
@@ -4453,18 +5355,24 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          80
+          80,
+          180,
+          40
         ],
         "3302": [
           null,
           70,
           20,
-          null
+          30,
+          20,
+          20
         ]
       },
       xayah: {
         "3302": [
           230,
+          null,
+          null,
           null,
           null,
           null
@@ -4475,13 +5383,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           60,
           70,
           240,
+          50,
+          50,
           50
         ],
         "3137": [
           150,
           130,
           null,
-          null
+          50,
+          40,
+          60
         ]
       },
       xinzhao: {
@@ -4489,11 +5401,15 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           100,
-          null
+          20,
+          80,
+          20
         ],
         "3036": [
           null,
           null,
+          70,
+          20,
           70,
           20
         ],
@@ -4501,13 +5417,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           60,
-          null
+          20,
+          80,
+          50
         ],
         "3302": [
           null,
           null,
           null,
-          50
+          50,
+          null,
+          null
         ]
       },
       yone: {
@@ -4515,19 +5435,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           30,
-          null
+          80,
+          20,
+          40
         ],
         "3036": [
           null,
           230,
           20,
-          60
+          60,
+          20,
+          40
         ],
         "3302": [
           null,
           null,
           20,
-          null
+          null,
+          20,
+          20
         ]
       },
       yorick: {
@@ -4535,7 +5461,9 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
-          40
+          40,
+          20,
+          20
         ]
       },
       yunara: {
@@ -4543,11 +5471,15 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           20,
           null,
+          null,
+          null,
           null
         ],
         "3302": [
           130,
           20,
+          null,
+          null,
           null,
           null
         ]
@@ -4557,19 +5489,25 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           40,
           20,
           null,
-          null
+          20,
+          60,
+          70
         ],
         "3036": [
           40,
           20,
           null,
-          20
+          20,
+          50,
+          60
         ],
         "3071": [
           40,
           20,
           null,
-          20
+          20,
+          160,
+          120
         ]
       },
       zac: {
@@ -4577,6 +5515,8 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           null,
+          30,
+          70,
           30
         ]
       },
@@ -4585,13 +5525,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           null,
           null,
           20,
-          null
+          30,
+          20,
+          150
         ],
         "3036": [
           null,
           null,
           20,
-          20
+          20,
+          20,
+          110
         ]
       },
       ziggs: {
@@ -4599,16 +5543,22 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           40,
           70,
           30,
-          90
+          90,
+          40,
+          40
         ],
         "3137": [
           60,
           90,
           20,
-          null
+          40,
+          20,
+          30
         ],
         "8010": [
           null,
+          null,
+          20,
           null,
           20,
           null
@@ -4619,13 +5569,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           60,
           80,
           40,
-          30
+          30,
+          20,
+          120
         ],
         "3137": [
           130,
           140,
           60,
-          null
+          50,
+          20,
+          50
         ]
       },
       zoe: {
@@ -4633,13 +5587,17 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           40,
           70,
           40,
-          50
+          50,
+          70,
+          70
         ],
         "3137": [
           60,
           60,
           30,
-          null
+          20,
+          60,
+          60
         ]
       },
       zyra: {
@@ -4647,17 +5605,23 @@ than usual (Nico 2026-11-25, "use the simulator's math to find breakpoints, e.g.
           70,
           20,
           20,
-          70
+          70,
+          50,
+          40
         ],
         "3137": [
           170,
           20,
           20,
-          null
+          20,
+          40,
+          20
         ],
         "8010": [
           null,
           20,
+          null,
+          null,
           null,
           null
         ]
@@ -4676,7 +5640,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
 
   // src/lib/engine/build-engine.ts
   var BUY_SLOT = item_buy_slot_default.items;
-  var ENGINE_VERSION = "1.4.14";
+  var ENGINE_VERSION = "1.4.15";
   var TIER1_BOOTS = /* @__PURE__ */ new Set([1001, 2422]);
   var STAT_BONUS = 22e4;
   var STAT_BONUS_IDS = /* @__PURE__ */ new Set([6032]);
@@ -4746,7 +5710,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
     countTriggers: { source: "assumption", on: false, why: "'2+ enemies' counts (tanks, burst, crit, healers, enchanters), 3+ Catcher/Vanguard, physical or mixed damage lean. Tested: no effect in the counter tests; stays off." },
     firstBuys: { source: "game data", on: true, why: "Items that grow while you hold them (item text: Heartsteel, Yun Tal, Rod of Ages, Hubris) go first while you have no legendary: each minute held earlier is more value. The archive agrees (82-93% of their buyers make each one their first legendary, item_slots.json). Nico 2026-11-27: Briar's Hubris shown 4th; find the reason, not a per-item list." },
     lateBuys: { source: "game data", on: true, why: "Items with % armor or magic penetration (item text: Void Staff, Cryptbloom, Lord Dominik's, Mortal Reminder, Serylda's, Terminus), and resist shred where the archive agrees it comes late (Bloodletter's; Nico 2026-11-28), wait until two legendaries are finished, unless an augment rule timed them: penetration multiplies damage you already deal against resist the enemy has already built. Archive: 1-10% of buyers take them 1st or 2nd, and within a slot players take them earlier when enemies have more resist (z +1.7 to +5.9) and when they have more damage (Void Staff z +3.0, Lord Dominik's +3.4). AramHex cores put them 3rd. Against an unusually tanky team, breakpoints lights them as an option. Nico 2026-11-27: Shaco's Void Staff 2nd; find the reason, not a per-item list." },
-    penSecond: { source: "assumption", on: true, why: "A pen or shred item in the path takes the legendary slot the simulator clearly favours this game (Nico 2026-11-28: not only 2nd, 1st or 3rd depending on the game). Per champion and slot (1st to 4th), the enemy resist from which it beats the core's planned item of the same damage type there (research/item-timing/pen_breakpoints.py, fixed dummy at the archive's median state per decision; a slot counts only when the item loses at that slot's typical resist, MR 36/44/54/64, armor 30/53/76/98). This game's resist at a slot = that slot's typical times how tanky the enemy is now (live resist from champions, levels and held items, over usual). Earlier than its place: the earliest slot it wins, only vs a team tankier than usual (the breakpoints cut). Later: when it loses where it is and wins at a later slot. Clear slot breakpoints (1st/2nd/3rd/4th): Void Staff 43/36/23/19, Cryptbloom 38/39/23/0, Bloodletter's 0/2/0/3, Lord Dominik's 11/9/3/2, Mortal Reminder 10/8/7/2, Serylda's 8/5/9/2, Terminus 10/8/3/2, Black Cleaver 5/5/2/1. An item that grows while held still goes first. Archive: within a slot players buy pen earlier vs more enemy resist (z +1.7 to +5.9), the same direction; they almost never buy it 1st or 2nd, so the slot itself is estimated. Nico approved 2026-11-27 (he chose it on the card)." },
+    penSecond: { source: "assumption", on: true, why: "A pen or shred item in the path takes the legendary slot the simulator clearly favours this game (Nico 2026-11-28: not only 2nd, 1st or 3rd depending on the game). Per champion and slot (1st to 6th; Nico 2026-11-28 'What about 5th and 6th?'; the planned 4th to 6th are the champion's most built other items of that damage type), the enemy resist from which it beats the core's planned item of the same damage type there (research/item-timing/pen_breakpoints.py, fixed dummy at the archive's median state per decision; a slot counts only when the item loses at that slot's typical resist, MR 36/44/54/64/73/82, armor 30/53/76/98/118/133). This game's resist at a slot = that slot's typical times how tanky the enemy is now (live resist from champions, levels and held items, over usual). Earlier than its place: the earliest slot it wins, only vs a team tankier than usual (the breakpoints cut). Later: when it loses where it is and wins at a later slot. Clear slot breakpoints (1st to 6th): Void Staff 43/36/23/19/14/4, Cryptbloom 38/39/23/6/9/2, Bloodletter's 0/2/0/3/1/1, Lord Dominik's 11/9/3/3/3/0, Mortal Reminder 10/8/7/4/4/1, Serylda's 8/5/9/5/1/0, Terminus 10/8/3/4/2/0, Black Cleaver 5/5/2/1/1/0. It never leaves the build: a pen item losing at every later slot keeps its place (the data's). An item that grows while held still goes first. Archive: within a slot players buy pen earlier vs more enemy resist (z +1.7 to +5.9), the same direction; they almost never buy it 1st or 2nd, so the slot itself is estimated. Nico approved 2026-11-27 (he chose it on the card)." },
     boughtFirst: { source: "game data", on: true, why: "The path shows what you bought first, in inventory order, then the rest in Next's order, so an item bought early shows where you bought it (Nico 2026-11-27)." },
     stackingFirst: { source: "assumption", on: false, why: "Stacking items first while no legendary is finished. Tested: +1.2 ± 1.7 pts, not shown; stays off." },
     attackSpeedNudge: { source: "assumption", on: false, why: "Attack-speed items move back from 4.5 attack speed. Off: 451 archive frames show attack speed above 5.0 (up to 11.7); Nico: the cap may be 99." },
@@ -5525,7 +6489,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
   var PEN_DATA = pen_breakpoints_default;
   var PEN_BP = PEN_DATA.champions;
   var PEN_STAT = { 3135: 2, 3137: 2, 8010: 2, 3036: 1, 3033: 1, 6694: 1, 3302: 1, 3071: 1 };
-  var ORD = ["1st", "2nd", "3rd", "4th"];
+  var ORD = ["1st", "2nd", "3rd", "4th", "5th", "6th"];
   function penSecond(game, ids, finished = 0, at = () => 3, from = finished + 1) {
     const bp = PEN_BP[champKey(game.champ)];
     const st = bp ? enemyStats(game.enemies ?? [], game.level ?? 18) : null;
@@ -5543,8 +6507,8 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       for (let s = from; s < d; s++)
         if (clear(s) && q >= cut && wins(s))
           return { id, slot: s, why: `Enemy ${name} about ${Math.round(got)}: it beats your planned item as your ${ORD[s - 1]} item from about ${w[s - 1]} (simulator, estimated).` };
-      if (d <= 4 && clear(d) && !wins(d)) {
-        for (let s = d + 1; s <= 4; s++)
+      if (d <= 6 && clear(d) && !wins(d)) {
+        for (let s = d + 1; s <= 6; s++)
           if (wins(s)) return { id, slot: s, why: `Enemy ${name} only about ${Math.round(got)}: your planned item does more as your ${ORD[d - 1]}; this wins as your ${ORD[s - 1]} (simulator, estimated).` };
       }
     }
@@ -5956,7 +6920,7 @@ core is flexible: augments and buys may move or replace it.`, patches: ["16.22",
       return finished + 1 + next.slice(0, Math.max(0, k2)).filter(isLeg).length;
     };
     const lead = !finished && next.some((it) => FIRST_BUYS.has(ownedId(itemId(it.icon))) || STACKING.has(itemId(it.icon)));
-    const penNow = RULES.penSecond.on && finished < 4 && !timing.length ? penSecond(game, next.map((it) => ownedId(itemId(it.icon))).filter((i) => pathIds0.has(i)), finished, slotNow, finished + 1 + (lead ? 1 : 0)) : null;
+    const penNow = RULES.penSecond.on && finished < 6 && !timing.length ? penSecond(game, next.map((it) => ownedId(itemId(it.icon))).filter((i) => pathIds0.has(i)), finished, slotNow, finished + 1 + (lead ? 1 : 0)) : null;
     if (penNow) {
       const pen = next.find((it) => ownedId(itemId(it.icon)) === penNow.id);
       const moved = placeAfter(next, pen, penNow.slot - 1 - finished, isLeg);

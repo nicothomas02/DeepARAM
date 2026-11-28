@@ -47,3 +47,12 @@ that wins: earlier vs a tanky team, later vs a squishy one.
 
 Note: the team-average resist real games reach is narrow (5th-95th percentile at the 2nd decision: MR 37-56, armor
 42-72), so most of these fire only against unusually tanky teams.
+
+## 5th and 6th (2026-11-28)
+
+Extended to all six buys (Nico: "What about 5th and 6th?"). Archive states: 5th decision level 16, 3,331 health,
+118 armor, 73 MR; 6th: level 17, 3,725, 133, 82. The planned 4th to 6th items are the champion's most built other items
+of the same damage type. Clear slot breakpoints (1st to 6th): Void Staff 43/36/23/19/14/4, Cryptbloom 38/39/23/6/9/2,
+Bloodletter's 0/2/0/3/1/1, Lord Dominik's 11/9/3/3/3/0, Mortal Reminder 10/8/7/4/4/1, Serylda's 8/5/9/5/1/0,
+Terminus 10/8/3/4/2/0, Black Cleaver 5/5/2/1/1/0. Not shipped: dropping a pen item out of the build when it loses at
+every slot, since what replaces it would be a different build call, not a timing one.
