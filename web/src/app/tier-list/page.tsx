@@ -25,7 +25,6 @@ import { SHOW_AUGMENT_WIN_RATES } from "@/lib/augment-policy";
 import { poolChanged } from "@/lib/pool-change";
 import { AUGMENT_DEEPSCORE_HELP } from "@/lib/deepscore";
 import championIds from "@/data/champion-ids.json";
-import championNames from "@/data/champion-names.json";
 import type { PatchRow } from "@/lib/tiers";
 import Intro from "@/components/Intro";
 import { T } from "@/components/I18n";
@@ -57,7 +56,6 @@ export const metadata: Metadata = pageMeta(
 
 const num = (v: string | undefined) => (v === undefined || v === "" ? null : Number(v));
 const ALIAS = Object.fromEntries(Object.entries(championIds as Record<string, number>).map(([alias, id]) => [id, alias]));
-const NAMES = championNames as Record<string, string>;
 const names = augmentNames as Record<string, string>;
 
 // Each team quest pair once (Jinx and Ekko), for a note under the Duos list.
