@@ -436,11 +436,14 @@ export function realFullPicks<T extends ItemRow>(
   slots: { slot: number; items: ItemRow[] }[] | undefined,
   isBoots: (id: number) => boolean,
   size = 6,
+  fits: (id: number) => boolean = () => true,
 ): T[] | null {
   const n = (i: number) => (i >= 100000 ? i % 10000 : i);
   const holds = (r: ItemRow, ids: number[]) => ids.every((i) => r.items.some((j) => n(j) === n(i)));
   const top = Math.max(0, ...builds.map((r) => r.pickRate));
-  const fol = builds.filter((r) => r.items.length >= size && r.pickRate >= MIN_FOLLOWING * top);
+  // the build's items past the core must fit the core (fits: champion-page critFits), else the next followed build
+  const fol = builds.filter((r) => r.items.length >= size && r.pickRate >= MIN_FOLLOWING * top
+    && r.items.every((i) => core.items.some((c) => n(c) === n(i)) || isBoots(i) || fits(i)));
   const byScore = (a: ItemRow, b: ItemRow) => (b.deepScore ?? 0) - (a.deepScore ?? 0);
   const pick = fol.filter((r) => holds(r, core.items)).sort(byScore)[0];
   if (!pick) return null;

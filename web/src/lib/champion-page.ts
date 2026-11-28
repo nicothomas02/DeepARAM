@@ -486,12 +486,21 @@ export function championPage(alias: string): ChampionPage | null {
     const mine = new Set(listed(own));
     return new Set(archStyles.filter((a) => a !== own).flatMap(listed).filter((i) => !mine.has(i)));
   };
+  // Crit fits an attack core (critFits, Nico 2026-11-28: "Collector and IE aren't supposed to be on Qiyana"): an item
+  // whose role is crit comes after the core only when the core already has a crit or on-hit item. One crit item is
+  // 25% crit; its stat pays on attacks, so after an ability core (Qiyana's and Riven's lethality, Zed, Kayn) it's mostly
+  // wasted. Real six-item builds still put Collector + Infinity Edge on those cores (a minority who build crit late).
+  const critFits = (row: ItemRow) => {
+    const attack = row.items.filter((i) => !isBoots(i)).some((i) => itemRoles(i).some((x) => x === "crit" || x === "onhit" || x === "ap_onhit"));
+    return (id: number) => attack || !itemRoles(id).includes("crit");
+  };
   const withLater = (row: ItemRow): ItemRow => {
     const away = foreignFor(row.items);
-    const pool = afterCore(row, single, full).filter((r) => !away.has(r.items[0] % 10000));
+    const fits = critFits(row);
+    const pool = afterCore(row, single, full).filter((r) => !away.has(r.items[0] % 10000) && fits(r.items[0]));
     const bySlot = slotItems(pool, row, itemClasses, itemSlots?.champions[String(id)], itemSlots?.all);
     const later = laterItems(pool, row, itemClasses);
-    const picks = realFullPicks(row, full, single, bySlot ?? undefined, isBoots) ?? fullPicks(row, bySlot ?? undefined, later);
+    const picks = realFullPicks(row, full, single, bySlot ?? undefined, isBoots, 6, fits) ?? fullPicks(row, bySlot ?? undefined, later);
     // Never two items of one game limit group (lib/item-limits.ts), against the core or an earlier pick.
     const kept = withoutClashes(picks.map((r) => r.items[0]), buildOrder(row));
     return { ...row, later, ...(bySlot ? { slots: bySlot } : {}), full: picks.filter((r) => kept.includes(r.items[0])) };

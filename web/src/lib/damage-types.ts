@@ -14,7 +14,7 @@ export type DamageTypes = {
   /** alias -> the share of the champion's damage that's magic, 0 to 1 (Data Dragon's attack and magic ratings) */
   champions: Record<string, number>;
   /** item id (last four digits, so Mayhem's copies match) -> what it gives: "ad", "ap", "armor", "mr", "crit", "as",
-   *  "haste", "armorpen", "magicpen" */
+   *  "haste", "armorpen", "magicpen", "ult" (works through the ultimate) */
   items: Record<string, string[]>;
   /** boots ids (last four digits), to tell whether the player has bought boots yet */
   boots: number[];
@@ -34,6 +34,7 @@ type DdItem = {
   into?: string[];
   from?: string[];
   maps?: Record<string, boolean>;
+  description?: string;
 };
 
 const KIND: [string, string[]][] = [
@@ -98,6 +99,9 @@ export function damageTypes(): DamageTypes {
     const kinds = KIND.filter(([, tags]) =>
       tags.some((t) => it.tags?.includes(t)),
     ).map(([k]) => k);
+    // "ult": the item's passive or haste works through the ultimate (shop text names it: Axiom Arc, Malignance,
+    // Experimental Hexplate, Zeke's, Fiendhunter Bolts), so Back To Basics, which seals the ultimate, empties it.
+    if (/Ultimate/.test(it.description ?? "")) kinds.push("ult");
     if (kinds.length) out.items[String(Number(id) % 10000)] = kinds;
   }
   return out;
