@@ -217,6 +217,8 @@ const HEAD: &str = r##"<meta name="apple-mobile-web-app-capable" content="yes">
   @media (max-height: 520px) { .hero { min-height: 0 !important; padding: 8px 14px !important; } .hero > img { width: 36px !important; height: 36px !important; } .hero .title { font-size: 20px !important; } }
   #phoneLink { position: fixed; top: max(6px, env(safe-area-inset-top)); right: max(6px, env(safe-area-inset-right)); z-index: 60; padding: 2px 8px; border-radius: 99px; font: 600 11px/1.6 system-ui, sans-serif; background: #f0776f; color: #090b0f; }
   #phoneLink[hidden] { display: none; }
+  #phoneApp { display: block; margin: 24px auto 0; width: fit-content; padding: 10px 16px; border-radius: 10px; background: #181d26; color: #5cc0ff; font: 600 15px system-ui, sans-serif; text-decoration: none; }
+  body:not(.idle) #phoneApp { display: none; }
 </style>
 <script>
   window.PHONE = true;
@@ -226,6 +228,19 @@ const HEAD: &str = r##"<meta name="apple-mobile-web-app-capable" content="yes">
 /// Added to the end of the page on the phone: waits on the app for what the window was told and runs it, in order.
 /// A different app run (restart, update) reloads the page; no answer shows "Offline" until the app answers again.
 const SHIM: &str = r##"<script>
+// Inside the iPhone app (apps/ios Companion.swift): after each update, what's on screen in a few words, so the app
+// can come to the front in champion select and games and keep a Live Activity. In Safari: a link that opens this
+// page in the app (shown before games only).
+const toApp = window.webkit?.messageHandlers?.deeparam;
+const told = () => { if (toApp && window.companionState) try { toApp.postMessage(window.companionState()); } catch (e) {} };
+// Again a moment later: the item path finishes drawing after its data loads.
+const tell = () => { told(); setTimeout(told, 1500); };
+if (!toApp) {
+  const a = document.createElement("a");
+  a.id = "phoneApp"; a.textContent = "Open in the DeepARAM app";
+  a.href = "deeparam://companion?url=" + encodeURIComponent(location.href.split("#")[0].split("?")[0]);
+  document.body.append(a);
+}
 (async () => {
   const link = document.createElement("div");
   link.id = "phoneLink"; link.textContent = "Offline"; link.hidden = true;
@@ -251,6 +266,7 @@ const SHIM: &str = r##"<script>
         } catch (e) { console.error(e); }
       }
       n = j.seq; fails = 0; link.hidden = true;
+      tell();
     } catch (e) {
       fails++;
       link.hidden = false;
