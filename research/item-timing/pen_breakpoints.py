@@ -18,7 +18,7 @@ PEN = {3135: "mr", 3137: "mr", 8010: "mr", 3036: "armor", 3033: "armor", 6694: "
 lst = json.loads(subprocess.run([SIM, "--list", "--json"], capture_output=True, text=True, cwd=os.path.dirname(SIM)).stdout)
 KEY = {i["id"]: i["key"] for i in lst["items"] if i.get("modeled")}
 CH = {c.get("id") or c.get("key"): c for c in lst["champions"]} if isinstance(lst["champions"], list) else lst["champions"]
-names = {int(v["key"]): k for k, v in json.load(open(os.path.join(ROOT, "web/public/assets/dd/16.23.1/data/en_US/champion.json")))["data"].items()}
+names = {int(v["key"]): k for k, v in json.load(open(sorted(__import__("glob").glob(os.path.join(ROOT, "web/public/assets/dd/*/data/en_US/champion.json")), key=lambda p: [int(x) for x in p.split("/dd/")[1].split("/")[0].split(".")])[-1]))["data"].items()}
 
 def dps(champ, items, lvl, hp, ar, mr):
     out = subprocess.run([SIM, "--champ", champ, "--items", ",".join(KEY[i] for i in items), "--trials", "300", "--seed", "7", "--json",

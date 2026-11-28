@@ -1,0 +1,77 @@
+name: Breakpoints
+
+# Re-runs the simulator breakpoints the build engine uses (penSecond: pen or shred as the 2nd item past an enemy
+# resist, web/src/data/pen-breakpoints.json) after each patch day, with the new patch's item numbers (Nico
+# 2026-11-28: rerun every breakpoint when item or augment numbers change). The simulator's item data is refreshed
+# from the live client files for the run only; it is not committed here (the simulator page keeps its own data).
+# Pushes to main only when the breakpoints changed and the engine tests still pass.
+on:
+  workflow_run:
+    workflows: ["Patch day"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: breakpoints
+  cancel-in-progress: false
+
+jobs:
+  rerun:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 50
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Did patch day move the site to a new patch?
+        id: fresh
+        run: |
+          # Patch day runs many times a day and only pushes "Live patch ..." when one shipped
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || git log --since='6 hours ago' --format=%s | grep -q '^Live patch'; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Simulator with this patch's item numbers
+        if: steps.fresh.outputs.run == 'true'
+        run: |
+          python3 simulator/tools/build_items.py || echo "::warning::Item numbers not refreshed; using the saved ones"
+          make -C simulator mayhem_sim
+      - name: Pen and shred breakpoints
+        if: steps.fresh.outputs.run == 'true'
+        run: |
+          python3 research/item-timing/pen_breakpoints.py
+          python3 research/item-timing/make_pen_data.py
+          git checkout -- simulator/data
+      - uses: actions/setup-node@v4
+        if: steps.fresh.outputs.run == 'true'
+        with:
+          node-version: 22
+      - name: Engine bundles and tests
+        if: steps.fresh.outputs.run == 'true'
+        working-directory: web
+        run: |
+          if git diff --quiet -- src/data/pen-breakpoints.json; then echo "Breakpoints unchanged"; exit 0; fi
+          npm ci --no-audit --no-fund
+          node scripts/build-engine.mjs
+          npx vitest run tests/unit
+      - name: Push to main
+        if: steps.fresh.outputs.run == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add web/src/data/pen-breakpoints.json research/item-timing/pen_breakpoints.json web/public/engine apps/desktop/ui/engine.js
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+          else
+            git commit -m "Breakpoints for the new patch (simulator rerun)"
+            git pull --rebase --autostash
+            git push
+          fi
