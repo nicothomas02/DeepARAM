@@ -105,6 +105,8 @@ export type QuickBuild = {
   /** Starts above the starting gold, best first: the engine's startFor takes the first you can afford (Debonair). */
   richStarts?: { start: Named[]; cost: number }[];
   builds: (Pick<QuickBuild, "skills" | "start" | "items" | "rest" | "full" | "later" | "laterSlots" | "situational" | "rush" | "augments"> & { style: string; share: number; deepScore: number; nearBest: boolean })[];
+  /** Share of the champion's typed legendary buys that are AP and AD (a build-mix share, not a win or pick rate). */
+  typeShare?: { ap: number; ad: number };
 };
 
 /** No raw win or pick rates: the quick build feeds the public app's overlay (tests/unit/overlay-data.test.ts). */
@@ -251,6 +253,7 @@ export function quickBuilds(): QuickBuild[] {
         swaps,
         augments,
         builds,
+        typeShare: p.typeShare,
         ...(arch ? { archmage: arch } : {}),
         ...(AUGMENT_SKILLS[id] ? { augmentSkills: AUGMENT_SKILLS[id] } : {}),
         ...(CHAMPION_SPLITS[id] && !droppedSplits().has(id) ? { skillSplit: CHAMPION_SPLITS[id] } : {}),

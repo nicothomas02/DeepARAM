@@ -1,0 +1,75 @@
+{
+ "made": "2026-11-28",
+ "players": 8147,
+ "method": {
+  "z_min": 4.0,
+  "holders_min": 15,
+  "items": "first 4 legendaries, 3+ typed"
+ },
+ "augments": {
+  "1030": {
+   "to": "ap",
+   "name": "Eureka",
+   "holders": 39,
+   "flipped": 37,
+   "expected": 16.3,
+   "z": 6.7
+  },
+  "1113": {
+   "to": "ap",
+   "name": "Skilled Sniper",
+   "holders": 102,
+   "flipped": 26,
+   "expected": 11.5,
+   "z": 4.5
+  },
+  "1129": {
+   "to": "ap",
+   "name": "Marksmage",
+   "holders": 43,
+   "flipped": 29,
+   "expected": 13.8,
+   "z": 5.0
+  },
+  "1097": {
+   "to": "ap",
+   "name": "Witchful Thinking",
+   "holders": 32,
+   "flipped": 26,
+   "expected": 12.8,
+   "z": 4.8
+  },
+  "1156": {
+   "to": "ap",
+   "name": "Wooglet's Witchcap",
+   "holders": 17,
+   "flipped": 17,
+   "expected": 7.6,
+   "z": 4.6
+  },
+  "1390": {
+   "to": "ap",
+   "name": "Phenomenal Evil",
+   "holders": 51,
+   "flipped": 29,
+   "expected": 14.3,
+   "z": 4.6
+  },
+  "2103": {
+   "to": "ap",
+   "name": "From Downtown",
+   "holders": 47,
+   "flipped": 23,
+   "expected": 10.1,
+   "z": 4.6
+  },
+  "1071": {
+   "to": "ad",
+   "name": "Scopier Weapons",
+   "holders": 27,
+   "flipped": 10,
+   "expected": 3.2,
+   "z": 4.1
+  }
+ }
+}

@@ -319,8 +319,18 @@ describe("build engine", () => {
     expect(p.rules).toContain("ownedReplan");
     expect(ids(p.path)).toEqual(expect.arrayContaining([3003, 3089, 3135]));
     expect([3135, 4645]).toContain(ids(p.next)[0]);
-    // one off-path AP item doesn't switch (archive: doubling down after one off-type buy lowers damage share)
-    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+    // one off-path AP item as your first legendary switches too (Nico 2026-11-28: AP Zeri starting Malignance)
+    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched?.style).toBeTruthy();
+    // an augment players build AP after counts too (augmentTypeSwitch: Witchful Thinking), with no AP item yet
+    const byAug = plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006] }), taken: [1097] });
+    expect(byAug.switched?.style).toBeTruthy();
+    expect(byAug.rules).toContain("augmentTypeSwitch");
+    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3031] }), taken: [1097] }).switched).toBeNull();
+    // never to a type the champion's own players don't build (typeShare under TYPE_MIN: IE on Ahri, Rabadon's on Camille)
+    expect(plan({ champ: { ...champ, typeShare: { ap: 0.005, ad: 0.995 } }, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched).toBeNull();
+    expect(plan({ champ: { ...champ, typeShare: { ap: 0.05, ad: 0.95 } }, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3003] }), taken: [] }).switched?.style).toBeTruthy();
+    // after a path item it doesn't (the sell tip handles a stray buy)
+    expect(plan({ champ, kinds: k2, picks: p2, fit, game: game([], { items: [3006, 3031, 3003] }), taken: [] }).switched).toBeNull();
   });
 
   it("an augment whose holders rush an item puts it in the core and makes it Next (augmentRush)", () => {
@@ -473,8 +483,12 @@ describe("build engine", () => {
     const ori = champs.find((x) => x.id === "Orianna")!;
     const sell = (items: number[], gold: number, taken: number[] = []) =>
       plan({ champ: ori, kinds: k, picks: p0, fit: null, game: { champ: "Orianna", items, gold, t: 30 }, taken }).tips.filter((t) => t.kind === "sell");
+    // a stray Infinity Edge after a path item (as a first legendary it re-plans instead: ownedReplan, AP Zeri)
+    const first = itemId(ori.items!.find((it) => (k.recipes[itemId(it.icon)]?.[1] ?? 0) >= 2000 && !k.boots.includes(itemId(it.icon)))!.icon);
+    expect(sell([3020, first, 3031], 3000)).toEqual([expect.objectContaining({ item: 3031 })]);
+    expect(sell([3020, first, 3031], 0)).toHaveLength(0); // 70% of Infinity Edge alone doesn't buy the next legendary
+    // as a first legendary too: Orianna's players don't build AD (typeShare), so no switch, the sell tip stays
     expect(sell([3020, 3031], 3000)).toEqual([expect.objectContaining({ item: 3031 })]);
-    expect(sell([3020, 3031], 0)).toHaveLength(0); // 70% of Infinity Edge alone doesn't buy the next legendary
     expect(sell([3031], 3000, [1205])).toHaveLength(0); // ADAPt turns its AD into AP
     expect(sell([3089], 3000)).toHaveLength(0); // on-type item
   }, 30_000);
@@ -1045,6 +1059,18 @@ describe("crit cap (critCap)", () => {
     expect(it.rules).toContain("critCapAhead");
     expect(plan({ champ: champ0, kinds, picks: null, fit: null, game: { champ: "Tristana", items: [3006], stats: [0.5, 1.5, 0], level: 9 }, taken: [1047] } as never).path.map((x) => x.name)).toContain("Infinity Edge");
   });
+});
+
+describe("a switch to the most played style when the card shows another (baseStyle)", () => {
+  it("Ashe's crit card with Marksmage switches to her own AP build (AP is 92% of her games)", async () => {
+    const champs = ((await overlayJSON()) as { champions: OverlayChamp[] }).champions;
+    const k = (await kindsJSON()) as Kinds, p0 = (await picksJSON()) as Picks;
+    const ashe = champs.find((x) => x.id === "Ashe")!;
+    const r = plan({ champ: ashe, kinds: k, picks: p0, fit: null, game: { champ: "Ashe", items: [] }, taken: [1129] });
+    expect(r.switched?.style).toBe("AP");
+    expect(r.switched?.classWide).toBe(false);
+    expect(plan({ champ: ashe, kinds: k, picks: p0, fit: null, game: { champ: "Ashe", items: [] }, taken: [] }).switched).toBeNull();
+  }, 30_000);
 });
 
 describe("Back To Basics seals ultimate items (sealedUlt)", () => {
