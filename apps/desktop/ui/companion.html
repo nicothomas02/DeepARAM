@@ -843,7 +843,7 @@
       // a swap's tile reads its one-word situation ("Vs AP", engine 1.4.12) instead of the slot number
       const pen = (p.rules ?? []).includes("penSecond") && /simulator, estimated/.test(p.why[i] ?? "");
       return sw ? { it, why: `${sw.why}\nInstead of ${sw.replaces.name}`, sw: true, does: false, tag: sw.label }
-        : { it, why: r?.text ?? p.why[i] ?? "", sw: false, does: r?.kind === "does", tag: pen ? (/Enemy armor/.test(p.why[i]) ? "Vs armor" : "Vs MR") : "" };
+        : { it, why: r?.text ?? p.why[i] ?? "", sw: false, does: r?.kind === "does", tag: pen ? `${/only about/.test(p.why[i]) ? "Low" : "Vs"} ${/Enemy armor/.test(p.why[i]) ? "armor" : "MR"}` : "" };
     }).filter(({ it }) => { const k = itemId(it.icon ?? "") % 10000; if (seenIds.has(k)) return false; seenIds.add(k); return true; });
     const state = (it) => {
       const id = itemId(it.icon);
