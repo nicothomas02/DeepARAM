@@ -25,6 +25,7 @@ import typeSwitchData from "../../data/augment-type-switch.json";
 import augmentConvertersData from "../../data/augment-converters.json";
 import augmentLeanInData from "../../data/augment-lean-in.json";
 import { FIRST_BUYS, LATE_BUYS, lateBuyOrder } from "./first-buys";
+import { COMBO_CAP, COMBO_ODDS } from "./combo";
 import breakpointData from "../../data/breakpoints.json";
 import penBreakpointData from "../../data/pen-breakpoints.json";
 import BUY_SLOT_DATA from "../../data/item-buy-slot.json";
@@ -295,12 +296,11 @@ export function itemRules(k: Kinds | null | undefined): ItemRules {
 // ---------------------------------------------------------------------------------------------------------------
 // Augments
 
-export const COMBO_ODDS = 0.04;
+export { COMBO_CAP, COMBO_ODDS };
 /** Augment picks a headliner adds, on average per player (owner's archive since 16.21, other players included). */
 export const HEADLINER_EXTRA_PICKS: Record<string, number> = { kda: 0.93, superfans: 0.29 };
 /** Regular augment screens: the first and levels 7, 11 and 15. */
 export const AUGMENT_SCREENS = 4;
-export const COMBO_CAP = 0.12;
 export const LUCKY_ODDS = 0.35;
 export const LUCKY_CAP = 1;
 export const REROLL_GAIN = 0.25;

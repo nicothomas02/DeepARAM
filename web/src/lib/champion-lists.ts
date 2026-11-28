@@ -1,7 +1,7 @@
 import { championPage, type ItemRow } from "./champion-page";
 import { champList } from "./champions";
 import { ITEM_TIERS, type ItemTier } from "./items";
-import { ITEM_CHANGERS } from "./build-plan";
+import { ITEM_CHANGERS } from "./augment-swaps";
 import { patchName } from "./patch-name";
 import augmentNames from "@/data/augment-names.json";
 import { buildLabel } from "./build-labels";

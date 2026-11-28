@@ -5,7 +5,7 @@ import { clashWith } from "./item-limits";
 import { readRepoJson } from "./repo-data";
 import { AUGMENT_SKILLS, CHAMPION_SKILLS, CHAMPION_SPLITS, type AugmentSkill, type SkillSplit } from "./augment-skills";
 import { augmentScores, byScore as augmentOrder } from "@/lib/champion-augments";
-import type { AugmentSwap } from "@/lib/build-plan";
+import type { AugmentSwap } from "@/lib/augment-swaps";
 import { buildOrder, championPage, scoreRows, type ItemRow, type SituationRow } from "@/lib/champion-page";
 import { fewPlayersSpell, leading, SPELL_FOLLOWING, SPELL_MIN_GAMES } from "@/lib/card-score";
 import { FIT } from "@/lib/deepscore";

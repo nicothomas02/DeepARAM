@@ -467,7 +467,7 @@ export default async function ChampionPage({
           {/* One row per trigger, read left to right (Nico, 2026-11-24: clearer options after the core): when, the
               best item for it, the runners-up, then why or which build item it replaces. Augment swaps first. */}
           <ul className="cp-sit-rows">
-            {/* Augment-triggered swaps (lib/build-plan.ts augmentSwaps): rule-based tips from what each augment does. */}
+            {/* Augment-triggered swaps (lib/augment-swaps.ts augmentSwaps): rule-based tips from what each augment does. */}
             {swaps.map((sw) => {
               const clash = clashWith(sw.item, owned);
               return (

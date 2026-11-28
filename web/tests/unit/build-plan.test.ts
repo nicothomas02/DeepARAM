@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { augmentSwaps, MEASURED_CHANGERS, buildStyle, buyingOrder, restOfBuild, rushParts, startFirst, starterFits, styleCores, tiedWith, upgradeSwaps } from "@/lib/build-plan";
+import { buildStyle, buyingOrder, restOfBuild, rushParts, startFirst, starterFits, styleCores, tiedWith, upgradeSwaps } from "@/lib/build-plan";
+import { augmentSwaps, MEASURED_CHANGERS } from "@/lib/augment-swaps";
 
 const classes: Record<number, string[]> = { 1: ["tank"], 2: ["tank"], 3: ["tank", "fighter"], 4: ["mage"], 5: ["mage"], 6: ["mage"] };
 const of = (i: number) => classes[i] ?? [];
