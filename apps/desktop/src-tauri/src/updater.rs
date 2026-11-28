@@ -40,14 +40,15 @@ pub fn newer(tag: &str, running: &str) -> bool {
     matches!((version(tag), version(running)), (Some(t), Some(r)) if t > r)
 }
 
-/// Installing is safe whenever League is idle (PC app 1.26.28): closed (no client found), in the lobby, in queue or
-/// on the end-of-game screen. Never from the ready check through champion select and the game. A client that runs
-/// but doesn't answer counts as busy.
+/// Installing is safe whenever League is idle (PC app 1.26.28): closed (no client found), in the lobby or in queue.
+/// Never from the ready check through champion select, the game and the end-of-game screen (2026-11-28: an update
+/// on the end-of-game screen lost the game's end-of-game stats and review). A client that runs but doesn't answer
+/// counts as busy.
 pub fn quiet_phase(phase: &Result<Option<String>, ()>) -> bool {
     match phase {
         Ok(None) => true,
         Ok(Some(p)) => {
-            matches!(p.as_str(), "None" | "Lobby" | "Matchmaking" | "PreEndOfGame" | "WaitingForStats" | "EndOfGame")
+            matches!(p.as_str(), "None" | "Lobby" | "Matchmaking")
         }
         Err(()) => false,
     }
@@ -246,10 +247,17 @@ mod tests {
         assert!(quiet_phase(&Ok(None)));
         assert!(quiet_phase(&Ok(Some("Lobby".into()))));
         assert!(quiet_phase(&Ok(Some("None".into()))));
-        for idle in ["Matchmaking", "PreEndOfGame", "WaitingForStats", "EndOfGame"] {
-            assert!(quiet_phase(&Ok(Some(idle.into()))), "{idle}");
-        }
-        for busy in ["ReadyCheck", "ChampSelect", "GameStart", "InProgress", "Reconnect"] {
+        assert!(quiet_phase(&Ok(Some("Matchmaking".into()))));
+        for busy in [
+            "ReadyCheck",
+            "ChampSelect",
+            "GameStart",
+            "InProgress",
+            "Reconnect",
+            "PreEndOfGame",
+            "WaitingForStats",
+            "EndOfGame",
+        ] {
             assert!(!quiet_phase(&Ok(Some(busy.into()))), "{busy}");
         }
         assert!(!quiet_phase(&Err(())));

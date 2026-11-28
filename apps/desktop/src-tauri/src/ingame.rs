@@ -122,9 +122,9 @@ fn input_log(app: &AppHandle, line: serde_json::Value) {
     }
 }
 
-/// Owner recording, for a screen read as only one or two cards (Nico 2026-11-28: the first round of a K/DA game was
+/// Owner recording, for a screen read as only one or two cards (or a click on cards no read found) (Nico 2026-11-28: the first round of a K/DA game was
 /// read one card at a time and never shown): every text line the reader saw, and a picture of the screen at most
-/// every 5 seconds (10 a game), so the miss can be seen and replayed.
+/// every 5 seconds (24 a game), so the miss can be seen and replayed.
 fn partial_read(app: &AppHandle, now: f64, lines: &[augscan::Line]) {
     static LAST: std::sync::Mutex<(f64, u32)> = std::sync::Mutex::new((f64::NEG_INFINITY, 0));
     let Ok(base) = app.path().app_data_dir() else { return };
@@ -138,7 +138,7 @@ fn partial_read(app: &AppHandle, now: f64, lines: &[augscan::Line]) {
         if now < last.0 {
             *last = (f64::NEG_INFINITY, 0); // a new game's clock
         }
-        if now - last.0 >= 5.0 && last.1 < 10 {
+        if now - last.0 >= 5.0 && last.1 < 24 {
             let ms = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| d.as_millis());
             let name = format!("{ms}-partial.png");
             if augscan::save_game_frame(&base.join("offers").join(&name)) {
@@ -385,8 +385,14 @@ fn scan(app: &AppHandle) {
             .as_ref()
             .map(|r| serde_json::json!({"ids": r.ids, "xs": r.xs, "from_window": r.from_window, "blank": r.blank}));
         input_log(app, serde_json::json!({"now": now, "read": logged, "cursor": cursor}));
+        let had = read.is_some();
         s.track.read(now, read, cursor);
         s.offer = s.track.offer.clone();
+        // a round owed, the shop open (dead) and no offer read: a screen may be up that the reader can't see; pictures
+        // keep coming every few seconds (Nico 2026-11-28: "capturing continuous in select"), for the recording
+        if partial.is_none() && had && s.track.owed > 0 && s.track.offer.is_empty() && s.dead {
+            partial = Some(Vec::new());
+        }
         (std::mem::take(&mut s.track.events), now)
     };
     let (events, now) = events;
@@ -429,9 +435,16 @@ fn watch_clicks(app: AppHandle) {
                         let now = clock(&s);
                         input_log(&app, serde_json::json!({"now": now, "click": [x, y]}));
                         s.track.click(now, x, y);
-                        std::mem::take(&mut s.track.events)
+                        let unread = s.track.offer.is_empty() && augtrack::zone(y).is_some();
+                        (std::mem::take(&mut s.track.events), unread.then_some(now))
                     };
+                    let (events, unread) = events;
                     publish(&app, events);
+                    // a click where cards would be while no offer is read: a screen the reader can't see (K/DA
+                    // 2026-11-28, level 15 never read): its picture, for the owner's recording
+                    if let Some(now) = unread {
+                        partial_read(&app, now, &[]);
+                    }
                 }
             }
             thread::sleep(CLICK_EVERY);
